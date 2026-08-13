@@ -4,6 +4,24 @@ Newest entries first.
 
 ---
 
+## 2026-08-13 (Thu) 23:42 UTC — FIRST ENTRIES PLACED
+
+- Initial 9-agent scan complete (542k tokens, 123 tool calls). 6 candidates,
+  5 survived adversarial verification, judge ranked: UBER 0.78, SOFI 0.72,
+  ACHR 0.58 (unfunded alternate), FAS/DPST rejected (R:R < 1.5, wide
+  overnight spreads, whole-share unaffordable).
+- Placed (both GTC, all_day_hours overnight session, dip-buy limits):
+  - BUY 1 UBER @ $75.40 limit (order 6a7e562f). Quote at placement
+    75.70×75.84, AH last 75.80. Stop on fill: 73.90. Target: 78.90.
+    R:R 2.3:1. ~$75 of the $80 core sleeve.
+  - BUY 1 SOFI @ $18.30 limit (order 6a7e5632). Quote at placement
+    18.40×18.42. Stop on fill: 17.55. Target: 19.60. R:R 1.7:1. $20 sleeve.
+- Both earnings-free through the hold window per verification agents.
+- Fill-check self-scheduled for 00:42 UTC; on any fill the GTC stop goes in
+  immediately. Chase caps if unfilled by Fri midday: UBER 75.80, SOFI 18.40.
+
+---
+
 ## 2026-08-13 (Thu) 23:30 UTC — FUNDED. Experiment live.
 
 - $100 deposit confirmed: cash $100, buying power $100. Status → ACTIVE.

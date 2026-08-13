@@ -9,8 +9,35 @@
   "cash_usd": 100,
   "total_value_usd": 100,
   "open_positions": [],
-  "open_orders": [],
+  "open_orders": [
+    {
+      "order_id": "6a7e562f-c3f9-447e-9908-0f16f05c9ec4",
+      "symbol": "UBER",
+      "side": "buy",
+      "type": "limit",
+      "qty": 1,
+      "limit": 75.40,
+      "tif": "gtc",
+      "session": "all_day_hours",
+      "planned_stop": 73.90,
+      "planned_target": 78.90,
+      "chase_cap": 75.80
+    },
+    {
+      "order_id": "6a7e5632-555b-4a01-ac73-cf401007c570",
+      "symbol": "SOFI",
+      "side": "buy",
+      "type": "limit",
+      "qty": 1,
+      "limit": 18.30,
+      "tif": "gtc",
+      "session": "all_day_hours",
+      "planned_stop": 17.55,
+      "planned_target": 19.60,
+      "chase_cap": 18.40
+    }
+  ],
   "realized_pnl_usd": 0,
-  "last_updated_utc": "2026-08-13T23:30:00Z",
-  "notes": "Funding confirmed 2026-08-13 23:29 UTC: $100 cash, $100 buying power. Initial multi-agent scan running; first entries tonight (overnight limit) or at Friday 9:30 ET open scan."
+  "last_updated_utc": "2026-08-13T23:42:00Z",
+  "notes": "First entries placed: UBER 1sh @75.40 lim + SOFI 1sh @18.30 lim, both GTC all_day_hours dip-buys from initial 9-agent scan (R:R 2.3:1 and 1.7:1, earnings-free). On fill: place GTC stop at planned_stop immediately. If unfilled by Fri midday: chase at most to chase_cap at a scan, else re-scan. Alternate: ACHR 6.75 RTH limit (unfunded)."
 }
