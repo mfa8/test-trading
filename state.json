@@ -1,0 +1,16 @@
+{
+  "experiment": "autonomous-swing-trading",
+  "account_last4": "8334",
+  "account_number": "445788334",
+  "forbidden_account_last4": "3273",
+  "bankroll_start_usd": 100,
+  "goal_usd": 200,
+  "status": "WAITING_FOR_FUNDING",
+  "cash_usd": 0,
+  "total_value_usd": 0,
+  "open_positions": [],
+  "open_orders": [],
+  "realized_pnl_usd": 0,
+  "last_updated_utc": "2026-08-13T23:15:00Z",
+  "notes": "Account verified, agentic_allowed=true. Awaiting owner's manual $100 deposit. Harness will begin trading automatically once cash is detected."
+}
