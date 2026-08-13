@@ -4,6 +4,18 @@ Newest entries first.
 
 ---
 
+## 2026-08-13 (Thu) 23:30 UTC — FUNDED. Experiment live.
+
+- $100 deposit confirmed: cash $100, buying power $100. Status → ACTIVE.
+- Launched initial multi-agent research scan (3 parallel finders: leveraged
+  ETFs, momentum stocks, high-beta breakouts → adversarial verification per
+  candidate → judge ranks + allocates).
+- Execution plan: overnight (all_day_hours) whole-share limit entry tonight if
+  the top pick has tight spreads and entry at/below last price; otherwise
+  first entry at tomorrow's 9:30 ET open scan.
+
+---
+
 ## 2026-08-13 (Thu) 23:24 UTC — Autonomy verification test
 
 - Placed a deliberate throwaway test order to verify no permission prompts
