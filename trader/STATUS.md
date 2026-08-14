@@ -1,8 +1,8 @@
 # T2X STATUS
-mode: FLAT (BOOT complete 09:50 ET; D-1a late plan)
+mode: FLAT (day 1 complete, EOD done; weekend fast path)
 zone: STANDARD f=1.0 r=6% | PRESS no | DOWNSHIFT no
 E_broker/E_bid/E_adj: 100.00 / 100.00 / 100.00 | day P/L: 0 | HWM: 100.00
-D=11 g=6.5%/session vs glide 100.0
+D=10 g=7.2%/session vs glide 106.5 (behind, PRESS possible from session 3)
 active pair: SOX regime (SOXL ATR ~12) BUT SOXL unaffordable whole-share at E=100 -> long-semis leg = MUU (Tier B intraday) / NDX pair for carries; SOXS affordable for down legs
 position: none | armed: S2 MUU/SOXS from 10:30; S1 OFF (late plan); S3 OFF (no carry leg)
 entries: 0 today / 0 week / 0 campaign | budget: IM_FREE, no day-trade cap

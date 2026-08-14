@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 10,
-  "utc": "2026-08-14T18:31:00Z",
-  "et": "2026-08-14 14:31",
-  "phase": "LATE",
+  "n": 11,
+  "utc": "2026-08-14T20:02:00Z",
+  "et": "2026-08-14 16:02",
+  "phase": "POST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-14T18:31:00Z",
+  "last_heartbeat_utc": "2026-08-14T20:02:00Z",
   "last_rules_read_utc": "2026-08-14T13:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -127,7 +127,7 @@
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "09:50",
@@ -185,6 +185,13 @@
    "SMA20": 41.33,
    "trend": "DOWN",
    "ATR14pct": 6.08
+  },
+  "closes_20260814": {
+   "MUU": 32.37,
+   "SOXS": 40.21,
+   "SOXL": 145.1,
+   "TQQQ": 76.79,
+   "SQQQ": 36.24
   }
  }
 }

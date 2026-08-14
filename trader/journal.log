@@ -10,3 +10,4 @@
 2026-08-14T17:31Z | 13:31 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 13:30 evaluated in-window (bridged): no trigger; SOXS +3.5%d vs band 43.14; MUU rangebound | - | calls=1
 2026-08-14T18:01Z | 14:01 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 14:00 evaluated in-window (bridged): no trigger; SOXS stalled 41.4-41.6; one S2 checkpoint left (14:30) | - | calls=1
 2026-08-14T18:31Z | 14:31 | LATE | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 14:30 evaluated in-window: no trigger; S2 window closed 0/9 triggers (4 evaluated, 3 skipped-latency-provably-no, 2 pre-eligibility); day = clean NO-OP chop day | - | calls=1
+2026-08-14T20:02Z | 16:02 | POST | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | EOD | Day 1 complete: 0 trades, 0.0% P/L (correct NO-OP chop day); DAY+WEEK reports written; Mon: S1 armed from open if plan on time | - | calls=2
