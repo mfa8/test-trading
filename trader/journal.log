@@ -4,3 +4,4 @@
 2026-08-14T14:41Z | 10:41 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | RECONCILE | 10:30 checkpoint SKIPPED (wake +590s > 170s, W-7); flat, clean; added :30 UTC-boundary one-shots for latency | - | calls=3
 2026-08-14T15:01Z | 11:01 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | S2 11:00 evaluated: no trigger (MUU 32.20 vs band 34.25, VWAP ~32.2; SOXS 40.62 vs 42.16); consolidation day so far | - | calls=3
 2026-08-14T15:43Z | 11:43 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 11:30 SKIPPED (wake +742s); added B-4min pre-wakes for all remaining boundaries (latency -2..+12min observed) | - | calls=1
+2026-08-14T16:31Z | 12:31 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 12:00 SKIPPED (+11m); 12:30 evaluated IN-WINDOW via in-turn bridge: no trigger both legs; SOXS strengthening (+2.3% > VWAP), MUU fading below VWAP | - | calls=2
