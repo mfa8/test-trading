@@ -8,6 +8,6 @@ position: none | armed: S2 MUU/SOXS from 10:30; S1 OFF (late plan); S3 OFF (no c
 entries: 0 today / 0 week / 0 campaign | budget: IM_FREE, no day-trade cap
 account_mode: IM_FREE (RH limited_margin ••••8334; evidence in capabilities.json)
 stops: NATIVE(GTC)+SYNTHETIC | data: REALTIME quotes+SIP bars | ext_hours: OK
-wake cadence: 30-min crons + chained checkpoint wakes (platform min granularity 1 min)
+wake cadence: every decision boundary while flat; 1-min chain while in position; crons as backstop
 last error: none | open alerts: none
 to stop me: create trader/HUMAN_STOP (or tell me in chat); after HALTED/DONE disable the routines

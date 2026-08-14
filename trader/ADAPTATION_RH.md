@@ -13,3 +13,8 @@ This deployment runs on the Robinhood agentic MCP, account 445788334 ("Agentic",
 - Repo persistence: trader/ lives in the git repo; every state-changing wake commits and pushes to branch claude/autonomous-swing-trading-hd9m81 (container is ephemeral; the repo is the durable disk).
 ## Cadence commitment (human-confirmed 8/14)
 Platform floor is 1-minute scheduling with 1-10 min delivery latency; 30-second wakes are not schedulable. Deployment runs the platform maximum where it matters: IN_POSITION -> chained 1-minute wakes; FLAT -> boundary-aligned checkpoint wakes (entries only occur at checkpoints, so denser polling adds nothing while flat). GTC broker-side stops provide real-time downside protection between wakes.
+
+## Standing wake schedule (human-confirmed 8/14, "most frequent where it makes sense")
+- FLAT in RTH: one-shot wake at EVERY decision boundary (5-min S1 closes when armed; :00/:30 S2 checkpoints; 15:00 trail; 15:30 S3; 15:50 carry; 16:10 EOD) + the 30-min cron backstops. The Analyst wake schedules that day's full boundary set each morning.
+- IN_POSITION: chained 1-minute wakes (platform floor) for synthetic stop/ratchet/halt checks; GTC native stop rests broker-side between wakes.
+- Off-hours flat: fast path (no scheduled wakes beyond Analyst + crons). Holding overnight: 15-min monitoring one-shots.
