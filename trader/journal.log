@@ -8,3 +8,4 @@
 2026-08-14T16:38Z | 12:38 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | RECONCILE | Scheduler audit: 2 stale pre-T2X triggers + 6 spent one-shots deleted; analyst cron moved 12:30->11:45 UTC (fired 2.5h late today, killed S1); crons verified healthy | - | calls=0
 2026-08-14T17:01Z | 13:01 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 13:00 evaluated in-window (bridged): no trigger; SOXS +3.2%d above VWAP needs 42.98; MUU flat below VWAP | - | calls=1
 2026-08-14T17:31Z | 13:31 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 13:30 evaluated in-window (bridged): no trigger; SOXS +3.5%d vs band 43.14; MUU rangebound | - | calls=1
+2026-08-14T18:01Z | 14:01 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.00/100.00/100.00 | NOOP | 14:00 evaluated in-window (bridged): no trigger; SOXS stalled 41.4-41.6; one S2 checkpoint left (14:30) | - | calls=1
