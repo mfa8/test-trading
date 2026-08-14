@@ -1,21 +1,176 @@
-{"schema":2,"mode":"BOOT",
- "mode_reason":"read-only boot steps done 2026-08-14 06:05Z; order probes due 09:31-09:38 ET","kill_arm_utc":null,
- "z9":{"started_utc":null,"step":"S1","rung":0,"fails":0,"cancel_wakes":0},
- "wake":{"n":1,"utc":"2026-08-14T06:05:00Z","et":"2026-08-14 02:05","phase":"OVERNIGHT","api_fail_streak":0,"backoff_until_utc":null,"last_heartbeat_utc":"2026-08-14T06:05:00Z","last_rules_read_utc":"2026-08-14T06:05:00Z","skew_s":0,
-  "clock_cache":{"is_open":false,"next_open":"2026-08-14T13:30:00Z","next_close":"2026-08-14T20:00:00Z","fetched_utc":"2026-08-14T06:05:00Z"}},
- "campaign":{"start_equity":100.0,"equity_hwm":100.0,"kill":50.0,"END_DATE":"2026-08-28","D":11,"g":0.065,"sessions_done":0,"milestone_150":false,"floor":null,
-  "entries_total":0,"entries_week":0,"week_start":"2026-08-14","week_sod_equity":100.0,"net_external":0,"banned_symbols":[],"resting_legs":[],
-  "consec_full_stops":{},"R_history":[],"losing_days_streak":0,"downshift":false,"press":false,"no_overnight_rest":false,"ext_rejects_tonight":0,
-  "event_shot":true,"event_shot_min_equity":160,"event_shot_used":false},
- "account":{"mode":"IM_FREE","evidence":"robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0","whole_share":true,
-  "equity":100.0,"e_bid":100.0,"e_adj":100.0,"sod_equity":100.0,"cash":100.0,"settled_cash":100.0,"unsettled":[],"buying_power":100.0,
-  "daytrades_5d":[],"broker_daytrade_count":null,"fetched_utc":"2026-08-14T05:59:37Z"},
- "zone":{"name":"STANDARD","f":1.0,"r":0.06,"entries_cap":2,"ovn_cap":{"SOX":0.60,"NDX":1.00},"pending_up":{"name":null,"first_utc":null}},
- "today":{"date":"2026-08-14","entries":0,"attempts":{},"losses":0,"pnl_pct":0,"day_halt":false,"cooldown_until_et":null,"stopped_symbols":[],
-  "done_checkpoints":[],"armed":{},"vwap_acc":{},"or":{},"open_px":{},"day_hi":{},"day_lo":{},"halt":{},
-  "eod_done":false,"ext_probe_done":true,"analyst_status":"NONE","analyst_final_et":null,"tz_selftest":null},
- "position":null,
- "pending":{"coid":"","kind":"","since_utc":"","wakes":0},"safe":{"cause":null,"clean_wakes":0},"stop_reject_streak":0,
- "open_orders":[],
- "seq_today":0,"last_bar_evaluated":{},"last_error":"","alerts_open":[],
- "install_notes":"T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88."}
+{
+ "schema": 2,
+ "mode": "FLAT",
+ "mode_reason": "BOOT complete 09:50 ET 8/14 (D-1a late plan; probes: place/cancel/ext proven live, stop-accept deferred to first fill)",
+ "kill_arm_utc": null,
+ "z9": {
+  "started_utc": null,
+  "step": "S1",
+  "rung": 0,
+  "fails": 0,
+  "cancel_wakes": 0
+ },
+ "wake": {
+  "n": 2,
+  "utc": "2026-08-14T13:50:00Z",
+  "et": "2026-08-14 09:50",
+  "phase": "ENTRY-AM",
+  "api_fail_streak": 0,
+  "backoff_until_utc": null,
+  "last_heartbeat_utc": "2026-08-14T13:50:00Z",
+  "last_rules_read_utc": "2026-08-14T13:47:00Z",
+  "skew_s": 0,
+  "clock_cache": {
+   "is_open": true,
+   "next_open": "2026-08-17T13:30:00Z",
+   "next_close": "2026-08-14T20:00:00Z",
+   "fetched_utc": "2026-08-14T13:49:00Z"
+  }
+ },
+ "campaign": {
+  "start_equity": 100.0,
+  "equity_hwm": 100.0,
+  "kill": 50.0,
+  "END_DATE": "2026-08-28",
+  "D": 11,
+  "g": 0.065,
+  "sessions_done": 0,
+  "milestone_150": false,
+  "floor": null,
+  "entries_total": 0,
+  "entries_week": 0,
+  "week_start": "2026-08-14",
+  "week_sod_equity": 100.0,
+  "net_external": 0,
+  "banned_symbols": [],
+  "resting_legs": [],
+  "consec_full_stops": {},
+  "R_history": [],
+  "losing_days_streak": 0,
+  "downshift": false,
+  "press": false,
+  "no_overnight_rest": false,
+  "ext_rejects_tonight": 0,
+  "event_shot": true,
+  "event_shot_min_equity": 160,
+  "event_shot_used": false
+ },
+ "account": {
+  "mode": "IM_FREE",
+  "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
+  "whole_share": true,
+  "equity": 100.0,
+  "e_bid": 100.0,
+  "e_adj": 100.0,
+  "sod_equity": 100.0,
+  "cash": 100.0,
+  "settled_cash": 100.0,
+  "unsettled": [],
+  "buying_power": 100.0,
+  "daytrades_5d": [],
+  "broker_daytrade_count": null,
+  "fetched_utc": "2026-08-14T13:47:30Z"
+ },
+ "zone": {
+  "name": "STANDARD",
+  "f": 1.0,
+  "r": 0.06,
+  "entries_cap": 2,
+  "ovn_cap": {
+   "SOX": 0.6,
+   "NDX": 1.0
+  },
+  "pending_up": {
+   "name": null,
+   "first_utc": null
+  }
+ },
+ "today": {
+  "date": "2026-08-14",
+  "entries": 0,
+  "attempts": {},
+  "losses": 0,
+  "pnl_pct": 0,
+  "day_halt": false,
+  "cooldown_until_et": null,
+  "stopped_symbols": [],
+  "done_checkpoints": [
+   "2026-08-14 09:40",
+   "2026-08-14 09:45",
+   "2026-08-14 10:00"
+  ],
+  "armed": {
+   "S2": {
+    "MUU": {
+     "from": "10:30"
+    },
+    "SOXS": {
+     "from": "10:30"
+    }
+   }
+  },
+  "vwap_acc": {},
+  "or": {},
+  "open_px": {},
+  "day_hi": {},
+  "day_lo": {},
+  "halt": {},
+  "eod_done": false,
+  "ext_probe_done": true,
+  "analyst_status": "FINAL",
+  "analyst_final_et": "09:50",
+  "tz_selftest": "PASS 09:49 (SPY 13:30Z bar = 09:30 ET, open within 0.5%)"
+ },
+ "position": null,
+ "pending": {
+  "coid": "",
+  "kind": "",
+  "since_utc": "",
+  "wakes": 0
+ },
+ "safe": {
+  "cause": null,
+  "clean_wakes": 0
+ },
+ "stop_reject_streak": 0,
+ "open_orders": [],
+ "seq_today": 0,
+ "last_bar_evaluated": {},
+ "last_error": "",
+ "alerts_open": [],
+ "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
+ "analyst": {
+  "MUU": {
+   "PC": 31.0,
+   "SMA5": 27.55,
+   "SMA20": 28.07,
+   "trend": "UP",
+   "ATR14pct": 18.43
+  },
+  "SOXS": {
+   "PC": 40.12,
+   "SMA5": 42.48,
+   "SMA20": 49.62,
+   "trend": "DOWN_HOT",
+   "ATR14pct": 16.01
+  },
+  "SOXL": {
+   "PC": 145.36,
+   "SMA20": 132.85,
+   "trend": "UP",
+   "ATR14pct": 15.37
+  },
+  "TQQQ": {
+   "PC": 77.15,
+   "SMA20": 68.92,
+   "trend": "UP",
+   "ATR14pct": 5.8
+  },
+  "SQQQ": {
+   "PC": 36.04,
+   "SMA20": 41.33,
+   "trend": "DOWN",
+   "ATR14pct": 6.08
+  }
+ }
+}
