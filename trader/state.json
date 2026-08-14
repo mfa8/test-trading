@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 9,
-  "utc": "2026-08-14T18:01:00Z",
-  "et": "2026-08-14 14:01",
-  "phase": "MIDDAY",
+  "n": 10,
+  "utc": "2026-08-14T18:31:00Z",
+  "et": "2026-08-14 14:31",
+  "phase": "LATE",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-14T18:01:00Z",
+  "last_heartbeat_utc": "2026-08-14T18:31:00Z",
   "last_rules_read_utc": "2026-08-14T13:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -105,7 +105,8 @@
    "2026-08-14 12:30",
    "2026-08-14 13:00",
    "2026-08-14 13:30",
-   "2026-08-14 14:00"
+   "2026-08-14 14:00",
+   "2026-08-14 14:30"
   ],
   "armed": {
    "S2": {
@@ -147,7 +148,7 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S2": "2026-08-14 14:00 NO-TRIGGER (MUU 31.81<U 35.31; SOXS 41.44<U 43.30, stalled)"
+  "S2": "2026-08-14 14:30 NO-TRIGGER (MUU 31.675<U 35.44; SOXS 41.36<U 43.45) - S2 window closed, 0 entries"
  },
  "last_error": "",
  "alerts_open": [],
