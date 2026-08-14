@@ -1,0 +1,11 @@
+# T2X BOOT_REPORT — 2026-08-14 (day 1) — status: read-only steps COMPLETE, order probes pending 09:31 ET
+- Broker: Robinhood agentic MCP, LIVE account ••••8334 (445788334, "Agentic"). ••••3273 never touched. Live evidence: real fills/cancels executed 8/13; equity $100 (not ~$100k paper).
+- Tools: full role map in capabilities.json. Notable gaps vs Alpaca baseline: no clock/calendar tool (system UTC + seeded NYSE calendar), no replace-order (cancel->re-place), no get-by-client-id (ref_id + order_id lookups), no news tool (headline vetoes unavailable; calendar rows stand as written).
+- account_mode: IM_FREE. Evidence: type=limited_margin, no PDT fields, unsettled_funds=0. No day-trade cap; proceeds instantly reusable; 1x buying power.
+- WHOLE_SHARE=true (RH fractional = market+RTH only; entries are limit). Affordable at E=$100: TQQQ 77, SOXS 40, SQQQ 36, MUU 31, NVDL 37 (Tier B days only). SOXL 145 unavailable until E>=161 — the long-semis S1/S2 leg substitutes MUU per B-10/U-1; NDX pair is the carry class.
+- stops_mode: NATIVE(GTC)+SYNTHETIC — RH stop_market GTC rests across sessions (upgrade vs day-only assumption); triggers RTH only; overnight risk governed by C-2 size caps as designed. Stop-accept probe rides the first real position (09:31+ window).
+- data_mode: REALTIME. Real-time two-sided quotes; SIP-quality minute bars via historicals. X-3 SIP branch (SOX gate 0.25%).
+- EXT_HOURS_OK=true (proven live: all_day_hours limit orders placed+cancelled 8/13). EXT_HOURS_FRACTIONAL=false.
+- Wake cadence delta (App. RH): 1-min scheduler unavailable. 30-min cron backstop + self-chained send_later checkpoint wakes (09:31, 09:36, 5-min closes 09:40-10:30, :00/:30 to 14:30, 15:00, 15:30, 15:36, 15:50, 15:56, 16:10; 2-5 min chain while IN_POSITION). GTC native stop is the between-wakes protection.
+- First trading checkpoint: today per B-12 — S1 if armed by 09:45 (SOX legs: MUU long / SOXS inverse), S2 from 10:00, S3 15:30 with C-1g Friday rule.
+- M-2 odds (verbatim commitment): P(touch $201 by 8/28) ~1-2% (~0.3% no edge; ~3-4% if semis keep trending); P(touch $50) <1%; median finish ~$95-105; P(>=$150) ~4-10%. Growth arrives as 1-3 big days, not a staircase.
