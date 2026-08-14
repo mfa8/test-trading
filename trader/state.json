@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 2,
-  "utc": "2026-08-14T13:50:00Z",
-  "et": "2026-08-14 09:50",
-  "phase": "ENTRY-AM",
+  "n": 3,
+  "utc": "2026-08-14T14:41:00Z",
+  "et": "2026-08-14 10:41",
+  "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-14T13:50:00Z",
+  "last_heartbeat_utc": "2026-08-14T14:41:00Z",
   "last_rules_read_utc": "2026-08-14T13:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -69,7 +69,7 @@
   "buying_power": 100.0,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-14T13:47:30Z"
+  "fetched_utc": "2026-08-14T14:40:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -97,7 +97,8 @@
   "done_checkpoints": [
    "2026-08-14 09:40",
    "2026-08-14 09:45",
-   "2026-08-14 10:00"
+   "2026-08-14 10:00",
+   "2026-08-14 10:30"
   ],
   "armed": {
    "S2": {
@@ -135,7 +136,9 @@
  "stop_reject_streak": 0,
  "open_orders": [],
  "seq_today": 0,
- "last_bar_evaluated": {},
+ "last_bar_evaluated": {
+  "S2": "2026-08-14 10:30 SKIPPED(late wake +590s)"
+ },
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
