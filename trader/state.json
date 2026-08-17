@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 19,
-  "utc": "2026-08-17T16:31:30Z",
-  "et": "2026-08-17 12:31",
+  "n": 20,
+  "utc": "2026-08-17T17:01:30Z",
+  "et": "2026-08-17 13:01",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T16:31:30Z",
+  "last_heartbeat_utc": "2026-08-17T17:01:30Z",
   "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -102,7 +102,8 @@
    "2026-08-17 11:00",
    "2026-08-17 11:30",
    "2026-08-17 12:00",
-   "2026-08-17 12:30"
+   "2026-08-17 12:30",
+   "2026-08-17 13:00"
   ],
   "armed": {
    "S1": {
@@ -160,7 +161,7 @@
  "seq_today": 2,
  "last_bar_evaluated": {
   "S1": "trade1 closed 12:02 time-stop",
-  "S2": "2026-08-17 12:30 NO-TRIGGER (MUU 36.23 < U 36.27 by $0.04; SOXS -7.5%d n/a); 13:00 band 36.43"
+  "S2": "2026-08-17 13:00 NO-TRIGGER (MUU 36.27 < U 36.43); next bands 13:30=36.58 14:00=36.73 14:30=36.87"
  },
  "last_error": "",
  "alerts_open": [],
