@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 14,
-  "utc": "2026-08-17T14:03:30Z",
-  "et": "2026-08-17 10:03",
-  "phase": "ENTRY-AM",
+  "n": 15,
+  "utc": "2026-08-17T14:32:00Z",
+  "et": "2026-08-17 10:32",
+  "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T14:03:30Z",
+  "last_heartbeat_utc": "2026-08-17T14:32:00Z",
   "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -95,7 +95,8 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [
-   "2026-08-17 10:00"
+   "2026-08-17 10:00",
+   "2026-08-17 10:30"
   ],
   "armed": {
    "S1": {
@@ -145,14 +146,14 @@
   "qty": 1,
   "avg_entry": 35.5899,
   "limit_px": 35.65,
-  "stop": 33.76,
+  "stop": 34.14,
   "initial_stop": 33.76,
   "r_usd": 1.83,
   "opened_et": "2026-08-17 10:01",
-  "stop_coid": "T2X-20260817-02-MUU-S",
-  "stop_broker_id": "6a831485-6c77-4c32-844d-a14e37cbdb9b",
+  "stop_coid": "T2X-20260817-03-MUU-S",
+  "stop_broker_id": "6a831b3d-0090-4651-bed6-5f80bfc29aa5",
   "stop_status": "confirmed",
-  "trail_on": false,
+  "trail_on": true,
   "partials_taken": 0,
   "overnight_ok": false,
   "nights_held": 0,
@@ -178,15 +179,15 @@
  "stop_reject_streak": 0,
  "open_orders": [
   {
-   "coid": "T2X-20260817-02-MUU-S",
-   "broker_id": "6a831485-6c77-4c32-844d-a14e37cbdb9b",
+   "coid": "T2X-20260817-03-MUU-S",
+   "broker_id": "6a831b3d-0090-4651-bed6-5f80bfc29aa5",
    "side": "sell",
    "type": "stop_market",
    "qty": 1,
    "limit": null,
-   "stop": 33.76,
+   "stop": 34.14,
    "status": "confirmed",
-   "submitted_utc": "2026-08-17T14:02:45Z"
+   "submitted_utc": "2026-08-17T14:31:25Z"
   }
  ],
  "seq_today": 2,
