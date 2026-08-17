@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Trade 1 closed: time stop +0.26R win; COOLDOWN skipped (not a loss)",
+ "mode_reason": "Session 2 complete (EOD done): 1 trade +0.26R, E=100.47 HWM; next Analyst 07:45 ET 8/18 (session 3, PRESS gate check — behind glide 100.47 < 113.4)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 23,
-  "utc": "2026-08-17T18:30:16Z",
-  "et": "2026-08-17 14:30",
-  "phase": "MIDDAY",
+  "n": 24,
+  "utc": "2026-08-17T20:10:00Z",
+  "et": "2026-08-17 16:10",
+  "phase": "POST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T18:30:16Z",
+  "last_heartbeat_utc": "2026-08-17T20:10:00Z",
   "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -32,9 +32,9 @@
   "equity_hwm": 100.47,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
-  "D": 11,
+  "D": 9,
   "g": 0.065,
-  "sessions_done": 1,
+  "sessions_done": 2,
   "milestone_150": false,
   "floor": null,
   "entries_total": 1,
@@ -71,7 +71,7 @@
   "buying_power": 100.47,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-17T16:03:00Z"
+  "fetched_utc": "2026-08-17T20:10:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -142,7 +142,7 @@
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:55",

@@ -23,3 +23,6 @@
 2026-08-17T17:31Z | 13:31 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | NOOP | S2 13:30: no trigger; MUU faded 36.2->35.5 (shelf broke down); flat is right side of the afternoon | - | calls=1
 2026-08-17T18:01Z | 14:01 | MIDDAY | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | NOOP | S2 14:00: no trigger (35.53 vs 36.73); MUU drifting sideways at +9.7%d | - | calls=1
 2026-08-17T18:31Z | 14:31 | LATE | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | NOOP | S2 14:30 (final): no trigger (MUU 35.52 << U 36.86); S2 window closed, 1 entry today; next boundaries 15:30 S3(OFF)/15:50 flatten(flat)/16:10 EOD | - | calls=1
+2026-08-17T19:30Z | 15:30 | LATE | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | NOOP | 15:30 S3 boundary (bridged in-window): S3 OFF today; broker-verified flat, no orders; MUU faded to 35.00 | - | calls=2
+2026-08-17T19:50Z | 15:50 | LATE | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | NOOP | 15:50 flatten check (bridged): positions=[], live orders=[]; nothing to flatten | - | calls=2
+2026-08-17T20:10Z | 16:10 | POST | FLAT | STANDARD 1.0 0.06 | 100.47/100.47/100.47 | EOD | Session 2 done: 1 trade (S1 MUU +0.26R +$0.47), E=100.47 HWM, day +0.47%; sessions_done=2, D=9; behind glide (113.4) -> PRESS gate check at tomorrow's Analyst; DAY report written | - | calls=2
