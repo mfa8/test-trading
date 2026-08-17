@@ -4,7 +4,7 @@ zone: STANDARD f=1.0 r=6% | PRESS no | DOWNSHIFT no
 E_broker/E_bid/E_adj: 100.47 / 100.47 / 100.47 | day P/L: +0.47% | HWM: 100.47
 D=10 g=7.2%/session vs glide 106.5 (behind, PRESS possible from session 3)
 active pair: SOX regime (SOXL ATR ~12) BUT SOXL unaffordable whole-share at E=100 -> long-semis leg = MUU (Tier B intraday) / NDX pair for carries; SOXS affordable for down legs
-position: none | armed: S2 12:30-14:30 (MUU re-eligible, U_B@12:30=36.27; SOXS U_B=42.44) | entries 1/2 today
+position: none | armed: nothing (S2 window closed 14:30, all no-trigger; S3 OFF) | entries 1/2 today
 entries: 1 today / 1 week / 1 campaign | budget: IM_FREE
 account_mode: IM_FREE (RH limited_margin ••••8334; evidence in capabilities.json)
 stops: NATIVE(GTC)+SYNTHETIC | data: REALTIME quotes+SIP bars | ext_hours: OK

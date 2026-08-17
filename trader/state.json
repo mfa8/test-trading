@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 22,
-  "utc": "2026-08-17T18:01:00Z",
-  "et": "2026-08-17 14:01",
+  "n": 23,
+  "utc": "2026-08-17T18:30:16Z",
+  "et": "2026-08-17 14:30",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T18:01:00Z",
+  "last_heartbeat_utc": "2026-08-17T18:30:16Z",
   "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -105,7 +105,8 @@
    "2026-08-17 12:30",
    "2026-08-17 13:00",
    "2026-08-17 13:30",
-   "2026-08-17 14:00"
+   "2026-08-17 14:00",
+   "2026-08-17 14:30"
   ],
   "armed": {
    "S1": {
@@ -163,7 +164,7 @@
  "seq_today": 2,
  "last_bar_evaluated": {
   "S1": "trade1 closed 12:02 time-stop",
-  "S2": "2026-08-17 14:00 NO-TRIGGER (MUU 35.53 << 36.73); one checkpoint left 14:30"
+  "S2": "2026-08-17 14:30 NO-TRIGGER (MUU 35.52 << U 36.86) — S2 window closed, 1 entry today"
  },
  "last_error": "",
  "alerts_open": [],
