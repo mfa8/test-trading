@@ -1,0 +1,2 @@
+{"coid": "T2X-20260817-01-MUU-E", "ref_id": "3d333373-6824-42c7-b15c-0f5055b184af", "utc": "2026-08-17T14:01:30Z", "sym": "MUU", "side": "buy", "qty": 1, "type": "limit", "limit": 35.65, "stop_planned": 33.76, "setup": "S1", "reason": "S1 10:00 close 35.71 > ORH*1.001 35.5355; VWAP/open/bid/chase all pass"}
+{"coid": "T2X-20260817-02-MUU-S", "ref_id": "b854cb2e-ca12-4eec-b865-e5ace1856be5", "utc": "2026-08-17T14:02:30Z", "sym": "MUU", "side": "sell", "qty": 1, "type": "stop_market", "stop": 33.76, "setup": "S1", "reason": "native GTC stop for fill 35.5899; R_usd=1.83"}
