@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 11,
-  "utc": "2026-08-14T20:02:00Z",
-  "et": "2026-08-14 16:02",
-  "phase": "POST",
+  "n": 12,
+  "utc": "2026-08-17T11:55:00Z",
+  "et": "2026-08-17 07:55",
+  "phase": "ANALYST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-14T20:02:00Z",
-  "last_rules_read_utc": "2026-08-14T13:47:00Z",
+  "last_heartbeat_utc": "2026-08-17T11:55:00Z",
+  "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": true,
+   "is_open": false,
    "next_open": "2026-08-17T13:30:00Z",
-   "next_close": "2026-08-14T20:00:00Z",
-   "fetched_utc": "2026-08-14T13:49:00Z"
+   "next_close": "2026-08-17T20:00:00Z",
+   "fetched_utc": "2026-08-17T11:47:00Z"
   }
  },
  "campaign": {
@@ -34,12 +34,12 @@
   "END_DATE": "2026-08-28",
   "D": 11,
   "g": 0.065,
-  "sessions_done": 0,
+  "sessions_done": 1,
   "milestone_150": false,
   "floor": null,
   "entries_total": 0,
   "entries_week": 0,
-  "week_start": "2026-08-14",
+  "week_start": "2026-08-17",
   "week_sod_equity": 100.0,
   "net_external": 0,
   "banned_symbols": [],
@@ -69,7 +69,7 @@
   "buying_power": 100.0,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-14T14:40:00Z"
+  "fetched_utc": "2026-08-17T11:47:40Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -86,7 +86,7 @@
   }
  },
  "today": {
-  "date": "2026-08-14",
+  "date": "2026-08-17",
   "entries": 0,
   "attempts": {},
   "losses": 0,
@@ -94,44 +94,19 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [
-   "2026-08-14 09:40",
-   "2026-08-14 09:45",
-   "2026-08-14 10:00",
-   "2026-08-14 10:30",
-   "2026-08-14 11:00",
-   "2026-08-14 11:30",
-   "2026-08-14 12:00",
-   "2026-08-14 12:30",
-   "2026-08-14 13:00",
-   "2026-08-14 13:30",
-   "2026-08-14 14:00",
-   "2026-08-14 14:30"
-  ],
-  "armed": {
-   "S2": {
-    "MUU": {
-     "from": "10:30"
-    },
-    "SOXS": {
-     "from": "10:30"
-    }
-   }
-  },
+  "done_checkpoints": [],
+  "armed": {},
   "vwap_acc": {},
   "or": {},
-  "open_px": {
-   "MUU": 32.8,
-   "SOXS": 40.6
-  },
+  "open_px": {},
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": true,
+  "eod_done": false,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
-  "analyst_final_et": "09:50",
-  "tz_selftest": "PASS 09:49 (SPY 13:30Z bar = 09:30 ET, open within 0.5%)"
+  "analyst_final_et": "07:55",
+  "tz_selftest": null
  },
  "position": null,
  "pending": {
@@ -147,51 +122,48 @@
  "stop_reject_streak": 0,
  "open_orders": [],
  "seq_today": 0,
- "last_bar_evaluated": {
-  "S2": "2026-08-14 14:30 NO-TRIGGER (MUU 31.675<U 35.44; SOXS 41.36<U 43.45) - S2 window closed, 0 entries"
- },
+ "last_bar_evaluated": {},
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
  "analyst": {
   "MUU": {
-   "PC": 31.0,
-   "SMA5": 27.55,
-   "SMA20": 28.07,
+   "PC": 32.39,
+   "SMA5": 28.7,
+   "SMA20": 28.33,
    "trend": "UP",
-   "ATR14pct": 18.43
+   "ATR14pct": 17.6
   },
   "SOXS": {
-   "PC": 40.12,
-   "SMA5": 42.48,
-   "SMA20": 49.62,
+   "PC": 40.28,
+   "SMA5": 42.12,
+   "SMA20": 48.89,
    "trend": "DOWN_HOT",
-   "ATR14pct": 16.01
+   "ATR14pct": 15.08
   },
   "SOXL": {
-   "PC": 145.36,
-   "SMA20": 132.85,
+   "PC": 144.95,
+   "SMA20": 133.32,
    "trend": "UP",
-   "ATR14pct": 15.37
+   "ATR14pct": 13.94
   },
   "TQQQ": {
-   "PC": 77.15,
-   "SMA20": 68.92,
+   "PC": 76.79,
+   "SMA20": 69.39,
    "trend": "UP",
-   "ATR14pct": 5.8
+   "ATR14pct": 5.46
   },
   "SQQQ": {
-   "PC": 36.04,
-   "SMA20": 41.33,
+   "PC": 36.24,
+   "SMA20": 41.0,
    "trend": "DOWN",
-   "ATR14pct": 6.08
+   "ATR14pct": 5.75
   },
-  "closes_20260814": {
-   "MUU": 32.37,
-   "SOXS": 40.21,
-   "SOXL": 145.1,
-   "TQQQ": 76.79,
-   "SQQQ": 36.24
+  "premkt_0747": {
+   "MUU": 34.38,
+   "SOXS": 38.38,
+   "SOXL": 151.62,
+   "TQQQ": 78.02
   }
  }
 }
