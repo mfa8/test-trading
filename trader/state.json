@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "IN_POSITION",
- "mode_reason": "S1 MUU fill 35.5899 @ 10:01:47 ET",
+ "mode": "FLAT",
+ "mode_reason": "Trade 1 closed: time stop +0.26R win; COOLDOWN skipped (not a loss)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 17,
-  "utc": "2026-08-17T15:31:30Z",
-  "et": "2026-08-17 11:31",
+  "n": 18,
+  "utc": "2026-08-17T16:04:00Z",
+  "et": "2026-08-17 12:04",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T15:31:30Z",
+  "last_heartbeat_utc": "2026-08-17T16:04:00Z",
   "last_rules_read_utc": "2026-08-17T11:48:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -29,7 +29,7 @@
  },
  "campaign": {
   "start_equity": 100.0,
-  "equity_hwm": 100.0,
+  "equity_hwm": 100.47,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
   "D": 11,
@@ -45,7 +45,9 @@
   "banned_symbols": [],
   "resting_legs": [],
   "consec_full_stops": {},
-  "R_history": [],
+  "R_history": [
+   0.26
+  ],
   "losing_days_streak": 0,
   "downshift": false,
   "press": false,
@@ -59,17 +61,17 @@
   "mode": "IM_FREE",
   "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
   "whole_share": true,
-  "equity": 100.0,
-  "e_bid": 100.0,
-  "e_adj": 100.0,
+  "equity": 100.47,
+  "e_bid": 100.47,
+  "e_adj": 100.47,
   "sod_equity": 100.0,
-  "cash": 100.0,
-  "settled_cash": 100.0,
+  "cash": 100.47,
+  "settled_cash": 100.47,
   "unsettled": [],
-  "buying_power": 100.0,
+  "buying_power": 100.47,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-17T11:47:40Z"
+  "fetched_utc": "2026-08-17T16:03:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -90,7 +92,7 @@
   "entries": 1,
   "attempts": {},
   "losses": 0,
-  "pnl_pct": 0,
+  "pnl_pct": 0.47,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
@@ -98,7 +100,8 @@
    "2026-08-17 10:00",
    "2026-08-17 10:30",
    "2026-08-17 11:00",
-   "2026-08-17 11:30"
+   "2026-08-17 11:30",
+   "2026-08-17 12:00"
   ],
   "armed": {
    "S1": {
@@ -140,34 +143,7 @@
   "analyst_final_et": "07:55",
   "tz_selftest": null
  },
- "position": {
-  "symbol": "MUU",
-  "class": "SOX",
-  "setup": "S1",
-  "zone_at_entry": "STANDARD",
-  "qty": 1,
-  "avg_entry": 35.5899,
-  "limit_px": 35.65,
-  "stop": 34.55,
-  "initial_stop": 33.76,
-  "r_usd": 1.83,
-  "opened_et": "2026-08-17 10:01",
-  "stop_coid": "T2X-20260817-05-MUU-S",
-  "stop_broker_id": "6a832930-6530-4e56-8e68-f126fc7b11ae",
-  "stop_status": "confirmed",
-  "trail_on": true,
-  "partials_taken": 0,
-  "overnight_ok": false,
-  "nights_held": 0,
-  "breach_wakes": 0,
-  "closes_below_vwap": 0,
-  "px_none_wakes": 0,
-  "pdt_locked_until": null,
-  "funded_settled": true,
-  "probe_dust": false,
-  "won_coid": null,
-  "thesis": "S1 ORB: gap+5.65% A+ day, 10:00 close broke ORH 35.50 w/ VWAP+bid confirm"
- },
+ "position": null,
  "pending": {
   "coid": "",
   "kind": "",
@@ -179,22 +155,10 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [
-  {
-   "coid": "T2X-20260817-05-MUU-S",
-   "broker_id": "6a832930-6530-4e56-8e68-f126fc7b11ae",
-   "side": "sell",
-   "type": "stop_market",
-   "qty": 1,
-   "limit": null,
-   "stop": 34.55,
-   "status": "confirmed",
-   "submitted_utc": "2026-08-17T15:30:56Z"
-  }
- ],
+ "open_orders": [],
  "seq_today": 2,
  "last_bar_evaluated": {
-  "S1": "2026-08-17 10:00 TRIGGER MUU -> filled 35.5899"
+  "S1": "trade1 closed 12:02 time-stop"
  },
  "last_error": "",
  "alerts_open": [],

@@ -1,5 +1,5 @@
 # T2X STATUS
-mode: IN_POSITION (S1 MUU 1sh @35.59, stop GTC 33.76)
+mode: FLAT (trade 1: +0.26R win via time-stop; 1 entry left today)
 zone: STANDARD f=1.0 r=6% | PRESS no | DOWNSHIFT no
 E_broker/E_bid/E_adj: 100.00 / 100.00 / 100.00 | day P/L: 0 | HWM: 100.00
 D=10 g=7.2%/session vs glide 106.5 (behind, PRESS possible from session 3)
