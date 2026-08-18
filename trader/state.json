@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 27,
-  "utc": "2026-08-18T17:08:00Z",
-  "et": "2026-08-18 13:08",
+  "n": 28,
+  "utc": "2026-08-18T17:38:31Z",
+  "et": "2026-08-18 13:38",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T17:08:00Z",
+  "last_heartbeat_utc": "2026-08-18T17:38:31Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -104,7 +104,8 @@
    "2026-08-18 11:30",
    "2026-08-18 12:00",
    "2026-08-18 12:30",
-   "2026-08-18 13:00"
+   "2026-08-18 13:00",
+   "2026-08-18 13:30"
   ],
   "armed": {
    "S1": {
@@ -168,7 +169,7 @@
  "seq_today": 8,
  "last_bar_evaluated": {
   "S1": "window closed 10:30: 11 closes evaluated 09:40-10:30, 0 triggers (max C 32.49 vs 32.5857); MUU broke ORL 31.12",
-  "S2": "trade2 closed 13:06 time-stop; cooldown til 14:07; 13:30/14:00/14:30 checkpoints remain (MUU-only eligibility, band ~36.8 vs px ~29.6)"
+  "S2": "2026-08-18 13:30 SKIP(late +8m, W-7) + cooldown-blocked + provably-no (MUU ~29.6 vs U 36.85); 14:00 cooldown-blocked too; 14:30 last live checkpoint"
  },
  "last_error": "",
  "alerts_open": [],
