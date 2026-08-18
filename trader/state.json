@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "S2 window closed 14:30 (1 entry today, -0.24R); nothing armed; 15:30 S3 OFF, 15:50 flatten (flat), 16:10 EOD remain",
+ "mode_reason": "Session 3 complete (EOD done): 1 trade -0.24R, E=99.09; tomorrow Wed 8/19 FOMC-minutes special day; Analyst 07:45",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 30,
-  "utc": "2026-08-18T18:30:30Z",
-  "et": "2026-08-18 14:30",
-  "phase": "MIDDAY",
+  "n": 31,
+  "utc": "2026-08-18T20:11:00Z",
+  "et": "2026-08-18 16:11",
+  "phase": "POST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T18:30:30Z",
+  "last_heartbeat_utc": "2026-08-18T20:11:00Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": true,
-   "next_open": "2026-08-18T13:30:00Z",
-   "next_close": "2026-08-18T20:00:00Z",
-   "fetched_utc": "2026-08-18T11:47:00Z"
+   "is_open": false,
+   "next_open": "2026-08-19T13:30:00Z",
+   "next_close": "2026-08-19T20:00:00Z",
+   "fetched_utc": "2026-08-18T20:11:00Z"
   }
  },
  "campaign": {
@@ -32,9 +32,9 @@
   "equity_hwm": 100.47,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
-  "D": 9,
-  "g": 0.0795,
-  "sessions_done": 2,
+  "D": 8,
+  "g": 0.0918,
+  "sessions_done": 3,
   "milestone_150": false,
   "floor": null,
   "entries_total": 2,
@@ -49,7 +49,7 @@
    0.26,
    -0.24
   ],
-  "losing_days_streak": 0,
+  "losing_days_streak": 1,
   "downshift": false,
   "press": true,
   "no_overnight_rest": false,
@@ -72,7 +72,7 @@
   "buying_power": 99.09,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-18T17:07:30Z"
+  "fetched_utc": "2026-08-18T20:10:20Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -149,7 +149,7 @@
    "SOXS": 41.945
   },
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
