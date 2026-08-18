@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 27,
-  "utc": "2026-08-18T16:01:40Z",
-  "et": "2026-08-18 12:01",
+  "utc": "2026-08-18T16:32:40Z",
+  "et": "2026-08-18 12:32",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T16:01:40Z",
+  "last_heartbeat_utc": "2026-08-18T16:32:40Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -101,7 +101,8 @@
    "2026-08-18 10:30",
    "2026-08-18 11:00",
    "2026-08-18 11:30",
-   "2026-08-18 12:00"
+   "2026-08-18 12:00",
+   "2026-08-18 12:30"
   ],
   "armed": {
    "S1": {
@@ -156,8 +157,8 @@
   "entry": 45.45,
   "entry_utc": "2026-08-18T15:02:36Z",
   "entry_et": "11:02",
-  "stop": 42.89,
-  "stop_order_id": "6a8481d5-ceb2-4dfa-a821-190ca13a22ea",
+  "stop": 42.93,
+  "stop_order_id": "6a848913-22fb-44dc-a301-9cd2fed97eea",
   "stop_kind": "NATIVE_GTC",
   "R_per_share": 2.87,
   "R_usd": 5.74,
@@ -188,13 +189,13 @@
  "stop_reject_streak": 0,
  "open_orders": [
   {
-   "id": "6a8481d5-ceb2-4dfa-a821-190ca13a22ea",
-   "coid": "T2X-20260818-04-SOXS-S",
+   "id": "6a848913-22fb-44dc-a301-9cd2fed97eea",
+   "coid": "T2X-20260818-05-SOXS-S",
    "kind": "stop",
-   "stop": 42.89
+   "stop": 42.93
   }
  ],
- "seq_today": 4,
+ "seq_today": 5,
  "last_bar_evaluated": {
   "S1": "window closed 10:30: 11 closes evaluated 09:40-10:30, 0 triggers (max C 32.49 vs 32.5857); MUU broke ORL 31.12",
   "S2": "2026-08-18 11:00 TRIGGER SOXS (45.395 > 44.784) -> FILLED 2@45.45"
