@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "S1 armed MUU (reversal-bounce setup on -10.9% gap); SOXS OR too tight (2.48% < 2.77%), S2-eligible from 10:00",
+ "mode_reason": "S1 expired 10:30 no-trigger (MUU broke ORL, downtrend day); S2 live to 14:30, SOXS is the candidate leg",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 26,
-  "utc": "2026-08-18T13:36:00Z",
-  "et": "2026-08-18 09:36",
-  "phase": "ARM",
+  "utc": "2026-08-18T14:31:00Z",
+  "et": "2026-08-18 10:31",
+  "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T13:36:00Z",
+  "last_heartbeat_utc": "2026-08-18T14:31:00Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -96,7 +96,10 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [],
+  "done_checkpoints": [
+   "2026-08-18 10:00",
+   "2026-08-18 10:30"
+  ],
   "armed": {
    "S1": {
     "MUU": {
@@ -105,7 +108,7 @@
      "mid": 31.8366,
      "wide": false,
      "range_pct": 4.6,
-     "expires": "10:30"
+     "expires": "EXPIRED 10:30 (0 triggers)"
     },
     "SOXS": "NOT_ARMED (range 2.48% < 2.77% floor)"
    }
@@ -128,8 +131,14 @@
    "MUU": 31.18,
    "SOXS": 42.88
   },
-  "day_hi": {},
-  "day_lo": {},
+  "day_hi": {
+   "MUU": 32.69,
+   "SOXS": 44.7705
+  },
+  "day_lo": {
+   "MUU": 30.53,
+   "SOXS": 41.945
+  },
   "halt": {},
   "eod_done": false,
   "ext_probe_done": true,
@@ -152,8 +161,8 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "armed 09:36; first trigger check 09:40",
-  "S2": "none today"
+  "S1": "window closed 10:30: 11 closes evaluated 09:40-10:30, 0 triggers (max C 32.49 vs 32.5857); MUU broke ORL 31.12",
+  "S2": "2026-08-18 10:30 NO-TRIGGER (SOXS 43.93 < U 44.43; 10:00 43.83 < 43.98); next 11:00 U=44.78"
  },
  "last_error": "",
  "alerts_open": [],
