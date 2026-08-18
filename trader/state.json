@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Trade 2 closed 13:06: S2-6 time-stop -0.24R loss -> COOLDOWN until 14:07; next entry must be different setup or inverse leg (only MUU S2 qualifies, band unreachable)",
+ "mode_reason": "S2 window closed 14:30 (1 entry today, -0.24R); nothing armed; 15:30 S3 OFF, 15:50 flatten (flat), 16:10 EOD remain",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 29,
-  "utc": "2026-08-18T18:00:10Z",
-  "et": "2026-08-18 14:00",
+  "n": 30,
+  "utc": "2026-08-18T18:30:30Z",
+  "et": "2026-08-18 14:30",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T18:00:10Z",
+  "last_heartbeat_utc": "2026-08-18T18:30:30Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -106,7 +106,8 @@
    "2026-08-18 12:30",
    "2026-08-18 13:00",
    "2026-08-18 13:30",
-   "2026-08-18 14:00"
+   "2026-08-18 14:00",
+   "2026-08-18 14:30"
   ],
   "armed": {
    "S1": {
@@ -170,7 +171,7 @@
  "seq_today": 8,
  "last_bar_evaluated": {
   "S1": "window closed 10:30: 11 closes evaluated 09:40-10:30, 0 triggers (max C 32.49 vs 32.5857); MUU broke ORL 31.12",
-  "S2": "2026-08-18 14:00 BLOCKED (cooldown til 14:07, gate G fails; band also provably-no); 14:30 = last live checkpoint (MUU-only, U 36.88)"
+  "S2": "2026-08-18 14:30 NO-TRIGGER (MUU 29.62 << U 36.88) \u2014 S2 window closed, 1 entry today"
  },
  "last_error": "",
  "alerts_open": [],
