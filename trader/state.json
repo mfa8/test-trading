@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 3 (2026-08-18): Analyst FINAL 07:52; PRESS ON (behind glide); S1 armed from 09:36, risk-off gap day (MUU -8.3%, SOXS +10.3%)",
+ "mode_reason": "S1 armed MUU (reversal-bounce setup on -10.9% gap); SOXS OR too tight (2.48% < 2.77%), S2-eligible from 10:00",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,17 +11,17 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 25,
-  "utc": "2026-08-18T11:52:00Z",
-  "et": "2026-08-18 07:52",
-  "phase": "ANALYST",
+  "n": 26,
+  "utc": "2026-08-18T13:36:00Z",
+  "et": "2026-08-18 09:36",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-18T13:36:00Z",
   "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
+   "is_open": true,
    "next_open": "2026-08-18T13:30:00Z",
    "next_close": "2026-08-18T20:00:00Z",
    "fetched_utc": "2026-08-18T11:47:00Z"
@@ -97,10 +97,37 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {},
+  "armed": {
+   "S1": {
+    "MUU": {
+     "ORH": 32.5531,
+     "ORL": 31.12,
+     "mid": 31.8366,
+     "wide": false,
+     "range_pct": 4.6,
+     "expires": "10:30"
+    },
+    "SOXS": "NOT_ARMED (range 2.48% < 2.77% floor)"
+   }
+  },
   "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "or": {
+   "MUU": {
+    "h": 32.5531,
+    "l": 31.12,
+    "mid": 31.8366,
+    "src": "rh"
+   },
+   "SOXS": {
+    "h": 43.01,
+    "l": 41.945,
+    "src": "rh"
+   }
+  },
+  "open_px": {
+   "MUU": 31.18,
+   "SOXS": 42.88
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -125,7 +152,7 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "not armed yet (arm 09:36)",
+  "S1": "armed 09:36; first trigger check 09:40",
   "S2": "none today"
  },
  "last_error": "",
