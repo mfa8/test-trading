@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 2 complete (EOD done): 1 trade +0.26R, E=100.47 HWM; next Analyst 07:45 ET 8/18 (session 3, PRESS gate check — behind glide 100.47 < 113.4)",
+ "mode_reason": "Session 3 (2026-08-18): Analyst FINAL 07:52; PRESS ON (behind glide); S1 armed from 09:36, risk-off gap day (MUU -8.3%, SOXS +10.3%)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 24,
-  "utc": "2026-08-17T20:10:00Z",
-  "et": "2026-08-17 16:10",
-  "phase": "POST",
+  "n": 25,
+  "utc": "2026-08-18T11:52:00Z",
+  "et": "2026-08-18 07:52",
+  "phase": "ANALYST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-17T20:10:00Z",
-  "last_rules_read_utc": "2026-08-17T11:48:00Z",
+  "last_heartbeat_utc": "2026-08-18T11:52:00Z",
+  "last_rules_read_utc": "2026-08-18T11:47:00Z",
   "skew_s": 0,
   "clock_cache": {
    "is_open": false,
-   "next_open": "2026-08-17T13:30:00Z",
-   "next_close": "2026-08-17T20:00:00Z",
-   "fetched_utc": "2026-08-17T11:47:00Z"
+   "next_open": "2026-08-18T13:30:00Z",
+   "next_close": "2026-08-18T20:00:00Z",
+   "fetched_utc": "2026-08-18T11:47:00Z"
   }
  },
  "campaign": {
@@ -33,7 +33,7 @@
   "kill": 50.0,
   "END_DATE": "2026-08-28",
   "D": 9,
-  "g": 0.065,
+  "g": 0.0795,
   "sessions_done": 2,
   "milestone_150": false,
   "floor": null,
@@ -50,7 +50,7 @@
   ],
   "losing_days_streak": 0,
   "downshift": false,
-  "press": false,
+  "press": true,
   "no_overnight_rest": false,
   "ext_rejects_tonight": 0,
   "event_shot": true,
@@ -64,22 +64,22 @@
   "equity": 100.47,
   "e_bid": 100.47,
   "e_adj": 100.47,
-  "sod_equity": 100.0,
+  "sod_equity": 100.47,
   "cash": 100.47,
   "settled_cash": 100.47,
   "unsettled": [],
   "buying_power": 100.47,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-17T20:10:00Z"
+  "fetched_utc": "2026-08-18T11:47:00Z"
  },
  "zone": {
   "name": "STANDARD",
   "f": 1.0,
-  "r": 0.06,
-  "entries_cap": 2,
+  "r": 0.08,
+  "entries_cap": 3,
   "ovn_cap": {
-   "SOX": 0.6,
+   "SOX": 0.8,
    "NDX": 1.0
   },
   "pending_up": {
@@ -88,64 +88,26 @@
   }
  },
  "today": {
-  "date": "2026-08-17",
-  "entries": 1,
+  "date": "2026-08-18",
+  "entries": 0,
   "attempts": {},
   "losses": 0,
-  "pnl_pct": 0.47,
+  "pnl_pct": 0.0,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [
-   "2026-08-17 10:00",
-   "2026-08-17 10:30",
-   "2026-08-17 11:00",
-   "2026-08-17 11:30",
-   "2026-08-17 12:00",
-   "2026-08-17 12:30",
-   "2026-08-17 13:00",
-   "2026-08-17 13:30",
-   "2026-08-17 14:00",
-   "2026-08-17 14:30"
-  ],
-  "armed": {
-   "S1": {
-    "MUU": {
-     "ORH": 35.5,
-     "ORL": 33.93,
-     "mid": 34.715,
-     "wide": false,
-     "range_pct": 4.59,
-     "expires": "10:30"
-    },
-    "SOXS": "NOT_ARMED (range 1.96% < 2.26% floor)"
-   }
-  },
+  "done_checkpoints": [],
+  "armed": {},
   "vwap_acc": {},
-  "or": {
-   "MUU": {
-    "h": 35.5,
-    "l": 33.93,
-    "mid": 34.715,
-    "src": "rh"
-   },
-   "SOXS": {
-    "h": 38.8,
-    "l": 38.0407,
-    "src": "rh"
-   }
-  },
-  "open_px": {
-   "MUU": 34.22,
-   "SOXS": 38.64
-  },
+  "or": {},
+  "open_px": {},
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": true,
+  "eod_done": false,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
-  "analyst_final_et": "07:55",
+  "analyst_final_et": "07:52",
   "tz_selftest": null
  },
  "position": null,
@@ -161,52 +123,52 @@
  },
  "stop_reject_streak": 0,
  "open_orders": [],
- "seq_today": 2,
+ "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "trade1 closed 12:02 time-stop",
-  "S2": "2026-08-17 14:30 NO-TRIGGER (MUU 35.52 << U 36.86) — S2 window closed, 1 entry today"
+  "S1": "not armed yet (arm 09:36)",
+  "S2": "none today"
  },
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
  "analyst": {
   "MUU": {
-   "PC": 32.39,
-   "SMA5": 28.7,
-   "SMA20": 28.33,
+   "PC": 35.01,
+   "SMA5": 30.58,
+   "SMA20": 28.66,
    "trend": "UP",
-   "ATR14pct": 17.6
+   "ATR14pct": 12.2
   },
   "SOXS": {
-   "PC": 40.28,
-   "SMA5": 42.12,
-   "SMA20": 48.89,
-   "trend": "DOWN_HOT",
-   "ATR14pct": 15.08
+   "PC": 38.36,
+   "SMA5": 40.75,
+   "SMA20": 48.11,
+   "trend": "DOWN",
+   "ATR14pct": 18.48
   },
   "SOXL": {
-   "PC": 144.95,
-   "SMA20": 133.32,
+   "PC": 151.53,
+   "SMA20": 134.06,
    "trend": "UP",
-   "ATR14pct": 13.94
+   "ATR14pct": 10.55
   },
   "TQQQ": {
-   "PC": 76.79,
-   "SMA20": 69.39,
+   "PC": 76.4,
+   "SMA20": 69.83,
    "trend": "UP",
-   "ATR14pct": 5.46
+   "ATR14pct": 4.68
   },
   "SQQQ": {
-   "PC": 36.24,
-   "SMA20": 41.0,
+   "PC": 36.42,
+   "SMA20": 40.69,
    "trend": "DOWN",
-   "ATR14pct": 5.75
+   "ATR14pct": 6.11
   },
   "premkt_0747": {
-   "MUU": 34.38,
-   "SOXS": 38.38,
-   "SOXL": 151.62,
-   "TQQQ": 78.02
+   "MUU": 32.1,
+   "SOXS": 42.31,
+   "SOXL": 136.25,
+   "TQQQ": 73.96
   }
  },
  "capabilities_note": "FRACTIONAL_STOPS n/a; WHOLE-SHARE GTC stop_market ACCEPTED (probe passed 10:02 ET 8/17)"
