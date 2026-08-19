@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "PM S1 variant armed MUU only (SOXS OR 2.19% < 2.29% floor); trigger C>29.5495 at 5-min closes 14:25-15:00; minutes reaction = more semis selling",
+ "mode_reason": "PM variant expired 15:00 no-trigger (MUU pressed 29.5495 for 30min, never closed above); day done for entries: 1 trade +0.66R; 15:30/15:50/16:10 close-out remains",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 36,
-  "utc": "2026-08-19T18:21:40Z",
-  "et": "2026-08-19 14:21",
+  "utc": "2026-08-19T19:00:40Z",
+  "et": "2026-08-19 15:00",
   "phase": "LATE",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T18:21:40Z",
+  "last_heartbeat_utc": "2026-08-19T19:00:40Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -134,7 +134,7 @@
      "mid": 29.1207,
      "ref": "MID",
      "range_pct": 2.72,
-     "expires": "15:00",
+     "expires": "EXPIRED 15:00 (0 triggers, 8 closes evaluated)",
      "open_1400": 29.3152
     },
     "SOXS": "NOT_ARMED (PM OR range 2.19% < 2.29% floor)"
@@ -198,7 +198,7 @@
  "open_orders": [],
  "seq_today": 8,
  "last_bar_evaluated": {
-  "S1": "PM variant armed 14:21 (MUU only); first check 14:25",
+  "S1": "PM window closed 15:00: 8 closes evaluated in-window, 0 triggers (max C 29.48 vs 29.5495)",
   "S2": "2026-08-19 13:30 NO-TRIGGER: C 46.86 > U 46.837 BUT close-location 0.748 < 0.75 (bar too far off day-hi 48.33); S2 window closed, 1 entry today"
  },
  "last_error": "",
