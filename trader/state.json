@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "PM variant expired 15:00 no-trigger (MUU pressed 29.5495 for 30min, never closed above); day done for entries: 1 trade +0.66R; 15:30/15:50/16:10 close-out remains",
+ "mode_reason": "Session 4 complete (EOD done): 1 trade +0.66R, E=102.22 HWM, day +3.16%; next Analyst 07:45 Thu 8/20 (S3 eligibility check: SOXS PC 47.03 vs SMA20)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 36,
-  "utc": "2026-08-19T19:00:40Z",
-  "et": "2026-08-19 15:00",
-  "phase": "LATE",
+  "n": 37,
+  "utc": "2026-08-19T20:11:00Z",
+  "et": "2026-08-19 16:11",
+  "phase": "POST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T19:00:40Z",
+  "last_heartbeat_utc": "2026-08-19T20:11:00Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": true,
-   "next_open": "2026-08-19T13:30:00Z",
-   "next_close": "2026-08-19T20:00:00Z",
-   "fetched_utc": "2026-08-18T20:11:00Z"
+   "is_open": false,
+   "next_open": "2026-08-20T13:30:00Z",
+   "next_close": "2026-08-20T20:00:00Z",
+   "fetched_utc": "2026-08-19T20:11:00Z"
   }
  },
  "campaign": {
@@ -32,9 +32,9 @@
   "equity_hwm": 102.22,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
-  "D": 8,
-  "g": 0.0918,
-  "sessions_done": 3,
+  "D": 7,
+  "g": 0.1006,
+  "sessions_done": 4,
   "milestone_150": false,
   "floor": null,
   "entries_total": 3,
@@ -50,7 +50,7 @@
    -0.24,
    0.66
   ],
-  "losing_days_streak": 1,
+  "losing_days_streak": 0,
   "downshift": false,
   "press": true,
   "no_overnight_rest": false,
@@ -73,7 +73,7 @@
   "buying_power": 102.22,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-19T16:31:40Z"
+  "fetched_utc": "2026-08-19T20:10:20Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -168,7 +168,7 @@
    "MUU": 29.6
   },
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",

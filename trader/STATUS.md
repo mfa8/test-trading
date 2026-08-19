@@ -1,15 +1,15 @@
 # T2X STATUS
-mode: FLAT (session 4 FOMC-MINUTES day; Analyst FINAL 07:52; awaiting 09:26 pre-arm)
-zone: STANDARD f=1.0 r=8% | PRESS YES (session 4, behind glide) | DOWNSHIFT no
-E_broker/E_bid/E_adj: 99.09 / 99.09 / 99.09 | day P/L: 0.0% | HWM: 100.47
-D=8 g=9.18%/session vs glide 120.8 after 3 (behind -> PRESS active)
-active pair: SOX (SOXL ATR 12.83, trend NOW DOWN) via MUU(long, Tier B)/SOXS(inv, Tier A); SOXL unaffordable (127)
-regime: quiet premkt (MUU -1.9%, SOXS +1.4%); both legs HOT via ATR; no A+ gap; semis regime flipping bearish
-TODAY: S1 AM 09:40-10:30; S2 10:00-13:30 ONLY; flat by 13:55 unless +2R; NO entries 13:55-14:25 (minutes 14:00); S1 PM variant OR 14:00-14:20 ref=mid, triggers 14:25-15:00, never carried; S3 OFF
-position: none | entries 0/3 today (3rd only S2, which ends 13:30) | entries 2/7 week, 2/14 campaign | budget IM_FREE
+mode: FLAT (session 4 complete; EOD done 16:11)
+zone: STANDARD f=1.0 r=8% | PRESS YES (re-check at next Analyst) | DOWNSHIFT no
+E_broker/E_bid/E_adj: 102.22 / 102.22 / 102.22 | day P/L: +3.16% (winning day) | HWM: 102.22
+D=7 g=10.06%/session vs glide 129.2 after 4 (behind -> PRESS active)
+active pair: SOX (SOXL ATR ~13, 3rd straight down day, 120.61 unaffordable) via MUU(long, Tier B)/SOXS(inv, Tier A)
+position: none | armed: nothing (next: Analyst 07:45 ET Thu 8/20) | entries 1 today (S1 SOXS +0.66R invalidation exit)
+entries: 1 today / 3 week / 3 campaign | R_history [+0.26, -0.24, +0.66] | budget IM_FREE
 account_mode: IM_FREE (RH limited_margin ••••8334)
 stops: NATIVE(GTC)+SYNTHETIC | data: REALTIME | ext_hours: OK
-wake cadence: 09:26 pre-arm bridge; B-4 one-shots per checkpoint; 13:51 wake covers 13:55-flat + PM OR + PM triggers; crons backstop
+wake cadence: every decision boundary while flat; 1-min-equiv bridging while in position; crons backstop
+THU 8/20 watch: SOXS PC 47.03 vs SMA20 (~47.5) — if it flips UP, SOXS becomes carry-capable = first S3-eligible day of campaign
 watch: NVDA 8/26 event shot needs E_adj >= 160; hard blocks 8/25-8/27 nights
 last error: none | open alerts: none
 to stop me: create trader/HUMAN_STOP (or tell me in chat); after HALTED/DONE disable the routines
