@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "S2 closed 13:30 (CL-fail by 0.002); flat into FOMC minutes; 13:51 wake = 13:55 flat-check (already flat) + PM variant bridge",
+ "mode_reason": "PM S1 variant armed MUU only (SOXS OR 2.19% < 2.29% floor); trigger C>29.5495 at 5-min closes 14:25-15:00; minutes reaction = more semis selling",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 35,
-  "utc": "2026-08-19T17:30:40Z",
-  "et": "2026-08-19 13:30",
-  "phase": "MIDDAY",
+  "n": 36,
+  "utc": "2026-08-19T18:21:40Z",
+  "et": "2026-08-19 14:21",
+  "phase": "LATE",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T17:30:40Z",
+  "last_heartbeat_utc": "2026-08-19T18:21:40Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -126,6 +126,18 @@
      "range_pct": 2.67,
      "expires": "10:30"
     }
+   },
+   "S1_PM": {
+    "MUU": {
+     "ORH": 29.52,
+     "ORL": 28.7213,
+     "mid": 29.1207,
+     "ref": "MID",
+     "range_pct": 2.72,
+     "expires": "15:00",
+     "open_1400": 29.3152
+    },
+    "SOXS": "NOT_ARMED (PM OR range 2.19% < 2.29% floor)"
    }
   },
   "vwap_acc": {},
@@ -186,7 +198,7 @@
  "open_orders": [],
  "seq_today": 8,
  "last_bar_evaluated": {
-  "S1": "09:45 TRIGGER SOXS (44.92 > 43.6736, chase ok after 09:40 fail) -> FILLED 2@44.7699",
+  "S1": "PM variant armed 14:21 (MUU only); first check 14:25",
   "S2": "2026-08-19 13:30 NO-TRIGGER: C 46.86 > U 46.837 BUT close-location 0.748 < 0.75 (bar too far off day-hi 48.33); S2 window closed, 1 entry today"
  },
  "last_error": "",
