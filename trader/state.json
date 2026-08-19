@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 4 (2026-08-19 FOMC minutes): Analyst FINAL 07:52; PRESS ON; S2 ends 13:30, no entries 13:55-14:25, S1 PM variant 14:25-15:00",
+ "mode_reason": "S1 armed BOTH legs: MUU up-gap +3.7% (A+), SOXS down-gap -3.1%; whichever closes above its ORH first wins",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,17 +11,17 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 32,
-  "utc": "2026-08-19T11:52:00Z",
-  "et": "2026-08-19 07:52",
-  "phase": "ANALYST",
+  "n": 33,
+  "utc": "2026-08-19T13:36:00Z",
+  "et": "2026-08-19 09:36",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-19T13:36:00Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
+   "is_open": true,
    "next_open": "2026-08-19T13:30:00Z",
    "next_close": "2026-08-19T20:00:00Z",
    "fetched_utc": "2026-08-18T20:11:00Z"
@@ -98,10 +98,45 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {},
+  "armed": {
+   "S1": {
+    "MUU": {
+     "ORH": 31.27,
+     "ORL": 30.48,
+     "mid": 30.875,
+     "wide": false,
+     "range_pct": 2.53,
+     "expires": "10:30"
+    },
+    "SOXS": {
+     "ORH": 43.63,
+     "ORL": 42.486,
+     "mid": 43.058,
+     "wide": false,
+     "range_pct": 2.67,
+     "expires": "10:30"
+    }
+   }
+  },
   "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "or": {
+   "MUU": {
+    "h": 31.27,
+    "l": 30.48,
+    "mid": 30.875,
+    "src": "rh"
+   },
+   "SOXS": {
+    "h": 43.63,
+    "l": 42.486,
+    "mid": 43.058,
+    "src": "rh"
+   }
+  },
+  "open_px": {
+   "MUU": 31.23,
+   "SOXS": 42.83
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -135,7 +170,7 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "not armed yet (arm 09:36)",
+  "S1": "armed 09:36 both legs; first check 09:40",
   "S2": "none today"
  },
  "last_error": "",
