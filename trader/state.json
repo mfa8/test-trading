@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 3 complete (EOD done): 1 trade -0.24R, E=99.09; tomorrow Wed 8/19 FOMC-minutes special day; Analyst 07:45",
+ "mode_reason": "Session 4 (2026-08-19 FOMC minutes): Analyst FINAL 07:52; PRESS ON; S2 ends 13:30, no entries 13:55-14:25, S1 PM variant 14:25-15:00",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,14 +11,14 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 31,
-  "utc": "2026-08-18T20:11:00Z",
-  "et": "2026-08-18 16:11",
-  "phase": "POST",
+  "n": 32,
+  "utc": "2026-08-19T11:52:00Z",
+  "et": "2026-08-19 07:52",
+  "phase": "ANALYST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-18T20:11:00Z",
-  "last_rules_read_utc": "2026-08-18T11:47:00Z",
+  "last_heartbeat_utc": "2026-08-19T11:52:00Z",
+  "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
    "is_open": false,
@@ -65,14 +65,14 @@
   "equity": 99.09,
   "e_bid": 99.09,
   "e_adj": 99.09,
-  "sod_equity": 100.47,
+  "sod_equity": 99.09,
   "cash": 99.09,
   "settled_cash": 99.09,
   "unsettled": [],
   "buying_power": 99.09,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-18T20:10:20Z"
+  "fetched_utc": "2026-08-19T11:47:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -89,71 +89,36 @@
   }
  },
  "today": {
-  "date": "2026-08-18",
-  "entries": 1,
+  "date": "2026-08-19",
+  "entries": 0,
   "attempts": {},
-  "losses": 1,
-  "pnl_pct": -1.37,
+  "losses": 0,
+  "pnl_pct": 0.0,
   "day_halt": false,
-  "cooldown_until_et": "14:07",
+  "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [
-   "2026-08-18 10:00",
-   "2026-08-18 10:30",
-   "2026-08-18 11:00",
-   "2026-08-18 11:30",
-   "2026-08-18 12:00",
-   "2026-08-18 12:30",
-   "2026-08-18 13:00",
-   "2026-08-18 13:30",
-   "2026-08-18 14:00",
-   "2026-08-18 14:30"
-  ],
-  "armed": {
-   "S1": {
-    "MUU": {
-     "ORH": 32.5531,
-     "ORL": 31.12,
-     "mid": 31.8366,
-     "wide": false,
-     "range_pct": 4.6,
-     "expires": "EXPIRED 10:30 (0 triggers)"
-    },
-    "SOXS": "NOT_ARMED (range 2.48% < 2.77% floor)"
-   }
-  },
+  "done_checkpoints": [],
+  "armed": {},
   "vwap_acc": {},
-  "or": {
-   "MUU": {
-    "h": 32.5531,
-    "l": 31.12,
-    "mid": 31.8366,
-    "src": "rh"
-   },
-   "SOXS": {
-    "h": 43.01,
-    "l": 41.945,
-    "src": "rh"
-   }
-  },
-  "open_px": {
-   "MUU": 31.18,
-   "SOXS": 42.88
-  },
-  "day_hi": {
-   "MUU": 32.69,
-   "SOXS": 45.8294
-  },
-  "day_lo": {
-   "MUU": 30.53,
-   "SOXS": 41.945
-  },
+  "or": {},
+  "open_px": {},
+  "day_hi": {},
+  "day_lo": {},
   "halt": {},
-  "eod_done": true,
+  "eod_done": false,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
-  "tz_selftest": null
+  "tz_selftest": null,
+  "fomc_minutes": true,
+  "no_entry_window": "13:55-14:25",
+  "s2_last_checkpoint": "13:30",
+  "pm_variant": {
+   "or_window": "14:00-14:20",
+   "triggers": "14:25-15:00",
+   "ref": "OR_MID",
+   "never_carry": true
+  }
  },
  "position": null,
  "pending": {
@@ -168,52 +133,52 @@
  },
  "stop_reject_streak": 0,
  "open_orders": [],
- "seq_today": 8,
+ "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "window closed 10:30: 11 closes evaluated 09:40-10:30, 0 triggers (max C 32.49 vs 32.5857); MUU broke ORL 31.12",
-  "S2": "2026-08-18 14:30 NO-TRIGGER (MUU 29.62 << U 36.88) \u2014 S2 window closed, 1 entry today"
+  "S1": "not armed yet (arm 09:36)",
+  "S2": "none today"
  },
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
  "analyst": {
   "MUU": {
-   "PC": 35.01,
-   "SMA5": 30.58,
-   "SMA20": 28.66,
+   "PC": 30.12,
+   "SMA5": 31.41,
+   "SMA20": 28.41,
    "trend": "UP",
-   "ATR14pct": 12.2
+   "ATR14pct": 14.11
   },
   "SOXS": {
-   "PC": 38.36,
-   "SMA5": 40.75,
-   "SMA20": 48.11,
+   "PC": 44.19,
+   "SMA5": 40.78,
+   "SMA20": 48.06,
    "trend": "DOWN",
-   "ATR14pct": 18.48
+   "ATR14pct": 15.27
   },
   "SOXL": {
-   "PC": 151.53,
-   "SMA20": 134.06,
-   "trend": "UP",
-   "ATR14pct": 10.55
+   "PC": 129.1,
+   "SMA20": 132.59,
+   "trend": "DOWN",
+   "ATR14pct": 12.83
   },
   "TQQQ": {
-   "PC": 76.4,
-   "SMA20": 69.83,
+   "PC": 72.53,
+   "SMA20": 69.88,
    "trend": "UP",
-   "ATR14pct": 4.68
+   "ATR14pct": 4.85
   },
   "SQQQ": {
-   "PC": 36.42,
-   "SMA20": 40.69,
+   "PC": 38.28,
+   "SMA20": 40.59,
    "trend": "DOWN",
-   "ATR14pct": 6.11
+   "ATR14pct": 5.48
   },
-  "premkt_0747": {
-   "MUU": 32.1,
-   "SOXS": 42.31,
-   "SOXL": 136.25,
-   "TQQQ": 73.96
+  "premkt_0746": {
+   "MUU": 29.54,
+   "SOXS": 44.79,
+   "SOXL": 127.07,
+   "TQQQ": 72.08
   }
  },
  "capabilities_note": "FRACTIONAL_STOPS n/a; WHOLE-SHARE GTC stop_market ACCEPTED (probe passed 10:02 ET 8/17)"
