@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "FLAT",
- "mode_reason": "S1 armed BOTH legs: MUU up-gap +3.7% (A+), SOXS down-gap -3.1%; whichever closes above its ORH first wins",
+ "mode": "IN_POSITION",
+ "mode_reason": "S1 SOXS entry 09:46: 2 @ 44.7699, GTC stop 42.39 (d 5.41% from limit), risk $4.76 (PRESS)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 33,
-  "utc": "2026-08-19T13:36:00Z",
-  "et": "2026-08-19 09:36",
-  "phase": "ARM",
+  "utc": "2026-08-19T13:47:20Z",
+  "et": "2026-08-19 09:47",
+  "phase": "ENTRY-AM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T13:36:00Z",
+  "last_heartbeat_utc": "2026-08-19T13:47:20Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -37,8 +37,8 @@
   "sessions_done": 3,
   "milestone_150": false,
   "floor": null,
-  "entries_total": 2,
-  "entries_week": 2,
+  "entries_total": 3,
+  "entries_week": 3,
   "week_start": "2026-08-17",
   "week_sod_equity": 100.0,
   "net_external": 0,
@@ -90,7 +90,7 @@
  },
  "today": {
   "date": "2026-08-19",
-  "entries": 0,
+  "entries": 1,
   "attempts": {},
   "losses": 0,
   "pnl_pct": 0.0,
@@ -106,7 +106,7 @@
      "mid": 30.875,
      "wide": false,
      "range_pct": 2.53,
-     "expires": "10:30"
+     "expires": "DISARMED 09:45 (SOXS won)"
     },
     "SOXS": {
      "ORH": 43.63,
@@ -155,7 +155,33 @@
    "never_carry": true
   }
  },
- "position": null,
+ "position": {
+  "symbol": "SOXS",
+  "setup": "S1",
+  "qty": 2,
+  "entry": 44.7699,
+  "entry_utc": "2026-08-19T13:46:10Z",
+  "entry_et": "09:46",
+  "stop": 42.39,
+  "stop_order_id": "6a85b3d0-c6e9-4cf8-a008-26f887bf0e5a",
+  "stop_kind": "NATIVE_GTC",
+  "R_per_share": 2.3799,
+  "R_usd": 4.76,
+  "d": 0.0541,
+  "zone_at_entry": "PRESS f=1.0 r=0.08",
+  "class": "SOX",
+  "tier": "A",
+  "overnight_ok": false,
+  "nights_held": 0,
+  "time_stop_utc": "2026-08-19T15:46:10Z",
+  "time_stop_needs": 45.96,
+  "plus2R": 49.53,
+  "vwap_at_entry": 44.4057,
+  "closes_below_vwap": 0,
+  "entry_coid": "T2X-20260819-01-SOXS-E",
+  "entry_order_id": "6a85b3a2-28db-4cfd-ace8-43a1d38829aa",
+  "fomc_note": "flat by 13:55 unless >= +2R (49.53); never carried"
+ },
  "pending": {
   "coid": "",
   "kind": "",
@@ -167,10 +193,17 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [],
- "seq_today": 0,
+ "open_orders": [
+  {
+   "id": "6a85b3d0-c6e9-4cf8-a008-26f887bf0e5a",
+   "coid": "T2X-20260819-02-SOXS-S",
+   "kind": "stop",
+   "stop": 42.39
+  }
+ ],
+ "seq_today": 2,
  "last_bar_evaluated": {
-  "S1": "armed 09:36 both legs; first check 09:40",
+  "S1": "09:45 TRIGGER SOXS (44.92 > 43.6736, chase ok after 09:40 fail) -> FILLED 2@44.7699",
   "S2": "none today"
  },
  "last_error": "",
