@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 33,
-  "utc": "2026-08-19T16:32:30Z",
-  "et": "2026-08-19 12:32",
+  "n": 34,
+  "utc": "2026-08-19T17:00:30Z",
+  "et": "2026-08-19 13:00",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-19T16:32:30Z",
+  "last_heartbeat_utc": "2026-08-19T17:00:30Z",
   "last_rules_read_utc": "2026-08-19T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -104,7 +104,8 @@
    "2026-08-19 11:00",
    "2026-08-19 11:30",
    "2026-08-19 12:00",
-   "2026-08-19 12:30"
+   "2026-08-19 12:30",
+   "2026-08-19 13:00"
   ],
   "armed": {
    "S1": {
@@ -185,7 +186,7 @@
  "seq_today": 8,
  "last_bar_evaluated": {
   "S1": "09:45 TRIGGER SOXS (44.92 > 43.6736, chase ok after 09:40 fail) -> FILLED 2@44.7699",
-  "S2": "trade3 closed 12:31 invalidation-exit; 12:30 checkpoint consumed by exit wake; 13:00/13:30 remain, SOXS re-eligible (win)"
+  "S2": "2026-08-19 13:00 NO-TRIGGER (SOXS 46.55 < U 46.66 by $0.11); last checkpoint 13:30 U=46.84"
  },
  "last_error": "",
  "alerts_open": [],
