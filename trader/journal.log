@@ -66,3 +66,4 @@
 2026-08-20T15:39Z | 11:39 | MIDDAY | FLAT | PRESS 1.0 0.08 | 100.20/100.20/100.20 | NOOP | 11:30 checkpoint: cooldown-blocked (til 11:37, now expired); 12:00+ live — SOXS U 49.08 / MUU U 31.03, both ~5% from market | - | calls=0
 2026-08-20T16:14Z | 12:14 | MIDDAY | FLAT | PRESS 1.0 0.08 | 100.20/100.20/100.20 | NOOP | 12:00 SKIPPED late (+14m, W-7): bar closed 31.19 > U 31.034 — would likely have triggered MUU; wake latency cost the entry (first since day 1); NOT chased per W-7 (px already 30.95); bridging to 12:30 (U 31.147) | - | calls=2
 2026-08-20T16:30Z | 12:30 | MIDDAY | FLAT | PRESS 1.0 0.08 | 100.20/100.20/100.20 | NOOP | S2 12:30 in-window: no trigger (MUU 31.09 < 31.147 by 6c, coiling); SOXS ~47 << 49.24; next 13:00 U 31.254 | - | calls=1
+2026-08-20T17:10Z | 13:10 | MIDDAY | FLAT | PRESS 1.0 0.08 | 100.20/100.20/100.20 | NOOP | 13:00 SKIP late (+10m) but PROVABLY-NO (bar 31.10 < U 31.254); MUU flat-lining 31.1; 13:30 next (U 31.353) | - | calls=1
