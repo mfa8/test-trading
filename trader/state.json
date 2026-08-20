@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 41,
-  "utc": "2026-08-20T16:14:30Z",
-  "et": "2026-08-20 12:14",
+  "utc": "2026-08-20T16:30:40Z",
+  "et": "2026-08-20 12:30",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T16:14:30Z",
+  "last_heartbeat_utc": "2026-08-20T16:30:40Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -104,7 +104,8 @@
    "2026-08-20 10:30",
    "2026-08-20 11:00",
    "2026-08-20 11:30",
-   "2026-08-20 12:00"
+   "2026-08-20 12:00",
+   "2026-08-20 12:30"
   ],
   "armed": {
    "S1": {
@@ -239,7 +240,7 @@
  "seq_today": 3,
  "last_bar_evaluated": {
   "S1": "trade4 closed 10:37 invalidation (3 closes < VWAP)",
-  "S2": "12:00 SKIPPED (wake +14min, W-7) \u2014 bar 31.19 > U 31.034 WOULD likely have triggered; latency cost a probable MUU entry; 12:30 live (U 31.147), MUU 30.95 pulling back"
+  "S2": "12:30 NO-TRIGGER (MUU 31.09 < U 31.147 by 6c; coiling under band); 13:00 U=31.254 live"
  },
  "last_error": "",
  "alerts_open": [],
