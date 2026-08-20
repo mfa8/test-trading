@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 5 (2026-08-20): Analyst FINAL 07:52; PRESS ON; S3 still OFF (SOXS 47.05 < SMA20 48.19, gap closing); standard S1/S2 day, quiet premkt",
+ "mode_reason": "S1 armed BOTH legs: MUU bounce day (+1.4% early, trigger 30.5205); SOXS fade (trigger 47.4975); U_B absolute: MUU keyed max(29.70,29.82)=29.82, SOXS max(47.32,47.05)=47.32",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,17 +11,17 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 38,
-  "utc": "2026-08-20T11:52:00Z",
-  "et": "2026-08-20 07:52",
-  "phase": "ANALYST",
+  "n": 39,
+  "utc": "2026-08-20T13:36:00Z",
+  "et": "2026-08-20 09:36",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-20T13:36:00Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
+   "is_open": true,
    "next_open": "2026-08-20T13:30:00Z",
    "next_close": "2026-08-20T20:00:00Z",
    "fetched_utc": "2026-08-20T11:46:00Z"
@@ -99,10 +99,56 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {},
-  "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "armed": {
+   "S1": {
+    "MUU": {
+     "ORH": 30.49,
+     "ORL": 29.63,
+     "mid": 30.06,
+     "wide": false,
+     "range_pct": 2.9,
+     "expires": "10:30"
+    },
+    "SOXS": {
+     "ORH": 47.45,
+     "ORL": 45.999,
+     "mid": 46.7245,
+     "wide": false,
+     "range_pct": 3.07,
+     "expires": "10:30"
+    }
+   }
+  },
+  "vwap_acc": {
+   "MUU": {
+    "pv": 18193305.1,
+    "vol": 604188,
+    "asof_utc": "2026-08-20T13:35:00Z"
+   },
+   "SOXS": {
+    "pv": 36050816.1,
+    "vol": 773790,
+    "asof_utc": "2026-08-20T13:35:00Z"
+   }
+  },
+  "or": {
+   "MUU": {
+    "h": 30.49,
+    "l": 29.63,
+    "mid": 30.06,
+    "src": "rh"
+   },
+   "SOXS": {
+    "h": 47.45,
+    "l": 45.999,
+    "mid": 46.7245,
+    "src": "rh"
+   }
+  },
+  "open_px": {
+   "MUU": 29.7,
+   "SOXS": 47.32
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -136,6 +182,32 @@
     "14:00": 1.0498,
     "14:30": 1.0525
    }
+  },
+  "u_abs": {
+   "MUU": {
+    "10:00": 30.363,
+    "10:30": 30.586,
+    "11:00": 30.759,
+    "11:30": 30.905,
+    "12:00": 31.034,
+    "12:30": 31.147,
+    "13:00": 31.254,
+    "13:30": 31.353,
+    "14:00": 31.448,
+    "14:30": 31.535
+   },
+   "SOXS": {
+    "10:00": 48.106,
+    "10:30": 48.432,
+    "11:00": 48.678,
+    "11:30": 48.891,
+    "12:00": 49.076,
+    "12:30": 49.241,
+    "13:00": 49.397,
+    "13:30": 49.539,
+    "14:00": 49.677,
+    "14:30": 49.804
+   }
   }
  },
  "position": null,
@@ -153,7 +225,7 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "not armed yet (arm 09:36)",
+  "S1": "armed 09:36 both legs; first check 09:40",
   "S2": "none today"
  },
  "last_error": "",
