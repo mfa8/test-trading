@@ -1,11 +1,11 @@
 # T2X STATUS
-mode: FLAT (session 5; Analyst FINAL 07:52; awaiting 09:26 pre-arm)
+mode: FLAT (trade 4: -0.69R invalidation loss; cooldown til 11:37)
 zone: STANDARD f=1.0 r=8% | PRESS YES (session 5, behind glide 128.7) | DOWNSHIFT no
-E_broker/E_bid/E_adj: 102.22 / 102.22 / 102.22 | day P/L: 0.0% | HWM: 102.22
+E_broker/E_bid/E_adj: 100.20 / 100.20 / 100.20 | day P/L: -1.98% | HWM: 102.22
 D=7 g=10.06%/session | active pair SOX (SOXL ATR 13.17, DOWN) via MUU(long, UP, Tier B)/SOXS(inv, ATR 12.0)
 regime: quiet premkt (all gaps < 1.1%); semis 3-day downtrend, MUU still UP vs SMA20; no A+ gap
 TODAY: S1 09:40-10:30 (both legs armable); S2 10:00-14:30 all checkpoints; S3 OFF (SOXS trend fail by $1.14 — closest yet; recheck Fri); claims 08:30 pre-open only
-position: none | entries 0/3 today | 3/7 week, 3/14 campaign | R_history [+0.26, -0.24, +0.66] | budget IM_FREE
+position: none | entries 1/3 today (1 loss; 2nd loss = DAY_HALT) | 4/7 week, 4/14 campaign | R_history [+0.26, -0.24, +0.66, -0.69]
 account_mode: IM_FREE (RH limited_margin ••••8334)
 stops: NATIVE(GTC)+SYNTHETIC | data: REALTIME | ext_hours: OK
 wake cadence: 09:26 pre-arm bridge; B-4 one-shots per checkpoint; 15:26 close-out bridge + 15:46 backstop; crons
