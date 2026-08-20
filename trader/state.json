@@ -11,13 +11,13 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 39,
-  "utc": "2026-08-20T14:37:30Z",
-  "et": "2026-08-20 10:37",
+  "n": 40,
+  "utc": "2026-08-20T15:18:30Z",
+  "et": "2026-08-20 11:18",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T14:37:30Z",
+  "last_heartbeat_utc": "2026-08-20T15:18:30Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -101,7 +101,8 @@
   "stopped_symbols": [],
   "done_checkpoints": [
    "2026-08-20 10:00",
-   "2026-08-20 10:30"
+   "2026-08-20 10:30",
+   "2026-08-20 11:00"
   ],
   "armed": {
    "S1": {
@@ -236,7 +237,7 @@
  "seq_today": 3,
  "last_bar_evaluated": {
   "S1": "trade4 closed 10:37 invalidation (3 closes < VWAP)",
-  "S2": "11:00/11:30 will be cooldown-blocked; 12:00+ eligible (S2 = different setup ok); bands far (SOXS 49.08, MUU 31.03)"
+  "S2": "11:00 BLOCKED (cooldown til 11:37; band 48.68 vs ~46.4 provably-no anyway); 11:30 also cooldown-blocked; 12:00+ live"
  },
  "last_error": "",
  "alerts_open": [],
