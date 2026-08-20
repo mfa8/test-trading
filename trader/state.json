@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 39,
-  "utc": "2026-08-20T14:02:10Z",
-  "et": "2026-08-20 10:02",
+  "utc": "2026-08-20T14:31:00Z",
+  "et": "2026-08-20 10:31",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T14:02:10Z",
+  "last_heartbeat_utc": "2026-08-20T14:31:00Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -99,7 +99,8 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [
-   "2026-08-20 10:00"
+   "2026-08-20 10:00",
+   "2026-08-20 10:30"
   ],
   "armed": {
    "S1": {
@@ -128,9 +129,9 @@
     "asof_utc": "2026-08-20T13:35:00Z"
    },
    "SOXS": {
-    "pv": 205680185.2,
-    "vol": 4371358,
-    "asof_utc": "2026-08-20T14:00:00Z"
+    "pv": 334633451.1,
+    "vol": 7118680,
+    "asof_utc": "2026-08-20T14:30:00Z"
    }
   },
   "or": {
@@ -240,7 +241,7 @@
   "time_stop_needs": 48.1,
   "plus2R": 50.31,
   "vwap_at_entry": 47.0518,
-  "closes_below_vwap": 0,
+  "closes_below_vwap": 2,
   "entry_coid": "T2X-20260820-01-SOXS-E",
   "entry_order_id": "6a87089d-51ad-40c9-8b54-64d99e049204"
  },
@@ -266,7 +267,7 @@
  "seq_today": 2,
  "last_bar_evaluated": {
   "S1": "10:00 TRIGGER SOXS (47.70 > 47.4975; 3rd attempt after 09:50/-7c, 09:55/-6c) -> FILLED 2@47.3699",
-  "S2": "10:00 consumed by S1 entry (order: S1 first)"
+  "S2": "10:30 in-position (no S2 entries while holding); trail skipped (last < VWAP); inval streak 2/3"
  },
  "last_error": "",
  "alerts_open": [],
