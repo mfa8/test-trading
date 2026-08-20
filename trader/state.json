@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Cooldown expired 11:37; flat; S2 12:00-14:30 live, needs a strong afternoon leg (bands ~5% away)",
+ "mode_reason": "S2 window closed 14:30; day done for entries (1 loss); 15:30 S3 OFF / 15:50 flatten / 16:10 EOD remain",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 42,
-  "utc": "2026-08-20T17:10:40Z",
-  "et": "2026-08-20 13:10",
-  "phase": "MIDDAY",
+  "utc": "2026-08-20T18:30:40Z",
+  "et": "2026-08-20 14:30",
+  "phase": "LATE",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T17:10:40Z",
+  "last_heartbeat_utc": "2026-08-20T18:30:40Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -106,7 +106,10 @@
    "2026-08-20 11:30",
    "2026-08-20 12:00",
    "2026-08-20 12:30",
-   "2026-08-20 13:00"
+   "2026-08-20 13:00",
+   "2026-08-20 13:30",
+   "2026-08-20 14:00",
+   "2026-08-20 14:30"
   ],
   "armed": {
    "S1": {
@@ -241,7 +244,7 @@
  "seq_today": 3,
  "last_bar_evaluated": {
   "S1": "trade4 closed 10:37 invalidation (3 closes < VWAP)",
-  "S2": "13:00 SKIP(late +10m, W-7) but provably-no (bar C 31.10 < U 31.254); MUU stuck at 31.1; 13:30 U=31.353"
+  "S2": "14:30 NO-TRIGGER (MUU 30.64 << U 31.535) \u2014 S2 closed; day: 1 entry -0.69R; 13:30/14:00 also no (30.90/30.98, MUU faded from 31.19 hi all afternoon)"
  },
  "last_error": "",
  "alerts_open": [],
