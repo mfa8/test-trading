@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Trade 4 closed 10:37: invalidation exit @46.36 = -0.69R LOSS -> cooldown til 11:37; next entry = different setup (S2) or inverse leg (MUU); E=100.20",
+ "mode_reason": "Cooldown expired 11:37; flat; S2 12:00-14:30 live, needs a strong afternoon leg (bands ~5% away)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 40,
-  "utc": "2026-08-20T15:18:30Z",
-  "et": "2026-08-20 11:18",
+  "utc": "2026-08-20T15:39:10Z",
+  "et": "2026-08-20 11:39",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-20T15:18:30Z",
+  "last_heartbeat_utc": "2026-08-20T15:39:10Z",
   "last_rules_read_utc": "2026-08-20T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -102,7 +102,8 @@
   "done_checkpoints": [
    "2026-08-20 10:00",
    "2026-08-20 10:30",
-   "2026-08-20 11:00"
+   "2026-08-20 11:00",
+   "2026-08-20 11:30"
   ],
   "armed": {
    "S1": {
@@ -237,7 +238,7 @@
  "seq_today": 3,
  "last_bar_evaluated": {
   "S1": "trade4 closed 10:37 invalidation (3 closes < VWAP)",
-  "S2": "11:00 BLOCKED (cooldown til 11:37; band 48.68 vs ~46.4 provably-no anyway); 11:30 also cooldown-blocked; 12:00+ live"
+  "S2": "11:30 BLOCKED (cooldown til 11:37); cooldown now expired -> 12:00-14:30 live (S2 both legs; bands 49.08/31.03 far)"
  },
  "last_error": "",
  "alerts_open": [],
