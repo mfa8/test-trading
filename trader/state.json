@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 45,
-  "utc": "2026-08-21T18:01:40Z",
-  "et": "2026-08-21 14:01",
+  "utc": "2026-08-21T18:30:40Z",
+  "et": "2026-08-21 14:30",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-21T18:01:40Z",
+  "last_heartbeat_utc": "2026-08-21T18:30:40Z",
   "last_rules_read_utc": "2026-08-21T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -109,7 +109,8 @@
    "2026-08-21 12:30",
    "2026-08-21 13:00",
    "2026-08-21 13:30",
-   "2026-08-21 14:00"
+   "2026-08-21 14:00",
+   "2026-08-21 14:30"
   ],
   "armed": {
    "S1": {
@@ -244,7 +245,7 @@
  "seq_today": 11,
  "last_bar_evaluated": {
   "S1": "trade5 closed 14:00 invalidation-exit +0.65R",
-  "S2": "14:00 consumed by exit wake; 14:30 final checkpoint (SOXS U 48.49 vs 47.0, MUU U 34.76 vs ~31.7 \u2014 both far)"
+  "S2": "14:30 NO-TRIGGER both (SOXS 47.17 < 48.49; MUU 31.54 < 34.76) \u2014 S2 closed, 1 entry today (+0.65R win)"
  },
  "last_error": "",
  "alerts_open": [],
