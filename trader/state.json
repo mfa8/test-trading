@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 45,
-  "utc": "2026-08-21T14:01:20Z",
-  "et": "2026-08-21 10:01",
+  "utc": "2026-08-21T14:31:30Z",
+  "et": "2026-08-21 10:31",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-21T14:01:20Z",
+  "last_heartbeat_utc": "2026-08-21T14:31:30Z",
   "last_rules_read_utc": "2026-08-21T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -100,7 +100,8 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [
-   "2026-08-21 10:00"
+   "2026-08-21 10:00",
+   "2026-08-21 10:30"
   ],
   "armed": {
    "S1": {
@@ -129,9 +130,9 @@
     "asof_utc": "2026-08-21T13:35:00Z"
    },
    "SOXS": {
-    "pv": 155749057.4,
-    "vol": 3396700,
-    "asof_utc": "2026-08-21T14:00:00Z"
+    "pv": 285059804.5,
+    "vol": 6116428,
+    "asof_utc": "2026-08-21T14:30:00Z"
    }
   },
   "or": {
@@ -153,7 +154,7 @@
    "SOXS": 44.735
   },
   "day_hi": {
-   "SOXS": 46.84,
+   "SOXS": 48.319,
    "MUU": 33.145
   },
   "day_lo": {
@@ -226,8 +227,8 @@
   "entry": 46.01,
   "entry_utc": "2026-08-21T13:41:01Z",
   "entry_et": "09:41",
-  "stop": 45.09,
-  "stop_order_id": "6a885a20-77c5-4d0e-95c5-859121af1008",
+  "stop": 45.83,
+  "stop_order_id": "6a886135-a08e-4353-833d-2eb66975c2be",
   "stop_kind": "NATIVE_GTC",
   "R_per_share": 1.53,
   "R_usd": 3.06,
@@ -258,13 +259,13 @@
  "stop_reject_streak": 0,
  "open_orders": [
   {
-   "id": "6a885a20-77c5-4d0e-95c5-859121af1008",
-   "coid": "T2X-20260821-03-SOXS-S",
+   "id": "6a886135-a08e-4353-833d-2eb66975c2be",
+   "coid": "T2X-20260821-04-SOXS-S",
    "kind": "stop",
-   "stop": 45.09
+   "stop": 45.83
   }
  ],
- "seq_today": 3,
+ "seq_today": 4,
  "last_bar_evaluated": {
   "S1": "09:40 TRIGGER SOXS (46.00 > 45.696) -> FILLED 2@46.01",
   "S2": "none today"
