@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 6 (2026-08-21 Friday): Analyst FINAL 07:52; PRESS ON; risk-on gap (SOXL +4.5% premkt, MUU +2.6%, SOXS -4.4% A+); S3 OFF; WEEK-1 report due EOD",
+ "mode_reason": "S1 armed BOTH: MUU trig 33.178 (opened +3.2%, faded); SOXS trig 45.696 (recovering off down-gap)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,17 +11,17 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 44,
-  "utc": "2026-08-21T11:52:00Z",
-  "et": "2026-08-21 07:52",
-  "phase": "ANALYST",
+  "n": 45,
+  "utc": "2026-08-21T13:36:00Z",
+  "et": "2026-08-21 09:36",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-21T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-21T13:36:00Z",
   "last_rules_read_utc": "2026-08-21T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
+   "is_open": true,
    "next_open": "2026-08-21T13:30:00Z",
    "next_close": "2026-08-21T20:00:00Z",
    "fetched_utc": "2026-08-21T11:46:00Z"
@@ -100,10 +100,56 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {},
-  "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "armed": {
+   "S1": {
+    "MUU": {
+     "ORH": 33.145,
+     "ORL": 32.355,
+     "mid": 32.75,
+     "wide": false,
+     "range_pct": 2.39,
+     "expires": "10:30"
+    },
+    "SOXS": {
+     "ORH": 45.65,
+     "ORL": 44.65,
+     "mid": 45.15,
+     "wide": false,
+     "range_pct": 2.24,
+     "expires": "10:30"
+    }
+   }
+  },
+  "vwap_acc": {
+   "MUU": {
+    "pv": 19672080.8,
+    "vol": 600498,
+    "asof_utc": "2026-08-21T13:35:00Z"
+   },
+   "SOXS": {
+    "pv": 36368596.8,
+    "vol": 804860,
+    "asof_utc": "2026-08-21T13:35:00Z"
+   }
+  },
+  "or": {
+   "MUU": {
+    "h": 33.145,
+    "l": 32.355,
+    "mid": 32.75,
+    "src": "rh"
+   },
+   "SOXS": {
+    "h": 45.65,
+    "l": 44.65,
+    "mid": 45.15,
+    "src": "rh"
+   }
+  },
+  "open_px": {
+   "MUU": 33.12,
+   "SOXS": 44.735
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -137,6 +183,32 @@
     "14:00": 1.046,
     "14:30": 1.0485
    }
+  },
+  "u_abs": {
+   "MUU": {
+    "10:00": 33.64,
+    "10:30": 33.855,
+    "11:00": 34.021,
+    "11:30": 34.16,
+    "12:00": 34.283,
+    "12:30": 34.395,
+    "13:00": 34.494,
+    "13:30": 34.591,
+    "14:00": 34.68,
+    "14:30": 34.763
+   },
+   "SOXS": {
+    "10:00": 46.958,
+    "10:30": 47.254,
+    "11:00": 47.48,
+    "11:30": 47.67,
+    "12:00": 47.836,
+    "12:30": 47.989,
+    "13:00": 48.128,
+    "13:30": 48.257,
+    "14:00": 48.378,
+    "14:30": 48.493
+   }
   }
  },
  "position": null,
@@ -154,7 +226,7 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "not armed yet (arm 09:36)",
+  "S1": "armed 09:36 both legs; first check 09:40",
   "S2": "none today"
  },
  "last_error": "",
