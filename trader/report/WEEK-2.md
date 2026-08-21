@@ -1,0 +1,8 @@
+# T2X WEEK-2 REPORT — Mon 2026-08-17 .. Fri 2026-08-21 (sessions 2-6)
+- Equity: 100.00 -> 102.20 (+2.20%). HWM 102.22. Worst drawdown $99.09 (kill floor $50 never approached).
+- Trades: 5. Record 3W-2L. R: [+0.26, -0.24, +0.66, -0.69, +0.65] = +0.64R net. Avg win +0.52R, avg loss -0.47R. All 5 on the SOX pair (4 SOXS, 1 MUU); all intraday (S3 never unlocked — no carry-capable leg all week).
+- Exits: 2 time-stops (both beat the close), 3 invalidations (2 wins banked, 1 loss cut at -0.69R vs -1R stop). Native GTC stop NEVER hit — every exit was rule-driven at better-than-stop prices. Entry slippage: -29c, -5bps, 0, 0, 0 (all at-or-better than limit).
+- Notable: Thursday's missed 12:00 MUU signal (wake latency; would have been ~+1-2R) and Wednesday's fakeout (-0.69R) were the week's swing; process was clean on both — one was infrastructure (fixed via ops-8 bridge-through), one was market.
+- vs plan: glide wanted 145.9 by Friday; actual 102.2. The manual's own math (Z-10) prices P($200 by 8/28) at ~1-2% — that remains the honest read. Required pace is now 14.4%/session for 5 sessions; only an outlier trend-day capture plus carries can do it.
+- Week 3 outlook: 5 sessions left (8/24-8/28). Hard-block nights 8/25-8/27 (NVDA 8/26; event shot needs E_adj >= 160 — unreachable). 8/27 NVDA-reaction S1 variant; 8/28 Jackson Hole variant + END_DATE (15:50 flatten -> CLOSING(EXPIRED) -> FINAL_REPORT if not WON/KILLED first). Entry caps reset: 0/7 week, 5/14 campaign.
+- Ops week: 47 wakes, ~30 duplicates absorbed, every in-window boundary hit except two skip-lates (one provably-no, one probable-miss -> ops-8 added); 25 orders placed, 0 rejects, 0 permission prompts; vwap_acc + u_abs live from Thursday.
