@@ -81,3 +81,4 @@
 2026-08-21T15:41Z | 11:41 | MIDDAY | IN_POSITION | PRESS 1.0 0.08 | ~102.1/102.1/102.1 | NOOP | S1-7 time-stop at 120min: SOXS 46.96 >= 46.775 (+0.62R) -> PASS by 19c; fading off 48.46 hi; stop 46.19 GTC | - | calls=1
 2026-08-21T16:01Z | 12:01 | MIDDAY | IN_POSITION | PRESS 1.0 0.08 | ~102.9/102.9/102.9 | RATCHET | 12:00 trail: stop 46.19 -> 46.22 GTC (VWAP 47.01 x 0.9834); SOXS 47.37 +0.89R holding above VWAP; time-stop passed 11:41 | T2X-20260821-07-SOXS-S | calls=6
 2026-08-21T16:31Z | 12:31 | MIDDAY | IN_POSITION | PRESS 1.0 0.08 | ~103.5/103.5/103.5 | RATCHET | 12:30 trail: stop 46.22 -> 46.27 GTC (VWAP 47.06 x 0.9834), locks +0.17R; SOXS 47.66 +1.08R grinding above VWAP all day | T2X-20260821-08-SOXS-S | calls=6
+2026-08-21T17:01Z | 13:01 | MIDDAY | IN_POSITION | PRESS 1.0 0.08 | ~103.7/103.7/103.7 | RATCHET | 13:00 trail: stop 46.27 -> 46.29 GTC; SOXS 47.76 +1.14R, steady grind above VWAP 47.08 | T2X-20260821-09-SOXS-S | calls=6
