@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "IN_POSITION",
- "mode_reason": "S1 SOXS entry 09:41: 2 @ 46.01, GTC stop 44.48 (d 3.32%), risk $3.06 (PRESS); trade 5 \u2014 gap-fade reversal",
+ "mode": "FLAT",
+ "mode_reason": "Trade 5 closed 14:00: invalidation exit @47.01 = +0.65R WIN; E=102.20; no cooldown; 14:30 last checkpoint (bands far); then EOD + WEEK-1",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 45,
-  "utc": "2026-08-21T17:31:10Z",
-  "et": "2026-08-21 13:31",
+  "utc": "2026-08-21T18:01:40Z",
+  "et": "2026-08-21 14:01",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-21T17:31:10Z",
+  "last_heartbeat_utc": "2026-08-21T18:01:40Z",
   "last_rules_read_utc": "2026-08-21T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -49,7 +49,8 @@
    0.26,
    -0.24,
    0.66,
-   -0.69
+   -0.69,
+   0.65
   ],
   "losing_days_streak": 1,
   "downshift": false,
@@ -64,17 +65,17 @@
   "mode": "IM_FREE",
   "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
   "whole_share": true,
-  "equity": 100.2,
-  "e_bid": 100.2,
-  "e_adj": 100.2,
+  "equity": 102.2,
+  "e_bid": 102.2,
+  "e_adj": 102.2,
   "sod_equity": 100.2,
-  "cash": 100.2,
-  "settled_cash": 100.2,
+  "cash": 102.2,
+  "settled_cash": 102.2,
   "unsettled": [],
-  "buying_power": 100.2,
+  "buying_power": 102.2,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-21T11:46:00Z"
+  "fetched_utc": "2026-08-21T18:01:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -95,7 +96,7 @@
   "entries": 1,
   "attempts": {},
   "losses": 0,
-  "pnl_pct": 0.0,
+  "pnl_pct": 2.0,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
@@ -107,7 +108,8 @@
    "2026-08-21 12:00",
    "2026-08-21 12:30",
    "2026-08-21 13:00",
-   "2026-08-21 13:30"
+   "2026-08-21 13:30",
+   "2026-08-21 14:00"
   ],
   "armed": {
    "S1": {
@@ -226,33 +228,7 @@
    }
   }
  },
- "position": {
-  "symbol": "SOXS",
-  "setup": "S1",
-  "qty": 2,
-  "entry": 46.01,
-  "entry_utc": "2026-08-21T13:41:01Z",
-  "entry_et": "09:41",
-  "stop": 46.32,
-  "stop_order_id": "6a888b51-6641-4a44-9756-4063c92a6997",
-  "stop_kind": "NATIVE_GTC",
-  "R_per_share": 1.53,
-  "R_usd": 3.06,
-  "d": 0.0332,
-  "zone_at_entry": "PRESS f=1.0 r=0.08",
-  "class": "SOX",
-  "tier": "A",
-  "overnight_ok": false,
-  "nights_held": 0,
-  "time_stop_utc": "2026-08-21T15:41:01Z",
-  "time_stop_needs": 46.775,
-  "plus2R": 49.07,
-  "vwap_at_entry": 45.5712,
-  "closes_below_vwap": 0,
-  "entry_coid": "T2X-20260821-01-SOXS-E",
-  "entry_order_id": "6a885568-8442-4fb2-8d60-88a2b65a1fbe",
-  "time_stop_passed": true
- },
+ "position": null,
  "pending": {
   "coid": "",
   "kind": "",
@@ -264,18 +240,11 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [
-  {
-   "id": "6a888b51-6641-4a44-9756-4063c92a6997",
-   "coid": "T2X-20260821-10-SOXS-S",
-   "kind": "stop",
-   "stop": 46.32
-  }
- ],
- "seq_today": 10,
+ "open_orders": [],
+ "seq_today": 11,
  "last_bar_evaluated": {
-  "S1": "09:40 TRIGGER SOXS (46.00 > 45.696) -> FILLED 2@46.01",
-  "S2": "none today"
+  "S1": "trade5 closed 14:00 invalidation-exit +0.65R",
+  "S2": "14:00 consumed by exit wake; 14:30 final checkpoint (SOXS U 48.49 vs 47.0, MUU U 34.76 vs ~31.7 \u2014 both far)"
  },
  "last_error": "",
  "alerts_open": [],
