@@ -100,3 +100,6 @@
 2026-08-24T17:30Z | 13:30 | MIDDAY | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 13:30 in-window: no trigger (SOXS 50.93 < 51.152, stalling under band 2nd hour); MUU 28.17 far | - | calls=1
 2026-08-24T18:00Z | 14:00 | MIDDAY | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 14:00 in-window: no trigger (SOXS 51.02 < 51.27, quiet drift); 14:30 final (U 51.383) | - | calls=1
 2026-08-24T18:30Z | 14:30 | LATE | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 14:30 (final): no trigger (SOXS 50.02 << 51.38, faded off band; MUU 28.62 far); S2 closed, 1 entry today (-0.29R); close-out next | - | calls=1
+2026-08-24T19:30Z | 15:30 | LATE | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | 15:30 S3 boundary (bridged): S3 OFF; broker-verified flat | - | calls=1
+2026-08-24T19:50Z | 15:50 | LATE | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | 15:50 flatten check: positions=[], orders=[] | - | calls=1
+2026-08-24T20:11Z | 16:11 | POST | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | EOD | Session 7 done: 1 trade S1 SOXS -0.29R time-stop (3rd time-stop to beat the close), day -0.77% (not a Z-6 losing day); semis -7.8% 4th straight; sessions_done=7 D=4 g=18.5% (barrier out of reach, playing mechanically); DAY report written | - | calls=3
