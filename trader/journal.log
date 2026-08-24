@@ -99,3 +99,4 @@
 2026-08-24T17:00Z | 13:00 | MIDDAY | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 13:00 in-window: no trigger by 5c (SOXS 50.971 < 51.024); 12:00/12:30 cooldown-blocked (recorded); MUU 28.03 far; bridging 13:30/14:00/14:30 per ops-8 | - | calls=1
 2026-08-24T17:30Z | 13:30 | MIDDAY | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 13:30 in-window: no trigger (SOXS 50.93 < 51.152, stalling under band 2nd hour); MUU 28.17 far | - | calls=1
 2026-08-24T18:00Z | 14:00 | MIDDAY | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 14:00 in-window: no trigger (SOXS 51.02 < 51.27, quiet drift); 14:30 final (U 51.383) | - | calls=1
+2026-08-24T18:30Z | 14:30 | LATE | FLAT | PRESS 1.0 0.08 | 101.41/101.41/101.41 | NOOP | S2 14:30 (final): no trigger (SOXS 50.02 << 51.38, faded off band; MUU 28.62 far); S2 closed, 1 entry today (-0.29R); close-out next | - | calls=1

@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Trade 6 closed 11:43: S1-7 time-stop @50.9701 = -0.29R loss -> cooldown til 12:43; 13:00+ S2 eligible (diff setup; SOXS band 51.02 REACHABLE at px ~51.0)",
+ "mode_reason": "S2 closed 14:30 (0 afternoon triggers; SOXS stalled under band then faded); day: 1 trade -0.29R; close-out 15:30/15:50/16:10 remains",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -12,12 +12,12 @@
  },
  "wake": {
   "n": 49,
-  "utc": "2026-08-24T18:00:40Z",
-  "et": "2026-08-24 14:00",
+  "utc": "2026-08-24T18:30:40Z",
+  "et": "2026-08-24 14:30",
   "phase": "MIDDAY",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-24T18:00:40Z",
+  "last_heartbeat_utc": "2026-08-24T18:30:40Z",
   "last_rules_read_utc": "2026-08-24T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -110,7 +110,8 @@
    "2026-08-24 12:30",
    "2026-08-24 13:00",
    "2026-08-24 13:30",
-   "2026-08-24 14:00"
+   "2026-08-24 14:00",
+   "2026-08-24 14:30"
   ],
   "armed": {
    "S1": {
@@ -245,7 +246,7 @@
  "seq_today": 6,
  "last_bar_evaluated": {
   "S1": "trade6 closed 11:43 time-stop -0.29R",
-  "S2": "14:00 NO-TRIGGER (SOXS 51.02 < U 51.27); final checkpoint 14:30 U 51.383"
+  "S2": "14:30 NO-TRIGGER (SOXS 50.02 << 51.383) \u2014 S2 closed, 1 entry today"
  },
  "last_error": "",
  "alerts_open": [],
