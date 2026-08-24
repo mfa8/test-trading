@@ -1,13 +1,14 @@
 # T2X STATUS
-mode: FLAT (session 6 + WEEK 2 complete; EOD done 16:11 Fri 8/21)
-zone: STANDARD f=1.0 r=8% | PRESS YES (re-check Mon Analyst) | DOWNSHIFT no
-E_broker/E_bid/E_adj: 102.20 / 102.20 / 102.20 | day +2.00% | week +2.2% | HWM: 102.22
-D=5 g=14.37%/session vs glide 145.9 after 6 (far behind; P($200) ~1-2% per manual's own Z-10 math)
-week 2 record: 5 trades 3W-2L +0.64R net; all SOX-pair intraday; native stop never hit; exits all rule-driven
-position: none | armed: nothing (next: Analyst 07:45 ET Mon 8/24, session 7 of 11) | entries reset 0/7 week, 5/14 campaign
-account_mode: IM_FREE (RH limited_margin ••••8334)
-stops: NATIVE(GTC)+SYNTHETIC | data: REALTIME | ext_hours: OK
-wake cadence: analyst cron Mon 11:45Z; boundary one-shots + ops-8 bridge-through; crons backstop
-WEEK 3 (final): Mon 8/24 S3 recheck (SOXS 47.04 vs SMA20 ~47.9, closest); hard-block nights 8/25-8/27; 8/26 NVDA (event shot needs 160 — unreachable); 8/27 NVDA-reaction S1 variant; 8/28 Jackson Hole variant + END_DATE -> 15:50 flatten -> FINAL_REPORT
+mode: FLAT (session 7, WEEK 3 final; Analyst FINAL 07:52; awaiting 09:26 pre-arm)
+zone: STANDARD f=1.0 r=8% | PRESS YES | DOWNSHIFT no
+E_broker/E_bid/E_adj: 102.20 / 102.20 / 102.20 | day 0.0% | HWM: 102.22
+D=5 g=14.37%/session vs glide 145.9 (far behind)
+regime: RISK-OFF gap #3 — MUU -5.4% premkt, SOXS +4.1% (A+), SOXL -4.0%; SOXS is the momentum leg (same shape as last Mon + Fri = both S1 SOXS wins)
+S3: OFF FINAL — carries dead for campaign (trend fail + blocked nights 8/25-27 + END_DATE 8/28); intraday S1/S2 only from here
+TODAY: S1 09:40-10:30 both legs; S2 10:00-14:30; no majors; tonight not blocked (moot)
+position: none | entries 0/3 today, 0/7 week (reset), 5/14 campaign | R_history [+0.26,-0.24,+0.66,-0.69,+0.65]
+account_mode: IM_FREE (RH limited_margin ••••8334) | stops NATIVE(GTC)+SYNTH | data REALTIME
+wake cadence: 09:26 pre-arm bridge; 12:56 midday; 15:26+15:46 close-out; crons + ops-8
+REST OF WEEK: Tue blocked night; Wed NVDA after close (event shot unreachable at E<160), blocked; Thu NVDA-reaction S1 variant (OR 09:30-10:00, trig 10:05-11:30, chase 0.35*atr), blocked night; Fri Jackson Hole variant (OR 10:00-10:30, trig 10:35-12:00, nothing before) + END_DATE -> 15:50 flatten -> CLOSING(EXPIRED) -> FINAL_REPORT
 last error: none | open alerts: none
 to stop me: create trader/HUMAN_STOP (or tell me in chat); after HALTED/DONE disable the routines
