@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "T2X-007 closed 12:06 time-stop -0.03R (scratch); flat, S2 checkpoints 12:30-14:30 live for re-entry (u_abs far above market)",
+ "mode_reason": "Session 8 flat: T2X-007 scratch (-0.03R); all S1/S2 windows closed; awaiting 15:26 close-out wake (already flat, EOD reports only)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T18:00:40Z",
+  "last_heartbeat_utc": "2026-08-25T18:30:40Z",
   "last_rules_read_utc": "2026-08-25T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -115,19 +115,20 @@
    "12:30",
    "13:00",
    "13:30",
-   "14:00"
+   "14:00",
+   "14:30"
   ],
   "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 148828336.5537667,
-    "vol": 5114297,
-    "asof_utc": "2026-08-25T18:00:00Z"
+    "pv": 156082940.2912667,
+    "vol": 5367618,
+    "asof_utc": "2026-08-25T18:30:00Z"
    },
    "SOXS": {
-    "pv": 505743804.9732001,
-    "vol": 10464988,
-    "asof_utc": "2026-08-25T18:00:00Z"
+    "pv": 528680599.9868001,
+    "vol": 10933480,
+    "asof_utc": "2026-08-25T18:30:00Z"
    }
   },
   "or": {
@@ -222,7 +223,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:05 bar: SOXS TRIGGERED (C 48.588); MUU no-trig, disarmed",
-  "S2": "14:00: MUU 28.75 < U 30.5562 no; SOXS 48.87 < U 52.577 no"
+  "S2": "14:30 FINAL: MUU 28.61 < U 30.6404 no; SOXS 48.89 < U 52.6734 no; S2 window closed"
  },
  "last_error": "",
  "alerts_open": [],

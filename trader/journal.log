@@ -117,3 +117,4 @@ W-9 2026-08-25 12:30 ET | wake 52 (bridge) | FLAT | S2 12:30 no both legs (MUU 2
 W-9 2026-08-25 13:00 ET | wake 52 (bridge) | FLAT | S2 13:00 no both legs | next 13:30
 W-9 2026-08-25 13:30 ET | wake 52 (bridge) | FLAT | S2 13:30 no both legs | next 14:00
 W-9 2026-08-25 14:00 ET | wake 52 (bridge) | FLAT | S2 14:00 no both legs | next 14:30 (final S2)
+W-9 2026-08-25 14:30 ET | wake 52 (bridge END) | FLAT | S2 14:30 FINAL no both legs; all entry windows closed | day: 1 entry T2X-007 scratch -0.03R, E 101.29 | next: 15:26 one-shot -> EOD reports
