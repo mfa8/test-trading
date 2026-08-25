@@ -113,3 +113,4 @@ W-9 2026-08-25 11:00 ET | wake 52 (bridge) | T2X-007 hold | 11:00 trail: cancel 
 W-9 2026-08-25 11:30 ET | wake 52 (bridge) | T2X-007 hold | 11:30 trail: cancel 6a8dae1d confirmed -> stop 47.60 GTC (6a8db523) vwap 48.23 | last 48.26 fading toward vwap; time-stop 12:06 if < 49.125
 W-9 2026-08-25 12:00 ET | wake 52 (bridge) | T2X-007 hold | 12:00 trail: cancel 6a8db523 confirmed -> stop 47.62 GTC (6a8dbc30) vwap 48.25 | last 48.645 +0.22R | time-stop check 12:06 (needs >= 49.125)
 W-9 2026-08-25 12:06 ET | wake 52 (bridge) | EXIT T2X-007 | time-stop 120min: +0.01R < +0.5R | cancel stop 6a8dbc30 confirmed -> SELL 2 lim 48.18 FILLED 48.2121 | pnl -$0.12 -0.03R scratch (not a Z-6 loss, no cooldown) | E 101.29 | trailed stop path 46.56->47.37->47.56->47.60->47.62 never hit
+W-9 2026-08-25 12:30 ET | wake 52 (bridge) | FLAT | S2 12:30 no both legs (MUU 29.11<30.27, SOXS 48.22<52.24); MUU vwap backfilled | next 13:00

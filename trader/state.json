@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T16:07:30Z",
+  "last_heartbeat_utc": "2026-08-25T16:30:40Z",
   "last_rules_read_utc": "2026-08-25T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -111,19 +111,20 @@
    "10:30",
    "11:00",
    "11:30",
-   "12:00"
+   "12:00",
+   "12:30"
   ],
   "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 91521142.46293336,
-    "vol": 3136396,
-    "asof_utc": "2026-08-25T14:30:00Z"
+    "pv": 131284332.19286668,
+    "vol": 4505279,
+    "asof_utc": "2026-08-25T16:30:00Z"
    },
    "SOXS": {
-    "pv": 399857633.02766675,
-    "vol": 8286848,
-    "asof_utc": "2026-08-25T16:00:00Z"
+    "pv": 432359616.3352001,
+    "vol": 8959336,
+    "asof_utc": "2026-08-25T16:30:00Z"
    }
   },
   "or": {
@@ -218,7 +219,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:05 bar: SOXS TRIGGERED (C 48.588); MUU no-trig, disarmed",
-  "S2": "12:06 time-stop exit done; next checkpoint 12:30"
+  "S2": "12:30: MUU 29.11 < U 30.2719 no; SOXS 48.22 < U 52.2421 no (both unreachable)"
  },
  "last_error": "",
  "alerts_open": [],
