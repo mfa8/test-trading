@@ -111,3 +111,4 @@ W-9 2026-08-25 10:06 ET | wake 52 (bridge) | ENTRY T2X-007 | S1 SOXS 10:05 bar C
 W-9 2026-08-25 10:30 ET | wake 52 (bridge) | T2X-007 hold 2 SOXS @48.2699 | 10:30 trail: cancel 6a8da165 confirmed -> new stop 47.37 GTC (6a8da717) vwap 48.00 | last 49.245 +0.53R | S1 window closed: MUU disarmed, no 2nd-leg trig
 W-9 2026-08-25 11:00 ET | wake 52 (bridge) | T2X-007 hold | 11:00 trail: cancel 6a8da717 confirmed -> stop 47.56 GTC (6a8dae1d) vwap 48.19 | last 48.685 +0.24R
 W-9 2026-08-25 11:30 ET | wake 52 (bridge) | T2X-007 hold | 11:30 trail: cancel 6a8dae1d confirmed -> stop 47.60 GTC (6a8db523) vwap 48.23 | last 48.26 fading toward vwap; time-stop 12:06 if < 49.125
+W-9 2026-08-25 12:00 ET | wake 52 (bridge) | T2X-007 hold | 12:00 trail: cancel 6a8db523 confirmed -> stop 47.62 GTC (6a8dbc30) vwap 48.25 | last 48.645 +0.22R | time-stop check 12:06 (needs >= 49.125)
