@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 8 flat: T2X-007 scratch (-0.03R); all S1/S2 windows closed; awaiting 15:26 close-out wake (already flat, EOD reports only)",
+ "mode_reason": "Session 8 EOD done: T2X-007 scratch -0.03R, E 101.29; night hard-blocked (flat anyway); next Analyst 07:45 Wed 8/26 (NVDA after close)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 52,
-  "utc": "2026-08-25T13:35:30Z",
-  "et": "2026-08-25 09:35",
-  "phase": "ARM",
+  "n": 53,
+  "utc": "2026-08-25T20:10:00Z",
+  "et": "2026-08-25 16:10",
+  "phase": "EOD",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T18:30:40Z",
+  "last_heartbeat_utc": "2026-08-25T20:10:00Z",
   "last_rules_read_utc": "2026-08-25T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": true,
+   "is_open": false,
    "next_open": "2026-08-26T13:30:00Z",
-   "next_close": "2026-08-25T20:00:00Z",
-   "fetched_utc": "2026-08-25T13:35:00Z"
+   "next_close": "2026-08-26T20:00:00Z",
+   "fetched_utc": "2026-08-25T20:09:00Z"
   }
  },
  "campaign": {
@@ -32,9 +32,9 @@
   "equity_hwm": 102.22,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
-  "D": 4,
-  "g": 0.185,
-  "sessions_done": 7,
+  "D": 3,
+  "g": 0.255,
+  "sessions_done": 8,
   "milestone_150": false,
   "floor": null,
   "entries_total": 7,
@@ -148,7 +148,7 @@
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
