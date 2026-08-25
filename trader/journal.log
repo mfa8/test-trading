@@ -116,3 +116,4 @@ W-9 2026-08-25 12:06 ET | wake 52 (bridge) | EXIT T2X-007 | time-stop 120min: +0
 W-9 2026-08-25 12:30 ET | wake 52 (bridge) | FLAT | S2 12:30 no both legs (MUU 29.11<30.27, SOXS 48.22<52.24); MUU vwap backfilled | next 13:00
 W-9 2026-08-25 13:00 ET | wake 52 (bridge) | FLAT | S2 13:00 no both legs | next 13:30
 W-9 2026-08-25 13:30 ET | wake 52 (bridge) | FLAT | S2 13:30 no both legs | next 14:00
+W-9 2026-08-25 14:00 ET | wake 52 (bridge) | FLAT | S2 14:00 no both legs | next 14:30 (final S2)
