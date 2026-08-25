@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "IN_POSITION",
- "mode_reason": "T2X-007: S1 SOXS long 2 @ 48.2699, stop 46.56 GTC (6a8da165), triggered 10:05 bar",
+ "mode": "FLAT",
+ "mode_reason": "T2X-007 closed 12:06 time-stop -0.03R (scratch); flat, S2 checkpoints 12:30-14:30 live for re-entry (u_abs far above market)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T16:01:00Z",
+  "last_heartbeat_utc": "2026-08-25T16:07:30Z",
   "last_rules_read_utc": "2026-08-25T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -51,7 +51,8 @@
    0.66,
    -0.69,
    0.65,
-   -0.29
+   -0.29,
+   -0.03
   ],
   "losing_days_streak": 0,
   "downshift": false,
@@ -66,17 +67,17 @@
   "mode": "IM_FREE",
   "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
   "whole_share": true,
-  "equity": 101.41,
-  "e_bid": 101.41,
-  "e_adj": 101.41,
+  "equity": 101.29,
+  "e_bid": 101.29,
+  "e_adj": 101.29,
   "sod_equity": 101.41,
-  "cash": 101.41,
-  "settled_cash": 101.41,
+  "cash": 101.29,
+  "settled_cash": 101.29,
   "unsettled": [],
-  "buying_power": 101.41,
+  "buying_power": 101.29,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-25T13:28:30Z"
+  "fetched_utc": "2026-08-25T16:07:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -101,7 +102,7 @@
    }
   },
   "losses": 0,
-  "pnl_pct": 0.0,
+  "pnl_pct": -0.11,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
@@ -201,29 +202,7 @@
    }
   }
  },
- "position": {
-  "coid": "T2X-20260825-01-SOXS",
-  "trade_id": "T2X-007",
-  "sym": "SOXS",
-  "setup": "S1",
-  "qty": 2,
-  "entry_px": 48.2699,
-  "entry_time_et": "10:05",
-  "entry_utc": "2026-08-25T14:05:54Z",
-  "limit_px": 48.62,
-  "stop": 47.62,
-  "stop_order_id": "6a8dbc30-7fc4-4b55-8400-b4b5849645fb",
-  "d_pct": 4.231,
-  "r_usd": 3.4198,
-  "r_per_share": 1.7099,
-  "plus2r_level": 51.6897,
-  "plus2r_done": false,
-  "be_stop": 49.1249,
-  "time_stop_et": "12:06",
-  "invalid_count": 0,
-  "atr": 0.0864,
-  "entry_order_id": "6a8da142-25aa-462f-84e0-b126cb663b03"
- },
+ "position": null,
  "pending": {
   "coid": "",
   "kind": "",
@@ -235,19 +214,11 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [
-  {
-   "id": "6a8dbc30-7fc4-4b55-8400-b4b5849645fb",
-   "kind": "stop",
-   "sym": "SOXS",
-   "qty": 2,
-   "stop": 47.62
-  }
- ],
+ "open_orders": [],
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:05 bar: SOXS TRIGGERED (C 48.588); MUU no-trig, disarmed",
-  "S2": "12:00: trail 47.60->47.62; C 48.64; 12:06 time-stop check next"
+  "S2": "12:06 time-stop exit done; next checkpoint 12:30"
  },
  "last_error": "",
  "alerts_open": [],
