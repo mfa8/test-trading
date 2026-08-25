@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T17:00:40Z",
+  "last_heartbeat_utc": "2026-08-25T17:30:40Z",
   "last_rules_read_utc": "2026-08-25T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -113,19 +113,20 @@
    "11:30",
    "12:00",
    "12:30",
-   "13:00"
+   "13:00",
+   "13:30"
   ],
   "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 137986907.66090003,
-    "vol": 4737610,
-    "asof_utc": "2026-08-25T17:00:00Z"
+    "pv": 144608609.68800002,
+    "vol": 4967736,
+    "asof_utc": "2026-08-25T17:30:00Z"
    },
    "SOXS": {
-    "pv": 458138404.54883343,
-    "vol": 9490446,
-    "asof_utc": "2026-08-25T17:00:00Z"
+    "pv": 487656315.5777001,
+    "vol": 10094553,
+    "asof_utc": "2026-08-25T17:30:00Z"
    }
   },
   "or": {
@@ -220,7 +221,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:05 bar: SOXS TRIGGERED (C 48.588); MUU no-trig, disarmed",
-  "S2": "13:00: MUU 28.80 < U 30.3735 no; SOXS 48.6213 < U 52.3588 no"
+  "S2": "13:30: MUU 28.79 < U 30.4692 no; SOXS 48.9187 < U 52.4704 no"
  },
  "last_error": "",
  "alerts_open": [],
