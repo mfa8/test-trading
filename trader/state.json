@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-26T16:30:40Z",
+  "last_heartbeat_utc": "2026-08-26T17:00:40Z",
   "last_rules_read_utc": "2026-08-26T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -113,7 +113,8 @@
    "11:00",
    "11:30",
    "12:00",
-   "12:30"
+   "12:30",
+   "13:00"
   ],
   "armed": {},
   "vwap_acc": {
@@ -220,7 +221,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:15 bar: SOXS TRIGGERED (C 49.045); MUU no-trig, disarmed",
-  "S2": "12:30: MUU 29.60 < U 30.4567 no; SOXS 48.835 < U 50.4479 no; cooldown ends 12:41"
+  "S2": "13:00: MUU 29.645 < U 30.5533 no; SOXS 48.755 < U 50.5702 no"
  },
  "last_error": "",
  "alerts_open": [],
