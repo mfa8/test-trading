@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "T2X-008 closed 11:40 invalidation -0.52R; cooldown until 12:41 (next entry diff setup or inverse leg); S2 checkpoints live",
+ "mode_reason": "Session 9 flat: T2X-008 loss -0.52R; all entry windows closed; awaiting 15:26 close-out wake (flat, EOD reports only); NVDA after close",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-26T18:00:40Z",
+  "last_heartbeat_utc": "2026-08-26T18:30:40Z",
   "last_rules_read_utc": "2026-08-26T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -116,7 +116,8 @@
    "12:30",
    "13:00",
    "13:30",
-   "14:00"
+   "14:00",
+   "14:30"
   ],
   "armed": {},
   "vwap_acc": {
@@ -223,7 +224,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:15 bar: SOXS TRIGGERED (C 49.045); MUU no-trig, disarmed",
-  "S2": "14:00: MUU 29.84 < U 30.7259 no; SOXS 48.32 < U 50.7856 no"
+  "S2": "14:30 FINAL: MUU 29.65 < U 30.8049 no; SOXS 48.39 < U 50.8835 no; S2 window closed"
  },
  "last_error": "",
  "alerts_open": [],
