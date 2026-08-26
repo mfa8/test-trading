@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "FLAT",
- "mode_reason": "Session 9: S1 armed 09:35 both legs; trigger window 09:40-10:30",
+ "mode": "IN_POSITION",
+ "mode_reason": "T2X-008: S1 SOXS long 2 @ 49.14, stop 47.81 GTC (6a8ef529), triggered 10:15 bar",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-26T14:00:40Z",
+  "last_heartbeat_utc": "2026-08-26T14:16:30Z",
   "last_rules_read_utc": "2026-08-26T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -37,8 +37,8 @@
   "sessions_done": 8,
   "milestone_150": false,
   "floor": null,
-  "entries_total": 7,
-  "entries_week": 2,
+  "entries_total": 8,
+  "entries_week": 3,
   "week_start": "2026-08-24",
   "week_sod_equity": 102.2,
   "net_external": 0,
@@ -95,8 +95,12 @@
  },
  "today": {
   "date": "2026-08-26",
-  "entries": 0,
-  "attempts": {},
+  "entries": 1,
+  "attempts": {
+   "SOXS": {
+    "S1": 1
+   }
+  },
   "losses": 0,
   "pnl_pct": 0.0,
   "day_halt": false,
@@ -105,40 +109,17 @@
   "done_checkpoints": [
    "10:00"
   ],
-  "armed": {
-   "MUU": {
-    "setup": "S1",
-    "orh": 29.565,
-    "orl": 28.72,
-    "ref": 28.72,
-    "ref_kind": "ORL",
-    "open": 28.86,
-    "trigger": 29.5946,
-    "chase_cap": 30.4556,
-    "armed_at": "09:35"
-   },
-   "SOXS": {
-    "setup": "S1",
-    "orh": 48.9903,
-    "orl": 48.12,
-    "ref": 48.12,
-    "ref_kind": "ORL",
-    "open": 48.95,
-    "trigger": 49.0393,
-    "chase_cap": 50.0938,
-    "armed_at": "09:35"
-   }
-  },
+  "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 50604849.74080001,
-    "vol": 1719308,
-    "asof_utc": "2026-08-26T14:00:00Z"
+    "pv": 64025490.99113334,
+    "vol": 2176383,
+    "asof_utc": "2026-08-26T14:15:00Z"
    },
    "SOXS": {
-    "pv": 109940409.77223334,
-    "vol": 2270829,
-    "asof_utc": "2026-08-26T14:00:00Z"
+    "pv": 154486856.4123333,
+    "vol": 3184861,
+    "asof_utc": "2026-08-26T14:15:00Z"
    }
   },
   "or": {
@@ -217,7 +198,29 @@
    }
   }
  },
- "position": null,
+ "position": {
+  "coid": "T2X-20260826-01-SOXS",
+  "trade_id": "T2X-008",
+  "sym": "SOXS",
+  "setup": "S1",
+  "qty": 2,
+  "entry_px": 49.14,
+  "entry_time_et": "10:15",
+  "entry_utc": "2026-08-26T14:15:45Z",
+  "limit_px": 49.14,
+  "stop": 47.81,
+  "stop_order_id": "6a8ef529-735b-4e68-b198-498f1f5f79c3",
+  "d_pct": 2.703,
+  "r_usd": 2.66,
+  "r_per_share": 1.33,
+  "plus2r_level": 51.8,
+  "plus2r_done": false,
+  "be_stop": 49.805,
+  "time_stop_et": "12:16",
+  "invalid_count": 0,
+  "atr": 0.0901,
+  "entry_order_id": "6a8ef50f-110f-4ddc-8061-bab8447b6ec2"
+ },
  "pending": {
   "coid": "",
   "kind": "",
@@ -229,11 +232,19 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [],
- "seq_today": 0,
+ "open_orders": [
+  {
+   "id": "6a8ef529-735b-4e68-b198-498f1f5f79c3",
+   "kind": "stop",
+   "sym": "SOXS",
+   "qty": 2,
+   "stop": 47.81
+  }
+ ],
+ "seq_today": 1,
  "last_bar_evaluated": {
-  "S1": "10:00 bar: MUU C 29.53 no-trig; SOXS C 48.20 no-trig",
-  "S2": "10:00: MUU 29.53 < U 29.7486 no; SOXS 48.20 < U 49.5619 no"
+  "S1": "10:15 bar: SOXS TRIGGERED (C 49.045); MUU no-trig, disarmed",
+  "S2": "10:00 done; in position"
  },
  "last_error": "",
  "alerts_open": [],
