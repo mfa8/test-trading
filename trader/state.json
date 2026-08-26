@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-26T13:35:30Z",
+  "last_heartbeat_utc": "2026-08-26T14:00:40Z",
   "last_rules_read_utc": "2026-08-26T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -102,7 +102,9 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [],
+  "done_checkpoints": [
+   "10:00"
+  ],
   "armed": {
    "MUU": {
     "setup": "S1",
@@ -129,14 +131,14 @@
   },
   "vwap_acc": {
    "MUU": {
-    "pv": 11997286.4,
-    "vol": 410556,
-    "asof_utc": "2026-08-26T13:35:00Z"
+    "pv": 50604849.74080001,
+    "vol": 1719308,
+    "asof_utc": "2026-08-26T14:00:00Z"
    },
    "SOXS": {
-    "pv": 25026790.1,
-    "vol": 516501,
-    "asof_utc": "2026-08-26T13:35:00Z"
+    "pv": 109940409.77223334,
+    "vol": 2270829,
+    "asof_utc": "2026-08-26T14:00:00Z"
    }
   },
   "or": {
@@ -230,8 +232,8 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "armed 09:35; first eval 09:40",
-  "S2": "none today"
+  "S1": "10:00 bar: MUU C 29.53 no-trig; SOXS C 48.20 no-trig",
+  "S2": "10:00: MUU 29.53 < U 29.7486 no; SOXS 48.20 < U 49.5619 no"
  },
  "last_error": "",
  "alerts_open": [],
