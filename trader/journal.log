@@ -128,3 +128,4 @@ W-9 2026-08-26 10:30 ET | wake 55 (bridge) | T2X-008 hold 2 SOXS @49.14 | 10:30 
 W-9 2026-08-26 11:00 ET | wake 55 (bridge) | T2X-008 hold | 11:00 trail: cancel 6a8ef88e confirmed -> stop 48.14 GTC (6a8eff96) vwap 48.81 | last 48.875 -0.20R | invalid reset 0 after 1
 W-9 2026-08-26 11:41 ET | wake 55 (bridge) | EXIT T2X-008 | S1-7 invalidation (3 closes < vwap 11:30/35/40, -0.50R < +1R) | cancel stop 6a8eff96 confirmed -> SELL 2 lim 48.39 FILLED 48.4515 | pnl -$1.38 -0.52R LOSS #1 -> cooldown until 12:41, next diff setup/inverse leg | E 99.91 | stop path 47.81->48.08->48.14 never hit
 W-9 2026-08-26 12:00 ET | wake 55 (bridge) | FLAT (cooldown) | S2 12:00 no both legs (MUU 29.68<30.35, SOXS 48.70<50.32)
+W-9 2026-08-26 12:30 ET | wake 55 (bridge) | FLAT | S2 12:30 no both legs
