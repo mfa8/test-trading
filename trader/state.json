@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 8 EOD done: T2X-007 scratch -0.03R, E 101.29; night hard-blocked (flat anyway); next Analyst 07:45 Wed 8/26 (NVDA after close)",
+ "mode_reason": "Session 9 (2026-08-26): Analyst FINAL 07:52; PRESS ON; pre-NVDA coil (no A+ gap); S3 OFF (NVDA night hard-blocked)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 53,
-  "utc": "2026-08-25T20:10:00Z",
-  "et": "2026-08-25 16:10",
-  "phase": "EOD",
+  "n": 54,
+  "utc": "2026-08-26T11:52:00Z",
+  "et": "2026-08-26 07:52",
+  "phase": "ANALYST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-25T20:10:00Z",
-  "last_rules_read_utc": "2026-08-25T11:46:00Z",
+  "last_heartbeat_utc": "2026-08-26T11:52:00Z",
+  "last_rules_read_utc": "2026-08-26T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
    "is_open": false,
    "next_open": "2026-08-26T13:30:00Z",
    "next_close": "2026-08-26T20:00:00Z",
-   "fetched_utc": "2026-08-25T20:09:00Z"
+   "fetched_utc": "2026-08-26T11:46:00Z"
   }
  },
  "campaign": {
@@ -70,14 +70,14 @@
   "equity": 101.29,
   "e_bid": 101.29,
   "e_adj": 101.29,
-  "sod_equity": 101.41,
+  "sod_equity": 101.29,
   "cash": 101.29,
   "settled_cash": 101.29,
   "unsettled": [],
   "buying_power": 101.29,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-25T16:07:00Z"
+  "fetched_utc": "2026-08-26T11:46:30Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -94,61 +94,23 @@
   }
  },
  "today": {
-  "date": "2026-08-25",
-  "entries": 1,
-  "attempts": {
-   "SOXS": {
-    "S1": 1
-   }
-  },
+  "date": "2026-08-26",
+  "entries": 0,
+  "attempts": {},
   "losses": 0,
-  "pnl_pct": -0.11,
+  "pnl_pct": 0.0,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [
-   "10:00",
-   "10:30",
-   "11:00",
-   "11:30",
-   "12:00",
-   "12:30",
-   "13:00",
-   "13:30",
-   "14:00",
-   "14:30"
-  ],
+  "done_checkpoints": [],
   "armed": {},
-  "vwap_acc": {
-   "MUU": {
-    "pv": 156082940.2912667,
-    "vol": 5367618,
-    "asof_utc": "2026-08-25T18:30:00Z"
-   },
-   "SOXS": {
-    "pv": 528680599.9868001,
-    "vol": 10933480,
-    "asof_utc": "2026-08-25T18:30:00Z"
-   }
-  },
-  "or": {
-   "MUU": {
-    "orh": 30.1,
-    "orl": 28.81
-   },
-   "SOXS": {
-    "orh": 48.4495,
-    "orl": 46.66
-   }
-  },
-  "open_px": {
-   "MUU": 29.01,
-   "SOXS": 47.815
-  },
+  "vwap_acc": {},
+  "or": {},
+  "open_px": {},
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": true,
+  "eod_done": false,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
@@ -156,54 +118,28 @@
   "hard_block_tonight": true,
   "u_mult": {
    "MUU": {
-    "10:00": 1.0178,
-    "10:30": 1.0251,
-    "11:00": 1.0308,
-    "11:30": 1.0356,
-    "12:00": 1.0397,
-    "12:30": 1.0435,
-    "13:00": 1.047,
-    "13:30": 1.0503,
-    "14:00": 1.0533,
-    "14:30": 1.0562
+    "10:00": 1.0167,
+    "10:30": 1.0236,
+    "11:00": 1.0289,
+    "11:30": 1.0334,
+    "12:00": 1.0374,
+    "12:30": 1.0409,
+    "13:00": 1.0442,
+    "13:30": 1.0473,
+    "14:00": 1.0501,
+    "14:30": 1.0528
    },
    "SOXS": {
-    "10:00": 1.012,
-    "10:30": 1.0169,
-    "11:00": 1.0208,
-    "11:30": 1.024,
-    "12:00": 1.0268,
-    "12:30": 1.0294,
-    "13:00": 1.0317,
-    "13:30": 1.0339,
-    "14:00": 1.036,
-    "14:30": 1.0379
-   }
-  },
-  "u_abs": {
-   "MUU": {
-    "10:00": 29.5264,
-    "10:30": 29.7382,
-    "11:00": 29.9035,
-    "11:30": 30.0428,
-    "12:00": 30.1617,
-    "12:30": 30.2719,
-    "13:00": 30.3735,
-    "13:30": 30.4692,
-    "14:00": 30.5562,
-    "14:30": 30.6404
-   },
-   "SOXS": {
-    "10:00": 51.359,
-    "10:30": 51.6077,
-    "11:00": 51.8056,
-    "11:30": 51.968,
-    "12:00": 52.1101,
-    "12:30": 52.2421,
-    "13:00": 52.3588,
-    "13:30": 52.4704,
-    "14:00": 52.577,
-    "14:30": 52.6734
+    "10:00": 1.0125,
+    "10:30": 1.0177,
+    "11:00": 1.0216,
+    "11:30": 1.025,
+    "12:00": 1.0279,
+    "12:30": 1.0306,
+    "13:00": 1.0331,
+    "13:30": 1.0353,
+    "14:00": 1.0375,
+    "14:30": 1.0395
    }
   }
  },
@@ -220,52 +156,52 @@
  },
  "stop_reject_streak": 0,
  "open_orders": [],
- "seq_today": 1,
+ "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "10:05 bar: SOXS TRIGGERED (C 48.588); MUU no-trig, disarmed",
-  "S2": "14:30 FINAL: MUU 28.61 < U 30.6404 no; SOXS 48.89 < U 52.6734 no; S2 window closed"
+  "S1": "not armed yet (arm 09:36)",
+  "S2": "none today"
  },
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
  "analyst": {
   "MUU": {
-   "PC": 27.91,
-   "SMA5": 30.3,
-   "SMA20": 27.88,
+   "PC": 29.26,
+   "SMA5": 30.13,
+   "SMA20": 28.12,
    "trend": "UP",
-   "ATR14pct": 12.82
+   "ATR14pct": 12.05
   },
   "SOXS": {
-   "PC": 50.75,
-   "SMA5": 47.05,
-   "SMA20": 47.79,
+   "PC": 48.42,
+   "SMA5": 47.9,
+   "SMA20": 47.07,
    "trend": "UP",
-   "ATR14pct": 8.64
+   "ATR14pct": 9.01
   },
   "SOXL": {
-   "PC": 111.16,
-   "SMA20": 127.15,
+   "PC": 115.67,
+   "SMA20": 127.46,
    "trend": "DOWN",
-   "ATR14pct": 12.25
+   "ATR14pct": 11.42
   },
   "TQQQ": {
-   "PC": 69.01,
-   "SMA20": 70.82,
+   "PC": 70.27,
+   "SMA20": 71.26,
    "trend": "DOWN",
-   "ATR14pct": 3.84
+   "ATR14pct": 3.64
   },
   "SQQQ": {
-   "PC": 40.19,
-   "SMA20": 39.73,
+   "PC": 39.46,
+   "SMA20": 39.38,
    "trend": "UP",
-   "ATR14pct": 3.38
+   "ATR14pct": 3.36
   },
   "premkt_0746": {
-   "MUU": 29.23,
-   "SOXS": 47.43,
-   "SOXL": 118.12,
-   "TQQQ": 70.89
+   "MUU": 28.87,
+   "SOXS": 48.89,
+   "SOXL": 114.91,
+   "TQQQ": 69.74
   }
  },
  "capabilities_note": "FRACTIONAL_STOPS n/a; WHOLE-SHARE GTC stop_market ACCEPTED (probe passed 10:02 ET 8/17)"
