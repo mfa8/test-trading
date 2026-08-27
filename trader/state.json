@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 10 flat: NO TRADE (variant + S2 all no-trig on gap-fade day); awaiting 15:26 close-out wake (EOD reports only)",
+ "mode_reason": "Session 10 EOD done: NO TRADE, E 99.91 unchanged; TOMORROW = END_DATE (Jackson Hole variant; 15:50 CLOSING(EXPIRED) -> FINAL_REPORT)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 58,
-  "utc": "2026-08-27T14:01:00Z",
-  "et": "2026-08-27 10:01",
-  "phase": "ARM",
+  "n": 59,
+  "utc": "2026-08-27T20:09:00Z",
+  "et": "2026-08-27 16:09",
+  "phase": "EOD",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T18:30:40Z",
+  "last_heartbeat_utc": "2026-08-27T20:09:00Z",
   "last_rules_read_utc": "2026-08-27T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": true,
+   "is_open": false,
    "next_open": "2026-08-28T13:30:00Z",
-   "next_close": "2026-08-27T20:00:00Z",
-   "fetched_utc": "2026-08-27T14:00:00Z"
+   "next_close": "2026-08-28T20:00:00Z",
+   "fetched_utc": "2026-08-27T20:08:00Z"
   }
  },
  "campaign": {
@@ -32,9 +32,9 @@
   "equity_hwm": 102.22,
   "kill": 50.0,
   "END_DATE": "2026-08-28",
-  "D": 2,
-  "g": 0.415,
-  "sessions_done": 9,
+  "D": 1,
+  "g": 1.002,
+  "sessions_done": 10,
   "milestone_150": false,
   "floor": null,
   "entries_total": 8,
@@ -55,7 +55,7 @@
    -0.03,
    -0.52
   ],
-  "losing_days_streak": 1,
+  "losing_days_streak": 0,
   "downshift": false,
   "press": true,
   "no_overnight_rest": false,
@@ -145,7 +145,7 @@
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": false,
+  "eod_done": true,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
