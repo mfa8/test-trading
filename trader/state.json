@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T17:30:40Z",
+  "last_heartbeat_utc": "2026-08-27T18:00:40Z",
   "last_rules_read_utc": "2026-08-27T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -111,7 +111,8 @@
    "12:00",
    "12:30",
    "13:00",
-   "13:30"
+   "13:30",
+   "14:00"
   ],
   "armed": {},
   "vwap_acc": {
@@ -222,7 +223,7 @@
  "seq_today": 0,
  "last_bar_evaluated": {
   "S1": "variant window CLOSED 11:30 \u2014 no trigger all window (MUU 28.2-29.3 vs 31.55; SOXS 45.7-47.2 vs 47.76)",
-  "S2": "13:30: MUU 28.08 < U 32.80 no; SOXS 46.125 < U 49.67 no"
+  "S2": "14:00: MUU 28.07 < U 32.87 no; SOXS 46.415 < U 49.77 no"
  },
  "last_error": "",
  "alerts_open": [],
