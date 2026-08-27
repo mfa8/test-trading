@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 10 (2026-08-27): Analyst FINAL 07:52; NVDA-beat gap-up (MUU +8.1% A+); NVDA-REACTION S1 variant (OR 09:30-10:00, trig 10:05-11:30)",
+ "mode_reason": "Session 10: variant armed 10:01 both legs (both wide-OR ref=MID); triggers 10:05-11:30; gap-fade in progress (MUU -8% off open)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 57,
-  "utc": "2026-08-27T11:52:00Z",
-  "et": "2026-08-27 07:52",
-  "phase": "ANALYST",
+  "n": 58,
+  "utc": "2026-08-27T14:01:00Z",
+  "et": "2026-08-27 10:01",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-27T14:01:00Z",
   "last_rules_read_utc": "2026-08-27T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
-   "next_open": "2026-08-27T13:30:00Z",
+   "is_open": true,
+   "next_open": "2026-08-28T13:30:00Z",
    "next_close": "2026-08-27T20:00:00Z",
-   "fetched_utc": "2026-08-27T11:46:00Z"
+   "fetched_utc": "2026-08-27T14:00:00Z"
   }
  },
  "campaign": {
@@ -103,11 +103,59 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [],
-  "armed": {},
-  "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "done_checkpoints": [
+   "10:00"
+  ],
+  "armed": {
+   "MUU": {
+    "setup": "S1V",
+    "orh": 31.515,
+    "orl": 28.415,
+    "ref": 29.965,
+    "ref_kind": "MID",
+    "open": 31.425,
+    "trigger": 31.5465,
+    "chase_cap": 32.7276,
+    "armed_at": "10:01"
+   },
+   "SOXS": {
+    "setup": "S1V",
+    "orh": 47.71,
+    "orl": 44.71,
+    "ref": 46.21,
+    "ref_kind": "MID",
+    "open": 45.33,
+    "trigger": 47.7577,
+    "chase_cap": 49.1095,
+    "armed_at": "10:01"
+   }
+  },
+  "vwap_acc": {
+   "MUU": {
+    "pv": 126466387.7,
+    "vol": 4257575,
+    "asof_utc": "2026-08-27T14:00:00Z"
+   },
+   "SOXS": {
+    "pv": 192467060.3,
+    "vol": 4176388,
+    "asof_utc": "2026-08-27T14:00:00Z"
+   }
+  },
+  "or": {
+   "MUU": {
+    "orh": 31.515,
+    "orl": 28.415
+   },
+   "SOXS": {
+    "orh": 47.71,
+    "orl": 44.71
+   }
+  },
+  "open_px": {
+   "MUU": 31.425,
+   "SOXS": 45.33
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -146,6 +194,32 @@
     "14:00": 1.0349,
     "14:30": 1.0367
    }
+  },
+  "u_abs": {
+   "MUU": {
+    "10:00": 31.9027,
+    "10:30": 32.1038,
+    "11:00": 32.2546,
+    "11:30": 32.3835,
+    "12:00": 32.4966,
+    "12:30": 32.5972,
+    "13:00": 32.6914,
+    "13:30": 32.7794,
+    "14:00": 32.8611,
+    "14:30": 32.9397
+   },
+   "SOXS": {
+    "10:00": 48.6478,
+    "10:30": 48.8787,
+    "11:00": 49.0566,
+    "11:30": 49.2057,
+    "12:00": 49.3403,
+    "12:30": 49.4606,
+    "13:00": 49.5664,
+    "13:30": 49.6722,
+    "14:00": 49.7683,
+    "14:30": 49.8549
+   }
   }
  },
  "position": null,
@@ -163,8 +237,8 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "variant: OR 09:30-10:00, arm ~10:01, first eval 10:05",
-  "S2": "none today"
+  "S1": "variant armed 10:01; first eval 10:05",
+  "S2": "10:00: MUU 28.84 < U 31.90 no; SOXS 47.20 < U 48.65 no"
  },
  "last_error": "",
  "alerts_open": [],
