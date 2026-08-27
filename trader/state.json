@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 10: variant armed 10:01 both legs (both wide-OR ref=MID); triggers 10:05-11:30; gap-fade in progress (MUU -8% off open)",
+ "mode_reason": "Session 10: S1 variant window closed 11:30 NO TRADE (gap-fade, neither leg reclaimed ORH); S2 checkpoints only until 14:30 (U levels 6-13% away)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T14:30:40Z",
+  "last_heartbeat_utc": "2026-08-27T15:30:40Z",
   "last_rules_read_utc": "2026-08-27T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -105,32 +105,11 @@
   "stopped_symbols": [],
   "done_checkpoints": [
    "10:00",
-   "10:30"
+   "10:30",
+   "11:00",
+   "11:30"
   ],
-  "armed": {
-   "MUU": {
-    "setup": "S1V",
-    "orh": 31.515,
-    "orl": 28.415,
-    "ref": 29.965,
-    "ref_kind": "MID",
-    "open": 31.425,
-    "trigger": 31.5465,
-    "chase_cap": 32.7276,
-    "armed_at": "10:01"
-   },
-   "SOXS": {
-    "setup": "S1V",
-    "orh": 47.71,
-    "orl": 44.71,
-    "ref": 46.21,
-    "ref_kind": "MID",
-    "open": 45.33,
-    "trigger": 47.7577,
-    "chase_cap": 49.1095,
-    "armed_at": "10:01"
-   }
-  },
+  "armed": {},
   "vwap_acc": {
    "MUU": {
     "pv": 167169517.4615667,
@@ -238,8 +217,8 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "10:30 bar: MUU C 29.07 no; SOXS C 45.71 no",
-  "S2": "10:30: MUU 29.07 < U 32.10 no; SOXS 45.71 < U 48.88 no"
+  "S1": "variant window CLOSED 11:30 \u2014 no trigger all window (MUU 28.2-29.3 vs 31.55; SOXS 45.7-47.2 vs 47.76)",
+  "S2": "11:30: MUU 28.26 < U 32.38 no; SOXS 46.33 < U 49.21 no"
  },
  "last_error": "",
  "alerts_open": [],
