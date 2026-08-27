@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 10: S1 variant window closed 11:30 NO TRADE (gap-fade, neither leg reclaimed ORH); S2 checkpoints only until 14:30 (U levels 6-13% away)",
+ "mode_reason": "Session 10 flat: NO TRADE (variant + S2 all no-trig on gap-fade day); awaiting 15:26 close-out wake (EOD reports only)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T18:00:40Z",
+  "last_heartbeat_utc": "2026-08-27T18:30:40Z",
   "last_rules_read_utc": "2026-08-27T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -112,7 +112,8 @@
    "12:30",
    "13:00",
    "13:30",
-   "14:00"
+   "14:00",
+   "14:30"
   ],
   "armed": {},
   "vwap_acc": {
@@ -223,7 +224,7 @@
  "seq_today": 0,
  "last_bar_evaluated": {
   "S1": "variant window CLOSED 11:30 \u2014 no trigger all window (MUU 28.2-29.3 vs 31.55; SOXS 45.7-47.2 vs 47.76)",
-  "S2": "14:00: MUU 28.07 < U 32.87 no; SOXS 46.415 < U 49.77 no"
+  "S2": "14:30 FINAL: MUU 27.855 < U 32.94 no; SOXS 47.01 < U 49.85 no; S2 window closed"
  },
  "last_error": "",
  "alerts_open": [],
