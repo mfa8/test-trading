@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "IN_POSITION",
- "mode_reason": "T2X-009: JH variant MUU long 1 @ 29.9199, stop 28.67 GTC (6a919ce4), triggered 10:35; HARD FLATTEN 15:50 (END_DATE)",
+ "mode": "FLAT",
+ "mode_reason": "T2X-009 stopped out 11:50 @ 28.7622 (-0.93R, first native stop fill of campaign); cooldown until 12:51; entries end 13:50; EXPIRED sequence at 15:50",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T15:31:00Z",
+  "last_heartbeat_utc": "2026-08-28T15:56:20Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -44,7 +44,9 @@
   "net_external": 0,
   "banned_symbols": [],
   "resting_legs": [],
-  "consec_full_stops": {},
+  "consec_full_stops": {
+   "MUU": 1
+  },
   "R_history": [
    0.26,
    -0.24,
@@ -53,7 +55,8 @@
    0.65,
    -0.29,
    -0.03,
-   -0.52
+   -0.52,
+   -0.93
   ],
   "losing_days_streak": 0,
   "downshift": false,
@@ -68,17 +71,17 @@
   "mode": "IM_FREE",
   "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
   "whole_share": true,
-  "equity": 99.91,
-  "e_bid": 99.91,
-  "e_adj": 99.91,
+  "equity": 98.75,
+  "e_bid": 98.75,
+  "e_adj": 98.75,
   "sod_equity": 99.91,
-  "cash": 99.91,
-  "settled_cash": 99.91,
+  "cash": 98.75,
+  "settled_cash": 98.75,
   "unsettled": [],
-  "buying_power": 99.91,
+  "buying_power": 98.75,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-28T11:46:30Z"
+  "fetched_utc": "2026-08-28T15:56:00Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -102,11 +105,13 @@
     "S1V": 1
    }
   },
-  "losses": 0,
-  "pnl_pct": 0.0,
+  "losses": 1,
+  "pnl_pct": -1.16,
   "day_halt": false,
-  "cooldown_until_et": null,
-  "stopped_symbols": [],
+  "cooldown_until_et": "12:51",
+  "stopped_symbols": [
+   "MUU"
+  ],
   "done_checkpoints": [
    "11:00",
    "11:30"
@@ -114,9 +119,9 @@
   "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 183356844.46553332,
-    "vol": 6268389,
-    "asof_utc": "2026-08-28T15:30:00Z"
+    "pv": 193643407.56619996,
+    "vol": 6620673,
+    "asof_utc": "2026-08-28T15:50:00Z"
    },
    "SOXS": {
     "pv": 240955490.49123332,
@@ -198,29 +203,7 @@
    }
   }
  },
- "position": {
-  "coid": "T2X-20260828-01-MUU",
-  "trade_id": "T2X-009",
-  "sym": "MUU",
-  "setup": "S1V",
-  "qty": 1,
-  "entry_px": 29.9199,
-  "entry_time_et": "10:35",
-  "entry_utc": "2026-08-28T14:35:52Z",
-  "limit_px": 30.12,
-  "stop": 28.76,
-  "stop_order_id": "6a91a99f-c5f9-498b-b759-bf72b95a245a",
-  "d_pct": 4.782,
-  "r_usd": 1.2499,
-  "r_per_share": 1.2499,
-  "plus2r_level": 32.4197,
-  "plus2r_done": false,
-  "be_stop": 30.5449,
-  "time_stop_et": "12:36",
-  "invalid_count": 0,
-  "atr": 0.1116,
-  "entry_order_id": "6a919cc8-ce81-4b6e-b577-9c2887eb2175"
- },
+ "position": null,
  "pending": {
   "coid": "",
   "kind": "",
@@ -232,19 +215,11 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [
-  {
-   "id": "6a91a99f-c5f9-498b-b759-bf72b95a245a",
-   "kind": "stop",
-   "sym": "MUU",
-   "qty": 1,
-   "stop": 28.76
-  }
- ],
+ "open_orders": [],
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
-  "S2": "11:30: trail 28.72->28.76; C 29.5695; time-stop check 12:36 (+0.5R = 30.545)"
+  "S2": "11:50 stop-out done; next checkpoint 12:00 (cooldown to 12:51)"
  },
  "last_error": "",
  "alerts_open": [],
