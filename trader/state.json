@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T16:00:40Z",
+  "last_heartbeat_utc": "2026-08-28T16:30:40Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -115,7 +115,8 @@
   "done_checkpoints": [
    "11:00",
    "11:30",
-   "12:00"
+   "12:00",
+   "12:30"
   ],
   "armed": {},
   "vwap_acc": {
@@ -220,7 +221,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
-  "S2": "12:00: SOXS 49.58 > U 47.80 BUT cooldown until 12:51 AND C > chase cap (~48.1) \u2014 no entry, both blocks independent; MUU 28.42 < U 30.25 no"
+  "S2": "12:30: SOXS 49.67 > U 47.86 but cooldown + chase fail; MUU 28.42 no"
  },
  "last_error": "",
  "alerts_open": [],
