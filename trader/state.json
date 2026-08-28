@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T14:36:40Z",
+  "last_heartbeat_utc": "2026-08-28T15:01:00Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -107,13 +107,15 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [],
+  "done_checkpoints": [
+   "11:00"
+  ],
   "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 137518574.5729,
-    "vol": 4724470,
-    "asof_utc": "2026-08-28T14:35:00Z"
+    "pv": 168101236.9514,
+    "vol": 5753761,
+    "asof_utc": "2026-08-28T15:00:00Z"
    },
    "SOXS": {
     "pv": 240955490.49123332,
@@ -205,8 +207,8 @@
   "entry_time_et": "10:35",
   "entry_utc": "2026-08-28T14:35:52Z",
   "limit_px": 30.12,
-  "stop": 28.67,
-  "stop_order_id": "6a919ce4-9115-485f-b567-b0df86a99e2b",
+  "stop": 28.72,
+  "stop_order_id": "6a91a29c-e9de-4a72-93c0-3775e41595b5",
   "d_pct": 4.782,
   "r_usd": 1.2499,
   "r_per_share": 1.2499,
@@ -231,17 +233,17 @@
  "stop_reject_streak": 0,
  "open_orders": [
   {
-   "id": "6a919ce4-9115-485f-b567-b0df86a99e2b",
+   "id": "6a91a29c-e9de-4a72-93c0-3775e41595b5",
    "kind": "stop",
    "sym": "MUU",
    "qty": 1,
-   "stop": 28.67
+   "stop": 28.72
   }
  ],
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
-  "S2": "in position"
+  "S2": "11:00: trail 28.67->28.72; last 29.695 -0.18R"
  },
  "last_error": "",
  "alerts_open": [],
