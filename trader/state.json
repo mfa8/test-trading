@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 10 EOD done: NO TRADE, E 99.91 unchanged; TOMORROW = END_DATE (Jackson Hole variant; 15:50 CLOSING(EXPIRED) -> FINAL_REPORT)",
+ "mode_reason": "Session 11 END_DATE (2026-08-28): Analyst FINAL 07:52; Jackson Hole variant (OR 10:00-10:30, trig 10:35-12:00, NOTHING before 10:00); 15:50 CLOSING(EXPIRED) -> FINAL_REPORT",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 59,
-  "utc": "2026-08-27T20:09:00Z",
-  "et": "2026-08-27 16:09",
-  "phase": "EOD",
+  "n": 60,
+  "utc": "2026-08-28T11:52:00Z",
+  "et": "2026-08-28 07:52",
+  "phase": "ANALYST",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-27T20:09:00Z",
-  "last_rules_read_utc": "2026-08-27T11:46:00Z",
+  "last_heartbeat_utc": "2026-08-28T11:52:00Z",
+  "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
    "is_open": false,
    "next_open": "2026-08-28T13:30:00Z",
    "next_close": "2026-08-28T20:00:00Z",
-   "fetched_utc": "2026-08-27T20:08:00Z"
+   "fetched_utc": "2026-08-28T11:46:00Z"
   }
  },
  "campaign": {
@@ -78,7 +78,7 @@
   "buying_power": 99.91,
   "daytrades_5d": [],
   "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-27T11:46:30Z"
+  "fetched_utc": "2026-08-28T11:46:30Z"
  },
  "zone": {
   "name": "STANDARD",
@@ -95,7 +95,7 @@
   }
  },
  "today": {
-  "date": "2026-08-27",
+  "date": "2026-08-28",
   "entries": 0,
   "attempts": {},
   "losses": 0,
@@ -103,108 +103,46 @@
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
-  "done_checkpoints": [
-   "10:00",
-   "10:30",
-   "11:00",
-   "11:30",
-   "12:00",
-   "12:30",
-   "13:00",
-   "13:30",
-   "14:00",
-   "14:30"
-  ],
+  "done_checkpoints": [],
   "armed": {},
-  "vwap_acc": {
-   "MUU": {
-    "pv": 167169517.4615667,
-    "vol": 5660655,
-    "asof_utc": "2026-08-27T14:30:00Z"
-   },
-   "SOXS": {
-    "pv": 268986553.527,
-    "vol": 5826639,
-    "asof_utc": "2026-08-27T14:30:00Z"
-   }
-  },
-  "or": {
-   "MUU": {
-    "orh": 31.515,
-    "orl": 28.415
-   },
-   "SOXS": {
-    "orh": 47.71,
-    "orl": 44.71
-   }
-  },
-  "open_px": {
-   "MUU": 31.425,
-   "SOXS": 45.33
-  },
+  "vwap_acc": {},
+  "or": {},
+  "open_px": {},
   "day_hi": {},
   "day_lo": {},
   "halt": {},
-  "eod_done": true,
+  "eod_done": false,
   "ext_probe_done": true,
   "analyst_status": "FINAL",
   "analyst_final_et": "07:52",
   "tz_selftest": null,
   "hard_block_tonight": true,
-  "variant": "NVDA_REACTION",
-  "or_window": "09:30-10:00",
-  "trigger_window": "10:05-11:30",
-  "chase_mult": 0.35,
+  "variant": "JACKSON_HOLE",
+  "or_window": "10:00-10:30",
+  "trigger_window": "10:35-12:00",
+  "chase_mult": 0.25,
+  "end_date_today": true,
+  "entries_end_et": "13:50",
   "u_mult": {
    "MUU": {
-    "10:00": 1.0152,
-    "10:30": 1.0216,
-    "11:00": 1.0264,
-    "11:30": 1.0305,
-    "12:00": 1.0341,
-    "12:30": 1.0373,
-    "13:00": 1.0403,
-    "13:30": 1.0431,
-    "14:00": 1.0457,
-    "14:30": 1.0482
+    "11:00": 1.0268,
+    "11:30": 1.031,
+    "12:00": 1.0346,
+    "12:30": 1.0379,
+    "13:00": 1.0409,
+    "13:30": 1.0438,
+    "14:00": 1.0464,
+    "14:30": 1.0489
    },
    "SOXS": {
-    "10:00": 1.0116,
-    "10:30": 1.0164,
-    "11:00": 1.0201,
-    "11:30": 1.0232,
-    "12:00": 1.026,
-    "12:30": 1.0285,
-    "13:00": 1.0307,
-    "13:30": 1.0329,
-    "14:00": 1.0349,
-    "14:30": 1.0367
-   }
-  },
-  "u_abs": {
-   "MUU": {
-    "10:00": 31.9027,
-    "10:30": 32.1038,
-    "11:00": 32.2546,
-    "11:30": 32.3835,
-    "12:00": 32.4966,
-    "12:30": 32.5972,
-    "13:00": 32.6914,
-    "13:30": 32.7794,
-    "14:00": 32.8611,
-    "14:30": 32.9397
-   },
-   "SOXS": {
-    "10:00": 48.6478,
-    "10:30": 48.8787,
-    "11:00": 49.0566,
-    "11:30": 49.2057,
-    "12:00": 49.3403,
-    "12:30": 49.4606,
-    "13:00": 49.5664,
-    "13:30": 49.6722,
-    "14:00": 49.7683,
-    "14:30": 49.8549
+    "11:00": 1.021,
+    "11:30": 1.0243,
+    "12:00": 1.0272,
+    "12:30": 1.0298,
+    "13:00": 1.0321,
+    "13:30": 1.0344,
+    "14:00": 1.0364,
+    "14:30": 1.0384
    }
   }
  },
@@ -223,51 +161,50 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "variant window CLOSED 11:30 \u2014 no trigger all window (MUU 28.2-29.3 vs 31.55; SOXS 45.7-47.2 vs 47.76)",
-  "S2": "14:30 FINAL: MUU 27.855 < U 32.94 no; SOXS 47.01 < U 49.85 no; S2 window closed"
+  "S1": "JH variant: nothing before 10:00; OR 10:00-10:30; arm 10:31",
+  "S2": "checkpoints 11:00+ only"
  },
  "last_error": "",
  "alerts_open": [],
  "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
  "analyst": {
   "MUU": {
-   "PC": 29.49,
-   "SMA5": 30.07,
-   "SMA20": 28.61,
+   "PC": 29.24,
+   "SMA5": 29.49,
+   "SMA20": 28.72,
    "trend": "UP",
-   "ATR14pct": 10.99
+   "ATR14pct": 11.16
   },
   "SOXS": {
-   "PC": 48.09,
-   "SMA5": 48.11,
-   "SMA20": 45.81,
-   "trend": "UP",
-   "ATR14pct": 8.38
+   "PC": 45.35,
+   "SMA5": 47.93,
+   "SMA20": 45.38,
+   "trend": "DOWN",
+   "ATR14pct": 8.76
   },
   "SOXL": {
-   "PC": 116.6,
-   "SMA20": 128.69,
+   "PC": 123.05,
+   "SMA20": 129.11,
    "trend": "DOWN",
-   "ATR14pct": 10.45
+   "ATR14pct": 9.66
   },
   "TQQQ": {
-   "PC": 70.47,
-   "SMA20": 71.89,
-   "trend": "DOWN",
-   "ATR14pct": 3.44
+   "PC": 73.3,
+   "SMA20": 72.39,
+   "trend": "UP",
+   "ATR14pct": 3.34
   },
   "SQQQ": {
-   "PC": 39.38,
-   "SMA20": 38.88,
-   "trend": "UP",
-   "ATR14pct": 3.2
+   "PC": 37.775,
+   "SMA20": 38.54,
+   "trend": "DOWN",
+   "ATR14pct": 3.39
   },
   "premkt_0746": {
-   "MUU": 31.89,
-   "SOXS": 44.85,
-   "SOXL": 124.62,
-   "TQQQ": 72.16,
-   "NVDA": 221.92
+   "MUU": 28.29,
+   "SOXS": 46.78,
+   "SOXL": 119.5,
+   "TQQQ": 72.72
   }
  },
  "capabilities_note": "FRACTIONAL_STOPS n/a; WHOLE-SHARE GTC stop_market ACCEPTED (probe passed 10:02 ET 8/17)"
