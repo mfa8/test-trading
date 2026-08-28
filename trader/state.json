@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "mode": "FLAT",
- "mode_reason": "Session 11 END_DATE (2026-08-28): Analyst FINAL 07:52; Jackson Hole variant (OR 10:00-10:30, trig 10:35-12:00, NOTHING before 10:00); 15:50 CLOSING(EXPIRED) -> FINAL_REPORT",
+ "mode_reason": "Session 11 END_DATE: JH variant armed 10:31 both legs; MUU LIVE at trigger (29.958 vs 30.01, dovish reaction); triggers 10:35-12:00",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -11,20 +11,20 @@
   "cancel_wakes": 0
  },
  "wake": {
-  "n": 60,
-  "utc": "2026-08-28T11:52:00Z",
-  "et": "2026-08-28 07:52",
-  "phase": "ANALYST",
+  "n": 61,
+  "utc": "2026-08-28T14:31:00Z",
+  "et": "2026-08-28 10:31",
+  "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T11:52:00Z",
+  "last_heartbeat_utc": "2026-08-28T14:31:00Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
-   "is_open": false,
-   "next_open": "2026-08-28T13:30:00Z",
+   "is_open": true,
+   "next_open": "2026-08-31T13:30:00Z",
    "next_close": "2026-08-28T20:00:00Z",
-   "fetched_utc": "2026-08-28T11:46:00Z"
+   "fetched_utc": "2026-08-28T14:30:00Z"
   }
  },
  "campaign": {
@@ -104,10 +104,56 @@
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {},
-  "vwap_acc": {},
-  "or": {},
-  "open_px": {},
+  "armed": {
+   "MUU": {
+    "setup": "S1V",
+    "orh": 29.98,
+    "orl": 28.74,
+    "ref": 28.74,
+    "ref_kind": "ORL",
+    "open": 29.2,
+    "trigger": 30.01,
+    "chase_cap": 30.8164,
+    "armed_at": "10:31"
+   },
+   "SOXS": {
+    "setup": "S1V",
+    "orh": 47.859,
+    "orl": 46.3691,
+    "ref": 46.3691,
+    "ref_kind": "ORL",
+    "open": 46.8295,
+    "trigger": 47.9069,
+    "chase_cap": 48.9071,
+    "armed_at": "10:31"
+   }
+  },
+  "vwap_acc": {
+   "MUU": {
+    "pv": 124280883.3,
+    "vol": 4282213,
+    "asof_utc": "2026-08-28T14:30:00Z"
+   },
+   "SOXS": {
+    "pv": 227631446.7,
+    "vol": 4843528,
+    "asof_utc": "2026-08-28T14:30:00Z"
+   }
+  },
+  "or": {
+   "MUU": {
+    "orh": 29.98,
+    "orl": 28.74
+   },
+   "SOXS": {
+    "orh": 47.859,
+    "orl": 46.3691
+   }
+  },
+  "open_px": {
+   "MUU": 28.32,
+   "SOXS": 46.53
+  },
   "day_hi": {},
   "day_lo": {},
   "halt": {},
@@ -144,6 +190,28 @@
     "14:00": 1.0364,
     "14:30": 1.0384
    }
+  },
+  "u_abs": {
+   "MUU": {
+    "11:00": 30.0236,
+    "11:30": 30.1464,
+    "12:00": 30.2517,
+    "12:30": 30.3482,
+    "13:00": 30.4359,
+    "13:30": 30.5207,
+    "14:00": 30.5967,
+    "14:30": 30.6698
+   },
+   "SOXS": {
+    "11:00": 47.5071,
+    "11:30": 47.6607,
+    "12:00": 47.7956,
+    "12:30": 47.9166,
+    "13:00": 48.0236,
+    "13:30": 48.1306,
+    "14:00": 48.2237,
+    "14:30": 48.3168
+   }
   }
  },
  "position": null,
@@ -161,8 +229,8 @@
  "open_orders": [],
  "seq_today": 0,
  "last_bar_evaluated": {
-  "S1": "JH variant: nothing before 10:00; OR 10:00-10:30; arm 10:31",
-  "S2": "checkpoints 11:00+ only"
+  "S1": "JH variant armed 10:31; first eval 10:35",
+  "S2": "11:00+ only"
  },
  "last_error": "",
  "alerts_open": [],
