@@ -155,3 +155,4 @@ W-9 2026-08-28 11:30 ET | wake 61 (bridge) | T2X-009 hold | 11:30 trail: cancel 
 W-9 2026-08-28 11:56 ET | wake 61 (bridge) | EXIT T2X-009 | NATIVE STOP FILLED 11:50:35 @ 28.7622 (trigger 28.76, slip +0.002 favorable) — first stop fill in 9 trades | pnl -$1.16 -0.93R LOSS | JH pop faded post-speech | E 98.75 | cooldown 12:51; MUU stopped-symbol; entries end 13:50
 W-9 2026-08-28 12:00 ET | wake 61 (bridge) | FLAT (cooldown) | semis rout: SOXS 49.58 +9.3% ABOVE U_B 47.80 but entry blocked by cooldown 12:51 + chase cap fail (C >> vwap*1.0219) | MUU 28.42 no | mechanically correct no-entry
 W-9 2026-08-28 12:30 ET | wake 61 (bridge) | FLAT (cooldown to 12:51) | S2 12:30: SOXS above U but beyond chase; MUU no
+W-9 2026-08-28 13:00 ET | wake 61 (bridge) | FLAT | S2 13:00: SOXS 49.535 > U 48.02 but blocked by chase cap (vwap*1.0219 ~ 48.9) — extended 9%+ breakout, mechanically untouchable; MUU no
