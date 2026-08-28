@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T17:01:00Z",
+  "last_heartbeat_utc": "2026-08-28T17:30:40Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -117,7 +117,8 @@
    "11:30",
    "12:00",
    "12:30",
-   "13:00"
+   "13:00",
+   "13:30"
   ],
   "armed": {},
   "vwap_acc": {
@@ -127,9 +128,9 @@
     "asof_utc": "2026-08-28T15:50:00Z"
    },
    "SOXS": {
-    "pv": 709001674.8088666,
-    "vol": 14738467,
-    "asof_utc": "2026-08-28T17:00:00Z"
+    "pv": 764362322.3370333,
+    "vol": 15848901,
+    "asof_utc": "2026-08-28T17:30:00Z"
    }
   },
   "or": {
@@ -222,7 +223,7 @@
  "seq_today": 1,
  "last_bar_evaluated": {
   "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
-  "S2": "13:00: SOXS C 49.535 > U 48.02 but > chase cap 49.16 \u2014 BLOCKED; MUU 28.56 no"
+  "S2": "13:30 (LAST eligible, entries end 13:50): SOXS C 49.72 > U 48.13 but > chase 49.28 \u2014 BLOCKED; MUU 28.70 no"
  },
  "last_error": "",
  "alerts_open": [],
