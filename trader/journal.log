@@ -157,3 +157,4 @@ W-9 2026-08-28 12:00 ET | wake 61 (bridge) | FLAT (cooldown) | semis rout: SOXS 
 W-9 2026-08-28 12:30 ET | wake 61 (bridge) | FLAT (cooldown to 12:51) | S2 12:30: SOXS above U but beyond chase; MUU no
 W-9 2026-08-28 13:00 ET | wake 61 (bridge) | FLAT | S2 13:00: SOXS 49.535 > U 48.02 but blocked by chase cap (vwap*1.0219 ~ 48.9) — extended 9%+ breakout, mechanically untouchable; MUU no
 W-9 2026-08-28 13:30 ET | wake 61 (bridge) | FLAT | S2 13:30 FINAL-eligible: SOXS still beyond chase (49.72 > ~49.4 cap); MUU no | entries end 13:50 -> no more entries this campaign | remaining: eval-only 14:00/14:30, then 15:50 EXPIRED
+W-9 2026-08-28 15:50 ET | wake 62 CLOSING(EXPIRED) -> DONE | Z-11 verified: 0 pos, 0 orders, $98.75 cash | FINAL_REPORT.md + WEEK-3.md + DAY-20260828.md written | campaign: 11 sessions, 9 trades, -1.13R, E 100.00->98.75 (-1.25%), HWM 102.22, kill never approached | routines to be deleted next
