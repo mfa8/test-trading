@@ -1,7 +1,7 @@
 {
  "schema": 2,
- "mode": "FLAT",
- "mode_reason": "Session 11 END_DATE: JH variant armed 10:31 both legs; MUU LIVE at trigger (29.958 vs 30.01, dovish reaction); triggers 10:35-12:00",
+ "mode": "IN_POSITION",
+ "mode_reason": "T2X-009: JH variant MUU long 1 @ 29.9199, stop 28.67 GTC (6a919ce4), triggered 10:35; HARD FLATTEN 15:50 (END_DATE)",
  "kill_arm_utc": null,
  "z9": {
   "started_utc": null,
@@ -17,7 +17,7 @@
   "phase": "ARM",
   "api_fail_streak": 0,
   "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T14:31:00Z",
+  "last_heartbeat_utc": "2026-08-28T14:36:40Z",
   "last_rules_read_utc": "2026-08-28T11:46:00Z",
   "skew_s": 0,
   "clock_cache": {
@@ -37,8 +37,8 @@
   "sessions_done": 10,
   "milestone_150": false,
   "floor": null,
-  "entries_total": 8,
-  "entries_week": 3,
+  "entries_total": 9,
+  "entries_week": 4,
   "week_start": "2026-08-24",
   "week_sod_equity": 102.2,
   "net_external": 0,
@@ -96,48 +96,29 @@
  },
  "today": {
   "date": "2026-08-28",
-  "entries": 0,
-  "attempts": {},
+  "entries": 1,
+  "attempts": {
+   "MUU": {
+    "S1V": 1
+   }
+  },
   "losses": 0,
   "pnl_pct": 0.0,
   "day_halt": false,
   "cooldown_until_et": null,
   "stopped_symbols": [],
   "done_checkpoints": [],
-  "armed": {
-   "MUU": {
-    "setup": "S1V",
-    "orh": 29.98,
-    "orl": 28.74,
-    "ref": 28.74,
-    "ref_kind": "ORL",
-    "open": 29.2,
-    "trigger": 30.01,
-    "chase_cap": 30.8164,
-    "armed_at": "10:31"
-   },
-   "SOXS": {
-    "setup": "S1V",
-    "orh": 47.859,
-    "orl": 46.3691,
-    "ref": 46.3691,
-    "ref_kind": "ORL",
-    "open": 46.8295,
-    "trigger": 47.9069,
-    "chase_cap": 48.9071,
-    "armed_at": "10:31"
-   }
-  },
+  "armed": {},
   "vwap_acc": {
    "MUU": {
-    "pv": 124280883.3,
-    "vol": 4282213,
-    "asof_utc": "2026-08-28T14:30:00Z"
+    "pv": 137518574.5729,
+    "vol": 4724470,
+    "asof_utc": "2026-08-28T14:35:00Z"
    },
    "SOXS": {
-    "pv": 227631446.7,
-    "vol": 4843528,
-    "asof_utc": "2026-08-28T14:30:00Z"
+    "pv": 240955490.49123332,
+    "vol": 5128196,
+    "asof_utc": "2026-08-28T14:35:00Z"
    }
   },
   "or": {
@@ -214,7 +195,29 @@
    }
   }
  },
- "position": null,
+ "position": {
+  "coid": "T2X-20260828-01-MUU",
+  "trade_id": "T2X-009",
+  "sym": "MUU",
+  "setup": "S1V",
+  "qty": 1,
+  "entry_px": 29.9199,
+  "entry_time_et": "10:35",
+  "entry_utc": "2026-08-28T14:35:52Z",
+  "limit_px": 30.12,
+  "stop": 28.67,
+  "stop_order_id": "6a919ce4-9115-485f-b567-b0df86a99e2b",
+  "d_pct": 4.782,
+  "r_usd": 1.2499,
+  "r_per_share": 1.2499,
+  "plus2r_level": 32.4197,
+  "plus2r_done": false,
+  "be_stop": 30.5449,
+  "time_stop_et": "12:36",
+  "invalid_count": 0,
+  "atr": 0.1116,
+  "entry_order_id": "6a919cc8-ce81-4b6e-b577-9c2887eb2175"
+ },
  "pending": {
   "coid": "",
   "kind": "",
@@ -226,11 +229,19 @@
   "clean_wakes": 0
  },
  "stop_reject_streak": 0,
- "open_orders": [],
- "seq_today": 0,
+ "open_orders": [
+  {
+   "id": "6a919ce4-9115-485f-b567-b0df86a99e2b",
+   "kind": "stop",
+   "sym": "MUU",
+   "qty": 1,
+   "stop": 28.67
+  }
+ ],
+ "seq_today": 1,
  "last_bar_evaluated": {
-  "S1": "JH variant armed 10:31; first eval 10:35",
-  "S2": "11:00+ only"
+  "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
+  "S2": "in position"
  },
  "last_error": "",
  "alerts_open": [],
