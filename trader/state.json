@@ -5,17 +5,17 @@
  "mode": "IN_POSITION_OVERNIGHT",
  "mode_reason": "T3X night 1: long NVDL 1 @ 35.479 + AMZU 1 @ 35.3999 (cost 70.88); exit 09:31 Thu 9/10",
  "wake": {
-  "n": 2,
-  "utc": "2026-09-09T19:52:10Z",
-  "et": "2026-09-09 15:52",
-  "phase": "ENTRY",
-  "last_heartbeat_utc": "2026-09-09T19:52:10Z"
+  "n": 3,
+  "utc": "2026-09-09T20:02:30Z",
+  "et": "2026-09-09 16:02",
+  "phase": "EOD",
+  "last_heartbeat_utc": "2026-09-09T20:02:30Z"
  },
  "campaign": {
   "name": "T3X",
   "start_date": "2026-09-09",
   "start_equity": 98.75,
-  "equity_hwm": 98.75,
+  "equity_hwm": 98.8,
   "kill": 50.0,
   "pause_trigger_frac": 0.8,
   "pause_until_session": null,
@@ -29,10 +29,10 @@
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 98.75,
+  "equity": 98.8,
   "cash": 27.87,
   "buying_power": 98.75,
-  "fetched_utc": "2026-09-09T19:52:10Z"
+  "fetched_utc": "2026-09-09T20:02:00Z"
  },
  "ranking": {
   "asof": "2026-09-09",
@@ -157,7 +157,7 @@
   "date": "2026-09-09",
   "entry_done": true,
   "exit_done": true,
-  "eod_done": false
+  "eod_done": true
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
