@@ -3,7 +3,7 @@
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
  "mode": "FLAT",
- "mode_reason": "T3X campaign started 2026-09-09 10:45 ET by human instruction; first ENTRY tonight 15:52 (NVDL 1 + MUU 1)",
+ "mode_reason": "T3X: first ENTRY tonight 15:52 -> NVDL 1 + AMZU 1 (~$72.90, 74% of E) per 30-night rank",
  "wake": {
   "n": 1,
   "utc": "2026-09-09T14:45:00Z",
@@ -37,24 +37,99 @@
  "ranking": {
   "asof": "2026-09-09",
   "window_nights": 30,
-  "table": {},
+  "table": {
+   "NVDL": [
+    0.47,
+    1.44,
+    73,
+    -4.3,
+    36.18
+   ],
+   "SPXL": [
+    0.28,
+    0.3,
+    60,
+    -2.0,
+    285.44
+   ],
+   "TSMX": [
+    0.26,
+    0.9,
+    60,
+    -7.3,
+    84.43
+   ],
+   "AMZU": [
+    0.21,
+    1.04,
+    63,
+    -5.5,
+    36.72
+   ],
+   "TNA": [
+    0.2,
+    0.29,
+    50,
+    -2.4,
+    68.98
+   ],
+   "TQQQ": [
+    0.19,
+    0.43,
+    60,
+    -4.0,
+    72.16
+   ],
+   "SOXL": [
+    0.19,
+    1.3,
+    50,
+    -11.7,
+    123.27
+   ],
+   "FNGU": [
+    0.19,
+    0.37,
+    60,
+    -4.9,
+    32.04
+   ],
+   "TECL": [
+    0.18,
+    0.67,
+    57,
+    -6.4,
+    206.89
+   ],
+   "MUU": [
+    0.13,
+    0.87,
+    57,
+    -13.3,
+    33.22
+   ]
+  },
+  "table_cols": "[score, mean30%, win%, worst%, px]",
   "picks": [
    "NVDL",
-   "MUU"
+   "AMZU"
   ],
   "qty": {
    "NVDL": 1,
-   "MUU": 1
+   "AMZU": 1
   },
+  "basket_cost_est": 72.9,
+  "invested_frac_est": 0.74,
   "blackouts": {
    "MUU": [
     "2026-09-30"
    ],
    "NVDL": [
     "2026-11-17"
-   ]
+   ],
+   "AMZU": []
   },
-  "note": "seed picks from 62-night analysis (NVDL score best; MUU 2nd distinct underlying); formal 30-night re-rank at Monday 9/14 Analyst"
+  "note": "formal 30-night rank 9/9: NVDL #1; TSMX #3 not jointly affordable with NVDL; AMZU #4 = 2nd distinct underlying -> basket NVDL 1 + AMZU 1. MUU (#10) dropped; $26 sleeve idle (no eligible name <= $26)."
  },
  "position": null,
  "positions": [],

@@ -1,5 +1,5 @@
 # T3X STATUS — Overnight Engine (started 2026-09-09)
-mode: FLAT | first ENTRY tonight 15:52 ET: NVDL 1 sh + MUU 1 sh (~$71, 72% of E)
+mode: FLAT | first ENTRY tonight 15:52 ET: NVDL 1 sh + AMZU 1 sh (~$72.90, 74% of E) per 30-night rank
 E: 98.75 (campaign start) | KILL 50 | PAUSE if E <= 80% of 20-session high
 thesis: leveraged-long semis/tech earn overnight, lose intraday (NVDL ovn-only +41% / 62 nights, maxDD -17%); hold close->open, flat intraday; never inverse/vol overnight
 daily loop: 09:26 wake -> sell 09:31 | intraday wakes NOOP | 15:48 wake -> buy 15:52 | 16:05 EOD | Mon 07:45 re-rank (30-night score)
