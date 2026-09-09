@@ -1,7 +1,9 @@
-# T2X STATUS — CAMPAIGN DONE
-mode: **DONE** (CLOSING(EXPIRED) executed 2026-08-28 15:50 ET)
-outcome: EXPIRED — END_DATE reached; neither WON ($201) nor KILL ($50)
-final E: **$98.75** (100.00 start, -1.25%) | HWM 102.22 | 9 trades 3W-5L-1S, -1.13R | account 100% cash, 0 open orders, Z-11 verified
-reports: trader/report/FINAL_REPORT.md (campaign), WEEK-1/2/3.md, DAY-*.md (11 sessions)
-ROUTINES: t2x-analyst / t2x-wake-a / t2x-wake-b deleted by agent at campaign end (recreate if ever restarting). One-shots all spent.
-No further trading will occur. The agent will NOOP any residual wake.
+# T3X STATUS — Overnight Engine (started 2026-09-09)
+mode: FLAT | first ENTRY tonight 15:52 ET: NVDL 1 sh + MUU 1 sh (~$71, 72% of E)
+E: 98.75 (campaign start) | KILL 50 | PAUSE if E <= 80% of 20-session high
+thesis: leveraged-long semis/tech earn overnight, lose intraday (NVDL ovn-only +41% / 62 nights, maxDD -17%); hold close->open, flat intraday; never inverse/vol overnight
+daily loop: 09:26 wake -> sell 09:31 | intraday wakes NOOP | 15:48 wake -> buy 15:52 | 16:05 EOD | Mon 07:45 re-rank (30-night score)
+blackouts: MUU night of 2026-09-30 (MU earnings); NVDL night of 2026-11-17 (NVDA earnings)
+schedule (5 crons, all live): t2x-analyst 07:45; t3x-exit-0926; t3x-entry-1548; t2x-wake-a/b hourly backstops — NEVER retired (human rule)
+T2X archive: RULES.md untouched; state in trader/archive; FINAL_REPORT.md
+to stop me: create trader/HUMAN_STOP or say so in chat

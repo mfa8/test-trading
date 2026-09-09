@@ -28,3 +28,8 @@ Platform floor is 1-minute scheduling with 1-10 min delivery latency; 30-second 
 6. EXIT LADDER CONFIRMED GOOD: marketable limit at bid - max($0.02, 0.0015P); if unfilled 60-90s on a sliding bid, cancel -> re-price once. Both live exits filled with price improvement; 8/18's two-attempt exit beat the eventual close.
 7. WHAT IS DELIBERATELY NOT CHANGED: RULES.md exit discipline (time-stop/invalidation capped winners at +0.26R/+0.66R vs +0.39R/+1.5R peaks so far — 3 trades is noise, not evidence; N-16 reserves rule edits to the human). Cron backstops stay hourly (cheap insurance). event_shot_min_equity stays 160 (human-owned knob).
 8. LATE-ONE-SHOT BRIDGE-THROUGH (added 8/20 after the 12:00 miss): while FLAT with a live S2 window, if the wake for checkpoint B arrives late (> B+2min), do not end the turn after booking the skip — bridge in-turn through the REMAINING checkpoints to the window close (or until a position opens). Cost: one long turn; benefit: no further single-point delivery risk that day. The 12:00 MUU signal (bar 31.19 > U 31.03, closed +7.7% on the day) was lost to exactly this gap.
+
+## T3X ops addendum (2026-09-09)
+9. Never delete/disable routines, even on DONE/HALTED (human rule 2026-09-09). Campaign-end states only flatten and report; the scheduler keeps waking and the agent keeps NOOPing until re-tasked.
+10. Overnight engine cadence: EXIT wake 09:26 (late arrival still exits immediately); ENTRY wake 15:48 (arrival after 15:57 skips the night). Intraday wakes are NOOPs by design — the intraday drift is what we are avoiding.
+11. Large historicals results land in tool-results files; analyze with python locally, never load into context.

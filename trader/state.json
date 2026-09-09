@@ -1,272 +1,78 @@
 {
- "schema": 2,
- "mode": "DONE",
- "mode_reason": "CAMPAIGN ENDED 2026-08-28 15:50 ET: CLOSING(EXPIRED) \u2014 END_DATE reached flat; neither WON ($201) nor KILL ($50). Final E $98.75 (-1.25%). FINAL_REPORT written.",
- "kill_arm_utc": null,
- "z9": {
-  "started_utc": null,
-  "step": "S1",
-  "rung": 0,
-  "fails": 0,
-  "cancel_wakes": 0
- },
+ "schema": 3,
+ "active_rules": "trader/RULES_v3.md",
+ "strategy": "T3X v1.0 Overnight Engine",
+ "mode": "FLAT",
+ "mode_reason": "T3X campaign started 2026-09-09 10:45 ET by human instruction; first ENTRY tonight 15:52 (NVDL 1 + MUU 1)",
  "wake": {
-  "n": 62,
-  "utc": "2026-08-28T19:50:30Z",
-  "et": "2026-08-28 15:50",
-  "phase": "DONE",
-  "api_fail_streak": 0,
-  "backoff_until_utc": null,
-  "last_heartbeat_utc": "2026-08-28T19:50:30Z",
-  "last_rules_read_utc": "2026-08-28T11:46:00Z",
-  "skew_s": 0,
-  "clock_cache": {
-   "is_open": true,
-   "next_open": "2026-08-31T13:30:00Z",
-   "next_close": "2026-08-28T20:00:00Z",
-   "fetched_utc": "2026-08-28T14:30:00Z"
-  }
+  "n": 1,
+  "utc": "2026-09-09T14:45:00Z",
+  "et": "2026-09-09 10:45",
+  "phase": "INSTALL",
+  "last_heartbeat_utc": "2026-09-09T14:45:00Z"
  },
  "campaign": {
-  "start_equity": 100.0,
-  "equity_hwm": 102.22,
+  "name": "T3X",
+  "start_date": "2026-09-09",
+  "start_equity": 98.75,
+  "equity_hwm": 98.75,
   "kill": 50.0,
-  "END_DATE": "2026-08-28",
-  "D": 0,
-  "g": 1.002,
-  "sessions_done": 11,
-  "milestone_150": false,
-  "floor": null,
-  "entries_total": 9,
-  "entries_week": 4,
-  "week_start": "2026-08-24",
-  "week_sod_equity": 102.2,
-  "net_external": 0,
-  "banned_symbols": [],
-  "resting_legs": [],
-  "consec_full_stops": {
-   "MUU": 1
-  },
-  "R_history": [
-   0.26,
-   -0.24,
-   0.66,
-   -0.69,
-   0.65,
-   -0.29,
-   -0.03,
-   -0.52,
-   -0.93
-  ],
-  "losing_days_streak": 0,
-  "downshift": false,
-  "press": true,
-  "no_overnight_rest": false,
-  "ext_rejects_tonight": 0,
-  "event_shot": true,
-  "event_shot_min_equity": 160,
-  "event_shot_used": false
+  "pause_trigger_frac": 0.8,
+  "pause_until_session": null,
+  "sessions_done": 0,
+  "nights_held": 0,
+  "R_history": [],
+  "night_returns": [],
+  "end_date": null,
+  "rules_note": "never retire campaign/scheduler (human 2026-09-09)"
  },
  "account": {
+  "number_last4": "8334",
   "mode": "IM_FREE",
-  "evidence": "robinhood type=limited_margin, agentic_allowed=true, no PDT fields, unsettled_funds=0",
-  "whole_share": true,
   "equity": 98.75,
-  "e_bid": 98.75,
-  "e_adj": 98.75,
-  "sod_equity": 99.91,
   "cash": 98.75,
-  "settled_cash": 98.75,
-  "unsettled": [],
   "buying_power": 98.75,
-  "daytrades_5d": [],
-  "broker_daytrade_count": null,
-  "fetched_utc": "2026-08-28T15:56:00Z"
+  "fetched_utc": "2026-09-09T14:37:22Z"
  },
- "zone": {
-  "name": "STANDARD",
-  "f": 1.0,
-  "r": 0.08,
-  "entries_cap": 3,
-  "ovn_cap": {
-   "SOX": 0.8,
-   "NDX": 1.0
-  },
-  "pending_up": {
-   "name": null,
-   "first_utc": null
-  }
- },
- "today": {
-  "date": "2026-08-28",
-  "entries": 1,
-  "attempts": {
-   "MUU": {
-    "S1V": 1
-   }
-  },
-  "losses": 1,
-  "pnl_pct": -1.16,
-  "day_halt": false,
-  "cooldown_until_et": "12:51",
-  "stopped_symbols": [
+ "ranking": {
+  "asof": "2026-09-09",
+  "window_nights": 30,
+  "table": {},
+  "picks": [
+   "NVDL",
    "MUU"
   ],
-  "done_checkpoints": [
-   "11:00",
-   "11:30",
-   "12:00",
-   "12:30",
-   "13:00",
-   "13:30"
-  ],
-  "armed": {},
-  "vwap_acc": {
-   "MUU": {
-    "pv": 193643407.56619996,
-    "vol": 6620673,
-    "asof_utc": "2026-08-28T15:50:00Z"
-   },
-   "SOXS": {
-    "pv": 764362322.3370333,
-    "vol": 15848901,
-    "asof_utc": "2026-08-28T17:30:00Z"
-   }
+  "qty": {
+   "NVDL": 1,
+   "MUU": 1
   },
-  "or": {
-   "MUU": {
-    "orh": 29.98,
-    "orl": 28.74
-   },
-   "SOXS": {
-    "orh": 47.859,
-    "orl": 46.3691
-   }
+  "blackouts": {
+   "MUU": [
+    "2026-09-30"
+   ],
+   "NVDL": [
+    "2026-11-17"
+   ]
   },
-  "open_px": {
-   "MUU": 28.32,
-   "SOXS": 46.53
-  },
-  "day_hi": {},
-  "day_lo": {},
-  "halt": {},
-  "eod_done": true,
-  "ext_probe_done": true,
-  "analyst_status": "FINAL",
-  "analyst_final_et": "07:52",
-  "tz_selftest": null,
-  "hard_block_tonight": true,
-  "variant": "JACKSON_HOLE",
-  "or_window": "10:00-10:30",
-  "trigger_window": "10:35-12:00",
-  "chase_mult": 0.25,
-  "end_date_today": true,
-  "entries_end_et": "13:50",
-  "u_mult": {
-   "MUU": {
-    "11:00": 1.0268,
-    "11:30": 1.031,
-    "12:00": 1.0346,
-    "12:30": 1.0379,
-    "13:00": 1.0409,
-    "13:30": 1.0438,
-    "14:00": 1.0464,
-    "14:30": 1.0489
-   },
-   "SOXS": {
-    "11:00": 1.021,
-    "11:30": 1.0243,
-    "12:00": 1.0272,
-    "12:30": 1.0298,
-    "13:00": 1.0321,
-    "13:30": 1.0344,
-    "14:00": 1.0364,
-    "14:30": 1.0384
-   }
-  },
-  "u_abs": {
-   "MUU": {
-    "11:00": 30.0236,
-    "11:30": 30.1464,
-    "12:00": 30.2517,
-    "12:30": 30.3482,
-    "13:00": 30.4359,
-    "13:30": 30.5207,
-    "14:00": 30.5967,
-    "14:30": 30.6698
-   },
-   "SOXS": {
-    "11:00": 47.5071,
-    "11:30": 47.6607,
-    "12:00": 47.7956,
-    "12:30": 47.9166,
-    "13:00": 48.0236,
-    "13:30": 48.1306,
-    "14:00": 48.2237,
-    "14:30": 48.3168
-   }
-  }
+  "note": "seed picks from 62-night analysis (NVDL score best; MUU 2nd distinct underlying); formal 30-night re-rank at Monday 9/14 Analyst"
  },
  "position": null,
- "pending": {
-  "coid": "",
-  "kind": "",
-  "since_utc": "",
-  "wakes": 0
- },
- "safe": {
-  "cause": null,
-  "clean_wakes": 0
- },
- "stop_reject_streak": 0,
+ "positions": [],
  "open_orders": [],
- "seq_today": 1,
- "last_bar_evaluated": {
-  "S1": "10:35 bar: MUU TRIGGERED (C 30.010); SOXS disarmed (first leg wins)",
-  "S2": "13:30 (LAST eligible, entries end 13:50): SOXS C 49.72 > U 48.13 but > chase 49.28 \u2014 BLOCKED; MUU 28.70 no"
+ "today": {
+  "date": "2026-09-09",
+  "entry_done": false,
+  "exit_done": true,
+  "eod_done": false
+ },
+ "schedule": {
+  "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
+  "t2x-wake-a": "trig_01Hup5mVHqFdFU91GziiV4Sz",
+  "t2x-wake-b": "trig_011o6NDxLbFSM3JpeiK9o1tR",
+  "t3x-exit-0926": "trig_018vHkWxg6SKfs4pwwYJsvUa",
+  "t3x-entry-1548": "trig_01J2xYyWSAw5s2GZNLzoxP5g"
  },
  "last_error": "",
  "alerts_open": [],
- "install_notes": "T2X v2.1 installed 2026-08-14 ~02:00 ET by human instruction, replacing prior swing harness. Pre-install UBER/SOFI GTC entry orders cancelled (never filled, $0 impact). PC seeds from 8/13 close: SOXL 145.36, SOXS 40.12, TQQQ 77.15, SQQQ 36.04, TNA 76.04, NVDL 36.79, MUU 31.00, SPY 777.88.",
- "analyst": {
-  "MUU": {
-   "PC": 29.24,
-   "SMA5": 29.49,
-   "SMA20": 28.72,
-   "trend": "UP",
-   "ATR14pct": 11.16
-  },
-  "SOXS": {
-   "PC": 45.35,
-   "SMA5": 47.93,
-   "SMA20": 45.38,
-   "trend": "DOWN",
-   "ATR14pct": 8.76
-  },
-  "SOXL": {
-   "PC": 123.05,
-   "SMA20": 129.11,
-   "trend": "DOWN",
-   "ATR14pct": 9.66
-  },
-  "TQQQ": {
-   "PC": 73.3,
-   "SMA20": 72.39,
-   "trend": "UP",
-   "ATR14pct": 3.34
-  },
-  "SQQQ": {
-   "PC": 37.775,
-   "SMA20": 38.54,
-   "trend": "DOWN",
-   "ATR14pct": 3.39
-  },
-  "premkt_0746": {
-   "MUU": 28.29,
-   "SOXS": 46.78,
-   "SOXL": 119.5,
-   "TQQQ": 72.72
-  }
- },
- "capabilities_note": "FRACTIONAL_STOPS n/a; WHOLE-SHARE GTC stop_market ACCEPTED (probe passed 10:02 ET 8/17)"
+ "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)"
 }
