@@ -2,14 +2,14 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "FLAT",
- "mode_reason": "T3X: first ENTRY tonight 15:52 -> NVDL 1 + AMZU 1 (~$72.90, 74% of E) per 30-night rank",
+ "mode": "IN_POSITION_OVERNIGHT",
+ "mode_reason": "T3X night 1: long NVDL 1 @ 35.479 + AMZU 1 @ 35.3999 (cost 70.88); exit 09:31 Thu 9/10",
  "wake": {
-  "n": 1,
-  "utc": "2026-09-09T14:45:00Z",
-  "et": "2026-09-09 10:45",
-  "phase": "INSTALL",
-  "last_heartbeat_utc": "2026-09-09T14:45:00Z"
+  "n": 2,
+  "utc": "2026-09-09T19:52:10Z",
+  "et": "2026-09-09 15:52",
+  "phase": "ENTRY",
+  "last_heartbeat_utc": "2026-09-09T19:52:10Z"
  },
  "campaign": {
   "name": "T3X",
@@ -30,9 +30,9 @@
   "number_last4": "8334",
   "mode": "IM_FREE",
   "equity": 98.75,
-  "cash": 98.75,
+  "cash": 27.87,
   "buying_power": 98.75,
-  "fetched_utc": "2026-09-09T14:37:22Z"
+  "fetched_utc": "2026-09-09T19:52:10Z"
  },
  "ranking": {
   "asof": "2026-09-09",
@@ -134,11 +134,28 @@
   "note": "formal 30-night rank 9/9: NVDL #1; TSMX #3 not jointly affordable with NVDL; AMZU #4 = 2nd distinct underlying -> basket NVDL 1 + AMZU 1. MUU (#10) dropped; $26 sleeve idle (no eligible name <= $26)."
  },
  "position": null,
- "positions": [],
+ "positions": [
+  {
+   "sym": "NVDL",
+   "qty": 1,
+   "entry_px": 35.479,
+   "entry_utc": "2026-09-09T19:51:51Z",
+   "order_id": "6aa1b8d7-3e22-46e5-a49d-6aedf4d5df88",
+   "pc_ref": 36.18
+  },
+  {
+   "sym": "AMZU",
+   "qty": 1,
+   "entry_px": 35.3999,
+   "entry_utc": "2026-09-09T19:51:53Z",
+   "order_id": "6aa1b8d9-df89-4ed8-83ba-fb917c258005",
+   "pc_ref": 36.72
+  }
+ ],
  "open_orders": [],
  "today": {
   "date": "2026-09-09",
-  "entry_done": false,
+  "entry_done": true,
   "exit_done": true,
   "eod_done": false
  },
