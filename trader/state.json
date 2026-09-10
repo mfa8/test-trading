@@ -3,13 +3,13 @@
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
  "mode": "IN_POSITION_OVERNIGHT",
- "mode_reason": "T3X night 1: long NVDL 1 @ 35.479 + AMZU 1 @ 35.3999 (cost 70.88); exit 09:31 Thu 9/10",
+ "mode_reason": "T3X night 1 held (NVDL 1, AMZU 1); premkt basket ~-0.3%; EXIT 09:31 today; no blackouts; re-enter 15:52",
  "wake": {
-  "n": 3,
-  "utc": "2026-09-09T20:02:30Z",
-  "et": "2026-09-09 16:02",
-  "phase": "EOD",
-  "last_heartbeat_utc": "2026-09-09T20:02:30Z"
+  "n": 4,
+  "utc": "2026-09-10T11:46:30Z",
+  "et": "2026-09-10 07:46",
+  "phase": "ANALYST",
+  "last_heartbeat_utc": "2026-09-10T11:46:30Z"
  },
  "campaign": {
   "name": "T3X",
@@ -29,10 +29,10 @@
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 98.8,
+  "equity": 98.58,
   "cash": 27.87,
   "buying_power": 98.75,
-  "fetched_utc": "2026-09-09T20:02:00Z"
+  "fetched_utc": "2026-09-10T11:46:00Z"
  },
  "ranking": {
   "asof": "2026-09-09",
@@ -154,10 +154,15 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-09-09",
-  "entry_done": true,
-  "exit_done": true,
-  "eod_done": true
+  "date": "2026-09-10",
+  "entry_done": false,
+  "exit_done": false,
+  "eod_done": false,
+  "premkt": {
+   "NVDL": 35.17,
+   "AMZU": 35.54,
+   "E_marked": 98.58
+  }
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
