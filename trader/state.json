@@ -2,14 +2,14 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "IN_POSITION_OVERNIGHT",
- "mode_reason": "T3X night 1 held (NVDL 1, AMZU 1); premkt basket ~-0.3%; EXIT 09:31 today; no blackouts; re-enter 15:52",
+ "mode": "FLAT",
+ "mode_reason": "T3X night 1 closed 09:31: -$1.66 (-1.68%); E 97.09; re-entry 15:52 (same basket unless rank/blackout change)",
  "wake": {
-  "n": 4,
-  "utc": "2026-09-10T11:46:30Z",
-  "et": "2026-09-10 07:46",
-  "phase": "ANALYST",
-  "last_heartbeat_utc": "2026-09-10T11:46:30Z"
+  "n": 5,
+  "utc": "2026-09-10T13:32:00Z",
+  "et": "2026-09-10 09:32",
+  "phase": "EXIT",
+  "last_heartbeat_utc": "2026-09-10T13:32:00Z"
  },
  "campaign": {
   "name": "T3X",
@@ -20,19 +20,26 @@
   "pause_trigger_frac": 0.8,
   "pause_until_session": null,
   "sessions_done": 0,
-  "nights_held": 0,
+  "nights_held": 1,
   "R_history": [],
-  "night_returns": [],
+  "night_returns": [
+   {
+    "date": "2026-09-09",
+    "basket": "NVDL+AMZU",
+    "pnl": -1.66,
+    "pct": -1.68
+   }
+  ],
   "end_date": null,
   "rules_note": "never retire campaign/scheduler (human 2026-09-09)"
  },
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 98.58,
-  "cash": 27.87,
-  "buying_power": 98.75,
-  "fetched_utc": "2026-09-10T11:46:00Z"
+  "equity": 97.09,
+  "cash": 97.09,
+  "buying_power": 97.09,
+  "fetched_utc": "2026-09-10T13:32:00Z"
  },
  "ranking": {
   "asof": "2026-09-09",
@@ -134,29 +141,12 @@
   "note": "formal 30-night rank 9/9: NVDL #1; TSMX #3 not jointly affordable with NVDL; AMZU #4 = 2nd distinct underlying -> basket NVDL 1 + AMZU 1. MUU (#10) dropped; $26 sleeve idle (no eligible name <= $26)."
  },
  "position": null,
- "positions": [
-  {
-   "sym": "NVDL",
-   "qty": 1,
-   "entry_px": 35.479,
-   "entry_utc": "2026-09-09T19:51:51Z",
-   "order_id": "6aa1b8d7-3e22-46e5-a49d-6aedf4d5df88",
-   "pc_ref": 36.18
-  },
-  {
-   "sym": "AMZU",
-   "qty": 1,
-   "entry_px": 35.3999,
-   "entry_utc": "2026-09-09T19:51:53Z",
-   "order_id": "6aa1b8d9-df89-4ed8-83ba-fb917c258005",
-   "pc_ref": 36.72
-  }
- ],
+ "positions": [],
  "open_orders": [],
  "today": {
   "date": "2026-09-10",
   "entry_done": false,
-  "exit_done": false,
+  "exit_done": true,
   "eod_done": false,
   "premkt": {
    "NVDL": 35.17,
