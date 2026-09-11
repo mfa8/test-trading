@@ -169,3 +169,4 @@ W-9 2026-09-10 09:32 ET | T3X wake 5 EXIT (night 1) | on-time wake, sold 09:31:3
 W-9 2026-09-10 15:52 ET | T3X wake 6 ENTRY (night 2) | in-turn bridge from 15:07 | BUY NVDL 1 lim 34.01 FILLED 33.9399; BUY AMZU 1 lim 35.20 FILLED 35.1339 | cost 69.07 (71% E), cash 28.02 | both down intraday (NVDL -4.4%, AMZU -0.8%) | exit 09:31 Fri
 W-9 2026-09-10 16:02 ET | T3X wake 7 EOD | marks NVDL 33.88 AMZU 35.26 -> E 97.15 | DAY-20260910.md | next: 07:45 Analyst Fri, 09:26 exit
 W-9 2026-09-11 07:46 ET | T3X wake 8 ANALYST | positions verified NVDL 1 / AMZU 1 | premkt NVDL 34.32 (+1.1% vs entry) AMZU 35.65 (+1.5%) -> basket ~+1.3%, E 97.99 marked; SPY +0.6% premkt | no blackouts | EXIT 09:31
+W-9 2026-09-11 09:32 ET | T3X wake 9 EXIT (night 2) | on-time wake, sold 09:31:23-26 | NVDL 34.3901 (+1.33%), AMZU 35.9895 (+2.44%) | night P&L +$1.31 (+1.35% E) | E 98.40 all cash | campaign 2 nights: -1.66 / +1.31 | next: 15:48 entry (Fri night -> Mon open)
