@@ -1,4 +1,4 @@
-# T3X v1.0 — OVERNIGHT ENGINE (active manual from 2026-09-09)
+# T3X v1.1 — OVERNIGHT ENGINE (active manual from 2026-09-09)
 Authored by the agent at the human's instruction (2026-09-09: "rethink strategy... come up with another one... never retire the campaign or scheduler"). RULES.md (T2X v2.1) is retired but untouched per N-16. state.json.active_rules points here.
 
 ## §0 Wake protocol
@@ -12,7 +12,7 @@ Affordable (price <= 0.98*E for 1 share) leveraged LONG ETFs/ETNs with avg volum
 
 ## §3 Ranking & sizing (Monday ANALYST; daily sanity check)
 score = mean(trailing 30 overnight returns close->next open) / stdev; eligible if mean > 0 AND win% >= 50%.
-Hold the top 2 eligible DISTINCT underlyings, 1 share each, if both affordable; else 2 shares of #1 if affordable; else 1 share of #1. Target 70-100% of E invested; never > 100% (no margin use). If nothing eligible: cash, keep waking, keep reporting.
+Hold the top 2 eligible DISTINCT underlyings, 1 share each, if both affordable; else 2 shares of #1 if affordable; else 1 share of #1. Target 70-100% of E invested; never > 100% (no margin use). Sizing clause (v1.1, 2026-09-14): if the 2-name basket costs < 70% of E, add whole shares of #1 one at a time while total cost stays <= 0.98*E. Same-underlying products (e.g. NVDL/NVDX) count as one underlying; the higher-scoring one is used. Any leveraged-long ETF meeting the §2 filters may enter the ranking (the seed list is not a cap). If nothing eligible: cash, keep waking, keep reporting.
 Blackout: skip an instrument on the night its underlying reports earnings (MU 2026-09-30 pm; NVDA 2026-11-17 pm); substitute next-ranked name. No other event blackouts (data shows overnight edge survives macro nights; FOMC decisions are intraday).
 
 ## §4 Entry (ENTRY wake 15:48)
