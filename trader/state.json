@@ -5,11 +5,11 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 4 open: NVDL 2 @ 31.7399 + METU 1 @ 26.63 (cost 90.11, 96% E); exit 09:31 Tue 9/15",
   "wake": {
-    "n": 15,
-    "utc": "2026-09-14T20:02:00Z",
-    "et": "2026-09-14 16:02",
-    "phase": "EOD",
-    "last_heartbeat_utc": "2026-09-14T20:02:00Z"
+    "n": 16,
+    "utc": "2026-09-15T11:45:42Z",
+    "et": "2026-09-15 07:45",
+    "phase": "ANALYST",
+    "last_heartbeat_utc": "2026-09-15T11:46:30Z"
   },
   "campaign": {
     "name": "T3X",
@@ -49,10 +49,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 93.42,
+    "equity": 93.92,
     "cash": 3.96,
     "buying_power": 3.96,
-    "fetched_utc": "2026-09-14T20:02:00Z"
+    "fetched_utc": "2026-09-15T11:46:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -216,41 +216,16 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-14",
-    "entry_done": true,
-    "exit_done": true,
-    "eod_done": true,
+    "date": "2026-09-15",
+    "entry_done": false,
+    "exit_done": false,
+    "eod_done": false,
     "analyst_done": true,
     "premkt": {
-      "NVDL": 32.23,
-      "AMZU": 35.97,
-      "E_marked": 96.02,
-      "night3_marked": -2.38
-    },
-    "exit": {
-      "NVDL": 31.2101,
-      "AMZU": 35.0399,
-      "pnl": -4.33,
-      "E_after": 94.07,
-      "nvdl_repriced": true
-    },
-    "entry": {
-      "NVDL": [
-        2,
-        31.7399,
-        31.8
-      ],
-      "METU": [
-        1,
-        26.63,
-        26.68
-      ],
-      "cost": 90.11
-    },
-    "eod": {
-      "NVDL": 31.52,
-      "METU": 26.47,
-      "E_marked": 93.42
+      "NVDL": 31.905,
+      "METU": 26.15,
+      "E_marked": 93.92,
+      "night4_marked": -0.15
     }
   },
   "schedule": {
