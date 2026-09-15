@@ -2,14 +2,14 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_INTRADAY",
-  "mode_reason": "night 4 exited 09:31: NVDL 2 @ 32.07 (+1.04%), METU 26.2501 (-1.43%); P&L +0.28 (+0.30% E); all cash 94.35; entry 15:52 (NVDL 2 + METU 1)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 5 open: NVDL 2 @ 31.8299 + METU 1 @ 26.9199 (cost 90.58, 96% E); exit 09:31 Wed 9/16 (FOMC 14:00 is intraday)",
   "wake": {
-    "n": 17,
-    "utc": "2026-09-15T13:26:28Z",
-    "et": "2026-09-15 09:26",
-    "phase": "EXIT",
-    "last_heartbeat_utc": "2026-09-15T13:31:45Z"
+    "n": 18,
+    "utc": "2026-09-15T19:52:00Z",
+    "et": "2026-09-15 15:52",
+    "phase": "ENTRY",
+    "last_heartbeat_utc": "2026-09-15T19:52:30Z"
   },
   "campaign": {
     "name": "T3X",
@@ -56,9 +56,9 @@
     "number_last4": "8334",
     "mode": "IM_FREE",
     "equity": 94.35,
-    "cash": 94.35,
-    "buying_power": 94.35,
-    "fetched_utc": "2026-09-15T13:31:40Z"
+    "cash": 3.77,
+    "buying_power": 3.77,
+    "fetched_utc": "2026-09-15T19:52:30Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -204,11 +204,26 @@
     "note": "formal 30-night rank 9/14: NVDL #1 (score 0.47, unchanged); NVDX #2 is same underlying (NVDA) -> skipped; METU #3 (2x META, vol 3-19M/day, 0.82%/night, win 63%) = 2nd distinct underlying, replaces AMZU (#8, decayed 0.21->0.15). TSMX #4 not jointly affordable. 2-name basket NVDL+METU ~ $58 = 61% of E < 70% floor -> add 1 more NVDL share (sizing clause \u00a73 v1.1) -> NVDL 2 + METU 1 ~ $88 = 92% of E. Premkt 9/14: semis gap down (NVDL -4.6%, MU -5.5%, SMH -4.3%) on AI-slowdown headlines; FOMC Wed 14:00 (hike ~88% priced) is intraday -> no blackout."
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 2,
+      "entry_px": 31.8299,
+      "entry_utc": "2026-09-15T19:52:18Z",
+      "order_id": "6aa9a1f1-765d-4908-9d88-13beb98f3be5"
+    },
+    {
+      "sym": "METU",
+      "qty": 1,
+      "entry_px": 26.9199,
+      "entry_utc": "2026-09-15T19:52:20Z",
+      "order_id": "6aa9a1f4-3775-48c2-9fe2-800635f847fc"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-09-15",
-    "entry_done": false,
+    "entry_done": true,
     "exit_done": true,
     "eod_done": false,
     "analyst_done": true,
@@ -223,6 +238,19 @@
       "METU": 26.2501,
       "pnl": 0.28,
       "E_after": 94.35
+    },
+    "entry": {
+      "NVDL": [
+        2,
+        31.8299,
+        31.89
+      ],
+      "METU": [
+        1,
+        26.9199,
+        26.96
+      ],
+      "cost": 90.58
     }
   },
   "schedule": {
