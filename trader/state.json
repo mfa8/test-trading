@@ -5,11 +5,11 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 5 open: NVDL 2 @ 31.8299 + METU 1 @ 26.9199 (cost 90.58, 96% E); exit 09:31 Wed 9/16 (FOMC 14:00 is intraday)",
   "wake": {
-    "n": 18,
-    "utc": "2026-09-15T19:52:00Z",
-    "et": "2026-09-15 15:52",
-    "phase": "ENTRY",
-    "last_heartbeat_utc": "2026-09-15T19:52:30Z"
+    "n": 19,
+    "utc": "2026-09-15T20:02:00Z",
+    "et": "2026-09-15 16:02",
+    "phase": "EOD",
+    "last_heartbeat_utc": "2026-09-15T20:02:00Z"
   },
   "campaign": {
     "name": "T3X",
@@ -55,10 +55,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 94.35,
+    "equity": 94.27,
     "cash": 3.77,
     "buying_power": 3.77,
-    "fetched_utc": "2026-09-15T19:52:30Z"
+    "fetched_utc": "2026-09-15T20:02:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -225,7 +225,7 @@
     "date": "2026-09-15",
     "entry_done": true,
     "exit_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "analyst_done": true,
     "premkt": {
       "NVDL": 31.905,
@@ -251,6 +251,11 @@
         26.96
       ],
       "cost": 90.58
+    },
+    "eod": {
+      "NVDL": 31.88,
+      "METU": 26.85,
+      "E_marked": 94.27
     }
   },
   "schedule": {
