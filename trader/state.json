@@ -5,12 +5,12 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 6 open: NVDL 2 @ 32.3699 + METU 1 @ 27.331 (cost 92.07, 96% E); exit 09:31 Thu 9/17",
   "wake": {
-    "n": 22,
-    "utc": "2026-09-16T19:52:00Z",
-    "et": "2026-09-16 15:52",
-    "phase": "ENTRY",
-    "last_heartbeat_utc": "2026-09-16T19:52:30Z",
-    "loop_note": "entry done"
+    "n": 23,
+    "utc": "2026-09-16T20:02:00Z",
+    "et": "2026-09-16 16:02",
+    "phase": "EOD",
+    "last_heartbeat_utc": "2026-09-16T20:02:00Z",
+    "loop_note": "EOD done; market closed"
   },
   "campaign": {
     "name": "T3X",
@@ -62,10 +62,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 95.86,
+    "equity": 95.66,
     "cash": 3.79,
     "buying_power": 3.79,
-    "fetched_utc": "2026-09-16T19:52:30Z"
+    "fetched_utc": "2026-09-16T20:02:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -232,7 +232,7 @@
     "date": "2026-09-16",
     "entry_done": true,
     "exit_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "analyst_done": true,
     "premkt": {
       "NVDL": 32.28,
@@ -259,7 +259,13 @@
         27.4
       ],
       "cost": 92.07
-    }
+    },
+    "eod": {
+      "NVDL": 32.4,
+      "METU": 27.09,
+      "E_marked": 95.66
+    },
+    "loop_scans": 24
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
