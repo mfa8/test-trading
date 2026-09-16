@@ -31,6 +31,7 @@ Buy 15:52, sell next 09:31 = NOT a day trade. Limited-margin account: proceeds u
 trades.csv (exit_kind "ovn"), orders.jsonl (INV-12), journal.log (W-9 line per acting wake), equity.csv (EOD), report/DAY-*.md, report/WEEK-*.md (Fri), STATUS.md. Weekly: re-rank table + edge-decay check (30-night mean per name).
 
 ## §9 Ops (carried from ADAPTATION_RH.md)
+ALWAYS-ON (human, 2026-09-16: "This session should always be running"): during market hours (09:26-16:05 ET) the session stays IN-TURN continuously — after the 09:31 exit it loops: sleep <= 9 min -> scan (basket quotes, underlyings, QQQ, portfolio, open orders) -> heartbeat to state.json -> repeat, straight through the 15:52 entry and 16:02 EOD, ending the turn only after EOD is committed. Backstop crons remain as the safety net if a worker restart kills the turn (on any wake: if state.wake.last_heartbeat_utc is stale and market is open, resume the loop immediately). Overnight/weekends the crons keep the session alive; nothing to trade then.
 Crons: t2x-analyst 11:45Z; t3x-exit-0926 13:26Z; t3x-entry-1548 19:48Z; t2x-wake-a/b hourly backstops. Bridge with <= 9-min sleep chunks; re-check clock after any backgrounded sleep or worker restart; commit+push every state change; absorb duplicate wakes as NOOPs.
 
 ## §10 Expansion candidates (need explicit human OK — outside "stocks/ETFs only")

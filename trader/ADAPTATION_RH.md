@@ -33,3 +33,5 @@ Platform floor is 1-minute scheduling with 1-10 min delivery latency; 30-second 
 9. Never delete/disable routines, even on DONE/HALTED (human rule 2026-09-09). Campaign-end states only flatten and report; the scheduler keeps waking and the agent keeps NOOPing until re-tasked.
 10. Overnight engine cadence: EXIT wake 09:26 (late arrival still exits immediately); ENTRY wake 15:48 (arrival after 15:57 skips the night). Intraday wakes are NOOPs by design — the intraday drift is what we are avoiding.
 11. Large historicals results land in tool-results files; analyze with python locally, never load into context.
+
+12. ALWAYS-ON (2026-09-16, human): never end the turn during market hours. Loop sleep<=9min -> scan -> heartbeat from the 09:31 exit through 16:02 EOD. Crons are backstop only. Commit heartbeats hourly (not every scan) to keep git history readable.
