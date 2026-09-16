@@ -1,4 +1,4 @@
-# T3X v1.1 — OVERNIGHT ENGINE (active manual from 2026-09-09)
+# T3X v1.2 — OVERNIGHT ENGINE (active manual from 2026-09-09)
 Authored by the agent at the human's instruction (2026-09-09: "rethink strategy... come up with another one... never retire the campaign or scheduler"). RULES.md (T2X v2.1) is retired but untouched per N-16. state.json.active_rules points here.
 
 ## §0 Wake protocol
@@ -36,3 +36,12 @@ Crons: t2x-analyst 11:45Z; t3x-exit-0926 13:26Z; t3x-entry-1548 19:48Z; t2x-wake
 
 ## §10 Expansion candidates (need explicit human OK — outside "stocks/ETFs only")
 (a) Crypto via Robinhood crypto (24/7; BITX intraday drift was positive; crypto buying power exists). (b) Options — not approved on ****8334.
+
+## §11 DAY LEG (v1.2, 2026-09-16 — human: "think for yourself, iterate on your tactics ... just make money")
+Thesis: the same decomposition that makes leveraged longs earn overnight makes them LOSE intraday (NVDL intraday-only -24.6% / 64 sessions). Inverse ETFs held open->close capture the mirror. The overnight leg leaves the capital idle 09:31-15:52; the day leg uses it.
+Data (64 sessions to 9/16, open->close, %/day): TZA +0.35 (sd 1.9, maxDD -8.5%, positive 3 of 4 months); NVDQ +0.20 (sd 3.8, maxDD -24%); SOXS +1.26 (sd 6.6, Sept -1.3). Last-30 score (mean/sd): TZA 0.25, NVDQ 0.24, SOXS 0.12, SPXS 0.10; SQQQ/TECS negative. Weaker and noisier than the overnight edge — sized accordingly (one instrument, no pyramiding).
+Ranking (weekly with §3): candidates TZA, NVDQ, SOXS, SPXS, SQQQ, TECS + any inverse leveraged ETF meeting §2 filters; score = mean(30 intraday returns)/sd; eligible if mean>0 AND win%>=50 AND full-window mean>0. Hold #1 only.
+PDT HARD CAP: buy 09:32 / sell 15:49 same day = a day trade. Limited-margin account < $25k: max 3 day trades per rolling 5 business days; a 4th flags PDT and restricts the account for 90 days (would kill the whole campaign). Rule: the day leg fires ONLY if state.day_leg.day_trades (dates) has < 3 entries within the prior 4 business days. Verify against the broker's filled orders each morning before the buy. Never a 4th. Not a day trade: 15:52 buy -> next-day 09:31 sell (overnight leg) or the 09:31 sell itself.
+Mechanics: after the 09:31 overnight exit fills and cash is confirmed: INV-12 intent -> marketable LIMIT buy at ask + max(0.02, 0.15%) for floor(0.95*cash/px) whole shares (target 85-95% of E); poll 6s; unfilled at 09:35 -> re-price once to ask+0.3%; unfilled 09:38 -> cancel, skip the day. Sell 15:49:00: marketable LIMIT at bid - max(0.02,0.15%); unfilled 60s -> bid-0.3%; unfilled 60s -> MARKET (must be flat before the 15:52 entry; the overnight leg has priority for the cash). No intraday stop (sd 1.7%/day, worst -4.2% in sample; §6 KILL/PAUSE still govern). If the day-leg sell has not filled by 15:51:30, the 15:52 entry is sized to the cash actually available.
+Records: trades.csv exit_kind "day"; state.day_leg {instrument, day_trades:[dates], last_rank}; journal W-9 lines; DAY report section "Day leg".
+Expected: +0.3% of E per active day x ~3 days/week ~ +0.9%/week on top of the overnight leg. Review after 10 active days: drop the day leg if its realised mean is < 0 over those 10.

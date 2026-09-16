@@ -35,3 +35,6 @@ Platform floor is 1-minute scheduling with 1-10 min delivery latency; 30-second 
 11. Large historicals results land in tool-results files; analyze with python locally, never load into context.
 
 12. ALWAYS-ON (2026-09-16, human): never end the turn during market hours. Loop sleep<=9min -> scan -> heartbeat from the 09:31 exit through 16:02 EOD. Crons are backstop only. Commit heartbeats hourly (not every scan) to keep git history readable.
+
+13. DAY LEG (2026-09-16): inverse-ETF intraday round trips are DAY TRADES. Hard cap 3 per rolling 5 business days (PDT). Count from broker fills every morning; never a 4th. Day leg has lower priority than the overnight leg for cash.
+14. Crypto ruled out by data 9/16: Robinhood BTC/ETH/SOL bid-ask ~1.9% (round trip ~2%) — no edge survives that at this size.
