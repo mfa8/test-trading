@@ -7,6 +7,8 @@ Every wake: read state.json first. Phases by ET clock: ANALYST (07:45), EXIT (09
 ## §1 Thesis (evidence, 62 sessions to 2026-09-08)
 Leveraged-long tech/semis ETFs earn their return overnight and lose it intraday: SOXL total -31.8% = overnight +34.6% / intraday -78.6%; NVDL +19% = +34.5% / -21.1%; MUU -4% = +33% / -40%. Overnight-only NVDL: +41.1%, maxDD -16.9%, win 59%, mean +0.61%/night, worst -6.3%. After a down intraday session the next night averages ~2x better (daily mean-reversion; AC1 negative). Inverse/vol ETFs bleed overnight (SOXS -0.97%/night) — never held. T2X lost because it traded intraday-only longs on exactly these instruments.
 
+Overnight decomposition (NVDL, 25 nights to 9/16, 24h bars): post-market 16:00-20:00 +0.77%/night (win 76%, sd 2.0) | 24h session 20:00-04:00 +0.20% (win 68%) | pre-market 04:00-09:30 +0.23% (win 56%, sd 1.4) | total +1.21%. ~63% of the edge accrues in the 4 hours after the close. Full close->open hold stays the rule (all three segments positive); a post-market-only hold (sell 19:59 extended_hours) is the designated de-risking mode if PAUSE triggers — it keeps most of the edge and skips the gap-risk segments. NVDL/METU/NVDQ are all_day tradable; TZA/SOXS are not.
+
 ## §2 Universe
 Affordable (price <= 0.98*E for 1 share) leveraged LONG ETFs/ETNs with avg volume >= 1M and >= 40 nights of history. Seed list: NVDL (2x NVDA), MUU (2x MU), FNGU (3x FANG+), TQQQ (3x NDX), TNA (3x R2K), SPXL/TECL/SOXL when affordable. Excluded permanently overnight: any inverse or volatility product. Excluded by data: TSLL, CONL (negative overnight drift), BITX (negative median) — re-tested weekly.
 
