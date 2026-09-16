@@ -5,11 +5,11 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 5 open: NVDL 2 @ 31.8299 + METU 1 @ 26.9199 (cost 90.58, 96% E); exit 09:31 Wed 9/16 (FOMC 14:00 is intraday)",
   "wake": {
-    "n": 19,
-    "utc": "2026-09-15T20:02:00Z",
-    "et": "2026-09-15 16:02",
-    "phase": "EOD",
-    "last_heartbeat_utc": "2026-09-15T20:02:00Z"
+    "n": 20,
+    "utc": "2026-09-16T11:45:35Z",
+    "et": "2026-09-16 07:45",
+    "phase": "ANALYST",
+    "last_heartbeat_utc": "2026-09-16T11:46:30Z"
   },
   "campaign": {
     "name": "T3X",
@@ -55,10 +55,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 94.27,
+    "equity": 95.51,
     "cash": 3.77,
     "buying_power": 3.77,
-    "fetched_utc": "2026-09-15T20:02:00Z"
+    "fetched_utc": "2026-09-16T11:46:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -222,41 +222,18 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-15",
-    "entry_done": true,
-    "exit_done": true,
-    "eod_done": true,
+    "date": "2026-09-16",
+    "entry_done": false,
+    "exit_done": false,
+    "eod_done": false,
     "analyst_done": true,
     "premkt": {
-      "NVDL": 31.905,
-      "METU": 26.15,
-      "E_marked": 93.92,
-      "night4_marked": -0.15
+      "NVDL": 32.28,
+      "METU": 27.18,
+      "E_marked": 95.51,
+      "night5_marked": 1.16
     },
-    "exit": {
-      "NVDL": 32.07,
-      "METU": 26.2501,
-      "pnl": 0.28,
-      "E_after": 94.35
-    },
-    "entry": {
-      "NVDL": [
-        2,
-        31.8299,
-        31.89
-      ],
-      "METU": [
-        1,
-        26.9199,
-        26.96
-      ],
-      "cost": 90.58
-    },
-    "eod": {
-      "NVDL": 31.88,
-      "METU": 26.85,
-      "E_marked": 94.27
-    }
+    "notes": "FOMC decision 14:00 ET (intraday, flat by design)"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
