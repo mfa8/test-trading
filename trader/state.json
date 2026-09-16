@@ -9,8 +9,8 @@
     "utc": "2026-09-16T13:26:36Z",
     "et": "2026-09-16 09:26",
     "phase": "EXIT",
-    "last_heartbeat_utc": "2026-09-16T16:56:16Z",
-    "loop_note": "scan 12:56 flat E95.86 NVDL33.055 METU27.26 NVDA+1.8% QQQ+0.8% 0orders"
+    "last_heartbeat_utc": "2026-09-16T17:50:14Z",
+    "loop_note": "scan 13:50 flat E95.86 NVDL32.71 METU27.16 NVDA+1.3% QQQ+0.65% 0orders pre-FOMC"
   },
   "campaign": {
     "name": "T3X",
