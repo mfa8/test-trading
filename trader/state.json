@@ -5,12 +5,12 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 6 open: NVDL 2 @ 32.3699 + METU 1 @ 27.331 (cost 92.07, 96% E); exit 09:31 Thu 9/17",
   "wake": {
-    "n": 23,
-    "utc": "2026-09-16T20:02:00Z",
-    "et": "2026-09-16 16:02",
-    "phase": "EOD",
-    "last_heartbeat_utc": "2026-09-16T20:02:00Z",
-    "loop_note": "EOD done; market closed"
+    "n": 24,
+    "utc": "2026-09-17T11:46:00Z",
+    "et": "2026-09-17 07:46",
+    "phase": "ANALYST",
+    "last_heartbeat_utc": "2026-09-17T11:47:00Z",
+    "loop_note": "premarket"
   },
   "campaign": {
     "name": "T3X",
@@ -63,10 +63,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 95.66,
+    "equity": 97.9,
     "cash": 3.79,
     "buying_power": 3.79,
-    "fetched_utc": "2026-09-16T20:02:00Z"
+    "fetched_utc": "2026-09-17T11:46:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -230,43 +230,25 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-16",
-    "entry_done": true,
-    "exit_done": true,
-    "eod_done": true,
+    "date": "2026-09-17",
+    "entry_done": false,
+    "exit_done": false,
+    "eod_done": false,
     "analyst_done": true,
     "premkt": {
-      "NVDL": 32.28,
-      "METU": 27.18,
-      "E_marked": 95.51,
-      "night5_marked": 1.16
+      "NVDL": 33.27,
+      "METU": 27.57,
+      "TZA": 43.74,
+      "E_marked": 97.9,
+      "night6_marked": 2.04
     },
-    "notes": "FOMC decision 14:00 ET (intraday, flat by design)",
-    "exit": {
-      "NVDL": 32.2701,
-      "METU": 27.5501,
-      "pnl": 1.51,
-      "E_after": 95.86
-    },
-    "entry": {
-      "NVDL": [
-        2,
-        32.3699,
-        32.44
-      ],
-      "METU": [
-        1,
-        27.331,
-        27.4
-      ],
-      "cost": 92.07
-    },
-    "eod": {
-      "NVDL": 32.4,
-      "METU": 27.09,
-      "E_marked": 95.66
-    },
-    "loop_scans": 24
+    "day_leg_plan": {
+      "instrument": "TZA",
+      "allowed": true,
+      "pdt_count_prior4bd": 0,
+      "buy_et": "09:32",
+      "sell_et": "15:49"
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
