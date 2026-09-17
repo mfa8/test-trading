@@ -193,3 +193,4 @@ W-9 2026-09-17 07:47 ET | T3X wake 24 ANALYST (daily sanity) | repo in sync | pr
 W-9 2026-09-17 09:32 ET | T3X wake 25 EXIT (night 6) | on-time; sold 09:31:23-26 above limit: NVDL 2 @ 33.7001 (+4.1%), METU 27.47 (+0.5%) | night P&L +2.80 (+2.92% E) | E 98.66 all cash = new HWM | day leg #1: buying TZA 2 sh
 W-9 2026-09-17 09:32 ET | DAY LEG #1 BUY TZA 2 lim 43.23 FILLED 43.1699 (cost 86.34, 88% E), cash 12.32 | day-trade count now 1 of 3 (window 9/11-9/17) | sell 15:49 | loop until then
 W-9 2026-09-17 10:25 ET | ALWAYS-ON loop hour 1: scans 09:40/09:49/09:58/10:07/10:16/10:25 | day leg TZA 2 @ 43.17 marked 43.36-43.62 (+0.4..+0.9) | E 99.04-99.56 | IWM +1.1% QQQ +1.6% | 0 orders
+W-9 2026-09-17 11:18 ET | ALWAYS-ON loop hour 2: scans 10:33..11:18 | day leg TZA 2 @ 43.17 marked 43.25-43.52 (+0.2..+0.7) | E 98.8-99.4 | IWM +1.1% QQQ +1.5% | 0 orders
