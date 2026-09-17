@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
-  "mode_reason": "night 6 open: NVDL 2 @ 32.3699 + METU 1 @ 27.331 (cost 92.07, 96% E); exit 09:31 Thu 9/17",
+  "mode": "DAY_LEG_OPEN",
+  "mode_reason": "day leg #1: TZA 2 @ 43.1699 (cost 86.34, 88% E) held 09:32 -> sell 15:49; then 15:52 overnight entry NVDL 2 + METU 1",
   "wake": {
-    "n": 24,
-    "utc": "2026-09-17T11:46:00Z",
-    "et": "2026-09-17 07:46",
-    "phase": "ANALYST",
-    "last_heartbeat_utc": "2026-09-17T11:47:00Z",
-    "loop_note": "premarket"
+    "n": 26,
+    "utc": "2026-09-17T13:26:56Z",
+    "et": "2026-09-17 09:32",
+    "phase": "DAY_LEG_BUY",
+    "last_heartbeat_utc": "2026-09-17T13:32:40Z",
+    "loop_note": "day leg open"
   },
   "campaign": {
     "name": "T3X",
@@ -21,7 +21,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 5,
+    "nights_held": 6,
     "R_history": [],
     "night_returns": [
       {
@@ -54,6 +54,12 @@
         "basket": "NVDL x2 + METU",
         "pnl": 1.51,
         "pct": 1.6
+      },
+      {
+        "date": "2026-09-16",
+        "basket": "NVDL x2 + METU",
+        "pnl": 2.8,
+        "pct": 2.92
       }
     ],
     "end_date": null,
@@ -63,10 +69,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 97.9,
-    "cash": 3.79,
-    "buying_power": 3.79,
-    "fetched_utc": "2026-09-17T11:46:00Z"
+    "equity": 98.66,
+    "cash": 12.32,
+    "buying_power": 12.32,
+    "fetched_utc": "2026-09-17T13:32:30Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -212,27 +218,12 @@
     "note": "formal 30-night rank 9/14: NVDL #1 (score 0.47, unchanged); NVDX #2 is same underlying (NVDA) -> skipped; METU #3 (2x META, vol 3-19M/day, 0.82%/night, win 63%) = 2nd distinct underlying, replaces AMZU (#8, decayed 0.21->0.15). TSMX #4 not jointly affordable. 2-name basket NVDL+METU ~ $58 = 61% of E < 70% floor -> add 1 more NVDL share (sizing clause \u00a73 v1.1) -> NVDL 2 + METU 1 ~ $88 = 92% of E. Premkt 9/14: semis gap down (NVDL -4.6%, MU -5.5%, SMH -4.3%) on AI-slowdown headlines; FOMC Wed 14:00 (hike ~88% priced) is intraday -> no blackout."
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "NVDL",
-      "qty": 2,
-      "entry_px": 32.3699,
-      "entry_utc": "2026-09-16T19:52:18Z",
-      "order_id": "6aaaf372-fd8a-4b24-ac9f-80c277233c9e"
-    },
-    {
-      "sym": "METU",
-      "qty": 1,
-      "entry_px": 27.331,
-      "entry_utc": "2026-09-16T19:52:20Z",
-      "order_id": "6aaaf374-0e1e-4ca7-9632-10a70edfb94b"
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-09-17",
     "entry_done": false,
-    "exit_done": false,
+    "exit_done": true,
     "eod_done": false,
     "analyst_done": true,
     "premkt": {
@@ -248,6 +239,20 @@
       "pdt_count_prior4bd": 0,
       "buy_et": "09:32",
       "sell_et": "15:49"
+    },
+    "exit": {
+      "NVDL": 33.7001,
+      "METU": 27.47,
+      "pnl": 2.8,
+      "E_after": 98.66
+    },
+    "day_leg": {
+      "buy": [
+        2,
+        43.1699,
+        43.23
+      ],
+      "buy_utc": "2026-09-17T13:32:10Z"
     }
   },
   "schedule": {
@@ -320,12 +325,20 @@
         63.83
       ]
     },
-    "day_trades": [],
+    "day_trades": [
+      "2026-09-17"
+    ],
     "pdt_cap": 3,
     "window_bdays": 5,
     "buy_et": "09:32",
     "sell_et": "15:49",
-    "position": null,
+    "position": {
+      "sym": "TZA",
+      "qty": 2,
+      "entry_px": 43.1699,
+      "entry_utc": "2026-09-17T13:32:10Z",
+      "order_id": "6aabebda-8c91-4302-aa6f-31489bd0ac66"
+    },
     "active_days": 0,
     "realised": []
   }
