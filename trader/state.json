@@ -5,12 +5,12 @@
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 7 open: NVDL 2 @ 34.1989 + METU 1 @ 27.6765 (cost 96.07, 96% E); exit 09:31 Fri 9/18; day leg #2 Fri (count 1 of 3)",
   "wake": {
-    "n": 29,
-    "utc": "2026-09-17T20:02:00Z",
-    "et": "2026-09-17 16:02",
-    "phase": "EOD",
-    "last_heartbeat_utc": "2026-09-17T20:02:00Z",
-    "loop_note": "EOD done; market closed"
+    "n": 30,
+    "utc": "2026-09-18T11:46:00Z",
+    "et": "2026-09-18 07:46",
+    "phase": "ANALYST",
+    "last_heartbeat_utc": "2026-09-18T11:47:00Z",
+    "loop_note": "premarket"
   },
   "campaign": {
     "name": "T3X",
@@ -69,10 +69,10 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 99.94,
+    "equity": 101.32,
     "cash": 4.38,
     "buying_power": 4.38,
-    "fetched_utc": "2026-09-17T20:02:00Z"
+    "fetched_utc": "2026-09-18T11:46:00Z"
   },
   "ranking": {
     "asof": "2026-09-14",
@@ -236,65 +236,25 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-17",
-    "entry_done": true,
-    "exit_done": true,
-    "eod_done": true,
+    "date": "2026-09-18",
+    "entry_done": false,
+    "exit_done": false,
+    "eod_done": false,
     "analyst_done": true,
     "premkt": {
-      "NVDL": 33.27,
-      "METU": 27.57,
-      "TZA": 43.74,
-      "E_marked": 97.9,
-      "night6_marked": 2.04
+      "NVDL": 34.2,
+      "METU": 28.54,
+      "TZA": 44.5,
+      "E_marked": 101.32,
+      "night7_marked": 0.87
     },
     "day_leg_plan": {
       "instrument": "TZA",
       "allowed": true,
-      "pdt_count_prior4bd": 0,
+      "pdt_count_prior4bd": 1,
       "buy_et": "09:32",
       "sell_et": "15:49"
-    },
-    "exit": {
-      "NVDL": 33.7001,
-      "METU": 27.47,
-      "pnl": 2.8,
-      "E_after": 98.66
-    },
-    "day_leg": {
-      "buy": [
-        2,
-        43.1699,
-        43.23
-      ],
-      "buy_utc": "2026-09-17T13:32:10Z",
-      "sell": [
-        2,
-        44.0717,
-        44.0
-      ],
-      "sell_utc": "2026-09-17T19:49:18Z",
-      "pnl": 1.8
-    },
-    "entry": {
-      "NVDL": [
-        2,
-        34.1989,
-        34.26
-      ],
-      "METU": [
-        1,
-        27.6765,
-        27.73
-      ],
-      "cost": 96.07
-    },
-    "eod": {
-      "NVDL": 34.05,
-      "METU": 27.81,
-      "E_marked": 99.94
-    },
-    "loop_scans": 34
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
