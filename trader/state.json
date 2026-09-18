@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-18T17:59:14Z",
-    "loop_note": "scan 13:59 TZA 45.18 (+0.78) E100.43 IWM-0.7% QQQ+0.1% 0orders"
+    "last_heartbeat_utc": "2026-09-18T18:52:15Z",
+    "loop_note": "scan 14:52 TZA 45.14 (+0.70) E100.35 IWM-0.7% QQQ+0.3% 0orders"
   },
   "campaign": {
     "name": "T3X",
