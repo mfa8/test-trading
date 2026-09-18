@@ -5,18 +5,19 @@
  "mode": "IN_POSITION_OVERNIGHT",
  "mode_reason": "night 8 entered 15:51:32 ET: NVDL 2 @ 34.179, METU 1 @ 26.31; exit 09:31 Mon 9/21",
  "wake": {
-  "n": 32,
+  "n": 33,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-18T19:45:09Z",
-  "loop_note": "scan 15:45 TZA 44.99 (+0.40) E100.05 IWM-0.55% QQQ+0.37% 0orders; sell TZA at 15:49"
+  "loop_note": "Fri EOD done; next analyst Mon 9/21 07:45 ET",
+  "last": "2026-09-18T20:02Z EOD"
  },
  "campaign": {
   "name": "T3X",
   "start_date": "2026-09-09",
   "start_equity": 98.75,
-  "equity_hwm": 100.46,
+  "equity_hwm": 101.44,
   "kill": 50.0,
   "pause_trigger_frac": 0.8,
   "pause_until_session": null,
@@ -75,7 +76,7 @@
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 99.96,
+  "equity": 101.44,
   "cash": 5.32,
   "buying_power": 10.07,
   "fetched_utc": "2026-09-18T13:33:45Z"
@@ -247,7 +248,7 @@
   "date": "2026-09-18",
   "entry_done": true,
   "exit_done": true,
-  "eod_done": false,
+  "eod_done": true,
   "analyst_done": true,
   "premkt": {
    "NVDL": 34.2,
@@ -282,6 +283,11 @@
     44.9617,
     44.88
    ]
+  },
+  "close_marks": {
+   "NVDL": 34.86,
+   "METU": 26.4,
+   "TZA": 44.89
   }
  },
  "schedule": {
