@@ -1,6 +1,6 @@
 # T3X STATUS — Overnight Engine (started 2026-09-09)
 mode: IN_POSITION_OVERNIGHT | night 9: NVDL 1 @ 36.47 + METU 1 @ 32.98 + NVDX 1 @ 20.58 (Mon 15:52 -> exit Tue 09:31) | day leg #3 TZA -0.66 | Tue/Wed: no day leg (PDT cap)
-**Equity:** 102.90 at 15:52 ET 9/21 (cash 12.87) · start 98.75 · HWM 103.56 · PAUSE 82.85 · KILL 50
+**Equity:** 102.42 at 16:02 ET 9/21 close (night 9 open -0.48) · start 98.75 · HWM 103.56 · PAUSE 82.85 · KILL 50
 thesis: leveraged-long semis/tech earn overnight, lose intraday -> hold NVDL/METU close->open; NEW v1.2: inverse day leg (TZA) open->close on <=3 days per rolling 5 (PDT cap); never inverse overnight; crypto ruled out (1.9% spread)
 daily loop: 09:26 wake -> sell 09:31 -> day-leg buy 09:32 (if PDT count <3) -> ALWAYS-ON scans -> day-leg sell 15:49 -> buy 15:52 -> 16:02 EOD | Mon 07:45 re-rank both legs
 blackouts: NVDL 2026-11-17 (NVDA); AMZU 2026-10-29 tentative (AMZN); MUU 2026-09-30 (MU)
