@@ -226,3 +226,4 @@ W-9 2026-09-22 07:46 ET | ANALYST sanity: repo in sync (60847ed) | positions mat
 W-9 2026-09-22 09:32 ET | EXIT night 9: NVDL 1 @ 36.7801 (lim 36.63) +0.31, METU 1 @ 32.1827 (lim 32.14) -0.80, NVDX 1 @ 20.7801 (lim 20.64) +0.20 = -0.29 | E 102.61 | 3 orders 3 fills | closed nights 9: net -1.19; excl night 3 +3.14 | no day leg today (PDT) | next: loop scans, entry 15:52
 W-9 2026-09-22 10:23 ET | ALWAYS-ON loop hour 1: scans 09:42..10:23 | FLAT (no day leg, PDT) | E 102.61 | NVDL 36.4-37.0 METU 32.6-33.3 NVDX 20.5-20.8 | IWM +0.7..1.1% QQQ +0.4..0.6% | 0 orders
 W-9 2026-09-22 11:19 ET | ALWAYS-ON loop hour 2: scans 10:31..11:19 | FLAT (no day leg, PDT) | E 102.61 | NVDL 36.6-36.9 METU 32.7-33.0 NVDX 20.65-20.8 | IWM +0.2..0.5% QQQ +0.4..0.6% | 0 orders
+W-9 2026-09-22 12:15 ET | ALWAYS-ON loop hour 3: scans 11:27..12:15 | FLAT (no day leg, PDT) | E 102.61 | NVDL 36.8-36.95 METU 32.8-33.3 NVDX 20.75-20.82 | IWM +0.25..0.4% QQQ +0.4..0.5% | 0 orders
