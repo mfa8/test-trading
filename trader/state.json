@@ -5,13 +5,13 @@
  "mode": "IN_POSITION_OVERNIGHT",
  "mode_reason": "night 9 entered 15:52-15:54 ET: NVDL 1 @ 36.47, METU 1 @ 32.98, NVDX 1 @ 20.5799 (90.03 = 87.5% E); exit Tue 9/22 09:31; no day leg Tue/Wed (PDT)",
  "wake": {
-  "n": 35,
+  "n": 36,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-21T19:33:32Z",
-  "loop_note": "Mon EOD done; Tue: analyst 07:45 sanity, exit 09:31, NO day leg (PDT), entry 15:52",
-  "last": "2026-09-21T20:02Z EOD"
+  "loop_note": "Tue: exit 09:31, loop, entry 15:52; no day leg",
+  "last": "2026-09-22T11:46Z analyst-sanity"
  },
  "campaign": {
   "name": "T3X",
@@ -252,48 +252,16 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-09-21",
-  "exit_done": true,
-  "entry_done": true,
-  "eod_done": true,
-  "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49",
+  "date": "2026-09-22",
+  "exit_done": false,
+  "entry_done": false,
+  "eod_done": false,
+  "day_leg_plan": "NONE - PDT cap 3/3 (9/17, 9/18, 9/21); re-opens Thu 9/24",
   "premarket": {
-   "NVDL": 35.48,
-   "METU": 27.74,
-   "TZA": 43.78,
-   "E_marked": 104.0
-  },
-  "night8_exit": {
-   "NVDL": 34.91,
-   "METU": 28.42,
-   "pnl": 3.57
-  },
-  "day_leg": {
-   "buy": [
-    2,
-    44.29,
-    44.29
-   ],
-   "sell": [
-    2,
-    43.9601,
-    43.87
-   ]
-  },
-  "entry_plan": {
-   "basket": {
-    "NVDL": 1,
-    "METU": 1,
-    "NVDX": 1
-   },
-   "cost_at_limits": 90.22,
-   "cap": 100.84
-  },
-  "close_marks": {
-   "NVDL": 36.51,
-   "METU": 32.46,
-   "NVDX": 20.58,
-   "TZA": 44.19
+   "NVDL": 36.36,
+   "METU": 31.77,
+   "NVDX": 20.495,
+   "E_marked": 101.54
   }
  },
  "schedule": {
