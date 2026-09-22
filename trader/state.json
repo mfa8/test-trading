@@ -2,16 +2,16 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "IN_POSITION_OVERNIGHT",
- "mode_reason": "night 9 entered 15:52-15:54 ET: NVDL 1 @ 36.47, METU 1 @ 32.98, NVDX 1 @ 20.5799 (90.03 = 87.5% E); exit Tue 9/22 09:31; no day leg Tue/Wed (PDT)",
+ "mode": "FLAT_LOOP",
+ "mode_reason": "night 9 closed -0.29 at 09:31; no day leg (PDT 3/3); entry 15:52",
  "wake": {
   "n": 36,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-21T19:33:32Z",
-  "loop_note": "Tue: exit 09:31, loop, entry 15:52; no day leg",
-  "last": "2026-09-22T11:46Z analyst-sanity"
+  "loop_note": "ALWAYS-ON loop, flat, scans every 9 min; entry 15:52",
+  "last": "2026-09-22T13:32Z exit"
  },
  "campaign": {
   "name": "T3X",
@@ -74,6 +74,13 @@
     "pnl": 3.57,
     "pct": 3.57,
     "note": "weekend hold; NVDL +1.46, METU +2.11"
+   },
+   {
+    "date": "2026-09-21",
+    "basket": "NVDL+METU+NVDX",
+    "pnl": -0.29,
+    "pct": -0.28,
+    "note": "NVDL +0.31 NVDX +0.20 METU -0.80 (post-spike fade)"
    }
   ],
   "end_date": null,
@@ -83,8 +90,8 @@
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 102.42,
-  "cash": 12.87,
+  "equity": 102.61,
+  "cash": 102.61,
   "buying_power": 10.07,
   "fetched_utc": "2026-09-18T13:33:45Z"
  },
@@ -224,36 +231,11 @@
   }
  },
  "position": null,
- "positions": [
-  {
-   "sym": "NVDL",
-   "qty": 1,
-   "entry_px": 36.47,
-   "entry_t": "2026-09-21T19:52:06Z",
-   "order_id": "6ab18ae6-7526-4137-a97e-a50b9a77ffd3",
-   "night": 9
-  },
-  {
-   "sym": "METU",
-   "qty": 1,
-   "entry_px": 32.98,
-   "entry_t": "2026-09-21T19:53:57Z",
-   "order_id": "6ab18ae8-d14f-400f-89a5-fe3eb2f12be8",
-   "night": 9
-  },
-  {
-   "sym": "NVDX",
-   "qty": 1,
-   "entry_px": 20.5799,
-   "entry_t": "2026-09-21T19:52:10Z",
-   "order_id": "6ab18aea-9907-402a-9e27-918f00a17962",
-   "night": 9
-  }
- ],
+ "positions": [],
  "open_orders": [],
  "today": {
   "date": "2026-09-22",
-  "exit_done": false,
+  "exit_done": true,
   "entry_done": false,
   "eod_done": false,
   "day_leg_plan": "NONE - PDT cap 3/3 (9/17, 9/18, 9/21); re-opens Thu 9/24",
@@ -262,6 +244,12 @@
    "METU": 31.77,
    "NVDX": 20.495,
    "E_marked": 101.54
+  },
+  "night9_exit": {
+   "NVDL": 36.7801,
+   "METU": 32.1827,
+   "NVDX": 20.7801,
+   "pnl": -0.29
   }
  },
  "schedule": {
