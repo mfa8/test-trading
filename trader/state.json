@@ -1,349 +1,349 @@
 {
- "schema": 3,
- "active_rules": "trader/RULES_v3.md",
- "strategy": "T3X v1.0 Overnight Engine",
- "mode": "FLAT_LOOP",
- "mode_reason": "night 9 closed -0.29 at 09:31; no day leg (PDT 3/3); entry 15:52",
- "wake": {
-  "n": 36,
-  "utc": "2026-09-18T13:26:43Z",
-  "et": "2026-09-18 09:33",
-  "phase": "DAY_LEG_BUY",
-  "last_heartbeat_utc": "2026-09-21T19:33:32Z",
-  "loop_note": "ALWAYS-ON loop, flat, scans every 9 min; entry 15:52",
-  "last": "2026-09-22T13:32Z exit"
- },
- "campaign": {
-  "name": "T3X",
-  "start_date": "2026-09-09",
-  "start_equity": 98.75,
-  "equity_hwm": 103.56,
-  "kill": 50.0,
-  "pause_trigger_frac": 0.8,
-  "pause_until_session": null,
-  "sessions_done": 0,
-  "nights_held": 9,
-  "R_history": [],
-  "night_returns": [
-   {
-    "date": "2026-09-09",
-    "basket": "NVDL+AMZU",
-    "pnl": -1.66,
-    "pct": -1.68
-   },
-   {
-    "date": "2026-09-10",
-    "basket": "NVDL+AMZU",
-    "pnl": 1.31,
-    "pct": 1.34
-   },
-   {
-    "date": "2026-09-11",
-    "basket": "NVDL+AMZU",
-    "pnl": -4.33,
-    "pct": -4.4,
-    "note": "weekend; semis gap-down on AI-slowdown headlines"
-   },
-   {
-    "date": "2026-09-14",
-    "basket": "NVDL x2 + METU",
-    "pnl": 0.28,
-    "pct": 0.3
-   },
-   {
-    "date": "2026-09-15",
-    "basket": "NVDL x2 + METU",
-    "pnl": 1.51,
-    "pct": 1.6
-   },
-   {
-    "date": "2026-09-16",
-    "basket": "NVDL x2 + METU",
-    "pnl": 2.8,
-    "pct": 2.92
-   },
-   {
-    "date": "2026-09-17",
-    "basket": "NVDL x2 + METU",
-    "pnl": -0.81,
-    "pct": -0.81
-   },
-   {
-    "date": "2026-09-18",
-    "basket": "NVDL x2 + METU",
-    "pnl": 3.57,
-    "pct": 3.57,
-    "note": "weekend hold; NVDL +1.46, METU +2.11"
-   },
-   {
-    "date": "2026-09-21",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": -0.29,
-    "pct": -0.28,
-    "note": "NVDL +0.31 NVDX +0.20 METU -0.80 (post-spike fade)"
-   }
-  ],
-  "end_date": null,
-  "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
-  "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
- },
- "account": {
-  "number_last4": "8334",
-  "mode": "IM_FREE",
-  "equity": 102.61,
-  "cash": 102.61,
-  "buying_power": 10.07,
-  "fetched_utc": "2026-09-18T13:33:45Z"
- },
- "ranking": {
-  "asof": "2026-09-21",
-  "window": 30,
-  "table": {
-   "NVDL": [
-    0.34,
-    1.06,
-    70,
-    -6.4,
-    34.87
-   ],
-   "METU": [
-    0.32,
-    0.96,
-    67,
-    -5.2,
-    26.4
-   ],
-   "NVDX": [
-    0.29,
-    0.9,
-    67,
-    -6.2,
-    19.67
-   ],
-   "SOXL": [
-    0.13,
-    0.78,
-    57,
-    -16.7,
-    123.67
-   ],
-   "TSMX": [
-    0.13,
-    0.36,
-    60,
-    -7.7,
-    82.16
-   ],
-   "TECL": [
-    0.13,
-    0.39,
-    60,
-    -7.5,
-    211.4
-   ],
-   "MUU": [
-    0.12,
-    0.62,
-    60,
-    -14.3,
-    33.72
-   ],
-   "SPXL": [
-    0.1,
-    0.13,
-    53,
-    -2.1,
-    281.32
-   ],
-   "AAPU": [
-    0.1,
-    0.12,
-    63,
-    -4.0,
-    45.27
-   ],
-   "TNA": [
-    0.07,
-    0.12,
-    40,
-    -2.4,
-    61.92
-   ],
-   "TQQQ": [
-    0.06,
-    0.14,
-    57,
-    -4.9,
-    72.64
-   ],
-   "FNGU": [
-    0.04,
-    0.07,
-    60,
-    -4.9,
-    32.98
-   ],
-   "GGLL": [
-    0.02,
-    0.04,
-    43,
-    -4.1,
-    103.45
-   ],
-   "AMZU": [
-    -0.07,
-    -0.11,
-    57,
-    -3.9,
-    35.6195
-   ],
-   "MSFU": [
-    -0.33,
-    -0.43,
-    27,
-    -3.5,
-    36.82
-   ]
+  "schema": 3,
+  "active_rules": "trader/RULES_v3.md",
+  "strategy": "T3X v1.0 Overnight Engine",
+  "mode": "FLAT_LOOP",
+  "mode_reason": "night 9 closed -0.29 at 09:31; no day leg (PDT 3/3); entry 15:52",
+  "wake": {
+    "n": 36,
+    "utc": "2026-09-18T13:26:43Z",
+    "et": "2026-09-18 09:33",
+    "phase": "DAY_LEG_BUY",
+    "last_heartbeat_utc": "2026-09-22T14:15:08Z",
+    "loop_note": "scan 10:15 flat E 102.61; NVDL 36.75 METU 33.27 NVDX 20.67; IWM +1.1% QQQ +0.57%",
+    "last": "2026-09-22T13:32Z exit"
   },
-  "picks": [
-   "NVDL",
-   "METU"
-  ],
-  "qty": {
-   "NVDL": 1,
-   "METU": 1,
-   "NVDX": 1
+  "campaign": {
+    "name": "T3X",
+    "start_date": "2026-09-09",
+    "start_equity": 98.75,
+    "equity_hwm": 103.56,
+    "kill": 50.0,
+    "pause_trigger_frac": 0.8,
+    "pause_until_session": null,
+    "sessions_done": 0,
+    "nights_held": 9,
+    "R_history": [],
+    "night_returns": [
+      {
+        "date": "2026-09-09",
+        "basket": "NVDL+AMZU",
+        "pnl": -1.66,
+        "pct": -1.68
+      },
+      {
+        "date": "2026-09-10",
+        "basket": "NVDL+AMZU",
+        "pnl": 1.31,
+        "pct": 1.34
+      },
+      {
+        "date": "2026-09-11",
+        "basket": "NVDL+AMZU",
+        "pnl": -4.33,
+        "pct": -4.4,
+        "note": "weekend; semis gap-down on AI-slowdown headlines"
+      },
+      {
+        "date": "2026-09-14",
+        "basket": "NVDL x2 + METU",
+        "pnl": 0.28,
+        "pct": 0.3
+      },
+      {
+        "date": "2026-09-15",
+        "basket": "NVDL x2 + METU",
+        "pnl": 1.51,
+        "pct": 1.6
+      },
+      {
+        "date": "2026-09-16",
+        "basket": "NVDL x2 + METU",
+        "pnl": 2.8,
+        "pct": 2.92
+      },
+      {
+        "date": "2026-09-17",
+        "basket": "NVDL x2 + METU",
+        "pnl": -0.81,
+        "pct": -0.81
+      },
+      {
+        "date": "2026-09-18",
+        "basket": "NVDL x2 + METU",
+        "pnl": 3.57,
+        "pct": 3.57,
+        "note": "weekend hold; NVDL +1.46, METU +2.11"
+      },
+      {
+        "date": "2026-09-21",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": -0.29,
+        "pct": -0.28,
+        "note": "NVDL +0.31 NVDX +0.20 METU -0.80 (post-spike fade)"
+      }
+    ],
+    "end_date": null,
+    "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
+    "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
   },
-  "note": "re-rank 9/21: NVDL 0.34 > METU 0.32 > NVDX 0.29 (same underlying as NVDL) > SOXL 0.13; picks unchanged; 2+1 = ~95% of E, a 3rd NVDL would exceed 0.98E",
-  "blackouts": {
-   "MUU": [
-    "2026-09-30 (MU pm, confirmed)"
-   ],
-   "NVDL": [
-    "2026-11-17"
-   ],
-   "AMZU": [
-    "2026-10-29 (tentative)"
-   ],
-   "METU": [
-    "2026-10-28 (tentative)"
-   ]
-  }
- },
- "position": null,
- "positions": [],
- "open_orders": [],
- "today": {
-  "date": "2026-09-22",
-  "exit_done": true,
-  "entry_done": false,
-  "eod_done": false,
-  "day_leg_plan": "NONE - PDT cap 3/3 (9/17, 9/18, 9/21); re-opens Thu 9/24",
-  "premarket": {
-   "NVDL": 36.36,
-   "METU": 31.77,
-   "NVDX": 20.495,
-   "E_marked": 101.54
+  "account": {
+    "number_last4": "8334",
+    "mode": "IM_FREE",
+    "equity": 102.61,
+    "cash": 102.61,
+    "buying_power": 10.07,
+    "fetched_utc": "2026-09-18T13:33:45Z"
   },
-  "night9_exit": {
-   "NVDL": 36.7801,
-   "METU": 32.1827,
-   "NVDX": 20.7801,
-   "pnl": -0.29
-  }
- },
- "schedule": {
-  "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
-  "t2x-wake-a": "trig_01Hup5mVHqFdFU91GziiV4Sz",
-  "t2x-wake-b": "trig_011o6NDxLbFSM3JpeiK9o1tR",
-  "t3x-exit-0926": "trig_018vHkWxg6SKfs4pwwYJsvUa",
-  "t3x-entry-1548": "trig_01J2xYyWSAw5s2GZNLzoxP5g"
- },
- "last_error": "",
- "alerts_open": [],
- "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
- "day_leg": {
-  "enabled": true,
-  "instrument": "TZA",
-  "rank_asof": "2026-09-21",
-  "rank": {
-   "TZA": [
-    0.42,
-    0.6,
-    1.45,
-    67,
-    -2.5,
-    44.87
-   ],
-   "NVDQ": [
-    0.21,
-    0.66,
-    3.15,
-    63,
-    -5.8,
-    8.65
-   ],
-   "SOXS": [
-    0.19,
-    0.71,
-    3.8,
-    53,
-    -6.5,
-    41.49
-   ],
-   "SQQQ": [
-    0.06,
-    0.08,
-    1.36,
-    60,
-    -2.9,
-    37.87
-   ],
-   "SPXS": [
-    0.26,
-    0.24,
-    0.9,
-    70,
-    -2.1,
-    25.18
-   ]
+  "ranking": {
+    "asof": "2026-09-21",
+    "window": 30,
+    "table": {
+      "NVDL": [
+        0.34,
+        1.06,
+        70,
+        -6.4,
+        34.87
+      ],
+      "METU": [
+        0.32,
+        0.96,
+        67,
+        -5.2,
+        26.4
+      ],
+      "NVDX": [
+        0.29,
+        0.9,
+        67,
+        -6.2,
+        19.67
+      ],
+      "SOXL": [
+        0.13,
+        0.78,
+        57,
+        -16.7,
+        123.67
+      ],
+      "TSMX": [
+        0.13,
+        0.36,
+        60,
+        -7.7,
+        82.16
+      ],
+      "TECL": [
+        0.13,
+        0.39,
+        60,
+        -7.5,
+        211.4
+      ],
+      "MUU": [
+        0.12,
+        0.62,
+        60,
+        -14.3,
+        33.72
+      ],
+      "SPXL": [
+        0.1,
+        0.13,
+        53,
+        -2.1,
+        281.32
+      ],
+      "AAPU": [
+        0.1,
+        0.12,
+        63,
+        -4.0,
+        45.27
+      ],
+      "TNA": [
+        0.07,
+        0.12,
+        40,
+        -2.4,
+        61.92
+      ],
+      "TQQQ": [
+        0.06,
+        0.14,
+        57,
+        -4.9,
+        72.64
+      ],
+      "FNGU": [
+        0.04,
+        0.07,
+        60,
+        -4.9,
+        32.98
+      ],
+      "GGLL": [
+        0.02,
+        0.04,
+        43,
+        -4.1,
+        103.45
+      ],
+      "AMZU": [
+        -0.07,
+        -0.11,
+        57,
+        -3.9,
+        35.6195
+      ],
+      "MSFU": [
+        -0.33,
+        -0.43,
+        27,
+        -3.5,
+        36.82
+      ]
+    },
+    "picks": [
+      "NVDL",
+      "METU"
+    ],
+    "qty": {
+      "NVDL": 1,
+      "METU": 1,
+      "NVDX": 1
+    },
+    "note": "re-rank 9/21: NVDL 0.34 > METU 0.32 > NVDX 0.29 (same underlying as NVDL) > SOXL 0.13; picks unchanged; 2+1 = ~95% of E, a 3rd NVDL would exceed 0.98E",
+    "blackouts": {
+      "MUU": [
+        "2026-09-30 (MU pm, confirmed)"
+      ],
+      "NVDL": [
+        "2026-11-17"
+      ],
+      "AMZU": [
+        "2026-10-29 (tentative)"
+      ],
+      "METU": [
+        "2026-10-28 (tentative)"
+      ]
+    }
   },
-  "day_trades": [
-   "2026-09-17",
-   "2026-09-18",
-   "2026-09-21"
-  ],
-  "pdt_cap": 3,
-  "window_bdays": 5,
-  "buy_et": "09:32",
-  "sell_et": "15:49",
   "position": null,
-  "active_days": 3,
-  "realised": [
-   {
-    "date": "2026-09-17",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 43.1699,
-    "exit": 44.0717,
-    "pnl": 1.8,
-    "pct": 1.83
-   },
-   {
-    "date": "2026-09-18",
-    "sym": "TZA",
-    "pnl": 0.34
-   },
-   {
-    "date": "2026-09-21",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 44.29,
-    "exit": 43.9601,
-    "pnl": -0.66,
-    "pct": -0.74
-   }
-  ],
-  "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens"
- }
+  "positions": [],
+  "open_orders": [],
+  "today": {
+    "date": "2026-09-22",
+    "exit_done": true,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_plan": "NONE - PDT cap 3/3 (9/17, 9/18, 9/21); re-opens Thu 9/24",
+    "premarket": {
+      "NVDL": 36.36,
+      "METU": 31.77,
+      "NVDX": 20.495,
+      "E_marked": 101.54
+    },
+    "night9_exit": {
+      "NVDL": 36.7801,
+      "METU": 32.1827,
+      "NVDX": 20.7801,
+      "pnl": -0.29
+    }
+  },
+  "schedule": {
+    "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
+    "t2x-wake-a": "trig_01Hup5mVHqFdFU91GziiV4Sz",
+    "t2x-wake-b": "trig_011o6NDxLbFSM3JpeiK9o1tR",
+    "t3x-exit-0926": "trig_018vHkWxg6SKfs4pwwYJsvUa",
+    "t3x-entry-1548": "trig_01J2xYyWSAw5s2GZNLzoxP5g"
+  },
+  "last_error": "",
+  "alerts_open": [],
+  "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
+  "day_leg": {
+    "enabled": true,
+    "instrument": "TZA",
+    "rank_asof": "2026-09-21",
+    "rank": {
+      "TZA": [
+        0.42,
+        0.6,
+        1.45,
+        67,
+        -2.5,
+        44.87
+      ],
+      "NVDQ": [
+        0.21,
+        0.66,
+        3.15,
+        63,
+        -5.8,
+        8.65
+      ],
+      "SOXS": [
+        0.19,
+        0.71,
+        3.8,
+        53,
+        -6.5,
+        41.49
+      ],
+      "SQQQ": [
+        0.06,
+        0.08,
+        1.36,
+        60,
+        -2.9,
+        37.87
+      ],
+      "SPXS": [
+        0.26,
+        0.24,
+        0.9,
+        70,
+        -2.1,
+        25.18
+      ]
+    },
+    "day_trades": [
+      "2026-09-17",
+      "2026-09-18",
+      "2026-09-21"
+    ],
+    "pdt_cap": 3,
+    "window_bdays": 5,
+    "buy_et": "09:32",
+    "sell_et": "15:49",
+    "position": null,
+    "active_days": 3,
+    "realised": [
+      {
+        "date": "2026-09-17",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 43.1699,
+        "exit": 44.0717,
+        "pnl": 1.8,
+        "pct": 1.83
+      },
+      {
+        "date": "2026-09-18",
+        "sym": "TZA",
+        "pnl": 0.34
+      },
+      {
+        "date": "2026-09-21",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 44.29,
+        "exit": 43.9601,
+        "pnl": -0.66,
+        "pct": -0.74
+      }
+    ],
+    "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens"
+  }
 }
