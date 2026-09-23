@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-23T18:03:09Z",
-    "loop_note": "scan 14:03 flat E 102.32; NVDL 35.83 METU 33.06 NVDX 20.195; IWM -1.55% QQQ -0.89%",
+    "last_heartbeat_utc": "2026-09-23T18:51:11Z",
+    "loop_note": "scan 14:51 flat E 102.32; NVDL 35.86 METU 32.97 NVDX 20.20; IWM -1.71% QQQ -0.87%",
     "last": "2026-09-23T13:32Z exit"
   },
   "campaign": {
