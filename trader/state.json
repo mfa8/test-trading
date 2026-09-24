@@ -5,13 +5,13 @@
  "mode": "IN_POSITION_OVERNIGHT",
  "mode_reason": "night 11 entered 15:51:50 ET: NVDL 1 @ 35.695, METU 1 @ 32.64, NVDX 1 @ 20.1199 (88.45 = 86% E); exit Thu 9/24 09:31; day leg #4 allowed Thu",
  "wake": {
-  "n": 39,
+  "n": 40,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-23T19:39:13Z",
-  "loop_note": "Wed EOD done; Thu: sanity 07:45, exit 09:31, day leg #4 09:32, sell 15:49, entry 15:52",
-  "last": "2026-09-23T20:02Z EOD"
+  "loop_note": "Thu: exit 09:31, day leg #4 09:32, loop, sell 15:49, entry 15:52",
+  "last": "2026-09-24T11:47Z analyst-sanity"
  },
  "campaign": {
   "name": "T3X",
@@ -266,36 +266,17 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-09-23",
-  "exit_done": true,
-  "entry_done": true,
-  "eod_done": true,
-  "day_leg_plan": "NONE - PDT: prior 4 bdays (9/17,9/18,9/21,9/22) hold 3 day trades; Thu 9/24 re-opens (2 in window)",
+  "date": "2026-09-24",
+  "exit_done": false,
+  "entry_done": false,
+  "eod_done": false,
+  "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; PDT: broker fills show TZA round trips 9/17, 9/18, 9/21 -> prior 4 bdays (9/18,9/21,9/22,9/23) hold 2 -> allowed (3rd)",
   "premarket": {
-   "NVDL": 36.625,
-   "METU": 32.025,
-   "NVDX": 20.635,
-   "E_marked": 101.54
-  },
-  "night10_exit": {
-   "NVDL": 36.7409,
-   "METU": 32.59,
-   "NVDX": 20.71,
-   "pnl": -0.29
-  },
-  "entry_plan": {
-   "basket": {
-    "NVDL": 1,
-    "METU": 1,
-    "NVDX": 1
-   },
-   "cost_at_limits": 88.56,
-   "cap": 100.27
-  },
-  "close_marks": {
-   "NVDL": 35.89,
-   "METU": 32.51,
-   "NVDX": 20.24
+   "NVDL": 35.02,
+   "METU": 31.08,
+   "NVDX": 19.725,
+   "TZA": 46.0,
+   "E_marked": 99.67
   }
  },
  "schedule": {
