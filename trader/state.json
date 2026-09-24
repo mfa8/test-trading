@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-24T19:42:18Z",
-    "loop_note": "scan 15:42 TZA 45.515 (-0.31) E 101.54 IWM -0.09%; pre-sell; night12 basket NVDL1/METU1/NVDX1 ~89%E",
+    "last_heartbeat_utc": "2026-09-24T19:52:51Z",
+    "loop_note": "9/24 EOD done. Fri 9/25: 07:45 sanity, 09:31 exit night 12, NO day leg (PDT 3 in window), loop, 15:52 entry night 13, EOD + WEEK-T3X-3.",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -104,10 +104,11 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 101.85,
+    "equity": 101.63,
     "cash": 10.6,
     "buying_power": 10.07,
-    "fetched_utc": "2026-09-18T13:33:45Z"
+    "fetched_utc": "2026-09-18T13:33:45Z",
+    "asof": "2026-09-24T20:02:00Z"
   },
   "ranking": {
     "asof": "2026-09-21",
@@ -276,7 +277,7 @@
     "date": "2026-09-24",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; PDT: broker fills show TZA round trips 9/17, 9/18, 9/21 -> prior 4 bdays (9/18,9/21,9/22,9/23) hold 2 -> allowed (3rd)",
     "premarket": {
       "NVDL": 35.02,
@@ -311,7 +312,14 @@
       "METU": 35.5099,
       "NVDX": 19.9899,
       "cost": 90.95
-    }
+    },
+    "close_marks": {
+      "NVDL": 35.56,
+      "METU": 35.42,
+      "NVDX": 20.05
+    },
+    "E_close": 101.63,
+    "night12_marked": 0.08
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
