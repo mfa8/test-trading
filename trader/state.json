@@ -2,16 +2,16 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "IN_POSITION_OVERNIGHT",
- "mode_reason": "night 11 entered 15:51:50 ET: NVDL 1 @ 35.695, METU 1 @ 32.64, NVDX 1 @ 20.1199 (88.45 = 86% E); exit Thu 9/24 09:31; day leg #4 allowed Thu",
+ "mode": "DAY_LEG_OPEN",
+ "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
  "wake": {
   "n": 40,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-23T19:39:13Z",
-  "loop_note": "Thu: exit 09:31, day leg #4 09:32, loop, sell 15:49, entry 15:52",
-  "last": "2026-09-24T11:47Z analyst-sanity"
+  "loop_note": "ALWAYS-ON loop; 8-min scans; sell TZA 15:49",
+  "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
   "name": "T3X",
@@ -88,6 +88,13 @@
     "pnl": -0.29,
     "pct": -0.28,
     "note": "NVDL -0.47 NVDX -0.27 METU +0.45"
+   },
+   {
+    "date": "2026-09-23",
+    "basket": "NVDL+METU+NVDX",
+    "pnl": -0.46,
+    "pct": -0.45,
+    "note": "NVDL -0.66 NVDX -0.38 METU +0.58 (re-priced once)"
    }
   ],
   "end_date": null,
@@ -97,8 +104,8 @@
  "account": {
   "number_last4": "8334",
   "mode": "IM_FREE",
-  "equity": 102.5,
-  "cash": 13.86,
+  "equity": 101.85,
+  "cash": 10.51,
   "buying_power": 10.07,
   "fetched_utc": "2026-09-18T13:33:45Z"
  },
@@ -238,36 +245,11 @@
   }
  },
  "position": null,
- "positions": [
-  {
-   "sym": "NVDL",
-   "qty": 1,
-   "entry_px": 35.695,
-   "entry_t": "2026-09-23T19:51:50Z",
-   "order_id": "6ab42dd6-d9e2-4652-9613-995c981c8774",
-   "night": 11
-  },
-  {
-   "sym": "METU",
-   "qty": 1,
-   "entry_px": 32.64,
-   "entry_t": "2026-09-23T19:51:53Z",
-   "order_id": "6ab42dd9-9e5b-4ce2-a892-45e4460b8dc9",
-   "night": 11
-  },
-  {
-   "sym": "NVDX",
-   "qty": 1,
-   "entry_px": 20.1199,
-   "entry_t": "2026-09-23T19:51:55Z",
-   "order_id": "6ab42ddb-2890-449e-9ce6-018d569f5afc",
-   "night": 11
-  }
- ],
+ "positions": [],
  "open_orders": [],
  "today": {
   "date": "2026-09-24",
-  "exit_done": false,
+  "exit_done": true,
   "entry_done": false,
   "eod_done": false,
   "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; PDT: broker fills show TZA round trips 9/17, 9/18, 9/21 -> prior 4 bdays (9/18,9/21,9/22,9/23) hold 2 -> allowed (3rd)",
@@ -277,6 +259,19 @@
    "NVDX": 19.725,
    "TZA": 46.0,
    "E_marked": 99.67
+  },
+  "night11_exit": {
+   "NVDL": 35.0301,
+   "METU": 33.2237,
+   "NVDX": 19.7401,
+   "pnl": -0.46
+  },
+  "day_leg": {
+   "buy": [
+    2,
+    45.67,
+    45.67
+   ]
   }
  },
  "schedule": {
@@ -338,13 +333,20 @@
   "day_trades": [
    "2026-09-17",
    "2026-09-18",
-   "2026-09-21"
+   "2026-09-21",
+   "2026-09-24"
   ],
   "pdt_cap": 3,
   "window_bdays": 5,
   "buy_et": "09:32",
   "sell_et": "15:49",
-  "position": null,
+  "position": {
+   "sym": "TZA",
+   "qty": 2,
+   "entry_px": 45.67,
+   "order_id": "6ab526b1-90f4-432d-b9d1-b60c199b814d",
+   "entry_t": "2026-09-24T13:33:41Z"
+  },
   "active_days": 3,
   "realised": [
    {
