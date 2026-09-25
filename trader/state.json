@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-25T17:42:09Z",
-    "loop_note": "scan 13:42 TZA 45.43 (+0.10) E 100.66 IWM +0.11% QQQ +0.55%",
+    "last_heartbeat_utc": "2026-09-25T18:38:07Z",
+    "loop_note": "scan 14:38 TZA 45.42 (+0.08) E 100.64 IWM +0.11% QQQ +0.44%",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
