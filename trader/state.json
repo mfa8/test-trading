@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-25T19:42:10Z",
-    "loop_note": "scan 15:42 TZA 45.255 (-0.25) E 100.31 IWM +0.24% QQQ +0.42%; pre-sell",
+    "last_heartbeat_utc": "2026-09-25T19:52:34Z",
+    "loop_note": "9/25 EOD + WEEK-T3X-3 done. Mon 9/28: 07:45 re-rank both legs + day-leg early-exit backtest, 09:31 exit night 13, 09:32 day leg #6 (PDT window 9/22-9/28 holds 2), loop, 15:52 entry night 14, EOD.",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -111,11 +111,11 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 100.56,
+    "equity": 100.11,
     "cash": 11.27,
     "buying_power": 10.07,
     "fetched_utc": "2026-09-18T13:33:45Z",
-    "asof": "2026-09-24T20:02:00Z"
+    "asof": "2026-09-25T20:02:00Z"
   },
   "ranking": {
     "asof": "2026-09-21",
@@ -284,7 +284,7 @@
     "date": "2026-09-25",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "premarket": {
       "NVDL": 36.02,
       "METU": 34.97,
@@ -323,7 +323,14 @@
       "METU": 33.0299,
       "NVDX": 20.0799,
       "cost": 88.75
-    }
+    },
+    "close_marks": {
+      "NVDL": 35.7,
+      "METU": 33.01,
+      "NVDX": 20.125
+    },
+    "E_close": 100.11,
+    "night13_marked": 0.09
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
