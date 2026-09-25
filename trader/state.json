@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-09-24T19:52:51Z",
-    "loop_note": "9/24 EOD done. Fri 9/25: 07:45 sanity, 09:31 exit night 12, NO day leg (PDT 3 in window), loop, 15:52 entry night 13, EOD + WEEK-T3X-3.",
+    "loop_note": "9/25 07:46 sanity ok. Exit 09:31, day leg #5 09:32 (PDT 2 in window), loop, sell 15:49, entry 15:52, EOD + WEEK-T3X-3.",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -274,52 +274,22 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-24",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; PDT: broker fills show TZA round trips 9/17, 9/18, 9/21 -> prior 4 bdays (9/18,9/21,9/22,9/23) hold 2 -> allowed (3rd)",
+    "date": "2026-09-25",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "premarket": {
-      "NVDL": 35.02,
-      "METU": 31.08,
-      "NVDX": 19.725,
-      "TZA": 46.0,
-      "E_marked": 99.67
+      "NVDL": 36.02,
+      "METU": 34.97,
+      "NVDX": 20.3,
+      "TZA": 45.01,
+      "QQQ_pct": 0.73,
+      "IWM_pct": 0.4,
+      "night12_marked": 0.34,
+      "E_marked": 101.97
     },
-    "night11_exit": {
-      "NVDL": 35.0301,
-      "METU": 33.2237,
-      "NVDX": 19.7401,
-      "pnl": -0.46
-    },
-    "day_leg": {
-      "buy": [
-        2,
-        45.67,
-        45.67
-      ],
-      "sell": [
-        2,
-        45.46,
-        45.5201,
-        "2026-09-24T19:49:04Z",
-        "6ab57eb0-6080-41e7-b01d-2972cb16a0a8"
-      ],
-      "pnl": -0.3
-    },
-    "night12_entry": {
-      "NVDL": 35.4492,
-      "METU": 35.5099,
-      "NVDX": 19.9899,
-      "cost": 90.95
-    },
-    "close_marks": {
-      "NVDL": 35.56,
-      "METU": 35.42,
-      "NVDX": 20.05
-    },
-    "E_close": 101.63,
-    "night12_marked": 0.08
+    "pdt_check": "broker fills: TZA round trips 9/18, 9/21, 9/24. Window 9/21-9/25 holds 2 (9/18 rolled out) -> day leg today allowed as 3rd. Yesterday note said blocked: miscount (included 9/18).",
+    "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; then night 13 entry 15:52 (weekend hold). EOD: DAY report + WEEK-T3X-3."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
