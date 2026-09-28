@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-09-25T19:52:34Z",
-    "loop_note": "9/25 EOD + WEEK-T3X-3 done. Mon 9/28: 07:45 re-rank both legs + day-leg early-exit backtest, 09:31 exit night 13, 09:32 day leg #6 (PDT window 9/22-9/28 holds 2), loop, 15:52 entry night 14, EOD.",
+    "loop_note": "9/28 07:55 analyst done: re-rank -> METU+AAPU; TZA day leg with v1.3 +1% take-profit. Exit 09:31, day leg 09:32, loop, 15:49, entry 15:52, EOD.",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -118,125 +118,154 @@
     "asof": "2026-09-25T20:02:00Z"
   },
   "ranking": {
-    "asof": "2026-09-21",
-    "window": 30,
+    "asof": "2026-09-28",
+    "window": "30 nights to 2026-09-25 (open_t/close_t-1)",
     "table": {
-      "NVDL": [
-        0.34,
-        1.06,
-        70,
-        -6.4,
-        34.87
-      ],
-      "METU": [
-        0.32,
-        0.96,
-        67,
-        -5.2,
-        26.4
-      ],
-      "NVDX": [
-        0.29,
-        0.9,
-        67,
-        -6.2,
-        19.67
-      ],
-      "SOXL": [
-        0.13,
-        0.78,
-        57,
-        -16.7,
-        123.67
-      ],
-      "TSMX": [
-        0.13,
-        0.36,
-        60,
-        -7.7,
-        82.16
-      ],
-      "TECL": [
-        0.13,
-        0.39,
-        60,
-        -7.5,
-        211.4
-      ],
-      "MUU": [
-        0.12,
-        0.62,
-        60,
-        -14.3,
-        33.72
-      ],
-      "SPXL": [
-        0.1,
-        0.13,
-        53,
-        -2.1,
-        281.32
-      ],
-      "AAPU": [
-        0.1,
-        0.12,
-        63,
-        -4.0,
-        45.27
-      ],
-      "TNA": [
-        0.07,
-        0.12,
-        40,
-        -2.4,
-        61.92
-      ],
-      "TQQQ": [
-        0.06,
-        0.14,
-        57,
-        -4.9,
-        72.64
-      ],
-      "FNGU": [
-        0.04,
-        0.07,
-        60,
-        -4.9,
-        32.98
-      ],
-      "GGLL": [
-        0.02,
-        0.04,
-        43,
-        -4.1,
-        103.45
-      ],
-      "AMZU": [
-        -0.07,
-        -0.11,
-        57,
-        -3.9,
-        35.6195
-      ],
-      "MSFU": [
-        -0.33,
-        -0.43,
-        27,
-        -3.5,
-        36.82
-      ]
+      "NVDL": {
+        "n": 30,
+        "mean": 0.62,
+        "sd": 3.14,
+        "score": 0.2,
+        "win": 63,
+        "worst": -6.4,
+        "last": 35.72
+      },
+      "NVDX": {
+        "n": 30,
+        "mean": 0.46,
+        "sd": 3.06,
+        "score": 0.15,
+        "win": 60,
+        "worst": -6.2,
+        "last": 20.11
+      },
+      "METU": {
+        "n": 30,
+        "mean": 0.94,
+        "sd": 3.17,
+        "score": 0.3,
+        "win": 60,
+        "worst": -5.2,
+        "last": 33.03
+      },
+      "TSMX": {
+        "n": 30,
+        "mean": -0.03,
+        "sd": 2.75,
+        "score": -0.01,
+        "win": 50,
+        "worst": -7.7,
+        "last": 88.11
+      },
+      "FNGU": {
+        "n": 30,
+        "mean": -0.1,
+        "sd": 1.89,
+        "score": -0.05,
+        "win": 57,
+        "worst": -4.9,
+        "last": 35.72
+      },
+      "SPXL": {
+        "n": 30,
+        "mean": 0.03,
+        "sd": 1.31,
+        "score": 0.02,
+        "win": 50,
+        "worst": -2.1,
+        "last": 291.28
+      },
+      "SOXL": {
+        "n": 30,
+        "mean": -0.07,
+        "sd": 5.54,
+        "score": -0.01,
+        "win": 50,
+        "worst": -16.7,
+        "last": 151.45
+      },
+      "AMZU": {
+        "n": 30,
+        "mean": -0.34,
+        "sd": 1.77,
+        "score": -0.19,
+        "win": 47,
+        "worst": -3.9,
+        "last": 34.23
+      },
+      "TECL": {
+        "n": 30,
+        "mean": 0.06,
+        "sd": 3.0,
+        "score": 0.02,
+        "win": 57,
+        "worst": -7.5,
+        "last": 234.5
+      },
+      "TNA": {
+        "n": 30,
+        "mean": 0.04,
+        "sd": 1.67,
+        "score": 0.02,
+        "win": 37,
+        "worst": -2.4,
+        "last": 60.36
+      },
+      "TQQQ": {
+        "n": 30,
+        "mean": -0.08,
+        "sd": 2.17,
+        "score": -0.04,
+        "win": 50,
+        "worst": -4.9,
+        "last": 79.6
+      },
+      "MUU": {
+        "n": 30,
+        "mean": 0.21,
+        "sd": 4.89,
+        "score": 0.04,
+        "win": 57,
+        "worst": -14.3,
+        "last": 37.85
+      },
+      "GGLL": {
+        "n": 30,
+        "mean": -0.02,
+        "sd": 1.75,
+        "score": -0.01,
+        "win": 40,
+        "worst": -4.1,
+        "last": 99.53
+      },
+      "AAPU": {
+        "n": 30,
+        "mean": 0.25,
+        "sd": 0.87,
+        "score": 0.28,
+        "win": 67,
+        "worst": -2.0,
+        "last": 46.42
+      },
+      "MSFU": {
+        "n": 30,
+        "mean": -0.36,
+        "sd": 1.39,
+        "score": -0.26,
+        "win": 33,
+        "worst": -3.5,
+        "last": 39.82
+      }
     },
     "picks": [
-      "NVDL",
-      "METU"
+      "METU",
+      "AAPU"
     ],
     "qty": {
-      "NVDL": 1,
       "METU": 1,
-      "NVDX": 1
+      "AAPU": 1
     },
-    "note": "re-rank 9/21: NVDL 0.34 > METU 0.32 > NVDX 0.29 (same underlying as NVDL) > SOXL 0.13; picks unchanged; 2+1 = ~95% of E, a 3rd NVDL would exceed 0.98E",
+    "note": "score=mean/sd: METU 0.30, AAPU 0.28, NVDL 0.20, NVDX 0.15. Top-2 distinct underlyings = METU + AAPU (79% of E at 9/25 closes -> no v1.1/v1.2 add-on). NVDL drops to #3 after nights 9-12 (-0.83 on the NVDA legs). Re-check Mon 10/5.",
     "blackouts": {
       "MUU": [
         "2026-09-30 (MU pm, confirmed)"
@@ -249,6 +278,9 @@
       ],
       "METU": [
         "2026-10-28 (tentative)"
+      ],
+      "AAPU": [
+        "2026-10-29 (AAPL, tentative)"
       ]
     }
   },
@@ -281,56 +313,22 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-25",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-09-28",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "premarket": {
-      "NVDL": 36.02,
-      "METU": 34.97,
-      "NVDX": 20.3,
-      "TZA": 45.01,
-      "QQQ_pct": 0.73,
-      "IWM_pct": 0.4,
-      "night12_marked": 0.34,
-      "E_marked": 101.97
+      "NVDL": 36.26,
+      "METU": 31.26,
+      "NVDX": 20.44,
+      "TZA": 46.28,
+      "QQQ_pct": -0.82,
+      "IWM_pct": -0.6,
+      "night13_marked": -0.79,
+      "E_marked": 99.23
     },
-    "pdt_check": "broker fills: TZA round trips 9/18, 9/21, 9/24. Window 9/21-9/25 holds 2 (9/18 rolled out) -> day leg today allowed as 3rd. Yesterday note said blocked: miscount (included 9/18).",
-    "day_leg_plan": "TZA floor(0.95*cash/px) at 09:32 after exit fills; sell 15:49; then night 13 entry 15:52 (weekend hold). EOD: DAY report + WEEK-T3X-3.",
-    "night12_exit": {
-      "NVDL": 35.73,
-      "METU": 34.08,
-      "NVDX": 20.1501,
-      "pnl": -0.99
-    },
-    "day_leg": {
-      "buy": [
-        2,
-        45.47,
-        45.3787
-      ],
-      "sell": [
-        2,
-        45.02,
-        45.1101,
-        "2026-09-25T19:49:04Z",
-        "6ab6d030-450d-4930-ae72-959afbb94e93"
-      ],
-      "pnl": -0.54
-    },
-    "night13_entry": {
-      "NVDL": 35.6399,
-      "METU": 33.0299,
-      "NVDX": 20.0799,
-      "cost": 88.75
-    },
-    "close_marks": {
-      "NVDL": 35.7,
-      "METU": 33.01,
-      "NVDX": 20.125
-    },
-    "E_close": 100.11,
-    "night13_marked": 0.09
+    "pdt_check": "day_trades 9/24, 9/25 in window 9/22-9/28 -> day leg #6 today allowed (3rd). Tue 9/29 and Wed 9/30 blocked (3 in window). Thu 10/1 re-opens.",
+    "plan": "09:31 exit night 13 (NVDL/METU/NVDX). 09:32 TZA day leg #6 floor(0.95*cash/px) + resting TP sell at entry*1.01 (v1.3). Loop. 15:49 cancel TP if open, sell. 15:52 entry night 14 = METU 1 + AAPU 1 (new ranking). EOD."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -345,48 +343,53 @@
   "day_leg": {
     "enabled": true,
     "instrument": "TZA",
-    "rank_asof": "2026-09-21",
+    "rank_asof": "2026-09-28",
     "rank": {
-      "TZA": [
-        0.42,
-        0.6,
-        1.45,
-        67,
-        -2.5,
-        44.87
-      ],
-      "NVDQ": [
-        0.21,
-        0.66,
-        3.15,
-        63,
-        -5.8,
-        8.65
-      ],
-      "SOXS": [
-        0.19,
-        0.71,
-        3.8,
-        53,
-        -6.5,
-        41.49
-      ],
-      "SQQQ": [
-        0.06,
-        0.08,
-        1.36,
-        60,
-        -2.9,
-        37.87
-      ],
-      "SPXS": [
-        0.26,
-        0.24,
-        0.9,
-        70,
-        -2.1,
-        25.18
-      ]
+      "TZA": {
+        "n": 30,
+        "mean": 0.79,
+        "sd": 1.55,
+        "score": 0.51,
+        "win": 70,
+        "worst": -2.5,
+        "last": 45.44
+      },
+      "NVDQ": {
+        "n": 30,
+        "mean": 0.35,
+        "sd": 3.02,
+        "score": 0.12,
+        "win": 63,
+        "worst": -5.8,
+        "last": 8.41
+      },
+      "SOXS": {
+        "n": 30,
+        "mean": -0.56,
+        "sd": 4.21,
+        "score": -0.13,
+        "win": 43,
+        "worst": -9.9,
+        "last": 32.43
+      },
+      "SQQQ": {
+        "n": 30,
+        "mean": -0.22,
+        "sd": 1.72,
+        "score": -0.13,
+        "win": 53,
+        "worst": -5.8,
+        "last": 33.75
+      },
+      "SPXS": {
+        "n": 30,
+        "mean": 0.12,
+        "sd": 1.07,
+        "score": 0.12,
+        "win": 70,
+        "worst": -2.8,
+        "last": 23.91
+      }
     },
     "day_trades": [
       "2026-09-17",
@@ -444,6 +447,11 @@
         "pct": -0.59
       }
     ],
-    "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens"
+    "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
+    "take_profit": {
+      "version": "v1.3",
+      "target_pct": 1.0,
+      "since": "2026-09-28"
+    }
   }
 }
