@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-28T19:42:14Z",
-    "loop_note": "scan 15:42 TZA 46.255 (-0.55) TP 47.00 open E 101.47; pre-sell",
+    "last_heartbeat_utc": "2026-09-28T19:52:35Z",
+    "loop_note": "9/28 EOD done. Tue 9/29: 07:45 sanity, 09:31 exit night 14 (METU/AAPU), NO day leg (PDT window 9/23-9/29 holds 3), loop, 15:52 entry night 15, EOD. Wed 9/30: no day leg; MU earnings pm (MUU not held).",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -118,11 +118,11 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 102.02,
+    "equity": 101.48,
     "cash": 25.91,
     "buying_power": 10.07,
     "fetched_utc": "2026-09-18T13:33:45Z",
-    "asof": "2026-09-25T20:02:00Z"
+    "asof": "2026-09-28T20:02:00Z"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -315,7 +315,7 @@
     "date": "2026-09-28",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "premarket": {
       "NVDL": 36.26,
       "METU": 31.26,
@@ -355,7 +355,13 @@
       "METU": 29.9199,
       "AAPU": 45.8345,
       "cost": 75.75
-    }
+    },
+    "close_marks": {
+      "METU": 29.87,
+      "AAPU": 45.7
+    },
+    "E_close": 101.48,
+    "night14_marked": -0.18
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
