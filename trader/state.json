@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "DAY_LEG_OPEN",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-28T18:38:13Z",
-    "loop_note": "scan 14:38 TZA 46.03 (-1.00) TP 47.00 open E 101.02 IWM -0.43% QQQ -0.91%",
+    "last_heartbeat_utc": "2026-09-28T19:42:14Z",
+    "loop_note": "scan 15:42 TZA 46.255 (-0.55) TP 47.00 open E 101.47; pre-sell",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -119,7 +119,7 @@
     "number_last4": "8334",
     "mode": "IM_FREE",
     "equity": 102.02,
-    "cash": 8.96,
+    "cash": 25.91,
     "buying_power": 10.07,
     "fetched_utc": "2026-09-18T13:33:45Z",
     "asof": "2026-09-25T20:02:00Z"
@@ -292,12 +292,29 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 1,
+      "entry_px": 29.9199,
+      "order_id": "6abac55f-b56d-40a2-b42e-b1aa6fa8ccc2",
+      "entry_t": "2026-09-28T19:52:00Z",
+      "night": 14
+    },
+    {
+      "sym": "AAPU",
+      "qty": 1,
+      "entry_px": 45.8345,
+      "order_id": "6abac560-a1a4-4a3f-8850-8b21ccc26950",
+      "entry_t": "2026-09-28T19:52:00Z",
+      "night": 14
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-09-28",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "premarket": {
       "NVDL": 36.26,
@@ -323,7 +340,21 @@
         46.56,
         46.5299
       ],
-      "tp": 47.0
+      "tp": 47.0,
+      "sell": [
+        2,
+        46.28,
+        46.3501,
+        "2026-09-28T19:49:07Z",
+        "6abac4b3-aa9d-4768-a631-ecd2f4d20d5f"
+      ],
+      "pnl": -0.36,
+      "tp_hit": false
+    },
+    "night14_entry": {
+      "METU": 29.9199,
+      "AAPU": 45.8345,
+      "cost": 75.75
     }
   },
   "schedule": {
@@ -399,17 +430,8 @@
     "window_bdays": 5,
     "buy_et": "09:32",
     "sell_et": "15:49",
-    "position": {
-      "sym": "TZA",
-      "qty": 2,
-      "entry_px": 46.5299,
-      "order_id": "6aba6c80-680c-4073-a0ac-f932db76893c",
-      "entry_t": "2026-09-28T13:32:48Z",
-      "tp_limit": 47.0,
-      "tp_coid": "T3X-20260928-D6-TZA-TP",
-      "tp_order_id": "6aba6cb8-4c14-44e7-b414-3a00093cbd8e"
-    },
-    "active_days": 5,
+    "position": null,
+    "active_days": 6,
     "realised": [
       {
         "date": "2026-09-17",
@@ -451,6 +473,18 @@
         "exit": 45.1101,
         "pnl": -0.54,
         "pct": -0.59
+      },
+      {
+        "date": "2026-09-28",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 46.5299,
+        "exit": 46.3501,
+        "pnl": -0.36,
+        "pct": -0.39,
+        "tp": 47.0,
+        "tp_hit": false,
+        "day_high": 46.97
       }
     ],
     "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
