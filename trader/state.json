@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-28T13:20:10Z",
-    "loop_note": "9/28 day leg #6 TZA 2 @ 46.5299 open with TP sell 47.00 resting; loop 8-min checks TP; 15:49 cancel TP if open + sell; 15:52 entry night 14 METU 1 + AAPU 1; EOD",
+    "last_heartbeat_utc": "2026-09-28T14:06:20Z",
+    "loop_note": "scan 10:06 TZA 46.355 (-0.35) TP 47.00 open E 101.67 IWM -0.66% QQQ -0.99%",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -406,7 +406,8 @@
       "order_id": "6aba6c80-680c-4073-a0ac-f932db76893c",
       "entry_t": "2026-09-28T13:32:48Z",
       "tp_limit": 47.0,
-      "tp_coid": "T3X-20260928-D6-TZA-TP"
+      "tp_coid": "T3X-20260928-D6-TZA-TP",
+      "tp_order_id": "6aba6cb8-4c14-44e7-b414-3a00093cbd8e"
     },
     "active_days": 5,
     "realised": [
