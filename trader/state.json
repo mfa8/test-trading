@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
+  "mode": "DAY_LEG_OPEN",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-25T19:52:34Z",
-    "loop_note": "9/28 07:55 analyst done: re-rank -> METU+AAPU; TZA day leg with v1.3 +1% take-profit. Exit 09:31, day leg 09:32, loop, 15:49, entry 15:52, EOD.",
+    "last_heartbeat_utc": "2026-09-28T13:20:10Z",
+    "loop_note": "9/28 day leg #6 TZA 2 @ 46.5299 open with TP sell 47.00 resting; loop 8-min checks TP; 15:49 cancel TP if open + sell; 15:52 entry night 14 METU 1 + AAPU 1; EOD",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 12,
+    "nights_held": 13,
     "R_history": [],
     "night_returns": [
       {
@@ -102,6 +102,13 @@
         "pnl": -0.99,
         "pct": -0.97,
         "note": "NVDL +0.28 NVDX +0.16 METU -1.43 (METU faded 3.7% from prior close overnight)"
+      },
+      {
+        "date": "2026-09-25",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": 2.0,
+        "pct": 2.0,
+        "note": "weekend hold; NVDL +2.08 NVDX +1.19 METU -1.27"
       }
     ],
     "end_date": null,
@@ -111,8 +118,8 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 100.11,
-    "cash": 11.27,
+    "equity": 102.02,
+    "cash": 8.96,
     "buying_power": 10.07,
     "fetched_utc": "2026-09-18T13:33:45Z",
     "asof": "2026-09-25T20:02:00Z"
@@ -285,36 +292,11 @@
     }
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "NVDL",
-      "qty": 1,
-      "entry_px": 35.6399,
-      "order_id": "6ab6d0d4-2bf8-4a8c-99d0-0c5224c85495",
-      "entry_t": "2026-09-25T19:51:49Z",
-      "night": 13
-    },
-    {
-      "sym": "METU",
-      "qty": 1,
-      "entry_px": 33.0299,
-      "order_id": "6ab6d0d7-5518-42fa-be1f-647c7c54f8cf",
-      "entry_t": "2026-09-25T19:51:51Z",
-      "night": 13
-    },
-    {
-      "sym": "NVDX",
-      "qty": 1,
-      "entry_px": 20.0799,
-      "order_id": "6ab6d0d9-3560-479a-98df-1287f054a8b9",
-      "entry_t": "2026-09-25T19:51:53Z",
-      "night": 13
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-09-28",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "premarket": {
@@ -328,7 +310,21 @@
       "E_marked": 99.23
     },
     "pdt_check": "day_trades 9/24, 9/25 in window 9/22-9/28 -> day leg #6 today allowed (3rd). Tue 9/29 and Wed 9/30 blocked (3 in window). Thu 10/1 re-opens.",
-    "plan": "09:31 exit night 13 (NVDL/METU/NVDX). 09:32 TZA day leg #6 floor(0.95*cash/px) + resting TP sell at entry*1.01 (v1.3). Loop. 15:49 cancel TP if open, sell. 15:52 entry night 14 = METU 1 + AAPU 1 (new ranking). EOD."
+    "plan": "09:31 exit night 13 (NVDL/METU/NVDX). 09:32 TZA day leg #6 floor(0.95*cash/px) + resting TP sell at entry*1.01 (v1.3). Loop. 15:49 cancel TP if open, sell. 15:52 entry night 14 = METU 1 + AAPU 1 (new ranking). EOD.",
+    "night13_exit": {
+      "NVDL": 37.7201,
+      "METU": 31.76,
+      "NVDX": 21.2701,
+      "pnl": 2.0
+    },
+    "day_leg": {
+      "buy": [
+        2,
+        46.56,
+        46.5299
+      ],
+      "tp": 47.0
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -396,13 +392,22 @@
       "2026-09-18",
       "2026-09-21",
       "2026-09-24",
-      "2026-09-25"
+      "2026-09-25",
+      "2026-09-28"
     ],
     "pdt_cap": 3,
     "window_bdays": 5,
     "buy_et": "09:32",
     "sell_et": "15:49",
-    "position": null,
+    "position": {
+      "sym": "TZA",
+      "qty": 2,
+      "entry_px": 46.5299,
+      "order_id": "6aba6c80-680c-4073-a0ac-f932db76893c",
+      "entry_t": "2026-09-28T13:32:48Z",
+      "tp_limit": 47.0,
+      "tp_coid": "T3X-20260928-D6-TZA-TP"
+    },
     "active_days": 5,
     "realised": [
       {
