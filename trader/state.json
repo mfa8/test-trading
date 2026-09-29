@@ -10,7 +10,7 @@
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-29T19:44:11Z",
-  "loop_note": "night 15 open METU 1 @31.6099 + AAPU 1 @43.2699; exit 09:31 Wed 9/30; no day leg Wed (PDT)",
+  "loop_note": "EOD 9/29 done; night 15 open (METU+AAPU) +0.24 at close; Wed 9/30: 07:45 sanity, 09:31 exit, no day leg (PDT), 15:52 entry night 16",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -123,9 +123,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 101.0,
+  "equity": 101.24,
   "cash": 26.16,
-  "asof": "2026-09-29T15:52 ET"
+  "asof": "2026-09-29T16:01 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -320,7 +320,7 @@
   "date": "2026-09-29",
   "exit_done": true,
   "entry_done": true,
-  "eod_done": false,
+  "eod_done": true,
   "premarket": {
    "METU": 30.63,
    "AAPU": 45.37,
@@ -343,6 +343,11 @@
    "AAPU": 43.2699,
    "basket": 74.88,
    "pct_E": 74.2
+  },
+  "close_marks": {
+   "METU": 31.78,
+   "AAPU": 43.335,
+   "night15_open_pnl": 0.24
   }
  },
  "schedule": {
