@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
+  "mode": "FLAT_NO_DAY_LEG",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-09-28T19:52:35Z",
-    "loop_note": "9/29 07:48 sanity ok. Exit 09:31, no day leg (PDT), loop flat, entry 15:52 METU+AAPU, EOD.",
+    "last_heartbeat_utc": "2026-09-29T13:17:07Z",
+    "loop_note": "9/29 flat after 09:31 exit (night 14 -0.62); no day leg (PDT); loop 8-min; 15:52 entry night 15 METU+AAPU; EOD",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 13,
+    "nights_held": 14,
     "R_history": [],
     "night_returns": [
       {
@@ -109,6 +109,13 @@
         "pnl": 2.0,
         "pct": 2.0,
         "note": "weekend hold; NVDL +2.08 NVDX +1.19 METU -1.27"
+      },
+      {
+        "date": "2026-09-28",
+        "basket": "METU+AAPU",
+        "pnl": -0.62,
+        "pct": -0.61,
+        "note": "first night of the 9/28 basket; METU +0.80, AAPU -1.42 (AAPL gapped -1.5%)"
       }
     ],
     "end_date": null,
@@ -118,8 +125,8 @@
   "account": {
     "number_last4": "8334",
     "mode": "IM_FREE",
-    "equity": 101.48,
-    "cash": 25.91,
+    "equity": 101.04,
+    "cash": 101.04,
     "buying_power": 10.07,
     "fetched_utc": "2026-09-18T13:33:45Z",
     "asof": "2026-09-28T20:02:00Z"
@@ -292,28 +299,11 @@
     }
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "METU",
-      "qty": 1,
-      "entry_px": 29.9199,
-      "order_id": "6abac55f-b56d-40a2-b42e-b1aa6fa8ccc2",
-      "entry_t": "2026-09-28T19:52:00Z",
-      "night": 14
-    },
-    {
-      "sym": "AAPU",
-      "qty": 1,
-      "entry_px": 45.8345,
-      "order_id": "6abac560-a1a4-4a3f-8850-8b21ccc26950",
-      "entry_t": "2026-09-28T19:52:00Z",
-      "night": 14
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-09-29",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "premarket": {
@@ -327,7 +317,12 @@
       "E_marked": 101.91
     },
     "pdt_check": "day_trades 9/24, 9/25, 9/28 in window 9/23-9/29 = 3 -> NO day leg today. Wed 9/30 window 9/24-9/30 = 3 -> blocked. Thu 10/1 window 9/25-10/1 = 2 -> allowed.",
-    "plan": "09:31 exit night 14 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 15 = METU 1 + AAPU 1 (ranking asof 9/28). EOD."
+    "plan": "09:31 exit night 14 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 15 = METU 1 + AAPU 1 (ranking asof 9/28). EOD.",
+    "night14_exit": {
+      "METU": 30.7178,
+      "AAPU": 44.4101,
+      "pnl": -0.62
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
