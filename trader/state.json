@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-09-28T19:52:35Z",
-    "loop_note": "9/28 EOD done. Tue 9/29: 07:45 sanity, 09:31 exit night 14 (METU/AAPU), NO day leg (PDT window 9/23-9/29 holds 3), loop, 15:52 entry night 15, EOD. Wed 9/30: no day leg; MU earnings pm (MUU not held).",
+    "loop_note": "9/29 07:48 sanity ok. Exit 09:31, no day leg (PDT), loop flat, entry 15:52 METU+AAPU, EOD.",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -312,56 +312,22 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-09-28",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-09-29",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "premarket": {
-      "NVDL": 36.26,
-      "METU": 31.26,
-      "NVDX": 20.44,
-      "TZA": 46.28,
-      "QQQ_pct": -0.82,
-      "IWM_pct": -0.6,
-      "night13_marked": -0.79,
-      "E_marked": 99.23
+      "METU": 30.63,
+      "AAPU": 45.37,
+      "NVDL": 37.44,
+      "TZA": 45.98,
+      "QQQ_pct": 0.29,
+      "IWM_pct": 0.27,
+      "night14_marked": 0.24,
+      "E_marked": 101.91
     },
-    "pdt_check": "day_trades 9/24, 9/25 in window 9/22-9/28 -> day leg #6 today allowed (3rd). Tue 9/29 and Wed 9/30 blocked (3 in window). Thu 10/1 re-opens.",
-    "plan": "09:31 exit night 13 (NVDL/METU/NVDX). 09:32 TZA day leg #6 floor(0.95*cash/px) + resting TP sell at entry*1.01 (v1.3). Loop. 15:49 cancel TP if open, sell. 15:52 entry night 14 = METU 1 + AAPU 1 (new ranking). EOD.",
-    "night13_exit": {
-      "NVDL": 37.7201,
-      "METU": 31.76,
-      "NVDX": 21.2701,
-      "pnl": 2.0
-    },
-    "day_leg": {
-      "buy": [
-        2,
-        46.56,
-        46.5299
-      ],
-      "tp": 47.0,
-      "sell": [
-        2,
-        46.28,
-        46.3501,
-        "2026-09-28T19:49:07Z",
-        "6abac4b3-aa9d-4768-a631-ecd2f4d20d5f"
-      ],
-      "pnl": -0.36,
-      "tp_hit": false
-    },
-    "night14_entry": {
-      "METU": 29.9199,
-      "AAPU": 45.8345,
-      "cost": 75.75
-    },
-    "close_marks": {
-      "METU": 29.87,
-      "AAPU": 45.7
-    },
-    "E_close": 101.48,
-    "night14_marked": -0.18
+    "pdt_check": "day_trades 9/24, 9/25, 9/28 in window 9/23-9/29 = 3 -> NO day leg today. Wed 9/30 window 9/24-9/30 = 3 -> blocked. Thu 10/1 window 9/25-10/1 = 2 -> allowed.",
+    "plan": "09:31 exit night 14 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 15 = METU 1 + AAPU 1 (ranking asof 9/28). EOD."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
