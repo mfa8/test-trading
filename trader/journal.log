@@ -304,3 +304,4 @@ W-9 2026-09-24 09:34 ET | EXIT night 11: NVDL 1 @ 35.0301 (lim 34.87) -0.66, NVD
 2026-09-30T17:00:20+00:00 W-9 hb 13:00 ET flat E 101.11 cash 101.11 no orders; TZA 46.76 IWM +0.12% QQQ +0.82% METU 31.56 AAPU 45.10; repo in sync; next: loop, 15:52 entry night 16 METU+AAPU, EOD
 2026-09-30T18:04:25+00:00 W-9 hb 14:04 ET flat E 101.11 cash 101.11 no orders; TZA 46.85 IWM +0.06% QQQ +0.76% METU 31.32 AAPU 45.00; repo in sync; next: loop, 15:52 entry night 16 METU+AAPU, EOD
 2026-09-30T19:00:18+00:00 W-9 hb 15:00 ET flat E 101.11 cash 101.11 no orders; TZA 46.92 IWM +0.01% QQQ +0.67% METU 31.33 AAPU 45.06; repo in sync; next: 15:51:30 quotes, 15:52 entry night 16 METU 1 + AAPU 1, EOD
+2026-09-30T19:52:34+00:00 W-9 15:52 ET ENTRY night 16: METU 1 @30.9699 (lim 31.02) + AAPU 1 @44.5499 (lim 44.65), basket 75.52 = 74.7% E, no add-on; cash 25.59 E 101.13; mode IN_POSITION_OVERNIGHT; MU reports after close (not held); next: EOD 16:01:30, Thu 09:31 exit, day leg #7 TZA + TP
