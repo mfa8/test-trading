@@ -10,7 +10,7 @@
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-29T19:44:11Z",
-  "loop_note": "EOD 9/29 done; night 15 open (METU+AAPU) +0.24 at close; Wed 9/30: 07:45 sanity, 09:31 exit, no day leg (PDT), 15:52 entry night 16",
+  "loop_note": "9/30 07:47 sanity ok; night 15 marked -0.52; exit 09:31; no day leg (PDT); entry night 16 15:52",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -123,9 +123,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 101.24,
-  "cash": 26.16,
-  "asof": "2026-09-29T16:01 ET"
+  "equity": 100.69,
+  "cash": 26.33,
+  "asof": "2026-09-30T07:47 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -317,38 +317,25 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-09-29",
-  "exit_done": true,
-  "entry_done": true,
-  "eod_done": true,
+  "date": "2026-09-30",
+  "exit_done": false,
+  "entry_done": false,
+  "eod_done": false,
   "premarket": {
-   "METU": 30.63,
-   "AAPU": 45.37,
-   "NVDL": 37.44,
-   "TZA": 45.98,
-   "QQQ_pct": 0.29,
-   "IWM_pct": 0.27,
-   "night14_marked": 0.24,
-   "E_marked": 101.91
+   "METU": 31.25,
+   "AAPU": 43.11,
+   "TZA": 47.0,
+   "META_pct": -0.74,
+   "AAPL_pct": 0.05,
+   "QQQ_pct": -0.09,
+   "IWM_pct": -0.08,
+   "night15_marked": -0.52,
+   "E_marked": 100.69,
+   "cash": 26.33
   },
-  "pdt_check": "day_trades 9/24, 9/25, 9/28 in window 9/23-9/29 = 3 -> NO day leg today. Wed 9/30 window 9/24-9/30 = 3 -> blocked. Thu 10/1 window 9/25-10/1 = 2 -> allowed.",
-  "plan": "09:31 exit night 14 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 15 = METU 1 + AAPU 1 (ranking asof 9/28). EOD.",
-  "night14_exit": {
-   "METU": 30.7178,
-   "AAPU": 44.4101,
-   "pnl": -0.62
-  },
-  "night15_entry": {
-   "METU": 31.6099,
-   "AAPU": 43.2699,
-   "basket": 74.88,
-   "pct_E": 74.2
-  },
-  "close_marks": {
-   "METU": 31.78,
-   "AAPU": 43.335,
-   "night15_open_pnl": 0.24
-  }
+  "pdt_check": "day_trades 9/24, 9/25, 9/28 in window 9/24-9/30 = 3 -> NO day leg today. Thu 10/1 window 9/25-10/1 = 2 -> allowed.",
+  "earnings_check": "MU pm today (MUU not held). Nothing on META/AAPL. NKE pm 10/1 irrelevant.",
+  "plan": "09:31 exit night 15 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 16 = METU 1 + AAPU 1 (ranking asof 9/28). EOD."
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
