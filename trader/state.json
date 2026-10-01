@@ -10,7 +10,7 @@
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-09-30T19:40:13Z",
-  "loop_note": "EOD 9/30 done; night 16 open (METU+AAPU) -0.71 at close; Thu 10/1: 07:45 sanity, 09:31 exit, 09:32 day leg #7 TZA + TP (PDT ok), 15:52 entry night 17",
+  "loop_note": "10/1 07:47 sanity ok; night 16 marked -0.84; exit 09:31; day leg #7 TZA+TP 09:32; entry night 17 15:52",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -130,9 +130,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 100.43,
+  "equity": 100.27,
   "cash": 25.59,
-  "asof": "2026-09-30T16:01 ET"
+  "asof": "2026-10-01T07:47 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -324,41 +324,27 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-09-30",
-  "exit_done": true,
-  "entry_done": true,
-  "eod_done": true,
+  "date": "2026-10-01",
+  "exit_done": false,
+  "entry_done": false,
+  "eod_done": false,
+  "day_leg_done": false,
   "premarket": {
-   "METU": 31.25,
-   "AAPU": 43.11,
-   "TZA": 47.0,
-   "META_pct": -0.74,
-   "AAPL_pct": 0.05,
-   "QQQ_pct": -0.09,
-   "IWM_pct": -0.08,
-   "night15_marked": -0.52,
-   "E_marked": 100.69,
-   "cash": 26.33
+   "METU": 30.67,
+   "AAPU": 44.01,
+   "TZA": 47.18,
+   "MU_pct": -0.9,
+   "META_pct": 0.11,
+   "AAPL_pct": -0.15,
+   "QQQ_pct": 0.66,
+   "IWM_pct": 0.24,
+   "night16_marked": -0.84,
+   "E_marked": 100.27,
+   "cash": 25.59
   },
-  "pdt_check": "day_trades 9/24, 9/25, 9/28 in window 9/24-9/30 = 3 -> NO day leg today. Thu 10/1 window 9/25-10/1 = 2 -> allowed.",
-  "earnings_check": "MU pm today (MUU not held). Nothing on META/AAPL. NKE pm 10/1 irrelevant.",
-  "plan": "09:31 exit night 15 (METU/AAPU). No day leg. Loop 8-min (flat). 15:52 entry night 16 = METU 1 + AAPU 1 (ranking asof 9/28). EOD.",
-  "night15_exit": {
-   "METU": 30.95,
-   "AAPU": 43.8332,
-   "pnl": -0.1
-  },
-  "night16_entry": {
-   "METU": 30.9699,
-   "AAPU": 44.5499,
-   "basket": 75.52,
-   "pct_E": 74.7
-  },
-  "close_marks": {
-   "METU": 30.64,
-   "AAPU": 44.17,
-   "night16_open_pnl": -0.71
-  }
+  "pdt_check": "day_trades 9/24, 9/25, 9/28; window 9/25-10/1 holds 9/25, 9/28 = 2 -> day leg #7 ALLOWED today (would be 3rd). Fri 10/2 window 9/26-10/2 would hold 9/28 + 10/1 = 2 -> allowed.",
+  "earnings_check": "NKE pm today (irrelevant). MU reported last night, -0.9% premarket, muted. Nothing on META/AAPL/TZA.",
+  "plan": "09:31 exit night 16 (METU/AAPU). 09:32 day leg #7: TZA qty=floor(0.95*cash/limit) marketable limit, then resting TP sell at ceil(entry*1.01) GFD; loop 8-min with TP status check; TP filled -> day-tp; else 15:49 cancel, verify, sell. 15:52 entry night 17 = METU 1 + AAPU 1. EOD."
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
