@@ -2,15 +2,15 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "DAY_LEG_OPEN",
+ "mode": "FLAT_DAY_LEG_CLOSED",
  "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
  "wake": {
   "n": 40,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
-  "last_heartbeat_utc": "2026-10-01T13:24:19Z",
-  "loop_note": "10/1 day leg #7 TZA 1 @47.42, TP resting 47.90 (id 6abe6145); check TP each scan; 15:49 cancel+sell if unfilled; 15:52 entry night 17 METU+AAPU",
+  "last_heartbeat_utc": "2026-10-01T13:40:20Z",
+  "loop_note": "10/1 day leg #7 TZA TP hit 47.90 at 09:40:54 (+0.48); flat; loop; 15:52 entry night 17 METU+AAPU",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -137,9 +137,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 99.96,
-  "cash": 52.58,
-  "asof": "2026-10-01T09:34 ET"
+  "equity": 100.48,
+  "cash": 100.48,
+  "asof": "2026-10-01T09:48 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -309,26 +309,14 @@
   }
  },
  "position": null,
- "positions": [
-  {
-   "sym": "TZA",
-   "qty": 1,
-   "entry": 47.42,
-   "entry_t": "2026-10-01T09:33:18 ET",
-   "order_id": "6abe611e-d1d0-4152-ae19-91ef6fde8ae0",
-   "leg": "day",
-   "n": 7,
-   "tp": 47.9,
-   "tp_order_id": "6abe6145-bd26-439d-88f8-56f33d2d0140"
-  }
- ],
+ "positions": [],
  "open_orders": [],
  "today": {
   "date": "2026-10-01",
   "exit_done": true,
   "entry_done": false,
   "eod_done": false,
-  "day_leg_done": false,
+  "day_leg_done": true,
   "premarket": {
    "METU": 30.67,
    "AAPU": 44.01,
@@ -358,7 +346,12 @@
    "tp": 47.9,
    "tp_order_id": "6abe6145-bd26-439d-88f8-56f33d2d0140",
    "buy_order_id": "6abe611e-d1d0-4152-ae19-91ef6fde8ae0",
-   "t": "09:33:18 ET"
+   "t": "09:33:18 ET",
+   "exit": 47.9,
+   "exit_t": "09:40:54 ET",
+   "exit_kind": "day-tp",
+   "pnl": 0.48,
+   "pct": 1.01
   }
  },
  "schedule": {
@@ -435,15 +428,8 @@
   "window_bdays": 5,
   "buy_et": "09:32",
   "sell_et": "15:49",
-  "position": {
-   "sym": "TZA",
-   "qty": 1,
-   "entry": 47.42,
-   "tp": 47.9,
-   "tp_order_id": "6abe6145-bd26-439d-88f8-56f33d2d0140",
-   "date": "2026-10-01"
-  },
-  "active_days": 6,
+  "position": null,
+  "active_days": 7,
   "realised": [
    {
     "date": "2026-09-17",
@@ -497,6 +483,21 @@
     "tp": 47.0,
     "tp_hit": false,
     "day_high": 46.97
+   },
+   {
+    "date": "2026-10-01",
+    "n": 7,
+    "sym": "TZA",
+    "qty": 1,
+    "entry": 47.42,
+    "exit": 47.9,
+    "exit_kind": "day-tp",
+    "pnl": 0.48,
+    "pct": 1.01,
+    "tp": 47.9,
+    "tp_hit": true,
+    "tp_fill_t": "09:40:54 ET",
+    "held_min": 7
    }
   ],
   "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
