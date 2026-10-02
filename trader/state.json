@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-02T19:44:21Z",
-    "loop_note": "15:52 night 18 entered METU 1 @30.7883 + AAPU 1 @44.31 (75.10, 73.1% E), weekend hold; cash 27.57; next: 16:01:30 closing marks, EOD records, DAY-20261002 + WEEK-T3X-4 reports; Mon 10/5 07:45 re-rank, 09:31 exit, day leg #9",
+    "last_heartbeat_utc": "2026-10-02T19:52:44Z",
+    "loop_note": "16:02 EOD: E 102.73 (METU 30.82 AAPU 44.34 cash 27.57); night 18 marked +0.06, weekend hold; day +2.43 week +2.62; DAY-20261002 + WEEK-T3X-4 written; loop ends; backstop wakes absorb as NOOP; next: Mon 10/5 07:45 analyst re-rank (AAPU under review), 09:31 exit night 18, 09:32 day leg #9 TZA+TP (PDT window 9/29-10/5 holds 2), 15:52 entry night 19",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -144,9 +144,9 @@
     "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
   },
   "account": {
-    "equity": 102.66,
+    "equity": 102.73,
     "cash": 27.57,
-    "asof": "2026-10-02T15:52 ET"
+    "asof": "2026-10-02T16:01 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -341,7 +341,7 @@
     "date": "2026-10-02",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "day_leg_done": true,
     "premarket": {
       "METU": 30.9,
@@ -395,6 +395,14 @@
       "cash_after": 27.57,
       "t": "15:51:51 ET",
       "weekend": true
+    },
+    "close_marks": {
+      "METU": 30.82,
+      "AAPU": 44.34,
+      "cash": 27.57,
+      "E": 102.73,
+      "night18_marked": 0.06,
+      "day_pnl_vs_prev_close": 2.43
     }
   },
   "schedule": {
