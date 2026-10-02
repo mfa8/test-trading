@@ -10,7 +10,7 @@
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
   "last_heartbeat_utc": "2026-10-01T19:40:18Z",
-  "loop_note": "EOD 10/1 done; night 17 open (METU+AAPU) -0.17 at close; Fri 10/2: 07:45 sanity, 09:31 exit, 09:32 day leg #8 TZA+TP, 15:52 entry night 18 (weekend), EOD + WEEK-T3X-4",
+  "loop_note": "10/2 07:47 sanity ok; night 17 marked +0.29; exit 09:31; day leg #8 TZA+TP 09:32; entry night 18 15:52; WEEK-T3X-4 after close",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -137,9 +137,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 100.3,
+  "equity": 100.77,
   "cash": 26.16,
-  "asof": "2026-10-01T16:01 ET"
+  "asof": "2026-10-02T07:47 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -331,58 +331,26 @@
  ],
  "open_orders": [],
  "today": {
-  "date": "2026-10-01",
-  "exit_done": true,
-  "entry_done": true,
-  "eod_done": true,
-  "day_leg_done": true,
+  "date": "2026-10-02",
+  "exit_done": false,
+  "entry_done": false,
+  "eod_done": false,
+  "day_leg_done": false,
   "premarket": {
-   "METU": 30.67,
-   "AAPU": 44.01,
-   "TZA": 47.18,
-   "MU_pct": -0.9,
-   "META_pct": 0.11,
-   "AAPL_pct": -0.15,
-   "QQQ_pct": 0.66,
-   "IWM_pct": 0.24,
-   "night16_marked": -0.84,
-   "E_marked": 100.27,
-   "cash": 25.59
+   "METU": 30.9,
+   "AAPU": 43.71,
+   "TZA": 46.1,
+   "META_pct": 0.37,
+   "AAPL_pct": 0.35,
+   "QQQ_pct": 0.58,
+   "IWM_pct": 0.62,
+   "night17_marked": 0.29,
+   "E_marked": 100.77,
+   "cash": 26.16
   },
-  "pdt_check": "day_trades 9/24, 9/25, 9/28; window 9/25-10/1 holds 9/25, 9/28 = 2 -> day leg #7 ALLOWED today (would be 3rd). Fri 10/2 window 9/26-10/2 would hold 9/28 + 10/1 = 2 -> allowed.",
-  "earnings_check": "NKE pm today (irrelevant). MU reported last night, -0.9% premarket, muted. Nothing on META/AAPL/TZA.",
-  "plan": "09:31 exit night 16 (METU/AAPU). 09:32 day leg #7: TZA qty=floor(0.95*cash/limit) marketable limit, then resting TP sell at ceil(entry*1.01) GFD; loop 8-min with TP status check; TP filled -> day-tp; else 15:49 cancel, verify, sell. 15:52 entry night 17 = METU 1 + AAPU 1. EOD.",
-  "night16_exit": {
-   "METU": 31.1001,
-   "AAPU": 43.31,
-   "pnl": -1.11
-  },
-  "day_leg": {
-   "sym": "TZA",
-   "qty": 1,
-   "entry": 47.42,
-   "limit": 47.59,
-   "tp": 47.9,
-   "tp_order_id": "6abe6145-bd26-439d-88f8-56f33d2d0140",
-   "buy_order_id": "6abe611e-d1d0-4152-ae19-91ef6fde8ae0",
-   "t": "09:33:18 ET",
-   "exit": 47.9,
-   "exit_t": "09:40:54 ET",
-   "exit_kind": "day-tp",
-   "pnl": 0.48,
-   "pct": 1.01
-  },
-  "night17_entry": {
-   "METU": 30.7899,
-   "AAPU": 43.53,
-   "basket": 74.32,
-   "pct_E": 74.0
-  },
-  "close_marks": {
-   "METU": 30.67,
-   "AAPU": 43.48,
-   "night17_open_pnl": -0.17
-  }
+  "pdt_check": "day_trades 9/28, 10/1 in window 9/26-10/2 = 2 -> day leg #8 ALLOWED today (3rd). Mon 10/5 window 9/29-10/5 would hold 10/1, 10/2 = 2 -> allowed.",
+  "earnings_check": "high-cap calendar 10/2-10/5 empty; nothing on META/AAPL/TZA; weekend hold clear.",
+  "plan": "09:31 exit night 17. 09:32 day leg #8 TZA qty=floor(0.95*cash/limit) + resting TP ceil(entry*1.01); loop with TP check; 15:49 cancel+sell if unfilled. 15:52 entry night 18 (weekend) METU 1 + AAPU 1. EOD. WEEK-T3X-4 report."
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
