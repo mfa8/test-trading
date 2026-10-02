@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_DAY_LEG_CLOSED",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-02T18:48:13Z",
-    "loop_note": "15:00 hb: flat; cash 102.67; METU 30.75 AAPU 44.30 TZA 45.72; IWM +0.91% QQQ +0.96%; next: 15:51:30 quotes -> 15:52 entry night 18 METU1+AAPU1 (weekend), EOD + WEEK-T3X-4",
+    "last_heartbeat_utc": "2026-10-02T19:44:21Z",
+    "loop_note": "15:52 night 18 entered METU 1 @30.7883 + AAPU 1 @44.31 (75.10, 73.1% E), weekend hold; cash 27.57; next: 16:01:30 closing marks, EOD records, DAY-20261002 + WEEK-T3X-4 reports; Mon 10/5 07:45 re-rank, 09:31 exit, day leg #9",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 17,
+    "nights_held": 18,
     "R_history": [],
     "night_returns": [
       {
@@ -144,9 +144,9 @@
     "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
   },
   "account": {
-    "equity": 102.67,
-    "cash": 102.67,
-    "asof": "2026-10-02T14:56 ET"
+    "equity": 102.66,
+    "cash": 27.57,
+    "asof": "2026-10-02T15:52 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -316,12 +316,31 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 1,
+      "entry": 30.7883,
+      "entry_t": "2026-10-02T15:51:51 ET",
+      "order_id": "6ac00b57-1c08-4a32-946d-36f552b8bf2d",
+      "leg": "overnight",
+      "n": 18
+    },
+    {
+      "sym": "AAPU",
+      "qty": 1,
+      "entry": 44.31,
+      "entry_t": "2026-10-02T15:51:51 ET",
+      "order_id": "6ac00b57-0eba-4dd9-a2b0-a969e26755fd",
+      "leg": "overnight",
+      "n": 18
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-02",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -359,6 +378,23 @@
       "pnl": 0.93,
       "tp_hit": true,
       "held_min": 106
+    },
+    "night18_entry": {
+      "METU": {
+        "qty": 1,
+        "fill": 30.7883,
+        "limit": 30.83
+      },
+      "AAPU": {
+        "qty": 1,
+        "fill": 44.31,
+        "limit": 44.43
+      },
+      "cost": 75.1,
+      "pct_E": 73.1,
+      "cash_after": 27.57,
+      "t": "15:51:51 ET",
+      "weekend": true
     }
   },
   "schedule": {
