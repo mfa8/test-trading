@@ -2,15 +2,15 @@
  "schema": 3,
  "active_rules": "trader/RULES_v3.md",
  "strategy": "T3X v1.0 Overnight Engine",
- "mode": "IN_POSITION_OVERNIGHT",
+ "mode": "DAY_LEG_OPEN",
  "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
  "wake": {
   "n": 40,
   "utc": "2026-09-18T13:26:43Z",
   "et": "2026-09-18 09:33",
   "phase": "DAY_LEG_BUY",
-  "last_heartbeat_utc": "2026-10-01T19:40:18Z",
-  "loop_note": "10/2 07:47 sanity ok; night 17 marked +0.29; exit 09:31; day leg #8 TZA+TP 09:32; entry night 18 15:52; WEEK-T3X-4 after close",
+  "last_heartbeat_utc": "2026-10-02T13:24:18Z",
+  "loop_note": "10/2 day leg #8 TZA 2 @45.4368, TP resting 45.90 (id 6abfb26b); check TP each scan; 15:49 cancel+sell if unfilled; 15:52 entry night 18 METU+AAPU (weekend)",
   "last": "2026-09-24T13:34Z exit+dayleg"
  },
  "campaign": {
@@ -130,6 +130,13 @@
     "pnl": -1.11,
     "pct": -1.47,
     "note": "METU +0.13, AAPU -1.24; AAPL -1.5% at open; AAPU exit filled 42s in at the limit as cancel was rejected"
+   },
+   {
+    "date": "2026-10-01",
+    "basket": "METU+AAPU",
+    "pnl": 1.26,
+    "pct": 1.7,
+    "note": "METU +0.89, AAPU +0.37; 08:30 data pop, QQQ +1.2% at open"
    }
   ],
   "end_date": null,
@@ -137,9 +144,9 @@
   "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
  },
  "account": {
-  "equity": 100.77,
-  "cash": 26.16,
-  "asof": "2026-10-02T07:47 ET"
+  "equity": 101.55,
+  "cash": 10.87,
+  "asof": "2026-10-02T09:33 ET"
  },
  "ranking": {
   "asof": "2026-09-28",
@@ -311,28 +318,21 @@
  "position": null,
  "positions": [
   {
-   "sym": "METU",
-   "qty": 1,
-   "entry": 30.7899,
-   "entry_t": "2026-10-01T15:51:59 ET",
-   "order_id": "6abeb9df-64f8-4642-aa45-faec3663ff5c",
-   "night": 17,
-   "leg": "ovn"
-  },
-  {
-   "sym": "AAPU",
-   "qty": 1,
-   "entry": 43.53,
-   "entry_t": "2026-10-01T15:51:59 ET",
-   "order_id": "6abeb9df-d5cf-4acb-9d47-2acbe92e1de7",
-   "night": 17,
-   "leg": "ovn"
+   "sym": "TZA",
+   "qty": 2,
+   "entry": 45.4368,
+   "entry_t": "2026-10-02T09:31:53 ET",
+   "order_id": "6abfb249-30b5-4c61-b16d-4f5a471a8e27",
+   "leg": "day",
+   "n": 8,
+   "tp": 45.9,
+   "tp_order_id": "6abfb26b-e6fc-4255-8b4b-7e3cf199ba1b"
   }
  ],
  "open_orders": [],
  "today": {
   "date": "2026-10-02",
-  "exit_done": false,
+  "exit_done": true,
   "entry_done": false,
   "eod_done": false,
   "day_leg_done": false,
@@ -350,7 +350,22 @@
   },
   "pdt_check": "day_trades 9/28, 10/1 in window 9/26-10/2 = 2 -> day leg #8 ALLOWED today (3rd). Mon 10/5 window 9/29-10/5 would hold 10/1, 10/2 = 2 -> allowed.",
   "earnings_check": "high-cap calendar 10/2-10/5 empty; nothing on META/AAPL/TZA; weekend hold clear.",
-  "plan": "09:31 exit night 17. 09:32 day leg #8 TZA qty=floor(0.95*cash/limit) + resting TP ceil(entry*1.01); loop with TP check; 15:49 cancel+sell if unfilled. 15:52 entry night 18 (weekend) METU 1 + AAPU 1. EOD. WEEK-T3X-4 report."
+  "plan": "09:31 exit night 17. 09:32 day leg #8 TZA qty=floor(0.95*cash/limit) + resting TP ceil(entry*1.01); loop with TP check; 15:49 cancel+sell if unfilled. 15:52 entry night 18 (weekend) METU 1 + AAPU 1. EOD. WEEK-T3X-4 report.",
+  "night17_exit": {
+   "METU": 31.6797,
+   "AAPU": 43.9,
+   "pnl": 1.26
+  },
+  "day_leg": {
+   "sym": "TZA",
+   "qty": 2,
+   "entry": 45.4368,
+   "limit": 45.54,
+   "tp": 45.9,
+   "tp_order_id": "6abfb26b-e6fc-4255-8b4b-7e3cf199ba1b",
+   "buy_order_id": "6abfb249-30b5-4c61-b16d-4f5a471a8e27",
+   "t": "09:31:53 ET"
+  }
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -420,13 +435,21 @@
    "2026-09-24",
    "2026-09-25",
    "2026-09-28",
-   "2026-10-01"
+   "2026-10-01",
+   "2026-10-02"
   ],
   "pdt_cap": 3,
   "window_bdays": 5,
   "buy_et": "09:32",
   "sell_et": "15:49",
-  "position": null,
+  "position": {
+   "sym": "TZA",
+   "qty": 2,
+   "entry": 45.4368,
+   "tp": 45.9,
+   "tp_order_id": "6abfb26b-e6fc-4255-8b4b-7e3cf199ba1b",
+   "date": "2026-10-02"
+  },
   "active_days": 7,
   "realised": [
    {
