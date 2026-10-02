@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-02T13:50:11Z",
-    "loop_note": "10:04 hb: day leg #8 TZA 2 @45.4368 open, TP 45.90 resting (confirmed, 0 filled); TZA 45.33; IWM +1.22% QQQ +1.31%; E 101.45; next: 8-min loop w/ TP check, 15:49 cancel+sell if unfilled, 15:52 entry night 18 METU1+AAPU1",
+    "last_heartbeat_utc": "2026-10-02T14:46:15Z",
+    "loop_note": "11:00 hb: day leg #8 TZA 2 @45.4368 open, TP 45.90 resting (confirmed); TZA 44.93 (-1.01 on 2); IWM +1.46% QQQ +1.37%; E 100.73; next: 8-min loop w/ TP check, 15:49 cancel+sell if unfilled, 15:52 entry night 18 METU1+AAPU1",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -144,9 +144,9 @@
     "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
   },
   "account": {
-    "equity": 101.45,
+    "equity": 100.73,
     "cash": 10.87,
-    "asof": "2026-10-02T09:58 ET"
+    "asof": "2026-10-02T10:54 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
