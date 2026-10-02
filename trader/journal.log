@@ -325,3 +325,4 @@ W-9 2026-09-24 09:34 ET | EXIT night 11: NVDL 1 @ 35.0301 (lim 34.87) -0.66, NVD
 2026-10-02T11:00 ET W-9 hb: DAY_LEG_OPEN TZA 2 @45.4368, TP 45.90 resting; TZA 44.93 IWM +1.46% QQQ +1.37%; E 100.73 cash 10.87; repo synced 4c33115
 2026-10-02T11:18 ET EXIT day leg #8 TZA 2 @45.90 TP filled 11:17:33 (entry 45.4368) pnl +0.93 exit_kind day-tp held 106m; E 102.67 cash 102.67; TP record 2 hits / 1 miss; day leg realised 8 days +1.69 mean +0.21; next: 15:52 entry night 18 METU1+AAPU1 weekend
 2026-10-02T12:00 ET W-9 hb: FLAT_DAY_LEG_CLOSED; cash 102.67; METU 30.99 AAPU 43.83 TZA 45.57 IWM +1.04% QQQ +1.06%; week4 draft in scratchpad; repo synced 1067359
+2026-10-02T13:00 ET W-9 hb: FLAT_DAY_LEG_CLOSED; cash 102.67; METU 30.99 AAPU 44.20 TZA 45.85 IWM +0.82% QQQ +0.97%; repo synced e0bbdfd
