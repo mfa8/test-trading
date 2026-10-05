@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-02T19:52:44Z",
-    "loop_note": "07:52 analyst: re-rank done (METU 0.38 NVDL 0.34 NVDX 0.29 TECL 0.15 AAPU 0.15); basket -> METU+NVDL, AAPU out; TZA kept; night 18 marked -0.26 (E 102.41); PDT 2/3 -> day leg #9 allowed; earnings clear; next: 09:26 exit wake",
+    "last_heartbeat_utc": "2026-10-05T12:46:13Z",
+    "loop_note": "09:00 hb: pre-mkt METU 30.60 AAPU 43.82 -> night 18 marked -0.68, E 101.99; NVDL 38.93 TZA 45.79; QQQ -0.22% IWM +0.05%; next: 09:26 exit prep, 09:31 exit night 18, 09:32 day leg #9 TZA + TP, 15:52 entry METU2+NVDL1",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -145,9 +145,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 102.41,
+    "equity": 101.99,
     "cash": 27.57,
-    "asof": "2026-10-05T07:48 ET premarket"
+    "asof": "2026-10-05T08:54 ET premarket"
   },
   "ranking": {
     "asof": "2026-09-28",
