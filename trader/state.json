@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-10-02T19:52:44Z",
-    "loop_note": "16:02 EOD: E 102.73 (METU 30.82 AAPU 44.34 cash 27.57); night 18 marked +0.06, weekend hold; day +2.43 week +2.62; DAY-20261002 + WEEK-T3X-4 written; loop ends; backstop wakes absorb as NOOP; next: Mon 10/5 07:45 analyst re-rank (AAPU under review), 09:31 exit night 18, 09:32 day leg #9 TZA+TP (PDT window 9/29-10/5 holds 2), 15:52 entry night 19",
+    "loop_note": "07:52 analyst: re-rank done (METU 0.38 NVDL 0.34 NVDX 0.29 TECL 0.15 AAPU 0.15); basket -> METU+NVDL, AAPU out; TZA kept; night 18 marked -0.26 (E 102.41); PDT 2/3 -> day leg #9 allowed; earnings clear; next: 09:26 exit wake",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -141,12 +141,13 @@
     ],
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
-    "strategy_version": "T3X v1.2 (overnight long + inverse day leg)"
+    "strategy_version": "T3X v1.2 (overnight long + inverse day leg)",
+    "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 102.73,
+    "equity": 102.41,
     "cash": 27.57,
-    "asof": "2026-10-02T16:01 ET"
+    "asof": "2026-10-05T07:48 ET premarket"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -338,72 +339,76 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-02",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_done": true,
+    "date": "2026-10-05",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_done": false,
     "premarket": {
-      "METU": 30.9,
-      "AAPU": 43.71,
-      "TZA": 46.1,
-      "META_pct": 0.37,
-      "AAPL_pct": 0.35,
-      "QQQ_pct": 0.58,
-      "IWM_pct": 0.62,
-      "night17_marked": 0.29,
-      "E_marked": 100.77,
-      "cash": 26.16
+      "t": "07:48 ET",
+      "METU": 30.69,
+      "AAPU": 44.15,
+      "TZA": 45.29,
+      "QQQ_chg_pct": -0.18,
+      "IWM_chg_pct": 0.08,
+      "night18_marked": -0.26,
+      "E_marked": 102.41
     },
-    "pdt_check": "day_trades 9/28, 10/1 in window 9/26-10/2 = 2 -> day leg #8 ALLOWED today (3rd). Mon 10/5 window 9/29-10/5 would hold 10/1, 10/2 = 2 -> allowed.",
-    "earnings_check": "high-cap calendar 10/2-10/5 empty; nothing on META/AAPL/TZA; weekend hold clear.",
-    "plan": "09:31 exit night 17. 09:32 day leg #8 TZA qty=floor(0.95*cash/limit) + resting TP ceil(entry*1.01); loop with TP check; 15:49 cancel+sell if unfilled. 15:52 entry night 18 (weekend) METU 1 + AAPU 1. EOD. WEEK-T3X-4 report.",
-    "night17_exit": {
-      "METU": 31.6797,
-      "AAPU": 43.9,
-      "pnl": 1.26
-    },
-    "day_leg": {
-      "sym": "TZA",
-      "qty": 2,
-      "entry": 45.4368,
-      "limit": 45.54,
-      "tp": 45.9,
-      "tp_order_id": "6abfb26b-e6fc-4255-8b4b-7e3cf199ba1b",
-      "buy_order_id": "6abfb249-30b5-4c61-b16d-4f5a471a8e27",
-      "t": "09:31:53 ET",
-      "exit": 45.9,
-      "exit_t": "2026-10-02T11:17:33 ET",
-      "exit_kind": "day-tp",
-      "pnl": 0.93,
-      "tp_hit": true,
-      "held_min": 106
-    },
-    "night18_entry": {
-      "METU": {
-        "qty": 1,
-        "fill": 30.7883,
-        "limit": 30.83
+    "rerank": {
+      "asof": "2026-10-05",
+      "window": "30 nights to 10/2",
+      "overnight": {
+        "METU": 0.38,
+        "NVDL": 0.34,
+        "NVDX": 0.29,
+        "TECL": 0.15,
+        "AAPU": 0.15,
+        "SPXL": 0.14,
+        "TNA": 0.12,
+        "GGLL": 0.12,
+        "SOXL": 0.1,
+        "TQQQ": 0.1,
+        "TSMX": 0.09,
+        "FNGU": 0.07,
+        "MUU": 0.05,
+        "MSFU": -0.12,
+        "AMZU": -0.14
       },
-      "AAPU": {
-        "qty": 1,
-        "fill": 44.31,
-        "limit": 44.43
+      "overnight_last10": {
+        "NVDX": 0.49,
+        "NVDL": 0.48,
+        "TECL": 0.41,
+        "METU": 0.18,
+        "AAPU": -0.06
       },
-      "cost": 75.1,
-      "pct_E": 73.1,
-      "cash_after": 27.57,
-      "t": "15:51:51 ET",
-      "weekend": true
+      "intraday": {
+        "TZA": 0.51,
+        "NVDQ": 0.1,
+        "SPXS": 0.1,
+        "SQQQ": -0.17,
+        "SOXS": -0.2
+      },
+      "intraday_last10": {
+        "TZA": 0.58
+      },
+      "decision": "basket METU + NVDL (top-2 distinct underlyings); AAPU out (5th, last-10 -0.06, -1.73 realised over 4 nights). Sizing \u00a73: METU1+NVDL1 ~67.7% of E (<70%) -> add METU shares while cost <= 0.98E: METU2+NVDL1 ~100.1 = 97.8% at Fri closes -> fits. If 15:52 prices push it over 0.98E, fall back to METU1+NVDL1 (no cheaper METU product; NVDX is #2 underlying, not #1). Day leg: TZA kept (0.51/0.58).",
+      "file": "scratchpad/rank_20261005.json"
     },
-    "close_marks": {
-      "METU": 30.82,
-      "AAPU": 44.34,
-      "cash": 27.57,
-      "E": 102.73,
-      "night18_marked": 0.06,
-      "day_pnl_vs_prev_close": 2.43
-    }
+    "pdt_check": {
+      "window": "2026-09-29..2026-10-05",
+      "round_trips": [
+        "2026-10-01",
+        "2026-10-02"
+      ],
+      "count": 2,
+      "day_leg_allowed": true
+    },
+    "earnings_check": {
+      "window": "10/5-10/11 high-cap",
+      "basket_underlyings_reporting": [],
+      "note": "no META/NVDA/AAPL/AMZN/MU/GOOGL/MSFT/TSM reports; PEP 10/8, DAL 10/9 irrelevant"
+    },
+    "plan": "09:31 exit night 18 (METU 1, AAPU 1); 09:32 day leg #9 TZA qty=floor(0.95*cash/lim) + TP entry*1.01; loop w/ TP check; 15:49 cancel+sell if TP unfilled; 15:52 entry night 19 METU2+NVDL1 if <=0.98E else METU1+NVDL1; EOD"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
