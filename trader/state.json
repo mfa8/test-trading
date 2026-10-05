@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_DAY_LEG_CLOSED",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-05T18:44:15Z",
-    "loop_note": "15:00 hb: flat; cash 103.98 (HWM); METU 32.06 NVDL 40.10 TZA 44.88; IWM +0.63% QQQ +0.80%; next: 15:51:30 quotes -> 15:52 entry night 19 METU2+NVDL1 (<=0.98E) else METU1+NVDL1; EOD",
+    "last_heartbeat_utc": "2026-10-05T19:40:20Z",
+    "loop_note": "15:52 night 19 entered METU 1 @32.0599 + NVDL 1 @40.3199 (72.38, 69.6% E); cash 31.60; next: 16:01:30 closing marks, EOD records, DAY-20261005; Tue 10/6: 07:45 sanity, 09:31 exit, NO day leg (PDT 3/3), 15:52 entry night 20",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 18,
+    "nights_held": 19,
     "R_history": [],
     "night_returns": [
       {
@@ -152,9 +152,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 103.98,
-    "cash": 103.98,
-    "asof": "2026-10-05T14:52 ET"
+    "equity": 103.96,
+    "cash": 31.6,
+    "asof": "2026-10-05T15:52 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -324,12 +324,31 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 1,
+      "entry": 32.0599,
+      "entry_t": "2026-10-05T15:51:51 ET",
+      "order_id": "6ac3ffd6-922f-4dc2-96ad-8254d6d7a18a",
+      "leg": "overnight",
+      "n": 19
+    },
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 40.3199,
+      "entry_t": "2026-10-05T15:51:51 ET",
+      "order_id": "6ac3ffd7-a152-4e25-b383-afe6653b02c2",
+      "leg": "overnight",
+      "n": 19
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-05",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -420,6 +439,23 @@
       "pnl": 0.92,
       "tp_hit": true,
       "held_min": 12
+    },
+    "night19_entry": {
+      "METU": {
+        "qty": 1,
+        "fill": 32.0599,
+        "limit": 32.12
+      },
+      "NVDL": {
+        "qty": 1,
+        "fill": 40.3199,
+        "limit": 40.36
+      },
+      "cost": 72.38,
+      "pct_E": 69.6,
+      "cash_after": 31.6,
+      "t": "15:51:51 ET",
+      "sizing_note": "2xMETU+NVDL = 104.60 > 0.98E 101.90 -> fallback METU1+NVDL1; no cheaper METU product"
     }
   },
   "schedule": {
