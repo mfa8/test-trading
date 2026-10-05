@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
+  "mode": "DAY_LEG_OPEN",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-05T12:46:13Z",
-    "loop_note": "09:00 hb: pre-mkt METU 30.60 AAPU 43.82 -> night 18 marked -0.68, E 101.99; NVDL 38.93 TZA 45.79; QQQ -0.22% IWM +0.05%; next: 09:26 exit prep, 09:31 exit night 18, 09:32 day leg #9 TZA + TP, 15:52 entry METU2+NVDL1",
+    "last_heartbeat_utc": "2026-10-05T13:18:29Z",
+    "loop_note": "09:32 night 18 closed +0.39; day leg #9 TZA 2 @45.75, TP 46.21 resting; cash 11.56; next: 8-min loop w/ TP check, 15:49 cancel+sell if unfilled, 15:52 entry night 19 METU2+NVDL1 (<=0.98E) else METU1+NVDL1",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -137,6 +137,13 @@
         "pnl": 1.26,
         "pct": 1.7,
         "note": "METU +0.89, AAPU +0.37; 08:30 data pop, QQQ +1.2% at open"
+      },
+      {
+        "date": "2026-10-02",
+        "basket": "METU+AAPU",
+        "pnl": 0.39,
+        "pct": 0.38,
+        "note": "weekend hold; METU +0.75 (price-improved 31.5344 vs 31.35 lim), AAPU -0.35; AAPU last night in basket"
       }
     ],
     "end_date": null,
@@ -145,9 +152,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 101.99,
-    "cash": 27.57,
-    "asof": "2026-10-05T08:54 ET premarket"
+    "equity": 103.06,
+    "cash": 11.56,
+    "asof": "2026-10-05T09:32 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -319,28 +326,21 @@
   "position": null,
   "positions": [
     {
-      "sym": "METU",
-      "qty": 1,
-      "entry": 30.7883,
-      "entry_t": "2026-10-02T15:51:51 ET",
-      "order_id": "6ac00b57-1c08-4a32-946d-36f552b8bf2d",
-      "leg": "overnight",
-      "n": 18
-    },
-    {
-      "sym": "AAPU",
-      "qty": 1,
-      "entry": 44.31,
-      "entry_t": "2026-10-02T15:51:51 ET",
-      "order_id": "6ac00b57-0eba-4dd9-a2b0-a969e26755fd",
-      "leg": "overnight",
-      "n": 18
+      "sym": "TZA",
+      "qty": 2,
+      "entry": 45.75,
+      "entry_t": "2026-10-05T09:31:55 ET",
+      "order_id": "6ac3a6c9-7ea7-49b3-9c68-c743719a0a50",
+      "leg": "day",
+      "n": 9,
+      "tp": 46.21,
+      "tp_order_id": "6ac3a6e9-fc5b-4bc5-a494-666f70e8adf4"
     }
   ],
   "open_orders": [],
   "today": {
     "date": "2026-10-05",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": false,
@@ -408,7 +408,25 @@
       "basket_underlyings_reporting": [],
       "note": "no META/NVDA/AAPL/AMZN/MU/GOOGL/MSFT/TSM reports; PEP 10/8, DAL 10/9 irrelevant"
     },
-    "plan": "09:31 exit night 18 (METU 1, AAPU 1); 09:32 day leg #9 TZA qty=floor(0.95*cash/lim) + TP entry*1.01; loop w/ TP check; 15:49 cancel+sell if TP unfilled; 15:52 entry night 19 METU2+NVDL1 if <=0.98E else METU1+NVDL1; EOD"
+    "plan": "09:31 exit night 18 (METU 1, AAPU 1); 09:32 day leg #9 TZA qty=floor(0.95*cash/lim) + TP entry*1.01; loop w/ TP check; 15:49 cancel+sell if TP unfilled; 15:52 entry night 19 METU2+NVDL1 if <=0.98E else METU1+NVDL1; EOD",
+    "night18_exit": {
+      "METU": 31.5344,
+      "AAPU": 43.957,
+      "pnl": 0.39,
+      "t": "09:31:21 ET",
+      "cash_after": 103.06
+    },
+    "day_leg": {
+      "sym": "TZA",
+      "qty": 2,
+      "entry": 45.75,
+      "limit": 45.75,
+      "tp": 46.21,
+      "tp_order_id": "6ac3a6e9-fc5b-4bc5-a494-666f70e8adf4",
+      "buy_order_id": "6ac3a6c9-7ea7-49b3-9c68-c743719a0a50",
+      "t": "09:31:55 ET",
+      "cash_after": 11.56
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -479,13 +497,21 @@
       "2026-09-25",
       "2026-09-28",
       "2026-10-01",
-      "2026-10-02"
+      "2026-10-02",
+      "2026-10-05"
     ],
     "pdt_cap": 3,
     "window_bdays": 5,
     "buy_et": "09:32",
     "sell_et": "15:49",
-    "position": null,
+    "position": {
+      "sym": "TZA",
+      "qty": 2,
+      "entry": 45.75,
+      "tp": 46.21,
+      "tp_order_id": "6ac3a6e9-fc5b-4bc5-a494-666f70e8adf4",
+      "date": "2026-10-05"
+    },
     "active_days": 8,
     "realised": [
       {
