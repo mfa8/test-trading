@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-06T19:40:09Z",
-    "loop_note": "15:52 night 20 entered METU 1 @31.9783 + NVDL 1 @40.2299 (72.21, 68.6% E); cash 33.08; next: 16:01:30 closing marks, EOD, DAY-20261006; Wed 10/7: 09:31 exit, no day leg (PDT), 15:52 entry night 21",
+    "last_heartbeat_utc": "2026-10-06T19:52:19Z",
+    "loop_note": "16:02 EOD: E 104.99 (METU 31.73 NVDL 40.18 cash 33.08); night 20 marked -0.30; day +1.23; DAY-20261006 written; loop ends; backstop wakes absorb as NOOP; next: Wed 10/7 07:45 sanity, 09:31 exit night 20, NO day leg (PDT), 15:52 entry night 21; Thu 10/8 day leg #10 + 10-day review",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -159,9 +159,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 105.25,
+    "equity": 104.99,
     "cash": 33.08,
-    "asof": "2026-10-06T15:52 ET"
+    "asof": "2026-10-06T16:01 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -356,7 +356,7 @@
     "date": "2026-10-06",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "day_leg_done": true,
     "premarket": {
       "t": "07:46 ET",
@@ -407,6 +407,16 @@
       "cash_after": 33.08,
       "t": "15:51:44 ET",
       "sizing_note": "2xMETU+NVDL = 104.36 > 0.98E 103.18 -> METU1+NVDL1"
+    },
+    "close_marks": {
+      "METU": 31.73,
+      "NVDL": 40.18,
+      "cash": 33.08,
+      "E": 104.99,
+      "night20_marked": -0.3,
+      "day_pnl_vs_prev_close": 1.23,
+      "tza_day_pct": 2.3,
+      "tza_note": "TZA +2.3% (IWM -0.7%); day leg blocked by PDT; a +1% TP from the open would have filled ~10:12"
     }
   },
   "schedule": {
