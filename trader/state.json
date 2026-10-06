@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_NO_DAY_LEG",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-06T18:44:08Z",
-    "loop_note": "15:00 hb: flat; cash 105.29 HWM; METU 32.05 NVDL 40.65 TZA 45.84; IWM -0.70% QQQ +0.62%; next: 15:51:30 quotes -> 15:52 entry night 20 METU+NVDL; EOD",
+    "last_heartbeat_utc": "2026-10-06T19:40:09Z",
+    "loop_note": "15:52 night 20 entered METU 1 @31.9783 + NVDL 1 @40.2299 (72.21, 68.6% E); cash 33.08; next: 16:01:30 closing marks, EOD, DAY-20261006; Wed 10/7: 09:31 exit, no day leg (PDT), 15:52 entry night 21",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 19,
+    "nights_held": 20,
     "R_history": [],
     "night_returns": [
       {
@@ -159,9 +159,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 105.29,
-    "cash": 105.29,
-    "asof": "2026-10-06T14:52 ET"
+    "equity": 105.25,
+    "cash": 33.08,
+    "asof": "2026-10-06T15:52 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -331,12 +331,31 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 1,
+      "entry": 31.9783,
+      "entry_t": "2026-10-06T15:51:44 ET",
+      "order_id": "6ac55150-dd02-4bd0-831f-bd64ad456cab",
+      "leg": "overnight",
+      "n": 20
+    },
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 40.2299,
+      "entry_t": "2026-10-06T15:51:45 ET",
+      "order_id": "6ac55150-7ef8-4c8d-a546-10aa52933124",
+      "leg": "overnight",
+      "n": 20
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-06",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -371,6 +390,23 @@
       "pnl": 1.31,
       "t": "09:31:18 ET",
       "cash_after": 105.29
+    },
+    "night20_entry": {
+      "METU": {
+        "qty": 1,
+        "fill": 31.9783,
+        "limit": 32.02
+      },
+      "NVDL": {
+        "qty": 1,
+        "fill": 40.2299,
+        "limit": 40.32
+      },
+      "cost": 72.21,
+      "pct_E": 68.6,
+      "cash_after": 33.08,
+      "t": "15:51:44 ET",
+      "sizing_note": "2xMETU+NVDL = 104.36 > 0.98E 103.18 -> METU1+NVDL1"
     }
   },
   "schedule": {
