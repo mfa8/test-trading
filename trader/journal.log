@@ -353,3 +353,4 @@ W-9 2026-09-24 09:34 ET | EXIT night 11: NVDL 1 @ 35.0301 (lim 34.87) -0.66, NVD
 2026-10-06 09:24 ET | W-9 | EXIT prep (in-loop; t3x-exit-0926 backstop will queue): positions METU 1 + NVDL 1 match broker; no open orders; pre-mkt METU 32.08 NVDL 41.04 -> night 19 ~+0.74; exit19.py staged; bridging to 09:31:05; no day leg today (PDT)
 2026-10-06 09:32 ET | W-9 | EXIT night 19: METU 32.1801 (+0.12, lim 32.18), NVDL 41.5101 (+1.19, lim 41.49 price-improved) = +1.31; both filled <0.2s; cash 105.29 = new HWM (prev 103.98) -> PAUSE 84.23 | closed nights 19 net +3.77 | no day leg (PDT 3/3) | next: 8-min loop flat, 15:52 entry night 20 METU+NVDL
 2026-10-06T10:04 ET W-9 hb: FLAT_NO_DAY_LEG; cash 105.29 (HWM); METU 31.65 NVDL 41.28 TZA 44.80 IWM +0.05% QQQ +0.64%; repo synced 5983a55
+2026-10-06T11:00 ET W-9 hb: FLAT_NO_DAY_LEG; cash 105.29 (HWM); METU 31.90 NVDL 41.22 TZA 45.36 IWM -0.35% QQQ +0.75%; repo synced 631fc49
