@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-05T19:52:51Z",
-    "loop_note": "07:47 analyst: positions match (METU 1, NVDL 1), no open orders; pre-mkt night 19 +0.76, E 104.74; PDT 3/3 -> no day leg Tue/Wed; earnings clear; next: 09:26 exit wake",
+    "last_heartbeat_utc": "2026-10-06T12:44:08Z",
+    "loop_note": "09:00 hb: pre-mkt METU 32.13 NVDL 40.90 -> night 19 marked +0.65, E 104.63; QQQ +0.50% IWM +0.47%; next: 09:26 exit prep, 09:31 exit night 19, no day leg, 15:52 entry night 20",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -152,9 +152,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 104.74,
+    "equity": 104.63,
     "cash": 31.6,
-    "asof": "2026-10-06T07:46 ET premarket"
+    "asof": "2026-10-06T08:52 ET premarket"
   },
   "ranking": {
     "asof": "2026-09-28",
