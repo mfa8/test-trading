@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-06T16:44:09Z",
-    "loop_note": "13:00 hb: flat; cash 105.29 HWM; METU 31.94 NVDL 40.63 TZA 45.56; IWM -0.50% QQQ +0.64%; no day leg (PDT); next: loop to 15:52 entry night 20 METU+NVDL; EOD",
+    "last_heartbeat_utc": "2026-10-06T17:40:11Z",
+    "loop_note": "14:00 hb: flat; cash 105.29 HWM; METU 32.10 NVDL 40.52 TZA 45.76; IWM -0.65% QQQ +0.62%; no day leg (PDT); next: loop to 15:52 entry night 20 METU+NVDL; EOD",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -161,7 +161,7 @@
   "account": {
     "equity": 105.29,
     "cash": 105.29,
-    "asof": "2026-10-06T12:52 ET"
+    "asof": "2026-10-06T13:48 ET"
   },
   "ranking": {
     "asof": "2026-09-28",
