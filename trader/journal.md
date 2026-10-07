@@ -10,3 +10,4 @@
 2026-10-07T19:52:01Z W-9 15:52 ENTRY night21 METU x2 @30.24 (lim 30.29) + NVDL x1 @39.5083 (lim 39.57) = 99.99 (96% E); first add-on night; cash 4.48. Note: 15:40 bridge leg exceeded 540s cap -> backgrounded, re-bridged; entry on time
 2026-10-07T20:01:36Z W-9 16:02 EOD E 104.65 (day -0.34); night21 marked +0.18; report DAY-20261007 written; Thu: exit 09:31 + day leg #10 (PDT 2/3) + review
 2026-10-07T20:01:55Z W-9 NOOP absorbed 15 queued backstop wakes (13:27 exit-0926, wake-a/b 13:38-19:37, 19:48 entry-1548) - all duties done in-session (exit 09:31, entry 15:52, EOD 16:02)
+2026-10-07T20:12:30Z W-9 NOOP 16:12 post-close wake (wake-b); EOD already done; holding night21 METU2+NVDL1
