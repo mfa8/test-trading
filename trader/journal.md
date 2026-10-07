@@ -5,3 +5,4 @@
 2026-10-07T16:00:00Z W-9 12:00 HB flat; E 104.47 cash; METU -3.9% NVDL -1.4% on day; QQQ -0.4% IWM -1.4%
 2026-10-07T17:00:00Z W-9 13:00 HB flat; E 104.47 cash; range-bound midday
 2026-10-07T18:00:00Z W-9 14:00 HB flat; E 104.47 cash
+2026-10-07T19:00:00Z W-9 15:00 HB flat; E 104.47 cash; tonight add-on likely fits (2 METU + 1 NVDL ~100.8 vs cap 102.38)
