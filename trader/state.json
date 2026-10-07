@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-10-06T19:52:19Z",
-    "loop_note": "16:02 EOD: E 104.99 (METU 31.73 NVDL 40.18 cash 33.08); night 20 marked -0.30; day +1.23; DAY-20261006 written; loop ends; backstop wakes absorb as NOOP; next: Wed 10/7 07:45 sanity, 09:31 exit night 20, NO day leg (PDT), 15:52 entry night 21; Thu 10/8 day leg #10 + 10-day review",
+    "loop_note": "07:48 analyst: positions match (METU 1, NVDL 1), no open orders; risk-off pre-mkt (QQQ -0.77% IWM -0.83%) -> night 20 marked -1.19, E 104.10; PDT 3/3 -> no day leg; earnings clear; next: 09:26 exit prep",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -159,9 +159,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 104.99,
+    "equity": 104.1,
     "cash": 33.08,
-    "asof": "2026-10-06T16:01 ET"
+    "asof": "2026-10-07T07:47 ET premarket"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -353,23 +353,23 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-06",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-10-07",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "day_leg_done": true,
     "premarket": {
-      "t": "07:46 ET",
-      "METU": 32.27,
-      "NVDL": 40.87,
-      "TZA": 44.25,
-      "QQQ_chg_pct": 0.57,
-      "IWM_chg_pct": 0.5,
-      "night19_marked": 0.76,
-      "E_marked": 104.74
+      "t": "07:47 ET",
+      "METU": 31.45,
+      "NVDL": 39.57,
+      "TZA": 47.03,
+      "QQQ_chg_pct": -0.77,
+      "IWM_chg_pct": -0.83,
+      "night20_marked": -1.19,
+      "E_marked": 104.1
     },
     "pdt_check": {
-      "window": "2026-09-30..2026-10-06",
+      "window": "2026-10-01..2026-10-07",
       "round_trips": [
         "2026-10-01",
         "2026-10-02",
@@ -379,45 +379,11 @@
       "day_leg_allowed": false
     },
     "earnings_check": {
-      "window": "10/6-10/8 high-cap",
+      "window": "10/7-10/9 high-cap",
       "basket_underlyings_reporting": [],
-      "note": "STZ/PENG/WS pm 10/6, APLD/LEVI 10/7, PEP 10/8 - none in basket"
+      "note": "APLD/LEVI pm 10/7, PEP 10/8, DAL 10/9 - none in basket"
     },
-    "plan": "09:31 exit night 19 (METU 1, NVDL 1); NO day leg (PDT 3/3); 8-min loop flat; 15:52 entry night 20 METU+NVDL (add METU share only if <=0.98E); EOD",
-    "night19_exit": {
-      "METU": 32.1801,
-      "NVDL": 41.5101,
-      "pnl": 1.31,
-      "t": "09:31:18 ET",
-      "cash_after": 105.29
-    },
-    "night20_entry": {
-      "METU": {
-        "qty": 1,
-        "fill": 31.9783,
-        "limit": 32.02
-      },
-      "NVDL": {
-        "qty": 1,
-        "fill": 40.2299,
-        "limit": 40.32
-      },
-      "cost": 72.21,
-      "pct_E": 68.6,
-      "cash_after": 33.08,
-      "t": "15:51:44 ET",
-      "sizing_note": "2xMETU+NVDL = 104.36 > 0.98E 103.18 -> METU1+NVDL1"
-    },
-    "close_marks": {
-      "METU": 31.73,
-      "NVDL": 40.18,
-      "cash": 33.08,
-      "E": 104.99,
-      "night20_marked": -0.3,
-      "day_pnl_vs_prev_close": 1.23,
-      "tza_day_pct": 2.3,
-      "tza_note": "TZA +2.3% (IWM -0.7%); day leg blocked by PDT; a +1% TP from the open would have filled ~10:12"
-    }
+    "plan": "09:31 exit night 20 (METU 1, NVDL 1); NO day leg (PDT 3/3); 8-min loop flat; 15:52 entry night 21 METU+NVDL; EOD; Thu 10/8 day leg #10 + 10-day review"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
