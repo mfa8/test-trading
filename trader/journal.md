@@ -8,3 +8,4 @@
 2026-10-07T19:00:00Z W-9 15:00 HB flat; E 104.47 cash; tonight add-on likely fits (2 METU + 1 NVDL ~100.8 vs cap 102.38)
 2026-10-07T19:40:07Z W-9 15:40 pre-entry check: 0 pos, 0 open orders, BP 104.47; METU 30.18 NVDL 39.41 QQQ -0.33% IWM -1.34%; bridging to 15:51:30
 2026-10-07T19:52:01Z W-9 15:52 ENTRY night21 METU x2 @30.24 (lim 30.29) + NVDL x1 @39.5083 (lim 39.57) = 99.99 (96% E); first add-on night; cash 4.48. Note: 15:40 bridge leg exceeded 540s cap -> backgrounded, re-bridged; entry on time
+2026-10-07T20:01:36Z W-9 16:02 EOD E 104.65 (day -0.34); night21 marked +0.18; report DAY-20261007 written; Thu: exit 09:31 + day leg #10 (PDT 2/3) + review
