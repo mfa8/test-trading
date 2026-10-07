@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
+  "mode": "FLAT_NO_DAY_LEG",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-07T12:44:07Z",
-    "loop_note": "09:00 hb: pre-mkt METU 31.29 NVDL 39.49 -> night 20 marked -1.43, E 103.86; QQQ -0.68% IWM -0.85%; next: 09:26 exit prep, 09:31 exit night 20, no day leg, 15:52 entry night 21",
+    "last_heartbeat_utc": "2026-10-07T13:17:08Z",
+    "loop_note": "premkt 09:16 METU b31.41 NVDL b39.46 TZA 47.16; QQQ -0.71% IWM -0.94%; pos ok, 0 open orders",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -151,6 +151,13 @@
         "pnl": 1.31,
         "pct": 1.26,
         "note": "first night of the 10/5 basket; METU +0.12, NVDL +1.19 (NVDA +1.7% pre-open)"
+      },
+      {
+        "date": "2026-10-06",
+        "basket": "METU+NVDL",
+        "pnl": -0.82,
+        "pct": -1.13,
+        "note": "METU -0.43, NVDL -0.39; QQQ -0.7% pre-open; both filled w/ price improvement (31.552 vs lim 31.33, 39.8409 vs 39.63)"
       }
     ],
     "end_date": null,
@@ -159,9 +166,9 @@
     "ranking_asof": "2026-10-05"
   },
   "account": {
-    "equity": 103.86,
-    "cash": 33.08,
-    "asof": "2026-10-07T08:52 ET premarket"
+    "equity": 104.47,
+    "cash": 104.47,
+    "asof": "09:31 ET 2026-10-07"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -331,30 +338,11 @@
     }
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "METU",
-      "qty": 1,
-      "entry": 31.9783,
-      "entry_t": "2026-10-06T15:51:44 ET",
-      "order_id": "6ac55150-dd02-4bd0-831f-bd64ad456cab",
-      "leg": "overnight",
-      "n": 20
-    },
-    {
-      "sym": "NVDL",
-      "qty": 1,
-      "entry": 40.2299,
-      "entry_t": "2026-10-06T15:51:45 ET",
-      "order_id": "6ac55150-7ef8-4c8d-a546-10aa52933124",
-      "leg": "overnight",
-      "n": 20
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-10-07",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": true,
@@ -383,7 +371,13 @@
       "basket_underlyings_reporting": [],
       "note": "APLD/LEVI pm 10/7, PEP 10/8, DAL 10/9 - none in basket"
     },
-    "plan": "09:31 exit night 20 (METU 1, NVDL 1); NO day leg (PDT 3/3); 8-min loop flat; 15:52 entry night 21 METU+NVDL; EOD; Thu 10/8 day leg #10 + 10-day review"
+    "plan": "09:31 exit night 20 (METU 1, NVDL 1); NO day leg (PDT 3/3); 8-min loop flat; 15:52 entry night 21 METU+NVDL; EOD; Thu 10/8 day leg #10 + 10-day review",
+    "exit": {
+      "t": "09:31:18",
+      "METU": 31.552,
+      "NVDL": 39.8409,
+      "pnl": -0.82
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
