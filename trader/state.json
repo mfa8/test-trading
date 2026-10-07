@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_NO_DAY_LEG",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-07T18:59:12Z",
-    "loop_note": "flat 14:59 METU 30.63 NVDL 39.38 TZA 47.45 QQQ -0.32% IWM -1.14%; E 104.47; 2xMETU+NVDL ~100.8 <= 0.98E 102.38 -> add-on fits",
+    "last_heartbeat_utc": "2026-10-07T19:31:06Z",
+    "loop_note": "flat 15:31 METU 30.25 NVDL 39.43 TZA 47.54 QQQ -0.34% IWM -1.21%",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 20,
+    "nights_held": 21,
     "R_history": [],
     "night_returns": [
       {
@@ -167,8 +167,8 @@
   },
   "account": {
     "equity": 104.47,
-    "cash": 104.47,
-    "asof": "09:31 ET 2026-10-07"
+    "cash": 4.48,
+    "asof": "15:52 ET 2026-10-07"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -338,12 +338,31 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 2,
+      "entry": 30.24,
+      "entry_t": "2026-10-07T15:51:40 ET",
+      "order_id": "6ac6a2cc-518d-457a-bb40-13b17e0a27f6",
+      "leg": "overnight",
+      "n": 21
+    },
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 39.5083,
+      "entry_t": "2026-10-07T15:51:41 ET",
+      "order_id": "6ac6a2cd-1d01-41f9-a6a4-910610a7553a",
+      "leg": "overnight",
+      "n": 21
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-07",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -377,6 +396,13 @@
       "METU": 31.552,
       "NVDL": 39.8409,
       "pnl": -0.82
+    },
+    "entry": {
+      "t": "15:51:40",
+      "basket": "METU x2 + NVDL x1",
+      "cost": 99.99,
+      "pct_E": 95.7,
+      "note": "first night \u00a73 add-on fit (base 66.9% < 70%, 2xMETU+NVDL 100.15 lim <= 0.98E 102.38)"
     }
   },
   "schedule": {
