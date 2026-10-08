@@ -16,3 +16,4 @@
 2026-10-08T13:00:00Z W-9 09:00 HB premkt E 103.49 (night21 ~-1.16); METU 30.07 NVDL 38.80 TZA 48.72
 2026-10-08T13:24:04Z W-9 09:24 EXIT prep night21 METU2+NVDL1; then TZA day leg #10 at 09:32; bridging to 09:31:05
 2026-10-08T13:32:25Z W-9 09:31 EXIT night21 METU 2 @30.0767 (-0.33) NVDL @38.48 (-1.03) = -1.35; 09:31:38 DAY LEG #10 TZA 2 @48.2685 (lim 48.44; v1.4 not needed, floor gave 2); TP 48.76 resting (6ac79b4c); day_trades +10/8 (window 10/2-10/8 = 3/3); E 103.11
+2026-10-08T14:00:00Z W-9 10:00 HB day leg open TZA 2 @48.2685 bid 48.23, TP 48.76 open; E ~103.03
