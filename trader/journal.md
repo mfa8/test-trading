@@ -22,3 +22,4 @@
 2026-10-08T14:52:31Z W-9 CORRECTION: TP v1.3 record is 4 hit / 1 miss (9/28 miss; 10/1,10/2,10/5,10/8 hit), not 5/1 as logged at 10:52
 2026-10-08T15:00:08Z W-9 11:00 HB flat E 104.10; METU 30.13 NVDL 39.28 TZA 48.92 QQQ -0.40% IWM -0.88%
 2026-10-08T16:00:00Z W-9 12:00 HB flat E 104.10
+2026-10-08T17:00:00Z W-9 13:00 HB flat E 104.10; tech fading (QQQ -1.2%, NVDL -3.8%, METU -1.4%) -> down-day entry tonight (§1: next night ~2x avg after down session)
