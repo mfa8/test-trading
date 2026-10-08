@@ -598,7 +598,7 @@
       "mean": 0.36,
       "sd": 0.812,
       "wins": 6,
-      "tp_record": "5 hits / 1 miss since v1.3 (9/28)",
+      "tp_record": "4 hits / 1 miss since v1.3 (9/28 miss; 10/1, 10/2, 10/5, 10/8 hit)",
       "decision": "KEEP (mean > 0)"
     }
   }
