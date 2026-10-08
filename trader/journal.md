@@ -25,3 +25,5 @@
 2026-10-08T17:00:00Z W-9 13:00 HB flat E 104.10; tech fading (QQQ -1.2%, NVDL -3.8%, METU -1.4%) -> down-day entry tonight (§1: next night ~2x avg after down session)
 2026-10-08T18:00:00Z W-9 14:00 HB flat E 104.10; NVDL -6.1% METU -1.5% QQQ -1.7% on day
 2026-10-08T19:00:00Z W-9 15:00 HB flat E 104.10; entry22.py ready (2 METU + 1 NVDL ~96.8 = 93% E)
+2026-10-08T19:40:09Z W-9 15:40 pre-entry check: 0 pos, 0 open orders, BP 104.10; METU ~30.03 NVDL ~37.18 (-6.0% day) QQQ -1.5%; bridging to 15:51:30 (2 legs)
+2026-10-08T19:52:01Z W-9 15:52 ENTRY night22 METU x2 @30.0999 (lim 30.15) + NVDL x1 @37.2999 (lim 37.38) = 97.50 (94% E); cash 6.60; down-day entry (NVDL -5.7% day)
