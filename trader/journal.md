@@ -11,3 +11,4 @@
 2026-10-07T20:01:36Z W-9 16:02 EOD E 104.65 (day -0.34); night21 marked +0.18; report DAY-20261007 written; Thu: exit 09:31 + day leg #10 (PDT 2/3) + review
 2026-10-07T20:01:55Z W-9 NOOP absorbed 15 queued backstop wakes (13:27 exit-0926, wake-a/b 13:38-19:37, 19:48 entry-1548) - all duties done in-session (exit 09:31, entry 15:52, EOD 16:02)
 2026-10-07T20:12:30Z W-9 NOOP 16:12 post-close wake (wake-b); EOD already done; holding night21 METU2+NVDL1
+2026-10-08T11:48:05Z W-9 07:46 ANALYST 10/8: pos METU2+NVDL1 ok, 0 open orders, E 103.11 (night21 marked -1.40; QQQ -0.63% IWM -0.86% pre-mkt; TZA 48.91 +2.6%); PDT broker-verified 10/1,10/2,10/5 -> prior-4 count 2 -> day leg #10 ALLOWED; earnings PEP/DAL only, basket clear; RULES_v3 §11 sizing v1.4 added pre-open (top-up to q+1 when q*lim<0.85E and (q+1)*lim<=0.98cash). Plan: exit 09:31, TZA 09:32 + TP, entry 15:52, EOD + 10-day review
