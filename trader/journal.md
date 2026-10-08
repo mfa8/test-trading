@@ -28,3 +28,4 @@
 2026-10-08T19:40:09Z W-9 15:40 pre-entry check: 0 pos, 0 open orders, BP 104.10; METU ~30.03 NVDL ~37.18 (-6.0% day) QQQ -1.5%; bridging to 15:51:30 (2 legs)
 2026-10-08T19:52:01Z W-9 15:52 ENTRY night22 METU x2 @30.0999 (lim 30.15) + NVDL x1 @37.2999 (lim 37.38) = 97.50 (94% E); cash 6.60; down-day entry (NVDL -5.7% day)
 2026-10-08T20:01:59Z W-9 16:02 EOD E 104.18 (day -0.47: night21 -1.35, day leg +0.99, night22 mark +0.08); TP worth +1.99 vs hold-to-close; report DAY-20261008 written; Fri: exit 09:31 + day leg #11 + entry + WEEK-T3X-5
+2026-10-08T20:02:18Z W-9 NOOP absorbed 15 queued backstop wakes 10/8 (13:26 exit-0926, wake-a/b 13:37-19:37, 19:48 entry-1548) - all duties done in-session (exit 09:31, day leg 09:31-10:48, entry 15:51, EOD 16:02)
