@@ -23,3 +23,4 @@
 2026-10-08T15:00:08Z W-9 11:00 HB flat E 104.10; METU 30.13 NVDL 39.28 TZA 48.92 QQQ -0.40% IWM -0.88%
 2026-10-08T16:00:00Z W-9 12:00 HB flat E 104.10
 2026-10-08T17:00:00Z W-9 13:00 HB flat E 104.10; tech fading (QQQ -1.2%, NVDL -3.8%, METU -1.4%) -> down-day entry tonight (§1: next night ~2x avg after down session)
+2026-10-08T18:00:00Z W-9 14:00 HB flat E 104.10; NVDL -6.1% METU -1.5% QQQ -1.7% on day
