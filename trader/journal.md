@@ -21,3 +21,4 @@
 2026-10-08T14:52:21Z W-9 10:52 DAY LEG #10 TP FILLED 10:48:57 TZA 2 @48.765 (entry 48.2685) = +0.99 (+1.03%), held 77 min; E 104.10 cash. 10-ACTIVE-DAY REVIEW: total +3.60, mean +0.36/day, 6 wins/10; TP v1.3 record 5 hit / 1 miss -> KEEP day leg. Day 10/8 net so far: night -1.35 + day +0.99 = -0.36
 2026-10-08T14:52:31Z W-9 CORRECTION: TP v1.3 record is 4 hit / 1 miss (9/28 miss; 10/1,10/2,10/5,10/8 hit), not 5/1 as logged at 10:52
 2026-10-08T15:00:08Z W-9 11:00 HB flat E 104.10; METU 30.13 NVDL 39.28 TZA 48.92 QQQ -0.40% IWM -0.88%
+2026-10-08T16:00:00Z W-9 12:00 HB flat E 104.10
