@@ -14,3 +14,5 @@
 2026-10-08T11:48:05Z W-9 07:46 ANALYST 10/8: pos METU2+NVDL1 ok, 0 open orders, E 103.11 (night21 marked -1.40; QQQ -0.63% IWM -0.86% pre-mkt; TZA 48.91 +2.6%); PDT broker-verified 10/1,10/2,10/5 -> prior-4 count 2 -> day leg #10 ALLOWED; earnings PEP/DAL only, basket clear; RULES_v3 §11 sizing v1.4 added pre-open (top-up to q+1 when q*lim<0.85E and (q+1)*lim<=0.98cash). Plan: exit 09:31, TZA 09:32 + TP, entry 15:52, EOD + 10-day review
 2026-10-08T12:00:07Z W-9 08:00 HB premkt METU b29.87 NVDL b38.75 TZA 48.84 QQQ -0.66% IWM -0.83%; night21 ~-1.53
 2026-10-08T13:00:00Z W-9 09:00 HB premkt E 103.49 (night21 ~-1.16); METU 30.07 NVDL 38.80 TZA 48.72
+2026-10-08T13:24:04Z W-9 09:24 EXIT prep night21 METU2+NVDL1; then TZA day leg #10 at 09:32; bridging to 09:31:05
+2026-10-08T13:32:25Z W-9 09:31 EXIT night21 METU 2 @30.0767 (-0.33) NVDL @38.48 (-1.03) = -1.35; 09:31:38 DAY LEG #10 TZA 2 @48.2685 (lim 48.44; v1.4 not needed, floor gave 2); TP 48.76 resting (6ac79b4c); day_trades +10/8 (window 10/2-10/8 = 3/3); E 103.11
