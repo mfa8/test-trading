@@ -36,3 +36,4 @@
 2026-10-09T13:24:04Z W-9 09:24 EXIT prep night22 METU2+NVDL1 (~+1.9 pre-mkt); then TZA day leg #11 at 09:32; bridging to 09:31:05
 2026-10-09T13:33:12Z W-9 09:31 EXIT night22 METU 2 @30.2301 (+0.26) NVDL @37.77 (+0.47; rested 20s at limit, filled 09:31:40, no re-price) = +0.73; pre-mkt mark was +1.9, open faded. 09:32:33 DAY LEG #11 TZA 2 @47.4199 (lim 47.54); TP 47.90 resting (6ac8ed02); day_trades +10/9 (window 10/5-10/9 = 3/3; Mon 10/12 prior-4 10/6-10/9 = 2 -> allowed; Tue 10/13 blocked if Mon taken)
 2026-10-09T14:00:00Z W-9 10:00 HB day leg open TZA 2 @47.4199 bid ~47.40, TP 47.90 open (high so far ~47.85 at 09:49)
+2026-10-09T15:00:00Z W-9 11:00 HB day leg open TZA 2 @47.4199 ~flat, TP 47.90 open; E ~104.8
