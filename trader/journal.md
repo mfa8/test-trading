@@ -31,3 +31,4 @@
 2026-10-08T20:02:18Z W-9 NOOP absorbed 15 queued backstop wakes 10/8 (13:26 exit-0926, wake-a/b 13:37-19:37, 19:48 entry-1548) - all duties done in-session (exit 09:31, day leg 09:31-10:48, entry 15:51, EOD 16:02)
 2026-10-08T20:12:38Z W-9 NOOP 16:12 post-close wake (wake-b); EOD already done; holding night22 METU2+NVDL1
 2026-10-09T11:47:11Z W-9 07:46 ANALYST 10/9: pos METU2+NVDL1 ok, 0 open orders; E 105.80 pre-mkt (night22 +1.64: NVDL b38.30 vs 37.30, METU b30.42 vs 30.10) - above HWM 105.29; QQQ +0.84% IWM +0.40% TZA 47.21; PDT broker-verified 10/5,10/8 -> prior-4 = 2 -> day leg #11 ALLOWED; earnings: basket clear thru 10/15 (ASML 10/14, TSM 10/15 semis noted). Plan: exit 09:31, TZA 09:32 + TP, entry 15:52, EOD, WEEK-T3X-5
+2026-10-09T12:00:00Z W-9 08:00 HB premkt METU b30.51 NVDL b38.36 (night22 ~+1.88); QQQ +0.89%
