@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-09T15:53:09Z",
-    "loop_note": "11:53 TZA b47.22 (-0.42%) TP open; METU 30.37 NVDL 37.09 QQQ +0.40% IWM +0.40%",
+    "last_heartbeat_utc": "2026-10-09T16:56:10Z",
+    "loop_note": "12:56 TZA b47.06 (-0.76%) TP open; METU 30.67 NVDL 36.88 QQQ +0.43% IWM +0.52%; E 104.13",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
