@@ -43,3 +43,4 @@
 2026-10-09T19:00:00Z W-9 15:00 HB day leg TZA 2 @47.4199 bid 46.81 (-1.3%), TP open -> 15:49 close likely; E 103.62
 2026-10-09T19:40:07Z W-9 15:40 pre-close check: TZA 2 held (TP 6ac8ed02 open @47.90), bid 46.99 (-0.91%); METU 30.03 NVDL 36.92; plan 15:49:00 cancel TP -> verify -> sell; 15:52 entry night 23
 2026-10-09T19:52:05Z W-9 15:49 DAY LEG #11 close: TP cancel 15:49:05 verified cancelled; sold TZA 2 @46.9924 (lim 46.90) = -0.86 (-0.90%); TP missed (high ~47.85 at 09:49, 5c short); day leg total +2.74 over 11 active days, mean +0.25. 15:51:43 ENTRY night23 METU x2 @30.0299 (lim 30.08) + NVDL x1 @36.8899 (lim 36.96) = 96.95 (93% E); cash 7.02; weekend hold
+2026-10-09T20:02:33Z W-9 16:02 EOD E 103.78 (day -0.40: night22 +0.73, day leg -0.85, night23 mark -0.19); week +1.05 (+1.0%); DAY-20261009 + WEEK-T3X-5 written; trades.csv D11 pnl normalised to -0.85 (=2x-0.4275); Mon 10/12: re-rank + overnight review + pre-mkt exit test + §1 de-risk rework
