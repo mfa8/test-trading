@@ -33,3 +33,5 @@
 2026-10-09T11:47:11Z W-9 07:46 ANALYST 10/9: pos METU2+NVDL1 ok, 0 open orders; E 105.80 pre-mkt (night22 +1.64: NVDL b38.30 vs 37.30, METU b30.42 vs 30.10) - above HWM 105.29; QQQ +0.84% IWM +0.40% TZA 47.21; PDT broker-verified 10/5,10/8 -> prior-4 = 2 -> day leg #11 ALLOWED; earnings: basket clear thru 10/15 (ASML 10/14, TSM 10/15 semis noted). Plan: exit 09:31, TZA 09:32 + TP, entry 15:52, EOD, WEEK-T3X-5
 2026-10-09T12:00:00Z W-9 08:00 HB premkt METU b30.51 NVDL b38.36 (night22 ~+1.88); QQQ +0.89%
 2026-10-09T13:00:00Z W-9 09:00 HB premkt E 105.73 (night22 ~+1.56); premarket gains fading slightly (QQQ +0.64%)
+2026-10-09T13:24:04Z W-9 09:24 EXIT prep night22 METU2+NVDL1 (~+1.9 pre-mkt); then TZA day leg #11 at 09:32; bridging to 09:31:05
+2026-10-09T13:33:12Z W-9 09:31 EXIT night22 METU 2 @30.2301 (+0.26) NVDL @37.77 (+0.47; rested 20s at limit, filled 09:31:40, no re-price) = +0.73; pre-mkt mark was +1.9, open faded. 09:32:33 DAY LEG #11 TZA 2 @47.4199 (lim 47.54); TP 47.90 resting (6ac8ed02); day_trades +10/9 (window 10/5-10/9 = 3/3; Mon 10/12 prior-4 10/6-10/9 = 2 -> allowed; Tue 10/13 blocked if Mon taken)
