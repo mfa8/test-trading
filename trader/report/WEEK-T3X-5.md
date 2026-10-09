@@ -44,7 +44,7 @@ A flat-to-positive week that leaned on the day leg again. The 10/5 re-rank baske
 - **Pre-market vs 09:31 gap.** No rule acts on large pre-market marks. An extended-hours sell before 09:30 of a position bought the previous day is *not* a day trade, so a pre-market take-profit is PDT-safe. **Research item for Monday:** test from historicals whether a pre-market exit (e.g. 08:00–09:25 limit at +X%) beats the 09:31 exit on the last 30 nights.
 
 ## Execution / ops
-- 36 orders this week (10 exits, 3 day-leg buys, 3 TPs, 1 TP cancel, 1 day-leg 15:49 sell, 10 entries, 8 Friday/Thursday as counted in the DAY reports). **0 rejects, 0 re-prices.**
+- 28 order placements + 1 cancel this week (Mon 6, Tue 4, Wed 4, Thu 6, Fri 8: 10 exits, 3 day-leg buys, 3 TPs, 1 TP cancel, 1 day-leg 15:49 sell, 10 entries). **0 rejects, 0 re-prices.**
 - One NVDL exit rested 20s at its limit before filling. Every entry filled inside 0.2s at or better than its limit.
 - ALWAYS-ON loop ran 07:46 → 16:02 every session, with 8-minute scans and hourly heartbeat commits.
 - One GitHub 500 (Wed 13:00) was recovered on the 13:07 retry. One container restart (Thu, overnight) caused no data loss. 45 backstop wakes were absorbed as no-ops.
