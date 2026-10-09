@@ -39,3 +39,4 @@
 2026-10-09T15:00:00Z W-9 11:00 HB day leg open TZA 2 @47.4199 ~flat, TP 47.90 open; E ~104.8
 2026-10-09T16:00:00Z W-9 12:00 HB day leg open TZA 2 @47.4199 bid ~47.22 (-0.4%), TP 47.90 open; small caps firm (IWM +0.4%)
 2026-10-09T17:00:00Z W-9 13:00 HB day leg TZA 2 @47.4199 bid 47.06 (-0.76%), TP 47.90 open; E 104.13; small caps +0.5% (inverse leg working against)
+2026-10-09T18:00:00Z W-9 14:00 HB day leg TZA 2 @47.4199 bid 46.89 (-1.1%), TP 47.90 open; no intraday stop per §11; E 103.80
