@@ -51,3 +51,4 @@
 2026-10-12T13:00:00Z W-9 09:00 HB premkt E 105.40 (night23 ~+1.36); METU b30.87 NVDL b36.52
 2026-10-12T13:24:04Z W-9 09:24 EXIT prep night23 METU2+NVDL1 (~+1.3 pre-mkt); then TZA day leg #12 at 09:32; bridging to 09:31:05
 2026-10-12T13:32:23Z W-9 09:31 EXIT night23 (weekend) METU 2 @31.60 (+3.14; METU opened +5.8%) NVDL @36.41 (-0.48) = +2.66 (best night since #8); E 106.63 NEW HWM (PAUSE now 85.30). NOTE: broker now returns its own ref_id (01a1304f-...) instead of echoing ours; order ids unaffected. 09:31:41 DAY LEG #12 TZA 2 @47.3799 (lim 47.47); TP 47.86 resting (6acce150); day_trades +10/12 (Tue/Wed blocked, Thu allowed)
+2026-10-12T14:00:00Z W-9 10:00 HB day leg TZA 2 @47.3799 bid 47.21, TP 47.86 open; E ~106.3; METU +7% on day (sold at open +5.6%)
