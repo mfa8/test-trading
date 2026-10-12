@@ -2,27 +2,27 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "DAY_LEG_OPEN",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-12T19:00:05Z",
-    "loop_note": "15:00 TZA b47.55 (+0.36%) TP open; METU 32.11 NVDL 35.90 QQQ -0.83% IWM -0.32%",
+    "last_heartbeat_utc": "2026-10-12T19:52:20Z",
+    "loop_note": "15:52 night 24 entered METU2+NVDL1",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
     "name": "T3X",
     "start_date": "2026-09-09",
     "start_equity": 98.75,
-    "equity_hwm": 106.63,
+    "equity_hwm": 107.11,
     "kill": 50.0,
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 23,
+    "nights_held": 24,
     "R_history": [],
     "night_returns": [
       {
@@ -203,9 +203,9 @@
     }
   },
   "account": {
-    "equity": 106.63,
-    "cash": 11.87,
-    "asof": "09:32 ET 2026-10-12"
+    "equity": 107.11,
+    "cash": 17.22,
+    "asof": "15:52 ET 2026-10-12"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -375,14 +375,33 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "METU",
+      "qty": 2,
+      "entry": 31.9299,
+      "entry_t": "2026-10-12T15:52:05 ET",
+      "order_id": "6acd3a65-2f66-4ed4-bc13-5c55e7157577",
+      "leg": "overnight",
+      "n": 24
+    },
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 36.0299,
+      "entry_t": "2026-10-12T15:52:07 ET",
+      "order_id": "6acd3a66-82ee-4128-b467-8a087f4bac9e",
+      "leg": "overnight",
+      "n": 24
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-12",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
-    "day_leg_done": false,
+    "day_leg_done": true,
     "premarket": {
       "t": "07:46 ET",
       "METU_bid": 30.87,
@@ -420,6 +439,18 @@
       "METU": 31.6,
       "NVDL": 36.41,
       "pnl": 2.66
+    },
+    "day_leg": {
+      "pnl": 0.48,
+      "exit_kind": "day",
+      "tp_hit": false
+    },
+    "entry": {
+      "t": "15:52:05",
+      "basket": "METU x2 + NVDL x1",
+      "cost": 99.89,
+      "pct_E": 93.3,
+      "note": "E 107.11 all-cash at 15:49 = new HWM (PAUSE 85.69)"
     }
   },
   "schedule": {
@@ -501,17 +532,8 @@
     "window_bdays": 5,
     "buy_et": "09:32",
     "sell_et": "15:49",
-    "position": {
-      "sym": "TZA",
-      "qty": 2,
-      "entry": 47.3799,
-      "order_id": "6acce13d-b726-405b-89b8-3f8044602429",
-      "tp": 47.86,
-      "tp_order_id": "6acce150-1cbf-445e-a3ac-4d03bc427614",
-      "date": "2026-10-12",
-      "n": 12
-    },
-    "active_days": 11,
+    "position": null,
+    "active_days": 12,
     "realised": [
       {
         "date": "2026-09-17",
@@ -634,6 +656,21 @@
         "tp_hit": false,
         "day_high_approx": 47.85,
         "note": "TP missed (high ~47.85 at 09:49, 5c short); small caps +0.6% day; cancel 15:49:05 verified, sold 15:49:18 @46.9924 (lim 46.90)"
+      },
+      {
+        "date": "2026-10-12",
+        "n": 12,
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 47.3799,
+        "exit": 47.6201,
+        "exit_kind": "day",
+        "pnl": 0.48,
+        "pct": 0.51,
+        "tp": 47.86,
+        "tp_hit": false,
+        "day_high_approx": 47.66,
+        "note": "TP missed (scan high ~47.66, 20c short); small caps -0.4%; cancel 15:49:02 verified, sold 15:49:12 @47.6201 (lim 47.56)"
       }
     ],
     "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
@@ -642,8 +679,8 @@
       "target_pct": 1.0,
       "since": "2026-09-28"
     },
-    "realised_total": 2.75,
-    "realised_mean": 0.25,
+    "realised_total": 3.23,
+    "realised_mean": 0.27,
     "sizing": {
       "version": "v1.4",
       "since": "2026-10-08",
@@ -658,6 +695,7 @@
       "wins": 6,
       "tp_record": "4 hits / 1 miss since v1.3 (9/28 miss; 10/1, 10/2, 10/5, 10/8 hit)",
       "decision": "KEEP (mean > 0)"
-    }
+    },
+    "tp_record": "4 hits / 3 misses since v1.3 (miss 9/28, 10/9, 10/12)"
   }
 }
