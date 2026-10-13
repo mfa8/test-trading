@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-12T20:02:00Z",
-    "loop_note": "EOD 10/12 done; night 24 held; next 07:45 premkt 10/13",
+    "last_heartbeat_utc": "2026-10-13T11:47:30Z",
+    "loop_note": "07:47 premkt METU b31.07 NVDL b35.26 (night24 ~-2.49); QQQ -0.66% IWM +0.34%",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -397,69 +397,39 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-12",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-10-13",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "day_leg_done": true,
     "premarket": {
       "t": "07:46 ET",
-      "METU_bid": 30.87,
-      "NVDL_bid": 36.63,
-      "TZA": 47.1,
-      "QQQ_chg_pct": -0.18,
-      "IWM_chg_pct": -0.03,
-      "night23_marked": 1.42,
-      "E_marked": 105.45
+      "METU_bid": 31.07,
+      "NVDL_bid": 35.26,
+      "TZA": 47.15,
+      "QQQ_chg_pct": -0.66,
+      "IWM_chg_pct": 0.34,
+      "NVDA_chg_pct": -0.82,
+      "META_chg_pct": -1.26,
+      "night24_marked": -2.49,
+      "E_marked": 104.62
     },
     "trade_approval": {
       "human_must_approve_trades": false,
       "checked": "07:47 ET"
     },
     "pdt_check": {
-      "rule": "<3 day trades in prior 4 bdays (10/6,10/7,10/8,10/9)",
-      "broker_verified_round_trips": [
-        "2026-10-08",
-        "2026-10-09"
-      ],
-      "count_prior4": 2,
-      "day_leg_allowed": true,
-      "tue_10_13": "blocked if today taken (10/7-10/12 -> 10/8,10/9,10/12)",
+      "window": "10/7-10/12 prior 4 bdays: 10/8,10/9,10/12 = 3",
+      "day_leg_allowed": false,
       "wed_10_14": "blocked (10/8,10/9,10/12)",
       "thu_10_15": "allowed (10/9,10/12 = 2)"
     },
     "earnings_check": {
-      "window": "10/12-10/18 high-cap",
+      "window": "10/13-10/19 high-cap",
       "basket_underlyings_reporting": [],
-      "note": "ASML 10/14 am, TSM 10/15 am (semis; not blackout)"
+      "note": "banks this week (JPM miss am 10/13); ASML 10/14 am, TSM 10/15 am (semis; not blackout)"
     },
-    "plan": "09:31 exit night 23 (METU 2, NVDL 1); 09:32 TZA day leg #12 + TP 1.0%; 8-min loop; 15:49 day-leg close if TP open; 15:52 entry night 24 METU+NVDL; EOD",
-    "exit": {
-      "t": "09:31:20",
-      "METU": 31.6,
-      "NVDL": 36.41,
-      "pnl": 2.66
-    },
-    "day_leg": {
-      "pnl": 0.48,
-      "exit_kind": "day",
-      "tp_hit": false
-    },
-    "entry": {
-      "t": "15:52:05",
-      "basket": "METU x2 + NVDL x1",
-      "cost": 99.89,
-      "pct_E": 93.3,
-      "note": "E 107.11 all-cash at 15:49 = new HWM (PAUSE 85.69)"
-    },
-    "eod": {
-      "t": "16:01:30",
-      "E": 107.02,
-      "cash": 7.22,
-      "marked_basket": 99.8,
-      "night24_marked": -0.09,
-      "day_chg": 3.24
-    }
+    "plan": "09:31:05 exit night 24 (METU 2, NVDL 1); no day leg (PDT); 8-min loop; 15:52 entry night 25 METU+NVDL; EOD"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
