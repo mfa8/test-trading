@@ -70,3 +70,5 @@
 2026-10-13T17:00:05Z W-9 13:00 HB flat E 105.38 (cash); NVDL 36.09 NVDX 20.30 (NVDA recovering); QQQ -0.39% IWM -0.46%
 2026-10-13T18:00:05Z W-9 14:00 HB flat E 105.38 (cash); NVDL 36.02 NVDX 20.26; QQQ -0.59% IWM -0.59%
 2026-10-13T19:00:05Z W-9 15:00 HB flat E 105.38 (cash); NVDL 36.17 NVDX 20.35; QQQ -0.51% IWM -0.33%; 15:52 night 25 v1.5 (NVDX x5 est 101.9 = 96.7% E)
+2026-10-13T19:40:20Z W-9 15:40 pre-entry: cash 105.38 (BP 105.38), 0 open orders; NVDX 20.44/20.45 NVDL 36.35/36.36; v1.5 sizing -> NVDX x5 (~102.6, 97% E)
+2026-10-13T19:52:20Z W-9 15:52 ENTRY night25 (first v1.5 basket) NVDX x5 @20.4699 (lim 20.51) = 102.35 (97.1% E); cash 3.03. Exit Wed 09:31; Wed day leg blocked (PDT), Thu allowed.

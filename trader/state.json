@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "FLAT_NO_DAY_LEG",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-13T19:00:05Z",
-    "loop_note": "14:56 flat E 105.38; NVDL 36.17 NVDX 20.35 QQQ -0.51% IWM -0.33%",
+    "last_heartbeat_utc": "2026-10-13T19:52:20Z",
+    "loop_note": "15:52 night 25 entered NVDX x5 @20.4699",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 24,
+    "nights_held": 25,
     "R_history": [],
     "night_returns": [
       {
@@ -226,8 +226,8 @@
   },
   "account": {
     "equity": 105.38,
-    "cash": 105.38,
-    "asof": "09:31 ET 2026-10-13 (all cash)"
+    "cash": 3.03,
+    "asof": "15:52 ET 2026-10-13"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -397,12 +397,23 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDX",
+      "qty": 5,
+      "entry": 20.4699,
+      "entry_t": "2026-10-13T15:52:04 ET",
+      "order_id": "6ace8be4-d619-41ea-8e73-1b19d99d31b7",
+      "leg": "overnight",
+      "n": 25,
+      "basket_version": "v1.5"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-13",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -438,6 +449,13 @@
       "METU": 31.5309,
       "NVDL": 35.1001,
       "pnl": -1.73
+    },
+    "entry": {
+      "t": "15:52:04",
+      "basket": "NVDX x5 (v1.5 NVDA-2x core)",
+      "cost": 102.35,
+      "pct_E": 97.1,
+      "note": "first v1.5 basket; lim 20.51, filled 20.4699 (price improvement)"
     }
   },
   "schedule": {
