@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-13T13:31:40Z",
-    "loop_note": "09:31 exit night24 -1.73; flat, no day leg (PDT)",
+    "last_heartbeat_utc": "2026-10-13T14:00:00Z",
+    "loop_note": "09:56 flat; v1.5 basket research done; NVDL 35.34 NVDX 19.88 METU 33.57 QQQ -0.38% IWM -0.11%",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -190,7 +190,7 @@
     ],
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
-    "strategy_version": "T3X v1.2 (overnight long + inverse day leg)",
+    "strategy_version": "T3X v1.5 (NVDA-2x overnight core + inverse day leg)",
     "ranking_asof": "2026-10-12",
     "ranking": {
       "overnight": {
@@ -200,13 +200,28 @@
         "GGLL": 0.19,
         "TECL": 0.08
       },
-      "basket": "METU+NVDL (unchanged)",
+      "basket": "v1.5: NVDA-2x core (NVDL/NVDX) per research/BASKET-20261013.md; METU dropped (250-night overnight +0.04%)",
       "day_leg": {
         "TZA": 0.46,
         "NVDQ": 0.15,
         "SPXS": 0.02
       },
-      "file": "research/rank_20261012.json"
+      "file": "research/rank_20261012.json",
+      "v15": {
+        "asof": "2026-10-13",
+        "m250": {
+          "NVDL": 0.46,
+          "NVDX": 0.42,
+          "METU": 0.04
+        },
+        "walkfwd_score": {
+          "rank30_top2": 0.08,
+          "fixed_NVDL": 0.17,
+          "old_basket_METU2_NVDL1": 0.07
+        },
+        "satellite_qualifies": null,
+        "nvda_earnings_blackout": "2026-11-17 pm -> cash"
+      }
     }
   },
   "account": {
@@ -417,7 +432,7 @@
       "basket_underlyings_reporting": [],
       "note": "banks this week (JPM miss am 10/13); ASML 10/14 am, TSM 10/15 am (semis; not blackout)"
     },
-    "plan": "09:31:05 exit night 24 (METU 2, NVDL 1); no day leg (PDT); 8-min loop; 15:52 entry night 25 METU+NVDL; EOD",
+    "plan": "09:31 exit night 24 (done -1.73); no day leg (PDT); 8-min loop; 15:52 entry night 25 = v1.5 NVDA-2x basket (NVDX x5 at current prices); EOD",
     "exit": {
       "t": "09:31:17",
       "METU": 31.5309,
