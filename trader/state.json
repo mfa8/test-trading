@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.0 Overnight Engine",
-  "mode": "IN_POSITION_OVERNIGHT",
+  "mode": "FLAT_NO_DAY_LEG",
   "mode_reason": "day leg #4 TZA 2 @ 45.67 (09:33:41); sell 15:49; entry 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-13T13:00:05Z",
-    "loop_note": "09:00 premkt METU b31.11 NVDL b35.15 (night24 ~-2.52); QQQ -0.75% IWM +0.08%",
+    "last_heartbeat_utc": "2026-10-13T13:31:40Z",
+    "loop_note": "09:31 exit night24 -1.73; flat, no day leg (PDT)",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -179,6 +179,13 @@
         "pnl": 2.66,
         "pct": 2.74,
         "note": "weekend hold; METU opened +5.8% vs Fri close (31.65); METU 3.14 (2 sh), NVDL -0.48"
+      },
+      {
+        "date": "2026-10-12",
+        "basket": "METU x2+NVDL",
+        "pnl": -1.73,
+        "pct": -1.73,
+        "note": "gap-down open (QQQ -0.75% premkt; META -1.3%, NVDA -0.8%); METU -0.80 (2 sh @31.5309), NVDL -0.93 (@35.1001); both filled at once with price improvement"
       }
     ],
     "end_date": null,
@@ -203,9 +210,9 @@
     }
   },
   "account": {
-    "equity": 107.02,
-    "cash": 7.22,
-    "asof": "16:01 ET 2026-10-12 (broker total; METU2+NVDL1 marked 99.80)"
+    "equity": 105.38,
+    "cash": 105.38,
+    "asof": "09:31 ET 2026-10-13 (all cash)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -375,30 +382,11 @@
     }
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "METU",
-      "qty": 2,
-      "entry": 31.9299,
-      "entry_t": "2026-10-12T15:52:05 ET",
-      "order_id": "6acd3a65-2f66-4ed4-bc13-5c55e7157577",
-      "leg": "overnight",
-      "n": 24
-    },
-    {
-      "sym": "NVDL",
-      "qty": 1,
-      "entry": 36.0299,
-      "entry_t": "2026-10-12T15:52:07 ET",
-      "order_id": "6acd3a66-82ee-4128-b467-8a087f4bac9e",
-      "leg": "overnight",
-      "n": 24
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-10-13",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": true,
@@ -429,7 +417,13 @@
       "basket_underlyings_reporting": [],
       "note": "banks this week (JPM miss am 10/13); ASML 10/14 am, TSM 10/15 am (semis; not blackout)"
     },
-    "plan": "09:31:05 exit night 24 (METU 2, NVDL 1); no day leg (PDT); 8-min loop; 15:52 entry night 25 METU+NVDL; EOD"
+    "plan": "09:31:05 exit night 24 (METU 2, NVDL 1); no day leg (PDT); 8-min loop; 15:52 entry night 25 METU+NVDL; EOD",
+    "exit": {
+      "t": "09:31:17",
+      "METU": 31.5309,
+      "NVDL": 35.1001,
+      "pnl": -1.73
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",

@@ -61,3 +61,5 @@
 2026-10-13T11:47:30Z W-9 07:47 PREMKT Tue: METU b31.07 (-2.8% vs 31.95 close) NVDL b35.26 (-1.9%); night24 marked ~-2.49; E ~104.62; QQQ -0.66% (NVDA -0.8%, META -1.3%) IWM +0.34%; JPM missed. approvals off. PDT: day leg BLOCKED today+Wed (10/8,10/9,10/12), Thu allowed. Plan: 09:31:05 exit (rule, no discretion), 15:52 night 25.
 2026-10-13T12:04:30Z W-9 08:04 RESEARCH: OCO/TP re-test on TZA 1-min bars (21 sessions) + 5-min (40): stops hurt at every level (TP1.0% no stop +0.82% vs stop1% +0.40%, stop2% +0.76%); TP 1.0% best/near-best mean under 3 entry assumptions. No rule change. research/OCO-TP-20261013.md
 2026-10-13T13:00:05Z W-9 09:00 HB premkt METU b31.11 NVDL b35.15 (night24 ~-2.52); E ~104.59; QQQ -0.75% IWM +0.08%; exit 09:31:05
+2026-10-13T13:24:10Z W-9 09:24 EXIT prep night24 METU2+NVDL1 (~-2.35 premkt); 0 open orders; bridging to 09:31:05
+2026-10-13T13:31:40Z W-9 09:31 EXIT night24 METU 2 @31.5309 (lim 31.41; -0.80) + NVDL 1 @35.1001 (lim 35.09; -0.93) = -1.73 (-1.7%); gap-down open (QQQ -0.75%). E 105.38 all cash. No day leg (PDT: 10/8,10/9,10/12). Loop until 15:52 night 25.
