@@ -10,7 +10,7 @@
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
     "last_heartbeat_utc": "2026-10-14T13:31:40Z",
-    "loop_note": "09:31 exit night25 -2.25; flat",
+    "loop_note": "09:40 v1.7: day leg suspended per review; flat until 15:52",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -197,7 +197,7 @@
     ],
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
-    "strategy_version": "T3X v1.6 (NVDA-2x overnight core, NVDL-first sizing, edge-decay switch + inverse day leg under review)",
+    "strategy_version": "T3X v1.7 (NVDA-2x overnight core, NVDL-first sizing, edge-decay switch; day leg suspended)",
     "ranking_asof": "2026-10-12",
     "ranking": {
       "overnight": {
@@ -472,7 +472,7 @@
   "alerts_open": [],
   "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
   "day_leg": {
-    "enabled": true,
+    "enabled": false,
     "instrument": "TZA",
     "rank_asof": "2026-09-28",
     "rank": {
@@ -704,6 +704,10 @@
       "tp_record": "4 hits / 1 miss since v1.3 (9/28 miss; 10/1, 10/2, 10/5, 10/8 hit)",
       "decision": "KEEP (mean > 0)"
     },
-    "tp_record": "4 hits / 3 misses since v1.3 (miss 9/28, 10/9, 10/12)"
+    "tp_record": "4 hits / 3 misses since v1.3 (miss 9/28, 10/9, 10/12)",
+    "suspended_since": "2026-10-15",
+    "suspended_by": "RULES_v3 v1.7 (research/DAYLEG-REVIEW-20261014.md)",
+    "shadow": [],
+    "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"
   }
 }
