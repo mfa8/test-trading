@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-14T17:00:05Z",
-    "loop_note": "13:00 flat E 103.13; NVDL 34.52 NVDX 19.41 QQQ -1.72% IWM -1.90%",
+    "last_heartbeat_utc": "2026-10-14T17:20:00Z",
+    "loop_note": "13:20 idle-capital review: adopt nothing; \u00a71 false claim corrected",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -247,6 +247,13 @@
         ],
         "nvdl_exdate_check": "2026-10-28 (verify before 10/27 entry)"
       }
+    },
+    "risk_note": "Long-sample bootstraps (idle-capital review 10/14): overnight-only NVDA-2x at ~90% has 60-session P(PAUSE) ~30-45% and P(KILL within 250 sessions) ~3-7% (1y-data estimate was 4.5%). Exposure kept (growth goal; below Kelly); reported to human.",
+    "shadow_logs": {
+      "day_leg_TZA": "per \u00a711 v1.7",
+      "crash_open_exit_delay": "NVDA open <= -5% or QQQ <= -3% (non-earnings): log NVDL/NVDX bid at 09:31 fill time and at 10:00",
+      "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
+      "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)"
     }
   },
   "account": {
