@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-14T12:00:05Z",
-    "loop_note": "08:00 premkt; NVDX ~20.28; v1.5 verification workflow running",
+    "last_heartbeat_utc": "2026-10-14T12:52:00Z",
+    "loop_note": "08:52 v1.6 adopted (review modify_v15); day-leg review running",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
@@ -190,7 +190,7 @@
     ],
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
-    "strategy_version": "T3X v1.5 (NVDA-2x overnight core + inverse day leg)",
+    "strategy_version": "T3X v1.6 (NVDA-2x overnight core, NVDL-first sizing, edge-decay switch + inverse day leg under review)",
     "ranking_asof": "2026-10-12",
     "ranking": {
       "overnight": {
@@ -200,7 +200,7 @@
         "GGLL": 0.19,
         "TECL": 0.08
       },
-      "basket": "v1.5: NVDA-2x core (NVDL/NVDX) per research/BASKET-20261013.md; METU dropped (250-night overnight +0.04%)",
+      "basket": "v1.6: NVDA-2x core, NVDL first then NVDX filler; no satellite; \u00a73(f) W120 edge-decay switch (Mondays)",
       "day_leg": {
         "TZA": 0.46,
         "NVDQ": 0.15,
@@ -221,6 +221,24 @@
         },
         "satellite_qualifies": null,
         "nvda_earnings_blackout": "2026-11-17 pm -> cash"
+      },
+      "v16": {
+        "asof": "2026-10-14",
+        "review": "research/VERIFY-V15-20261014.md",
+        "planning_edge_pct_per_night": 0.3,
+        "edge_decay": {
+          "window": 120,
+          "threshold": 0.0,
+          "check": "Mondays",
+          "last_value": null
+        },
+        "review_at_live_nights": 40,
+        "nvda_earnings_cash": "2026-11-17 entry skipped",
+        "half_days_entry_1252": [
+          "2026-11-27",
+          "2026-12-24"
+        ],
+        "nvdl_exdate_check": "2026-10-28 (verify before 10/27 entry)"
       }
     }
   },
@@ -440,7 +458,7 @@
       "note": "ASML am 10/14 (NVDA -0.6% premkt), TSM am 10/15; NVDA 11/17 pm blackout -> cash"
     },
     "ops": "container reset overnight: local clone was at 4386724 (10/8); fast-forwarded to origin 2cceaad; scratchpad lost -> ops scripts now durable in trader/tools/",
-    "plan": "09:31:05 exit night 25 (NVDX 5); no day leg (PDT); 8-min loop; v1.5 adversarial verification workflow; 15:52 entry night 26 (v1.5); EOD"
+    "plan": "09:31:05 exit night 25 (NVDX 5); no day leg (PDT); 8-min loop; day-leg review workflow running; 15:52 entry night 26 v1.6 (NVDL first, NVDX filler); EOD"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
