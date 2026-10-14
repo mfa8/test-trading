@@ -72,3 +72,4 @@
 2026-10-13T19:00:05Z W-9 15:00 HB flat E 105.38 (cash); NVDL 36.17 NVDX 20.35; QQQ -0.51% IWM -0.33%; 15:52 night 25 v1.5 (NVDX x5 est 101.9 = 96.7% E)
 2026-10-13T19:40:20Z W-9 15:40 pre-entry: cash 105.38 (BP 105.38), 0 open orders; NVDX 20.44/20.45 NVDL 36.35/36.36; v1.5 sizing -> NVDX x5 (~102.6, 97% E)
 2026-10-13T19:52:20Z W-9 15:52 ENTRY night25 (first v1.5 basket) NVDX x5 @20.4699 (lim 20.51) = 102.35 (97.1% E); cash 3.03. Exit Wed 09:31; Wed day leg blocked (PDT), Thu allowed.
+2026-10-14T11:48:00Z W-9 07:47 PREMKT Wed: container was reset overnight (local clone at 10/8 commit 4386724, scratchpad wiped) -> fast-forwarded to origin 2cceaad; broker confirms NVDX 5 @20.47. Ops scripts rebuilt in trader/tools/ (durable). NVDX b20.28 (night25 ~-0.95); NVDA -0.63% (ASML am); QQQ -0.11% IWM +0.19%; E broker 104.58. approvals off. PDT: day leg BLOCKED (10/8,10/9,10/12); Thu allowed.
