@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-14T11:48:00Z",
-    "loop_note": "07:47 premkt NVDX b20.28 (night25 ~-0.95); NVDA -0.63% QQQ -0.11% IWM +0.19%",
+    "last_heartbeat_utc": "2026-10-14T12:00:05Z",
+    "loop_note": "08:00 premkt; NVDX ~20.28; v1.5 verification workflow running",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {
