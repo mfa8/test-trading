@@ -260,7 +260,8 @@
       "day_leg_TZA": "per \u00a711 v1.7",
       "crash_open_exit_delay": "NVDA open <= -5% or QQQ <= -3% (non-earnings): log NVDL/NVDX bid at 09:31 fill time and at 10:00",
       "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
-      "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)"
+      "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
+      "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout)"
     }
   },
   "account": {

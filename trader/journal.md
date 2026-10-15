@@ -93,3 +93,4 @@
 2026-10-15T13:00:05Z W-9 09:00 HB premkt NVDL b~33.00 NVDX b~18.57 (night26 ~-2.8); QQQ -1.1%; exit 09:31:05 per rule
 2026-10-15T13:16:09Z W-9 09:16 EXIT prep night26 NVDL2+NVDX1 (premkt ~-3.30: NVDL b32.82 NVDX b18.45); 0 open orders; crash-open shadow trigger not met (NVDA ~-2%, QQQ ~-1.2%)
 2026-10-15T13:31:40Z W-9 09:31 EXIT night26 NVDL 2 @32.1908 (lim 32.15; -3.83) + NVDX 1 @18.1105 (lim 18.08; -1.07) = -4.90 (-5.6%); TSM-earnings gap (NVDA ~-2.8% at open). E 98.23 all cash: below E0 98.75; DD -8.3% from HWM 107.11; PAUSE 85.69 not hit. 3rd straight losing night (-1.73, -2.25, -4.90). Per pre-registered §3(g): no rule change on short drawdowns; only §3(f)/§6 act. Continue.
+2026-10-15T13:32:02Z W-9 09:33 NOTE: registered a shadow tag for semis-peer earnings nights (TSM/ASML/AMD/AVGO/MU) to evaluate at the 2027-01-11 quarterly review on long-sample data; no behaviour change now (one loss is not evidence).
