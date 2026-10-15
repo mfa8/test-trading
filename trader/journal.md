@@ -98,3 +98,4 @@
 2026-10-15T15:00:05Z W-9 11:00 HB flat E 98.23 (cash); NVDL 32.71 NVDX 18.40; QQQ -0.89% IWM +0.98%
 2026-10-15T16:00:05Z W-9 12:00 HB flat E 98.23 (cash); NVDL 32.94 NVDX 18.54; QQQ -0.75% IWM +0.79%
 2026-10-15T17:00:05Z W-9 13:00 HB flat E 98.23 (cash); NVDL 33.01 NVDX 18.57; QQQ -0.70% IWM +0.71%
+2026-10-15T18:00:07Z W-9 14:00 HB flat E 98.23 (cash); NVDL 33.21 NVDX 18.68; QQQ -0.41% IWM +0.90%; added tools/shadow_tza.py (§11 v1.7 shadow log scorer)
