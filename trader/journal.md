@@ -96,3 +96,4 @@
 2026-10-15T13:32:02Z W-9 09:33 NOTE: registered a shadow tag for semis-peer earnings nights (TSM/ASML/AMD/AVGO/MU) to evaluate at the 2027-01-11 quarterly review on long-sample data; no behaviour change now (one loss is not evidence).
 2026-10-15T14:00:05Z W-9 10:00 HB flat E 98.23 (cash); NVDL 31.68 NVDX 17.82; QQQ -1.80% IWM -0.07% (NVDA selling off intraday after TSM)
 2026-10-15T15:00:05Z W-9 11:00 HB flat E 98.23 (cash); NVDL 32.71 NVDX 18.40; QQQ -0.89% IWM +0.98%
+2026-10-15T16:00:05Z W-9 12:00 HB flat E 98.23 (cash); NVDL 32.94 NVDX 18.54; QQQ -0.75% IWM +0.79%
