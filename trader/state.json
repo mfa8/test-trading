@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "DAY_LEG_BUY",
-    "last_heartbeat_utc": "2026-10-15T11:47:00Z",
-    "loop_note": "07:46 premkt NVDL b33.10 NVDX b18.61 (night26 ~-2.59); NVDA -1.6% (TSM earnings)",
+    "last_heartbeat_utc": "2026-10-15T12:00:05Z",
+    "loop_note": "08:00 premkt; night26 held",
     "last": "2026-09-24T13:34Z exit+dayleg"
   },
   "campaign": {

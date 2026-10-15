@@ -89,3 +89,4 @@
 2026-10-14T19:40:20Z W-9 15:40 pre-entry: cash 103.13 (BP 103.13), 0 open orders; NVDL 34.05/34.06 NVDX 19.14/19.15; v1.6 -> NVDL x2 first, then NVDX filler (~1) ~85-86% E
 2026-10-14T19:52:40Z W-9 15:52 ENTRY night26 (first v1.6 basket, NVDL-first) NVDL x2 @34.1059 (lim 34.18) then NVDX x1 @19.1796 (lim 19.21) = 87.39 (84.7% E); cash 15.74. Ops slip: the 15:40 command chained a 480s heartbeat sleep with the 15:51:30 bridge and overran the 600s tool timeout (backgrounded); caught at 15:50:12, re-bridged, entry on time. Rule reaffirmed: never chain sleep legs in one command.
 2026-10-15T11:47:00Z W-9 07:46 PREMKT Thu: repo current (018a87b), tools intact. NVDL b33.10 NVDX b18.61 (night26 ~-2.59); NVDA -1.6% after TSM earnings (TSM -1.9%); QQQ -1.0% IWM +0.3%; E broker 100.70 (PAUSE 85.69). approvals off. Day leg SUSPENDED (v1.7). Exit 09:31:05 per rule.
+2026-10-15T12:00:05Z W-9 08:00 HB premkt; night26 NVDL2+NVDX1 held (~-2.59 at 07:46)
