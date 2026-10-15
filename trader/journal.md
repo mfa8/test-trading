@@ -100,3 +100,5 @@
 2026-10-15T17:00:05Z W-9 13:00 HB flat E 98.23 (cash); NVDL 33.01 NVDX 18.57; QQQ -0.70% IWM +0.71%
 2026-10-15T18:00:07Z W-9 14:00 HB flat E 98.23 (cash); NVDL 33.21 NVDX 18.68; QQQ -0.41% IWM +0.90%; added tools/shadow_tza.py (§11 v1.7 shadow log scorer)
 2026-10-15T19:00:05Z W-9 15:00 HB flat E 98.23 (cash); NVDL 33.08 NVDX 18.60; QQQ -0.47% IWM +0.88%
+2026-10-15T19:40:11Z W-9 15:40 PRE-ENTRY night27: cash 98.23 BP 98.23, 0 positions, 0 open orders; NVDL a33.05 l33.045, NVDX a18.59; QQQ -0.06% IWM +1.31%; dry NVDL lim 33.10 x2 = 66.20
+2026-10-15T19:52:55Z W-9 15:52 ENTRY night27 (v1.6): NVDL 2 @32.9799 (lim 33.02, ask 32.97) + NVDX 1 @18.539 (lim 18.58, ask 18.55) = 84.50 (86% of E 98.23); cash 13.73; 0 open orders. Exit 09:31:05 Fri 10/16.
