@@ -113,3 +113,4 @@
 2026-10-16T16:00:06Z W-9 12:00 HB flat E 97.45 (cash); NVDL 32.95 NVDX 18.52; QQQ -1.56% IWM -1.07%
 2026-10-16T17:00:06Z W-9 13:00 HB flat E 97.45 (cash); NVDL 32.66 NVDX 18.36; QQQ -1.71% IWM -1.34%
 2026-10-16T18:00:07Z W-9 14:00 HB flat E 97.45 (cash); NVDL 32.32 NVDX 18.18; QQQ -2.24% IWM -1.74% (broad risk-off; no down-day rule — entry 15:52 as normal)
+2026-10-16T19:00:07Z W-9 15:00 HB flat E 97.45 (cash); NVDL 31.90 NVDX 17.94; QQQ -2.57% IWM -1.75% (NVDL near the 3-share threshold: lim <= 31.83 fits 3 under 0.98E=95.50)
