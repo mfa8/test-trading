@@ -105,3 +105,5 @@
 2026-10-15T20:02:07Z W-9 16:02 EOD E 98.24 (cash 13.73 + NVDL2/NVDX1 84.51; night27 +0.01); day -5.43; TZA shadow #1: entry 51.1002 TP 51.62 -> 15:48 close 49.06 = -3.99% (-4.14% net) — suspension avoided ~-4.1 at old size. report/DAY-20261015.md
 2026-10-16T11:47:14Z W-9 07:47 ANALYST Fri 10/16: repo in sync (9c17deb), tools present; broker NVDL 2 + NVDX 1, cash 13.73, 0 open orders, approvals off; premkt NVDL b32.82 NVDX b18.40 (night27 ~-0.46), NVDA -0.15% QQQ -0.16% IWM +0.17%; E_broker 97.87. Plan: 09:31:05 exit, 15:52 entry night 28, EOD, weekly report WEEK-T3X-6.
 2026-10-16T12:59:07Z W-9 09:00 premkt NVDL b32.77 NVDX b18.42 (night27 ~-0.54); NVDA -0.22% QQQ -0.25% IWM +0.09%
+2026-10-16T13:15:07Z W-9 09:15 EXIT prep night27 NVDL2+NVDX1 (premkt ~-0.86: NVDL b32.65 NVDX b18.34); 0 open orders; crash-open shadow trigger not met (NVDA -0.4%, QQQ -0.16%)
+2026-10-16T13:31:39Z W-9 09:31 EXIT night27 NVDL 2 @32.6701 (lim 32.57; -0.62) + NVDX 1 @18.38 (lim 18.31; -0.16) = -0.78 (-0.9%); NVDA -0.5% at open. E 97.45 all cash; DD -9.0% from HWM 107.11; PAUSE 85.69 not hit. 4th straight losing night. Per §3(g): no rule change on short drawdowns. Continue.
