@@ -1,11 +1,11 @@
 # T3X WEEK 6 (Mon 10/12 – Fri 10/16): Overnight Engine, rules v1.5 → v1.7
 
-**E 103.78 (10/9 close, marked) → {{E_CLOSE}} (10/16 close, night 28 marked): {{WEEK_CHG}} on the week.**
+**E 103.78 (10/9 close, marked) → 96.91 (10/16 close, night 28 marked): −6.87 (−6.6%) on the week.**
 - Realised this week: **−6.51** (nights −6.99, day leg +0.48).
-- Campaign since the T3X start: 98.75 → {{E_CLOSE}}. Since your original $100: {{ALLIN}}.
-- HWM 107.11 (10/12); E is {{DD}} below it. PAUSE 85.69, KILL 50.
+- Campaign since the T3X start: 98.75 → 96.91 (−1.84). Since your original $100: −3.09 (−3.1%). Last week's headline said the campaign was +5.03; this week erased that gain.
+- HWM 107.11 (10/12); E is 9.5% below it. PAUSE 85.69, KILL 50.
 
-This was a bad week. Four of the five overnight holds lost money, and the worst came on the night before TSM's earnings. Across our overnight holds NVDA fell about 5%, while its daytime moves netted to roughly zero: the reverse of the strategy's premise, in one bad week.
+This was a bad week. Four of the five overnight holds lost money, and the worst came on the night before TSM's earnings. Across our five overnight holds NVDA fell about 5%, while its daytime sessions lost only about 1% (including Friday's −1%): the reverse of the strategy's premise, in one bad week.
 
 A 7-agent read-only audit (files: `research/week6_audit_20261016.json`) found the following:
 - Every trade and every cent of cash matches the broker's fills.
@@ -20,7 +20,7 @@ A 7-agent read-only audit (files: `research/week6_audit_20261016.json`) found th
 | 25 (10/13→10/14) | NVDX ×5 (v1.5) | **−2.25** | risk-off after the 08:30 data; NVDA −1.9% at the open |
 | 26 (10/14→10/15) | NVDL ×2 + NVDX (v1.6) | **−4.90** | TSM reported before the open; NVDA about −2.8% at the open |
 | 27 (10/15→10/16) | NVDL ×2 + NVDX | **−0.78** | quiet; NVDA −0.5% at the open |
-| 28 (10/16→10/19) | NVDL ×{{N28_NVDL}} + NVDX ×{{N28_NVDX}} | {{N28_MARK}} (open) | weekend hold |
+| 28 (10/16→10/19) | NVDL ×2 + NVDX ×1 | −0.54 marked (open) | weekend hold |
 
 - **Week: −6.99** on 5 closed nights (1 win, 4 losses).
 - **Campaign: 27 nights, −4.67.** 11 wins and 16 losses, mean −0.17 per night.
@@ -37,7 +37,7 @@ A 7-agent read-only audit (files: `research/week6_audit_20261016.json`) found th
   | day | result |
   |---|---|
   | 10/15 | **−3.99%** (about −$4.08 at the old 2-share size) |
-  | 10/16 | {{SHADOW_1016}} |
+  | 10/16 | **+1.01%** (TP at 10:53; about +$0.99 at 2 shares) |
 
 - The re-entry test is pre-registered and judged only at the 2027-01-11 quarterly review.
 
@@ -56,7 +56,7 @@ The rules were rewritten 4 times in about 28 hours (10/13–10/14). All rewrites
    - **Time to $200:** an honest estimate is now written down (see the target section below).
 
 ## Risk, plainly
-- **The single biggest risk is one bad NVIDIA night.** From 97.45, an overnight NVDA drop of about 7% would take the account to the PAUSE level (85.69), after which bets shrink to 1 share. Since 2015 that has happened about once a year outside earnings.
+- **The single biggest risk is one bad NVIDIA night.** From about 97, an overnight NVDA drop of about 7% would take the account to the PAUSE level (85.69), after which bets shrink to 1 share. Since 2015 that has happened about once a year outside earnings.
 - **Odds of hitting PAUSE within the next ~60 sessions:**
   - About 11–40% if the edge is real (the range comes from different historical samples).
   - About 40–54% if there is no edge.
@@ -68,7 +68,7 @@ The rules were rewritten 4 times in about 28 hours (10/13–10/14). All rewrites
   - It is the protection against a slow 2022-style decline (in 2022 a 2x-NVDA overnight hold lost about 75%).
 
 ## The $200 target
-- From 97.45 the account needs **+105%**.
+- From 96.91 the account needs **+106%**.
 - At the planning edge (+0.30% per night on about 86% invested), that takes about **280–310 held nights on average, roughly 1.1–1.25 years.** The bootstrap odds of reaching $200:
   - About 5–9% within 6 months.
   - About 27–45% within 12 months.

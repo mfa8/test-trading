@@ -116,3 +116,4 @@
 2026-10-16T19:00:07Z W-9 15:00 HB flat E 97.45 (cash); NVDL 31.90 NVDX 17.94; QQQ -2.57% IWM -1.75% (NVDL near the 3-share threshold: lim <= 31.83 fits 3 under 0.98E=95.50)
 2026-10-16T19:40:07Z W-9 15:40 PRE-ENTRY night28: cash 97.45 BP 97.45, 0 positions, 0 open orders; NVDL a32.10, NVDX a18.05; QQQ -2.60% IWM -1.75% (risk-off day; no down-day rule per §1 correction — entry as normal)
 2026-10-16T19:52:44Z W-9 15:52 ENTRY night28 (v1.6): NVDL 2 @32.1599 (lim 32.21, ask 32.16) + NVDX 1 @18.0868 (lim 18.11, ask 18.08) = 82.41 (84.6% of E 97.45); cash 15.04; 0 open orders. Weekend hold; exit 09:31:05 Mon 10/19.
+2026-10-16T20:02:16Z W-9 16:02 EOD E 96.91 (cash 15.04 + NVDL2/NVDX1 81.87; night28 -0.54); week -6.87 (-6.6%); TZA shadow #2: entry 48.9973 TP 49.49 hit 10:53 = +1.01% (+0.86% net). report/DAY-20261016.md; WEEK-T3X-6 final.
