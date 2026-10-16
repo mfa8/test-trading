@@ -1,17 +1,17 @@
 {
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
-  "strategy": "T3X v1.0 Overnight Engine",
+  "strategy": "T3X v1.7 Overnight Engine (NVDA-2x core; day leg suspended)",
   "mode": "FLAT_NO_DAY_LEG",
   "mode_reason": "night 27 closed 09:31 10/16 (-0.78); day leg suspended; entry night 28 15:52",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
-    "phase": "DAY_LEG_BUY",
+    "phase": "LOOP",
     "last_heartbeat_utc": "2026-10-16T13:31:30Z",
     "loop_note": "09:31 exit night27 -0.78; flat; E 97.45",
-    "last": "2026-09-24T13:34Z exit+dayleg"
+    "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
     "name": "T3X",
@@ -740,5 +740,15 @@
     ],
     "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"
   },
-  "history_today": []
+  "history_today": [],
+  "ops": {
+    "crons": "CRON_TZ=America/New_York (updated 2026-10-16): exit 09:26, entry 15:48, analyst 07:45, wake-a :30 09-15, wake-b :00 10-16 ET",
+    "halfday_wakes": {
+      "2026-11-27": "trig_015vbbSwx7VnCeZSfPRhEVzS 12:44 ET",
+      "2026-12-24": "trig_01U43ziBKEHVYj6B6WdhBoj1 12:44 ET"
+    },
+    "dst_end": "2026-11-01 (EST = UTC-5 from 11/2; use hb.py/bridge.py 'et' suffix)",
+    "unexplained_cash": "+0.17 non-trade credit between 9/29 EOD and 9/30 07:47 (cash 26.16 -> 26.33, no orders) \u2014 source unknown; not in any ledger",
+    "week6_audit": "research/WEEK6-AUDIT-20261016.md"
+  }
 }

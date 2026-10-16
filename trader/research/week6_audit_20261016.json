@@ -1,0 +1,812 @@
+{
+  "summary": "Read-only audit + stats for weekly report WEEK-T3X-6 (10/12-10/16): ledger reconciliation, rule compliance, drawdown-vs-backtest stats, forward calendar; adversarially verified",
+  "agentCount": 7,
+  "logs": [
+    "audits done: ledger, compliance, stats, calendar"
+  ],
+  "result": {
+    "audits": {
+      "ledger": {
+        "summary": "Week 6 (Mon 10/12 to Fri 10/16) ledger reconciliation, read-only, account 445788334. The broker pull (created_at_gte 2026-10-09T19:00Z) came back as one page with no 'next' cursor. It held 22 equity orders: 21 filled and 1 cancelled (the D12 take-profit, 6acce150, limit 47.86, cancelled at 15:49:02 ET). Every order matched exactly one intent line in orders.jsonl on symbol, side, qty, limit and time. Each intent line came 3.8 to 9.1 seconds before its order (INV-12 holds), and no intent line or fill is left unmatched. Every fill price and qty matches trades.csv rows D11 (exit), N23 to N27 and D12, and state.json, exactly. Per-night P&L recomputed from broker fills: N23 +2.6603, N24 -1.7278, N25 -2.2490, N26 -4.8993, N27 -0.7786, which round to the stored 2.66, -1.73, -2.25, -4.90 and -0.78. No single night differs by more than 0.005; the largest gap is N24 at 0.0022. Week overnight P&L is -6.9944 against the ledgers' rounded -7.00, a 0.0056 gap. The day leg (D12 TZA, 2 shares, 47.3799 to 47.6201) made +0.4804. Week realised total is -6.5140 (1 winning night, 4 losing). Cash rebuilt from the broker fills matches every cash figure in the journal (7.02, 106.62, 107.10, 7.22, 105.38, 3.03, 103.13, 15.74, 98.23, 13.73) and the broker's current 97.45 all cash with no positions, so no cash flows are missing this week. Equity path from equity.csv: 103.78 (10/9 close, night 23 marked) -> 107.02 -> 105.81 -> 103.67 -> 98.24 (10/15 close), then 97.45 all cash at 09:31 on 10/16 (no 10/16 EOD row yet). That is -5.54 (-5.34%) to the 10/15 close and -6.33 (-6.10%) to now. The -6.33 is exactly the realised -6.514 less the -0.184 night-23 mark already inside the 10/9 close. Campaign: 27 nights, total -4.67, 11 wins and 16 losses, mean -0.173 per night; rebuilt from trades.csv prices the total is -4.6502. Day-leg realised: 3.23 over 12 legs, 7 wins and 5 losses; rebuilt from prices, 3.2356. The discrepancies over 0.005 are listed in issues. All of them are rounding, mark-source or record-keeping gaps, except one campaign-level gap of +0.11 to +0.14 that dates from before this week and is not yet explained. Scratch files are in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/: broker_orders.json, recon.py, pnl.py, equity.py, campaign.py and pnl.json. No repo files were modified.",
+        "issues": [
+          "WEEK AGGREGATE ROUNDING: the trades.csv and state.night_returns sums for N23-N27 are -7.00; from broker fills the total is -6.9944 (diff -0.0056). Every single night is within 0.005: N23 2.66 vs 2.6603, N24 -1.73 vs -1.7278, N25 -2.25 vs -2.2490, N26 -4.90 vs -4.8993, N27 -0.78 vs -0.7786.",
+          "EQUITY.CSV MARKS vs OFFICIAL CLOSES: I rebuilt each close as cash from fills plus qty x the regular-session daily close. 10/9 equity.csv 103.78 vs 103.7343 (+0.0457); 10/12 107.02 vs 107.0450 (-0.0250); 10/13 105.81 vs 105.7774 (+0.0326); 10/14 103.67 vs 103.6865 (-0.0165); 10/15 98.24 vs 98.2198 (+0.0202). The DAY reports' 16:02 broker marks (99.80, 102.78, 87.93, 84.51) differ from the official-close values (99.83, 102.75, 87.95, 84.49), so this is a mark-source difference, not a ledger error. Caveat: the tool says the last daily bar (10/15) may not be the final settled close.",
+          "REF_ID TRACEABILITY: 19 of the 22 week orders (everything from 2026-10-12T13:31Z on) carry a broker ref_id (01a13...) that does not equal the ref_id in the orders.jsonl intent line. Only the three 10/9 orders (D11-TZA-S, 23-METU-E, 23-NVDL-E) match. The journal noted this on 10/12 at 09:31. All 22 still match uniquely on symbol, side, qty, limit and time, and each intent comes before its order, so INV-12 is met. orders.jsonl does not store the broker order id, though, so the audit trail depends on heuristic matching.",
+          "CAMPAIGN NIGHT ROUNDING (before this week): state.night_returns 2026-09-17 (N07) is -0.81, but trades.csv prices give -0.8040 (diff -0.0060). 2026-09-28 (N14) is -0.62, but trades.csv prices give -0.6265 (diff +0.0065).",
+          "CAMPAIGN OVERNIGHT TOTAL: the state.night_returns sum is -4.67; rebuilt from trades.csv entry and exit prices it is -4.6502 (diff -0.0198, accumulated rounding).",
+          "DAY-LEG TOTAL: state.day_leg.realised_total is 3.23 (sum of rounded legs); rebuilt from trades.csv prices it is 3.2356 (diff -0.0056). DAY-20261014.md says +3.24.",
+          "CAMPAIGN EQUITY RESIDUAL (before this week, unexplained): the start_equity of 98.75 against today's broker 97.45 is a change of -1.30. Ledger P&L is -1.44 from state (-4.67 + 3.23), or -1.4146 from trades.csv prices (-4.6502 + 3.2356), leaving +0.14 or +0.1146 unaccounted for. The cash path from 10/9 19:49Z to now matches the fills exactly, so the residual comes from before the 10/9 close. Possible causes are start_equity vs actual cash on 9/9, credits, or pre-week fills that differ from trades.csv. I could not check these within the allowed pull window.",
+          "BORDERLINE, NOT OVER THRESHOLD: D11 (10/9, prior week) is -0.85 in state and trades.csv; the exact value is 2 x (46.9924 - 47.4199) = -0.8550 (diff exactly 0.0050). journal.md line 45 says -0.86 and the EOD line says -0.85.",
+          "TIMESTAMP GAPS (no P&L impact): trades.csv D12 entry time is '09:32' but the broker filled at 09:31:41 ET. N23 entry time is '15:52' but the broker filled at 15:51:43 and 15:51:44 ET. N26 and N27 NVDX entries filled at 15:52:23 and 15:52:26.",
+          "MISSING ROW: equity.csv has no 10/16 row yet; the EOD write is still pending. Right now the broker shows 97.45 all cash, no positions and no open orders. Night 28 entry is scheduled for 15:52.",
+          "SCHEMA NOTE: trades.csv has no header row. In OVN rows, N01-N07 store pnl then pnl/E%, N08-N11 store pnl then price %, and N12 onward store price % then pnl. RULES_v3 documents the column-order switch only for DAY rows. This does not affect this week's numbers, which use pct then pnl."
+        ],
+        "numbers": {
+          "nights_closed_week": [
+            {
+              "night": 23,
+              "entry": "2026-10-09",
+              "exit": "2026-10-12",
+              "legs": "METU 2 30.0299->31.60 (+3.1402); NVDL 1 36.8899->36.41 (-0.4799)",
+              "pnl": 2.6603,
+              "ledger_pnl": 2.66
+            },
+            {
+              "night": 24,
+              "entry": "2026-10-12",
+              "exit": "2026-10-13",
+              "legs": "METU 2 31.9299->31.5309 (-0.7980); NVDL 1 36.0299->35.1001 (-0.9298)",
+              "pnl": -1.7278,
+              "ledger_pnl": -1.73
+            },
+            {
+              "night": 25,
+              "entry": "2026-10-13",
+              "exit": "2026-10-14",
+              "legs": "NVDX 5 20.4699->20.0201",
+              "pnl": -2.249,
+              "ledger_pnl": -2.25
+            },
+            {
+              "night": 26,
+              "entry": "2026-10-14",
+              "exit": "2026-10-15",
+              "legs": "NVDL 2 34.1059->32.1908 (-3.8302); NVDX 1 19.1796->18.1105 (-1.0691)",
+              "pnl": -4.8993,
+              "ledger_pnl": -4.9
+            },
+            {
+              "night": 27,
+              "entry": "2026-10-15",
+              "exit": "2026-10-16",
+              "legs": "NVDL 2 32.9799->32.6701 (-0.6196); NVDX 1 18.539->18.38 (-0.1590)",
+              "pnl": -0.7786,
+              "ledger_pnl": -0.78
+            }
+          ],
+          "week_overnight_pnl": -6.9944,
+          "week_overnight_pnl_ledger_rounded": -7,
+          "week_nights_wins_losses": "1W/4L",
+          "week_dayleg_pnl": 0.4804,
+          "week_dayleg_detail": "D12 TZA 2 @47.3799 -> 47.6201 (ledger 0.48, 0.51%)",
+          "week_total_realised": -6.514,
+          "broker_orders_in_window": 22,
+          "broker_filled": 21,
+          "broker_cancelled": 1,
+          "intent_lines_matched": 22,
+          "unmatched_fills": 0,
+          "orphan_intents": 0,
+          "campaign_nights": 27,
+          "campaign_wins": 11,
+          "campaign_losses": 16,
+          "campaign_overnight_total": -4.67,
+          "campaign_overnight_total_recomputed_from_trades_csv": -4.6502,
+          "campaign_overnight_mean_per_night": -0.173,
+          "campaign_dayleg_total": 3.23,
+          "campaign_dayleg_total_recomputed": 3.2356,
+          "campaign_dayleg_legs": 12,
+          "campaign_dayleg_wins_losses": "7W/5L",
+          "campaign_ledger_total": -1.44,
+          "campaign_equity_change_98.75_to_97.45": -1.3,
+          "campaign_unexplained_residual": 0.14,
+          "equity_path": [
+            {
+              "date": "2026-10-09",
+              "E_equity_csv": 103.78,
+              "E_official_close_recalc": 103.7343,
+              "note": "night 23 marked (METU2+NVDL1), cash 7.0143"
+            },
+            {
+              "date": "2026-10-12",
+              "E_equity_csv": 107.02,
+              "E_official_close_recalc": 107.045,
+              "day_change": 3.24,
+              "note": "night 24 marked, cash 7.2150; all-cash high 107.1047 (HWM 107.11)"
+            },
+            {
+              "date": "2026-10-13",
+              "E_equity_csv": 105.81,
+              "E_official_close_recalc": 105.7774,
+              "day_change": -1.21
+            },
+            {
+              "date": "2026-10-14",
+              "E_equity_csv": 103.67,
+              "E_official_close_recalc": 103.6865,
+              "day_change": -2.14
+            },
+            {
+              "date": "2026-10-15",
+              "E_equity_csv": 98.24,
+              "E_official_close_recalc": 98.2198,
+              "day_change": -5.43
+            },
+            {
+              "date": "2026-10-16 09:31 ET",
+              "E_broker_all_cash": 97.45,
+              "note": "no EOD row yet; broker portfolio 97.45 cash, 0 positions"
+            }
+          ],
+          "week_equity_change_to_1015_close": -5.54,
+          "week_equity_change_to_1015_close_pct": -5.3382,
+          "week_equity_change_to_now": -6.33,
+          "week_equity_change_to_now_pct": -6.0994,
+          "n23_mark_in_1009_close": -0.184,
+          "drawdown_from_hwm_pct": -9.0188,
+          "pause_level": 85.688
+        },
+        "tables_markdown": "### Fills matched to intent lines (orders.jsonl) and ledger rows\n| broker created (UTC) | sym | side | qty | limit | state | avg fill | intent coid | lag s | ref_id match | ledger row |\n|---|---|---|---|---|---|---|---|---|---|---|\n| 10-09 19:49:18 | TZA | sell | 2 | 46.90 | filled | 46.9924 | T3X-20261009-D11-TZA-S | 6.6 | yes | D11 exit |\n| 10-09 19:51:43 | METU | buy | 2 | 30.08 | filled | 30.0299 | T3X-20261009-23-METU-E | 8.3 | yes | N23 |\n| 10-09 19:51:44 | NVDL | buy | 1 | 36.96 | filled | 36.8899 | T3X-20261009-23-NVDL-E | 9.1 | yes | N23 |\n| 10-12 13:31:19 | METU | sell | 2 | 31.60 | filled | 31.60 | T3X-20261012-23-METU-X | 7.1 | no | N23 |\n| 10-12 13:31:21 | NVDL | sell | 1 | 36.41 | filled | 36.41 | T3X-20261012-23-NVDL-X | 8.3 | no | N23 |\n| 10-12 13:31:41 | TZA | buy | 2 | 47.47 | filled | 47.3799 | T3X-20261012-D12-TZA-B | 4.4 | no | D12 |\n| 10-12 13:32:00 | TZA | sell | 2 | 47.86 | cancelled | - | T3X-20261012-D12-TZA-TP | 4.7 | no | D12 TP |\n| 10-12 19:49:12 | TZA | sell | 2 | 47.56 | filled | 47.6201 | T3X-20261012-D12-TZA-S | 4.4 | no | D12 |\n| 10-12 19:52:05 | METU | buy | 2 | 31.97 | filled | 31.9299 | T3X-20261012-24-METU-E | 5.8 | no | N24 |\n| 10-12 19:52:06 | NVDL | buy | 1 | 36.09 | filled | 36.0299 | T3X-20261012-24-NVDL-E | 7.0 | no | N24 |\n| 10-13 13:31:16 | METU | sell | 2 | 31.41 | filled | 31.5309 | T3X-20261013-24-METU-X | 7.0 | no | N24 |\n| 10-13 13:31:18 | NVDL | sell | 1 | 35.09 | filled | 35.1001 | T3X-20261013-24-NVDL-X | 8.3 | no | N24 |\n| 10-13 19:52:04 | NVDX | buy | 5 | 20.51 | filled | 20.4699 | T3X-20261013-25-NVDX-E | 4.5 | no | N25 |\n| 10-14 13:31:13 | NVDX | sell | 5 | 19.94 | filled | 20.0201 | T3X-20261014-25-NVDX-X | 4.2 | no | N25 |\n| 10-14 19:52:05 | NVDL | buy | 2 | 34.18 | filled | 34.1059 | T3X-20261014-26-NVDL-E | 5.6 | no | N26 |\n| 10-14 19:52:23 | NVDX | buy | 1 | 19.21 | filled | 19.1796 | T3X-20261014-26-NVDX-E | 3.8 | no | N26 |\n| 10-15 13:31:17 | NVDL | sell | 2 | 32.15 | filled | 32.1908 | T3X-20261015-26-NVDL-X | 6.9 | no | N26 |\n| 10-15 13:31:18 | NVDX | sell | 1 | 18.08 | filled | 18.1105 | T3X-20261015-26-NVDX-X | 8.4 | no | N26 |\n| 10-15 19:52:09 | NVDL | buy | 2 | 33.02 | filled | 32.9799 | T3X-20261015-27-NVDL-E | 6.3 | no | N27 |\n| 10-15 19:52:26 | NVDX | buy | 1 | 18.58 | filled | 18.539 | T3X-20261015-27-NVDX-E | 6.0 | no | N27 |\n| 10-16 13:31:14 | NVDL | sell | 2 | 32.57 | filled | 32.6701 | T3X-20261016-27-NVDL-X | 5.8 | no | N27 |\n| 10-16 13:31:15 | NVDX | sell | 1 | 18.31 | filled | 18.38 | T3X-20261016-27-NVDX-X | 6.9 | no | N27 |\n\n### Per-night P&L: broker vs ledgers\n| night | entry -> exit | broker pnl | trades.csv sum | state pnl | max abs diff | broker % of cost | state pct |\n|---|---|---|---|---|---|---|---|\n| N23 | 10/09 -> 10/12 | +2.6603 | +2.66 | +2.66 | 0.0003 | +2.7440 | 2.74 |\n| N24 | 10/12 -> 10/13 | -1.7278 | -1.73 | -1.73 | 0.0022 | -1.7297 | -1.73 |\n| N25 | 10/13 -> 10/14 | -2.2490 | -2.25 | -2.25 | 0.0010 | -2.1974 | -2.20 |\n| N26 | 10/14 -> 10/15 | -4.8993 | -4.90 | -4.90 | 0.0007 | -5.6062 | -5.61 |\n| N27 | 10/15 -> 10/16 | -0.7786 | -0.78 | -0.78 | 0.0014 | -0.9214 | -0.92 |\n| **Week overnight** | | **-6.9944** | -7.00 | -7.00 | **0.0056** | | |\n| D12 TZA day leg | 10/12 | +0.4804 | 0.48 | 0.48 | 0.0004 | +0.5070 | 0.51 |\n| **Week realised** | | **-6.5140** | | | | | |\n\n### Equity path (equity.csv vs cash from fills plus official close)\n| date | equity.csv E | cash | positions | recalculated E | diff | day change (csv) |\n|---|---|---|---|---|---|---|\n| 10/09 close | 103.78 | 7.0143 | METU2 NVDL1 | 103.7343 | +0.0457 | - |\n| 10/12 close | 107.02 | 7.2150 | METU2 NVDL1 | 107.0450 | -0.0250 | +3.24 |\n| 10/13 close | 105.81 | 3.0274 | NVDX5 | 105.7774 | +0.0326 | -1.21 |\n| 10/14 close | 103.67 | 15.7365 | NVDL2 NVDX1 | 103.6865 | -0.0165 | -2.14 |\n| 10/15 close | 98.24 | 13.7298 | NVDL2 NVDX1 | 98.2198 | +0.0202 | -5.43 |\n| 10/16 09:31 | (no row) | 97.45 | none | 97.45 (broker) | - | -0.79 vs 10/15 close |\n\nWeek: -5.54 (-5.34%) to the 10/15 close; -6.33 (-6.10%) to now. -6.33 = realised -6.514 minus the -0.184 night-23 mark already in the 10/9 close.\n\n### Campaign totals\n| item | state.json | rebuilt from trades.csv prices | diff |\n|---|---|---|---|\n| nights | 27 (11W / 16L) | 27 | 0 |\n| overnight total | -4.67 | -4.6502 | -0.0198 |\n| day-leg realised (12 legs, 7W / 5L) | 3.23 | 3.2356 | -0.0056 |\n| ledger total | -1.44 | -1.4146 | |\n| equity 98.75 -> 97.45 | -1.30 | -1.30 | residual +0.14 / +0.1146 (from before 10/9 close) |"
+      },
+      "compliance": {
+        "summary": "I found no rule violations for Mon 10/12 to Fri 10/16. The broker returned 19 equity orders for account 445788334 since 2026-10-12T00:00Z, with no further pages. They are 9 overnight exits, 7 overnight entries and 3 TZA day-leg orders on 10/12 (buy, take-profit, 15:49 close). There were no rejects and no re-prices. Every order filled except the take-profit, which was cancelled at 15:49:02.77 ET. All arithmetic was done in python3; the script is at /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/audit.py.\n\n**Timing:** all 9 exits fall inside 09:31:05 ±20s (offsets +8.7s to +16.1s). All 7 entries fall inside 15:52:00 ±30s (offsets +4.6s to +26.4s). The closest call is the 10/15 NVDX filler at +26.36s.\n\n**INV-12 intent lines:** every broker order has a matching intent line in orders.jsonl (same coid, symbol, side, qty and limit), written 3.8 to 8.4 seconds before the broker's created_at. The ref_ids in orders.jsonl do not match the broker's; the broker has issued its own since 10/12, as the journal notes. I matched orders by coid, symbol, side, qty, limit and time instead.\n\n**Limit formula:** only the 10/15 entries can be checked against a recorded quote. NVDL ask 32.97 gives 33.02 and NVDX ask 18.55 gives 18.58, both PASS. The other 16 limits are UNVERIFIABLE because no 09:31 bid or 15:52 ask was recorded. Their implied quotes are consistent with the 1-minute bars, and the TZA take-profit, ceil(47.3799 x 1.01) = 47.86, passes.\n\n**last x 1.004 cap:** no 15:52 last price was recorded, so this is unverifiable from the records. On the 15:51/15:52 minute bars every entry limit sits under the cap.\n\n**Sizing:**\n- **10/12 (old v1.3 rule, METU 0.34 and NVDL 0.26 both eligible):** METU x2 + NVDL x1 = 100.03, under the 104.97 cap. A third METU (132.00) would not fit.\n- **10/13 (v1.5, committed 09:51 ET before the entry):** the expected-value optimiser picks NVDX x5 (102.55 against a cap of 103.27) for any NVDL limit below 37.45.\n- **10/14 and 10/15 (v1.6, committed 08:42 ET on 10/14):** NVDL first, a = 2 both days (a third share would cost 102.54 and 99.06, over the caps of 101.07 and 96.27). NVDX filler b = 1 from the cap left after the NVDL fill. The NVDX intent line was written after the NVDL fill both days.\n- **TZA day leg 10/12:** floor(0.95 x 106.63 / 47.47) = 2. The v1.4 top-up did not apply.\n\n**PDT and day-leg suspension:** the TZA leg on 10/12 was allowed (2 day trades in the prior 4 business days), bringing the rolling count to 3, with no 4th. On 10/13 and 10/14 the leg was correctly blocked by PDT. From 10/15 it was suspended under v1.7 (committed 09:32 ET on 10/14), and no TZA or inverse orders were placed. The 10/15 shadow-log entry is recorded.\n\n**Risk:** the lowest equity was 97.45, above PAUSE (85.69) and KILL (50), so no PAUSE or KILL action was required.\n\n**STATUS.md and state.json:** they agree with each other and with the broker:\n- **Mode:** FLAT_NO_DAY_LEG in both.\n- **Positions:** none in either file, and the broker shows none.\n- **Equity:** 97.45 in both, matching the broker's cash and total value.\n- **HWM 107.11:** rebuilding it from the fills puts it between 107.1054 and 107.1097, so it rounds to 107.11.\n- **PAUSE:** 0.8 x 107.11 = 85.688, i.e. 85.69.\n- **Drawdown:** -9.02%.\n- **Nights held:** 27, which equals the 27 entries in night_returns.\n\nAll trades.csv P&L and percentage figures for N23 to N27 and D12 match my recomputation.\n\n**Housekeeping (not rule violations):**\n- **Stale state.json fields:** `strategy` still reads \"T3X v1.0\" while `strategy_version` is v1.7. `wake.n`, `wake.utc`, `wake.phase` (\"DAY_LEG_BUY\") and `wake.last` are frozen at 9/18 to 9/24; only `last_heartbeat_utc` is current. `campaign.sessions_done` is 0. The top-level `ranking` (dated 9/28, picks METU+AAPU) and `day_leg.rank` are superseded.\n- **STATUS.md blackouts line:** lists AMZU and MUU (not core names under v1.6) and leaves out the METU and AAPU blackouts that state.json has.\n- **journal.log:** §8 names it as the W-9 log, but it has not been written since 10/8. The W-9 lines go to journal.md, which this audit used.\n- **Journal forecasts on 10/14:** the 14:00 and 15:00 heartbeats predicted 3 NVDL shares. That was wrong: a third share fits only if the ask is at or below about 33.62. The plan was corrected at 15:40 and the actual order (2 shares) was right.\n- **Night-24 intent note:** it says \"basket per 10/5 re-rank\", but the 10/12 re-rank applied. It gave the same basket, so this is cosmetic.",
+        "issues": [],
+        "numbers": {
+          "broker_orders_total": 19,
+          "overnight_exits": 9,
+          "overnight_entries": 7,
+          "day_leg_orders_1012": 3,
+          "rejects": 0,
+          "reprices": 0,
+          "exit_offset_s_range": [
+            8.72,
+            16.13
+          ],
+          "entry_offset_s_range": [
+            4.57,
+            26.36
+          ],
+          "intent_lead_s_range": [
+            3.83,
+            8.41
+          ],
+          "limits_verified_from_recorded_quotes": 2,
+          "limits_unverifiable": 16,
+          "tp_limit_verified": 1,
+          "sizing_1012": {
+            "E": 107.11,
+            "cap": 104.9678,
+            "basket_cost_at_limits": 100.03,
+            "pct_E_fill": 93.26
+          },
+          "sizing_1013_v15": {
+            "E": 105.38,
+            "cap": 103.2724,
+            "NVDX_x5_cost": 102.55,
+            "EV": 0.4307,
+            "NVDL_lim_needed_to_change_choice": 37.453,
+            "pct_E_fill": 97.12
+          },
+          "sizing_1014_v16": {
+            "E": 103.13,
+            "cap": 101.0674,
+            "a_NVDL": 2,
+            "third_NVDL_cost": 102.54,
+            "NVDL_fill_cost": 68.2118,
+            "cap_left": 32.8556,
+            "b_NVDX": 1,
+            "pct_E_fill": 84.74
+          },
+          "sizing_1015_v16": {
+            "E": 98.23,
+            "cap": 96.2654,
+            "a_NVDL": 2,
+            "third_NVDL_cost": 99.06,
+            "NVDL_fill_cost": 65.9598,
+            "cap_left": 30.3056,
+            "b_NVDX": 1,
+            "pct_E_fill": 86.02
+          },
+          "tza_1012": {
+            "cash": 106.63,
+            "q": 2,
+            "q_times_lim": 94.94,
+            "0.85E": 90.6355,
+            "tp": 47.86,
+            "pnl": 0.4804
+          },
+          "night_pnl": {
+            "N23": 2.6603,
+            "N24": -1.7278,
+            "N25": -2.249,
+            "N26": -4.8993,
+            "N27": -0.7786
+          },
+          "equity_now_broker": 97.45,
+          "hwm_state": 107.11,
+          "hwm_recomputed_range": [
+            107.1054,
+            107.1097
+          ],
+          "pause": 85.688,
+          "drawdown_pct": -9.019,
+          "pdt_max_rolling_count": 3
+        },
+        "tables_markdown": "### A. Order-by-order audit (broker = account 445788334, created_at >= 2026-10-12T00:00Z; ET = UTC-4)\n\n| # | Day | Order (broker id8) | Placed ET (offset) | Timing | Limit formula | <= last x 1.004 | Sizing | INV-12 intent (lead) | Overall |\n|---|---|---|---|---|---|---|---|---|---|\n| 1 | Mon 10/12 | N23 exit METU sell 2 lim 31.60, filled 31.60 (6acce127) | 09:31:19.96 (+14.96s) | PASS | UNVERIFIABLE: no 09:31 bid recorded; implied bid 31.6475-31.6575, plausible vs 09:31 bar open 31.71 | n/a | PASS (full position) | PASS (7.08s) | PASS / limit UNVERIFIABLE |\n| 2 | Mon 10/12 | N23 exit NVDL sell 1 lim 36.41, filled 36.41 (6acce129) | 09:31:21.13 (+16.13s) | PASS | UNVERIFIABLE (implied bid 36.4647-36.4747; bar open 36.5999) | n/a | PASS | PASS (8.25s) | PASS / limit UNVERIFIABLE |\n| 3 | Mon 10/12 | Day leg #12 TZA buy 2 lim 47.47, filled 47.3799 (6acce13d) | 09:31:41.49 | PASS: §11 trigger met (exits filled 09:31:20/21); PDT prior-4 = 2 (10/8, 10/9), so allowed. Note: placed 19s before the nominal \"09:32\" | UNVERIFIABLE (implied ask 47.3889-47.3989; bar open 47.39) | n/a (not a §11 term) | PASS: floor(0.95 x 106.63 / 47.47) = 2; 94.94 >= 0.85E 90.64, so no v1.4 top-up | PASS (4.44s) | PASS / limit UNVERIFIABLE |\n| 4 | Mon 10/12 | Day leg TP TZA sell 2 lim 47.86, cancelled (6acce150) | 09:32:00.14 (18.5s after buy fill) | PASS (immediately after fill; only live TZA order, INV-9) | PASS: ceil(47.3799 x 1.01) = 47.86 | n/a | PASS | PASS (4.67s) | PASS |\n| 5 | Mon 10/12 | Day leg close TZA sell 2 lim 47.56, filled 47.6201 (6acd39b8) | 15:49:12.05, after TP cancel confirmed at 15:49:02.77 | PASS (cancel, verify, then sell; flat before 15:52) | UNVERIFIABLE (implied bid 47.6314-47.6415; 15:49 bar open 47.6414) | n/a | PASS | PASS (4.41s) | PASS / limit UNVERIFIABLE |\n| 6 | Mon 10/12 | N24 entry METU buy 2 lim 31.97, filled 31.9299 (6acd3a65) | 15:52:05.84 (+5.84s) | PASS | UNVERIFIABLE (implied ask 31.9121-31.9221) | Plausible (15:51 bar 31.9131 x 1.004 = 32.0408) | PASS (v1.3: METU 0.34 / NVDL 0.26 eligible; 1+1 = 68.06 = 63.5% E < 70%, so add #1; 2M+1N = 100.03 <= 104.97; 3M = 132.00 does not fit) | PASS (5.81s) | PASS / limit UNVERIFIABLE |\n| 7 | Mon 10/12 | N24 entry NVDL buy 1 lim 36.09, filled 36.0299 (6acd3a66) | 15:52:06.98 (+6.98s) | PASS | UNVERIFIABLE (implied ask 36.0260-36.0359) | Plausible (36.035 x 1.004 = 36.1791) | PASS (as #6) | PASS (6.95s) | PASS / limit UNVERIFIABLE |\n| 8 | Tue 10/13 | N24 exit METU sell 2 lim 31.41, filled 31.5309 (6ace32a4) | 09:31:16.95 (+11.95s) | PASS | UNVERIFIABLE (implied bid 31.4572-31.4672) | n/a | PASS | PASS (6.99s) | PASS / limit UNVERIFIABLE |\n| 9 | Tue 10/13 | N24 exit NVDL sell 1 lim 35.09, filled 35.1001 (6ace32a6) | 09:31:18.28 (+13.28s) | PASS | UNVERIFIABLE (implied bid 35.1427-35.1527) | n/a | PASS | PASS (8.32s) | PASS / limit UNVERIFIABLE |\n| 10 | Tue 10/13 | N25 entry NVDX buy 5 lim 20.51, filled 20.4699 (6ace8be4) | 15:52:04.57 (+4.57s) | PASS | UNVERIFIABLE (implied ask 20.4693-20.4793) | Plausible (20.465 x 1.004 = 20.5469) | PASS (v1.5, committed 09:51 ET before entry: EV-max under 0.98E = 103.27 gives NVDX x5 = 102.55, EV 0.4307; optimal for any NVDL limit < 37.45) | PASS (4.48s) | PASS / limit UNVERIFIABLE |\n| 11 | Wed 10/14 | N25 exit NVDX sell 5 lim 19.94, filled 20.0201 (6acf8421) | 09:31:13.72 (+8.72s) | PASS | UNVERIFIABLE (implied bid 19.9700-19.9800) | n/a | PASS | PASS (4.16s) | PASS / limit UNVERIFIABLE |\n| 12 | Wed 10/14 | N26 entry NVDL buy 2 lim 34.18, filled 34.1059 (6acfdd65) | 15:52:05.65 (+5.65s) | PASS | UNVERIFIABLE (journal 15:40 quote 34.05/34.06 is stale; implied ask 34.1188-34.1288) | Plausible (34.08 x 1.004 = 34.2163) | PASS (v1.6, committed 08:42 ET: a = floor(101.0674 / 34.18) = 2; 3 x 34.18 = 102.54 > cap) | PASS (5.62s) | PASS / limit UNVERIFIABLE |\n| 13 | Wed 10/14 | N26 entry NVDX buy 1 lim 19.21, filled 19.1796 (6acfdd77) | 15:52:23.17 (+23.17s) | PASS | UNVERIFIABLE (implied ask 19.1712-19.1812) | Plausible (19.175 x 1.004 = 19.2517) | PASS (cap left after NVDL fill = 101.0674 - 68.2118 = 32.8556, so b = 1; NVDL filled 15:52:05.82 before NVDX intent 15:52:19.35; total 87.39 = 84.7% E) | PASS (3.83s) | PASS / limit UNVERIFIABLE |\n| 14 | Thu 10/15 | N26 exit NVDL sell 2 lim 32.15, filled 32.1908 (6ad0d5a5) | 09:31:17.31 (+12.31s) | PASS | UNVERIFIABLE (09:16 premarket bid 32.82 was not the 09:31 input; implied bid 32.1983-32.2083) | n/a | PASS | PASS (6.89s) | PASS / limit UNVERIFIABLE |\n| 15 | Thu 10/15 | N26 exit NVDX sell 1 lim 18.08, filled 18.1105 (6ad0d5a6) | 09:31:18.83 (+13.83s) | PASS | UNVERIFIABLE (implied bid 18.1072-18.1172) | n/a | PASS | PASS (8.41s) | PASS / limit UNVERIFIABLE |\n| 16 | Thu 10/15 | N27 entry NVDL buy 2 lim 33.02, filled 32.9799 (6ad12ee9) | 15:52:09.94 (+9.94s) | PASS | **PASS**: recorded ask 32.97, ceil((32.97 + 0.049455) x 100) / 100 = 33.02 | Last at 15:52 not recorded, so UNVERIFIABLE (needs last >= 32.8884; 15:40 last 33.045; 15:52 bar 32.9705 x 1.004 = 33.1024, plausible) | PASS (a = floor(96.2654 / 33.02) = 2; 3 x 33.02 = 99.06 > cap) | PASS (6.30s) | PASS |\n| 17 | Thu 10/15 | N27 entry NVDX buy 1 lim 18.58, filled 18.539 (6ad12efa) | 15:52:26.36 (+26.36s, 3.6s inside tolerance) | PASS | **PASS**: recorded ask 18.55, ceil((18.55 + 0.027825) x 100) / 100 = 18.58 | UNVERIFIABLE from records (needs last >= 18.506; 15:52 bar 18.5399, plausible) | PASS (cap left = 96.2654 - 65.9598 = 30.3056, so b = 1; NVDL filled 15:52:10.11 before NVDX intent 15:52:20.36; total 84.50 = 86.0% E) | PASS (6.00s) | PASS |\n| 18 | Fri 10/16 | N27 exit NVDL sell 2 lim 32.57, filled 32.6701 (6ad22722) | 09:31:14.64 (+9.64s) | PASS | UNVERIFIABLE (09:15 premarket bid 32.65 would give 32.60, so a fresh 09:31 bid was used; implied bid 32.6189-32.6289) | n/a | PASS | PASS (5.80s) | PASS / limit UNVERIFIABLE |\n| 19 | Fri 10/16 | N27 exit NVDX sell 1 lim 18.31, filled 18.38 (6ad22723) | 09:31:15.78 (+10.78s) | PASS | UNVERIFIABLE (implied bid 18.3375-18.3475) | n/a | PASS | PASS (6.94s) | PASS / limit UNVERIFIABLE |\n\nImplied quote ranges are derived from the limit using the §4/§5 formulas. The minute-bar figures are plausibility checks only, not proof.\n\n### B. Rule-level checks\n\n| Check | Result |\n|---|---|\n| §3 v1.5/v1.6 transition | v1.5 committed 10/13 09:51 ET (before the N25 entry); v1.6 committed 10/14 08:42 ET (before the N26 entry); each entry used the rule in force. PASS |\n| §3(d) blackout / NVDA earnings | No NVDA or META earnings this week. TSM (10/15) is not a basket underlying, so no blackout was required. PASS |\n| §11 day leg | 10/12 allowed (prior-4 = 2); 10/13 and 10/14 blocked by PDT (prior-4 = 3), no TZA order; from 10/15 suspended (v1.7, committed 10/14 09:32 ET), no TZA or inverse orders on 10/15-10/16; `state.day_leg.enabled` = false; 10/15 shadow entry logged. PASS |\n| §7 / PDT | Only one day trade this week (10/12 TZA). Rolling count peaked at 3 (10/8, 10/9, 10/12); never a 4th. The 09:31 sell then 15:52 buy of the same symbol is not a day trade. PASS |\n| INV-9 | At most one live order per symbol; the TZA take-profit was cancelled and confirmed before the 15:49 sell. PASS |\n| §4/§5 re-price / market fallback | Not triggered; all orders filled within about 0.2s. PASS |\n| §6 PAUSE/KILL | Lowest equity 97.45 > PAUSE 85.69 > KILL 50. No action required. PASS |\n| §3(f) edge-decay check | First due Mon 10/19 (v1.6 adopted Wed 10/14); `last_value` null is expected. PASS |\n\n### C. STATUS.md / state.json consistency\n\n| Item | STATUS.md | state.json | Broker / recomputed | Result |\n|---|---|---|---|---|\n| Mode | FLAT_NO_DAY_LEG | FLAT_NO_DAY_LEG | n/a | OK |\n| Positions | all cash | `positions` [] / `position` null | 0 positions | OK |\n| Equity | 97.45 | `account.equity` = `cash` = 97.45 | portfolio total 97.45, cash 97.45 | OK |\n| HWM | 107.11 | `campaign.equity_hwm` 107.11 | 107.1054-107.1097 from fills (both 7.02 and 97.45 are rounded to the cent) | OK (rounds to 107.11) |\n| PAUSE | 85.69 | `pause_trigger_frac` 0.8 | 0.8 x 107.11 = 85.688 | OK |\n| Drawdown | -9.0% | n/a | 97.45 / 107.11 - 1 = -9.02% | OK |\n| Nights held | night 27 closed | `nights_held` 27; `night_returns` length 27 | n/a | OK |\n| Ledgers | n/a | n/a | trades.csv N23-N27 and D12 P&L/% match; equity.csv EOD 10/12-10/15 present (10/16 pending) | OK |\n| Stale fields (not rule violations) | blackouts line lists AMZU/MUU, omits METU/AAPU | `strategy` \"T3X v1.0\"; `wake.n`/`utc`/`et`/`phase`(\"DAY_LEG_BUY\")/`last` frozen 9/18-9/24; `sessions_done` 0; top-level `ranking` (9/28) and `day_leg.rank` (9/28) superseded | n/a | Housekeeping only |"
+      },
+      "stats": {
+        "summary": "Verdict: yes. The live drawdown fits the strategy's own backtest, and it also fits a strategy with no edge at all. The data cannot tell the two apart yet.\n\nWork was read-only. The only broker calls were get_equity_historicals and get_equity_quotes (market data, no account), plus one get_earnings_calendar check. Nothing in /home/user/test-trading was changed; git --no-optional-locks status is clean.\n\nScripts and outputs are in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/stats:\n- s01_prep.py through s06_collect.py\n- out/overnight.csv and out/*.json; the headline file is out/key_numbers.json\n- data/ holds the raw Robinhood daily bars\n\nOvernight returns (close to next open, NVDA earnings nights excluded, % per night per unit invested):\n- **NVDL, Dec 2022 to Oct 2026 (948 nights):** mean +0.289, sd 3.27, t 2.72.\n- **NVDL, last 250 nights:** +0.298, sd 2.66, t 1.77.\n- **NVDL, last 120 nights:** +0.331, sd 2.59, t 1.40.\n- **Proxy, 2x NVDA minus 4bp/night, 2015 to 2026 (2,917 nights):** +0.202, sd 3.16, t 3.45. Last 250: +0.290 (t 1.72). Last 120: +0.310 (t 1.31).\n- **Proxy by year:** from -0.46 in 2022 (a 75% loss for the year) to +0.71 in 2024; 2023 was +0.05 and 2025 +0.12.\n\n**Edge-decay check (RULES_v3 §3(f)) for Monday:** the trailing-120 NVDL mean is +0.33%/night and positive (t 1.40). Cleaning suspect prints gives +0.32, and the alternative way of counting the window gives +0.32. It was +0.42 on 10/9. Only a single night worse than -39.6% would flip it, so the switch does not fire Monday. It has been above zero for at least the past 257 nights (lowest +0.05 on 2026-04-29). Over NVDL's whole life its lowest was -0.27 (2025-04-17), so it would have fired in spring 2025.\n\nBootstrap at 0.86 invested (5-night blocks, 20,000 seeded paths). Each probability below is given as a range across return samples, in this order: NVDL last year / NVDL full / long 2x-NVDA proxy / proxy set to +0.30 / proxy set to zero edge.\n- **At least one 4-night losing streak in 27 nights:** 39 / 41 / 44 / 36 / 55%.\n- **Drawdown from peak reaches 9% within the first 27 nights:** 43 / 54 / 52 / 48 / 61%. The median worst drawdown over 27 nights is -8 to -10%, so the live -9.0% is a typical outcome.\n- **Some 4-night stretch loses 9% or more:** 20 to 37%.\n\nThe live -9% is only 1.1 to 1.4 times likelier with no edge than with one, so it carries almost no information about whether the edge is real.\n\nLooking forward from E = 97.45 (9.0% below the 107.11 high):\n- **Hits -20% from the high (E at or below 85.69) within 60 sessions:** 21 / 40 / 40 / 35 / 54%.\n- **Same, using §6's literal rolling 20-session high:** 11 / 32 / 31 / 28 / 39%.\n- **Starting from a fresh high instead:** 11 / 33 / 32 / 27 / 43%. That supports §6's \"~30-45%\" for the long samples.\n- **Back above 107.11 within 60 sessions:** 72 to 79% with an edge, 55% with none.\n- **Equity at or below 50 within 250 sessions, constant 0.86:** 0.1 / 2.3 / 3.3 / 1.5 / 15.7%.\n- **Same, with the §6 PAUSE cut to 1 NVDL share modelled:** 0.08 / 1.8 / 2.5 / 1.0 / 14.1%.\n\nResults move by only a few points with 1-night or 20-night blocks.\n\n**Live record against the plan:**\n- **Return:** over 27 nights, -0.24% per unit invested (sd 2.32), t -0.54 against zero; 90% CI -1.00 to +0.52.\n- **Against the planned +0.30:** z -1.21 using the live sd, or -1.05 using the model sd (one-sided p about 0.12).\n- **Against +0.25 and +0.35:** z -1.10 and -1.32.\n- **On total equity:** -0.154%/night against 0.30 × 0.847 = 0.254, z -1.10.\n\nThat is about one standard error below plan, and not significant either way. Showing a +0.30 edge at t 2 needs about 315 nights.\n\nWhat actually happened:\n- **NVDL over the same 27 nights:** just +0.15%/night (t 0.27).\n- **The live baskets** (mostly not NVDA-only) lagged NVDL by 0.39%/night (t -1.23).\n- **On the 3 NVDA-only nights** live tracked the model within 0.4 points.\n- **NVDL's last 4 nights** compounded to -10.5%, the 3rd percentile of all 4-night stretches.\n- **This week NVDA lost 5.1% across the four overnight holds while gaining 0.85% intraday.** That is the opposite of the pattern the strategy relies on. One week is noise.",
+        "issues": [
+          "The task assumes NVDA-2x-only nights start 2026-10-12, but the 10/12 night held METU x2 + NVDL. Only 3 of the 27 live nights (10/13, 10/14, 10/15) were NVDA-2x only. The other 24 held NVDL+AMZU, NVDL+METU(+NVDX) or METU+AAPU, so comparing the 27-night record to an NVDA-2x backtest is not like for like. Those baskets were also less volatile: live sd 2.32 per unit invested vs NVDL 2.66.",
+          "Sample size dominates. The standard error of a 27-night mean is about 0.45-0.51%/night, larger than the +0.30 planning edge itself. z of -1.05 to -1.32 against plan and t of -0.54 against zero are both inconclusive. About 315 nights are needed for t = 2 on a +0.30 edge. The 9% drawdown is only 1.1-1.4x likelier with no edge than with one, so it should not be read as evidence that the edge has decayed.",
+          "Regime and hindsight: NVDL's sample (Dec 2022 to Oct 2026) sits inside NVDA's large bull run, and NVDA was picked after the fact. On the 2x-NVDA proxy the yearly mean ranged from -0.46%/night in 2022 (a 75% loss for the year) to +0.71 in 2024, with 2023 at +0.05 and 2025 at +0.12. Trailing 120/250 t-stats are only 1.3-1.8. Bootstraps that resample the historical mean inherit this drift; the runs reset to +0.30 and to zero bracket it. Results depend heavily on the sample: P(-20% within 60 sessions) is 21% on last year's data vs 40% on the long samples, and P(equity <= 50) is 0.1% vs 2-3%.",
+          "The 2x proxy is 2 × NVDA close-to-open minus a fixed 4bp/night. Measured gap between NVDL and the proxy, earnings excluded: -1.6 to -4.7bp/night in 2024-26, with only 0.16-0.22% sd per night. Volatility decay from daily compounding does not apply to a hold that starts at the close reset and ends at the next open, so the proxy leaves out only fees and financing, the gap between the ETF's opening print and 2x NVDA's open, our 15:52/09:31 execution versus close and open, and ETF/issuer risk. NVDL's 2023 opening prints are noisy: its overnight beta to NVDA was 1.51 in 2023 vs about 2.0 from 2024.",
+          "Earnings exclusion: NVDA report dates for 2015-2026 come from the public record (from memory, not a full feed). 2023-05-24 was confirmed with get_earnings_calendar, and 2025-11 through 2026-08 match the repo research docs. A volume-spike cross-check flagged 8 dates where a different day had higher volume nearby; I believe all 8 are correct report dates, not errors. Excluded: 47 earnings nights from the proxy, 15 from NVDL. The 2019-01-25 and 2022-08-05 pre-market pre-announcements are kept in, flagged only.",
+          "Distributions were not added back from a dividend feed; Robinhood daily bars are split-adjusted only. As a stand-in, the 'clean' NVDL series replaces 58 nights where NVDL and 2x NVDA differ by more than 1% with the proxy. Almost all are Dec 2022 to Jan 2024, including 2023-12-26 at -10.2%, likely a distribution. The trailing windows contain only one such night (2026-05-01). §3(f) is +0.331 raw vs +0.318 clean, so the sign is unaffected. The NVDL 10/28 ex-date still needs checking per §8.",
+          "The 10/16 opens (NVDL 32.745, NVDA 216.53) come from the first 1-minute bar, because the daily bar was not yet published at 09:38 ET. The last night in the sample is 10/15 to 10/16.",
+          "Bootstrap assumptions: constant 0.86 invested; the 250-session horizon ignores the roughly 4 earnings nights the rules would hold in cash; the §3(f) switch is not modelled (it would lower the equity <= 50 odds in slow bear markets and cost in V-shaped rebounds). The PAUSE variant approximates 1 NVDL share as $33. Monte Carlo standard error is at most 0.35 points. Results are stable within about ±5 points across 1/5/20-night blocks; the proxy's equity <= 50 odds range 3.3-5.3%.",
+          "Ledger inconsistency in state.json: the night_returns 'pct' field changes basis partway through. Up to about 9/29 it is P&L over equity; from 9/30 it is P&L over the amount invested. Example: 10/14 shows -5.61, which is -4.90/87.39 invested, but -4.73% of equity. Live statistics here were recomputed from trades.csv fills and equity.csv EOD; total P&L matches (-4.65 vs state -4.67).",
+          "The high of 107.11 is taken from state.json and does not appear in equity.csv, whose highest EOD is 107.02 on 10/12. The -9.02% drawdown equals exactly the 4 overnight losses (-9.66 total). The rolling 20-session §6 trigger drifts away from the all-time-high version once 10/12 leaves the window, roughly 16 sessions from now.",
+          "Not established: whether the live lag behind the NVDL model (-0.39%/night, t -1.23) comes from basket choice or execution. On the 3 NVDA-only nights live tracked the model within about 0.4 points, which points to the earlier non-NVDA baskets. This week NVDA fell 5.1% across the overnight holds while rising 0.85% intraday, the reverse of the strategy's premise. The worst night, 10/14 into 10/15, came ahead of TSM's earnings; RULES_v3 §6 defers any decision on such nights to the 2027-01-11 review."
+        ],
+        "numbers": {
+          "overnight_pct_per_night_exEarn": {
+            "NVDL_full_2022-12_2026-10": {
+              "n": 948,
+              "mean": 0.289,
+              "sd": 3.27,
+              "t": 2.72,
+              "win_pct": 56.6
+            },
+            "NVDL_trailing250": {
+              "n": 250,
+              "mean": 0.298,
+              "sd": 2.66,
+              "t": 1.77
+            },
+            "NVDL_trailing120": {
+              "n": 120,
+              "mean": 0.331,
+              "sd": 2.59,
+              "t": 1.4
+            },
+            "NVDL_clean_full": {
+              "mean": 0.274,
+              "t": 2.59
+            },
+            "NVDL_clean_trailing250": {
+              "mean": 0.291,
+              "t": 1.73
+            },
+            "NVDL_clean_trailing120": {
+              "mean": 0.318,
+              "t": 1.34
+            },
+            "PROXY_2xNVDA_minus4bp_2015_2026": {
+              "n": 2917,
+              "mean": 0.202,
+              "sd": 3.16,
+              "t": 3.45
+            },
+            "PROXY_trailing250": {
+              "mean": 0.29,
+              "sd": 2.67,
+              "t": 1.72
+            },
+            "PROXY_trailing120": {
+              "mean": 0.31,
+              "sd": 2.6,
+              "t": 1.31
+            },
+            "PROXY_on_NVDL_span": {
+              "mean": 0.266,
+              "t": 2.48
+            },
+            "NVDL_full_incl_earnings": {
+              "n": 963,
+              "mean": 0.43,
+              "t": 3.57
+            },
+            "PROXY_by_year_mean": {
+              "2015": -0.077,
+              "2016": 0.172,
+              "2017": 0.439,
+              "2018": 0.148,
+              "2019": 0.208,
+              "2020": 0.387,
+              "2021": 0.472,
+              "2022": -0.462,
+              "2023": 0.049,
+              "2024": 0.705,
+              "2025": 0.119,
+              "2026": 0.272
+            }
+          },
+          "edge_decay_3f_W120": {
+            "value_now_raw": 0.331,
+            "t": 1.4,
+            "value_now_clean": 0.318,
+            "value_variantB": 0.324,
+            "value_as_of_10_09": 0.418,
+            "sign": "positive",
+            "breakeven_single_night_pct": -39.6,
+            "min_last257": 0.051,
+            "min_last257_date": "2026-04-29",
+            "min_life": -0.269,
+            "min_life_date": "2025-04-17",
+            "frac_windows_le0_NVDL_life": 0.109,
+            "proxy_W120_now": 0.31,
+            "proxy_frac_windows_le0_since2015": 0.264
+          },
+          "bootstrap_block5_20000paths_expo0.86": {
+            "P_streak4_in27": {
+              "NVDL_1y": 0.39,
+              "NVDL_full": 0.41,
+              "PROXY_2015": 0.438,
+              "PROXY_mu0.30": 0.357,
+              "PROXY_mu0": 0.546,
+              "iid_analytic_NVDL_full": 0.41
+            },
+            "P_4night_window_le_-9pct_in27": {
+              "NVDL_1y": 0.2,
+              "NVDL_full": 0.345,
+              "PROXY_2015": 0.327,
+              "PROXY_mu0.30": 0.31,
+              "PROXY_mu0": 0.369
+            },
+            "P_maxDD_ge9pct_in27": {
+              "NVDL_1y": 0.429,
+              "NVDL_full": 0.539,
+              "PROXY_2015": 0.518,
+              "PROXY_mu0.30": 0.477,
+              "PROXY_mu0": 0.613
+            },
+            "median_maxDD_27_pct": {
+              "NVDL_1y": -8.21,
+              "NVDL_full": -9.56,
+              "PROXY_2015": -9.22,
+              "PROXY_mu0": -10.79
+            },
+            "P_hit_-20pct_from_HWM_60_from_now": {
+              "NVDL_1y": 0.215,
+              "NVDL_full": 0.4,
+              "PROXY_2015": 0.405,
+              "PROXY_mu0.30": 0.349,
+              "PROXY_mu0": 0.541
+            },
+            "P_PAUSE_roll20_literal_60_from_now": {
+              "NVDL_1y": 0.107,
+              "NVDL_full": 0.321,
+              "PROXY_2015": 0.312,
+              "PROXY_mu0.30": 0.28,
+              "PROXY_mu0": 0.385
+            },
+            "P_-20pct_60_from_fresh_high": {
+              "NVDL_1y": 0.113,
+              "NVDL_full": 0.325,
+              "PROXY_2015": 0.316,
+              "PROXY_mu0.30": 0.271,
+              "PROXY_mu0": 0.429
+            },
+            "P_recover_HWM_60": {
+              "NVDL_1y": 0.781,
+              "NVDL_full": 0.775,
+              "PROXY_2015": 0.723,
+              "PROXY_mu0.30": 0.791,
+              "PROXY_mu0": 0.549
+            },
+            "P_E_le50_in250_const": {
+              "NVDL_1y": 0.0011,
+              "NVDL_full": 0.0233,
+              "PROXY_2015": 0.0332,
+              "PROXY_mu0.30": 0.0152,
+              "PROXY_mu0": 0.1572
+            },
+            "P_E_le50_in250_with_PAUSE_sizing": {
+              "NVDL_1y": 0.0008,
+              "NVDL_full": 0.018,
+              "PROXY_2015": 0.025,
+              "PROXY_mu0.30": 0.0097,
+              "PROXY_mu0": 0.141
+            },
+            "mc_se_max": 0.0035
+          },
+          "live_27_nights": {
+            "mean_per_unit_pct": -0.239,
+            "sd_per_unit": 2.316,
+            "t_vs0": -0.54,
+            "ci90_per_unit": [
+              -1,
+              0.521
+            ],
+            "mean_on_E_pct": -0.154,
+            "sd_on_E": 1.935,
+            "mean_exposure": 0.847,
+            "win_pct": 40.7,
+            "sum_pnl": -4.65,
+            "z_vs_0.25_live_sd": -1.1,
+            "z_vs_0.30_live_sd": -1.21,
+            "z_vs_0.35_live_sd": -1.32,
+            "z_vs_0.30_model_sd2.66": -1.05,
+            "p_one_sided_vs_0.30": 0.119,
+            "z_onE_vs_0.254": -1.1,
+            "nights_needed_t2_for_0.30": 315,
+            "dd_from_hwm_pct": -9.02,
+            "pause_level": 85.69,
+            "nvda2x_only_nights_unit_pct": {
+              "2026-10-13": -2.2,
+              "2026-10-14": -5.61,
+              "2026-10-15": -0.92
+            }
+          },
+          "model_vs_live_same_27": {
+            "NVDL_model_mean": 0.146,
+            "NVDL_model_t": 0.27,
+            "NVDL_model_compound_at_0.86_pct": 2.66,
+            "live_minus_model_mean": -0.385,
+            "live_minus_model_t": -1.23,
+            "NVDL_last4_compound_pct": -10.5,
+            "NVDL_last4_percentile": 3.1,
+            "NVDA_week_overnight_compound_pct": -5.13,
+            "NVDA_week_intraday_compound_pct": 0.85
+          }
+        },
+        "tables_markdown": "Overnight returns, % per night per unit invested, NVDA earnings nights excluded:\n\n| Series | Window | n | Mean | sd | t |\n|---|---|---|---|---|---|\n| NVDL | full (2022-12 to 2026-10) | 948 | +0.289 | 3.27 | 2.72 |\n| NVDL | last 250 | 250 | +0.298 | 2.66 | 1.77 |\n| NVDL | last 120 (§3(f)) | 120 | **+0.331** | 2.59 | 1.40 |\n| 2x NVDA minus 4bp | 2015-2026 | 2917 | +0.202 | 3.16 | 3.45 |\n| 2x NVDA minus 4bp | last 250 | 250 | +0.290 | 2.67 | 1.72 |\n| 2x NVDA minus 4bp | last 120 | 120 | +0.310 | 2.60 | 1.31 |\n\nBootstrap at 0.86 invested (5-night blocks, 20,000 paths, seed 20261016). E now 97.45, high 107.11, PAUSE level 85.69:\n\n| Return sample | ≥4-loss streak in 27 | Drawdown ≥9% in 27 | -20% from high in 60 (from -9%) | §6 rolling-20 PAUSE in 60 | -20% in 60 from a fresh high | E ≤ 50 in 250 (constant) | E ≤ 50 in 250 (with PAUSE sizing) |\n|---|---|---|---|---|---|---|---|\n| NVDL last year | 39% | 43% | 21% | 11% | 11% | 0.1% | 0.1% |\n| NVDL full | 41% | 54% | 40% | 32% | 33% | 2.3% | 1.8% |\n| 2x NVDA 2015-26 | 44% | 52% | 40% | 31% | 32% | 3.3% | 2.5% |\n| Proxy set to mean +0.30 | 36% | 48% | 35% | 28% | 27% | 1.5% | 1.0% |\n| Proxy set to mean 0 | 55% | 61% | 54% | 39% | 43% | 15.7% | 14.1% |\n\nLive 27 nights against the plan (per unit invested):\n\n| Measure | Value |\n|---|---|\n| Live mean (sd) | -0.24 (2.32), t -0.54 against zero |\n| z against +0.25 / +0.30 / +0.35 | -1.10 / -1.21 / -1.32 (one-sided p 0.14 / 0.12 / 0.10) |\n| NVDL model over the same 27 nights | +0.15 (t 0.27) |\n| Live minus NVDL model | -0.39/night (t -1.23) |\n| Nights needed for t = 2 at +0.30 | about 315 |"
+      },
+      "calendar": {
+        "summary": "Forward calendar for the NVDA-2x overnight leg (NVDL/NVDX), covering the 10 held nights from Mon 2026-10-19 to Fri 2026-10-30. I only read data: the broker's get_earnings_calendar, get_equity_fundamentals and get_equity_historicals on public symbols, plus web sources. No account-scoped broker tool was called. No repo file was touched and git status is clean. Scratch files are in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6 (ecal_1019_12d.json, ecal_1031_31d.json, hist_nvdl_nvda_daily.json, ovn_check.py, nights_map.txt).\n\nKEY FINDINGS\n1) NVDA earnings: Tue 2026-11-17 after close. Robinhood's calendar marks it verified=true (EPS estimate 2.34). NVIDIA has not yet issued its \"Sets Conference Call\" release; last year's came out 10/29. The 11/17 date is outside this window, so no night from 10/19 to 10/30 is a NVDA blackout. Under RULES §3, all 10 nights are held. Note that 11/17 is a Tuesday. The last two NVDA reports were on Wednesdays (2025-11-19 and 2026-08-26), so recheck the date when NVIDIA's release appears.\n\n2) Peers already reported: ASML on 10/14 before the open and TSM on 10/15 before the open (Robinhood actuals: ASML 14.88 vs 12.47 estimate, TSM 4.60 vs 4.45).\n   Peers reporting outside the window:\n   - MU reported 9/30.\n   - AAPL: Mon 11/2 after close (Apple notice; Robinhood).\n   - AMD: Tue 11/3 after close (AMD IR, 10/6).\n   - SMCI: 11/3 after close (Robinhood, unverified).\n   - QCOM and ARM: 11/4 after close (Robinhood).\n   - AMAT: 11/12 after close (Robinhood).\n   - AVGO and MU: expected December; not in any calendar pulled (unverified).\n   Peers reporting inside the window:\n   - Wed 10/21 after close: LRCX, TXN, META (plus TSLA, IBM, SAP).\n   - Wed 10/28 after close: KLAC, MSFT, GOOGL.\n   - Thu 10/29 after close: INTC, AMZN.\n   - Also SK hynix's Q3 call (an HBM memory supplier to NVDA) at 20:00 ET on Tue 10/27.\n\n3) Fed and central banks:\n   - FOMC meets 10/27–28, confirmed on federalreserve.gov. The statement is Wed 10/28 at 14:00 ET, which is intraday: after the 09:31 exit and before the 15:52 entry. The night of 10/27 is the FOMC-eve night, and RULES §1/§3 say to hold it (no FOMC blackout).\n   - ECB meets 10/28–29 (ecb.europa.eu). The decision is at 14:15 CET, which is 09:15 ET on 10/29, inside night 10/28. The time is the ECB's usual slot, not shown on the page I checked.\n   - BoJ meets 10/29–30 (boj.or.jp). The decision is about midday Tokyo time, roughly 23:00 ET on 10/29, inside night 10/29. That time is not confirmed.\n\n4) US macro data:\n   - GDP Q3 advance estimate and Personal Income & Outlays (PCE) for September: Thu 10/29 at 08:30 (BEA schedule). Both land in night 10/28.\n   - Employment Cost Index Q3: Fri 10/30 at 08:30 (BLS). Lands in night 10/29.\n   - No CPI, PPI or jobs report in the window. September CPI came out 10/14 and PPI 10/15. The October jobs report is Fri 11/6 at 08:30 (BLS), which is night 11/5. October CPI is about 11/10 (third-party source, unverified).\n   - Weekly jobless claims on Thu 10/22 and 10/29 at 08:30 land in nights 10/21 and 10/28. This is the standard weekly slot; I did not fetch the Labor Department calendar.\n\n5) Holidays: there are no NYSE holidays or early closes from 10/19 to 10/30 (nyse.com). The next ones are Thanksgiving 11/26 (closed) and 11/27 and 12/24 (both close at 13:00), which already match the half-day entry list in RULES §4.\n\n6) Clock change, just past the window: US daylight saving time ends Sun 11/1, so ET becomes UTC-5. The Fri 10/30 night exits Mon 11/2. On that day the UTC crons land an hour earlier in ET:\n   - t3x-exit-0926 (13:26Z) fires at 08:26 EST; the 09:31 exit is now 14:31Z.\n   - t3x-entry-1548 (19:48Z) fires at 14:48 EST.\n   - t2x-analyst (11:45Z) fires at 06:45 EST.\n   The \"ET = UTC-4\" rule for converting broker timestamps also becomes UTC-5 from 11/1.\n\n7) NVDL distribution: the 10/28 ex-date is UNVERIFIED and most likely a stale broker field.\n   - Robinhood's fundamentals show ex-date 2026-10-28, but next to record date 2023-12-28, payable date 2023-12-29 and $0.561749/share. That amount matches the 2023-12-27 distribution of $1.6853 divided by 3 for the June 2026 3-for-1 split (0.561767).\n   - In NVDL's own price history from 2023-10 to 2026-10, the only overnight gap that looks like a distribution is 2023-12-27: NVDL was −10.20% while 2x NVDA would imply +0.95%, a residual of −11.15%.\n   - The residual is no more than 0.11% on 2024-10-28/29, 2025-10-28/29, 2024-12-27 and 2025-12-24/26/29.\n   - GraniteShares' December 2024 distribution table (ex-date 12/27/2024) shows NVDL at 0.00.\n   - graniteshares.com/nvdl returned a 404, so the issuer's current table was not checked.\n   NVDX pays once a year. The last payment was $0.57 with ex-date 2025-12-24 (Robinhood fundamentals and digrin). No NVDX ex-date falls in the window, and the 2026 date is unverified (expected late December).\n\n8) Which nights carry events:\n   - Major events: nights 10/21, 10/27, 10/28 and 10/29.\n   - Moderate: 10/26 (CLS, AMKR, RMBS, CDNS, and GLW the next morning).\n   - Minor or quiet: 10/19, 10/20, 10/22, 10/23 (weekend) and 10/30 (weekend plus the clock change).\n   Nights 10/27, 10/28 and 10/29 stack three high-event nights in a row: SK hynix plus FOMC eve; MSFT, GOOGL and KLAC plus GDP, PCE and the ECB; then AMZN and INTC plus ECI, the BoJ and Samsung. Rules v1.7 adds no blackout for these. The semis_peer_earnings_nights shadow log should tag 10/21, 10/27, 10/28 and 10/29.\n\nSources:\n- [Fed FOMC calendar](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)\n- [BEA release schedule](https://www.bea.gov/news/schedule)\n- [BLS 2026 schedule](https://www.bls.gov/schedule/2026/home.htm)\n- [NYSE hours and calendars](https://www.nyse.com/markets/hours-calendars)\n- [ECB meeting calendar](https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html)\n- [BoJ meeting schedule](https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm)\n- [Meta Q3 2026 date](https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Third-Quarter-2026-Results/default.aspx)\n- [Microsoft date notice (Finviz)](https://finviz.com/news/400058/microsoft-announces-quarterly-earnings-release-date)\n- [Intel Q3 2026 date](https://www.intc.com/news-events/press-releases/detail/1782/intel-to-report-third-quarter-2026-financial-results)\n- [Lam Research call notice (Finviz)](https://finviz.com/news/397284/lam-research-corporation-announces-september-quarter-financial-conference-call)\n- [TI call notice (Finviz)](https://finviz.com/news/397904/texas-instruments-to-webcast-q3-2026-earnings-conference-call)\n- [AMD Q3 2026 date](https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results)\n- [Apple Nov 2 date (MacTrast)](https://www.mactrast.com/2026/10/apple-to-announce-fiscal-q4-2026-earnings-on-november-2/)\n- [SK hynix 6-K](https://www.sec.gov/Archives/edgar/data/0002120882/000119312526420934/d413172d6k.htm)\n- [GraniteShares Dec 2024 distributions](https://graniteshares.com/institutional/us/en-us/research/graniteshares-fund-distributions-december-2024)\n- [Digrin NVDL dividends](https://www.digrin.com/stocks/detail/NVDL/)\n- [Digrin NVDX dividends](https://www.digrin.com/stocks/detail/NVDX/)\n- [NVIDIA GTC DC (Nov 30–Dec 3)](https://www.nvidia.com/en-us/gtc-dc/attend/)\n- [Samsung date (third party, AJ Bell)](https://streaming1.www.ajbell.co.uk/market-research/sub/LSE:BC94/company-info)",
+        "issues": [
+          "NVDL ex-date 2026-10-28 is UNVERIFIED and probably a stale Robinhood fundamentals field. The broker lists it next to record date 2023-12-28, payable date 2023-12-29 and $0.561749/share (about the 2023 $1.6853 distribution after the 3-for-1 split). Price history shows no distribution gap in Oct or Dec 2024/2025 (residual at most 0.11%), and GraniteShares paid NVDL 0.00 in its Dec-2024 run. graniteshares.com/nvdl returned a 404. Re-query get_equity_fundamentals and the GraniteShares notices on 10/27 before 15:52. If a 2026 amount is declared, hold anyway (§8) and exclude only the declared $/share from PAUSE and edge-decay inputs.",
+          "NVDA earnings on 2026-11-17 after close is verified only by Robinhood's calendar flag. NVIDIA's own 'Sets Conference Call' release has not been published (last year it came on 10/29). 11/17 is a Tuesday, while the last two NVDA reports were on Wednesdays (2025-11-19 and 2026-08-26), so recheck the date in late October in case the blackout night moves.",
+          "US daylight saving time ends Sun 2026-11-01 (ET goes from UTC-4 to UTC-5). The Fri 10/30 night exits Mon 11/2. On that day t3x-exit-0926 (13:26Z) fires at 08:26 EST, t3x-entry-1548 (19:48Z) at 14:48 EST and t2x-analyst (11:45Z) at 06:45 EST. The 09:31 EST exit becomes 14:31Z. The crons and the 'ET = UTC-4' rule for broker timestamps need attention before Monday 11/2.",
+          "Nights 10/27, 10/28 and 10/29 stack three high-event nights in a row: SK hynix Q3 call at 20:00 ET plus FOMC eve, then MSFT, GOOGL and KLAC after close plus GDP and PCE at 08:30 and the ECB decision at 09:15, then AMZN and INTC after close plus ECI at 08:30, the BoJ and Samsung. RULES v1.7 sets no blackout for any of them (only NVDA's own earnings), and the FOMC-eve night is a deliberate hold. This is a gap-risk concentration to note, not a change to the rules.",
+          "GOOGL/GOOG on 10/28, AMZN on 10/29 and KLAC on 10/28 are confirmed only by Robinhood's 'verified' flag; I found no company date notice yet. META, MSFT, INTC, LRCX, TXN, AMD and AAPL are confirmed by company announcements.",
+          "These times are not confirmed: the Samsung Q3 final results and call (10/30 10:00 Seoul time, which is 21:00 ET on 10/29, from a third-party calendar only), the BoJ decision (about midday Tokyo time on 10/30, roughly 23:00 ET on 10/29), the ECB decision at 14:15 CET (09:15 ET, its usual slot but not shown on the ECB page I checked), and Tokyo Electron's 10/30 report (Robinhood gives no time). The meeting dates themselves for ECB (10/28–29) and BoJ (10/29–30) are confirmed on their official sites.",
+          "Weekly jobless claims (Thu 10/22 and 10/29 at 08:30) are listed from the standard schedule; I did not fetch the Labor Department calendar. October CPI on 11/10 comes from a third-party source only.",
+          "NVDX: no 2026 distribution date is announced. It pays once a year (last $0.57, ex-date 2025-12-24) and is expected in late December, so nothing falls in this window. I did not check the issuer's page."
+        ],
+        "numbers": {
+          "nights_in_window": 10,
+          "nights_major_event": 4,
+          "major_event_nights": [
+            "2026-10-21",
+            "2026-10-27",
+            "2026-10-28",
+            "2026-10-29"
+          ],
+          "nvda_blackout_nights_in_window": 0,
+          "nvda_earnings_date": "2026-11-17 pm (RH verified=true; NVIDIA IR notice pending)",
+          "fomc_meeting": "2026-10-27..28, statement 2026-10-28 14:00 ET",
+          "fomc_eve_night": "2026-10-27",
+          "gdp_q3_adv_and_pce_sep": "2026-10-29 08:30 ET -> night 2026-10-28",
+          "eci_q3": "2026-10-30 08:30 ET -> night 2026-10-29",
+          "jobs_report_oct": "2026-11-06 08:30 ET (outside window)",
+          "nyse_holidays_in_window": 0,
+          "dst_end": "2026-11-01 (ET = UTC-5 from then)",
+          "nvdl_rh_dividend_per_share": 0.561749,
+          "nvdl_2023_dist_div3": 0.561767,
+          "nvdl_2023_12_27_overnight_residual_pct": -11.15,
+          "nvdl_max_abs_residual_candidate_dates_pct": 0.11,
+          "nvdx_last_distribution": "0.57 ex 2025-12-24",
+          "rh_calendar_entries_window_high_mcap": 1025
+        },
+        "tables_markdown": "Nights in the window: night D means held from D 15:52 to the next session's 09:31. A report after the close on D, or before the open on D+1, lands in night D. Fri 10/23 runs to Mon 10/26 09:31; Fri 10/30 runs to Mon 11/2 09:31. No night in the window is an NVDA blackout, so all 10 are held under RULES v1.7.\n\nVerification labels used below:\n- **VERIFIED-co**: the company or institution's own announcement.\n- **VERIFIED-RH**: Robinhood earnings calendar marks it `verified=true`.\n- **UNVERIFIED**: anything else.\n\n| Date (ET) | Event | Time (ET) | Lands in held night? | NVDA relevance | Status (source) |\n|---|---|---|---|---|---|\n| Wed 10/14, Thu 10/15 | ASML Q3 (actual 14.88 vs 12.47 est), TSM Q3 (actual 4.60 vs 4.45 est) | before open | Already done (nights 10/13, 10/14) | Peers, done | VERIFIED-RH (actuals) |\n| Mon 10/19 | No NVDA-relevant earnings or US tier-1 macro data; Mon morning reports also none (night 10/16) | – | Night 10/19: quiet | Low | VERIFIED-RH (calendar 10/19–10/30) |\n| Tue 10/20 | NFLX, ISRG after close; VICR before open (lands in night 10/19) | after close / before open | Night 10/20 (NFLX); night 10/19 (VICR) | Low (VICR is an NVDA power supplier, minor) | VERIFIED-RH |\n| Wed 10/21 | **META** Q3 (call 16:30 ET) | after close | **Yes, night 10/21** | High (AI capex guidance) | VERIFIED-co (Meta IR, 10/12) + RH |\n| Wed 10/21 | **LRCX** Sep quarter (call 17:00 ET) | after close | **Yes, night 10/21** | High (chip-equipment peer) | VERIFIED-co (Lam PR 9/30) + RH |\n| Wed 10/21 | TXN (call 16:30 ET); TSLA, IBM, SAP | after close | Yes, night 10/21 | Medium | TXN VERIFIED-co (TI release); others VERIFIED-RH |\n| Thu 10/22 | Weekly jobless claims | 08:30 | Yes, night 10/21 | Low | UNVERIFIED (standard weekly slot) |\n| Thu 10/22 | WDC (also BE, MXL) | after close | Yes, night 10/22 | Low–medium (storage) | VERIFIED-RH |\n| Fri 10/23 | No relevant reports; Mon 10/26 morning: none relevant | – | Night 10/23 (weekend): quiet | Low | VERIFIED-RH |\n| Mon 10/26 | CLS, AMKR, RMBS, CDNS | after close | Yes, night 10/26 | Medium (AI hardware, packaging, memory interfaces) | VERIFIED-RH |\n| Tue 10/27 | GLW | before open | Night 10/26 | Low | VERIFIED-RH |\n| Tue 10/27 | FOMC day 1; **night 10/27 = FOMC eve** (hold; no FOMC blackout per §1/§3) | – | Yes, night 10/27 | Favourable per rules | VERIFIED-co (federalreserve.gov) |\n| Tue 10/27 | TER, NXPI, STX | after close | Yes, night 10/27 | Medium (TER = AI chip test) | VERIFIED-RH |\n| Tue 10/27 | **SK hynix Q3 call** (10/28 09:00 Seoul time) | 20:00 | **Yes, night 10/27** | High (HBM supplier to NVDA) | VERIFIED-co (SK hynix 6-K, SEC, 10/14) |\n| Tue 10/27 | Pre-entry check: NVDL ex-date before the 15:52 entry (§8) | before 15:52 | – | Admin | – |\n| Wed 10/28 | **NVDL ex-date per Robinhood fundamentals** | at the open | Would land at the end of night 10/27 | Opening drop would be a distribution, not a loss | **UNVERIFIED, likely stale field** (paired with 2023 record/payable dates; no Oct/Dec distribution in 2024–25 price history; GraniteShares Dec-2024 NVDL 0.00) |\n| Wed 10/28 | APH, VRT | before open | Night 10/27 | Medium (AI datacenter infrastructure) | VERIFIED-RH |\n| Wed 10/28 | **FOMC statement 14:00, press conference 14:30** | intraday | No (between the 09:31 exit and the 15:52 entry) | Macro | VERIFIED-co (date: federalreserve.gov); 14:00 time from third-party listings |\n| Wed 10/28 | **MSFT** FY27 Q1 (webcast 17:30 ET) | after close | **Yes, night 10/28** | Very high (Azure, capex) | VERIFIED-co (Microsoft, 10/7) + RH |\n| Wed 10/28 | **GOOGL/GOOG** Q3 | after close | **Yes, night 10/28** | Very high (capex) | VERIFIED-RH only (no Alphabet notice found) |\n| Wed 10/28 | **KLAC** FY27 Q1; NOW, FORM, NXT | after close | **Yes, night 10/28** | High (KLAC = chip-equipment peer) | VERIFIED-RH only |\n| Thu 10/29 | ENTG | before open | Night 10/28 | Low–medium | VERIFIED-RH |\n| Thu 10/29 | **GDP Q3 advance + Personal Income & Outlays (PCE), September** | 08:30 | **Yes, night 10/28** | Tier-1 macro | VERIFIED-co (BEA schedule) |\n| Thu 10/29 | Weekly jobless claims | 08:30 | Yes, night 10/28 | Low | UNVERIFIED (standard slot) |\n| Thu 10/29 | ECB decision (meeting 10/28–29); press conference 09:45 (after exit) | 09:15 | Yes, night 10/28 (before the 09:31 exit) | Macro, medium | Dates VERIFIED-co (ecb.europa.eu); 14:15 CET time UNVERIFIED (usual slot) |\n| Thu 10/29 | **AMZN** Q3 | after close | **Yes, night 10/29** | Very high (AWS capex) | VERIFIED-RH only (no Amazon notice found yet) |\n| Thu 10/29 | **INTC** Q3 (call 17:00 ET); SNDK, MPWR | after close | **Yes, night 10/29** | High (INTC peer; MPWR = NVDA power supplier) | INTC VERIFIED-co (Intel, 10/6) + RH; others VERIFIED-RH |\n| Thu 10/29 | Samsung Electronics Q3 final results/call (10/30 10:00 Seoul time) | ~21:00 | Yes, night 10/29 | Medium–high (memory/HBM) | UNVERIFIED (third-party calendar) |\n| Thu 10/29 | BoJ decision (meeting 10/29–30) | ~23:00 | Yes, night 10/29 | Macro, medium | Dates VERIFIED-co (boj.or.jp); time UNVERIFIED |\n| Fri 10/30 | Employment Cost Index Q3 | 08:30 | Yes, night 10/29 | Macro, medium | VERIFIED-co (BLS schedule) |\n| Fri 10/30 | Tokyo Electron (TOELY) | no time given | Probably night 10/29 | Medium (chip-equipment peer) | UNVERIFIED time |\n| Fri 10/30 | Weekend night to Mon 11/2 09:31; no NYSE holiday or early close from 10/19 to 10/30 | – | Night 10/30 | Low | VERIFIED-co (nyse.com) |\n| Sun 11/1 | **US daylight saving time ends**: ET = UTC-5; Mon 11/2 exit cron 13:26Z = 08:26 EST; 09:31 EST = 14:31Z | 02:00 | Inside night 10/30 (admin) | Ops risk | VERIFIED (tz database) |\n| Mon 11/2 | AAPL fiscal Q4 (call 17:00 ET); ON | after close | Night 11/2 (after window) | High | VERIFIED-co (Apple notice via MacTrast/iClarified) + RH |\n| Tue 11/3 | AMD Q3; ANET; SMCI; US midterm elections | after close / overnight | Night 11/3 | High | AMD VERIFIED-co (AMD IR, 10/6); ANET VERIFIED-RH; SMCI UNVERIFIED (RH verified=false); election date by statute |\n| Wed 11/4 | QCOM, ARM | after close | Night 11/4 | Medium | VERIFIED-RH |\n| Fri 11/6 | Employment Situation (October jobs report) | 08:30 | Night 11/5 | Tier-1 macro | VERIFIED-co (BLS) |\n| Tue 11/10 | October CPI | 08:30 | Night 11/9 | Tier-1 macro | UNVERIFIED (third-party) |\n| Thu 11/12 | AMAT | after close | Night 11/12 | High | VERIFIED-RH |\n| **Tue 11/17** | **NVDA Q3 FY27: blackout, cash that night (no 11/17 entry; re-enter 11/18 15:52)** | after close | Night 11/17 = cash | Own earnings | VERIFIED-RH (verified=true); NVIDIA notice pending; Tuesday is atypical |\n| Thu 11/26, Fri 11/27 | Thanksgiving (closed); 11/27 closes at 13:00 (entry 12:52) | – | – | Ops | VERIFIED-co (nyse.com) |\n| Dec | AVGO, MU reports; NVIDIA GTC DC 11/30–12/3 (keynote 12/1 14:00); NVDX annual distribution (~late Dec; last $0.57, ex-date 2025-12-24); 12/24 closes at 13:00 | – | Outside window | – | GTC VERIFIED-co (nvidia.com); 12/24 VERIFIED-co; AVGO/MU/NVDX dates UNVERIFIED |"
+      }
+    },
+    "verifies": [
+      {
+        "verdict": "Mostly confirmed, with corrections. All fill, P&L, intent-matching, timing, sizing, PDT and rule-version numbers recompute exactly from the broker data. Five things are refuted or corrected:\n(1) The ledger misquotes the journal's cash figures. The journal has 106.63 and 107.11, not 106.62 and 107.10, and an exact-price rebuild gives 7.0143 where the journal says 7.02. The broker rounds each fill to the cent (half-up); with that, all 11 journal cash figures reproduce exactly. The conclusion \"no missing cash flows this week\" still holds.\n(2) Because the wrong cash convention was used, the 4-decimal official-close equity values, the -0.184 night-23 mark and the 107.1054–107.1097 HWM range are slightly off. The true values are 103.74 / 107.05 / 105.78 / 103.69 / 98.22, a -0.19 mark, and an HWM of exactly 107.11.\n(3) The \"unexplained\" campaign residual is explained: a +0.17 non-trade cash credit overnight 9/29 to 9/30, less 0.0554 of per-fill cent rounding.\n(4) The ref_id prefix and \"no broker order id in orders.jsonl\" are only approximately right.\n(5) Compliance has three minor misstatements: matching \"by coid\", \"journal.log not written since 10/8\", and timing tolerances that RULES_v3 does not define.\nNo rule violation was found. The compliance verdict of no violations stands.",
+        "confirmed": [
+          "Broker pull from 2026-10-09T19:00Z (account 445788334) returned 22 orders on one page with no next cursor: 21 filled and 1 cancelled (6acce150, TZA sell 2 at limit 47.86, created 09:32:00.14 ET, cancelled 15:49:02.77 ET). No rejects, no re-prices, no partial fills on cancelled orders.",
+          "All 22 orders match exactly one orders.jsonl intent line on symbol, side, qty, limit and time. Intents lead their orders by 3.83 to 9.08 s (3.83 to 8.41 s for the 19 orders since 10/12). There are 0 orphan intents and 0 unmatched fills.",
+          "Only the three 10/9 orders (D11-TZA-S, 23-METU-E, 23-NVDL-E) have a broker ref_id equal to the intent ref_id. The other 19 do not.",
+          "Every fill price and qty matches trades.csv D11 (exit), N23–N27 and D12, and state.json. I extended this: every T3X trades.csv leg since 9/9 matches exactly one broker fill (140 executions), with none left over.",
+          "Per-night P&L from fills: N23 +2.6603, N24 -1.7278, N25 -2.2490, N26 -4.8993, N27 -0.7786. Largest gap to the ledger is N24 at 0.0022.",
+          "Week overnight P&L is -6.9944 vs the ledgers' -7.00 (gap 0.0056).",
+          "D12 day leg: 2 x (47.6201 - 47.3799) = +0.4804 (0.507%).",
+          "Week realised total is -6.5140, with 1 winning and 4 losing nights.",
+          "Percent of cost per night: 2.744, -1.7297, -2.1974, -5.6062, -0.9214. All trades.csv per-leg pct and pnl values for N23–N27, D11 and D12 match.",
+          "equity.csv path: 103.78, 107.02, 105.81, 103.67, 98.24. Day changes are +3.24, -1.21, -2.14, -5.43. Change to the 10/15 close is -5.54 (-5.3382%); change to now (97.45) is -6.33 (-6.0994%).",
+          "The DAY reports' 16:02 marks (99.80, 102.78, 87.93, 84.51) differ from the official daily-close values (99.83, 102.75, 87.95, 84.49), so the equity.csv gaps are a mark-source difference.",
+          "Broker now: portfolio 97.45, all cash, 0 positions, no open orders. equity.csv has no 10/16 row.",
+          "Campaign: 27 nights, state sum -4.67, 11 wins and 16 losses, mean -0.1730. Rebuilt from trades.csv prices: -4.6502 (diff -0.0198).",
+          "Only N07 (-0.81 vs -0.8040) and N14 (-0.62 vs -0.6265) differ by more than 0.005 per night.",
+          "Day leg: 12 legs, state 3.23, 7 wins and 5 losses. Rebuilt from prices: 3.2356. DAY-20261014.md says +$3.24.",
+          "D11 exact P&L is -0.8550 (exactly 0.005 from -0.85). journal.md line 45 says -0.86; the EOD line says -0.85.",
+          "Ledger total: -1.44 from state, -1.4146 rebuilt. Equity change 98.75 to 97.45 is -1.30. Residual is +0.14 or +0.1146, as claimed.",
+          "Timestamp gaps: D12 bought at 09:31:41 ET; N23 bought at 15:51:43 and 15:51:44; the N26 and N27 NVDX buys filled at 15:52:23 and 15:52:26.",
+          "trades.csv schema: N01–N07 store pnl then pnl/E%; N08–N11 store pnl then price %; N12 onward store price % then pnl. RULES_v3 §8 documents the column switch for DAY rows only.",
+          "Compliance timing: 9 exits at +8.72 to +16.13 s after 09:31:05. 7 entries at +4.57 to +26.36 s after 15:52:00.",
+          "Compliance limit and size formulas: NVDL ask 32.97 gives limit 33.02, NVDX ask 18.55 gives 18.58, TP ceil(47.3799 x 1.01) = 47.86. TZA q = floor(0.95 x 106.63 / 47.47) = 2, and 94.94 >= 0.85E (90.6355), so no top-up.",
+          "Sizing 10/12: cap 104.9678, METU2 + NVDL1 = 100.03, a 3rd METU would cost 132.00 (does not fit), fill 93.26% of E.",
+          "Sizing 10/13 (v1.5 optimiser with m = 0.46 / 0.42): cap 103.2724, NVDX x5 = 102.55, EV 0.4307. NVDX x5 stays optimal for NVDL limits below 37.453. Fill 97.12% of E.",
+          "Sizing 10/14: cap 101.0674, a 3rd NVDL would cost 102.54, NVDL fill 68.2118, cap left 32.8556, b = 1, fill 84.74% of E.",
+          "Sizing 10/15: cap 96.2654, a 3rd NVDL would cost 99.06, NVDL fill 65.9598, cap left 30.3056, b = 1, fill 86.02% of E.",
+          "Both days the NVDX intent came after the NVDL fill: 10/14 fill 15:52:05.82 then intent 15:52:19.35; 10/15 fill 15:52:10.11 then intent 15:52:20.36.",
+          "Rule commits from git log: v1.5 at 10/13 09:51 ET, v1.6 at 10/14 08:42 ET, v1.7 at 10/14 09:32 ET.",
+          "PDT: 10/12 had 2 day trades in the prior 4 business days (10/8, 10/9), so the leg was allowed. 10/13 and 10/14 were blocked at 3. The rolling count peaked at 3 and never reached a 4th. The 10/15 shadow entry is in state.",
+          "Risk figures: PAUSE 0.8 x 107.11 = 85.688; drawdown -9.0188%; nights_held 27 = 27 entries in night_returns.",
+          "INV-9: the TP cancel was confirmed at 15:49:02.77 and the sell was placed at 15:49:12.05.",
+          "A 3rd NVDL share on 10/14 needed an ask of 33.62 or less (limit 33.68 x 3 <= 101.0674), so the journal's 14:00 and 15:00 forecast of 3 shares was wrong.",
+          "Stale state fields (strategy v1.0, the wake.* fields, sessions_done 0, the 9/28 ranking and day_leg.rank) and the STATUS.md blackouts mismatch are as described. The night-24 intent note citing the '10/5 re-rank' is as described."
+        ],
+        "refuted_or_corrected": [
+          "LEDGER journal cash figures are misquoted. The journal says 106.63 (line 53) and 107.11 (line 60), not 106.62 and 107.10. An exact-price backward rebuild from 97.45 gives 7.0143, 106.6243 and 107.1047, which round to 7.01 / 106.62 / 107.10 and do not match the journal's 7.02 / 106.63 / 107.11. The broker rounds each fill to the cent (half-up). With that rule the rebuild reproduces all 11 journal figures exactly: 7.02, 106.63, 107.11, 7.22, 105.38, 3.03, 103.13, 15.74, 98.23, 13.73, 97.45. 'No missing cash flows this week' holds. Note that a backward rebuild anchored on 97.45 is circular unless it is checked against these independent figures.",
+          "LEDGER equity recalculation used unrounded cash (7.0143, 7.2150, 3.0274, 15.7365, 13.7298); the broker's actual cash was 7.02, 7.22, 3.03, 15.74, 13.73. Correct official-close equity: 103.74, 107.05, 105.78, 103.69, 98.22. Correct gaps to equity.csv: +0.04, -0.03, +0.03, -0.02, +0.02 (claimed +0.0457, -0.0250, +0.0326, -0.0165, +0.0202). Each equity.csv row equals broker cash plus the DAY-report mark exactly.",
+          "LEDGER '-6.33 = realised -6.514 less the -0.184 night-23 mark': the arithmetic is right, but -0.184 is an artifact of the 7.0143 cash figure. With broker cash 7.02 the N23 mark inside the 10/9 close is -0.19 (103.78 - 7.02 - 96.9497 = -0.1897; the journal also says -0.19). Cash-basis realised since the 10/9 close is -6.52 (exact-price -6.514).",
+          "LEDGER 'all-cash high 107.1047': the broker's all-cash value after the 10/12 TZA close was exactly 107.11. COMPLIANCE 'HWM rebuilt between 107.1054 and 107.1097': the true value, 107.11, lies outside that interval because each fill is cent-rounded. The 107.11 conclusion stands.",
+          "LEDGER 'campaign residual +0.14 / +0.1146 not yet explained; could not check': it is explainable and is not a fill error. I pulled all filled orders since 8/13 (158 orders, one page, read-only, account 445788334). Every T3X trades.csv leg matches a broker fill; the exact-price T3X total is -1.4146, the same as the trades.csv rebuild. T2X fills from 100.00, cent-rounded, end at exactly 98.75, so start_equity is right. Cent-rounded T3X fills total -1.47, which predicts 97.28 against the broker's 97.45, leaving a +0.17 non-trade credit. journal.log shows broker cash 26.16 at the 9/29 16:02 EOD and 26.33 at the 9/30 07:47 wake with no orders in between (METU 1 + AAPU 1 held), likely a distribution or interest that no ledger records. So +0.17 credit - 0.0554 per-fill rounding = +0.1146 against exact prices, and + 0.0254 from state rounding = +0.14.",
+          "LEDGER 'cash path from 10/9 19:49Z matches the fills exactly': it matches only under per-fill cent rounding. Against exact prices, rounding inside the window contributes -0.0108, so not all of the residual dates from before 10/9.",
+          "LEDGER ref_id prefix '01a13...': 4 of the 19 broker ref_ids start 01a14 (01a1411f on the 10/15 entries, 01a144e8 on the 10/16 exits). 'orders.jsonl does not store the broker order id' is true for this week's lines, except that the D11 and D12 TP intent notes cite the entry order id. The file's schema does include an order_id field, used on older lines such as line 150.",
+          "COMPLIANCE 'same coid' matching: broker orders carry no coid (only id and ref_id), so a coid match cannot be made. The actual match is on symbol, side, qty, limit and time.",
+          "COMPLIANCE 'journal.log has not been written since 10/8': its last entry is dated 2026-10-07 09:00 ET. The 10/8 20:12 file time is the checkout time shared by many files.",
+          "COMPLIANCE timing bands '09:31:05 ±20s' and '15:52:00 ±30s' do not appear in RULES_v3. §4 and §5 give only the bridge targets and the 15:55 / 15:57 / 15:58 cutoffs. The offsets are correct, but the pass bands were set by the auditor. 'Lowest equity 97.45' holds for recorded EOD and all-cash points only."
+        ],
+        "notes": "Strictly read-only. I called only get_equity_orders, get_portfolio, get_equity_positions and get_equity_historicals, all with account 445788334. I ran no git commands that write and modified no repo files. My verification files are under /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/: v_broker.json (the 22 week orders) and the v/ folder, which holds v1.py–v7.py, broker_filled_since0813.json, broker_filled_since0908.json and execs.json. The key evidence for per-fill cent rounding: half-up rounding of each fill amount reproduces every journal cash figure from 10/9 to 10/16 and the T2X end equity of 98.75 from 100.00, and exact prices do neither. The +0.17 credit is at journal.log line 297 (9/29 EOD, cash 26.16) against line 299 (9/30 07:47 ET, broker cash 26.33, no orders)."
+      },
+      {
+        "verdict": "The analysis mostly holds up. I rebuilt the overnight series from the raw bars and they match the analysis's own CSV to within 5e-7. A bootstrap I wrote separately (different seed, 40,000 paths) gave every probability within about 1 point of the reported values. The live-record numbers also match trades.csv and equity.csv. The return definition is right: close(t) to open(t+1), labelled by entry date. Earnings nights are handled correctly (47 in the proxy, 15 in NVDL, all on trading days), and I found no look-ahead. The main conclusion follows from the data: the -9% drawdown and the 27-night record fit both the planned edge and zero edge. The corrections are mostly about where claims come from, plus a few claims that are moot or overstated. Two lines are wrongly credited to RULES_v3 §6. The -39.6% breakeven cannot affect Monday's 07:45 check. The 315-night figure gives only 50% power. The §3(f) switch also fired in 2023 and in September 2025, not just spring 2025. The +0.85% intraday figure leaves out Monday. The state.json basis-switch description is wrong. The calendar's dates and time-zone conversions all check out; one tagging recommendation broadens a pre-registered shadow log.",
+        "confirmed": [
+          "Return series: close(t) to open(t+1), labelled by entry date. I rebuilt it independently from the raw bars and the largest difference from their overnight.csv is 5e-7 across all 2964 rows; earnings flags are identical. There are 47 NVDA earnings nights in the proxy and 15 in NVDL, every one on a trading day. All dates through 2025-11-19 match the public record as far as I know it. The 2019-01-25 and 2022-08-05 pre-announcement nights are mapped correctly (the Monday open after each).",
+          "NVDL, earnings excluded: full sample n 948, mean 0.289, sd 3.27, t 2.72, win 56.6%. Last 250: 0.298 / 2.66 / t 1.77. Last 120: 0.331 / 2.59 / t 1.40. Including earnings: n 963, mean 0.43, t 3.57.",
+          "Proxy (2x NVDA minus 4bp): n 2917, mean 0.202, sd 3.16, t 3.45. Last 250: 0.289, t 1.72. Last 120: 0.310, t 1.31. On NVDL's span: 0.266, t 2.48. Yearly means all match, and the 2022 compound is -74.6%. Using yearly means as the unit (2015-2025) still gives t = 2.09.",
+          "§3(f) trailing-120 mean is +0.331 (nights through 10/15). The alternative count gives 0.324 and the clean series 0.318. Lowest over the last 257 nights: +0.051 on 2026-04-29. Lowest over NVDL's life: -0.269 on 2025-04-17. 10.9% of windows were at or below zero.",
+          "NVDL minus 2x NVDA, earnings excluded: mean -4.66 / -1.61 / -2.43 bp in 2024 / 2025 / 2026, with sd 0.217 / 0.161 / 0.183%. NVDL's overnight beta to NVDA was 1.51 in 2023 and 2.01 / 2.00 / 1.99 from 2024 on. The trailing 250 contains only one flagged night (2026-05-01).",
+          "The 2023-12-26 night (NVDL -10.20% vs +0.94% for 2x NVDA) is a distribution, not a bad print. $1.6853 divided by the 3x-adjusted close (5.505 x 3) is 10.20%; adding it back gives about 0.0%. On the calendar's candidate ex-dates in 2024-25 the residual is never more than 0.111%.",
+          "Live, recomputed from trades.csv fills: 27 nights, total P&L -4.65 (state.json says -4.67). Per unit invested: mean -0.239, sd 2.316, t -0.54, 90% CI [-1.00, +0.52]. z against +0.25 / +0.30 / +0.35 is -1.10 / -1.21 / -1.32, with one-sided p 0.141 / 0.119 / 0.099 (t, 26 df). Using the model sd, z against +0.30 is -1.05. On total equity: -0.154 vs 0.254, z -1.10. Mean exposure 0.847, win rate 40.7%.",
+          "Only the 10/13, 10/14 and 10/15 nights held NVDA-2x alone. The 10/12 night held METU x2 + NVDL (confirmed in both state.json and trades.csv).",
+          "The 107.11 high is the equity at the 10/12 entry: working backwards from 97.45 through the four fills gives 107.105. The four overnight P&Ls sum to -9.655, which is -9.02% from the high. The PAUSE level is 85.69. equity.csv's highest EOD is 107.02 on 10/12. The 10/12 session leaves the rolling-20 window on 11/9, 16 sessions from now.",
+          "Independent bootstrap (my own code, seed 777+block, 40,000 paths, block 5) reproduces theirs within about 1 point:\n- NVDL last year: 4-loss streak 38.6, drawdown ≥9% 42.1, -20% within 60 sessions 21.1, rolling-20 PAUSE 10.8, equity ≤50 0.09%.\n- Proxy: 44.7 / 52.3 / 40.8 / 31.4 / 3.4.\n- Proxy at +0.30: 36.7 / 48.1 / 35.1 / 28.1 / 1.5.\n- Proxy at zero: 55.4 / 61.9 / 54.7 / 39.2 / 15.9.\n- Recovery to the old high within 60 sessions: 72-79% with an edge, 55% at zero.\n- The analytic streak probability under independent nights (0.41) also matches.",
+          "The '1.1 to 1.4 times likelier with no edge' ratio checks out: P(drawdown ≥9%) at zero edge divided by each sample gives 1.14 / 1.43 / 1.18 / 1.29.",
+          "NVDL over the 27 live nights: +0.146, sd 2.80, t 0.27. Live minus that model: -0.385 per night, t -1.23. On the NVDA-only nights the gaps were +0.43, +0.06 and -0.21.",
+          "NVDL's last 4 nights were -1.86, -2.62, -5.67 and -0.71, compounding to -10.50%, the 3.07th percentile of all 4-night stretches.",
+          "NVDA overnight for the 10/12-10/15 entries: -0.87, -1.31, -2.71, -0.32, compounding to -5.13%. Intraday 10/13-10/15 compounds to +0.85%.",
+          "The 10/16 opens (NVDA 216.53, NVDL 32.745) match the first 1-minute bar when re-fetched. The 10/16 daily bar is still not published.",
+          "The state.json example holds: 10/14 shows -5.61, which is -4.899 / 87.39 invested, versus -4.73% of the 16:02 EOD equity.",
+          "Calendar weekdays are all correct: 10/21 Wed, 10/27 Tue, 10/28 Wed, 10/29 Thu, 10/30 Fri, 11/1 Sun, 11/3 Tue, 11/6 Fri, 11/10 Tue, 11/17 Tue, 11/26 Thu, 11/27 Fri, 12/24 Thu. NVDA's 2025-11-19, 2026-05-20 and 2026-08-26 reports were all Wednesdays.",
+          "Time-zone conversions are correct:\n- US daylight saving ends 11/1.\n- Europe's ends 10/25, so the ECB's 14:15 CET on 10/29 is 09:15 EDT and its 14:45 press conference is 09:45.\n- BoJ at about noon Tokyo on 10/30 is 23:00 EDT on 10/29.\n- SK hynix at 09:00 Seoul on 10/28 is 20:00 EDT on 10/27.\n- Samsung at 10:00 Seoul on 10/30 is 21:00 EDT on 10/29.\n- The crons (11:45Z, 13:26Z, 19:48Z, per RULES_v3 line 42) fire at 06:45 / 08:26 / 14:48 EST on 11/2, and the 09:31 EST exit is 14:31Z.",
+          "Robinhood calendar entries match every listed symbol, date, timing and verified flag:\n- NVDA 11/17 after close, verified, EPS estimate 2.34.\n- SMCI 11/3 unverified; TOELY 10/30 with no timing.\n- META, LRCX, TXN, TSLA, IBM and SAP 10/21 after close; MSFT, GOOGL/GOOG, KLAC, NOW, FORM and NXT 10/28 after close; APH and VRT 10/28 before open.\n- AMZN, INTC, SNDK and MPWR 10/29 after close; ENTG 10/29 before open; GLW 10/27 before open; VICR 10/20 before open.\n- A fresh get_earnings_calendar call confirms ASML 10/14 before open (14.88 vs 12.47) and TSM 10/15 before open (4.60 vs 4.45).",
+          "Rule citations in the calendar are correct:\n- §3 line 19: no FOMC or macro blackouts, and FOMC-eve nights are held.\n- §4 line 24: half days 11/27 and 12/24 with a 12:52 entry.\n- §8 line 38: check the NVDL 10/28 ex-date before the 10/27 entry."
+        ],
+        "refuted_or_corrected": [
+          "MISATTRIBUTION: the '~30-45%' figure ('supports §6's ~30-45%') is not in RULES_v3 §6. It comes from state.json campaign.risk_note, research/IDLE-CAPITAL-20261014.md and report/DAY-20261014.md, where it describes the 60-session PAUSE odds at about 85-97% invested. Against §6's actual rolling-20 trigger, starting from a fresh high, the samples give 6 / 27 / 26 / 24 / 33%. The all-time-high version gives 11 / 33 / 32 / 27 / 43%. So the long samples sit at the low end of 30-45% or just below it, and the +0.30 case is below it.",
+          "MISATTRIBUTION: 'RULES_v3 §6 defers any decision on such nights to the 2027-01-11 review' is not in RULES_v3. That deferral is in state.json campaign.shadow_logs.semis_peer_earnings_nights.",
+          "MOOT CLAIM: 'Only a single night worse than -39.6% would flip it.' The arithmetic is right (-39.60), but §0 runs the Monday ANALYST at 07:45 ET, before the 10/16 night exits at 09:31. Monday 10/19's §3(f) value is therefore already fixed at +0.331 (nights through 10/15), and no night can flip it. Likewise '+0.42 on 10/9' (0.418) includes the 10/09 night, which a 10/12 07:45 check could not yet see; that check would have read +0.436.",
+          "INCOMPLETE: 'it would have fired in spring 2025.' Running Monday 07:45 checks on data available at the time, the switch reads at or below zero on 18 Mondays: 2023-07-10, every Monday from 2025-04-07 to 2025-07-21, plus 2025-09-08 and 2025-09-15. The last firing was about 13 months ago. 'Above zero for at least the past 257 nights' is still true.",
+          "UNDERSTATED: '~315 nights to show +0.30 at t 2' is the point where the expected t equals 2, i.e. only 50% power, at sd 2.661. For 80% power at t ≥ 2: about 635 nights at sd 2.66, about 483 at the live sd of 2.32, and about 959 at NVDL's full-sample sd of 3.27. At sd 3.27, even the 50%-power point is 475 nights.",
+          "Wrong p placement: 'z -1.05 using the model sd (one-sided p about 0.12)'. The 0.119 belongs to z -1.21 (live sd, t with 26 df). For the model-sd z of -1.05, the normal one-sided p is 0.146.",
+          "Range correction: 'median worst drawdown over 27 nights is -8 to -10%' should be -8.2 to -10.8%. The zero-edge sample gives -10.79; the +0.30 sample, which was left out, gives -8.67.",
+          "Labelling: the '-1.6 to -4.7bp/night' gap is NVDL minus 2x NVDA before the 4bp deduction, not NVDL minus the proxy. Against the proxy the gap is -0.7 / +2.4 / +1.6 bp in 2024 / 2025 / 2026. The 4bp deduction is therefore slightly conservative recently, and probably more so in the 2015-21 low-rate years.",
+          "state.json pct basis: it is not a clean switch on 9/30. 9/29 is already per unit invested (-0.13; per equity would be -0.10). 10/02 (0.38) and 10/05 (1.26) are per equity, where per invested would be 0.52 and 1.81. 9/18's 3.57 matches neither (3.52 per EOD equity, 3.77 per invested). The basis is mixed.",
+          "Week framing: 'NVDA gained 0.85% intraday' covers only 10/13-10/15. Monday 10/12's intraday session was -1.05%, so the review week's four intraday sessions compound to -0.21%. Overnight (-5.13%) was still far worse than intraday (about 0%), so the point about the reversed pattern stands.",
+          "Bootstrap stability ('about ±5 points across block sizes') is a little understated. Some cells move 6-7 points at 20-night blocks:\n- zero-edge P(drawdown ≥9%): 61.3 to 54.3\n- +0.30 P(drawdown ≥9%): 47.7 to 42.1\n- +0.30 P(equity ≤50): 1.5% to 3.0%\n- NVDL last-year median drawdown: -8.2 to -6.7",
+          "Undisclosed choice: the bootstrap's 'NVDL full' row uses the cleaned series (mean 0.274), not the raw series (0.289) shown in the stats table. The raw series gives slightly lower risk: P(-20% within 60) 37.7% vs 40.0%, and P(equity ≤50) 1.9% vs 2.3%.",
+          "Framing: 'about one standard error below plan' (z -1.05 to -1.32) mainly measures the old non-NVDA baskets (24 of 27 nights). Over the same nights, the current NVDA-2x rule (the NVDL model, +0.146, sd 2.80) is only z -0.29 below +0.30. The gap to plan comes mostly from basket choice (-0.385 per night, t -1.23, not significant).",
+          "A sharper measure, same conclusion: comparing zero edge with +0.30 on the 27-night mean gives a likelihood ratio of 1.34-1.80, depending on sd (3.27 down to 2.32). That is somewhat more informative than the drawdown ratio (1.1-1.4) but still weak evidence.",
+          "Minor: 'within 0.4 points on the 3 NVDA-only nights' should read 'within about 0.45'. On 10/13 the gap was +0.43 (live NVDX against the NVDL model).",
+          "Calendar scope: recommending that the semis_peer_earnings_nights shadow log tag 10/21, 10/27, 10/28 and 10/29 broadens a pre-registered definition after the fact. state.json defines it as 'nights where TSM/ASML/AMD/AVGO/MU report next morning'. None of those five report between 10/19 and 10/30, so by that definition no night in the window qualifies; the first is AMD on 11/3 after close (night 11/3). The broader event nights should go under a separate label.",
+          "Calendar nuance: '11/17 Tuesday is atypical' is fair, since the usual date would be Wednesday 11/18. But the 47-date list has Tuesday precedents: 2023-11-21 and 2017-05-09. Rechecking once NVIDIA publishes its own notice remains the right action."
+        ],
+        "notes": "My scripts are in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/verify_stats:\n- v01_dataq.py: bar quality checks.\n- v02_series.py: rebuilds the series from raw bars, recomputes the stats, §3(f) history, beta and drag, week split and distribution residuals.\n- v03_live.py: live record, z-tests, likelihood ratios, power, state.json pct basis.\n- v04_boot.py: independent bootstrap.\n- v05_calendar.py: weekdays, time-zone conversions, Robinhood calendar entries.\n- v06_misc.py: Monday-check firing history, ratio checks.\n\nBroker calls were read-only market data only: get_earnings_calendar for 10/14-10/15, and get_equity_historicals for NVDA and NVDL (daily and 1-minute bars for 10/16). No account-scoped tool was used. Nothing in /home/user/test-trading was modified; git status was clean.\n\nNot checked:\n- NVDA report dates for 2026, which depend on the repo docs.\n- The BEA, BLS, FOMC, ECB and BoJ dates against their websites.\n- Samsung's call time.\n- Whether GOOGL and AMZN have published company notices.\n- Whether a 2026 NVDL distribution has been declared.\n- NVIDIA's last-year call-notice date (10/29).\n\nThe state.json note giving NVDA's open as 216.19 is the 09:31 print, not the official open, so it does not conflict with 216.53."
+      }
+    ],
+    "critic": {
+      "missing": [
+        "THE $200 TARGET CHECK, WITH NUMBERS. Last week's report had one, and the human's goal depends on it. Getting from 97.45 to 200 needs +105.2% (last week it was +93%). At the rules' own planning edge (+0.30% a night on the invested part, about 86% invested) that takes about 279 nights, or about 311 once day-to-day swings are allowed for. That is roughly 1.1 to 1.25 years of held nights. My bootstrap (5-night blocks, 20,000 paths, constant 0.86 invested, PAUSE sizing and §3(f) not modelled) gives these odds of reaching 200 before falling to 50. With an edge, using last-year NVDL / full NVDL / 2x-NVDA 2015-26 / proxy set to +0.30: about 5-9% within 125 sessions, about 27-45% within 250, about 62-87% within 500. With zero edge: 0.7% / 4.9% / 13.8%, and a 58% chance of being below 97.45 after 250 sessions. Scripts: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/critic/c1.py and c2.py; output in c1.json and c2.json.",
+        "ALL-IN RESULT AGAINST THE HUMAN'S OWN MONEY. Down $2.55 (-2.55%) from the original $100.00 (T2X start, which the verifier confirmed ends at exactly 98.75). Down $1.30 since the T3X start of 98.75. Last week's headline said campaign +5.03; it is now -1.30. The report should show that swing plainly.",
+        "A PLAIN-LANGUAGE ACCOUNT OF THE THREE RULE REWRITES: v1.5 on 10/13 at 09:51, v1.6 on 10/14 at 08:42 and v1.7 on 10/14 at 09:32, plus the §1 correction at 17:16. That is 4 RULES_v3 commits in about 28 hours, all written by the agent. What changed: the old METU+NVDL mix became NVIDIA-2x only, and the daytime TZA trade was turned off. Why: the 30-night ranking showed no predictive power, and the day leg showed no long-sample edge. The report should also say what each change cost or saved this week.",
+        "THIS WEEK'S EFFECT OF THOSE DECISIONS, NOT YET IN ANY AUDIT. Rough model numbers, labelled as noise. The three NVIDIA-only nights (N25-N27) realised -7.93. The old basket (METU x2 + NVDL x1) at official close to next open would have made about -5.34 (-1.30, -4.07, +0.03), so the switch was about $2.59 worse. Caveat: on 10/13 the old basket (103.80 at the close) would not have fit under the 103.27 cap. Turning off the day leg avoided about -$4.08 on 10/15 (shadow TZA, 2 shares, 51.1002 to 49.06). Source: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week6/critic/c3.py, with METU and NVDL daily bars plus the 10/16 first-minute open.",
+        "THE EXPECTED EDGE WAS CUT IN HALF SINCE THE LAST REPORT. The Week-5 report compared live results to a +0.61%/night backtest. The rules now plan on +0.30 (90% CI about +0.1 to +0.6). The STATUS.md thesis line still says '+0.38%/night over 257 nights', but by my recalculation the trailing 257 nights through 10/15 stand at +0.329 (it was +0.386 through 10/9). The report should say so plainly, because the time to $200 roughly doubles.",
+        "SINGLE-NIGHT SHOCK SENSITIVITY. From 97.45, an NVIDIA overnight drop of about -7.0% (-6.2% at 97% invested, as on 10/13) would push the account straight to PAUSE (85.69). Since 2015 NVIDIA has had 12 non-earnings overnight gaps of -7% or worse (about 1 per year) and 4 of -10% or worse (about 0.35 per year).",
+        "AN OPS / INCIDENTS SECTION, as every prior weekly report had. Container restart over the weekend of 10/10-10/11. Container reset on the night of 10/13-10/14: scratchpad wiped, local clone back at the 10/8 commit, tools rebuilt into trader/tools. A 10/14 15:40 slip: a chained 480s sleep plus the bridge overran the 600s tool timeout and was caught at 15:50:12, 1m48s before entry. Order counts this week: 19 broker orders (9 exits, 7 entries, 3 TZA), 0 rejects, 0 re-prices, 1 take-profit cancelled.",
+        "§8 WEEKLY ITEMS: 'Weekly: re-rank table + edge-decay check (30-night mean per name)'. The edge-decay value is available: +0.331, positive, and fixed for Monday. The 10/12 re-rank table (METU 0.34, NVDL 0.26, NVDX 0.22, GGLL 0.19; TZA 0.46) appears only in journal.md line 49, and none of the audits produced one. The report needs the table, marked information-only under v1.6.",
+        "PROGRESS ON THE PRE-REGISTERED §3(g) REVIEW. 3 of 40 live NVIDIA-2x nights are done (the 4th is tonight, night 28); the review is due around mid-December. The 27-night live record is mostly the old baskets (24 of 27 nights), so it says little about the current rule.",
+        "DAY-LEG SHADOW LOG SUMMARY. One entry so far (10/15: -3.99%, -4.14% net). The 10/16 entry is still pending.",
+        "WHICH EQUITY FIGURE THE HEADLINE USES. 97.45 is the all-cash figure at 09:31. The 16:02 EOD figure, with night 28 marked, is still pending, and equity.csv has no 10/16 row yet. Last week's headline used marked closes, so the report must label the basis or the week-on-week numbers will not be comparable.",
+        "TRADE APPROVALS ARE OFF: the bot's orders go through without the human's sign-off (journal 10/12, 10/13, 10/15, 10/16). The human should see this stated, alongside the fact that all rule changes are written by the agent.",
+        "THE FORWARD CALENDAR IN SHORT. Heavy event nights: 10/21 (META, LRCX); 10/27 (FOMC eve, SK hynix); 10/28 (MSFT, GOOGL, KLAC, then GDP/PCE and the ECB the next morning); 10/29 (AMZN, INTC, ECI, BoJ). The NVDL 10/28 ex-date must be checked before the 10/27 entry. NVIDIA earnings on 11/17 means cash that night. US clocks change 11/1, and the 11/27 half-day needs a 12:52 entry that no cron covers.",
+        "OPEN QUESTION ON WHERE THE LIVE SHORTFALL COMES FROM: basket choice or execution? Live ran 0.39%/night behind the NVDL model (t -1.23). Nobody has measured live fills against the official 16:00 close and 09:30 open, and the fill_cost shadow log needs at least 60 trades.",
+        "MINOR: A TAX/WASH-SALE NOTE. Selling NVDL at a loss at 09:31 and buying it back at 15:52 the same day is a wash sale. Losses get deferred into the cost basis, and the 1099 will show adjustments. The dollar effect is tiny, but the human may be surprised by it."
+      ],
+      "unresolved": [
+        "CAMPAIGN RESIDUAL +0.14 / +0.1146. The ledger agent called it unexplained. The verifier attributes it to a +0.17 non-trade cash credit between 9/29 16:02 and 9/30 07:47 (journal.log cash 26.16 to 26.33 with no orders) minus 0.0554 of per-fill cent rounding. Still unconfirmed: what the credit actually was (distribution, interest or other). It is inferred from journal readings, not from a broker cash-activity record, and no ledger records it.",
+        "JOURNAL CASH FIGURES. The ledger audit quoted 106.62 and 107.10 and rebuilt cash at exact prices (7.0143 and so on). The verifier shows the journal says 106.63 and 107.11, and that only per-fill cent-rounded cash reproduces all 11 journal figures. Use the verifier's: official-close E of 103.74 / 107.05 / 105.78 / 103.69 / 98.22, a night-23 mark of -0.19 (not -0.184), and an HWM of exactly 107.11 (not 107.1047, nor the range 107.1054-107.1097).",
+        "ORDER MATCHING. Compliance said orders were matched 'by coid'. Broker orders carry no coid, and the ref_ids have not matched since 10/12 (some start 01a14, not 01a13), so the match is heuristic: symbol, side, qty, limit and time. INV-12 still holds, but the audit trail cannot be proved from IDs.",
+        "COMPLIANCE TIMING BANDS. The '09:31:05 ±20s' and '15:52:00 ±30s' tolerances were set by the auditor and are not in RULES_v3. The PASS verdicts on timing are therefore judgments, not rule checks. 16 of 18 limit prices are UNVERIFIABLE because no 09:31 bid or 15:52 ask was recorded, and the 'last x 1.004' cap could not be checked for any entry.",
+        "JOURNAL.LOG LAST WRITE. Compliance said it was last written 10/8; the verifier says the last entry is dated 10/7 09:00 ET.",
+        "LOWEST EQUITY 97.45. This holds only for recorded EOD and all-cash points. Intraday marks while positions were held were not checked.",
+        "STATS MISATTRIBUTIONS (must not go into the report as written). The '~30-45% PAUSE odds' come from state.json risk_note and the 10/14 research doc, not RULES_v3 §6. Against the literal rolling-20 trigger from a fresh high the samples give 6 / 27 / 26 / 24 / 33%. 'RULES §6 defers peer-earnings nights to 2027-01-11' is in state.json shadow_logs, not RULES.",
+        "STATS CLAIMS CORRECTED BY THE VERIFIER. The -39.6% 'flip' threshold is moot: Monday's §3(f) value is already fixed at +0.331. §3(f) did not fire only in spring 2025: it read at or below zero on 18 Mondays (2023-07-10, 2025-04-07 to 07-21, and 2025-09-08/15), last about 13 months ago. '~315 nights' is only 50% power; 80% power needs about 480-960 nights. The one-sided p of about 0.12 belongs to z -1.21; for z -1.05 the p is 0.146. The median 27-night drawdown range is -8.2 to -10.8%. 'NVDA +0.85% intraday' leaves out Monday; across the whole week intraday was -0.21%. state.json pct is a mixed basis, not a clean switch on 9/30.",
+        "STATS BOOTSTRAP DISCLOSURE. The 'NVDL full' row used the cleaned series (mean 0.274), not the raw series (0.289). The raw series gives P(-20% within 60) of 37.7% vs 40.0%. Some cells move 6-7 points with 20-night blocks, not the claimed ±5.",
+        "RISK_NOTE VS STATS. state.json risk_note says P(KILL within 250 sessions) is about 3-7% and is marked 'reported to human'. The stats agent gives 0.1 / 2.3 / 3.3 / 1.5% with an edge and 15.7% with none. No audit confirms that any report actually delivered this risk note to the human.",
+        "RULES §6 TIMELINE VS ITS OWN EDGE. §6 says '$200 is a 6-12 month objective', but the planning edge of +0.30 at about 86% invested implies about 1.1-1.25 years on average. My bootstrap gives only about 5-9% odds of reaching $200 within 125 sessions, even with an edge. This line contradicts the numbers and should be corrected or flagged.",
+        "NVDL 2026-10-28 EX-DATE: unverified, probably a stale Robinhood field (it is paired with 2023 record and pay dates). The issuer page returned a 404.",
+        "NVDA EARNINGS 11/17 (a Tuesday) is confirmed only by Robinhood's verified flag. NVIDIA's own notice is pending, and Tuesday has precedents (2023-11-21, 2017-05-09). GOOGL, AMZN and KLAC dates are also Robinhood-only. The Samsung, BoJ and ECB decision times are unconfirmed.",
+        "CALENDAR SHADOW TAGGING. The calendar recommends tagging 10/21 and 10/27-29 as semis_peer_earnings_nights. That broadens a pre-registered definition after the fact. Under the registered definition (TSM, ASML, AMD, AVGO or MU reporting the next morning), no night from 10/19 to 10/30 qualifies, so use a separate label.",
+        "OLD-BASKET COUNTERFACTUAL (-5.34 vs actual -7.93). This is my own model figure at official close and open, not executable prices. On 10/13 the old basket would not have fit under the cap. It is unverified by a second agent."
+      ],
+      "key_facts": [
+        "THE WEEK LOST $6.33 (-6.1%). The account went from $103.78 last Friday to $97.45 now, all in cash. Four of five nights lost money (+2.66, -1.73, -2.25, -4.90, -0.78); the one daytime trade made +$0.48. Against the original $100 the account is down $2.55 overall. Every trade and every dollar of cash this week matches the broker exactly, and no rule was broken.",
+        "THE BOT CHANGED ITS OWN STRATEGY MIDWEEK. Since Tuesday it bets only on NVIDIA overnight (two 2x NVIDIA funds, about 85-97% of the account each night), and it switched off the daytime trade. The daytime trade had made +$3.24 overall, but long-history tests showed no real edge. The first three NVIDIA-only nights lost $7.93. The old mix would have lost roughly $5.3, so the switch was about $2.6 worse. Skipping the daytime trade on 10/15 avoided an estimated $4.08 loss. Both are luck-sized numbers, and trades go through without your approval.",
+        "NOBODY CAN TELL YET WHETHER THIS WORKS. The 9% dip from the $107.11 peak is a normal outcome for this strategy, about a 50-50 event in its first 27 nights, and it is almost as likely with no edge as with one. Telling a real edge from luck needs roughly 300-600+ more nights. The bot's expected edge was revised down by half since the last report (from +0.61% to +0.30% a night).",
+        "$200 IS FARTHER AWAY THAN THE RULES SAY. It needs +105%. Even if the edge is real, the average path takes about 1.1-1.25 years. My bootstrap gives about a 5-9% chance of reaching $200 within 6 months, 27-45% within a year and 62-87% within two years. With no edge it is about 5% within a year, and the account would more likely shrink. The rulebook's '6-12 months' is optimistic.",
+        "THE MAIN DANGER IS ONE BAD NVIDIA NIGHT. A single overnight NVIDIA drop of about 7%, which has happened about once a year since 2015, would take the account down to the $85.69 'PAUSE' level, where bets shrink to one share. Odds of reaching PAUSE within the next ~3 months are about 11-40% depending on assumptions (39-54% if there is no edge). Odds of falling to $50 within a year are about 0.1-3% with an edge, about 14-16% without. The next two weeks have crowded event nights: Meta 10/21; Microsoft, Google, Amazon and the Fed 10/27-10/29. NVIDIA's own earnings on 11/17 will be a cash night."
+      ],
+      "ops_risks": [
+        "NO RULE VIOLATION FOUND. All 19 orders this week passed timing, sizing, PDT, INV-9 and INV-12 checks. The rolling PDT count peaked at 3, never 4.",
+        "§8 RECORDS DEVIATION. §8 names journal.log as the W-9 log, but W-9 lines go to journal.md, and journal.log's last entry is dated 10/7. §8 also requires a weekly re-rank table, and none was produced. Either follow §8 or amend it.",
+        "DAYLIGHT-SAVING CHANGE ON SUN 11/1, MUST BE FIXED BEFORE MON 11/2. The crons are in UTC (t3x-exit 13:26Z becomes 08:26 EST; entry 19:48Z becomes 14:48 EST; analyst 11:45Z becomes 06:45 EST). bridge.py and hb.py take UTC targets that the agent types by hand. If the agent keeps typing 13:31:05 and 19:52:00, the exit fires at 08:31 EST (pre-market) and the entry at 14:52 EST, an hour early, exposed to the intraday drift. The correct targets are 14:31:05Z and 20:52:00Z. The 64-minute bridge from 14:48 is also the setup in which the 10/14 sleep-chaining slip happened. Shift the crons and make the tools take ET via zoneinfo. Broker timestamps also become ET = UTC-5.",
+        "HALF-DAY 11/27. The entry at 12:52 ET is not covered by any cron (§4 notes this). It needs a one-off wake.",
+        "CONTAINER RESETS AND THE NEAR-MISS. The 10/13-10/14 overnight reset wiped the scratchpad and rolled the local clone back to the 10/8 commit. On 10/14 a chained sleep overran the 600s tool timeout and was caught 1m48s before the 15:52 entry. A reset or slip inside 09:26-09:31 or 15:48-15:57 could cost a night (the §4 skip after 15:57). Keep the tools in the repo (done) and never chain sleeps.",
+        "STALE STATE ON A RESTART. state.json still shows strategy 'T3X v1.0', wake.n/utc/phase ('DAY_LEG_BUY')/last frozen at 9/18-9/24, sessions_done 0, and a superseded 9/28 ranking and day_leg.rank. The STATUS.md blackouts line lists AMZU and MUU and omits the METU and AAPU blackouts in state.json. The STATUS thesis '+0.38%/night' is stale (about +0.33 through 10/15). §0 says to read state first on every wake, so a fresh agent could be misled. Clean these up.",
+        "AUDIT TRAIL. Broker ref_ids have not matched orders.jsonl since 10/12, and the broker order id is not stored even though the schema has an order_id field. Matching is heuristic. Write the broker order id back after each placement.",
+        "UNRECORDED CASH. A +$0.17 non-trade credit (9/29 to 9/30) appears in no ledger. Add a cash-flow ledger for distributions and interest, and check the NVDL 10/28 ex-date (probably a stale field) and any GraniteShares notice before the 10/27 15:52 entry.",
+        "PAUSE TRIGGER IS AMBIGUOUS. STATUS uses the all-time HWM of 107.11, an intraday all-cash value that is not in equity.csv (the EOD max there is 107.02, which would give PAUSE 85.62). §6 says 'rolling 20-session high', and that diverges once 10/12 leaves the window (around 11/9). Define which equity series and window the trigger uses.",
+        "DATA HYGIENE. state.json night_returns pct is on a mixed basis (per equity vs per invested, with no clean switch). trades.csv has no header, and its OVN column order changes at N08 and N12, which §8 does not document (it covers DAY rows only). Any future statistic built on these fields can be wrong without warning.",
+        "CONCENTRATION AT THE CAP. On 10/13 the whole bet was one fund (NVDX x5) at 97.1% of equity. This is allowed by v1.5/v1.6, but it is the maximum single-name gap exposure. A NVIDIA gap of about -6.2% then would have hit PAUSE.",
+        "GOVERNANCE. Trade approvals are OFF, and the agent rewrote its rules 4 times in about 28 hours on 10/13-10/14 without human sign-off. §3(g) now forbids changes on short drawdowns, but the human should explicitly confirm they accept agent-authored rule changes and the NVIDIA-only concentration."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Audit"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Critic"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "audit:ledger",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "aa6cce9c2e51fc085",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792157566488,
+      "queuedAt": 1792157566443,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Week 6 (Mon 10/12 to Fri 10/16) ledger reconciliation, read…",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792157866415,
+      "tokens": 145220,
+      "toolCalls": 24,
+      "durationMs": 299924,
+      "resultPreview": "{\"summary\":\"Week 6 (Mon 10/12 to Fri 10/16) ledger reconciliation, read-only, account 445788334. The broker pull (created_at_gte 2026-10-09T19:00Z) came back as one page with no 'next' cursor. It held 22 equity orders: 21 filled and 1 cancelled (the D12 take-profit, 6acce150, limit 47.86, cancelled at 15:49:02 ET). Every order matched exactly one intent line in orders.jsonl on symbol, side, qty, l…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "audit:compliance",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a34a148aba72dddf4",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792157566489,
+      "queuedAt": 1792157566444,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "I found no rule violations for Mon 10/12 to Fri 10/16. The …",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792158008527,
+      "tokens": 181268,
+      "toolCalls": 35,
+      "durationMs": 441302,
+      "resultPreview": "{\"summary\":\"I found no rule violations for Mon 10/12 to Fri 10/16. The broker returned 19 equity orders for account 445788334 since 2026-10-12T00:00Z, with no further pages. They are 9 overnight exits, 7 overnight entries and 3 TZA day-leg orders on 10/12 (buy, take-profit, 15:49 close). There were no rejects and no re-prices. Every order filled except the take-profit, which was cancelled at 15:49…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "audit:stats",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a9a3a151cb8e837ab",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792157868953,
+      "queuedAt": 1792157566444,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Verdict: yes. The live drawdown fits the strategy's own bac…",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792158400395,
+      "tokens": 166783,
+      "toolCalls": 36,
+      "durationMs": 531441,
+      "resultPreview": "{\"summary\":\"Verdict: yes. The live drawdown fits the strategy's own backtest, and it also fits a strategy with no edge at all. The data cannot tell the two apart yet.\\n\\nWork was read-only. The only broker calls were get_equity_historicals and get_equity_quotes (market data, no account), plus one get_earnings_calendar check. Nothing in /home/user/test-trading was changed; git --no-optional-locks s…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "audit:calendar",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a42e0d11e40a77a97",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792158010356,
+      "queuedAt": 1792157566444,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Forward calendar for the NVDA-2x overnight leg (NVDL/NVDX),…",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792158408967,
+      "tokens": 140593,
+      "toolCalls": 60,
+      "durationMs": 398610,
+      "resultPreview": "{\"summary\":\"Forward calendar for the NVDA-2x overnight leg (NVDL/NVDX), covering the 10 held nights from Mon 2026-10-19 to Fri 2026-10-30. I only read data: the broker's get_earnings_calendar, get_equity_fundamentals and get_equity_historicals on public symbols, plus web sources. No account-scoped broker tool was called. No repo file was touched and git status is clean. Scratch files are in /tmp/c…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "verify:ledger+compliance",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a948b9694ea4247f9",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792158410898,
+      "queuedAt": 1792158410858,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Mostly confirmed, with corrections. All fill, P&L, intent-m…",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792158883956,
+      "tokens": 199036,
+      "toolCalls": 35,
+      "durationMs": 473057,
+      "resultPreview": "{\"verdict\":\"Mostly confirmed, with corrections. All fill, P&L, intent-matching, timing, sizing, PDT and rule-version numbers recompute exactly from the broker data. Five things are refuted or corrected:\\n(1) The ledger misquotes the journal's cash figures. The journal has 106.63 and 107.11, not 106.62 and 107.10, and an exact-price rebuild gives 7.0143 where the journal says 7.02. The broker round…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify:stats+calendar",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ac07e23e58d1ad2ba",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792158410898,
+      "queuedAt": 1792158410859,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The analysis mostly holds up. I rebuilt the overnight serie…",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792158970578,
+      "tokens": 173543,
+      "toolCalls": 29,
+      "durationMs": 558708,
+      "resultPreview": "{\"verdict\":\"The analysis mostly holds up. I rebuilt the overnight series from the raw bars and they match the analysis's own CSV to within 5e-7. A bootstrap I wrote separately (different seed, 40,000 paths) gave every probability within about 1 point of the reported values. The live-record numbers also match trades.csv and equity.csv. The return definition is right: close(t) to open(t+1), labelled…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "critic",
+      "phaseIndex": 3,
+      "phaseTitle": "Critic",
+      "agentId": "a231a6d214d313312",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792158973569,
+      "queuedAt": 1792158973542,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "HARD CONSTRAINTS (absolute): You are strictly READ-ONLY. Never call any order-placing, order-cancelling, order-reviewing, approval, watchlist, alert, scan-mutating or advanced-order tool (e.g. place_equity_order, cancel_equity_order, review_equity_order, place_advanced_order, decline_trade_approval). Allowed broker tools: get_equity_orders, get_equity_positions, get_portfolio, get_equity_quotes, g…",
+      "promptFramed": true,
+      "lastProgressAt": 1792159270774,
+      "tokens": 141418,
+      "toolCalls": 20,
+      "durationMs": 297204,
+      "resultPreview": "{\"missing\":[\"THE $200 TARGET CHECK, WITH NUMBERS. Last week's report had one, and the human's goal depends on it. Getting from 97.45 to 200 needs +105.2% (last week it was +93%). At the rules' own planning edge (+0.30% a night on the invested part, about 86% invested) that takes about 279 nights, or about 311 once day-to-day swings are allowed for. That is roughly 1.1 to 1.25 years of held nights.…"
+    }
+  ],
+  "totalTokens": 1147861,
+  "totalToolCalls": 239
+}
