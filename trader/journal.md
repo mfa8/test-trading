@@ -107,3 +107,4 @@
 2026-10-16T12:59:07Z W-9 09:00 premkt NVDL b32.77 NVDX b18.42 (night27 ~-0.54); NVDA -0.22% QQQ -0.25% IWM +0.09%
 2026-10-16T13:15:07Z W-9 09:15 EXIT prep night27 NVDL2+NVDX1 (premkt ~-0.86: NVDL b32.65 NVDX b18.34); 0 open orders; crash-open shadow trigger not met (NVDA -0.4%, QQQ -0.16%)
 2026-10-16T13:31:39Z W-9 09:31 EXIT night27 NVDL 2 @32.6701 (lim 32.57; -0.62) + NVDX 1 @18.38 (lim 18.31; -0.16) = -0.78 (-0.9%); NVDA -0.5% at open. E 97.45 all cash; DD -9.0% from HWM 107.11; PAUSE 85.69 not hit. 4th straight losing night. Per §3(g): no rule change on short drawdowns. Continue.
+2026-10-16T14:00:06Z W-9 10:00 HB flat E 97.45 (cash); NVDL 32.65 NVDX 18.36; QQQ -0.97% IWM -0.07%; week6 audit workflow running (read-only)
