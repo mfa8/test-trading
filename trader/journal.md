@@ -123,3 +123,4 @@
 2026-10-19T13:33:03Z W-9 09:32 EXIT night28 (weekend): first limits NVDL 32.83 / NVDX 18.45 (bid 32.88/18.48 at 09:31:05) rested unfilled as NVDA faded from the open (premkt +2.1% -> +1.4%); §5 re-price at 60s: cancelled both (confirmed cancelled), re-placed at bid-0.3% NVDL 32.48 / NVDX 18.27 -> filled NVDL 2 @32.5714 (+0.82) + NVDX 1 @18.3001 (+0.21) = +1.04 (+1.3%). Premkt mark ~+3.0 vs realised +1.04 (open fade). E 98.48 all cash; DD -8.1% from HWM 107.11. Fill-cost shadow note: ~11s between quote and order at 09:31 (limits stale in a falling open).
 2026-10-19T14:00:06Z W-9 10:00 HB flat E 98.48 (cash); NVDL 32.39 NVDX 18.22; QQQ +1.13% IWM +0.17%
 2026-10-19T15:00:07Z W-9 11:00 HB flat E 98.48 (cash); NVDL 33.04 NVDX 18.57; QQQ +1.60% IWM +0.35%
+2026-10-19T16:00:06Z W-9 12:00 HB flat E 98.48 (cash); NVDL 33.55 NVDX 18.86; QQQ +1.91% IWM +0.71%
