@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-16T20:02:30Z",
-    "loop_note": "EOD 10/16 E 96.91; night28 marked -0.54; TZA shadow +1.01%",
+    "last_heartbeat_utc": "2026-10-19T11:55:00Z",
+    "loop_note": "07:47 analyst Mon 10/19: \u00a73(f) +0.331 hold; night28 premkt ~+1.95",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -212,7 +212,7 @@
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
     "strategy_version": "T3X v1.7 (NVDA-2x overnight core, NVDL-first sizing, edge-decay switch; day leg suspended)",
-    "ranking_asof": "2026-10-12",
+    "ranking_asof": "2026-10-19 (information only under v1.6)",
     "ranking": {
       "overnight": {
         "METU": 0.34,
@@ -269,6 +269,37 @@
       "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
       "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
       "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout)"
+    },
+    "edge_decay_checks": [
+      {
+        "date": "2026-10-19",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-10-15->10-16",
+        "value_pct_raw": 0.331,
+        "value_pct_clean": 0.318,
+        "t": 1.4,
+        "result": "POSITIVE -> overnight leg stays on",
+        "source": "week-6 audit series (independently rebuilt by verifier; research/edge_decay/)"
+      }
+    ],
+    "rank_20261019": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only \u2014 a second name needs a quarterly review + >=0.06 lead at 2 consecutive Mondays on executable ex-earnings prices",
+      "top30": {
+        "METU": 0.34,
+        "GGLL": 0.24,
+        "MSFU": 0.21,
+        "AAPU": 0.16,
+        "NVDL": 0.1,
+        "NVDX": 0.05
+      },
+      "NVDL_250": 0.13,
+      "file": "research/rank_20261019.json",
+      "leads_vs_core_ge_0.06": [
+        "METU +0.24",
+        "GGLL +0.14",
+        "MSFU +0.11",
+        "AAPU +0.06"
+      ]
     }
   },
   "account": {
@@ -468,21 +499,20 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-16",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-10-19",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "day_leg_done": true,
     "premarket": {
       "t": "07:47 ET",
-      "NVDL_bid": 32.82,
-      "NVDX_bid": 18.4,
-      "NVDA_chg_pct": -0.15,
-      "QQQ_chg_pct": -0.16,
-      "IWM_chg_pct": 0.17,
-      "TSM_chg_pct": -0.39,
-      "night27_marked": -0.46,
-      "E_broker": 97.87
+      "NVDL_bid": 32.94,
+      "NVDX_bid": 18.48,
+      "NVDA_chg_pct": 1.53,
+      "QQQ_chg_pct": 1.16,
+      "IWM_chg_pct": 0.5,
+      "night28_marked": 1.95,
+      "E_broker": 99.38
     },
     "trade_approval": {
       "human_must_approve_trades": false,
@@ -490,43 +520,10 @@
     },
     "day_leg": "SUSPENDED (v1.7) \u2014 shadow log only after close",
     "earnings_check": {
-      "note": "no NVDA/semis-peer event tonight; monthly OPEX today; NVDA 11/17 pm -> cash"
+      "note": "no NVDA/peer event tonight (night 10/19 quiet; VICR before open 10/20 minor); META/LRCX/TXN after close Wed 10/21; NVDA 11/17 -> cash"
     },
-    "plan": "09:31:05 exit night 27 (NVDL 2, NVDX 1); no day leg; 8-min loop; 15:52 entry night 28 v1.6; EOD + TZA shadow log; WEEK-T3X-6 weekly report",
-    "exit": {
-      "t": "09:31:14",
-      "NVDL": 32.6701,
-      "NVDX": 18.38,
-      "pnl": -0.78
-    },
-    "entry": {
-      "t": "15:52:08/15:52:23",
-      "night": 28,
-      "NVDL": {
-        "qty": 2,
-        "lim": 32.21,
-        "fill": 32.1599,
-        "ask": 32.16
-      },
-      "NVDX": {
-        "qty": 1,
-        "lim": 18.11,
-        "fill": 18.0868,
-        "ask": 18.08
-      },
-      "cost": 82.41,
-      "pct_E": 84.6,
-      "cash_left": 15.04
-    },
-    "eod": {
-      "t": "16:01:30",
-      "E": 96.91,
-      "marks": {
-        "NVDL": 31.94,
-        "NVDX": 17.99
-      },
-      "night28_mark": -0.54
-    }
+    "edge_decay": "+0.331 positive (hold)",
+    "plan": "09:31:05 exit night 28 (NVDL 2, NVDX 1); no day leg; 8-min loop; 15:52 entry night 29 v1.6; EOD + TZA shadow log"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
