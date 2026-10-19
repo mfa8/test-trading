@@ -129,3 +129,4 @@
 2026-10-19T19:00:06Z W-9 15:00 HB flat E 98.48 (cash); NVDL 32.91 NVDX 18.50; QQQ +1.36% IWM +0.29%
 2026-10-19T19:40:07Z W-9 15:40 PRE-ENTRY night29: cash 98.48 BP 98.48, 0 positions, 0 open orders; NVDL a33.22, NVDX a18.68; QQQ +1.55% IWM +0.44%
 2026-10-19T19:52:46Z W-9 15:52 ENTRY night29 (v1.6): NVDL 2 @32.9056 (lim 32.98, ask 32.93) + NVDX 1 @18.495 (lim 18.53, ask 18.50) = 84.31 (85.6% of E 98.48); cash 14.17; 0 open orders. Exit 09:31:05 Tue 10/20.
+2026-10-19T20:01:57Z W-9 16:02 EOD E 98.36 (cash 14.17 + NVDL2/NVDX1 84.19; night29 -0.12); day +1.45; TZA shadow #3: entry 50.4326 TP 50.94 hit 09:42 = +1.01%. report/DAY-20261019.md
