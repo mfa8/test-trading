@@ -135,3 +135,4 @@
 2026-10-20T13:16:06Z W-9 09:16 EXIT prep night29 NVDL2+NVDX1 (premkt ~-0.88: NVDL b32.56 NVDX b18.31); 0 open orders; crash-open shadow trigger not met (NVDA -0.4%)
 2026-10-20T13:31:39Z W-9 09:31 EXIT night29 NVDL 2 @32.3601 (lim 32.35; -1.09) + NVDX 1 @18.2007 (lim 18.20; -0.29) = -1.39 (-1.6%); NVDA -0.6% at open. E 97.09 all cash; DD -9.4% from HWM 107.11; PAUSE 85.69 not hit. Campaign 29 nights -5.02.
 2026-10-20T14:00:06Z W-9 10:00 HB flat E 97.09 (cash); NVDL 32.05 NVDX 18.03; QQQ -0.32% IWM +1.12%
+2026-10-20T15:00:07Z W-9 11:00 HB flat E 97.09 (cash); NVDL 33.10 NVDX 18.61; QQQ +0.49% IWM +2.01%
