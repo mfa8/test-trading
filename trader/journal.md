@@ -132,3 +132,5 @@
 2026-10-19T20:01:57Z W-9 16:02 EOD E 98.36 (cash 14.17 + NVDL2/NVDX1 84.19; night29 -0.12); day +1.45; TZA shadow #3: entry 50.4326 TP 50.94 hit 09:42 = +1.01%. report/DAY-20261019.md
 2026-10-20T11:47:19Z W-9 07:47 ANALYST Tue 10/20: repo in sync (5477435), tools present; broker NVDL 2 + NVDX 1, cash 14.17, 0 open orders, approvals off; premkt NVDL b32.34 NVDX b18.19 (night29 ~-1.44), NVDA -0.75% QQQ -0.62% IWM -0.20%; E_broker 97.04. Plan: exit 09:31, entry 15:52, EOD.
 2026-10-20T13:00:12Z W-9 09:00 premkt NVDL b32.46 NVDX b18.25 (night29 ~-1.13); NVDA -0.5% QQQ -0.43% IWM +0.01%
+2026-10-20T13:16:06Z W-9 09:16 EXIT prep night29 NVDL2+NVDX1 (premkt ~-0.88: NVDL b32.56 NVDX b18.31); 0 open orders; crash-open shadow trigger not met (NVDA -0.4%)
+2026-10-20T13:31:39Z W-9 09:31 EXIT night29 NVDL 2 @32.3601 (lim 32.35; -1.09) + NVDX 1 @18.2007 (lim 18.20; -0.29) = -1.39 (-1.6%); NVDA -0.6% at open. E 97.09 all cash; DD -9.4% from HWM 107.11; PAUSE 85.69 not hit. Campaign 29 nights -5.02.
