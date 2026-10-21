@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-21T19:52:40Z",
-    "loop_note": "15:52 entry night31 NVDL2@34.1999 + NVDX1@19.2199 = 87.62; cash 13.21",
+    "last_heartbeat_utc": "2026-10-21T20:02:00Z",
+    "loop_note": "16:02 EOD E 101.19; night31 held (+0.36 marked)",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -324,9 +324,9 @@
     }
   },
   "account": {
-    "equity": 100.74,
+    "equity": 101.19,
     "cash": 13.21,
-    "asof": "15:52 ET 2026-10-21 (NVDL2+NVDX1 cost 87.62; marked at bid)"
+    "asof": "16:01 ET 2026-10-21 (broker total 101.1892; NVDL2+NVDX1 marked 87.98; at bid 101.15)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -523,7 +523,7 @@
     "date": "2026-10-21",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "day_leg_done": true,
     "premarket": {
       "t": "07:47 ET",
@@ -572,6 +572,14 @@
       "cost": 87.62,
       "cash_after": 13.21,
       "note": "holds through META/LRCX/TXN after close"
+    },
+    "eod": {
+      "t": "16:01:30",
+      "E_broker": 101.19,
+      "E_bid": 101.15,
+      "day_chg": 4.18,
+      "night31_marked": 0.36,
+      "tza_shadow": "+1.02% (TP 10:05)"
     }
   },
   "schedule": {
@@ -864,6 +872,17 @@
         "at": "15:48",
         "ret_pct": -4.48,
         "ret_net015_pct": -4.63
+      },
+      {
+        "date": "2026-10-21",
+        "sym": "TZA",
+        "entry": 47.9621,
+        "tp": 48.45,
+        "exit": 48.45,
+        "how": "tp",
+        "at": "10:05",
+        "ret_pct": 1.017,
+        "ret_net015_pct": 0.867
       }
     ],
     "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"

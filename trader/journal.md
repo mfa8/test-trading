@@ -196,3 +196,4 @@
 2026-10-21T19:32:06Z W-9 15:32 scan flat: NVDA 221.21 QQQ +1.16% IWM +0.31%; NVDL 34.08
 2026-10-21T19:40:07Z W-9 15:40 pre-entry: broker cash 100.83, 0 open orders, approvals off; not blackout (NVDA 11/17), not PAUSE (85.69); NVDL a34.10 NVDX a19.17 NVDA 221.21 (+2.19%); night 31 holds through META/LRCX/TXN AMC
 2026-10-21T19:52:47Z W-9 15:52 ENTRY night31 NVDL 2 @34.1999 (lim 34.23, ask 34.17) + NVDX 1 @19.2199 (lim 19.25, ask 19.22) = 87.62 (86.9% of E); cash 13.21. Holds through META/LRCX/TXN AMC. Exit 09:31:05 Thu 10/22 with pre-mkt shadow quotes at 09:25/09:29.
+2026-10-21T20:02:04Z W-9 16:02 EOD: E 101.19 (bid 101.15), day +4.18; night31 held (+0.36 marked); TZA shadow #5 +1.02% (TP 10:05), 5-leg mean -1.09%; report DAY-20261021.md
