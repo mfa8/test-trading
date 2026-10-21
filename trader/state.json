@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-21T14:04:00Z",
-    "loop_note": "10:04 HB flat; E 100.83 cash; exec-timing workflow running",
+    "last_heartbeat_utc": "2026-10-21T15:00:10Z",
+    "loop_note": "11:00 HB flat E 100.83 cash: NVDA 220.08 (+1.67%) QQQ +0.81% IWM +0.36%; NVDL 33.74",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -837,6 +837,12 @@
     },
     "dst_end": "2026-11-01 (EST = UTC-5 from 11/2; use hb.py/bridge.py 'et' suffix)",
     "unexplained_cash": "+0.17 non-trade credit between 9/29 EOD and 9/30 07:47 (cash 26.16 -> 26.33, no orders) \u2014 source unknown; not in any ledger",
-    "week6_audit": "research/WEEK6-AUDIT-20261016.md"
+    "week6_audit": "research/WEEK6-AUDIT-20261016.md",
+    "exit_shadow": {
+      "since": "2026-10-22",
+      "rule": "RULES_v3 \u00a75 (2026-10-21)",
+      "procedure": "exit mornings: hb.py to 09:25et -> get_equity_quotes NVDL,NVDX (bid+ask+venue times) ; hb.py to 09:29et -> quotes again ; bridge 09:30:50et -> 09:31:05et quotes -> exit as usual; record state.today.exit_shadow {q0925,q0929,q093105,fill_t,fill_px} + one journal line. No orders from the shadow log.",
+      "review": "\u00a73(g) 40-night: switch to 09:29 pre-mkt exit only if mean(09:29 bid - 09:31 fill) >= +10bp with t >= 2"
+    }
   }
 }
