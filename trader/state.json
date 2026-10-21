@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.7 Overnight Engine (NVDA-2x core; day leg suspended)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 30 closed 09:31 10/21 (+3.75); day leg suspended; entry night 31 15:52",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 31 NVDL 2 @ 34.1999 + NVDX 1 @ 19.2199 (15:52 Wed 10/21, v1.6); exit 09:31:05 Thu 10/22 (pre-mkt shadow log 09:25/09:29)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-21T19:00:09Z",
-    "loop_note": "15:00 HB flat E 100.83 cash: NVDA 220.82 (+2.01%) QQQ +0.94% IWM +0.09%; NVDL 33.97 NVDX 19.09; entry plan night31 ~NVDL 2 + NVDX 1",
+    "last_heartbeat_utc": "2026-10-21T19:52:40Z",
+    "loop_note": "15:52 entry night31 NVDL2@34.1999 + NVDX1@19.2199 = 87.62; cash 13.21",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 30,
+    "nights_held": 31,
     "R_history": [],
     "night_returns": [
       {
@@ -324,9 +324,9 @@
     }
   },
   "account": {
-    "equity": 100.83,
-    "cash": 100.83,
-    "asof": "09:31 ET 2026-10-21 (all cash)"
+    "equity": 100.74,
+    "cash": 13.21,
+    "asof": "15:52 ET 2026-10-21 (NVDL2+NVDX1 cost 87.62; marked at bid)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -496,12 +496,33 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 2,
+      "entry": 34.1999,
+      "entry_t": "2026-10-21T15:52:06 ET",
+      "order_id": "6ad917e6-c7d8-43c7-99f9-74fa0474c9db",
+      "leg": "overnight",
+      "n": 31,
+      "basket_version": "v1.6"
+    },
+    {
+      "sym": "NVDX",
+      "qty": 1,
+      "entry": 19.2199,
+      "entry_t": "2026-10-21T15:52:21 ET",
+      "order_id": "6ad917f5-9a30-4964-bd5d-0cac0828d69e",
+      "leg": "overnight",
+      "n": 31,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-21",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -532,6 +553,25 @@
         "6ad8bea2-77d1-4a1e-8f2e-d6deb642f107",
         "6ad8bea3-2491-41e4-929d-db3236c124bc"
       ]
+    },
+    "entry": {
+      "t": "15:52:06/15:52:21",
+      "night": 31,
+      "NVDL": {
+        "qty": 2,
+        "lim": 34.23,
+        "fill": 34.1999,
+        "ask": 34.17
+      },
+      "NVDX": {
+        "qty": 1,
+        "lim": 19.25,
+        "fill": 19.2199,
+        "ask": 19.22
+      },
+      "cost": 87.62,
+      "cash_after": 13.21,
+      "note": "holds through META/LRCX/TXN after close"
     }
   },
   "schedule": {
