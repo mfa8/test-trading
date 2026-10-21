@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-21T13:31:30Z",
-    "loop_note": "09:31 exit night30 +3.75; flat; E 100.83",
+    "last_heartbeat_utc": "2026-10-21T14:04:00Z",
+    "loop_note": "10:04 HB flat; E 100.83 cash; exec-timing workflow running",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {

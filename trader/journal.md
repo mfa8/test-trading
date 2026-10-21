@@ -147,3 +147,8 @@
 2026-10-21T13:00:07Z W-9 09:00 premkt NVDL b33.81 NVDX b18.99 (night30 ~+2.81); NVDA +1.8% QQQ +0.57% IWM +0.37%
 2026-10-21T13:16:05Z W-9 09:16 exit-prep: no open orders; pos NVDL 2 NVDX 1 avail; premkt NVDL b33.84 NVDX b18.99 NVDA 220.4 (+1.8%)
 2026-10-21T13:32:54Z W-9 09:31 EXIT night30 NVDL 2 @34.1701 (lim 34.13; +2.92) + NVDX 1 @19.21 (lim 19.21, rested 14s on fading bid; +0.82) = +3.75 (+4.5%); NVDA +1.8% at open. E 100.83 all cash; DD -5.9% from HWM 107.11; PAUSE 85.69 not hit. Campaign 30 nights -1.27 (13W/17L). Best night of T3X so far.
+2026-10-21T13:40:05Z W-9 09:40 scan flat: NVDA 220.48 (+1.85%) QQQ +0.65% IWM +0.53% TZA 47.81; NVDL 33.87 (sold 34.17)
+2026-10-21T13:48:10Z W-9 09:48 scan flat: NVDA 220.31 QQQ +0.71% IWM +0.59%
+2026-10-21T13:49:30Z W-9 09:5x launched read-only workflow exec-timing-study (wf_f7a3b25d-17f): pre-market vs 09:31 exit, 15:52 vs alt entry; info-only, judged vs §3(g)
+2026-10-21T13:56:05Z W-9 09:56 scan flat: NVDA 220.22 (+1.73%) QQQ +0.59% IWM +0.56%; NVDL 33.77
+2026-10-21T14:04:08Z W-9 10:04 HB flat E 100.83 cash: NVDA 220.53 (+1.9%) QQQ +0.80% IWM +0.25%; NVDL 33.88
