@@ -143,3 +143,4 @@
 2026-10-20T19:40:06Z W-9 15:40 PRE-ENTRY night30: cash 97.09 BP 97.09, 0 positions, 0 open orders; NVDL a32.60, NVDX a18.32; QQQ -0.19% IWM +1.65%
 2026-10-20T19:52:46Z W-9 15:52 ENTRY night30 (v1.6): NVDL 2 @32.7085 (lim 32.76, ask 32.71) + NVDX 1 @18.3863 (lim 18.42, ask 18.39) = 83.80 (86.3% of E 97.09); cash 13.28; 0 open orders. Exit 09:31:05 Wed 10/21.
 2026-10-20T20:01:54Z W-9 16:02 EOD E 97.01 (cash 13.28 + NVDL2/NVDX1 83.73; night30 -0.07); day -1.35; TZA shadow #4: entry 50.7852 TP 51.30 -> 15:48 close 48.51 = -4.48% (shadow mean 4 legs -1.61%). report/DAY-20261020.md
+2026-10-21T11:47:40Z W-9 07:47 ANALYST Wed 10/21: repo in sync (78d6955), tools present (container kernel changed; repo+scratchpad intact); broker NVDL 2 + NVDX 1, cash 13.28, 0 open orders, approvals off; premkt NVDL b33.95 NVDX b19.07 (night30 ~+3.16), NVDA +2.0% QQQ +0.6% IWM +0.2%; E_broker 100.37. Plan: exit 09:31, entry 15:52 (night 31 holds through META/LRCX/TXN after close), EOD.
