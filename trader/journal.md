@@ -152,3 +152,4 @@
 2026-10-21T13:49:30Z W-9 09:5x launched read-only workflow exec-timing-study (wf_f7a3b25d-17f): pre-market vs 09:31 exit, 15:52 vs alt entry; info-only, judged vs §3(g)
 2026-10-21T13:56:05Z W-9 09:56 scan flat: NVDA 220.22 (+1.73%) QQQ +0.59% IWM +0.56%; NVDL 33.77
 2026-10-21T14:04:08Z W-9 10:04 HB flat E 100.83 cash: NVDA 220.53 (+1.9%) QQQ +0.80% IWM +0.25%; NVDL 33.88
+2026-10-21T14:13:03Z W-9 10:2x exec-timing workflow done (4 agents, both verifiers 'holds'): keep 09:31:05 exit + 15:52 entry; adopt pre-mkt 09:25/09:29 bid/ask shadow log from 10/22; pre-registered timing tests at 40-night review; RULES_v3 §1 post-market +0.77% claim corrected (~+10bp on 142 nights). research/EXEC-TIMING-20261021.md

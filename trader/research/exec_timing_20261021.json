@@ -1,0 +1,1037 @@
+{
+  "summary": "Read-only study: NVDL/NVDX exit timing (pre-market vs 09:31) and entry timing (15:52 vs alternatives), each adversarially verified",
+  "agentCount": 4,
+  "logs": [],
+  "result": [
+    {
+      "key": "exit",
+      "study": {
+        "summary": "Keep the 09:31:05 exit. No candidate exit time beats it on average once spreads are counted, and the 'fade' the agent has seen live is a feature of the last ~6 weeks only. Data: Robinhood keeps 5-minute bars back to 2026-02-23 and 1-minute bars back to 2026-09-08. Earlier requests return only interpolated bars, so the requested 6-12 months became about 8 months. Tier A uses 5-minute extended bars over 164 non-earnings mornings (2026-02-23..10-20). Over that sample, selling pre-market at 08:00/09:00/09:15/09:25/09:29:59 averaged -0.9 to -7.6 bp vs the 09:31:05 proxy before costs (NVDL; t -0.4 to -1.3; NVDX the same). The 09:30 open print was -0.6 bp. The later times were: 09:35 +1.6 bp (t 0.2), 09:45 -8.1 bp, 10:00 -7.4 bp. Pre-market bids sit about 8 bp (NVDL) and about 9-27 bp (NVDX) under the trade prints, while our live 09:31 fills land on the 09:31 1-minute OHLC4 (+0.3 bp, n=24). Net of that, a pre-market exit loses about 10-13 bp a night on the position (about -$0.09 to -$0.11 a night). Tier B uses exact 1-minute data over the last 31 mornings (09-08..10-20). There, pre-market and the open print beat 09:31 by +21 to +28 bp gross (best t=1.9) because prices dropped in the first minute after the open; net that is about +15 bp, or +$0.12-0.14 a night. That drop is absent from the 133 earlier mornings (open to 09:35 averaged +7 bp; by month it ranged -64 to +30 bp). I also tested the conditional idea 'if the pre-market gap-up is large, sell at 09:25'. In-sample (Feb-Jul, 109 mornings) big gaps did reverse (+5.9 bp per 1% gap, t 2.1), but the rule picked there (gap > 1%) lost -35 bp per triggered night out of sample (Aug-Oct, n=25, t -2.9). Out of sample, gaps kept going in the same direction instead. So there is no robust gap rule. Both ETFs are approved for extended-hours trading (all_day_tradability tradable) and depth is no problem for 3 shares. The pre-market spread is the cost, and NVDX trades in only 42-61% of pre-market minutes.",
+        "sample": {
+          "start": "2026-02-23",
+          "end": "2026-10-20",
+          "n_days": 164,
+          "excluded": "Mornings after NVDA earnings (Robinhood earnings calendar: NVDA reported 2026-02-25 pm, 05-20 pm, 08-26 pm), so exits on 2026-02-26, 2026-05-21 and 2026-08-27 were dropped (167 -> 164 mornings). Tier B (1-minute) = 31 mornings 2026-09-08..2026-10-20, no earnings inside. 2026-10-21 was used only to calibrate against the live fill. Gaps: Robinhood returns only interpolated bars for 5-minute data before 2026-02-23 and 1-minute data before about 2026-09-08 (checked on 2025-10/11, 2026-01-15, 02-17, 09-01). The full 6-12 month window was not available; 164 days meets the >=120 floor for 5-minute data only."
+        },
+        "comparisons": [
+          {
+            "name": "Tier A 5m: sell 08:00 pre-mkt vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -4.7,
+            "median_bp": -9.8,
+            "sd_bp": 108.7,
+            "t": -0.55,
+            "win_pct": 48.2,
+            "note": "gross; net of +8bp pre-mkt half-spread ~ -12.7bp. Proxy ref = o+0.22*(c-o) of the 09:30-09:35 bar"
+          },
+          {
+            "name": "Tier A 5m: sell 09:00 pre-mkt vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -3.5,
+            "median_bp": 0.8,
+            "sd_bp": 74,
+            "t": -0.61,
+            "win_pct": 51.2,
+            "note": "gross; net ~ -11.5bp"
+          },
+          {
+            "name": "Tier A 5m: sell 09:15 pre-mkt vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -7.5,
+            "median_bp": -4.6,
+            "sd_bp": 73.3,
+            "t": -1.31,
+            "win_pct": 46.3,
+            "note": "gross; net ~ -15.5bp"
+          },
+          {
+            "name": "Tier A 5m: sell 09:25 pre-mkt vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -4.4,
+            "median_bp": -6.8,
+            "sd_bp": 69.7,
+            "t": -0.81,
+            "win_pct": 47,
+            "note": "gross; vs 09:30 open instead: -3.8bp t -0.75; vs variance-weighted bridge (w=0.44): -5.0 t -0.75; trimmed-10% mean -5.0"
+          },
+          {
+            "name": "Tier A 5m: sell 09:29:59 (last pre-mkt trade) vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -0.9,
+            "median_bp": -1.1,
+            "sd_bp": 31.8,
+            "t": -0.38,
+            "win_pct": 47.6,
+            "note": "gross; net ~ -9bp"
+          },
+          {
+            "name": "Tier A 5m: 09:30 open print vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -0.6,
+            "median_bp": 0.1,
+            "sd_bp": 27.5,
+            "t": -0.28,
+            "win_pct": 50,
+            "note": "not reliably executable by a retail RH order; first-minute effective spread ~25-30bp (Roll)"
+          },
+          {
+            "name": "Tier A 5m: sell 09:35 vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": 1.6,
+            "median_bp": -0.3,
+            "sd_bp": 99.3,
+            "t": 0.2,
+            "win_pct": 50,
+            "note": "regular session, same cost; noise"
+          },
+          {
+            "name": "Tier A 5m: sell 09:45 vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -8.1,
+            "median_bp": -6.9,
+            "sd_bp": 147.6,
+            "t": -0.7,
+            "win_pct": 48.2,
+            "note": "adds variance; consistent with negative intraday drift"
+          },
+          {
+            "name": "Tier A 5m: sell 10:00 vs 09:31:05 proxy",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -7.4,
+            "median_bp": -5,
+            "sd_bp": 191.6,
+            "t": -0.5,
+            "win_pct": 48.8
+          },
+          {
+            "name": "Tier A 5m: sell 09:25 pre-mkt vs 09:31:05 proxy",
+            "symbol": "NVDX",
+            "n": 164,
+            "mean_bp": -4.6,
+            "median_bp": -3.6,
+            "sd_bp": 68.7,
+            "t": -0.85,
+            "win_pct": 47.6,
+            "note": "gross; NVDX pre-mkt half-spread ~9-27bp so net ~ -17bp; corr with NVDL 0.98"
+          },
+          {
+            "name": "Tier A 5m: sell 09:29:59 vs 09:31:05 proxy",
+            "symbol": "NVDX",
+            "n": 164,
+            "mean_bp": -2.4,
+            "median_bp": -0.8,
+            "sd_bp": 34.9,
+            "t": -0.9,
+            "win_pct": 48.8
+          },
+          {
+            "name": "Tier A 5m: sell 09:35 vs 09:31:05 proxy",
+            "symbol": "NVDX",
+            "n": 164,
+            "mean_bp": 3.1,
+            "median_bp": -0.8,
+            "sd_bp": 99.5,
+            "t": 0.39,
+            "win_pct": 50
+          },
+          {
+            "name": "Tier A 5m: sell 10:00 vs 09:31:05 proxy",
+            "symbol": "NVDX",
+            "n": 164,
+            "mean_bp": -8.3,
+            "median_bp": -6.6,
+            "sd_bp": 192.2,
+            "t": -0.55,
+            "win_pct": 48.2
+          },
+          {
+            "name": "Tier B 1m (Sep8-Oct20): sell 08:00 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 23.1,
+            "median_bp": 20.1,
+            "sd_bp": 136,
+            "t": 0.94,
+            "win_pct": 54.8,
+            "note": "recent window only"
+          },
+          {
+            "name": "Tier B 1m: sell 09:15 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 26.5,
+            "median_bp": 25.1,
+            "sd_bp": 101.3,
+            "t": 1.46,
+            "win_pct": 64.5
+          },
+          {
+            "name": "Tier B 1m: sell 09:25 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 23,
+            "median_bp": 14.2,
+            "sd_bp": 103,
+            "t": 1.24,
+            "win_pct": 58.1
+          },
+          {
+            "name": "Tier B 1m: sell 09:29 bar close vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 25,
+            "median_bp": 30.4,
+            "sd_bp": 75.1,
+            "t": 1.86,
+            "win_pct": 64.5,
+            "note": "largest pre-mkt t in the study; net ~+17bp; not significant after multiple comparisons"
+          },
+          {
+            "name": "Tier B 1m: 09:30 open print vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 21.1,
+            "median_bp": 25.3,
+            "sd_bp": 67.3,
+            "t": 1.75,
+            "win_pct": 67.7,
+            "note": "the recent 'open fade' is a first-minute drop; 09:31->10:00 flat"
+          },
+          {
+            "name": "Tier B 1m: 09:31 bar open vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 1.5,
+            "median_bp": 4.1,
+            "sd_bp": 26,
+            "t": 0.31,
+            "win_pct": 58.1
+          },
+          {
+            "name": "Tier B 1m: sell 09:33 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 2.6,
+            "median_bp": 5.1,
+            "sd_bp": 58.7,
+            "t": 0.25,
+            "win_pct": 51.6
+          },
+          {
+            "name": "Tier B 1m: sell 09:35 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": -1.7,
+            "median_bp": 6.9,
+            "sd_bp": 77.7,
+            "t": -0.12,
+            "win_pct": 54.8
+          },
+          {
+            "name": "Tier B 1m: sell 09:45 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 4,
+            "median_bp": 8.8,
+            "sd_bp": 118.4,
+            "t": 0.19,
+            "win_pct": 58.1
+          },
+          {
+            "name": "Tier B 1m: sell 10:00 vs 09:31 OHLC4",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": 2.8,
+            "median_bp": 12,
+            "sd_bp": 123.6,
+            "t": 0.13,
+            "win_pct": 54.8
+          },
+          {
+            "name": "Tier B 1m: sell 09:29 bar close vs 09:31 OHLC4",
+            "symbol": "NVDX",
+            "n": 31,
+            "mean_bp": 28.1,
+            "median_bp": 41.4,
+            "sd_bp": 81.1,
+            "t": 1.93,
+            "win_pct": 58.1
+          },
+          {
+            "name": "Tier B 1m: sell 09:25 vs 09:31 OHLC4",
+            "symbol": "NVDX",
+            "n": 31,
+            "mean_bp": 25.5,
+            "median_bp": 27.3,
+            "sd_bp": 104.5,
+            "t": 1.36,
+            "win_pct": 64.5
+          },
+          {
+            "name": "PORTFOLIO (78% NVDL/22% NVDX) Tier A: 09:25 pre-mkt exit, NET of spreads",
+            "symbol": "NVDL+NVDX",
+            "n": 164,
+            "mean_bp": -13.3,
+            "median_bp": -16,
+            "sd_bp": 69,
+            "t": -2.46,
+            "win_pct": 40,
+            "note": "gross -4.4bp t -0.82; net t mainly reflects the assumed cost (8bp NVDL, 12bp NVDX); ~ -$0.11/night at $85. Net median/sd/win approximate"
+          },
+          {
+            "name": "PORTFOLIO Tier A: 09:29:59 pre-mkt exit, NET",
+            "symbol": "NVDL+NVDX",
+            "n": 164,
+            "mean_bp": -10.2,
+            "t": -4.13,
+            "note": "gross -1.3bp t -0.52; ~ -$0.09/night"
+          },
+          {
+            "name": "PORTFOLIO Tier A: 09:35 exit, NET (no extra cost)",
+            "symbol": "NVDL+NVDX",
+            "n": 164,
+            "mean_bp": 1.9,
+            "median_bp": -2.7,
+            "t": 0.25,
+            "win_pct": 48.8,
+            "note": "~ +$0.016/night, noise"
+          },
+          {
+            "name": "PORTFOLIO Tier A: 10:00 exit, NET",
+            "symbol": "NVDL+NVDX",
+            "n": 164,
+            "mean_bp": -7.6,
+            "median_bp": -3.9,
+            "t": -0.51,
+            "win_pct": 49.4,
+            "note": "~ -$0.065/night"
+          },
+          {
+            "name": "PORTFOLIO Tier B (recent 31d): 09:29 close pre-mkt exit, NET",
+            "symbol": "NVDL+NVDX",
+            "n": 31,
+            "mean_bp": 16.8,
+            "t": 1.23,
+            "note": "gross +25.7 t 1.88 med 31.4 win 64.5%; ~ +$0.14/night IF the Sep-Oct regime persisted"
+          },
+          {
+            "name": "FADE Tier A ALL: gap(09:25 vs prior close)>+1%, sell 09:25 minus 09:31",
+            "symbol": "NVDL",
+            "n": 67,
+            "mean_bp": 0,
+            "median_bp": -2.6,
+            "sd_bp": 69.3,
+            "t": 0,
+            "win_pct": 49.3,
+            "note": "no unconditional fade of gap-ups over 164 mornings"
+          },
+          {
+            "name": "FADE Tier A IS (Feb23-Jul31): gap>+1%",
+            "symbol": "NVDL",
+            "n": 42,
+            "mean_bp": 15.8,
+            "median_bp": 23,
+            "sd_bp": 70.3,
+            "t": 1.46,
+            "win_pct": 59.5,
+            "note": "IS OLS slope +5.85bp per 1% gap (robust t 2.10) = mean reversion in-sample; IS gap<-1%: -25.8bp t -2.27"
+          },
+          {
+            "name": "FADE Tier A OOS (Aug3-Oct20): gap>+1%",
+            "symbol": "NVDL",
+            "n": 25,
+            "mean_bp": -26.6,
+            "median_bp": -26.8,
+            "sd_bp": 59.9,
+            "t": -2.22,
+            "win_pct": 32,
+            "note": "sign reversed out of sample (continuation); OOS slope -10.65bp per 1% (t -2.17)"
+          },
+          {
+            "name": "RULE IS-chosen 'gap>1% -> sell 09:25' evaluated OOS, net of 8bp",
+            "symbol": "NVDL",
+            "n": 25,
+            "mean_bp": -34.6,
+            "median_bp": -34.8,
+            "sd_bp": 59.9,
+            "t": -2.88,
+            "win_pct": 28,
+            "note": "IS net +3.0bp/night -> OOS -15.7bp/night. Same with open-print ref (-31.7 t -3.05); NVDX IS-chosen 1.5% -> OOS -41.4 t -3.6"
+          },
+          {
+            "name": "FADE Tier B (exact ref): gap>+1%, sell 09:25 minus 09:31",
+            "symbol": "NVDL",
+            "n": 15,
+            "mean_bp": 17.8,
+            "median_bp": 16.2,
+            "sd_bp": 96.4,
+            "t": 0.72,
+            "win_pct": 53.3,
+            "note": "recent window: pre-mkt beat 09:31 for ALL gap buckets (driven by first-minute drop), not specifically gap-ups"
+          },
+          {
+            "name": "LIVE calibration: 09:31 exit fill vs 09:31 1-min OHLC4",
+            "symbol": "NVDL",
+            "n": 24,
+            "mean_bp": 0.3,
+            "median_bp": 4.5,
+            "sd_bp": 30.1,
+            "t": 0.05,
+            "note": "fill vs inferred bid@09:31:05 -1.2bp (n=17); fills at ~the bid; 1 re-price (10/19, -82bp)"
+          },
+          {
+            "name": "LIVE calibration: 09:31 exit fill vs 09:31 1-min OHLC4",
+            "symbol": "NVDX",
+            "n": 11,
+            "mean_bp": 8.6,
+            "median_bp": 6.3,
+            "sd_bp": 37.3,
+            "t": 0.76,
+            "note": "10/19 re-price -79bp"
+          }
+        ],
+        "recommendation": "Keep the 09:31:05 marketable-limit exit unchanged (RULES_v3 §5). Do not adopt a routine pre-market exit (extended_hours limit sell at 08:00-09:29), an exit on the 09:30 open print, a later regular-session exit (09:33-10:00), or a gap-conditional 'sell pre-market if gap > X%' rule. Reasons: (1) Over 164 mornings, pre-market prints averaged 1-8 bp below the 09:31 proxy before costs. Pre-market bids cost about another 8 bp (NVDL) and 9-27 bp (NVDX), so a pre-market exit expects to lose about 10-13 bp a night on the position, about -$0.09 to -$0.11 a night at about $85. (2) Later regular-session exits show nothing beyond noise (09:35 +2 bp, t 0.25; 09:45 and 10:00 -7 to -8 bp with 2-3x the variance). (3) The live opening fades are real for Sep-Oct 2026: open to 09:31 averaged -21 bp over 31 mornings, t 1.75. The previous 133 mornings did not show it (open to 09:35 +7 bp), and by month that drift swings between -64 and +30 bp. (4) An in-sample gap rule reversed out of sample (OOS -35 bp per triggered night, t -2.9). This matches §3(g): no rule changes on short windows. Two optional, low-cost items (no change to timing): (a) Shadow-log the NVDL/NVDX bid AND ask at 09:25 and 09:29 every exit morning, with no orders. That builds a real pre-market spread record so the study can be re-run on 1-minute data at the pre-registered ~40-night review (mid-December) or once there are 120 or more 1-minute mornings. (b) A marketable sell limit fills at the best bid anyway, so the first limit's buffer is a cap, not a cost. Widening the first cap (e.g. bid - 0.5%) and re-quoting immediately before sending would have avoided the 10/19 rest-then-re-price episode (about -80 bp, about $0.69 that night). That is worth about +$0.01-0.03 a night amortized, but it rests on a single event (low confidence).",
+        "expected_gain_per_night_usd": 0,
+        "spreads_bp": "No historical quotes are available, so these are estimates, each labeled with its source. PRE-MARKET: journal bids compared with trade prints in the same +-2 minutes give an implied half-spread. NVDL: median 8.0 bp (mean 8.9, n=12) at 07:47-08:00 and median 6.6 bp (n=10, noisy, some '~' bids) at 09:00-09:16. NVDX: median 26.8 bp (n=5) at 07:47-08:00 and median 9.0 bp (n=7) at 09:00-09:16. 1-minute Roll full-spread estimates are rough: NVDL 4-9 bp pre-market; NVDX 0-10 bp (unreliable). NVDX trades in only 40-61% of pre-market minutes (median about 400-700 shares/minute), against 65-83% for NVDL (about 700-1100 shares/minute). At the open (09:30-09:34) Roll gives NVDL 29 bp and NVDX 27 bp full, but that figure includes volatility. Volume at the open is about 59k shares/minute (NVDL) and 12k (NVDX). Later Roll readings: 09:35-09:59 about 12-13 bp, 10:00-10:29 about 7 bp. Live quotes today at 09:49/09:59 ET: NVDL 33.79/33.80 and 33.95/33.96 (1 cent, ~3 bp); NVDX 19.00/19.01 and 19.09/19.10 (1 cent, ~5 bp). OUR COSTS: the 09:31 exit fill vs the 09:31 1-minute OHLC4 is NVDL +0.3 bp (n=24) and NVDX +8.6 bp (n=11). Fill vs the bid inferred from the order limit is NVDL -1.2 bp and NVDX +0.5 bp, so we sell at about the bid. The limit buffer is not paid. The 15:52 entry fill vs the 15:52 OHLC4 is NVDL -0.3 bp and NVDX -1.1 bp (sd 7). Cost model used for net figures: pre-market +8 bp NVDL, +25 bp NVDX before 09:00 and +12 bp from 09:00 to 09:29; open print +7 bp (uncertain); 09:33 and later 0 bp. At $85 (2 NVDL + 1 NVDX), 10 bp is about $0.085 a night.",
+        "live_calibration": "The 09:31 1-minute OHLC4 tracks our real exit fills: NVDL mean +0.3 bp, median +4.5, sd 30, n=24 exits (2026-09-10..10-21); NVDX +8.6 bp, median +6.3, sd 37, n=11. Most of the scatter comes from timing within the minute (orders went out at 09:31:08-13). The bid inferred at about 09:31:05 sits 4-8 bp above the minute OHLC4, because prices kept falling within 09:31 in the recent window (09:31 close was about 4-6 bp under the OHLC4). The worst case was 10/19, when the first limits went stale and rested, then were re-priced at 60 s: -82 bp NVDL and -79 bp NVDX vs the OHLC4, about -$0.69. The best case was 10/15: +71 bp. The 10/21 exit (outside the sample) was NVDL +5 bp and NVDX -0.5 bp. 15:52 entries fill within about 1 bp of the 15:52 OHLC4. The 5-minute and 1-minute data match exactly on the 31 overlapping mornings. The 5-minute-based 09:31:05 proxy (open + 0.22*(close - open)) carried a +17 bp bias (RMSE 56 bp) in the recent window. Tier A conclusions change by less than 2 bp across the reference choices: open print, variance-weighted bridge w=0.44, or 5-minute OHLC4.",
+        "caveats": [
+          "Data history is short: 5-minute bars start 2026-02-23 and 1-minute bars about 2026-09-08 (Robinhood returns only interpolated bars before that). The long sample is 164 mornings at 5-minute resolution. Exact 09:31 data covers only 31 mornings, all inside the most recent regime.",
+          "Tier A cannot observe 09:31:05. It uses a Brownian-bridge interpolation inside the 09:30-09:35 bar, which was biased +17 bp (RMSE 56) on the Tier B window. The conclusions hold with the open print and with 09:35 as references, but sub-5-minute structure before September is unknown.",
+          "Pre-market price = last trade at or before T. NVDX is thin pre-market (trades in 42-61% of minutes; last trade up to 10-23 minutes old on a few days). Historical bids/asks are unavailable. The pre-market spread estimate rests on 22 NVDL and 12 NVDX journal bids (some approximate '~'), with no asks.",
+          "Net t-stats for pre-market exits in Tier A (-2 to -4) mostly reflect the cost subtracted; gross differences are statistically zero (|t| <= 1.3). The conclusion is 'no gain, plus a cost', not 'a significant loss'.",
+          "Multiple comparisons: about 200 tests across 10 times x 3 references x 2 symbols x 2 tiers x 6 gap buckets x IS/OOS x 8 thresholds. The best pre-market result (t 1.9, Tier B) would not survive any correction. NVDL and NVDX correlate 0.97-0.99 per day, so NVDX is not independent confirmation.",
+          "Regime instability: open-to-09:35 drift by month ranged from -64 to +30 bp. Sep-Oct 2026 shows a real first-minute drop (open to 09:31 -21 bp, t 1.75; October -49 bp open to 09:35). If it persists, a pre-market exit would gain about +$0.12-0.14 a night. The longer sample says it usually does not persist.",
+          "Gap-conditional results flip sign between IS (mean reversion, slope +5.9 bp per 1%, t 2.1) and OOS (continuation, slope -10.7, t -2.2). Any threshold rule is data-mined. OOS buckets are small (gap<-2%: n=8).",
+          "The 09:30 open print is a theoretical candidate. Retail Robinhood orders queued for the open are not guaranteed the opening-cross price, and first-minute effective spreads are about 25-30 bp (Roll).",
+          "Tradability verified read-only on ****8334: NVDL and NVDX have all_day_tradability = tradable (extended-hours and all-day limit orders allowed) and extended_hours_fractional = false (whole shares are fine). I did not verify Robinhood's exact pre-market session start time with a tool. A pre-market sell of shares bought the previous afternoon is not a day trade.",
+          "Prices are split-adjusted (NVDL shows fractional adjusted prices early in 2026). Within-morning ratios are unaffected. Gap buckets use the prior official daily close and are unadjusted for distributions; no NVDL/NVDX ex-date fell on a sampled morning as far as the per-day NVDL-NVDX consistency check shows.",
+          "Several files (basket_usd.py, entry_timing.py, raw1/raw5, verify_entry/, daily.json at the top level) appeared in the scratch dir from a sibling workflow agent. I did not touch them, and my inputs were verified unchanged."
+        ],
+        "files": [
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s01_extract.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s02_build.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s03_stats.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s04_spreads.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s05_live.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s06_fade.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s07_consistency.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s08_summary.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/m5.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/m1.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/tierA.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/tierB.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/live_exits.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s03_out.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/s06_out.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/raw/m5",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/raw/m1",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/raw/day/daily.json"
+        ]
+      },
+      "verdict": {
+        "verdict": "holds",
+        "issues": [
+          "Headline numbers reproduce. I pulled fresh Robinhood bars myself (5-minute extended 2026-02-23..10-20, 1-minute extended 2026-09-08..10-21, daily bars, and NVDA earnings via get_earnings_results), converted UTC to ET with zoneinfo, and dropped interpolated bars. All 167 days have a 09:30 'reg' bar and no session label disagrees with the ET clock, so there is no DST or bar-start error. Sample: 164 mornings in Tier A and 31 in Tier B after removing the 02-26, 05-21 and 08-27 exits (NVDA reported 02-25, 05-20 and 08-26 after the close, confirmed). Tier A results (09:25, 09:29:59, open, 09:35 and 08:00 vs the 09:31:05 proxy) and Tier B results (09:29 close and open vs the 09:31 OHLC4) match the study to 0.1 bp.",
+          "Data limits confirmed. 1-minute bars before 2026-09-08 and 5-minute bars before 2026-02-23 come back interpolated: I checked 08-04, 09-01, 09-02..04 and 02-20, in both 'regular' and 'extended', and 30-second bars too. 15-second bars exist only from about 2026-10-14, so there is no longer exact sample.",
+          "Tier A holds under every reference I tried. NVDL 09:25 vs reference, gross: bridge -4.4 (t -0.81), 09:30 open -3.8, (o+c)/2 -5.1, 5-minute OHLC4 -2.5, 09:35 -6.0. All |t| are below 1.4 and Wilcoxon p is above 0.15.",
+          "The main loophole I tested was whether the 5-minute proxy hides a first-minute drop in earlier months. It does not change the answer. In Tier B the open-to-09:31:05 drop (-20 bp) carried through to 09:35 (-19 bp; slope 1.06, corr 0.56), so a drop like that would show in 5-minute bars. Before Sep 8 (n=133), open to 09:35 was +7.2 bp. Pre-market still lost even under the worst-case assumption that the whole open-to-09:35 move happened in the first minute: 09:25 vs 09:35 -12.3 bp, 09:29:59 vs 09:35 -8.5 bp.",
+          "Tier B with my own references is a bit stronger than the study says, but it is entirely an October effect. NVDL 09:29 close vs a 09:31:05 bridge (o31 + 5/60*(c31 - o31)) is +24.0 bp (t 2.10, Wilcoxon p 0.06, bootstrap 95% CI +1.7..+45.7). Against the 09:31 open it is +23.6 (t 2.10), and the open print is +20.1 (t 2.02). Split by month: September (n=17) +5.2 bp, October (n=14) +46.9 bp. Nominal p 0.044 becomes about 0.44 after a Bonferroni correction for about 10 candidate times, and NVDX (corr about 0.98) is not independent confirmation.",
+          "Overstated claim: the gap-rule out-of-sample failure. The study's -34.6 bp net (t -2.88, n=25) uses the 5-minute bridge proxy, which reads 16-17 bp too high in Sep-Oct. On the 15 out-of-sample trigger days that have exact 1-minute data (Sep 8+), the IS-chosen rule (gap > 1%, sell at 09:25) made +8.7 bp net (t 0.39). Gross it was +16.7 vs 09:31:05, against -4.0 with the proxy on the same days. The out-of-sample loss rests on 10 August mornings: -60 bp vs the proxy and -50 vs the open, so it does hold across references there. The conclusion 'no robust gap rule' still stands (the sign flips between periods), but 'fails out of sample at t -2.9' overstates the evidence.",
+          "Undercount of re-prices in the live calibration. The study's s05_live.py reads order times only from key 't', but the 86 orders.jsonl records before about 09-21 use 'ts'. So it missed the 2026-09-14 exit, where the first limit was 31.40 against a 31.45 bid, it rested, was re-priced and filled at 31.2101 (-59 bp vs the 09:31:05 bridge). That makes 2 rest-and-re-price exits in 24 NVDL exits, not 1. The other is 10/19 at -115 bp vs 09:31:05 (the study says -82 vs OHLC4). Amortized that is about -7 bp a night (about $0.06), not $0.01-0.03. It strengthens item (b) somewhat but is still only 2 events.",
+          "Live counterfactual is inconclusive. Selling at the 09:29 pre-market print minus 8 bp, compared with our actual fills: NVDL +17.7 bp (t 0.99, n=24); +10.1 without the 10/19 re-price. NVDX -19.0 bp (n=11).",
+          "Spread costs are roughly right but rest on thin evidence. My estimate is the journal bid vs the last 1-minute print at or before the same minute. NVDL: median 9.8 bp before 09:00 (n=12) and 6.0 bp from 09:00 to 09:16 (n=11, range -42 to +28, noisy). NVDX: 14.8 bp (n=7) and 12.6 bp (n=10). Every observation comes from 10/08-10/21 and none from 09:25-09:29. The study's 8 bp NVDL / 12 bp NVDX cost model is plausible to within about 5 bp. That does not decide anything: Tier A gross is about 0, and Tier B gross (+24) exceeds any plausible cost.",
+          "Minor issues. (a) The month range for open to 09:35 includes Feb 2026 with n=4, so the extreme monthly figure (+64 / -64 bp depending on sign) comes from 4 mornings. (b) The study's 09:45/10:00 figures use the 09:40/09:55 bar closes; using the 09:45/10:00 bar opens gives -7.5 and -8.5 bp, close to its -8.1 and -7.4. (c) Live orders were sent at 09:31:08-14, not 09:31:05, so on fast mornings the 'bid at 09:31:05' is already stale.",
+          "No problems with survivorship, look-ahead or overlap. The gap uses the 09:25 price and the prior official close; the official close matches the prior day's 15:55 5-minute close (median 0 bp; worst case 60 bp on NVDL 02-27). Mornings do not overlap, and the IS/OOS split is chronological. The multiple-comparison risk is real and the study acknowledges it.",
+          "Verifier files (not an issue): scripts /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/verify_exit/v01_load.py, v02_tables.py, v03_stats.py, v04_gap.py, v05_live.py, v06_tierB_robust.py, v07_spread.py; outputs v03_out.txt, v04_out.txt, v05_out.txt, v06_out.txt, v07_out.txt, vA.csv, vB.csv, bars.pkl; raw data in raw1/, raw5/, rawday/ (all under /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/verify_exit/). Everything was read-only: no files under /home/user/test-trading were modified and no order, watchlist or alert tools were called."
+        ],
+        "adjusted_recommendation": "Adopt the core recommendation: keep the 09:31:05 marketable-limit exit, and adopt no pre-market, open-print, later (09:33-10:00) or gap-conditional exit. Over 164 mornings, pre-market is about equal to 09:31 before costs under every reference, including the worst case for the earlier months, and costs another 6-15 bp in spread. The recent advantage (+24 bp gross, t 2.1) comes from 14 October mornings (Sep +5, Oct +47) and does not survive a multiple-comparison correction.\n\nAdopt the shadow log now, since it costs nothing. Each exit morning, record NVDL and NVDX bid and ask, with timestamps, at 09:25, 09:29 and 09:31:05, plus the fill time and price. Stop citing the gap-rule out-of-sample t of -2.9 as strong evidence. The honest statement is 'sign unstable across subperiods; the exact data on Sep-Oct triggers was +9 bp net, n=15'.\n\nDefer item (b), widening the first exit cap, to the pre-registered 40-night review (mid-December). It now has 2 events (9/14 and 10/19, about -7 bp a night amortized, about $0.06), not 1, but n=2 is still anecdotal. Re-quote right before sending, since orders currently go out at 09:31:08-14.\n\nFix the review test in advance so it cannot be data-mined. At the review, switch to a pre-market (09:29) exit only if the fresh nights after 10/21 show a mean of shadow-logged 09:29 bid minus the actual 09:31 fill of at least +10 bp with t of at least 2. Otherwise keep 09:31:05. Re-run the timing study once there are 120 or more 1-minute mornings (about March 2027). Expected gain of any timing change today: $0 a night.",
+        "confidence": "Medium-high that no exit-timing change should be made now. All headline numbers reproduce exactly, and the conclusion holds across 5 reference choices and the worst-case intra-bar path. Low confidence in any statement about sub-5-minute behaviour before September (it cannot be observed) and in the size of the pre-market spread (about 40 journal bids, all from Oct 8-21, none at 09:25-09:29).",
+        "recomputed": [
+          {
+            "name": "Tier A NVDL sell 09:25 vs 09:31:05 bridge proxy (n=164, gross bp)",
+            "my_value": "-4.4 (sd 69.7, t -0.81, med -6.8, win 47.0%)",
+            "study_value": "-4.4 (t -0.81)",
+            "match": true
+          },
+          {
+            "name": "Tier A NVDL 09:29:59 last pre-mkt trade vs proxy",
+            "my_value": "-0.9 (t -0.38)",
+            "study_value": "-0.9 (t -0.38)",
+            "match": true
+          },
+          {
+            "name": "Tier A NVDL 09:30 open print vs proxy",
+            "my_value": "-0.6 (t -0.28)",
+            "study_value": "-0.6 (t -0.28)",
+            "match": true
+          },
+          {
+            "name": "Tier A NVDL 09:35 vs proxy",
+            "my_value": "+1.6 (t 0.20)",
+            "study_value": "+1.6 (t 0.2)",
+            "match": true
+          },
+          {
+            "name": "Tier A NVDL 10:00 vs proxy (mine: 10:00 bar open; study: 09:55 bar close)",
+            "my_value": "-8.5 (t -0.57)",
+            "study_value": "-7.4 (t -0.5)",
+            "match": true
+          },
+          {
+            "name": "Tier A NVDL 09:25 vs alternative refs (open / (o+c)/2 / 5m OHLC4 / 09:35)",
+            "my_value": "-3.8 / -5.1 / -2.5 / -6.0 (all |t|<0.8)",
+            "study_value": "'changes <2bp across refs'",
+            "match": true
+          },
+          {
+            "name": "Tier A pre-Sep8 (n=133) worst-case: 09:29:59 vs 09:35 and 09:25 vs 09:35",
+            "my_value": "-8.5 (t -0.75) and -12.3 (t -1.0); open->09:35 drift +7.2",
+            "study_value": "open->09:35 +7 bp in 133 earlier mornings",
+            "match": true
+          },
+          {
+            "name": "Tier B NVDL 09:29 close vs 09:31 1m OHLC4 (n=31)",
+            "my_value": "+25.0 (sd 75.1, t 1.86, med 30.4, win 64.5%)",
+            "study_value": "+25.0 (t 1.86)",
+            "match": true
+          },
+          {
+            "name": "Tier B NVDL 09:29 close vs exact 09:31:05 bridge (different ref)",
+            "my_value": "+24.0 (t 2.10, Wilcoxon p 0.061, boot CI +1.7..+45.7); Sep n=17 +5.2, Oct n=14 +46.9",
+            "study_value": "n/a (study used OHLC4: +25.0 t 1.86)",
+            "match": true
+          },
+          {
+            "name": "Tier B NVDL 09:30 open vs 09:31 OHLC4 / vs 09:31:05",
+            "my_value": "+21.1 (t 1.75) / +20.1 (t 2.02)",
+            "study_value": "+21.1 (t 1.75)",
+            "match": true
+          },
+          {
+            "name": "5m bridge proxy bias on Tier B (proxy - exact 09:31:05)",
+            "my_value": "+16.1 bp NVDL (RMSE 49); +17.0 vs OHLC4 (RMSE 56)",
+            "study_value": "+17 bp (RMSE 56)",
+            "match": true
+          },
+          {
+            "name": "Portfolio 78/22 Tier A NET (8/12bp) 09:25 and 09:29:59",
+            "my_value": "-13.3 (t -2.46) and -10.2 (t -4.13)",
+            "study_value": "-13.3 (t -2.46) and -10.2 (t -4.13)",
+            "match": true
+          },
+          {
+            "name": "Gap>1% IS-chosen rule, OOS net (bridge proxy)",
+            "my_value": "-34.6 (t -2.88, n=25)",
+            "study_value": "-34.6 (t -2.88)",
+            "match": true
+          },
+          {
+            "name": "Gap>1% rule on OOS days with exact 1m ref (Sep8+, net of 8bp)",
+            "my_value": "+8.7 (t 0.39, n=15); same days with proxy: -12.0 net; the OOS loss comes from 10 August days (-60 vs proxy, -50 vs open)",
+            "study_value": "OOS failure stated as -35bp/night t -2.9 (proxy-based)",
+            "match": false
+          },
+          {
+            "name": "Live NVDL 09:31 exit fill vs 09:31 OHLC4 / vs 09:31:05 bridge (n=24)",
+            "my_value": "+0.3 (t 0.06) / -3.7 (t -0.48)",
+            "study_value": "+0.3 (n=24)",
+            "match": true
+          },
+          {
+            "name": "Number of rest-and-re-price exits in live sample",
+            "my_value": "2 of 24 NVDL exits (2026-09-14 -59bp, 2026-10-19 -115bp vs 09:31:05); ~-7bp/night amortized",
+            "study_value": "1 (10/19, -82bp vs OHLC4)",
+            "match": false
+          },
+          {
+            "name": "Pre-market NVDL half-spread from journal bids (median)",
+            "my_value": "9.8 bp pre-09:00 (n=12); 6.0 bp 09:00-09:16 (n=11); NVDX 14.8 / 12.6",
+            "study_value": "8.0 / 6.6 bp NVDL; NVDX 26.8 / 9.0",
+            "match": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "entry",
+      "study": {
+        "summary": "15:52 is not measurably worse than any entry time we can actually use between 15:30 and 16:15. I tested every candidate time against the 15:52 reference on 164 NVDA-2x nights from 2026-02-23 to 2026-10-20 (5-minute bars, NVDA earnings nights excluded). Each one is within ±5bp of 15:52, and none has |t| above 1. Results for NVDL, in bp (negative means a cheaper entry): 15:30 +3.9 (t 0.81), 15:45 -0.4, 15:50 +2.1, 15:55 -1.2, 15:59 last trade -2.5 (t -0.48), official close -1.6 (t -0.32), 16:01 -3.6, 16:05 -4.3 (t -0.72), 16:15 -4.2. NVDX looks the same, at +4.1 to -5.3bp, all |t| below 0.9.\n\nThe in-sample (Feb to Jul, n=109) and out-of-sample (Aug to Oct, n=55) halves disagree:\n- **In-sample:** later entries were not cheaper (close +0.8, 16:05 -2.2).\n- **Out-of-sample:** later entries were cheaper by 4 to 9bp (15:55 -4.4 with t -1.54; close -6.4 with t -0.96).\n\nNeither half is significant, and they do not agree with each other. The exact 1-minute data (31 nights, Sep 8 to Oct 20) agrees with the 5-minute proxies: correlation 0.94 to 0.97 for the late candidates, with a level offset of about 3bp. On those 31 nights the late entries are about 5 to 7bp cheaper, still with t about -0.5.\n\n**Last 8 minutes (15:52 to 16:00):** the price does not move consistently up or down. NVDL averages -1.6bp (median +5.8, 90% bootstrap CI -9.9 to +6.3); NVDX averages -4.3bp (t -0.82). I also tested one specific idea, that leveraged-ETF rebalancing pushes prices in the day's direction into the close. In-sample it looked real (+2.7bp per 100bp of day move, t 1.9), but out-of-sample it reversed (-1.6, t -1.0). So there is no rule like \"buy later on down days\".\n\n**First 15 minutes after the close (16:00 to 16:15):** this window contains none of the overnight gain. NVDL averages -2.6bp (t -0.83) and NVDX +0.2bp (t 0.08). This does not support entering before the close in order to catch the edge, and it does not support entering after the close either.\n\n**Where the overnight return does come from (NVDL, 142 nights with every segment available):**\n\n| Segment | bp |\n|---|---|\n| Close to 16:15 | -0.2 |\n| 16:15 to 17:00 | +4.0 |\n| 17:00 to 20:00 | +6.6 |\n| 20:00 to 04:00 | +11.1 |\n| 04:00 to 09:25 | +12.1 |\n| 09:25 to exit | -2.3 |\n| **Total** | **+30.9** |\n\nThe +0.77%/night post-market figure in RULES_v3 (from 25 nights) does not hold up over this longer sample.\n\n**Net value at our size:** at about $85 invested (78% NVDL, 22% NVDX), the most favourable alternatives save very little. Entering at 15:59 saves about 2.5bp, or $0.02/night (90% CI -$0.09 to +$0.05). A 16:05 post-market limit order saves about 4.9bp gross, or $0.04/night. That is before the wider post-market spread, which takes back roughly half of it.",
+        "sample": {
+          "start": "2026-02-23",
+          "end": "2026-10-20",
+          "n_days": 164,
+          "excluded": "NVDA earnings nights (pm reports, from get_earnings_results): entries 2026-02-25, 2026-05-20, 2026-08-26. The 5-minute history before 2026-02-23 is not available: the server returns only interpolated placeholder bars, and January to mid-February were all placeholders. The 1-minute history starts 2026-09-08, so the exact 1-minute validation covers 31 nights (2026-09-08 to 2026-10-20, exits through 10/21 09:31). NVDX 16:05 and 16:15 are missing on 2 nights (no trade within 10 minutes). Out-of-sample split: in-sample is the first 2/3 (2026-02-23 to 2026-07-31, n=109), out-of-sample the last 1/3 (2026-08-03 to 2026-10-20, n=55). 5-minute proxies: 15:52 reference = OHLC4 of the 15:50 bar (+2.9bp vs the exact 1-minute OHLC4(15:52), sd 17.6). 15:30/15:45/15:50/15:55/16:05/16:15 = bar open. 15:59 = 15:55-bar close. 16:01~ = OHLC4 of the 16:00 post-market bar. Close = official daily close. Exit = OHLC4 of the 09:30 5-minute bar, which reads about +9 to +11bp above the exact 1-minute OHLC4(09:31) on the 31 overlap nights; this offset is the same for every entry time."
+        },
+        "comparisons": [
+          {
+            "name": "15:30 vs 15:52 entry cost (5-minute, all)",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": 3.9,
+            "median_bp": -2.3,
+            "sd_bp": 61.3,
+            "t": 0.81,
+            "win_pct": 51,
+            "note": "win% = share of nights cheaper than 15:52. Overnight to 09:31: +16.1bp (t 0.78)."
+          },
+          {
+            "name": "15:45 vs 15:52 entry cost",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -0.4,
+            "median_bp": -5.2,
+            "sd_bp": 37.4,
+            "t": -0.15,
+            "win_pct": 54,
+            "note": "Overnight +20.2bp (t 0.99)."
+          },
+          {
+            "name": "15:50 vs 15:52 entry cost",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": 2.1,
+            "median_bp": 2.8,
+            "sd_bp": 28.8,
+            "t": 0.93,
+            "win_pct": 46,
+            "note": "Overnight +17.7bp."
+          },
+          {
+            "name": "15:52 reference: overnight to 09:31 exit",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": 19.7,
+            "median_bp": 34.6,
+            "sd_bp": 260.6,
+            "t": 0.97,
+            "win_pct": 54,
+            "note": "Full overnight return from the current entry. In-sample +2.2bp, out-of-sample +54.4bp. The exit proxy reads about 9bp high."
+          },
+          {
+            "name": "15:55 vs 15:52 entry cost",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -1.2,
+            "median_bp": 1.6,
+            "sd_bp": 31.4,
+            "t": -0.47,
+            "win_pct": 48,
+            "note": "In-sample +0.5bp; out-of-sample -4.4bp (t -1.54), the largest |t| of all 54 tests. Overnight +21.0bp."
+          },
+          {
+            "name": "15:58 vs 15:52 (exact 1-minute OHLC4)",
+            "symbol": "NVDL",
+            "n": 31,
+            "mean_bp": -4.6,
+            "median_bp": -9.6,
+            "sd_bp": 54.2,
+            "t": -0.48,
+            "win_pct": 55,
+            "note": "1-minute data only."
+          },
+          {
+            "name": "15:59 last trade vs 15:52 (latest regular-session marketable limit)",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -2.5,
+            "median_bp": 3.6,
+            "sd_bp": 65.8,
+            "t": -0.48,
+            "win_pct": 47,
+            "note": "In-sample -0.3bp; out-of-sample -6.7bp (t -1.01). 1-minute exact: -5.9bp (n=31). Overnight +22.6bp."
+          },
+          {
+            "name": "Official 16:00 close vs 15:52 (= 15:52 to 16:00 drift)",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -1.6,
+            "median_bp": 5.8,
+            "sd_bp": 63.9,
+            "t": -0.32,
+            "win_pct": 47,
+            "note": "90% bootstrap CI -9.9 to +6.3bp; 5% winsorised mean 0.0. In-sample +0.8bp (t 0.12), out-of-sample -6.4bp (t -0.96). Not consistently up or down. The closing-auction print vs the 15:59 last trade is +0.9bp."
+          },
+          {
+            "name": "16:01 post-market (OHLC4 of 16:00 bar) vs 15:52",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -3.6,
+            "median_bp": -1.5,
+            "sd_bp": 64.9,
+            "t": -0.71,
+            "win_pct": 51,
+            "note": "Overnight +23.7bp. 1-minute exact: -7.2bp (n=30)."
+          },
+          {
+            "name": "16:05 post-market limit vs 15:52",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -4.3,
+            "median_bp": -3.4,
+            "sd_bp": 76.2,
+            "t": -0.72,
+            "win_pct": 51,
+            "note": "In-sample -2.2bp, out-of-sample -8.4bp (t -1.06). Gross figure; before an estimated +2 to 3bp extra half-spread in post-market."
+          },
+          {
+            "name": "16:15 post-market limit vs 15:52",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -4.2,
+            "median_bp": -2,
+            "sd_bp": 71.5,
+            "t": -0.76,
+            "win_pct": 52,
+            "note": "Overnight +24.4bp."
+          },
+          {
+            "name": "Post-close drift, close to 16:15",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": -2.6,
+            "median_bp": -5.1,
+            "sd_bp": 39.9,
+            "t": -0.83,
+            "win_pct": 42,
+            "note": "win% = share of nights up. 90% CI -7.7 to +2.5. In-sample -3.8bp, out-of-sample -0.2bp. The first 15 minutes after the close carry none of the edge."
+          },
+          {
+            "name": "Official close vs 15:52",
+            "symbol": "NVDX",
+            "n": 164,
+            "mean_bp": -4.3,
+            "median_bp": -1.6,
+            "sd_bp": 66.4,
+            "t": -0.82,
+            "win_pct": 51,
+            "note": "In-sample -1.7bp, out-of-sample -9.3bp (t -1.40). The auction print is -1.7bp vs the 15:59 last trade (t -2.0, a negligible amount)."
+          },
+          {
+            "name": "16:05 post-market vs 15:52",
+            "symbol": "NVDX",
+            "n": 162,
+            "mean_bp": -5.3,
+            "median_bp": -7.2,
+            "sd_bp": 76.6,
+            "t": -0.88,
+            "win_pct": 54,
+            "note": "NVDX prints in only 36 to 43% of post-market minutes (about 500 shares/min), so fill risk is real."
+          },
+          {
+            "name": "Post-close drift, close to 16:15",
+            "symbol": "NVDX",
+            "n": 162,
+            "mean_bp": 0.2,
+            "median_bp": -3.5,
+            "sd_bp": 40.5,
+            "t": 0.08,
+            "win_pct": 46,
+            "note": "No edge in the first 15 minutes after the close."
+          },
+          {
+            "name": "Basket (78% NVDL / 22% NVDX): 15:59 vs 15:52",
+            "symbol": "BASKET",
+            "n": 164,
+            "mean_bp": -2.5,
+            "median_bp": 3.1,
+            "sd_bp": 65.4,
+            "t": -0.49,
+            "win_pct": 48,
+            "note": "-$0.021/night at $85 (90% CI -$0.093 to +$0.050). In-sample -0.2bp, out-of-sample -7.1bp (t -1.07)."
+          },
+          {
+            "name": "Basket: 16:05 post-market vs 15:52",
+            "symbol": "BASKET",
+            "n": 162,
+            "mean_bp": -4.9,
+            "median_bp": -4.8,
+            "sd_bp": 76.2,
+            "t": -0.82,
+            "win_pct": 53,
+            "note": "-$0.042/night gross (90% CI -$0.126 to +$0.042); about -$0.02 after the extra post-market half-spread."
+          },
+          {
+            "name": "Conditional test: does the 15:52-to-close move follow the day's move?",
+            "symbol": "NVDL",
+            "n": 164,
+            "mean_bp": 1.41,
+            "t": 1.32,
+            "note": "mean_bp here = regression slope in bp per 100bp of move from the prior close to 15:52. Tests whether leveraged-ETF rebalancing pushes prices in the day's direction into the close. In-sample slope +2.68 (t 1.93); out-of-sample -1.56 (t -1.03), reversed. On days down 3% or more: in-sample -20.9bp, out-of-sample +4.4bp. Not usable."
+          },
+          {
+            "name": "Live 15:52 entry fills vs 1-minute OHLC4(15:52)",
+            "symbol": "NVDL",
+            "n": 24,
+            "mean_bp": -0.3,
+            "median_bp": 1,
+            "sd_bp": 7,
+            "t": -0.22,
+            "note": "Calibrates the reference: real marketable-limit fills sit about 0 to 1.5bp from OHLC4. NVDX: -1.1bp (n=11, sd 7.2)."
+          }
+        ],
+        "recommendation": "Keep the 15:52 entry and the §4 mechanics unchanged. Over 164 nights no other time from 15:30 to 16:15 is significantly cheaper.\n- **Tests run:** 54 (9 candidate times × 2 symbols × 3 samples). The largest |t| is 1.54, below even the single-test 1.96 threshold; a Bonferroni correction for 9 times would need about 2.8.\n- **What the 7-minute safety margin is worth:** a 15:59 marketable limit would have saved about 2.5bp on average, or about $0.02/night at $85 (90% CI -$0.09 to +$0.05). That is about $5 over 250 nights, with a CI of roughly ±$15.\n- **What it would cost:** the 15:55 re-price and 15:58 cancel loop would go. A missed night costs the expected overnight edge, about 20 to 30bp or $0.17 to $0.26. So a 15:59 entry loses money on average if it fails to fill on more than about 10% of nights.\n- **No reason to move into post-market:** the first 15 post-close minutes hold no edge (close to 16:15 is -2.6bp NVDL, +0.2bp NVDX). A 16:05 or 16:15 extended-hours limit order saves about 4 to 5bp gross (t about -0.8). An estimated extra 2 to 3bp of post-market half-spread takes back roughly half of that, NVDX fills are uncertain (it prints in only about 40% of post-market minutes), and the operational steps get more complicated.\n- **Out-of-sample:** the Aug to Oct result (later entries 4 to 9bp cheaper) is not significant and is not seen in Feb to Jul, so do not act on it.\n- **Optional, read-only:** at the §3(g) review, record NVDL/NVDX bid/ask quotes at 15:52, 15:59, 16:01, 16:05 and 16:15 for about 10 nights, to measure post-market spreads directly. Revisit entry timing only if a 15:52-to-close drift beyond ±10bp with t ≥ 2.5 shows up on at least 120 new nights.",
+        "caveats": [
+          "The 5-minute proxies are not the exact 1-minute definitions. The 15:52 reference is OHLC4 of the 15:50-15:55 bar, about 2.9bp above the exact value (sd 17.6). Bar opens stand in for 15:30/15:45/15:50/15:55/16:05/16:15. On the 31 overlap nights the proxies agree with the exact 1-minute values: correlation 0.94 to 0.97 for 15:59 onward, but only 0.6 to 0.9 for 15:30 to 15:55, with level offsets of about 2 to 4bp.",
+          "The exit proxy (OHLC4 of the 09:30 5-minute bar) reads about +9 to +11bp above the exact 1-minute OHLC4(09:31) (sd about 40bp). The full-overnight levels in the tables are therefore overstated by roughly that much. The proxy is the same for every entry time, so it does not change the ranking.",
+          "Minute-level history is short. 5-minute bars exist only from 2026-02-23 and 1-minute bars only from 2026-09-08. There is no data from before 2026 or from other market regimes, and the overnight edge itself was about 0 in-sample (Feb to Jul) and about +54bp out-of-sample (Aug to Oct).",
+          "Spreads are not directly observed for any historical time. Regular-session spreads use the 1c quote (NVDL 33.66/33.67, NVDX 18.93/18.94 at 09:53 ET 10/21; same 1c in the journal on 10/13). Post-market spreads come from a Roll estimator on 1-minute trade prices (about 8bp), which is noisy, and real post-market quoted spreads could be wider.",
+          "Average post-market volume is about 900 shares/min for NVDL and about 500 shares/min for NVDX, against roughly 18,000 at 15:5x. Our 1 to 2 share orders are tiny, but whether NVDX fills after 16:00 is untested.",
+          "The 15:59 candidate assumes a marketable limit fills at the last-trade price. Robinhood has no market-on-close order. A 15:59 regular-hours order that has not filled by 16:00 would have to be handled (cancel or extended-hours) with no time to re-price, and closing-auction prices can move.",
+          "Multiple comparisons: 54 tests (9 times × 2 symbols × 3 samples), and the conditional rebalance test was added after the fact. Under a null of no effect, a few |t| values around 1.5 are expected.",
+          "No live entry fills exist for any time other than 15:52. Live calibration covers only the 15:52 entries (NVDL n=24, NVDX n=11), whose fills sit within about 1bp of OHLC4(15:52). Live exits vs OHLC4(09:31): NVDL +0.4bp (sd 30), NVDX +8.6bp (sd 37); the 10/16 and 10/19 open fades cost about 80bp on the re-priced exits.",
+          "Distribution ex-dates were not adjusted (split adjustment only). This affects overnight levels on those nights only, not differences between entry times.",
+          "The NVDA earnings blackout uses the verified pm report dates 2026-02-25, 2026-05-20 and 2026-08-26 for the nights tested; the next report is 2026-11-17."
+        ],
+        "expected_gain_per_night_usd": 0.01,
+        "files": [
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/extract.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/entry_timing.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/drift_costs.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/basket_usd.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/out_main.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/out_drift.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/out_basket.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/daily.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/raw5",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/exec_timing/raw1"
+        ],
+        "spreads_bp": "Regular session, measured: 1c quotes. On 10/21 at 09:53 ET NVDL was 33.66/33.67 (3.0bp) and NVDX 18.93/18.94 (5.3bp); the journal shows the same on 10/13. A marketable limit therefore pays about 1.5bp (NVDL) or 2.7bp (NVDX) half-spread. Live 15:52 fills vs 1-minute OHLC4(15:52) average -0.3bp NVDL (n=24, sd 7) and -1.1bp NVDX (n=11), so the realised regular-session entry cost is about 0 to 2bp at any time from 15:30 to 15:59. Post-market, estimated only: there are no historical quotes. A Roll estimator on 1-minute trade prices from 16:01 to 16:30 gives about 8.0bp effective spread for NVDL and 7.7bp for NVDX, i.e. about 4bp half-spread, or about +2 to 3bp per entry vs the regular session. NVDL trades in 79% of 16:01-16:05 minutes and 71% of 16:05-16:15 minutes (median about 600 to 900 shares/min vs 18k/min at 15:50-15:59). NVDX trades in only 43% and 36% (about 500 shares/min). Exit side at 09:31: live fills vs OHLC4(09:31) average +0.4bp NVDL (sd 30) and +8.6bp NVDX (sd 37). The 09:30 opening print sits about 20bp above OHLC4(09:31) (t -1.6, n=31), which is the open fade.",
+        "live_calibration": "From trades.csv (read-only) against the 1-minute bars. NVDL 15:52 entries, 2026-09-09 to 10-20: fill minus OHLC4(15:52) = -0.3bp mean, +1.0 median, sd 7.0, n=24. NVDX: -1.1bp mean, sd 7.2, n=11. So the 15:52 OHLC4 reference is an unbiased stand-in for the real marketable-limit fill, within about ±1.5bp. Exits vs OHLC4(09:31): NVDL +0.4bp (sd 30, n=24) and NVDX +8.6bp (sd 37, n=11). On the faded-open nights the re-priced exits cost about -80bp: 10/16 entry exited 10/19 at 32.5714 vs OHLC4 32.84. On 10/14 the fill beat OHLC4 by 71bp. Entry slippage at 15:52 is small next to the ±30 to 60bp nightly noise in any entry-time difference, so no live evidence argues for another entry time."
+      },
+      "verdict": {
+        "verdict": "holds",
+        "issues": [
+          "I could not refute the study. I rebuilt it from my own Robinhood pulls and my own parser (verify_entry/v_load.py and v_entry.py; none of the study's scripts or data reused). With the study's reference (OHLC4 of the 15:50 5-minute bar), every headline cell matched exactly: NVDL 15:59 -2.5bp (t -0.48), close -1.6 (t -0.32), 16:05 first trade -4.3 (t -0.72), 16:15 -4.2 (t -0.76); NVDX close -4.3 (t -0.82), 16:05 -5.3 (t -0.88, n=162). With a different reference (a Brownian-bridge estimate of the price at 15:52, o+0.4(c-o) inside the 15:50 bar) and different candidate prices (last trade before each time; post-market = OHLC4 of the 16:05 or 16:15 bar), every comparison stays within ±6bp. The largest |t| over all 164 nights is 1.06, so the conclusion does not depend on how the prices are defined.",
+          "Sample and timestamps check out. NVDA pm report dates confirmed with get_earnings_results: 2026-02-25, 05-20, 08-26 (next is 11-17). Intraday history really starts 2026-02-23: a 10-minute request for Dec 2025 returns only interpolated placeholder bars, so the 164 nights cannot be extended. Session labels line up on both sides of the 2026-03-08 DST switch (09:30 = 'reg', 16:00 = 'post'). Daily bars are 00:00Z-stamped and must be keyed by the UTC date; the study does this correctly (10/20 NVDL close 32.66 matches). Using bar-start timestamps (15:55 bar close = 15:59:59 last trade) is correct. I found no look-ahead.",
+          "Not reported by the study: the small 'later is cheaper' estimate comes almost entirely from 4 index-rebalance or expiry closes. On 3/20, 5/29 (MSCI), 6/26 (Russell) and 9/18 the 15:52-to-close moves were about +36, -355, -240 and +177bp, so the signs are mixed. Excluding those 4 nights, NVDL 15:52-to-close is -0.3bp (t -0.07, median +3.1) and NVDX -3.1bp (t -0.66). That leaves nothing systematic to trade on.",
+          "Not reported by the study: the 15:50 and 15:55 5-minute bars are about twice as volatile as earlier bars (rms open-to-close move 55 and 51bp vs 25 to 29bp; the closing-imbalance window). The 15:52 entry sits inside that window, which is why every late candidate has sd 65 to 78bp. Entering before the imbalance window, at 15:49-15:50, was not cheaper (+0.8 to +1.9bp, not significant).",
+          "A bias in the 5-minute reference that favours keeping 15:52. On the 31 nights with 1-minute data, both 5-minute references sit about 3bp (NVDL) and about 5bp (NVDX) above the exact 15:52 1-minute open (sd 16 to 19). Live fills are -0.2bp from that 15:52 open (sd 5.2, n=24) but -6.2bp (t -1.88) from the 5-minute bridge reference. So the 5-minute tables probably make every later entry look about 3bp cheaper than it really is, and the true saving is closer to zero than reported.",
+          "The 1-minute check reproduces the study's numbers (n=31): 15:59 -6.2 (t -0.57), close -5.6 (t -0.51), 16:05 -5.3 (t -0.43). The 15:50-to-15:52 move does not predict the 15:52-to-close move (correlation -0.12 NVDL, -0.01 NVDX; exploratory, n=31).",
+          "Power is low and the study does not say so. The 15:52-to-close difference has a standard error of about 5.3bp, so the smallest effect it could reliably detect is about 15bp. 'Not measurably worse' therefore cannot rule out a saving of 5 to 10bp ($0.04 to $0.09/night). The point estimate for the 78/22 basket is only -2.2 to -3.6bp ($0.02 to $0.03/night), and the proxy bias above probably accounts for most of that.",
+          "Minor overstatement: 'the largest |t| is 1.54, below the single-test 1.96 threshold' covers only the 54 entry-cost cells. The same study also reports the NVDX auction print vs the 15:59 last trade at t -2.0 (I get -1.7bp, t -2.02) and an in-sample rebalance slope with t 1.93 (I get 2.49, t 1.69). Both are economically trivial and do not change the conclusion. The 54 tests are also strongly correlated, since 15:59, close, 16:05 and 16:15 all contain the same 15:52-to-close move. Bonferroni is therefore conservative, but the conclusion is the same either way.",
+          "The breakeven fill-failure rate for a 15:59 entry rests on an overnight edge that is itself weak. My 15:52-to-09:30-open return is NVDL +20.2bp (t 1.03): in-sample -0.8, out-of-sample +61.9. If the true edge is about 10bp, the breakeven miss rate rises from about 10% to about 25%. That makes a 15:59 entry slightly less risky, but its gain is still not significant.",
+          "Post-market spreads are still unobserved; the Roll estimate (about 8bp) is the only number. It is 10:00 ET now, so I could not see a post-market quote, and the journal has no post-market bid/ask records. NVDX traded in the exact 16:05 bar on only 152 of 164 nights and in the 16:15 bar on 141, so post-market fill risk for NVDX is real.",
+          "Side claims confirmed. Post-market drift is small: NVDL close-to-19:55 is +6.0bp (n=159, t 0.68, median -2.5; in-sample -5.5, out-of-sample +28.2), so RULES_v3's +0.77%/night post-market figure does not hold up. Close-to-16:15 is -2.0bp (t -0.63). The conditional rebalance slope reverses between halves (in-sample +2.49, t 1.69; out-of-sample -1.34, t -0.85). Live exits vs 1-minute OHLC4(09:31) are NVDL +0.2bp (n=23, sd 31) and NVDX +9.5bp (n=10, sd 39); the 10/19 fade exits cost -82 and -79bp.",
+          "Hygiene: I made no orders and no repo writes; only read-only Robinhood calls (historicals, earnings). git status shows trader/journal.md modified, but that change is not mine; it is presumably the live agent's own logging. Scratch is in verify_entry/: v_ingest.py, v_load.py, v_entry.py, v_vol.py, v_m1.py and v_extra.py, with outputs v_entry_out.txt/.json, v_vol_out.txt, v_m1_out.txt and v_extra_out.txt, and raw pulls in raw/."
+        ],
+        "recomputed": [
+          {
+            "name": "NVDL 15:59 last trade vs 15:52 (study ref OHLC4, n=164)",
+            "study_value": "-2.5bp t -0.48",
+            "my_value": "-2.5bp t -0.48 med +3.6 sd 65.8",
+            "match": true
+          },
+          {
+            "name": "NVDL 15:59 vs 15:52 (verifier bridge ref)",
+            "study_value": "-2.5bp t -0.48",
+            "my_value": "-3.5bp t -0.65 med +4.4 sd 69.4 CI90 -12.3..+5.3; IS -1.5 OOS -7.6 (t -1.10)",
+            "match": true
+          },
+          {
+            "name": "NVDL official close vs 15:52 (OHLC4 ref)",
+            "study_value": "-1.6bp t -0.32 med +5.8",
+            "my_value": "-1.6bp t -0.32 med +5.8; IS +0.8 OOS -6.4 (t -0.96)",
+            "match": true
+          },
+          {
+            "name": "NVDL official close vs 15:52 (bridge ref)",
+            "study_value": "-1.6bp t -0.32",
+            "my_value": "-2.7bp t -0.51 med +3.1 CI90 -11.2..+5.9; ex 4 rebalance/expiry closes -0.3bp t -0.07",
+            "match": true
+          },
+          {
+            "name": "NVDL 16:05 post-market vs 15:52",
+            "study_value": "-4.3bp t -0.72",
+            "my_value": "first-trade/OHLC4 ref -4.3 t -0.72 (exact); OHLC4-of-16:05-bar/bridge ref -4.8 t -0.77 n=162",
+            "match": true
+          },
+          {
+            "name": "NVDL 16:15 vs 15:52",
+            "study_value": "-4.2bp t -0.76",
+            "my_value": "-4.2 t -0.76 (study defs); -5.9 t -1.00 (verifier defs)",
+            "match": true
+          },
+          {
+            "name": "NVDL 15:30 vs 15:52",
+            "study_value": "+3.9bp t 0.81",
+            "my_value": "+4.5 t 0.94 (OHLC4 ref, 15:25 close); +3.4 t 0.75 (bridge)",
+            "match": true
+          },
+          {
+            "name": "NVDX close vs 15:52",
+            "study_value": "-4.3bp t -0.82",
+            "my_value": "-4.3 t -0.82 (OHLC4 ref); -5.5 t -1.02 (bridge); OOS -9.9 t -1.43",
+            "match": true
+          },
+          {
+            "name": "NVDX 16:05 vs 15:52",
+            "study_value": "-5.3bp t -0.88 n=162",
+            "my_value": "-5.3 t -0.88 n=162 (study defs); -5.9 t -0.94 n=152 (exact-bar OHLC4)",
+            "match": true
+          },
+          {
+            "name": "Basket 78/22 15:59 vs 15:52 $/night at $85",
+            "study_value": "-$0.021",
+            "my_value": "-$0.021 (OHLC4 ref) / -$0.030 (bridge)",
+            "match": true
+          },
+          {
+            "name": "1-min exact NVDL 15:59 vs 15:52 open (n=31)",
+            "study_value": "-5.9bp (vs OHLC4)",
+            "my_value": "-6.2 t -0.57 (vs 15:52 open); -5.9 t -0.53 (vs OHLC4)",
+            "match": true
+          },
+          {
+            "name": "Live NVDL 15:52 fills vs 1-min ref",
+            "study_value": "-0.3bp sd 7.0 n=24 (OHLC4)",
+            "my_value": "-0.3 sd 7.0 (OHLC4); -0.2 sd 5.2 (15:52 open); vs 5-min bridge -6.2 t -1.88",
+            "match": true
+          },
+          {
+            "name": "NVDL close->16:15 post-close drift",
+            "study_value": "-2.6bp t -0.83",
+            "my_value": "-2.0bp t -0.63 (16:15 open, n=162); close->16:05 OHLC4 -2.7 t -1.07",
+            "match": true
+          },
+          {
+            "name": "Conditional LETF-rebalance slope NVDL",
+            "study_value": "ALL +1.41 (t 1.32), IS +2.68 (t 1.93), OOS -1.56 (t -1.03)",
+            "my_value": "ALL +1.35 (t 1.19), IS +2.49 (t 1.69), OOS -1.34 (t -0.85)",
+            "match": true
+          },
+          {
+            "name": "NVDL overnight 15:52 -> open",
+            "study_value": "+19.7bp t 0.97 (exit OHLC4 09:30 bar)",
+            "my_value": "+20.2bp t 1.03 (exit 09:30 open print); IS -0.8 OOS +61.9",
+            "match": true
+          },
+          {
+            "name": "NVDL post-market close->20:00",
+            "study_value": "~+10.4bp (sum of segments, n=142)",
+            "my_value": "+6.0bp t 0.68 med -2.5 (close->19:55 close, n=159)",
+            "match": true
+          },
+          {
+            "name": "5-min ref proxy vs exact 1-min 15:52 open (n=31)",
+            "study_value": "+2.9bp sd 17.6",
+            "my_value": "NVDL +2.7 (OHLC4) / +3.2 (bridge); NVDX +4.6 / +4.8",
+            "match": true
+          }
+        ],
+        "adjusted_recommendation": "Adopt: keep the 15:52 entry and the §4 mechanics unchanged, as the study says. My independent rebuild matches its numbers exactly. On a different reference choice no time from 15:30 to 16:15 is significantly cheaper (|t| at most 1.06 over 164 nights; |t| at most 0.6 on the 31 exact 1-minute nights).\n\nThe small point estimate in favour of later entry (basket about 2 to 4bp, or $0.02 to $0.03/night) has three problems:\n- It comes almost entirely from 4 index-rebalance or expiry closes with mixed signs. Without them NVDL is -0.3bp.\n- It is probably inflated by about 3bp because the 5-minute reference sits high. Live fills sit within 0.2bp of the exact 15:52 price.\n- It would cost the 15:55 re-price and 15:58 cancel safety loop, and add fill risk (no market-on-close order on Robinhood; NVDX is thin in post-market).\n\nTwo wording fixes to the study:\n- State the power limit: the smallest reliably detectable effect is about 15bp, so effects of 5 to 10bp cannot be ruled out.\n- Note that two of its side tests reached |t| of about 2 (NVDX auction print, in-sample rebalance slope), even though none of the entry-time cells did.\n\nNothing to defer except the optional read-only logging of post-market quotes (15:59, 16:05, 16:15) at the §3(g) 40-night review, because post-market spreads have never been observed. Reopen entry timing only on the study's own pre-registered bar: at least 120 new nights, with the 15:52-to-close drift beyond ±10bp and t of at least 2.5. Do not reopen it on the Aug–Oct split.",
+        "confidence": "High that the study's numbers and its null conclusion are right. They reproduce exactly with independent code, and a different reference moves estimates by only about 1bp. Medium on the post-market cost side, because post-market spreads have never been observed (Roll estimate only), though any error there only strengthens keeping 15:52. Main limits: only 164 nights, all in Feb–Oct 2026 (no earlier intraday history exists on this server), and only 31 nights of exact 1-minute data."
+      }
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Study"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "study:exit",
+      "phaseIndex": 1,
+      "phaseTitle": "Study",
+      "agentId": "a22a7d4c1a3dcd909",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792590567973,
+      "queuedAt": 1792590567918,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Keep the 09:31:05 exit. No candidate exit time beats it on …",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$100 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold:\nBUY NVDL (2x long NVDA ETF; ~2 shares) + NVDX (1 share filler) at 15:52 ET with a marketable limit (ceil(ask + max(0.02, 0.15%))),\nSELL at 09:31:05 ET next morning with a marketable limit (floor(bid - max(0.02, 0.15%))); if unfilled after 60s re-price to bid*0.997, then market.\nRepo …",
+      "promptFramed": true,
+      "lastProgressAt": 1792591352829,
+      "tokens": 271561,
+      "toolCalls": 84,
+      "durationMs": 784854,
+      "resultPreview": "{\"summary\":\"Keep the 09:31:05 exit. No candidate exit time beats it on average once spreads are counted, and the 'fade' the agent has seen live is a feature of the last ~6 weeks only. Data: Robinhood keeps 5-minute bars back to 2026-02-23 and 1-minute bars back to 2026-09-08. Earlier requests return only interpolated bars, so the requested 6-12 months became about 8 months. Tier A uses 5-minute ex…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "study:entry",
+      "phaseIndex": 1,
+      "phaseTitle": "Study",
+      "agentId": "a1967dd0f4e3f9ab9",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792590567974,
+      "queuedAt": 1792590567919,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "15:52 is not measurably worse than any entry time we can ac…",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$100 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold:\nBUY NVDL (2x long NVDA ETF; ~2 shares) + NVDX (1 share filler) at 15:52 ET with a marketable limit (ceil(ask + max(0.02, 0.15%))),\nSELL at 09:31:05 ET next morning with a marketable limit (floor(bid - max(0.02, 0.15%))); if unfilled after 60s re-price to bid*0.997, then market.\nRepo …",
+      "promptFramed": true,
+      "lastProgressAt": 1792591062646,
+      "tokens": 184656,
+      "toolCalls": 61,
+      "durationMs": 494117,
+      "resultPreview": "{\"summary\":\"15:52 is not measurably worse than any entry time we can actually use between 15:30 and 16:15. I tested every candidate time against the 15:52 reference on 164 NVDA-2x nights from 2026-02-23 to 2026-10-20 (5-minute bars, NVDA earnings nights excluded). Each one is within ±5bp of 15:52, and none has |t| above 1. Results for NVDL, in bp (negative means a cheaper entry): 15:30 +3.9 (t 0.8…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "verify:entry",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a0836cea28dd80e30",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792591066589,
+      "queuedAt": 1792591066558,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "holds",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$100 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold:\nBUY NVDL (2x long NVDA ETF; ~2 shares) + NVDX (1 share filler) at 15:52 ET with a marketable limit (ceil(ask + max(0.02, 0.15%))),\nSELL at 09:31:05 ET next morning with a marketable limit (floor(bid - max(0.02, 0.15%))); if unfilled after 60s re-price to bid*0.997, then market.\nRepo …",
+      "promptFramed": true,
+      "lastProgressAt": 1792591482960,
+      "tokens": 177665,
+      "toolCalls": 36,
+      "durationMs": 416370,
+      "resultPreview": "{\"verdict\":\"holds\",\"issues\":[\"I could not refute the study. I rebuilt it from my own Robinhood pulls and my own parser (verify_entry/v_load.py and v_entry.py; none of the study's scripts or data reused). With the study's reference (OHLC4 of the 15:50 5-minute bar), every headline cell matched exactly: NVDL 15:59 -2.5bp (t -0.48), close -1.6 (t -0.32), 16:05 first trade -4.3 (t -0.72), 16:15 -4.2 (…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "verify:exit",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a3dae9ff92d0575df",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792591355560,
+      "queuedAt": 1792591355555,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "holds",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$100 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold:\nBUY NVDL (2x long NVDA ETF; ~2 shares) + NVDX (1 share filler) at 15:52 ET with a marketable limit (ceil(ask + max(0.02, 0.15%))),\nSELL at 09:31:05 ET next morning with a marketable limit (floor(bid - max(0.02, 0.15%))); if unfilled after 60s re-price to bid*0.997, then market.\nRepo …",
+      "promptFramed": true,
+      "lastProgressAt": 1792591864675,
+      "tokens": 187580,
+      "toolCalls": 70,
+      "durationMs": 509115,
+      "resultPreview": "{\"verdict\":\"holds\",\"issues\":[\"Headline numbers reproduce. I pulled fresh Robinhood bars myself (5-minute extended 2026-02-23..10-20, 1-minute extended 2026-09-08..10-21, daily bars, and NVDA earnings via get_earnings_results), converted UTC to ET with zoneinfo, and dropped interpolated bars. All 167 days have a 09:30 'reg' bar and no session label disagrees with the ET clock, so there is no DST or…"
+    }
+  ],
+  "totalTokens": 821462,
+  "totalToolCalls": 251
+}
