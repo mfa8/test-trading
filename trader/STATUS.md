@@ -1,6 +1,6 @@
 # T3X STATUS — Overnight Engine (started 2026-09-09)
-**Mode:** IN_POSITION_OVERNIGHT (night 30: NVDL 2 @32.7085 + NVDX 1 @18.3863, entered 15:52 Tue 10/20; exit 09:31:05 Wed 10/21; day leg SUSPENDED)
-**Equity:** 97.01 at 16:01 ET 10/20 (cash 13.28 + basket 83.73; -9.4% from HWM) · start 98.75 · HWM 107.11 · PAUSE 85.69 · KILL 50
+**Mode:** FLAT_NO_DAY_LEG (night 30 closed 09:31 Wed 10/21: +3.75; day leg SUSPENDED; 15:52 entry night 31 v1.6)
+**Equity:** 100.83 at 09:31 ET 10/21 (all cash; -5.9% from HWM) · start 98.75 · HWM 107.11 · PAUSE 85.69 · KILL 50
 thesis (v1.7): NVDA-2x earns overnight, loses intraday (NVDL ex-earnings overnight: +0.29%/night since Dec-2022, t 2.7; trailing 120 +0.33, t 1.4 — weekly audit 10/16); hold NVDL/NVDX close->open; planning edge +0.30%/night/unit; inverse day leg SUSPENDED 10/15 (no long-sample edge, ~4x PAUSE risk); never inverse overnight
 daily loop (v1.7): 09:26 wake -> sell 09:31 -> ALWAYS-ON scans (cash; day leg SUSPENDED since 10/15, shadow-logged only) -> buy 15:52 (NVDL first, NVDX filler) -> 16:02 EOD | Mon 07:45 analyst: §3(f) trailing-120 NVDL edge-decay check
 blackouts: NVDA earnings night 2026-11-17 (cash; date per Robinhood, recheck when NVIDIA publishes its call notice). No other blackouts (single NVDA-2x core). Half-days 11/27, 12/24: entry 12:52 ET (one-off wakes set). Crons in ET (DST-safe).

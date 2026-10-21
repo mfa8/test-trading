@@ -145,3 +145,5 @@
 2026-10-20T20:01:54Z W-9 16:02 EOD E 97.01 (cash 13.28 + NVDL2/NVDX1 83.73; night30 -0.07); day -1.35; TZA shadow #4: entry 50.7852 TP 51.30 -> 15:48 close 48.51 = -4.48% (shadow mean 4 legs -1.61%). report/DAY-20261020.md
 2026-10-21T11:47:40Z W-9 07:47 ANALYST Wed 10/21: repo in sync (78d6955), tools present (container kernel changed; repo+scratchpad intact); broker NVDL 2 + NVDX 1, cash 13.28, 0 open orders, approvals off; premkt NVDL b33.95 NVDX b19.07 (night30 ~+3.16), NVDA +2.0% QQQ +0.6% IWM +0.2%; E_broker 100.37. Plan: exit 09:31, entry 15:52 (night 31 holds through META/LRCX/TXN after close), EOD.
 2026-10-21T13:00:07Z W-9 09:00 premkt NVDL b33.81 NVDX b18.99 (night30 ~+2.81); NVDA +1.8% QQQ +0.57% IWM +0.37%
+2026-10-21T13:16:05Z W-9 09:16 exit-prep: no open orders; pos NVDL 2 NVDX 1 avail; premkt NVDL b33.84 NVDX b18.99 NVDA 220.4 (+1.8%)
+2026-10-21T13:32:54Z W-9 09:31 EXIT night30 NVDL 2 @34.1701 (lim 34.13; +2.92) + NVDX 1 @19.21 (lim 19.21, rested 14s on fading bid; +0.82) = +3.75 (+4.5%); NVDA +1.8% at open. E 100.83 all cash; DD -5.9% from HWM 107.11; PAUSE 85.69 not hit. Campaign 30 nights -1.27 (13W/17L). Best night of T3X so far.
