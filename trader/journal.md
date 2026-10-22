@@ -259,3 +259,4 @@
 2026-10-22T19:32:04Z W-9 15:32 scan flat: NVDA 212.47 (-4.3%) QQQ -2.9% IWM -0.1%; NVDL 31.36
 2026-10-22T19:40:08Z W-9 15:40 pre-entry: broker cash 97.27 (BP 97.27), 0 open orders, approvals off; not blackout, not PAUSE (85.69); NVDL a31.14 NVDX a17.51 NVDA 211.71 (-4.6%); tonight WDC/MXL AMC (no blackout). Dry sizing NVDL 3.
 2026-10-22T19:52:32Z W-9 15:52 ENTRY night32 NVDL 3 @31.2899 (lim 31.35, ask 31.30) = 93.87 (96.5% of E 97.27); NVDX filler 0 (cap); cash 3.40. NVDA -4.6% on the day. Exit 09:31:05 Fri 10/23 with shadow quotes 09:25/09:29.
+2026-10-22T20:02:01Z W-9 16:02 EOD: E 97.30 (bid 97.51), day -3.89; night32 held (NVDL 3, +0.03 marked); TZA shadow #6 -0.70% (close), 6-leg mean -1.02%; report DAY-20261022.md
