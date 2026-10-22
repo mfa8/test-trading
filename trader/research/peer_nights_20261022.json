@@ -1,0 +1,1130 @@
+{
+  "summary": "Read-only study: are NVDA overnight returns worse/riskier on nights when semis or AI-megacap peers report? Two independent analyses, each adversarially verified",
+  "agentCount": 4,
+  "logs": [],
+  "result": [
+    {
+      "key": "A",
+      "study": {
+        "summary": "Over 9.2 years (2,318 NVDA close-to-open nights, 2017-08-01 to 2026-10-21), there is no reliable evidence that semiconductor-peer earnings nights are worse for an NVDA overnight hold. The full-sample point estimates actually lean the other way. On the 384 peer event nights NVDA averaged +25.5bp; on the 1,897 other nights (NVDA's own earnings nights excluded) it averaged +11.0bp. The difference is +14.5bp with Welch t=1.54, which is not significant. Variance is the same (sd 168 vs 171bp, Levene p=0.17), and so is the tail: 19 of 384 event nights (4.9%) were at or below -2.5% NVDA, against 89 of 1,897 other nights (4.7%), Fisher p=0.79. The result is not stable over time. In the first half of the sample event nights were better (t=+1.74). In the second half there is no difference (t=+0.58). In the last two years event nights were slightly worse (+3.3 vs +14.6bp, t=-0.60), but that is not statistically meaningful. Simulated as 2x NVDA overnight minus 0.3% per night held, skipping all peer nights would have cut log growth by 2.56bp/night (95% block-bootstrap CI -7.5 to +2.4). It would also have made max drawdown slightly worse (-96.9% vs -95.1%). The rate of -5% 2x nights among held nights is essentially unchanged (4.69% vs 4.73%). Separately, at the assumed 0.3% cost the base strategy itself has negative long-run log growth (-9.0bp/night).",
+        "sample": {
+          "start": "first night 2017-08-01->2017-08-02 (the calendar source has full coverage only from about 2017-07-31; before that it lists only mega-caps, so the sample cannot go further back with this source)",
+          "end": "last night 2026-10-20->2026-10-21 (the 2026-10-22 NVDA daily bar is interpolated with no data and was dropped, so the LRCX anecdote night 10/21->10/22 is not in the sample)",
+          "n_nights": 2318,
+          "n_event_nights": 384,
+          "peers": "Variant A, 13 semiconductor names: TSM, ASML, AMD, AVGO, MU, LRCX, KLAC, AMAT, INTC, QCOM, MRVL, ARM, SMCI. Core-8 = TSM, ASML, AMD, AVGO, MU, LRCX, KLAC, AMAT. Event nights tagged per peer: TSM 37, ASML 37, AMD 36, AVGO 37, MU 37, LRCX 36, KLAC 36, AMAT 37, INTC 36, QCOM 36, MRVL 37, ARM 12 (listed only since its Sept 2023 IPO), SMCI 32; 446 peer reports mapped to nights. SK hynix is excluded because there is no reliable date source: the calendar's SKHSY entries fall in Mar/Jun/Sep/Dec and do not match SK hynix's real late Jan/Apr/Jul/Oct schedule. 37 NVDA earnings nights were removed from both groups; 8 peer nights fell on NVDA earnings nights and were dropped with them; 1,897 other nights remain.",
+          "gaps": "get_earnings_results returns only the trailing 8 quarters (about Apr 2025 onward), so it was used as a cross-check. TSM, MU, AVGO, MRVL, LRCX, ASML, NVDA and INTC 2025-26 dates and am/pm timings all matched the calendar. SMCI's calendar also carries extra business-update dates (2025-02-10/11/25, 2025-04-29, 2025-08-12), which were kept. The primary source was a walk of get_earnings_calendar (no filter) in 31-day windows covering 2017-07 to 2026-11. Three light windows per year (about Jun 3-Jul 5, Sep 6-Oct 6, Dec 8-Jan 7) return results too small to be saved to a file, so they were not walked; the peers that report in them (MU, AVGO, and twice MRVL) were filled with 39 targeted confirmations: 1-day calendar queries, earlier inline month results and get_earnings_results (events_manual.csv). A filename collision in the shared tool-results directory lost the 2019-11-07 window; the weekday-coverage check caught it and it was re-fetched. Apart from the light windows, no weekday in the sample has zero calendar entries. NVDA daily bars have no session gaps over 4 calendar days and are split-adjusted (the 2024-06-10 split is handled; ratios are unaffected). No peer report is missing am/pm timing. One timing was corrected: MU 2017-12-19 is listed as am but was after the close (MU's own +4.9% abnormal gap on 12-20). AVGO 2022-05-26 is listed as am (probably the pre-market VMware deal release; results came after the close); it was left as is because that night is NVDA's own earnings night and excluded either way. A gap-based timing check disagreed on 38 of 401 events, mostly TSM/ASML am reports where a sector-adjusted gap measure is confounded, so calendar timings were kept. SMCI has no report entries Aug 2018-Feb 2020, when it was delinquent with filings and delisted. Price-inferred dates (inferred_events.csv) only matched known events 53 of 67 times (79%) and were NOT used."
+        },
+        "groups": [
+          {
+            "name": "Peer event nights, all 13 peers",
+            "n": 384,
+            "mean_bp": 25.5,
+            "median_bp": 30.4,
+            "sd_bp": 168,
+            "win_pct": 58.9,
+            "p5_bp": -246.2,
+            "n_le_m250bp": 19,
+            "note": "NVDA 1x close->open; NVDA earnings nights excluded"
+          },
+          {
+            "name": "Other non-NVDA-earnings nights (no peer report)",
+            "n": 1897,
+            "mean_bp": 11,
+            "median_bp": 18.8,
+            "sd_bp": 170.9,
+            "win_pct": 56.7,
+            "p5_bp": -239.8,
+            "n_le_m250bp": 89
+          },
+          {
+            "name": "Core-8 nights (TSM/ASML/AMD/AVGO/MU/LRCX/KLAC/AMAT)",
+            "n": 279,
+            "mean_bp": 34,
+            "median_bp": 31.9,
+            "sd_bp": 166,
+            "win_pct": 60.9,
+            "p5_bp": -207.6,
+            "n_le_m250bp": 7
+          },
+          {
+            "name": "Rest-5-only nights (INTC/QCOM/MRVL/ARM/SMCI, no core-8 report that night)",
+            "n": 105,
+            "mean_bp": 3.1,
+            "median_bp": 21.6,
+            "sd_bp": 172,
+            "win_pct": 53.3,
+            "p5_bp": -325.6,
+            "n_le_m250bp": 12,
+            "note": "Tail rate 11.4% vs 4.7%, Fisher p=0.005, which does not survive a multiple-comparison correction. Includes 2024-08-01 INTC (market-wide selloff) and 2018-10-25 / 2019-04-25 INTC."
+          },
+          {
+            "name": "pm-before nights (peer reports after the close on D)",
+            "n": 313,
+            "mean_bp": 31.8,
+            "median_bp": 36.1,
+            "sd_bp": 166.3,
+            "win_pct": 59.1,
+            "p5_bp": -225.2,
+            "n_le_m250bp": 14
+          },
+          {
+            "name": "am-only nights (peer reports before the open on D+1; mostly TSM/ASML)",
+            "n": 71,
+            "mean_bp": -1.9,
+            "median_bp": 14.4,
+            "sd_bp": 173.8,
+            "win_pct": 57.7,
+            "p5_bp": -288.8,
+            "n_le_m250bp": 5
+          },
+          {
+            "name": "First half, event nights (2017-08 to 2022-03)",
+            "n": 186,
+            "mean_bp": 35.1,
+            "median_bp": 47.9,
+            "sd_bp": 151.1,
+            "win_pct": 65.1,
+            "p5_bp": -230.3,
+            "n_le_m250bp": 8
+          },
+          {
+            "name": "First half, other nights",
+            "n": 954,
+            "mean_bp": 13.7,
+            "median_bp": 21.9,
+            "sd_bp": 168.8,
+            "win_pct": 58.3,
+            "p5_bp": -228.1,
+            "n_le_m250bp": 41
+          },
+          {
+            "name": "Second half, event nights (2022-03 to 2026-10)",
+            "n": 198,
+            "mean_bp": 16.5,
+            "median_bp": 8.3,
+            "sd_bp": 182.4,
+            "win_pct": 53,
+            "p5_bp": -256.3,
+            "n_le_m250bp": 11
+          },
+          {
+            "name": "Second half, other nights",
+            "n": 943,
+            "mean_bp": 8.3,
+            "median_bp": 14.1,
+            "sd_bp": 173,
+            "win_pct": 55,
+            "p5_bp": -251.3,
+            "n_le_m250bp": 48
+          },
+          {
+            "name": "Last 2 years, event nights (2024-10-21 onward)",
+            "n": 91,
+            "mean_bp": 3.3,
+            "median_bp": 7.8,
+            "sd_bp": 160.4,
+            "win_pct": 53.8,
+            "p5_bp": -233.9,
+            "n_le_m250bp": 5
+          },
+          {
+            "name": "Last 2 years, other nights",
+            "n": 402,
+            "mean_bp": 14.6,
+            "median_bp": 24.1,
+            "sd_bp": 169.4,
+            "win_pct": 58.2,
+            "p5_bp": -222.2,
+            "n_le_m250bp": 15
+          },
+          {
+            "name": "TSM nights",
+            "n": 37,
+            "mean_bp": 22.1,
+            "median_bp": 32,
+            "sd_bp": 169.1,
+            "win_pct": 56.8,
+            "p5_bp": -220.3,
+            "n_le_m250bp": 2,
+            "note": "Includes the live 10/14->10/15 night (NVDA -2.71%)"
+          },
+          {
+            "name": "ASML nights",
+            "n": 37,
+            "mean_bp": -27.1,
+            "median_bp": 6.5,
+            "sd_bp": 172.5,
+            "win_pct": 56.8,
+            "p5_bp": -324.6,
+            "n_le_m250bp": 3,
+            "note": "Includes 2025-04-15->16 (-6.8%), which was NVDA's own H20 charge news"
+          },
+          {
+            "name": "AMD nights",
+            "n": 36,
+            "mean_bp": 58.9,
+            "median_bp": 14.8,
+            "sd_bp": 217.3,
+            "win_pct": 52.8,
+            "p5_bp": -190.5,
+            "n_le_m250bp": 0
+          },
+          {
+            "name": "AVGO nights",
+            "n": 36,
+            "mean_bp": 42.6,
+            "median_bp": 29.2,
+            "sd_bp": 166.6,
+            "win_pct": 63.9,
+            "p5_bp": -186.4,
+            "n_le_m250bp": 1
+          },
+          {
+            "name": "MU nights",
+            "n": 37,
+            "mean_bp": 59.1,
+            "median_bp": 61.2,
+            "sd_bp": 146.4,
+            "win_pct": 70.3,
+            "p5_bp": -173.6,
+            "n_le_m250bp": 0
+          },
+          {
+            "name": "LRCX nights",
+            "n": 36,
+            "mean_bp": 56.1,
+            "median_bp": 54.8,
+            "sd_bp": 110,
+            "win_pct": 69.4,
+            "p5_bp": -95.2,
+            "n_le_m250bp": 0,
+            "note": "The live 10/21->10/22 LRCX night is not in the sample"
+          },
+          {
+            "name": "KLAC nights",
+            "n": 36,
+            "mean_bp": 38.7,
+            "median_bp": 24.4,
+            "sd_bp": 167.1,
+            "win_pct": 55.6,
+            "p5_bp": -176.8,
+            "n_le_m250bp": 0,
+            "note": "Upcoming: 10/28->10/29"
+          },
+          {
+            "name": "AMAT nights",
+            "n": 30,
+            "mean_bp": 24.9,
+            "median_bp": 70.5,
+            "sd_bp": 148.6,
+            "win_pct": 63.3,
+            "p5_bp": -205.7,
+            "n_le_m250bp": 1,
+            "note": "7 AMAT nights coincided with NVDA earnings and were excluded"
+          },
+          {
+            "name": "INTC nights",
+            "n": 36,
+            "mean_bp": -5.3,
+            "median_bp": 35.6,
+            "sd_bp": 182.4,
+            "win_pct": 55.6,
+            "p5_bp": -363.4,
+            "n_le_m250bp": 4,
+            "note": "Upcoming: 10/29->10/30"
+          },
+          {
+            "name": "QCOM nights",
+            "n": 36,
+            "mean_bp": 48.2,
+            "median_bp": 42.9,
+            "sd_bp": 169.4,
+            "win_pct": 66.7,
+            "p5_bp": -299.8,
+            "n_le_m250bp": 3
+          },
+          {
+            "name": "MRVL nights",
+            "n": 37,
+            "mean_bp": -27.2,
+            "median_bp": -27.2,
+            "sd_bp": 147.9,
+            "win_pct": 40.5,
+            "p5_bp": -289.5,
+            "n_le_m250bp": 4
+          },
+          {
+            "name": "ARM nights",
+            "n": 12,
+            "mean_bp": 77.3,
+            "median_bp": 48.6,
+            "sd_bp": 77.8,
+            "win_pct": 83.3,
+            "p5_bp": -1.6,
+            "n_le_m250bp": 0
+          },
+          {
+            "name": "SMCI nights",
+            "n": 32,
+            "mean_bp": 70.7,
+            "median_bp": 74.2,
+            "sd_bp": 185.3,
+            "win_pct": 65.6,
+            "p5_bp": -178.5,
+            "n_le_m250bp": 1
+          }
+        ],
+        "tests": [
+          {
+            "name": "All peers vs other: Welch t on NVDA 1x mean",
+            "diff_bp": 14.5,
+            "t": 1.54,
+            "p": 0.124,
+            "note": "No reliable evidence, and the sign favours peer nights. sd ratio 0.98 (Levene p=0.17). Tail at or below -2.5%: 4.9% vs 4.7% (Fisher p=0.79). Mann-Whitney p=0.12. Winsorized (1%) diff +10.5bp. Dropping the 3 best event nights gives t=1.03."
+          },
+          {
+            "name": "All peers vs non-event nights within +/-5 nights (earnings-season control)",
+            "diff_bp": 12.2,
+            "t": 1.27,
+            "p": 0.205
+          },
+          {
+            "name": "Core-8 vs other",
+            "diff_bp": 23,
+            "t": 2.15,
+            "p": 0.032,
+            "note": "Positive direction. Does not survive multiple comparisons (about 27 tests; Bonferroni threshold p about 0.002) and is unstable: first half t=2.71, second half t=0.65."
+          },
+          {
+            "name": "Rest-5-only vs other",
+            "diff_bp": -7.9,
+            "t": -0.46,
+            "p": 0.647,
+            "note": "Tail rate 11.4% vs 4.7%, Fisher p=0.005: the only tail signal found, n=105, not significant after correction."
+          },
+          {
+            "name": "pm-before nights vs other",
+            "diff_bp": 20.8,
+            "t": 2.04,
+            "p": 0.042,
+            "note": "Positive direction; does not survive multiple comparisons."
+          },
+          {
+            "name": "am-only nights vs other",
+            "diff_bp": -12.9,
+            "t": -0.61,
+            "p": 0.541
+          },
+          {
+            "name": "First half: all peers vs other",
+            "diff_bp": 21.5,
+            "t": 1.74,
+            "p": 0.084
+          },
+          {
+            "name": "Second half: all peers vs other",
+            "diff_bp": 8.2,
+            "t": 0.58,
+            "p": 0.561
+          },
+          {
+            "name": "Last 2 years: all peers vs other",
+            "diff_bp": -11.4,
+            "t": -0.6,
+            "p": 0.547,
+            "note": "Sign flips negative recently, but there is no reliable evidence."
+          },
+          {
+            "name": "TSM nights vs other",
+            "diff_bp": 11.1,
+            "t": 0.39,
+            "p": 0.695
+          },
+          {
+            "name": "LRCX nights vs other",
+            "diff_bp": 45.1,
+            "t": 2.41,
+            "p": 0.021,
+            "note": "Positive direction; one of many per-peer tests."
+          },
+          {
+            "name": "KLAC nights vs other",
+            "diff_bp": 27.7,
+            "t": 0.99,
+            "p": 0.331
+          },
+          {
+            "name": "INTC nights vs other",
+            "diff_bp": -16.3,
+            "t": -0.53,
+            "p": 0.599
+          },
+          {
+            "name": "ASML nights vs other",
+            "diff_bp": -38.1,
+            "t": -1.33,
+            "p": 0.192
+          },
+          {
+            "name": "MRVL nights vs other",
+            "diff_bp": -38.2,
+            "t": -1.55,
+            "p": 0.129
+          },
+          {
+            "name": "ARM nights vs other",
+            "diff_bp": 66.3,
+            "t": 2.91,
+            "p": 0.013,
+            "note": "n=12; positive direction"
+          },
+          {
+            "name": "2x strategy: blackout all peers minus base, mean log growth per night",
+            "diff_bp": -2.56,
+            "t": -1.01,
+            "note": "t approximated from the block-bootstrap standard error (block length 20, 10k reps). 95% CI [-7.54, +2.36] bp/night (iid CI [-8.0, +3.05]); P(diff>0)=0.15. Placebo: random blackouts of 384 nights add +1.5bp on average because the base strategy is negative at 0.3% cost; the peer blackout does worse than 93% of them."
+          },
+          {
+            "name": "2x strategy: blackout core-8 minus base",
+            "diff_bp": -3.91,
+            "t": -1.78,
+            "note": "95% block CI [-8.28, +0.36]"
+          },
+          {
+            "name": "2x strategy: blackout, second half only",
+            "diff_bp": 0.6,
+            "t": 0.17,
+            "note": "95% block CI [-6.63, +8.10]. First half: -5.72 [-12.4, +0.9]."
+          },
+          {
+            "name": "2x strategy: blackout, last 2 years",
+            "diff_bp": 5.22,
+            "t": 0.92,
+            "note": "95% block CI [-5.89, +16.76]; no reliable evidence"
+          }
+        ],
+        "strategy_sim": "Model: a 2x NVDA close-to-open return on every held night, minus 0.30% per night held; cash nights earn 0. NVDA earnings nights are always in cash. 2,318 nights in total.\n\n**Base (2,281 nights held):** -8.96bp/night mean log growth (CAGR equivalent -20.2%/yr), ending at x0.125 of starting capital, max drawdown -95.1%. 108 held nights had a 2x return at or below -5% (4.73%).\n\n**Blackout of all 13 peers (1,897 nights held):** -11.52bp/night (-25.2%/yr), ending at x0.069, max drawdown -96.9%. 89 nights at or below -5% (4.69%).\n- Difference: -2.56bp/night, about -6.4% log per year; 95% CI [-7.5, +2.4].\n- The 384 skipped nights averaged +15.4bp of 2x net log growth; the kept nights averaged -14.1bp.\n\n**Other blackout variants (difference in bp/night, 95% block-bootstrap CI):**\n\n| Variant | Difference | 95% CI |\n|---|---|---|\n| Core-8 only | -3.91 | [-8.3, +0.4] |\n| Rest-5 only | -0.09 | [-3.2, +3.1] |\n| pm-before nights only | -3.78 | [-8.1, +0.6] |\n| am-only nights | +1.22 | [-1.1, +3.8] |\n| TSM+LRCX only | -1.35 | [-3.4, +0.8] |\n| First half | -5.72 | [-12.4, +0.9] |\n| Second half | +0.60 | [-6.6, +8.1] |\n| Last 2 years | +5.22 | [-5.9, +16.8] |\n\n**Cost sensitivity of the all-peer blackout (difference in bp/night):**\n\n| Cost per night | Difference | Base max drawdown | Blackout max drawdown |\n|---|---|---|---|\n| 0% | -7.5 | -80.0% | -81.4% |\n| 0.1% | -5.9 | | |\n| 0.2% | -4.2 | | |\n| 0.3% | -2.6 | | |\n| 0.4% | -0.9 | | |\n\nThe blackout never lowers max drawdown at any cost level. It removes about 19 of the -5% 2x nights only because fewer nights are held; the rate per held night is unchanged.\n\n**Base-strategy caveat:** NVDA's long-run close-to-open mean is +13.5bp/night (1x). At 2x with 0.3% cost, break-even needs about +17.9bp/night (1x).",
+        "recommendation": "For the 2027-01-11 quarterly review (information only; nothing changes before then): the long-sample data give no reliable evidence for a semiconductor-peer earnings-night blackout. Peer nights did not have lower mean NVDA returns, higher variance or fatter tails over 2017-2026. A blackout would have lowered geometric growth by an estimated -2.6bp/night (CI -7.5 to +2.4), would not have lowered max drawdown, and would not have changed the per-night chance of a -5% 2x night.\n\nThe only adverse signals are weak and should not drive a rule:\n- the last 2 years (t=-0.6);\n- am-only nights (t=-0.6);\n- the rest-5 tail rate (Fisher p=0.005, about 27 tests run);\n- MRVL/ASML per-peer means (t about -1.4).\nThey can be re-checked at the review with the shadow logs.\n\nThe two live losses (TSM 10/15, LRCX 10/22) are consistent with ordinary NVDA overnight volatility. About 4.7% of all nights are at or below -2.5% 1x, roughly 1 in 21.\n\nUnder Variant A's peer set, the upcoming candidate nights are:\n- 10/27->10/28: not an event night (SK hynix is not covered);\n- 10/28->10/29: KLAC, 36 nights, mean +38.7bp;\n- 10/29->10/30: INTC, mean -5.3bp, t=-0.5;\n- 11/03->11/04: AMD and SMCI;\n- 11/04->11/05: ARM and QCOM;\n- 11/12->11/13: AMAT.\nNone justifies acting differently.\n\nA more consequential issue for the review: at the assumed 0.3% round-trip cost per night, the 2x NVDA overnight hold itself had negative long-run log growth. Measured execution cost and the edge-decay switch matter far more than a peer blackout.",
+        "caveats": [
+          "Multiple comparisons: about 27 group tests plus 11 simulation variants were run. Nothing reaches Bonferroni significance (p about 0.002); the strongest results (core-8 t=2.15, LRCX t=2.41, ARM t=2.91 with n=12, rest-5 tail Fisher p=0.005) are within what chance would produce.",
+          "Peer event nights cluster in earnings seasons, overlap macro events, and often have several peers on the same night. The comparison is observational. An earnings-season control (non-event nights within +/-5 nights) gives the same answer (+12.2bp, t=1.27).",
+          "The simulation uses synthetic 2x = 2 x NVDA close-to-open (regular-session daily open and close), not real NVDL/NVDX 15:52->09:31 fills. It ignores fund fees, borrow/financing and tracking error, and applies a flat 0.3% cost per held night as instructed. Real costs differ, and the blackout result depends on cost (difference -7.5bp/night at 0% cost, -0.9bp at 0.4%).",
+          "The base strategy's negative growth at 0.3% cost comes from this long-sample setup. It contrasts with the rules' +0.30%/night planning edge, which rests on 257 recent nights at the real ~15:52 entry, a different window and cost basis. Treat it as a flag to re-measure costs, not as a finding of this blackout question.",
+          "The date source is the Robinhood earnings calendar walked month by month. get_earnings_results only reaches about 8 quarters back, so it served as a cross-check (2025-26 matched). 39 events in light windows came from targeted 1-day calendar queries, earlier inline results or get_earnings_results. One calendar timing was corrected (MU 2017-12-19 am->pm) and one possible error was left as is (AVGO 2022-05-26 am, on an excluded NVDA earnings night). Other timing errors may remain; the effect of a few misplaced nights out of 384 would be small.",
+          "Sample start is limited to 2017-08 by the calendar source. SK hynix is excluded for lack of a reliable date source. ARM has only 12 nights (since its 2023 IPO). SMCI has no report entries Aug 2018-Feb 2020. Calendar files written by other workflow agents into the shared tool-results directory were included in the deduplicated pool; they come from the same API.",
+          "The live LRCX/META/TXN night (10/21->10/22) is not in the sample because the 2026-10-22 bar was not yet available (interpolated). The TSM night 10/14->10/15 is in the sample (NVDA -2.71%).",
+          "Nothing was written under /home/user/test-trading and no account or trading tools were called. git status shows trader/journal.md as modified; that change was not made by this task (it is presumably the live agent's journal)."
+        ],
+        "files": [
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/collect_calendar.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/infer_dates.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/analyze.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/robustness.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/events_all.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/events_manual.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/event_nights.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/timing_check.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/inferred_events.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/results.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/results_stdout.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/robustness_stdout.txt",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/raw/nvda_day.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/raw/peers1_day.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/raw/peers2_day.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/A/raw/cal/"
+        ]
+      },
+      "verdict": {
+        "verdict": "holds",
+        "issues": [
+          "REPRODUCED: I rebuilt the calendar from my own 114-window walk (2017-07 to 2026-11), with inline light windows transcribed by hand. I wrote my own mapping and simulation code. A's event-to-night table matches mine exactly except 2 nights, and every NVDA night return matches. Headline numbers agree to within rounding.",
+          "MINOR OMISSION: A missed two SMCI catch-up filings, 2019-12-19 and 2019-12-23 (both pm), which fall in a December light window A did not walk. I count 386 event nights to A's 384, and 1,895 other nights to A's 1,897. The effect is immaterial: Welch t 1.54 becomes 1.56, and the blackout difference -2.56 becomes -2.61bp/night.",
+          "MIS-TAG: ASML 2024-10-15 is tagged am, so A assigns it to the night 10/14->10/15. That is wrong. The ASML ADR opened -0.6% and closed -15.8% on 10/15, so this was the accidental intraday release. The overnight NVDA move was only -0.15% and the NVDA drop came intraday. It is one night and immaterial. My price check also confirms A's MU 2017-12-19 am->pm correction (MU's own gap was +4.9% the next night).",
+          "LABEL INCONSISTENCY: A's 'Rest-5 only' blackout row (-0.09bp) matches a blackout of any night with a rest-5 report (I get -0.14). Blacking out only the 107 nights with no core-8 report gives +1.30bp/night (CI -1.6 to +4.3). That version also lowers max drawdown (-93.5% vs -95.1%) and cuts -5% 2x nights from 108 to 96. A's statement that 'the blackout never lowers max drawdown' is true only for the all-peer set. The 12 rest-5 tail nights mostly coincide with market-wide stress or hyperscaler reports: 2018-10-25, 2018-12-04, 2020-03-04, 2022-02-02 (META), 2023-02-02, 2024-08-01. The test is post hoc, and Holm-adjusted p is 0.29.",
+          "CONFOUND A DID NOT CONTROL: day of week. Only 0.3% of event nights span a weekend, against 26.6% of other nights. Weekend nights average -5.2bp; weekday nights average +18.8bp. A's 'leans the other way' (+14.5bp) is mostly this mix. On weekdays only the difference is +10.0bp (t=1.06). In an HAC regression with weekend, earnings-season and FOMC controls, the peer effect is +6.7bp (t=0.71). The real difference is about zero, not favourable.",
+          "SCOPE GAP: A's peer set leaves out the hyperscalers (MSFT/GOOGL/AMZN/META). Yet the live 10/21 night included META, and the upcoming 10/28 (MSFT/GOOGL/KLAC, FOMC day) and 10/29 (AMZN/INTC) nights are mainly hyperscaler nights. Over the long sample there were 104 such nights:\n- Mean +25.7bp vs +10.3bp (t=0.74).\n- sd 211 vs 171bp (Levene p=0.0014, Holm-adjusted 0.04 across my 30 tests).\n- That variance signal is fragile: a permutation test of the sd ratio gives p=0.10, the sd falls to 188bp after trimming one night at each end, and on hyperscaler nights with no semis report Levene p=0.27.\n- Tail: 9 of 104 nights at or below -2.5%, against 86 of 1,856 (Fisher p=0.09).\n- A blackout changes growth by -0.57bp/night (CI -3.4 to +2.2), and half size by -0.19bp. There is no growth case.",
+          "SURVIVORSHIP / HINDSIGHT: The result does not depend on the peer choice. A broader 11-name semis set that includes delisted XLNX and QRVO gives +4.9bp (t=0.46). The union of all 28 names gives +11.6bp (t=1.48), and blacking it out changes growth by -2.27bp/night (CI -8.7 to +4.3).",
+          "2x SIMULATION vs REAL LETFs: The synthetic 2x overstates what the real ETFs earn overnight:\n- NVDL close->open slope is 1.85x NVDA's, with a mean shortfall of 4.0bp/night versus 2x (residual sd 89bp, from 2022-12).\n- NVDX slope is 2.00x, with a 5.2bp/night shortfall.\n- With actual ETF returns, the blackout difference is +1.5 (NVDL) / -3.2 (NVDX) bp/night, against +0.8 / -3.3 synthetic.\nThe blackout conclusion is unchanged, but the base strategy is worse than A's -9bp/night. At 0.3% cost the long-sample base growth is negative. Break-even cost is about 0.2% per night before this ETF shortfall.",
+          "DATES AND TIMINGS CHECKED AGAINST A SECOND SOURCE:\n- get_earnings_results vs the calendar: 95 of 95 dates and am/pm timings match across 14 symbols (2025-04 to 2026-11). Examples: TSM 2026-10-15 am, ASML 2026-10-14 am, LRCX 2026-10-21 pm, KLAC 2026-10-28 pm, INTC 2026-10-29 pm, MU 2026-09-30 pm, AVGO 2026-09-02 pm, MRVL 2026-08-27 pm, NVDA 2026-08-26 and 2026-11-17 pm, AMD/SMCI 2026-11-03 pm, ARM/QCOM 2026-11-04 pm, AMAT 2026-11-12 pm.\n- Price check of the mapping (pm on D -> night D->D+1; am -> previous session ->D; holidays handled by the session calendar, e.g. MRVL 2018-12-04 -> 12-06): in 482 of 487 events the reporting stock's own abnormal gap lands on the mapped night (median 3.4%, against 0.5% on adjacent nights).\n- No missing timings. The NVDA bars have no interpolated values and a maximum session gap of 4 days.",
+          "MULTIPLE COMPARISONS AND MACRO: I confirm that none of A's roughly 27 tests survives correction. 34 of 386 peer nights and 19 of 104 hyperscaler nights fall on FOMC statement days; I typed these dates from memory, so they are approximate. The FOMC dummy is -10bp (t=-0.5), and adding it does not reveal a hidden adverse effect. CPI was not tested (no date source). SK hynix cannot be tested because Robinhood has no usable dates for it (SKHSY entries fall in Mar/Jun/Sep/Dec). The calendar lists only about 30 mega-caps before mid-July 2017, so the 2017-08 start is forced.",
+          "FILES (all in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_A/):\n- Scripts: extract.py, analyze_mine.py, timing_check.py, attack.py, attack2.py, attack3.py, calcheck.py, save.sh.\n- Data: inline_entries.csv, events_mine.csv, er_results.csv, event_nights_mine.csv, timing_check_mine.csv.\n- Results: results_mine.json, attack_results.json, attack2_results.json, attack3_results.json, raw/ (my own calendar and price pulls).\nNothing was written under /home/user/test-trading, and no account tools were called."
+        ],
+        "adjusted_recommendation": "(d) Make no change. Do not black out all peer nights, do not black out any subgroup, and do not trade half size on those nights.\n\n**Why:**\n- In the long sample (2017-08 to 2026-10, 2,318 nights, 386 semis-peer nights), mean, variance and tail on peer nights do not differ from other nights. With weekday and season controls the difference is about +7bp (t=0.7).\n- An all-peer blackout changes growth by -2.6bp/night (95% CI -7.6 to +2.4). It does not lower max drawdown (-97.0% vs -95.1%) or the -5% night rate per held night (4.70% vs 4.73%).\n- Half size changes growth by -1.1bp/night (CI -3.6 to +1.4).\n- The subgroup signals are all post hoc and fragile, and none survives correction: the rest-5 tail, the ASML/MRVL means, the last 2 years (+5.2bp, CI -5.8 to +16.9) and the higher hyperscaler-night variance.\n\n**For the 2027-01-11 review:**\n- Add hyperscaler nights (MSFT/GOOGL/AMZN/META) as their own shadow tag and pre-register a variance/tail test for them. That is the only signal near significance, and it is mixed with semis and FOMC nights.\n- Spend the review on execution cost and ETF tracking. The base strategy breaks even at about 0.2% cost per night, and NVDL/NVDX fall about 4-5bp/night short of 2x NVDA overnight. Either matters more than any blackout.\n\n**Upcoming nights:** 10/27 (SK hynix, FOMC eve) cannot be tested from Robinhood data. 10/28 (MSFT/GOOGL/KLAC, FOMC day) and 10/29 (AMZN/INTC) show no long-sample evidence for acting differently.",
+        "confidence": "High that A's numbers and conclusion are correct: I rebuilt them independently from my own Robinhood pulls and matched within rounding, and the dates and timings were cross-checked against get_earnings_results and against price moves. Moderate on the extra hyperscaler-variance finding, which looks fragile.",
+        "recomputed": [
+          {
+            "name": "n nights / NVDA earnings nights",
+            "my_value": "2318 / 37",
+            "study_value": "2318 / 37",
+            "match": true
+          },
+          {
+            "name": "peer event nights (13 semis peers)",
+            "my_value": "386 (SMCI 2019-12-19 and 2019-12-23 added)",
+            "study_value": "384",
+            "match": false
+          },
+          {
+            "name": "event-night mean / median / sd (bp)",
+            "my_value": "25.6 / 30.4 / 167.6",
+            "study_value": "25.5 / 30.4 / 168",
+            "match": true
+          },
+          {
+            "name": "other-night mean / sd (bp)",
+            "my_value": "11.0 / 171.0 (n=1895)",
+            "study_value": "11.0 / 170.9 (n=1897)",
+            "match": true
+          },
+          {
+            "name": "Welch diff / t (all peers vs other)",
+            "my_value": "+14.7bp / t=1.56",
+            "study_value": "+14.5bp / t=1.54",
+            "match": true
+          },
+          {
+            "name": "tail at or below -2.5% (event vs other)",
+            "my_value": "19/386 (4.92%) vs 89/1895 (4.70%), Fisher p=0.79",
+            "study_value": "19/384 (4.9%) vs 89/1897 (4.7%), p=0.79",
+            "match": true
+          },
+          {
+            "name": "core-8 vs other",
+            "my_value": "+23.0bp, t=2.15",
+            "study_value": "+23bp, t=2.15",
+            "match": true
+          },
+          {
+            "name": "rest-5-only nights",
+            "my_value": "n=107, mean 3.9bp, tail 11.2%, Fisher p=0.010",
+            "study_value": "n=105, mean 3.1bp, tail 11.4%, p=0.005",
+            "match": true
+          },
+          {
+            "name": "first half / second half / last 2 years t",
+            "my_value": "1.76 / 0.58 / -0.60",
+            "study_value": "1.74 / 0.58 / -0.60",
+            "match": true
+          },
+          {
+            "name": "earnings-season control",
+            "my_value": "+12.3bp, t=1.29",
+            "study_value": "+12.2bp, t=1.27",
+            "match": true
+          },
+          {
+            "name": "base 2x strategy (0.3% cost)",
+            "my_value": "-8.96bp/night, -20.2%/yr, maxDD -95.1%, 108 nights at or below -5% (4.73%)",
+            "study_value": "-8.96bp/night, -20.2%/yr, -95.1%, 108 (4.73%)",
+            "match": true
+          },
+          {
+            "name": "all-peer blackout minus base (block bootstrap 95% CI)",
+            "my_value": "-2.61bp [-7.59, +2.37], maxDD -97.0%, 89 nights at or below -5% (4.70%)",
+            "study_value": "-2.56bp [-7.54, +2.36], -96.9%, 89 (4.69%)",
+            "match": true
+          },
+          {
+            "name": "cost sensitivity of blackout (0% / 0.4%)",
+            "my_value": "-7.59 / -0.94 bp",
+            "study_value": "-7.5 / -0.9 bp",
+            "match": true
+          },
+          {
+            "name": "rest-5 blackout variant",
+            "my_value": "rest-5 only +1.30 [-1.6, +4.3]; any rest-5 night -0.14",
+            "study_value": "-0.09 [-3.2, +3.1] (labelled 'Rest-5 only')",
+            "match": false
+          },
+          {
+            "name": "placebo (random same-size blackouts beat peer blackout)",
+            "my_value": "93.4%",
+            "study_value": "93%",
+            "match": true
+          },
+          {
+            "name": "half-size on peer nights (not in A)",
+            "my_value": "-1.07bp/night [-3.55, +1.40]",
+            "study_value": "n/a"
+          },
+          {
+            "name": "weekday-only / controlled peer effect (not in A)",
+            "my_value": "+10.0bp t=1.06 / HAC regression +6.7bp t=0.71",
+            "study_value": "n/a (A reported raw +14.5bp)"
+          },
+          {
+            "name": "hyperscaler nights (not in A)",
+            "my_value": "n=104, mean +25.7 vs +10.3bp, sd 211 vs 171 (Levene p=0.0014; permutation sd-ratio p=0.10), blackout -0.57bp/night",
+            "study_value": "n/a"
+          },
+          {
+            "name": "real LETF vs synthetic 2x (overnight)",
+            "my_value": "NVDL slope 1.85, -4.0bp/night; NVDX slope 2.00, -5.2bp/night",
+            "study_value": "not tested (A notes synthetic 2x as a caveat)"
+          },
+          {
+            "name": "live night 10/14->10/15 NVDA close->open",
+            "my_value": "-2.71%",
+            "study_value": "-2.71%",
+            "match": true
+          },
+          {
+            "name": "calendar vs get_earnings_results date/timing cross-check",
+            "my_value": "95/95 match (14 symbols, 2025-26); price-gap check 482/487",
+            "study_value": "A: 2025-26 matched for 8 symbols",
+            "match": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "B",
+      "study": {
+        "summary": "Over 9.2 years (Aug 2017 to Oct 2026), there is no reliable evidence that nights when the peer set reports are bad for an overnight NVDA hold. NVDA close-to-next-open averaged +32.4bp on 304 peer event nights and +10.5bp on 1,977 other nights. The difference is +21.8bp, Welch t=1.97, p=0.05, which is borderline and does not survive multiple-comparison correction. If anything, the mean on event nights is higher, not lower.\n\nVariance is somewhat higher on event nights (sd 182 vs 168bp, Levene p=0.012). This comes from megacap AI-capex nights (sd ratio 1.24, Levene p=0.001) and nights with 2 or more peers reporting (sd ratio 1.45, p<0.001; median -6.6bp, win rate 46%). Tail frequency (NVDA at or below -2.5%) is 5.3% on event nights vs 4.7% on other nights (Fisher p=0.66). The one notable tail pattern is megacap-only nights at 8.3% vs 4.7% (p=0.08), which is not significant. Semis nights have fewer tails (3.3%).\n\nIn the 2x simulation (minus 0.3% cost per night held), a blackout of all peer nights lowered growth by 3.75bp of log growth per night (95% block-bootstrap CI -8.5 to +1.0). It also did not improve max drawdown (-97.1% vs -95.1%) or the chance of a -5% 2x night per night held (4.7% in both cases). The result points the same way in both halves of the sample, under every cost assumption from 0% to 0.5%, and on NVDL's own bars. NVDL tracks 2x NVDA (slope 1.92, R² 0.94), and its event-minus-other difference is +38bp (t=1.08).",
+        "sample": {
+          "start": "2017-08-01 (first night close D) to 2026-10-21 (last next-open used; night 10/20->10/21)",
+          "end": "2026-10-21",
+          "n_nights": 2281,
+          "n_event_nights": 304,
+          "peers": "Variant B. Megacap AI-capex: MSFT, GOOGL, META, AMZN, ORCL (141 nights with at least one report). Semis: TSM, AVGO, AMD, ASML, MU (183 nights). 20 nights had both. 50 nights had 2 or more peers; 254 had exactly 1. Event night N(D->D+1) = a peer reports 'pm' on D or 'am' on D+1; reports dated on non-trading days are mapped to the night whose close-to-open interval contains them. 2,318 trading nights in all; 37 NVDA own-earnings nights were removed from both groups (all were pm reports).",
+          "gaps": "1) The earnings calendar is empty before 2015-07. From 2015-07 to 2017-06 it covers only a curated list of about 25 names, with no TSM, ASML, AVGO or ORCL, and it misses TSM 2017-07-13 and ASML 2017-07-19. Full 10-peer coverage starts with the Aug-2017 windows, so the sample starts 2017-08-01. The NVDA daily bars go back to 2008, but there are no event dates to match them before 2017. 2) Busy-season windows were walked as full 31-day calendar windows. The second window of each season (e.g. Feb 10 - Mar 12) was pulled without the high_market_cap filter so the result was saved to a file; all peers are well above $1B, so their rows are unaffected. 3) Quiet stretches (mid-Mar to early Apr, mid-Jun to early Jul, mid-Sep to early Oct, mid-Dec to early Jan) were covered with targeted 1-9 day windows around AVGO/ORCL/MU dates, to keep inline output small. For 2025-09 to 2026-09, 7 quiet-period AVGO/ORCL/MU dates come only from get_earnings_results. Completeness was checked by requiring every peer to have one report every 60-105 days; the only exception is ASML at 106 days (2024-10-15 to 2025-01-29), which is genuine. 4) Cross-check: get_earnings_results for MSFT, AVGO, ORCL and MU (trailing 8 quarters, so only about 2025-04 onward) matched the calendar on all 18 overlapping events, dates and am/pm. 5) All 419 events have an am/pm timing, so none had to be imputed. Two timings look wrong: MU 2017-12-19 and AVGO 2022-05-26 are listed 'am' but were after-close. Rerunning with them corrected gives headline t=2.05 and blackout difference -3.97bp (CI -8.7 to +0.7), so nothing changes. 6) The night of 10/21->10/22 (META pm; live -3.56) is not in the sample because the 10/22 daily bar is still interpolated. The night of 10/14->10/15 (TSM am) is in it: NVDA -2.71%. 7) Only interpolated bars were dropped: NVDA 2026-10-22, NVDL 2022-12-01 to 12-12 (before inception) and NVDL 2026-10-22. Prices are split-adjusted."
+        },
+        "groups": [
+          {
+            "name": "Other nights (no peer report, NVDA earnings excluded)",
+            "n": 1977,
+            "mean_bp": 10.5,
+            "median_bp": 18.8,
+            "sd_bp": 168.5,
+            "win_pct": 56.4,
+            "p5_bp": -239.8,
+            "n_le_m250bp": 92,
+            "note": "4.7% of nights at or below -2.5%"
+          },
+          {
+            "name": "All peer event nights",
+            "n": 304,
+            "mean_bp": 32.4,
+            "median_bp": 32.1,
+            "sd_bp": 181.9,
+            "win_pct": 60.9,
+            "p5_bp": -252,
+            "n_le_m250bp": 16,
+            "note": "5.3% at or below -2.5%"
+          },
+          {
+            "name": "Megacap AI-capex (at least 1 of MSFT/GOOGL/META/AMZN/ORCL)",
+            "n": 141,
+            "mean_bp": 44.5,
+            "median_bp": 42,
+            "sd_bp": 208.7,
+            "win_pct": 61,
+            "p5_bp": -295.6,
+            "n_le_m250bp": 10,
+            "note": "7.1% tails; sd 1.24x other nights"
+          },
+          {
+            "name": "Semis (at least 1 of TSM/AVGO/AMD/ASML/MU)",
+            "n": 183,
+            "mean_bp": 30.4,
+            "median_bp": 25.5,
+            "sd_bp": 176.7,
+            "win_pct": 59.6,
+            "p5_bp": -211.1,
+            "n_le_m250bp": 6,
+            "note": "3.3% tails, fewer than other nights"
+          },
+          {
+            "name": "Multi-event (2 or more peers the same night)",
+            "n": 50,
+            "mean_bp": 34.6,
+            "median_bp": -6.6,
+            "sd_bp": 245.1,
+            "win_pct": 46,
+            "p5_bp": -295.9,
+            "n_le_m250bp": 4,
+            "note": "Most dispersed group (sd 1.45x); the mean is lifted by large up-nights; 8% tails"
+          },
+          {
+            "name": "Single-peer nights",
+            "n": 254,
+            "mean_bp": 31.9,
+            "median_bp": 38.7,
+            "sd_bp": 167.2,
+            "win_pct": 63.8,
+            "p5_bp": -241,
+            "n_le_m250bp": 12
+          },
+          {
+            "name": "Megacap-only nights",
+            "n": 121,
+            "mean_bp": 35.2,
+            "median_bp": 42.2,
+            "sd_bp": 190,
+            "win_pct": 62.8,
+            "p5_bp": -296.2,
+            "n_le_m250bp": 10,
+            "note": "8.3% tails vs 4.7% (Fisher p=0.08)"
+          },
+          {
+            "name": "Semis-only nights",
+            "n": 163,
+            "mean_bp": 21.8,
+            "median_bp": 26.5,
+            "sd_bp": 154.9,
+            "win_pct": 60.7,
+            "p5_bp": -211.1,
+            "n_le_m250bp": 6
+          },
+          {
+            "name": "Season control: non-event nights within 5 nights of an event night",
+            "n": 1355,
+            "mean_bp": 9.8,
+            "median_bp": 18,
+            "sd_bp": 173.3,
+            "win_pct": 56.3,
+            "p5_bp": -243.9,
+            "n_le_m250bp": 65,
+            "note": "Controls for earnings-season clustering"
+          },
+          {
+            "name": "First half (before 2022-03-09): event nights",
+            "n": 148,
+            "mean_bp": 32.5,
+            "median_bp": 28.1,
+            "sd_bp": 158.5,
+            "win_pct": 62.8,
+            "p5_bp": -207.9,
+            "n_le_m250bp": 6,
+            "note": "Other nights in this half: n=992, mean 14.9, sd 167.3, 43 tails"
+          },
+          {
+            "name": "Second half (2022-03-09 on): event nights",
+            "n": 156,
+            "mean_bp": 32.2,
+            "median_bp": 40.7,
+            "sd_bp": 202.1,
+            "win_pct": 59,
+            "p5_bp": -283.1,
+            "n_le_m250bp": 10,
+            "note": "Other nights in this half: n=985, mean 6.2, sd 169.7, 49 tails"
+          },
+          {
+            "name": "NVDL own bars: event nights (2022-12-13 to 2026-10-20)",
+            "n": 129,
+            "mean_bp": 62.2,
+            "median_bp": 82.2,
+            "sd_bp": 378,
+            "win_pct": 60.5,
+            "p5_bp": -474.4,
+            "n_le_m250bp": 6,
+            "note": "NVDL return units (about 2x); the count is NVDL nights at or below -5%"
+          },
+          {
+            "name": "NVDL own bars: other nights",
+            "n": 822,
+            "mean_bp": 24.3,
+            "median_bp": 33.7,
+            "sd_bp": 317.7,
+            "win_pct": 56.1,
+            "p5_bp": -437.7,
+            "n_le_m250bp": 31,
+            "note": "NVDL vs NVDA overnight: slope 1.92, R² 0.941, residual sd 80bp; 16 nights deviate more than 2% from 2x NVDA (thin trading Dec-2022/early 2023; 2023-12-26 distribution of about -10%)"
+          }
+        ],
+        "tests": [
+          {
+            "name": "All event vs other (NVDA close->open)",
+            "diff_bp": 21.8,
+            "t": 1.97,
+            "p": 0.05,
+            "note": "Bootstrap 95% CI for the mean difference: 0.0 to 43.3bp. Mann-Whitney p=0.062. Levene (variance) p=0.012, sd ratio 1.08. Tail Fisher p=0.66. Event nights are better on average, not worse; the evidence is borderline."
+          },
+          {
+            "name": "Megacap AI-capex vs other",
+            "diff_bp": 34,
+            "t": 1.89,
+            "p": 0.06,
+            "note": "Levene p=0.001 (sd ratio 1.24); tail Fisher p=0.22"
+          },
+          {
+            "name": "Semis vs other",
+            "diff_bp": 19.9,
+            "t": 1.46,
+            "p": 0.145,
+            "note": "Levene p=0.13; tail p=0.58"
+          },
+          {
+            "name": "Multi-event (2+ peers) vs other",
+            "diff_bp": 24,
+            "t": 0.69,
+            "p": 0.494,
+            "note": "Levene p<0.001 (sd ratio 1.45); median -6.6bp; tail p=0.30"
+          },
+          {
+            "name": "Single-peer vs other",
+            "diff_bp": 21.4,
+            "t": 1.92,
+            "p": 0.056
+          },
+          {
+            "name": "Megacap-only vs other",
+            "diff_bp": 24.7,
+            "t": 1.4,
+            "p": 0.165,
+            "note": "Tails 8.3% vs 4.7%, Fisher p=0.08"
+          },
+          {
+            "name": "Semis-only vs other",
+            "diff_bp": 11.3,
+            "t": 0.89,
+            "p": 0.377
+          },
+          {
+            "name": "Event vs season control (non-event nights within 5 nights)",
+            "diff_bp": 22.6,
+            "t": 1.98,
+            "p": 0.049,
+            "note": "Not explained by earnings-season timing"
+          },
+          {
+            "name": "First half: event vs other",
+            "diff_bp": 17.7,
+            "t": 1.26,
+            "p": 0.211
+          },
+          {
+            "name": "Second half: event vs other",
+            "diff_bp": 26,
+            "t": 1.52,
+            "p": 0.129,
+            "note": "Levene p=0.004: event nights more dispersed in 2022-2026"
+          },
+          {
+            "name": "NVDL own bars: event vs other",
+            "diff_bp": 37.9,
+            "t": 1.08,
+            "p": 0.282,
+            "note": "Excluding the 16 off-2x nights: +49.2bp, t=1.43, p=0.155. 2x NVDA on the same nights: +46.3bp, t=1.31. Same direction as the NVDA headline."
+          },
+          {
+            "name": "ORCL nights vs other (largest of 10 per-symbol tests)",
+            "diff_bp": 87,
+            "t": 2.67,
+            "note": "Does not survive multiple-comparison correction (Bonferroni over 10 symbols needs |t| of about 2.8 or more). Others: MU t=1.9, AMD 1.33, META 1.3, AVGO 1.14, MSFT 0.5, TSM 0.41, GOOGL -0.32, AMZN -1.15 (5 of 36 nights at or below -2.5%), ASML -1.31."
+          },
+          {
+            "name": "Strategy: blackout all peer nights minus baseline, mean log growth per eligible night (2x, 0.3% cost)",
+            "diff_bp": -3.75,
+            "t": -1.56,
+            "note": "t is approximate, implied by the block bootstrap (block length 10, 10,000 resamples). 95% CI -8.5 to +1.0bp per night. The blackout was worse in 94% of resamples."
+          }
+        ],
+        "strategy_sim": "Simulation: 2x NVDA close-to-open, minus 0.30% per night held, cash otherwise. NVDA earnings nights are in cash in every variant. 2,281 eligible nights from 2017-08 to 2026-10. Annualized at 252 nights per year.\n\n| Variant | Nights held | Mean log growth per night | Annualized | Max drawdown | 2x nights at or below -5% | Change vs baseline (95% CI) |\n|---|---|---|---|---|---|---|\n| Baseline (hold every eligible night) | 2,281 | -9.11bp | -20.5% | -95.1% | 108 (4.7% of held) | – |\n| Blackout all peer nights | 1,977 | -12.85bp | -27.7% | -97.1% | 92 (4.7% of held) | -3.75bp (-8.5 to +1.0) |\n| Blackout semis nights only | 2,098 | -11.09bp | – | -96.2% | – | -1.98bp (-6.0 to +1.9) |\n| Blackout megacap nights only | 2,140 | -12.23bp | – | -96.7% | – | -3.12bp (-6.8 to +0.5) |\n| Blackout multi-event nights only | 2,231 | -9.72bp | – | -94.5% | – | -0.61bp (-3.6 to +2.5) |\n\n- **By half of the sample:** first half -3.9bp (CI -9.8 to +2.0); second half -3.6bp (CI -10.9 to +3.9).\n- **By cost per night:** the blackout difference is -7.7bp at 0%, -6.4 at 0.1%, -5.1 at 0.2%, -3.75 at 0.3% and -1.1 at 0.5%. The blackout never helps. At 0.3% cost, event nights add about +28bp of log growth each; all of the negative growth comes from the other nights.\n- **NVDL's own bars (951 nights, 0.3% cost):** baseline -6.05bp per night with max drawdown -66.0%; blackout -9.45bp with max drawdown -69.5%.\n- **Note on the baseline:** at a flat 0.3% round-trip cost the baseline itself loses money over 2017-2026. NVDA overnight averages about +13bp, so 2x gives about +27bp, below the 30bp cost, before volatility drag. That is why the drawdowns are so deep.",
+        "recommendation": "For the pre-registered review on 2027-01-11: this long-sample evidence does not support a peer-earnings blackout for variant B's peer set (megacaps and semis). Event nights had higher average NVDA overnight returns (not reliably), the same rate of -5% 2x nights per night held, and a slightly worse drawdown when skipped. Skipping them lowered growth in every subgroup, in both halves, at every cost level, and on NVDL's own bars, although every confidence interval includes zero.\n\nThe only real risk difference is dispersion. Megacap and multi-event nights have about 1.25-1.45x the standard deviation of other nights, and megacap-only nights had more -2.5% tails (8.3% vs 4.7%, p=0.08). Even so, skipping them did not reduce max drawdown and cost growth.\n\nThe two live losses are consistent with normal noise. TSM nights averaged +22bp over 37 nights; the -4.90 night was one draw.\n\nClassification of the upcoming nights under variant B:\n- **10/27:** not a peer night. SK hynix is outside this set; it is also FOMC eve, which the rules already treat as a hold.\n- **10/28:** a megacap multi-event night (MSFT and GOOGL after the close). Historically these have a higher mean but much higher variance and a median of -6.6bp.\n- **10/29:** a single-megacap night (AMZN after the close). AMZN nights averaged -26.5bp with t=-1.15, which is not reliable.\n\nKeep only the NVDA own-earnings blackout, keep tagging live peer nights, and make no behaviour change before 2027-01-11, as pre-registered. This is information only.\n\nA separate and larger issue: at a flat 0.3% round-trip cost, the 2x overnight baseline itself had negative compounded growth over 2017-2026. Measuring the realized round-trip cost is a bigger question for the review than any event blackout.",
+        "caveats": [
+          "Multiple comparisons: roughly 10 core comparisons (headline, 6 subgroups, season control, 2 halves), 10 per-symbol tests and an NVDL check. After a Bonferroni correction nothing reaches significance, including the headline (t=1.97) and ORCL (t=2.67). Every 'better on event nights' statement is a point estimate and not reliable evidence.",
+          "Daily-bar approximation: the open is the first regular-session print (about 09:30) and the close is 16:00. The live strategy enters at 15:52 and exits at 09:31:05. NVDL's open prints are noisy (residual sd 80bp vs 2x NVDA).",
+          "The strategy simulation uses 2x the NVDA overnight return with no ETF fees, financing or distributions, and a flat 0.3% cost on every night held. Results scale with cost, but the blackout direction does not change from 0% to 0.5%.",
+          "Calendar coverage limits the sample to 2017-08 onward, about 9.2 years and 304 event nights. Data from 2015-2017 (megacaps and AMD only) was not used. Quiet-season dates were collected with targeted narrow windows plus a continuity check, and 7 AVGO/ORCL/MU dates from 2025-09 to 2026-09 come only from get_earnings_results. A peer report on an unexpected quiet-season date would show up as a gap in the continuity check, and none appeared.",
+          "Two calendar timings look wrong (MU 2017-12-19, AVGO 2022-05-26, both listed 'am' but reported after the close). They are left as-is in the primary run; correcting them gives headline t=2.05 and blackout difference -3.97bp, so the conclusion is unchanged.",
+          "Event nights cluster in earnings seasons and on macro-heavy weeks (FOMC, GDP). The season-control comparison gives the same answer (t=1.98), but other overlapping catalysts are not separately controlled for.",
+          "Block bootstrap uses a block length of 10 nights. The t value for the strategy difference is inferred from the bootstrap CI, not from a closed-form test.",
+          "The NVDL own-bar sample is short (951 nights, 129 event nights) and includes 16 nights more than 2% off 2x NVDA: thin trading after the Dec-2022 inception and a distribution around 2023-12-26.",
+          "The 2 live anecdotes are not evidence. The 10/21->10/22 night is not yet in the bar data. The 10/14->10/15 TSM night (-2.71% NVDA) is in the sample.",
+          "Read-only: no orders, mutating tools or account actions were used, and nothing under /home/user/test-trading was written. Only RULES_v3.md, state.json and trades.csv were read. git status shows trader/journal.md as modified, but that change did not come from this analysis."
+        ],
+        "files": [
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/scripts/ingest.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/scripts/build_events.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/scripts/analysis.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/scripts/nvdl_check.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/scripts/summarize.py",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/events.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/nights.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/nights_corrected.csv",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/results.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/results_corrected.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/nvdl_check.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/raw/manifest.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/raw/earnings_results.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/raw/nvda_daily.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/raw/nvdl_nvda_daily_2022.json",
+          "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/B/raw/cal/"
+        ]
+      },
+      "verdict": {
+        "verdict": "holds",
+        "issues": [
+          "Reproduction: B's headline and simulation numbers reproduce exactly from my own script, Robinhood pulls and event build. Event list: 408/408 identical (symbol, date, timing) for 2017-07..2026-10-21. Nights: 2281 eligible, 304 event, 37 NVDA-earnings nights excluded. The only discrepancy was a boundary bug in my own first draft: a pm report on the last bar date was mapped to the prior night. After the fix my output matches B's handling, so this is not a B error.",
+          "Date/timing verification (second sources): (1) get_earnings_results for all 10 peers + NVDA vs the calendar: the 62 overlapping 2025-04..2026-10 events agree on date and am/pm, with no conflicts. (2) I re-pulled 13 quiet-season calendar windows myself (2017-08..2021-12). They gave about 40 ORCL/MU/AVGO events, all matching B's hand-transcribed inline rows, with nothing missing. (3) Price-reaction check on all 408 events, using each peer's own close->open gap. The median mapped-night gap is 2.9x (ASML) to 15x (META) the local median gap, and the mapped night is the largest of the 3 adjacent nights in 70-95% of cases. There is no systematic off-by-one or am/pm/timezone error; TSM/ASML 'am' maps correctly to the D-1->D night. Spot checks: TSM 2026-10-15 am (NVDA -2.71%, the live -4.90 night), META 2026-10-21 pm, MSFT/GOOGL/META 2025-10-29 pm, AMZN 2025-10-30 pm, ORCL 2025-12-10 pm, AVGO 2025-12-11 pm, MU 2025-12-17 pm, ASML 2025-10-15 am, and AVGO 2020-06-04/2020-09-03 pm all have peer gaps of 5-26x median on the mapped night.",
+          "Calendar timing errors: the price check confirms B's two flags. MU 2017-12-19 is listed 'am' but the move came on the 12/19->12/20 night (5.96% vs 0.78%). AVGO 2022-05-26 is listed 'am' but the move came on 5/26->5/27 (2.08% vs 0.02%). B missed a third: ASML 2024-10-15 (early-release leak during US hours, no overnight gap) is tagged as an 'am' event night. Correcting all three gives headline t=2.06 and blackout -3.99bp (CI -8.8 to +0.75). The conclusion is unchanged.",
+          "Quiet-season coverage weakness (method, not result): from 2020 on, B covered the quiet windows with 1-day calendar calls aimed at dates it already expected. That is not a scan and could miss unexpected dates. The 55-106 day continuity check, my independent pulls for 2017-2021 and the price check found no missing peer events.",
+          "The headline 'event nights are better' (+21.8bp, t=1.97) is fragile, though B already hedged it as borderline. Dropping the 5 largest event up-nights gives t=1.15. Winsorizing at 1/99% gives t=1.67. Excluding ORCL-only nights gives t=1.37; ORCL is a hindsight-chosen AI peer and is the top per-symbol t=2.67. Excluding the 148 nights next to an FOMC decision (54 of 304 event nights; megacaps often report on FOMC day) shrinks it to +16.9bp, t=1.40. B's season control does not address this macro overlap. Placebo tags shifted by 1 or 2 nights give t between -1.07 and -0.22, so the effect is not just seasonal clustering. Treat the sign as no reliable evidence, not as an edge.",
+          "Multiple comparisons are larger than B counts. Adding my checks gives over 40 tests, including 14 per-symbol tail tests. Nominal hits: AMZN tails 5/36 (13.9% vs 4.7%, Fisher p=0.029), GOOGL 4/36 and INTC 4/36 (p=0.094), and megacap-only tails 9.5% vs about 4.6% once FOMC-adjacent nights are dropped (p=0.047). None survive Bonferroni (p<0.0036 for 14 symbols). These are hypotheses only, but they bear on the upcoming 10/28 night (MSFT+GOOGL+KLAC on FOMC day) and the 10/29 night (AMZN+INTC).",
+          "Peer-set scope: variant B leaves out the semicap names and INTC (LRCX was the 10/21 live catalyst; KLAC reports 10/28 and INTC 10/29). Adding LRCX/KLAC/AMAT/INTC (dates from the same raw calendars, continuity clean) makes B's conclusion stronger, not weaker. Event nights +24.0bp, t=2.50 nominal. Blackout of all events -5.20bp/night, 95% CI -10.4 to -0.1. LRCX nights had 0 of 36 at or below -2.5%.",
+          "Tail metric definition: B's 'P(-5% 2x night) 4.7% both' is gross (2r <= -5%: 108/2281 vs 92/1977). Net of the 0.3% cost it is 5.30% vs 5.21% per held night. Same conclusion: no tail benefit from a blackout.",
+          "Strategy and cost: the 2x-of-overnight proxy is fine (NVDL slope 1.92, R² 0.94; NVDL own bars give blackout -3.49bp/night, CI -11.2 to +4.1). Bootstrap block lengths 1/5/10/20 all give CIs that include zero (upper bound +0.6 to +1.7bp). Break-even round-trip cost is 0.58% for event nights, 0.15% for the other nights and about 0.21% for the whole baseline. A blackout of event nights cannot help at any cost below about 0.58%. Live NVDL fills (24 T3X-N rows) underperform bar close->open by 0.24% on average (sd 1.05%, se about 0.21%), so 0.3% is plausible but very imprecise. This supports B's point that cost decides whether the baseline makes money at all.",
+          "Half-size option (1x instead of 2x on event nights, cost scaled): all events -1.65bp/night (CI -4.0 to +0.7), maxDD -95.6% vs -95.1%, net per-held-night P(<=-5%) 5.3% -> 4.6%. Megacap only: -1.43bp (CI -3.2 to +0.4). It gives up growth for a small cut in the per-night tail rate, with no drawdown benefit.",
+          "Minor items: NVDL event-night count is 128 vs B's 129 (+38.9bp vs +37.9bp, not material). Sample gaps B stated are confirmed: there are no interpolated NVDA bars in range, and the 10/22 bar is not yet available, so the 10/21->10/22 live night is not in the sample.",
+          "Verifier files: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/scripts/v_build_events.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/scripts/v_timing_check.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/scripts/v_analysis.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/scripts/v_extended.py; outputs /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/events_v.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/event_check.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/v_results.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/v_extended.json; raw pulls in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/peer_nights/verify_B/raw/. Read-only: no orders or mutating tools were used, and nothing under /home/user/test-trading was written (only trades.csv was read)."
+        ],
+        "adjusted_recommendation": "Answer: (d) do nothing before the 2027-01-11 review. The long-sample evidence does not support (a) a blackout of all peer nights, (b) a blackout of any subgroup (semis, megacap, megacap-only, 2+ peers, or a peer set extended with LRCX/KLAC/AMAT/INTC), or (c) half-size on those nights.\n\nOver 2017-08..2026-10 (304 B-set event nights out of 2,281), every blackout variant lowers 2x net log growth by 0.6 to 5.2bp per night. None of them improves max drawdown or the per-night chance of a -5% 2x night, and every bootstrap CI includes zero except the extended set, where the blackout is significantly worse. Half-size costs about 1.4-1.7bp per night and only modestly cuts the per-night tail rate, with no drawdown gain. The 'event nights are better' sign is not reliable either: t of 1.15 to 1.40 after removing outliers, ORCL or FOMC-adjacent nights. So the honest summary is 'no reliable difference in mean; slightly higher dispersion on megacap and 2+ peer nights; no reliable tail difference'.\n\nFor the review: (1) keep the NVDA own-earnings blackout only. (2) Keep tagging live peer nights, and pre-register as hypotheses for out-of-sample tracking, without changing behaviour: AMZN/GOOGL/INTC nights and megacap nights on FOMC day. These are exactly the 10/28 (MSFT+GOOGL+KLAC, FOMC day) and 10/29 (AMZN+INTC) nights; their tail rates were nominally high (AMZN 5/36), but this does not survive multiple-comparison correction. (3) The bigger issue is cost. The whole 2x overnight baseline breaks even at about 0.21% round-trip, live NVDL fills show about 0.24% ± 0.21% slippage against the bars, and at 0.3% the baseline compounds at about -20%/yr over 2017-2026. Measuring the realised round-trip cost precisely matters far more than any event blackout. Information only; no behaviour change before 2027-01-11, as pre-registered.",
+        "confidence": "High that B's numbers are correct: exact reproduction from independent code and pulls, with dates and timings checked three ways. Moderate-to-high on the conclusion that no blackout, subgroup blackout or half-size is supported: it is robust to cost (0-0.5%), sample halves, block length, timing corrections, FOMC exclusion and a broader peer set, but all effects are small and n is 30-300 per group.",
+        "recomputed": [
+          {
+            "name": "Eligible nights / event nights / NVDA-earnings nights excluded",
+            "my_value": "2281 / 304 / 37",
+            "study_value": "2281 / 304 / 37",
+            "match": true
+          },
+          {
+            "name": "Event-list identity (symbol,date,timing) 2017-07..2026-10-21",
+            "my_value": "408 events, 0 differences",
+            "study_value": "408 events",
+            "match": true
+          },
+          {
+            "name": "Other nights: n, mean, median, sd, win%, p5, n<=-2.5%",
+            "my_value": "1977, 10.5bp, 18.8, 168.5, 56.4%, -239.8, 92",
+            "study_value": "1977, 10.5bp, 18.8, 168.5, 56.4%, -239.8, 92",
+            "match": true
+          },
+          {
+            "name": "Event nights: n, mean, median, sd, win%, p5, n<=-2.5%",
+            "my_value": "304, 32.4bp, 32.1, 181.9, 60.9%, -252.0, 16",
+            "study_value": "304, 32.4bp, 32.1, 181.9, 60.9%, -252, 16",
+            "match": true
+          },
+          {
+            "name": "Headline Welch diff / t / p; Levene p; tail Fisher p; MW p",
+            "my_value": "+21.8bp / 1.97 / 0.050; 0.012; 0.663; 0.062",
+            "study_value": "+21.8bp / 1.97 / 0.05; 0.012; 0.66; 0.062",
+            "match": true
+          },
+          {
+            "name": "Megacap nights n / mean / sd / t / Levene p",
+            "my_value": "141 / 44.5 / 208.7 / 1.89 / 0.0007",
+            "study_value": "141 / 44.5 / 208.7 / 1.89 / 0.001",
+            "match": true
+          },
+          {
+            "name": "Multi-event nights n / median / sd ratio / win%",
+            "my_value": "50 / -6.6bp / 1.45 / 46%",
+            "study_value": "50 / -6.6bp / 1.45 / 46%",
+            "match": true
+          },
+          {
+            "name": "Megacap-only tails vs other (Fisher p)",
+            "my_value": "10/121 = 8.26% vs 4.65% (p=0.080)",
+            "study_value": "8.3% vs 4.7% (p=0.08)",
+            "match": true
+          },
+          {
+            "name": "Per-symbol: ORCL t, AMZN mean/t, TSM n/mean",
+            "my_value": "ORCL t=2.67; AMZN -26.5bp t=-1.15; TSM n=37 +22.1bp",
+            "study_value": "ORCL t=2.67; AMZN -26.5 t=-1.15; TSM 37 nights +22bp",
+            "match": true
+          },
+          {
+            "name": "Baseline 2x (0.3% cost): mean log/night, annualized, maxDD",
+            "my_value": "-9.11bp, -20.5%, -95.1%",
+            "study_value": "-9.11bp, -20.5%, -95.1%",
+            "match": true
+          },
+          {
+            "name": "Blackout all: mean log/night, annualized, maxDD, held",
+            "my_value": "-12.85bp, -27.7%, -97.1%, 1977",
+            "study_value": "-12.85bp, -27.7%, -97.1%, 1977",
+            "match": true
+          },
+          {
+            "name": "Blackout minus baseline, block bootstrap L=10 95% CI, share<0",
+            "my_value": "-3.75bp [-8.52, +0.98], 94.1%",
+            "study_value": "-3.75bp [-8.5, +1.0], 94%",
+            "match": true
+          },
+          {
+            "name": "Halves: blackout diff (CI)",
+            "my_value": "H1 -3.90 [-9.76,+1.92]; H2 -3.59 [-10.83,+3.77]",
+            "study_value": "H1 -3.9 [-9.8,+2.0]; H2 -3.6 [-10.9,+3.9]",
+            "match": true
+          },
+          {
+            "name": "Subgroup blackouts semi / mega / multi (diff bp)",
+            "my_value": "-1.98 / -3.12 / -0.61",
+            "study_value": "-1.98 / -3.12 / -0.61",
+            "match": true
+          },
+          {
+            "name": "Cost sweep blackout diff at 0/0.1/0.2/0.3/0.5%",
+            "my_value": "-7.73 / -6.40 / -5.07 / -3.75 / -1.08",
+            "study_value": "-7.7 / -6.4 / -5.1 / -3.75 / -1.1",
+            "match": true
+          },
+          {
+            "name": "P(-5% 2x night) per held, baseline vs blackout",
+            "my_value": "gross 4.73% vs 4.65% (same as B); net of 0.3% cost 5.30% vs 5.21%",
+            "study_value": "4.7% vs 4.7% (gross)",
+            "match": true
+          },
+          {
+            "name": "Timing-corrected headline t / blackout diff",
+            "my_value": "t=2.06 / -3.99bp (MU, AVGO fixed + ASML 2024-10-15 leak dropped)",
+            "study_value": "t=2.05 / -3.97bp (MU, AVGO fixed)",
+            "match": true
+          },
+          {
+            "name": "NVDL own bars: event-other diff/t; base & blackout log growth, maxDD",
+            "my_value": "+38.9bp t=1.10 (128 ev); -6.05bp/-66.0% vs -9.54bp/-69.8%",
+            "study_value": "+37.9bp t=1.08 (129 ev); -6.05bp/-66.0% vs -9.45bp/-69.5%",
+            "match": true
+          },
+          {
+            "name": "NEW: excluding FOMC-adjacent nights (headline t; blackout diff CI)",
+            "my_value": "+16.9bp t=1.40; -2.10bp [-7.02,+2.83]",
+            "study_value": "not tested (season control only, t=1.98)"
+          },
+          {
+            "name": "NEW: robustness of headline (drop top-5 event nights / winsorized / excl ORCL-only)",
+            "my_value": "t=1.15 / t=1.67 / t=1.37",
+            "study_value": "not tested"
+          },
+          {
+            "name": "NEW: placebo event tags shifted -2/-1/+1/+2 nights (t)",
+            "my_value": "-0.22 / -1.07 / -0.64 / -0.35",
+            "study_value": "not tested"
+          },
+          {
+            "name": "NEW: extended peer set +LRCX/KLAC/AMAT/INTC: headline t; blackout diff CI",
+            "my_value": "+24.0bp t=2.50; -5.20bp [-10.38,-0.12]",
+            "study_value": "not tested"
+          },
+          {
+            "name": "NEW: half-size on all event nights (diff, CI, maxDD, net P(-5%)/held)",
+            "my_value": "-1.65bp [-4.03,+0.72], -95.6%, 4.6%",
+            "study_value": "not tested"
+          },
+          {
+            "name": "NEW: break-even round-trip cost (event nights / other nights / whole baseline)",
+            "my_value": "0.58% / 0.15% / ~0.21%",
+            "study_value": "not computed (noted baseline negative at 0.3%)"
+          },
+          {
+            "name": "NEW: live NVDL fill slippage vs bar close->open (T3X-N rows)",
+            "my_value": "mean 0.24%, median 0.38%, sd 1.05%, n=24",
+            "study_value": "not computed"
+          },
+          {
+            "name": "NEW: per-symbol tail Fisher (most extreme)",
+            "my_value": "AMZN 5/36 p=0.029; GOOGL 4/36 p=0.094; INTC 4/36 p=0.094 (none pass Bonferroni over 14)",
+            "study_value": "AMZN 5 of 36 noted"
+          }
+        ]
+      }
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Analyze"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "analyze:A",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "a9f8d7774a5c0f543",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792675961511,
+      "queuedAt": 1792675961481,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Over 9.2 years (2,318 NVDA close-to-open nights, 2017-08-01…",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$97 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold: buy NVDL (2x NVDA) ~2 shares + NVDX 1 share at 15:52 ET, sell at 09:31 ET next morning, every trading night except NVDA's own earnings night (cash).\nRules file (READ ONLY): /home/user/test-trading/trader/RULES_v3.md. Live record: trader/trades.csv (T3X-N* rows), trader/state.json (cam…",
+      "promptFramed": true,
+      "lastProgressAt": 1792676794780,
+      "tokens": 350569,
+      "toolCalls": 177,
+      "durationMs": 833268,
+      "resultPreview": "{\"summary\":\"Over 9.2 years (2,318 NVDA close-to-open nights, 2017-08-01 to 2026-10-21), there is no reliable evidence that semiconductor-peer earnings nights are worse for an NVDA overnight hold. The full-sample point estimates actually lean the other way. On the 384 peer event nights NVDA averaged +25.5bp; on the 1,897 other nights (NVDA's own earnings nights excluded) it averaged +11.0bp. The di…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "analyze:B",
+      "phaseIndex": 1,
+      "phaseTitle": "Analyze",
+      "agentId": "a01c4514dbbe901ec",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792675961512,
+      "queuedAt": 1792675961481,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Over 9.2 years (Aug 2017 to Oct 2026), there is no reliable…",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$97 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold: buy NVDL (2x NVDA) ~2 shares + NVDX 1 share at 15:52 ET, sell at 09:31 ET next morning, every trading night except NVDA's own earnings night (cash).\nRules file (READ ONLY): /home/user/test-trading/trader/RULES_v3.md. Live record: trader/trades.csv (T3X-N* rows), trader/state.json (cam…",
+      "promptFramed": true,
+      "lastProgressAt": 1792676851093,
+      "tokens": 428854,
+      "toolCalls": 180,
+      "durationMs": 889025,
+      "resultPreview": "{\"summary\":\"Over 9.2 years (Aug 2017 to Oct 2026), there is no reliable evidence that nights when the peer set reports are bad for an overnight NVDA hold. NVDA close-to-next-open averaged +32.4bp on 304 peer event nights and +10.5bp on 1,977 other nights. The difference is +21.8bp, Welch t=1.97, p=0.05, which is borderline and does not survive multiple-comparison correction. If anything, the mean …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "verify:A",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a270fe47b871bfe11",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792676798145,
+      "queuedAt": 1792676798121,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "holds",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$97 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold: buy NVDL (2x NVDA) ~2 shares + NVDX 1 share at 15:52 ET, sell at 09:31 ET next morning, every trading night except NVDA's own earnings night (cash).\nRules file (READ ONLY): /home/user/test-trading/trader/RULES_v3.md. Live record: trader/trades.csv (T3X-N* rows), trader/state.json (cam…",
+      "promptFramed": true,
+      "lastProgressAt": 1792677684931,
+      "tokens": 535416,
+      "toolCalls": 186,
+      "durationMs": 886785,
+      "resultPreview": "{\"verdict\":\"holds\",\"issues\":[\"REPRODUCED: I rebuilt the calendar from my own 114-window walk (2017-07 to 2026-11), with inline light windows transcribed by hand. I wrote my own mapping and simulation code. A's event-to-night table matches mine exactly except 2 nights, and every NVDA night return matches. Headline numbers agree to within rounding.\",\"MINOR OMISSION: A missed two SMCI catch-up filing…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "verify:B",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a67008e44b3b73aed",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792676853151,
+      "queuedAt": 1792676853147,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "holds",
+      "promptPreview": "CONTEXT: An autonomous agent trades a ~$97 Robinhood account (445788334) with a rule-based NVDA-2x OVERNIGHT hold: buy NVDL (2x NVDA) ~2 shares + NVDX 1 share at 15:52 ET, sell at 09:31 ET next morning, every trading night except NVDA's own earnings night (cash).\nRules file (READ ONLY): /home/user/test-trading/trader/RULES_v3.md. Live record: trader/trades.csv (T3X-N* rows), trader/state.json (cam…",
+      "promptFramed": true,
+      "lastProgressAt": 1792677556228,
+      "tokens": 423455,
+      "toolCalls": 69,
+      "durationMs": 703075,
+      "resultPreview": "{\"verdict\":\"holds\",\"issues\":[\"Reproduction: B's headline and simulation numbers reproduce exactly from my own script, Robinhood pulls and event build. Event list: 408/408 identical (symbol, date, timing) for 2017-07..2026-10-21. Nights: 2281 eligible, 304 event, 37 NVDA-earnings nights excluded. The only discrepancy was a boundary bug in my own first draft: a pm report on the last bar date was map…"
+    }
+  ],
+  "totalTokens": 1738294,
+  "totalToolCalls": 612
+}

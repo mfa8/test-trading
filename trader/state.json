@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-22T13:31:30Z",
-    "loop_note": "09:31 exit night31 -3.56; flat; E 97.27",
+    "last_heartbeat_utc": "2026-10-22T14:05:01Z",
+    "loop_note": "10:04 HB flat E 97.27 cash: NVDA 216.84 (-2.3%) QQQ -1.4% IWM +0.1%; NVDL 32.71. Peer-nights workflow done (both verifiers 'holds'): NO peer blackout; hyperscal",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -296,7 +296,8 @@
       "crash_open_exit_delay": "NVDA open <= -5% or QQQ <= -3% (non-earnings): log NVDL/NVDX bid at 09:31 fill time and at 10:00",
       "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
       "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
-      "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout)"
+      "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout) | 2026-10-22 long-sample study (research/PEER-NIGHTS-20261022.md, 2 analysts+2 verifiers): NO evidence for any peer blackout/half-size (all variants lower growth, no DD/tail benefit). Keep NVDA-own blackout only.",
+      "hyperscaler_nights": "pre-registered 2026-10-22 (out-of-sample from 10/22, judge at 2027-01-11, NO behaviour change before): H1 megacap (MSFT/GOOGL/META/AMZN/ORCL) and 2+-peer nights have higher overnight variance (long sample sd ratio 1.25-1.45, fragile); H2 AMZN/GOOGL/INTC nights elevated tails (nominal 5/36, 4/36, 4/36); H3 megacap nights on FOMC day elevated tails. Tag every such night in campaign.event_night_tags with realized NVDL/NVDX overnight %."
     },
     "edge_decay_checks": [
       {

@@ -211,3 +211,8 @@
 2026-10-22T13:25:07Z W-9 09:25 SHADOW q0925: NVDL 32.60/32.85 (25c wide, ~77bp) last 32.75; NVDX 17.60/19.28 (no real market) last 18.40 @09:23:19 — pre-mkt quotes blow out right before the open
 2026-10-22T13:29:05Z W-9 09:29 SHADOW q0929: NVDL 32.81/32.83 last 32.82; NVDX 18.37/18.52 last 18.35
 2026-10-22T13:31:47Z W-9 09:31 EXIT night31 NVDL 2 @32.8101 (lim 32.66, bid 32.71; -2.78) + NVDX 1 @18.44 (lim 18.36, bid 18.39; -0.78) = -3.56 (-4.1%); semis-peer event night (LRCX). E 97.27 all cash; DD -9.2% from HWM 107.11; PAUSE 85.69 not hit. Campaign 31 nights -4.83 (13W/18L). SHADOW: 09:29 bid vs fill NVDL 0bp, NVDX -38bp; 09:25 bid vs fill NVDL -64bp, NVDX -455bp (quotes blown out) -> pre-mkt exit would have been worse today.
+2026-10-22T13:32:44Z W-9 09:3x launched read-only workflow peer-earnings-nights-study (wf_35e5c9ec-9ec): NVDA overnight on semis/megacap peer report nights vs others, 2 analysts + 2 verifiers; info-only per pre-registration (quarterly review 2027-01-11)
+2026-10-22T13:40:05Z W-9 09:40 scan flat: NVDA 218.44 (-1.6%, bounced off open) QQQ -1.6% IWM -0.2%; NVDL 33.22 (sold 32.81)
+2026-10-22T13:48:04Z W-9 09:48 scan flat: NVDA 216.44 (-2.5%) QQQ -1.8% IWM -0.2%; NVDL 32.59
+2026-10-22T13:56:04Z W-9 09:56 scan flat: NVDA 216.64 (-2.4%) QQQ -1.6% IWM -0.04%; NVDL 32.65
+2026-10-22T14:05:01Z W-9 10:04 HB flat E 97.27 cash: NVDA 216.84 (-2.3%) QQQ -1.4% IWM +0.1%; NVDL 32.71. Peer-nights workflow done (both verifiers 'holds'): NO peer blackout; hyperscaler-night hypotheses pre-registered; 0.3% cost in study prompt was my overstatement (measured ~3-6bp RT). research/PEER-NIGHTS-20261022.md
