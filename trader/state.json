@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v1.7 Overnight Engine (NVDA-2x core; day leg suspended)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 31 closed 09:31 10/22 (-3.56); day leg suspended; entry night 32 15:52",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 32 NVDL 3 @ 31.2899 (15:52 Thu 10/22, v1.6; NVDX filler 0); exit 09:31:05 Fri 10/23 (pre-mkt shadow log 09:25/09:29)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-22T19:00:05Z",
-    "loop_note": "15:00 HB flat E 97.27 cash: NVDA 211.61 (-4.7%) QQQ -3.1% IWM -0.3%; NVDL 31.10 NVDX 17.48; entry plan night32 ~NVDL 3 (+NVDX 0)",
+    "last_heartbeat_utc": "2026-10-22T19:52:30Z",
+    "loop_note": "15:52 entry night32 NVDL3@31.2899 = 93.87; cash 3.4",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 31,
+    "nights_held": 32,
     "R_history": [],
     "night_returns": [
       {
@@ -346,13 +346,23 @@
           "NVDL_bid": 32.76,
           "NVDX_bid": 18.41
         }
+      },
+      {
+        "night": 32,
+        "date": "2026-10-22",
+        "events_amc": [
+          "WDC",
+          "MXL"
+        ],
+        "semis_peer": "none in study sets (WDC storage-adjacent)",
+        "hyperscaler": false
       }
     ]
   },
   "account": {
     "equity": 97.27,
-    "cash": 97.27,
-    "asof": "09:31 ET 2026-10-22 (all cash)"
+    "cash": 3.4,
+    "asof": "15:52 ET 2026-10-22 (NVDL3 cost 93.87)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -522,12 +532,23 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 3,
+      "entry": 31.2899,
+      "entry_t": "2026-10-22T15:52:07 ET",
+      "order_id": "6ada6966-4253-4f62-b2e0-52b1403ffcc8",
+      "leg": "overnight",
+      "n": 32,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-22",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "premarket": {
@@ -622,6 +643,23 @@
         "6ada1022-2745-4568-ad5f-811a346c1f0f",
         "6ada1023-c4d0-4918-a635-493198816c3b"
       ]
+    },
+    "entry": {
+      "t": "15:52:07",
+      "night": 32,
+      "NVDL": {
+        "qty": 3,
+        "lim": 31.35,
+        "fill": 31.2899,
+        "ask": 31.3
+      },
+      "NVDX": {
+        "qty": 0,
+        "note": "filler: 93.87 + 17.63 > cap 95.32"
+      },
+      "cost": 93.87,
+      "cash_after": 3.4,
+      "note": "NVDA -4.6% session (after -2.5% overnight); WDC/MXL AMC"
     }
   },
   "schedule": {
