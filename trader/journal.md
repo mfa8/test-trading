@@ -260,3 +260,4 @@
 2026-10-22T19:40:08Z W-9 15:40 pre-entry: broker cash 97.27 (BP 97.27), 0 open orders, approvals off; not blackout, not PAUSE (85.69); NVDL a31.14 NVDX a17.51 NVDA 211.71 (-4.6%); tonight WDC/MXL AMC (no blackout). Dry sizing NVDL 3.
 2026-10-22T19:52:32Z W-9 15:52 ENTRY night32 NVDL 3 @31.2899 (lim 31.35, ask 31.30) = 93.87 (96.5% of E 97.27); NVDX filler 0 (cap); cash 3.40. NVDA -4.6% on the day. Exit 09:31:05 Fri 10/23 with shadow quotes 09:25/09:29.
 2026-10-22T20:02:01Z W-9 16:02 EOD: E 97.30 (bid 97.51), day -3.89; night32 held (NVDL 3, +0.03 marked); TZA shadow #6 -0.70% (close), 6-leg mean -1.02%; report DAY-20261022.md
+2026-10-22T20:02:10Z W-9 16:03 absorbed 15 queued cron wakes (exit 09:26, wake-a/b 09:36-15:36, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night32, exit/entry/EOD done
