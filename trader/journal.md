@@ -216,3 +216,10 @@
 2026-10-22T13:48:04Z W-9 09:48 scan flat: NVDA 216.44 (-2.5%) QQQ -1.8% IWM -0.2%; NVDL 32.59
 2026-10-22T13:56:04Z W-9 09:56 scan flat: NVDA 216.64 (-2.4%) QQQ -1.6% IWM -0.04%; NVDL 32.65
 2026-10-22T14:05:01Z W-9 10:04 HB flat E 97.27 cash: NVDA 216.84 (-2.3%) QQQ -1.4% IWM +0.1%; NVDL 32.71. Peer-nights workflow done (both verifiers 'holds'): NO peer blackout; hyperscaler-night hypotheses pre-registered; 0.3% cost in study prompt was my overstatement (measured ~3-6bp RT). research/PEER-NIGHTS-20261022.md
+2026-10-22T14:12:04Z W-9 10:12 scan flat: NVDA 216.18 (-2.6%) QQQ -1.6% IWM -0.05%; NVDL 32.52
+2026-10-22T14:20:05Z W-9 10:20 scan flat: NVDA 215.67 (-2.8%) QQQ -1.8% IWM -0.1%; NVDL 32.35
+2026-10-22T14:28:04Z W-9 10:28 scan flat: NVDA 215.53 (-2.9%) QQQ -2.0% IWM -0.5%; NVDL 32.32
+2026-10-22T14:36:05Z W-9 10:36 scan flat: NVDA 214.61 (-3.3%) QQQ -2.3% IWM -0.6%; NVDL 32.02 — broad tech selloff, flat in cash
+2026-10-22T14:44:05Z W-9 10:44 scan flat: NVDA 214.35 (-3.4%) QQQ -2.2% IWM -0.4%; NVDL 31.95 (sold 32.81)
+2026-10-22T14:52:05Z W-9 10:52 scan flat: NVDA 213.25 (-3.9%) QQQ -2.4% IWM -0.5%; NVDL 31.61
+2026-10-22T15:00:05Z W-9 11:00 HB flat E 97.27 cash: NVDA 213.50 (-3.8%) QQQ -2.3% IWM -0.4%; NVDL 31.68
