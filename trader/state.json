@@ -1001,6 +1001,24 @@
       "rule": "RULES_v3 \u00a75 (2026-10-21)",
       "procedure": "exit mornings: hb.py to 09:25et -> get_equity_quotes NVDL,NVDX (bid+ask+venue times) ; hb.py to 09:29et -> quotes again ; bridge 09:30:50et -> 09:31:05et quotes -> exit as usual; record state.today.exit_shadow {q0925,q0929,q093105,fill_t,fill_px} + one journal line. No orders from the shadow log.",
       "review": "\u00a73(g) 40-night: switch to 09:29 pre-mkt exit only if mean(09:29 bid - 09:31 fill) >= +10bp with t >= 2"
+    },
+    "options": {
+      "option_level": "none (2026-10-22 get_accounts)",
+      "account_type": "limited_margin",
+      "upgrade_url": "https://applink.robinhood.com/upgrade_options?account_number=445788334",
+      "note": "L2 = long calls/puts, covered calls, CSPs; L3 = spreads (needs margin/limited margin -> eligible). Re-fetch get_accounts after the human confirms approval."
     }
-  }
+  },
+  "human_directives": [
+    {
+      "t": "2026-10-22T20:05Z",
+      "text": "I feel like you're doing well, you're just going around 100, let's take more risks and introduce options, rethink your strategy and come up with a money making strategy to can get us big gains. Do options. Not doing well",
+      "agent_actions": [
+        "8334 option_level is empty (limited_margin): sent the human the Robinhood options upgrade link https://applink.robinhood.com/upgrade_options?account_number=445788334 (human must apply; agent cannot)",
+        "launched read-only workflow options-strategy-redesign (wf_dcd4d644-26d): 5 designs x 3 judges + synthesis",
+        "baseline engine continues until a new plan is adopted and options are approved; night 32 exits 09:31 Fri as usual"
+      ],
+      "status": "options approval pending (human)"
+    }
+  ]
 }
