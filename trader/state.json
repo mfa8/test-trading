@@ -1,7 +1,7 @@
 {
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
-  "strategy": "T3X v1.7 Overnight Engine (NVDA-2x core; day leg suspended)",
+  "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
   "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "night 32 NVDL 3 @ 31.2899 (15:52 Thu 10/22, v1.6; NVDX filler 0); exit 09:31:05 Fri 10/23 (pre-mkt shadow log 09:25/09:29)",
   "wake": {
@@ -1020,5 +1020,25 @@
       ],
       "status": "options approval pending (human)"
     }
-  ]
+  ],
+  "sleeve": {
+    "plan": "FFB-L v1 (RULES_v3 \u00a712)",
+    "mode": "PENDING_OPTIONS_APPROVAL",
+    "option_level_seen": "none (2026-10-22 20:04Z)",
+    "floor": 80,
+    "f": 0.2,
+    "lock": 200,
+    "shadow_days": 0,
+    "first_trade_if_L3": "BUY NVDA 2027-01-15 300C (8acaf208-49b6-4861-bf3c-9a68cf60ac75) / SELL 310C (f0d4c64a-0b4c-4f7c-b4fa-60bb6c05606b); 10/22 mid 0.14 nat 0.19 -> L0 0.16, cap 0.17 (re-run R4 at order time)",
+    "first_trade_if_L2": "BUY 1 NVDA 2027-01-15 350C (c86b3db1-2c7b-4d75-84f4-1c4669d0e5cf) 10/22 0.10/0.12 (re-run R4)",
+    "position": null,
+    "cycles": [],
+    "human_questions_open": [
+      "accept odds (12m P200 ~35% vs ~19%; KILL ~8% vs ~3%; median ~$95 vs ~$135)",
+      "one-time OK for rule-based multi-leg net limits",
+      "at $200: keep engine (default) or all cash",
+      "L2-only: run single far-OTM call (default yes)",
+      "risk dial: $80 floor (default) vs $70"
+    ]
+  }
 }
