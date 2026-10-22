@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-22T18:04:05Z",
-    "loop_note": "14:04 HB flat E 97.27 cash: NVDA 212.16 (-4.4%) QQQ -3.0% IWM -0.4%; NVDL 31.27",
+    "last_heartbeat_utc": "2026-10-22T19:00:05Z",
+    "loop_note": "15:00 HB flat E 97.27 cash: NVDA 211.61 (-4.7%) QQQ -3.1% IWM -0.3%; NVDL 31.10 NVDX 17.48; entry plan night32 ~NVDL 3 (+NVDX 0)",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
