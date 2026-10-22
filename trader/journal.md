@@ -207,3 +207,7 @@
 2026-10-22T12:39:04Z W-9 08:39 premkt: NVDL b32.79/a32.84 NVDX b18.44/a18.50 NVDA 217.24 QQQ -1.6%
 2026-10-22T12:47:04Z W-9 08:47 premkt: NVDL b32.78/a32.84 NVDX b18.41/a18.46 NVDA 217.19 QQQ -1.5%
 2026-10-22T13:00:06Z W-9 09:00 premkt NVDL b32.62/a32.64 NVDX b18.33/a18.38 (night31 ~-4.05); NVDA 216.52 (-2.5%) QQQ -1.7% IWM -0.6%
+2026-10-22T13:16:06Z W-9 09:16 exit-prep: 0 open orders; pos NVDL 2 NVDX 1; premkt NVDL b32.54/a32.61 NVDX b18.30/a18.33 NVDA 216.33 (-2.5%) QQQ -1.8%
+2026-10-22T13:25:07Z W-9 09:25 SHADOW q0925: NVDL 32.60/32.85 (25c wide, ~77bp) last 32.75; NVDX 17.60/19.28 (no real market) last 18.40 @09:23:19 — pre-mkt quotes blow out right before the open
+2026-10-22T13:29:05Z W-9 09:29 SHADOW q0929: NVDL 32.81/32.83 last 32.82; NVDX 18.37/18.52 last 18.35
+2026-10-22T13:31:47Z W-9 09:31 EXIT night31 NVDL 2 @32.8101 (lim 32.66, bid 32.71; -2.78) + NVDX 1 @18.44 (lim 18.36, bid 18.39; -0.78) = -3.56 (-4.1%); semis-peer event night (LRCX). E 97.27 all cash; DD -9.2% from HWM 107.11; PAUSE 85.69 not hit. Campaign 31 nights -4.83 (13W/18L). SHADOW: 09:29 bid vs fill NVDL 0bp, NVDX -38bp; 09:25 bid vs fill NVDL -64bp, NVDX -455bp (quotes blown out) -> pre-mkt exit would have been worse today.
