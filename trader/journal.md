@@ -199,3 +199,11 @@
 2026-10-21T20:02:04Z W-9 16:02 EOD: E 101.19 (bid 101.15), day +4.18; night31 held (+0.36 marked); TZA shadow #5 +1.02% (TP 10:05), 5-leg mean -1.09%; report DAY-20261021.md
 2026-10-21T20:02:35Z W-9 16:03 absorbed 15 queued cron wakes (exit 09:26, wake-a/b 09:36-15:36, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night31, exit/entry/EOD done
 2026-10-22T11:48:01Z W-9 07:47 ANALYST Thu 10/22: repo in sync (c6683cf); broker NVDL 2 + NVDX 1, cash 13.21, 0 open orders, approvals off; RISK-OFF premkt: NVDA 216.95 (-2.3%) QQQ -1.6% IWM -0.6%; META -2.7% LRCX -7.3% TXN -0.8% after earnings; NVDL b32.76 NVDX b18.41 (night31 ~-3.69); E_broker 97.24. Not crash-open (thresholds -5%/-3%). Tagged night 31 as semis-peer event night (LRCX). Plan: shadow quotes 09:25/09:29, exit 09:31:05, entry 15:52, EOD. Tonight WDC/MXL AMC (no blackout).
+2026-10-22T11:56:05Z W-9 07:56 premkt: NVDL b32.75/a32.82 NVDX b18.41/a18.48 NVDA 217.07 (-2.2%) QQQ -1.6%
+2026-10-22T12:04:05Z W-9 08:04 premkt: NVDL b32.84/a32.86 NVDX b18.40/a18.49 NVDA 217.23 (-2.1%) QQQ -1.6%
+2026-10-22T12:12:04Z W-9 08:12 premkt: NVDL b32.81/a32.91 NVDX b18.49/a18.52 NVDA 217.39 (-2.1%) QQQ -1.5%
+2026-10-22T12:20:04Z W-9 08:20 premkt: NVDL b32.80/a32.87 NVDX b18.44/a18.50 NVDA 217.21 (-2.1%) QQQ -1.5%
+2026-10-22T12:31:05Z W-9 08:31 premkt (post 08:30 data): NVDL b32.81/a32.92 NVDX b18.40/a18.54 NVDA 217.32 (-2.1%) QQQ -1.5% IWM -0.5%; no data shock
+2026-10-22T12:39:04Z W-9 08:39 premkt: NVDL b32.79/a32.84 NVDX b18.44/a18.50 NVDA 217.24 QQQ -1.6%
+2026-10-22T12:47:04Z W-9 08:47 premkt: NVDL b32.78/a32.84 NVDX b18.41/a18.46 NVDA 217.19 QQQ -1.5%
+2026-10-22T13:00:06Z W-9 09:00 premkt NVDL b32.62/a32.64 NVDX b18.33/a18.38 (night31 ~-4.05); NVDA 216.52 (-2.5%) QQQ -1.7% IWM -0.6%

@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-22T11:48:00Z",
-    "loop_note": "07:47 analyst Thu 10/22: night31 premkt ~-3.69 (NVDA -2.3%, LRCX -7.3%)",
+    "last_heartbeat_utc": "2026-10-22T13:00:06Z",
+    "loop_note": "09:00 premkt NVDL b32.62/a32.64 NVDX b18.33/a18.38 (night31 ~-4.05); NVDA 216.52 (-2.5%) QQQ -1.7% IWM -0.6%",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
