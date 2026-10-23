@@ -269,3 +269,7 @@
 2026-10-23T12:31:04Z W-9 08:31 premkt: NVDL b31.32/a31.38 (night32 ~+0.09) NVDA 212.51 (+0.1%) QQQ -0.1% IWM -0.6%
 2026-10-23T12:47:04Z W-9 08:47 premkt: NVDL b31.12/a31.17 (night32 ~-0.51) NVDA 211.80 (-0.2%) QQQ -0.3%
 2026-10-23T13:00:05Z W-9 09:00 premkt NVDL b31.21/a31.26 (night32 ~-0.24); NVDA 212.10 (-0.05%) QQQ -0.3% IWM -0.6%
+2026-10-23T13:16:05Z W-9 09:16 exit-prep: 0 open orders; pos NVDL 3; premkt NVDL b31.14/a31.21 (night32 ~-0.45) NVDA 211.83 (-0.2%) QQQ -0.4%
+2026-10-23T13:25:05Z W-9 09:25 SHADOW q0925: NVDL 31.20/31.29 (9c wide) last 31.27; NVDX 17.47/17.63
+2026-10-23T13:29:06Z W-9 09:29 SHADOW q0929: NVDL 30.87/30.95 last 30.88 (slid from 31.20 at 09:25); NVDX 17.34/17.39
+2026-10-23T13:31:38Z W-9 09:31 EXIT night32 NVDL 3 @30.8701 (lim 30.70, bid 30.75; +12c improvement) = -1.26 (-1.3%). E 96.01 all cash; DD -10.4% from HWM 107.11; PAUSE 85.69 not hit. Campaign 32 nights -6.09 (13W/19L). SHADOW: 09:29 bid vs fill 0bp; 09:25 bid vs fill +107bp (pre-mkt would have won today).
