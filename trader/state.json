@@ -364,7 +364,8 @@
         "semis_peer": "none in study sets (WDC storage-adjacent)",
         "hyperscaler": false
       }
-    ]
+    ],
+    "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%."
   },
   "account": {
     "equity": 96.01,
@@ -695,7 +696,8 @@
             0.04,
             true
           ]
-        ]
+        ],
+        "leg_quotes": "280:1.08:1.16 285:0.86:0.93 290:0.71:0.76 295:0.56:0.66 300:0.50:0.53 310:0.31:0.41 320:0.27:0.30 330:0.21:0.23 340:0.16:0.18 350:0.13:0.14"
       }
     ],
     "plan": "09:25 + 09:29 pre-mkt shadow quotes; 09:31:05 exit night 32 (NVDL 3); 8-min loop + sleeve R4 shadow at 10:30/13:00/15:25; 15:52 entry night 33 (weekend hold); EOD + TZA shadow + WEEK-T3X-7 report",
@@ -1062,7 +1064,7 @@
   "sleeve": {
     "plan": "FFB-L v1 (RULES_v3 \u00a712)",
     "mode": "PENDING_OPTIONS_APPROVAL",
-    "option_level_seen": "none (2026-10-22 20:04Z)",
+    "option_level_seen": "none (2026-10-23 07:47 get_accounts)",
     "floor": 80,
     "f": 0.2,
     "lock": 200,
@@ -1077,6 +1079,7 @@
       "at $200: keep engine (default) or all cash",
       "L2-only: run single far-OTM call (default yes)",
       "risk dial: $80 floor (default) vs $70"
-    ]
+    ],
+    "shadow_rule_note": "per R9 log each leg bid/ask (K:bid:ask string) with every shadow entry (audit 10/23)"
   }
 }

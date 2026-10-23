@@ -1,0 +1,213 @@
+{
+  "summary": "Read-only weekly audit for WEEK-T3X-7 (Mon 10/19 - Fri 10/23 09:31): ledger reconciliation vs broker, rule compliance, performance analytics",
+  "agentCount": 3,
+  "logs": [],
+  "result": [
+    {
+      "key": "ledger",
+      "summary": "The ledger is clean. Account 445788334 has 20 equity orders created since 2026-10-16T19:00Z. They came back on one page (no next cursor): 18 filled, 2 cancelled, 0 rejected, and every fee is 0.00. All 20 match orders.jsonl lines 206-225 one-to-one on symbol, side, qty and limit. The 18 fills match the trades.csv rows for T3X-N28..N32 exactly on avg price, qty and time. Recomputing each night's P&L from the fills gives the same figures as state.json campaign.night_returns (pnl and pct), the journal ENTRY/EXIT lines and the DAY reports, to the cent. Rounding each order to the cent, the cash path runs 97.45 (10/16 pre-entry) -> 15.04 -> 98.48 -> 14.17 -> 97.09 -> 13.28 -> 100.83 -> 13.21 -> 97.27 -> 3.40 -> 96.01. That ends on the broker's cash (get_portfolio: cash 96.01, total 96.01, positions empty, pending deposits 0), and every intermediate value matches the cash figures in the journal. There is no unexplained cash difference this week. Over the whole campaign, 98.75 + cash-basis strategy P&L (-2.91) + the known +0.17 credit = 96.01, exactly the broker's cash, so the +0.17 credit from 9/29-9/30 is still the only unexplained item. Week 7 realised P&L: -1.42 by exit date (N28..N32; cash basis -1.44), or -2.46 for the nights entered this week (N29..N32; cash basis -2.47). Equity on a marked basis went from 96.91 to 96.01, a change of -0.90 (-0.93%). Campaign: nights -6.09 over 32 (13 wins, 19 losses), day leg +3.23 over 12 trades, equity 98.75 -> 96.01 = -2.74. The only error found is in the DAY reports: the 'Live NVDA-2x-only nights' running total is $1.00 too negative from 10/20 on. Reconciliation table: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/ledger/recon.csv",
+      "findings": [
+        {
+          "severity": "minor",
+          "what": "The DAY reports carry a $1.00 arithmetic error in the 'Live NVDA-2x-only nights' running total (N25 onward). It started on 10/20 and has carried forward every day since.",
+          "evidence": "N25 -2.25, N26 -4.90, N27 -0.78, N28 +1.04, N29 -1.39 add up to -8.28 (exact -8.2759). DAY-20261020.md line 16 says -9.28. That -1.00 error carries into DAY-20261021.md line 18 (says -5.53, correct -4.53) and DAY-20261022.md line 17 (says -9.09, correct -8.09). The correct total through N32 is -9.35, not -10.35. The ledger itself is not affected; this is a figure in the reports only."
+        },
+        {
+          "severity": "minor",
+          "what": "orders.jsonl does not log the two cancellations of the 10/19 first-try exit orders. Earlier cancels were logged: line 150 on 10/01 has an action=cancel record.",
+          "evidence": "At the broker, NVDL sell 2 at limit 32.83 (order 6ad61ba4-0a81-4e32-97c1-4b63b84e3d54) was cancelled at 13:32:20.619Z, and NVDX sell 1 at limit 18.45 (order 6ad61ba5-4a52-42c0-8691-fee8bdb2cfbb) was cancelled at 13:32:21.248Z. Both have 0 shares filled. Only the journal (line 123) and DAY-20261019 record them. orders.jsonl lines 208-209 show these orders being placed, with no cancel line after them."
+        },
+        {
+          "severity": "info",
+          "what": "orders.jsonl does not store broker order IDs, and its ref_id values do not match the broker's ref_ids. The join had to be done on symbol, side, qty, limit and time; this week that pairing is unambiguous. The only broker order ID recorded anywhere is state.today.exit.fill_ids for N32, and it matches.",
+          "evidence": "Example: orders.jsonl line 206 has ref_id fb8f485b-a68d-414a-91af-13d4af76eee1, while the broker's ref_id for that order is 01a14645-95a7-7782-a9a8-f0bdd324bae7 (order 6ad28067-d7db-477a-8604-a521c81e3fa0). orders.jsonl timestamps run about 4s ahead of the broker's created_at. state.today.exit.fill_ids holds 6adb61a0-f79a-4c10-a7bd-502e3bf135e7, which is the N32 exit order ID; the field is labelled as a fill ID but holds the order ID."
+        },
+        {
+          "severity": "info",
+          "what": "Rounding each order to the cent costs about 2c over the week, so cash-basis P&L differs slightly from the 4-decimal figures in trades.csv and state.json.",
+          "evidence": "N28: cash +1.03 vs exact +1.0363 (state shows 1.04). N30: cash +3.74 vs exact +3.7469 (state shows 3.75). N29 (-1.39), N31 (-3.56) and N32 (-1.26) are identical on both bases. Week by exit date: cash -1.44 vs exact -1.4210. Campaign: cash -2.91 vs exact -2.8356 vs the sum of state's rounded figures -2.86. This rounding fully explains the gaps; there are no fees (all fees 0.000000)."
+        },
+        {
+          "severity": "info",
+          "what": "In trades.csv, the per-row P&L values for a night can add up to 1c less than the night total in state.json, because each row is rounded separately. Every row matches the fills.",
+          "evidence": "N28 rows 0.82 + 0.21 = 1.03 vs state 1.04 (exact 1.0363). N29 rows -1.09 - 0.29 = -1.38 vs state -1.39 (exact -1.3853). N30 rows 2.92 + 0.82 = 3.74 vs state 3.75 (exact 3.7469). state.json's per-night pnl and pct are the correctly rounded values."
+        },
+        {
+          "severity": "info",
+          "what": "The EOD equity marks in equity.csv (E_broker at 16:02) differ by up to 0.12 from the official regular-session closes. They look like after-hours marks. The marks agree with the cash in the journal and the DAY reports; this affects marked equity only, not realised P&L.",
+          "evidence": "Position value at the official close vs the equity.csv mark: 10/16 81.97 vs 81.87; 10/19 84.23 vs 84.19; 10/20 83.67 vs 83.73; 10/21 87.86 vs 87.98; 10/22 93.96 vs 93.90. Closes: NVDL 31.98/32.87/32.66/34.30/31.32, NVDX 18.01/18.49/18.35/19.26/17.62. If the 10/16 mark were at the close, the week-7 marked change would be -1.00 instead of -0.90. There is no 10/23 row in equity.csv yet; the end-of-day update runs at 16:02, so that is expected."
+        },
+        {
+          "severity": "info",
+          "what": "The cash path reconciles to the cent, and there are no cash movements other than trades this week. The known +0.17 credit (9/29-9/30) is the only unexplained item in the whole campaign.",
+          "evidence": "Cash 97.45 -82.41 = 15.04; +83.44 = 98.48; -84.31 = 14.17; +82.92 = 97.09; -83.81 = 13.28; +87.55 = 100.83; -87.62 = 13.21; +84.06 = 97.27; -93.87 = 3.40; +92.61 = 96.01. That equals get_portfolio cash 96.01 (buying power 96.01, equity_value 0). Positions are empty and there are no open orders, matching state.json positions [] and open_orders []. Campaign: 98.75 + (-2.91 cash-basis strategy P&L) + 0.17 = 96.01 exactly. No TZA or day-leg orders this week, consistent with the day leg being suspended."
+        }
+      ],
+      "numbers": "BROKER ORDERS on 445788334 since 2026-10-16T19:00Z: 20 orders, one page (no next cursor). 18 filled, 2 cancelled, all fees 0. Fill times are UTC.\nN28 (10/16 -> 10/19, weekend):\n- Entries: NVDL buy 2 @32.1599 (limit 32.21) 19:52:08.131Z; NVDX buy 1 @18.0868 (limit 18.11) 19:52:23.492Z.\n- First exit orders: NVDL limit 32.83 and NVDX limit 18.45, both cancelled at 13:32:20-21Z with 0 shares filled.\n- Exits: NVDL sell 2 @32.5714 (limit 32.48) 13:32:34.277Z; NVDX sell 1 @18.3001 (limit 18.27) 13:32:35.338Z.\n- P&L: NVDL +0.8230, NVDX +0.2133, total +1.0363 -> +1.04 (+1.26% on 82.4066 cost).\nN29 (10/19 -> 10/20):\n- Entries: NVDL 2 @32.9056 (limit 32.98) 19:52:08.443Z; NVDX 1 @18.4950 (limit 18.53) 19:52:25.117Z.\n- Exits: NVDL @32.3601 (limit 32.35) 13:31:15.545Z; NVDX @18.2007 (limit 18.20) 13:31:16.711Z.\n- P&L: -1.0910 / -0.2943, total -1.3853 -> -1.39 (-1.64%).\nN30 (10/20 -> 10/21):\n- Entries: NVDL 2 @32.7085 (limit 32.76) 19:52:08.026Z; NVDX 1 @18.3863 (limit 18.42) 19:52:24.447Z.\n- Exits: NVDL @34.1701 (limit 34.13) 13:31:14.36Z; NVDX @19.21 (limit 19.21) 13:31:30.619Z.\n- P&L: +2.9232 / +0.8237, total +3.7469 -> +3.75 (+4.47%).\nN31 (10/21 -> 10/22):\n- Entries: NVDL 2 @34.1999 (limit 34.23) 19:52:06.605Z; NVDX 1 @19.2199 (limit 19.25) 19:52:21.512Z.\n- Exits: NVDL @32.8101 (limit 32.66) 13:31:14.567Z; NVDX @18.44 (limit 18.36) 13:31:15.659Z.\n- P&L: -2.7796 / -0.7799, total -3.5595 -> -3.56 (-4.06%).\nN32 (10/22 -> 10/23):\n- Entry: NVDL 3 @31.2899 (limit 31.35) 19:52:07.209Z.\n- Exit: NVDL 3 @30.8701 (limit 30.70) 13:31:12.569Z.\n- P&L: -1.2594 -> -1.26 (-1.34%).\nAll of these match trades.csv, state.json night_returns, the journal and the DAY reports.\n\nCASH PATH (rounded per order, matches the journal at every step):\n- Week start (10/16 EOD): cash 15.04, E 96.91 (N28 marked 81.87 vs cost 82.41, i.e. -0.54).\n- 15.04 -> 98.48 -> 14.17 -> 97.09 -> 13.28 -> 100.83 -> 13.21 -> 97.27 -> 3.40 -> 96.01.\n- Broker now (get_portfolio): cash 96.01, total value 96.01, no positions.\n- Unexplained difference this week: 0.00.\n\nEOD equity.csv rows:\n- 10/19: 98.36 (14.17 + 84.19), day +1.45\n- 10/20: 97.01 (13.28 + 83.73), day -1.35\n- 10/21: 101.19 (13.21 + 87.98), day +4.18\n- 10/22: 97.30 (3.40 + 93.90), day -3.89\n- 10/23: no row yet (16:02 EOD still to run).\n\nWEEK 7:\n- Realised by exit date, N28..N32: exact -1.4210 -> -1.42 (sum of state's rounded figures -1.42; cash basis -1.44). 2 wins, 3 losses.\n- Nights entered this week, N29..N32: exact -2.4573 -> -2.46 (cash basis -2.47). 1 win, 3 losses.\n- Day leg: 0 trades (suspended).\n- Marked equity: 96.91 -> 96.01 = -0.90 (-0.93%). This is the -1.44 cash realised plus 0.54 from N28's Friday mark (82.41 cost vs 81.87 mark), which week 6 had already counted.\n\nCAMPAIGN (T3X since 9/09, start 98.75):\n- Nights N01-N32: -6.09 (exact -6.0712), 13 wins / 19 losses.\n- Day leg D01-D12: +3.23 (exact +3.2356).\n- Strategy total: -2.86 (state's rounded figures) / -2.8356 exact / -2.91 cash basis.\n- Plus the +0.17 unexplained credit gives equity 96.01: -2.74 (-2.77%) vs 98.75, -3.99 vs the original $100.\n- HWM 107.11, drawdown -10.4%; PAUSE level 85.69 not hit.\n- Running night totals in the journal check out: -3.63 (28 nights), -5.02 (29), -1.27 (30), -4.83 (31), -6.09 (32)."
+    },
+    {
+      "key": "rules",
+      "summary": "Week 7 rule-compliance check: N28 exit on 10/19, then N29 to N32 entered 10/19 to 10/22 and exited 10/20 to 10/23, on account 445788334. I found no material rule violations. All 10 entry/exit limits recompute exactly from the logged quotes. Every entry limit is within last*1.004. The v1.6 NVDL-first sizing is correct each night, including N32 (NVDL 3, NVDX 0). The one §5 re-price (10/19) followed the cancel, confirm, re-place sequence. PAUSE, KILL and the earnings blackout were never triggered. There were no day trades and no option orders. Every broker order has an INV-12 intent logged before it: 20 of 20, plus the 2 prior-week N27 orders, 22 of 22 since 10/16. The broker shows 0 positions, 0 open orders and cash 96.01, matching the journal. The remaining items are minor timing or record-keeping gaps, listed below. All work was read-only. The Robinhood tools used were get_equity_orders, get_option_orders, get_portfolio, get_equity_positions, get_accounts (list only, nothing done on 3273) and get_equity_historicals. The check script is /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/rules/check.py.",
+      "findings": [
+        {
+          "severity": "minor",
+          "what": "§5 re-price on the N28 exit (10/19) took effect about 78s after the first orders, not at 60s. Part of the delay was the cancel, confirm, re-quote cycle that INV-9 requires.",
+          "evidence": "Broker: first sells were created at 13:31:16.199Z (NVDL 2 @32.83) and 13:31:17.474Z (NVDX 1 @18.45), against a 09:31:05 quote with bid 32.88/18.48. Both were cancelled at 13:32:20.619Z and 13:32:21.248Z, 64.4s and 63.8s after placement. The X2 intents are at 13:32:28.45Z. The re-placed orders were created at 13:32:34.175Z (NVDL @32.48) and 13:32:35.226Z (NVDX @18.27), about 78s after the first orders and about 89s after 09:31:05. They filled at 32.5714 and 18.3001, so the market-order step was not needed. The re-price limits are correct: floor(32.58*0.997) = 32.48, matching the 09:32:23 bid in state.night_returns. floor(18.33*0.997) = 18.27, but the NVDX bid of 18.33 is implied and not recorded anywhere. INV-9 held: the new orders went in only after the cancels were confirmed."
+        },
+        {
+          "severity": "minor",
+          "what": "No cancel lines were written to orders.jsonl for the two 10/19 cancels, and the X2 intent lines do not name the order IDs they replace. The 10/1 AAPU re-price set the precedent of logging a -CXL line with the order_id.",
+          "evidence": "orders.jsonl lines 211-212 (T3X-20261019-28-NVDL-X2 / NVDX-X2) have no 'replaces' or order_id field. The cancelled broker orders are 6ad61ba4-0a81-4e32-97c1-4b63b84e3d54 (NVDL) and 6ad61ba5-4a52-42c0-8691-fee8bdb2cfbb (NVDX), and neither appears in orders.jsonl. Compare line 150: T3X-20261001-16-AAPU-X-CXL with order_id."
+        },
+        {
+          "severity": "minor",
+          "what": "§12(i) sleeve shadow #1 (10/23 10:28 ET) does not record the per-leg bid/ask/mark that §12(i) requires. state.sleeve.option_level_seen is also stale.",
+          "evidence": "state.today.sleeve_shadow[0] has only the spread-level values: K1 320/K2 330, mid 0.065, nat 0.09, L0 0.08, cost 8.10, B 16.01. It has no 320C or 330C leg quotes. The R4 selection itself is correct. B = min(0.2*96.01, 96.01-80) = 16.01. 300/310 costs 18.10 > B. 310/320 fails the spread guard (nat-mid 0.065 > 0.06). 320/330 passes: 8.10 <= 16.01, W/L0 = 125, expiry 2027-01-15 = 84 DTE. state.sleeve.option_level_seen still reads 'none (2026-10-22 20:04Z)', although today.option_level records the 10/23 07:47 check. The 13:00 and 15:25 shadows were not yet due at check time (12:21 ET)."
+        },
+        {
+          "severity": "info",
+          "what": "The 09:31:05 bids behind the N29 exit limits (10/20) and the N30 NVDL exit limit (10/21) were not recorded. The limits can only be checked by working backwards from them.",
+          "evidence": "The journal, DAY-20261020, DAY-20261021 and state give only the limits: 32.35/18.20 on 10/20 and 34.13 on 10/21 (the NVDX 19.24 bid is in the state note). Each limit back-solves to a unique bid of 32.40/18.23 and 34.19. Those bids agree with the 15-second bars: 10/20 13:31:00Z NVDL 32.37-32.46 (close 32.40), NVDX 18.20-18.23; 10/21 NVDL 34.15-34.29. These days predate the 10/22 shadow-log rule, so this is a record-keeping gap only."
+        },
+        {
+          "severity": "info",
+          "what": "Exit orders reached the broker 7.5-12.5s after the 09:31:05 quote. This is consistent with the 'bridge to 09:31:05' rule, and the journal itself notes the stale-limit cost.",
+          "evidence": "Broker created_at, NVDL/NVDX: 10/19 13:31:16.20/17.47; 10/20 15.40/16.61; 10/21 14.23/16.09 (NVDX rested 14.5s, filled 13:31:30.62, before the 60s re-price); 10/22 14.41/15.55; 10/23 NVDL 12.45. Intents were written at 09:31:08-09."
+        },
+        {
+          "severity": "info",
+          "what": "orders.jsonl ref_ids do not match the broker's ref_ids. This is a known issue since 10/12. I linked each intent to its broker order by symbol, side, qty, limit and time instead, and all of them matched.",
+          "evidence": "Example: intent fb8f485b-980a… vs broker ref_id 01a14645-95a7-…. All 20 week-7 intents (lines 207-226) map one-to-one to the 20 broker orders (18 filled, 2 cancelled). The intent was written 3.25-8.58s before the broker created_at in every case: entries 3.25-4.31s, exits 3.89-8.58s, X2 re-prices 5.72/6.77s."
+        },
+        {
+          "severity": "info",
+          "what": "§7 says to verify 0 open orders after each fill. The journal does not record that check after the N32 entry or after the 09:31 exits; the next ANALYST line does. In substance it held, since every order is in a terminal state at the broker.",
+          "evidence": "The N32 entry line (10/22 19:52:32Z) has no '0 open orders'. The N28-N31 entry lines include it. The broker shows all 22 orders since 10/16 as filled or cancelled. get_equity_positions is empty, and get_portfolio shows cash 96.01 and equity 0."
+        }
+      ],
+      "numbers": "§4 ENTRY (limit = ceil(ask + max(0.02, 0.15%)); last taken from 15-second/1-minute bars; NVDL broker created_at 15:52:06.4-08.3 ET; NVDX created after the NVDL fill at 15:52:21-25):\n- N28 10/16: NVDL ask 32.16 -> 32.21 (last 32.15 x1.004 = 32.279, ok); NVDX ask 18.08 -> 18.11 (18.105 x1.004 = 18.177, ok).\n- N29 10/19: NVDL 32.93 -> 32.98 (cap 33.052); NVDX 18.50 -> 18.53 (cap 18.564).\n- N30 10/20: NVDL 32.71 -> 32.76 (cap 32.836); NVDX 18.39 -> 18.42 (cap 18.459).\n- N31 10/21: NVDL 34.17 -> 34.23 (cap 34.317); NVDX 19.22 -> 19.25 (cap 19.287).\n- N32 10/22: NVDL 31.30 -> 31.35 (cap 31.425).\n- All 9 limits match their intents and broker prices exactly.\n\n§3(c) v1.6 SIZING (E = all-cash broker total):\n- N28: E 97.45, cap 95.501; a = 2 (3 x 32.21 = 96.63 > cap); left after fill 31.181 -> b = 1; cost 82.41 (84.6%).\n- N29: E 98.48, cap 96.510; a = 2 (98.94 > cap); left 30.699 -> b = 1; cost 84.31 (85.6%).\n- N30: E 97.09, cap 95.148; a = 2 (98.28 > cap); left 29.731 -> b = 1; cost 83.80 (86.3%).\n- N31: E 100.83, cap 98.813; a = 2 (102.69 > cap); left 30.414 -> b = 1; cost 87.62 (86.9%).\n- N32: E 97.27, cap 95.325; a = 3 (3 x 31.35 = 94.05 <= cap); left 1.455 -> NVDX 0; cost 93.87 (96.5%).\n- All match the broker quantities.\n\n§5 EXIT (limit = floor(bid - max(0.02, 0.15%))):\n- 10/19: bid 32.88/18.48 -> 32.83/18.45. Rested unfilled; cancelled at 64.4s/63.8s; re-priced to 32.48/18.27 (bid x0.997 on 32.58/18.33) at about 78s; filled 32.5714/18.3001.\n- 10/20: 32.35/18.20 (implied bids 32.40/18.23); filled 32.3601/18.2007.\n- 10/21: 34.13/19.21 (bid 34.19 implied, 19.24 logged); NVDX filled after 14.5s.\n- 10/22: bid 32.71/18.39 -> 32.66/18.36; filled 32.8101/18.44.\n- 10/23: bid 30.75 -> 30.70; filled 30.8701 at 09:31:12.57.\n\n§6 RISK:\n- HWM 107.11 (10/12 all-cash) is inside the rolling-20 window 9/28-10/23.\n- PAUSE trigger 0.8 x 107.11 = 85.688 (85.69).\n- Lowest recorded E this week was 96.01 (10/23, after the exit), 10.32 (12.0%) above the trigger. Never hit.\n- KILL 50: never hit.\n\n§3(d): no blackout night this week; the next is 11/17.\n§3(f): checked 10/19, trailing-120 = +0.331%/night (clean +0.318, t 1.4), positive.\n§11 and PDT: no TZA or intraday orders. 0 day trades this week (last one 10/12; 0 in the rolling 5 business days). Each day's 09:31 sell came before the 15:52 buy, so none counts as a day trade.\n§12: get_option_orders returns 0 orders (all-time). option_level on 8334 is \"\". Shadow log #1 was taken 10/23 at 10:28 ET.\nCash rollforward (per-fill cent rounding): 97.45 -> 15.04 -> 98.48 -> 14.17 -> 97.09 -> 13.28 -> 100.83 -> 13.21 -> 97.27 -> 3.40 -> 96.01. This matches the broker's 96.01 (unsettled 92.61)."
+    },
+    {
+      "key": "perf",
+      "summary": "Week 7 overnight P&L (N28-N32, exits Mon 10/19 to Fri 10/23) was -1.42: N28 +1.04, N29 -1.39, N30 +3.75, N31 -3.56, N32 -1.26. Overnight NVDA was +0.68% for the week (sum of nights; +0.62% compounded). The 1.9x model said the positions should have made +0.77. The -2.19 shortfall against the model is mostly N28 (-1.86): NVDA's open faded and the exit took a 60s re-price. NVDA's daytime sessions Mon-Thu summed -2.04%, so the \"earns overnight, loses intraday\" pattern held this week. Selling at 09:31 and re-buying at 15:52 saved $2.07 net, all of it Thursday (-3.88 avoided; +0.86 and +0.88 of gains missed Mon/Tue).\nThe live NVDA-2x-only record (N25-N32) is n=8, -$9.35, mean -1.255%/night (sd 3.10, se 1.09). That is t -1.42 against the +0.30 planning edge and t -1.15 against zero, so it is not significant either way. About 0.87pt/night of the gap comes from NVDA's bad nights (model -0.87%/night) and about 0.39pt/night from execution and tracking. It takes about 430 nights to detect +0.30 at t=2, and about 2,660 for +12bp.\nPre-market exit shadow, n=2: the 09:29 bid matched the NVDL fill both days (0bp); the position-weighted means are -4.2bp at 09:29 and -21.5bp at 09:25. The pre-registered switch test (at least +10bp, t at least 2) is nowhere near met.\nTZA day-leg shadow, 6 legs: mean -1.02% gross (-1.17% after 0.15% cost), t -0.97. That is -$6.34 at the old 2-share size; the suspension avoided it.\nOdds, simple iid bootstrap (2,426 ex-earnings NVDA close->open nights 2017-2026, unit = 1.9x - 9bp, 0.95 exposure, from E 96.01):\n- P(E <= 85.69 within 20 sessions): 25.7% at +12bp/night, 30.2% at zero edge.\n- P(reach $200 within 12 months): 17.9% at +12bp, 6.9% at zero edge.\n- P(KILL at $50 within 12 months): 8.9% at +12bp, 19.8% at zero edge.",
+      "findings": [
+        {
+          "severity": "info",
+          "what": "Week realised overnight P&L by night, with NVDA close->open (daily bars) and live vs the 1.9x model",
+          "evidence": "NVDA C->O from daily bars; the 10/23 open is the first 1-min bar (211.04) because the 10/23 day bar is not out yet. Live = fill-to-fill, position-weighted. Model $ = 1.9 x NVDA C->O x amount invested.\n- N28 10/16->10/19 (NVDL 2 + NVDX 1, inv 82.41): NVDA +1.852%, model +3.52% (+$2.90), live +1.26% (+$1.04). Leg fill/bar C->O: NVDL +1.28/+3.66, NVDX +1.18/+3.50. Open fade plus the 60s re-price.\n- N29 10/19->10/20 (inv 84.31): NVDA -0.511%, model -0.97% (-$0.82), live -1.64% (-$1.39). Leg fill/bar: NVDL -1.66/-1.03, NVDX -1.59/-1.14.\n- N30 10/20->10/21 (inv 83.80): NVDA +2.074%, model +3.94% (+$3.30), live +4.47% (+$3.75). Leg fill/bar: NVDL +4.47/+4.13, NVDX +4.48/+4.09.\n- N31 10/21->10/22 (inv 87.62, LRCX/META night): NVDA -2.180%, model -4.14% (-$3.63), live -4.06% (-$3.56). Leg fill/bar: NVDL -4.06/-4.46, NVDX -4.06/-4.26.\n- N32 10/22->10/23 (NVDL 3, inv 93.87): NVDA -0.551%, model -1.05% (-$0.98), live -1.34% (-$1.26). Leg fill/bar: NVDL -1.34/-1.33.\nWeek: realised -1.42 (exact -1.421), model +0.77, gap -2.19, of which N28 -1.86. NVDA overnight sum +0.68% (compounded +0.62%). E went from 96.91 (10/16 EOD mark) to 96.01 (10/23 09:31, all cash). Campaign: 32 nights, -6.09, 13W/19L."
+        },
+        {
+          "severity": "minor",
+          "what": "Live NVDA-2x-only nights N25-N32: mean is well below plan but not statistically distinguishable from +0.30, from the long-sample +10-20bp, or from 0",
+          "evidence": "- n=8, sum -$9.35 and -10.04% (per unit invested), mean -1.255%/night, sd 3.10, se 1.09.\n- t vs +0.30: -1.42. t vs +0.20: -1.33. t vs +0.10: -1.24. t vs 0: -1.15.\n- Per-night %: N25 -2.20, N26 -5.61, N27 -0.92, N28 +1.26, N29 -1.64, N30 +4.47, N31 -4.06, N32 -1.34.\n- Decomposition: the model (1.9x NVDA C->O) averaged -0.87%/night, because NVDA 1x averaged -0.46%/night against a long-sample +13.7bp. Live minus model averaged -0.39%/night (sd 0.86, t -1.29); excluding N28 it is -0.12.\n- Per leg, fill vs ETF bar C->O (the 15:52/09:31 timing) averaged -0.30pt, and ETF bar vs 1.9x NVDA (tracking) averaged -0.14pt.\n- Power: with sd 3.1, t=2 needs about 426 nights for a +0.30 edge and about 2,660 for +12bp. The 40-night review cannot settle the edge question."
+        },
+        {
+          "severity": "info",
+          "what": "Intraday moves avoided vs moves held overnight: the direction favoured the thesis this week",
+          "evidence": "- NVDA open->close: Mon 10/19 -0.46%, Tue +0.23%, Wed +0.46%, Thu -2.27%. Mon-Thu sum -2.04%. Fri 10/23 so far +0.38% (211.04 -> 211.84 at 12:25 ET, partial). For reference, Fri 10/16 (week 6) was -1.12%.\n- Overnight over the same week: +0.68%. Overnight beat intraday by about 2.7pt of NVDA.\n- On our own fills (09:31 exit -> 15:52 re-entry, prior night's quantities): Mon +$0.86 (NVDL +1.03%), Tue +$0.88 (+1.08%), Wed +$0.07 (+0.09%), Thu -$3.88 (NVDL -4.63%; NVDX valued at its 15:52 1-min bar, 17.60).\n- Net: being flat during the day saved $2.07 this week, all of it Thursday. On Mon and Tue the exit missed gains after the open fade."
+        },
+        {
+          "severity": "info",
+          "what": "Pre-market exit shadow log, n=2: no case for a 09:29 exit yet",
+          "evidence": "- 10/22 (N31): 09:25 NVDL 32.60/32.85, NVDX 17.60/19.28 (blown out). 09:29 NVDL 32.81/32.83, NVDX 18.37/18.52. Fills NVDL 2 @32.8101, NVDX 1 @18.44. Bid minus fill: 09:29 NVDL -0.0bp, NVDX -38bp; 09:25 NVDL -64bp, NVDX -455bp. Position: 09:29 -$0.07 (-8.4bp), 09:25 -$1.26 (-150bp).\n- 10/23 (N32): 09:25 31.20/31.29, 09:29 30.87/30.95, 09:31:05 30.75/30.77. Fill NVDL 3 @30.8701. Bid minus fill: 09:29 -0.0bp, 09:25 +106.9bp (+$0.99).\n- Means: 09:29 -4.2bp position-weighted (NVDL alone 0bp); 09:25 -21.5bp position-weighted (NVDL alone +21.4bp).\n- The pre-registered switch needs a mean of at least +10bp with t at least 2. Not met.\n- Side note: our 09:31 fills beat the 09:31:05 bid by 27-39bp on both days."
+        },
+        {
+          "severity": "info",
+          "what": "TZA day-leg shadow log (6 legs since the suspension): negative, which supports keeping it suspended",
+          "evidence": "- Gross % by day: 10/15 -3.993 (close), 10/16 +1.006 (TP), 10/19 +1.006 (TP 09:42), 10/20 -4.48 (close), 10/21 +1.017 (TP 10:05), 10/22 -0.698 (close).\n- Gross: sum -6.14, mean -1.02%, sd 2.58, t -0.97. After 0.15% cost: mean -1.17%, t -1.11. TP hit rate 3/6.\n- In dollars at the old 2-share size: -6.34 in total; -3.24 this week (10/19-10/22, mean -0.79%/leg).\n- 10/23 is not logged yet (it is logged after the close). The re-entry bar (60 legs, at least +0.25%, t at least 2) is far off."
+        },
+        {
+          "severity": "major",
+          "what": "Updated odds for the baseline engine from E 96.01: PAUSE within 20 sessions is about 1 in 4; $200 within 12 months is about 18% with a +12bp edge and about 7% with none",
+          "evidence": "Method:\n- Simple iid bootstrap of NVDA close->open, 2017-01-03 to 10/23: 2,426 nights with NVDA earnings nights excluded. Pool mean +13.7bp, sd 168bp, min -14.8%.\n- Unit return = 1.9 x NVDA - 9bp (raw mean +17bp, sd 3.19%), re-centred to +12bp or 0. Exposure 0.95.\n- Earnings nights in cash: 11/17, plus about every 63 sessions after.\n- 200k paths for 20 sessions, 100k for 252. 20 sessions = exits 10/26 to 11/20.\n\n20-session PAUSE:\n- Fixed 85.69 barrier: 25.7% at +12bp, 30.2% at zero edge. For reference, 24.0% on raw history and 19.9% at the +30bp plan.\n- Under the actual rolling rule (0.8 x 20-session high; 107.11 leaves the window on 11/9): 19.6% at +12bp, 22.8% at zero edge.\n- A one-night PAUSE needs NVDA to gap about -5.9% overnight or worse. That happened on 15 of 2,426 nights, about 1.6 a year.\n\n12 months (252 sessions, rolling PAUSE = 1 NVDL share, KILL at 50):\n- At +12bp: P(reach $200) 17.9%, P(at or above $200 at the end) 10.9%, P(KILL) 8.9%, median $112 (p10 $56, p90 $205), log growth +6.7bp/night.\n- At zero edge: 6.9%, 3.4%, KILL 19.8%, median $86, log growth -4.7bp/night.\n- Reference cases: raw history 24.8% / KILL 6.1% / median $126; +30bp plan 47.2% / KILL 2.1% / median $169.\n\nSensitivity:\n- At 0.88 exposure: P20 PAUSE 23.2% / 27.4%; 12-month reach $200 15.2% / 5.5%; KILL 6.9% / 16.3%.\n- A 5-night block bootstrap gives P20 PAUSE 24.9% / 29.1%."
+        },
+        {
+          "severity": "minor",
+          "what": "This bootstrap's KILL risk is higher than the 10/22 OPTIONS-PLAN baseline estimate; the report should state the method difference",
+          "evidence": "OPTIONS-PLAN case A put the baseline at 12-month reach $200 19.4% and KILL 2.9%, using a block bootstrap rescaled to 40% NVDA vol at 0.88 exposure. The simple raw-vol bootstrap at 0.95 gives 17.9% and 8.9%. The P($200) figures are close, but the KILL odds depend on the vol assumption. The rolling PAUSE gives weak protection because its trigger falls along with the 20-session high (any PAUSE within 12 months: 89-93% of paths)."
+        },
+        {
+          "severity": "info",
+          "what": "Data notes",
+          "evidence": "- The 10/23 NVDA/NVDL/NVDX opens are the first 1-min bars (211.04 / 30.905 / 17.365); the 10/23 daily bar is not published yet.\n- The N28 exit filled at 09:32 after the re-price.\n- trades.csv P&L is rounded to 2dp. Exact week total -1.421; N25-N32 exact -9.348.\n- The CSV research/edge_decay/overnight_thru_20261016.csv agrees with fresh bars for 10/13 and 10/14 (-1.308% and -2.711%).\n- Scripts:\n  - /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/perf/week.py\n  - /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/perf/boot.py\n  - /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/perf/sens.py\n  - /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week7/perf/shadow.py\n- No files under /home/user/test-trading were modified. Only read-only Robinhood calls were made: historicals and quotes."
+        }
+      ],
+      "numbers": "WEEK (N28-N32): realised -1.42 (N28 +1.04, N29 -1.39, N30 +3.75, N31 -3.56, N32 -1.26).\n- NVDA C->O %: +1.852, -0.511, +2.074, -2.180, -0.551.\n- 1.9x model %: +3.52, -0.97, +3.94, -4.14, -1.05.\n- Live % per unit: +1.26, -1.64, +4.47, -4.06, -1.34.\n- Model $ +0.77; live minus model -2.19 (N28 -1.86).\n- E 96.91 -> 96.01. Campaign: 32 nights, -6.09.\n\nLIVE NVDA-2x N25-N32: n=8, sum -$9.35 / -10.04%, mean -1.255%/night, sd 3.10, se 1.09.\n- t vs +0.30: -1.42. vs +0.20: -1.33. vs +0.10: -1.24. vs 0: -1.15.\n- Model mean -0.87%/night; NVDA 1x -0.46%/night.\n- Live minus model -0.39%/night (t -1.29; ex-N28 -0.12).\n- Nights needed for t=2: 426 at +0.30, 2,661 at +12bp.\n\nINTRADAY NVDA open->close: Mon -0.46, Tue +0.23, Wed +0.46, Thu -2.27 (sum -2.04%); Fri +0.38% partial; overnight week +0.68%.\n- Held-through-day $ on our fills: +0.86, +0.88, +0.07, -3.88. Net avoided -2.07.\n\nEXIT SHADOW, 09:25 / 09:29 bid minus 09:31 fill:\n- 10/22: NVDL -64 / -0bp, NVDX -455 / -38bp; position -150 / -8.4bp (-$1.26 / -$0.07).\n- 10/23: NVDL +106.9 / -0bp (+$0.99 / $0).\n- Means: 09:29 -4.2bp, 09:25 -21.5bp. Threshold +10bp at t>=2: not met.\n- Fills beat the 09:31:05 bid by 27-39bp.\n\nTZA SHADOW, 6 legs (gross %): -3.99, +1.01, +1.01, -4.48, +1.02, -0.70.\n- Mean -1.02% (net -1.17%), t -0.97. -$6.34 at 2 shares; this week -$3.24.\n\nODDS from 96.01 (iid bootstrap, 2,426 nights, 1.9x - 9bp, 0.95 exposure):\n- P(<=85.69 in 20 sessions): 25.7% at +12bp, 30.2% at zero edge. Rolling rule: 19.6% / 22.8%.\n- P(reach $200 in 12 months): 17.9% at +12bp, 6.9% at zero edge. At or above $200 at the end: 10.9% / 3.4%.\n- KILL: 8.9% / 19.8%. Median $112 / $86.\n- Reference: raw history 24.8%; +30bp plan 47.2%.\n- One-night PAUSE needs NVDA <= -5.9% overnight (about 1.6 nights a year)."
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Audit"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "audit:ledger",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "aa23c7f40dba00369",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792772427172,
+      "queuedAt": 1792772427137,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "The ledger is clean. Account 445788334 has 20 equity orders…",
+      "promptPreview": "CONTEXT: Autonomous agent trading Robinhood account 445788334 (\"Agentic\", ending 8334) under /home/user/test-trading/trader/RULES_v3.md (T3X v2.0: NVDA-2x overnight engine §3-§8 + §12 options sleeve, which is inactive because 8334 has no options level yet). Week 7 = nights entered Mon 10/19 .. Thu 10/22 and exited Tue 10/20 .. Fri 10/23 09:31 (N29, N30, N31, N32), plus the Fri 10/16 entry exited M…",
+      "promptFramed": true,
+      "lastProgressAt": 1792772652192,
+      "tokens": 133299,
+      "toolCalls": 20,
+      "durationMs": 225018,
+      "resultPreview": "{\"summary\":\"The ledger is clean. Account 445788334 has 20 equity orders created since 2026-10-16T19:00Z. They came back on one page (no next cursor): 18 filled, 2 cancelled, 0 rejected, and every fee is 0.00. All 20 match orders.jsonl lines 206-225 one-to-one on symbol, side, qty and limit. The 18 fills match the trades.csv rows for T3X-N28..N32 exactly on avg price, qty and time. Recomputing each…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "audit:rules",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a519160c2bdca6f16",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792772427172,
+      "queuedAt": 1792772427138,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Week 7 rule-compliance check: N28 exit on 10/19, then N29 t…",
+      "promptPreview": "CONTEXT: Autonomous agent trading Robinhood account 445788334 (\"Agentic\", ending 8334) under /home/user/test-trading/trader/RULES_v3.md (T3X v2.0: NVDA-2x overnight engine §3-§8 + §12 options sleeve, which is inactive because 8334 has no options level yet). Week 7 = nights entered Mon 10/19 .. Thu 10/22 and exited Tue 10/20 .. Fri 10/23 09:31 (N29, N30, N31, N32), plus the Fri 10/16 entry exited M…",
+      "promptFramed": true,
+      "lastProgressAt": 1792772723382,
+      "tokens": 181021,
+      "toolCalls": 31,
+      "durationMs": 295232,
+      "resultPreview": "{\"summary\":\"Week 7 rule-compliance check: N28 exit on 10/19, then N29 to N32 entered 10/19 to 10/22 and exited 10/20 to 10/23, on account 445788334. I found no material rule violations. All 10 entry/exit limits recompute exactly from the logged quotes. Every entry limit is within last*1.004. The v1.6 NVDL-first sizing is correct each night, including N32 (NVDL 3, NVDX 0). The one §5 re-price (10/1…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "audit:perf",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "ab49ecb8dfed813e1",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1792772654764,
+      "queuedAt": 1792772427138,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Week 7 overnight P&L (N28-N32, exits Mon 10/19 to Fri 10/23…",
+      "promptPreview": "CONTEXT: Autonomous agent trading Robinhood account 445788334 (\"Agentic\", ending 8334) under /home/user/test-trading/trader/RULES_v3.md (T3X v2.0: NVDA-2x overnight engine §3-§8 + §12 options sleeve, which is inactive because 8334 has no options level yet). Week 7 = nights entered Mon 10/19 .. Thu 10/22 and exited Tue 10/20 .. Fri 10/23 09:31 (N29, N30, N31, N32), plus the Fri 10/16 entry exited M…",
+      "promptFramed": true,
+      "lastProgressAt": 1792773019365,
+      "tokens": 153422,
+      "toolCalls": 27,
+      "durationMs": 364600,
+      "resultPreview": "{\"summary\":\"Week 7 overnight P&L (N28-N32, exits Mon 10/19 to Fri 10/23) was -1.42: N28 +1.04, N29 -1.39, N30 +3.75, N31 -3.56, N32 -1.26. Overnight NVDA was +0.68% for the week (sum of nights; +0.62% compounded). The 1.9x model said the positions should have made +0.77. The -2.19 shortfall against the model is mostly N28 (-1.86): NVDA's open faded and the exit took a 60s re-price. NVDA's daytime …"
+    }
+  ],
+  "totalTokens": 467742,
+  "totalToolCalls": 78
+}
