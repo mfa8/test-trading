@@ -322,3 +322,4 @@
 2026-10-23T19:40:08Z W-9 15:40 pre-entry: broker cash 96.01 (BP 96.01), 0 open orders, approvals off; not blackout, not PAUSE (85.69); NVDL a31.04 NVDX a17.45 NVDA 211.45 (-0.4%); Fri -> weekend hold (v1.7). Dry sizing NVDL 3.
 2026-10-23T19:52:30Z W-9 15:52 ENTRY night33 NVDL 3 @31.03 (lim 31.10, ask 31.05; -2c vs ask) = 93.09 (97.0% of E 96.01); NVDX filler 0 (cap); cash 2.92; 0 open orders after fill. Weekend hold; exit 09:31:05 Mon 10/26.
 2026-10-23T20:02:34Z W-9 16:03 EOD: E 95.69 (bid 95.47), day -1.61; night33 held (NVDL 3, -0.32 marked, weekend); TZA shadow #7 +1.01% (TP 10:17), 7-leg mean -0.73%; option_level still none. Reports DAY-20261023.md + WEEK-T3X-7.md (week -1.22 marked, -1.42 realised).
+2026-10-23T20:02:44Z W-9 16:04 absorbed 15 queued cron wakes (exit 09:26, wake-a/b 09:37-15:36, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night33 (weekend), exit/entry/EOD/weekly done
