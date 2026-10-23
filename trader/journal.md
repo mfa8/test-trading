@@ -280,3 +280,7 @@
 2026-10-23T14:12:04Z W-9 10:12 scan flat: NVDA 212.73 (+0.2%) QQQ +0.1% IWM -0.9%; NVDL 31.43
 2026-10-23T14:28:30Z W-9 10:28 SLEEVE SHADOW #1 (R4, no order): E 96.01 S 212.53 B 16.01; spread pick 320.0/330.0 mid 0.065 nat 0.09 L0 0.08 cost 8.1; L2 call pick 350.0C 0.13/0.14 L0 0.14
 2026-10-23T14:28:24Z W-9 10:28 note: with E 96.01 the floor binds (B 16.01): 300/310 now costs 18.1 > B, 310/320 fails the liquidity guard (310C 0.31/0.41), so R4 picks 320/330 @0.08 (needs NVDA +51% by Jan-15). Shadow only; observation for the first-fill review, no rule change. Scan: NVDA 212.53 (+0.15%) QQQ -0.1% IWM -1.2%; NVDL 31.35
+2026-10-23T14:36:04Z W-9 10:36 scan flat: NVDA 212.73 (+0.2%) QQQ +0.1% IWM -1.1%; NVDL 31.42
+2026-10-23T14:44:06Z W-9 10:44 scan flat: NVDA 213.36 (+0.5%) QQQ +0.4% IWM -0.7%; NVDL 31.60
+2026-10-23T14:52:04Z W-9 10:52 scan flat: NVDA 213.45 (+0.6%) QQQ +0.6% IWM -0.4%; NVDL 31.62
+2026-10-23T15:00:05Z W-9 11:00 HB flat E 96.01 cash: NVDA 213.05 (+0.4%) QQQ +0.6% IWM -0.3%; NVDL 31.50
