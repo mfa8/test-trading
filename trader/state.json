@@ -613,7 +613,91 @@
         "NVDL": 106.9
       }
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "t": "10:28 ET",
+        "E": 96.01,
+        "S": 212.53,
+        "expiry": "2027-01-15",
+        "B": 16.01,
+        "spread": {
+          "K1": 320.0,
+          "K2": 330.0,
+          "mid": 0.065,
+          "nat": 0.09,
+          "L0": 0.08,
+          "cost": 8.1,
+          "W_L0": 125.0,
+          "ok": true,
+          "Lmax": 0.09
+        },
+        "call": {
+          "K": 350.0,
+          "bid": 0.13,
+          "ask": 0.14,
+          "L0": 0.14,
+          "cost": 14.05
+        },
+        "cands": [
+          [
+            280.0,
+            0.385,
+            0.45,
+            0.41,
+            false
+          ],
+          [
+            285.0,
+            0.285,
+            0.37,
+            0.31,
+            false
+          ],
+          [
+            290.0,
+            0.22,
+            0.26,
+            0.23,
+            false
+          ],
+          [
+            300.0,
+            0.155,
+            0.22,
+            0.18,
+            false
+          ],
+          [
+            310.0,
+            0.075,
+            0.14,
+            0.1,
+            false
+          ],
+          [
+            320.0,
+            0.065,
+            0.09,
+            0.08,
+            true
+          ],
+          [
+            330.0,
+            0.05,
+            0.07,
+            0.06,
+            true
+          ],
+          [
+            340.0,
+            0.035,
+            0.05,
+            0.04,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:25 + 09:29 pre-mkt shadow quotes; 09:31:05 exit night 32 (NVDL 3); 8-min loop + sleeve R4 shadow at 10:30/13:00/15:25; 15:52 entry night 33 (weekend hold); EOD + TZA shadow + WEEK-T3X-7 report",
     "exit": {
       "t": "09:31:12",
@@ -982,7 +1066,7 @@
     "floor": 80,
     "f": 0.2,
     "lock": 200,
-    "shadow_days": 0,
+    "shadow_days": 1,
     "first_trade_if_L3": "BUY NVDA 2027-01-15 300C (8acaf208-49b6-4861-bf3c-9a68cf60ac75) / SELL 310C (f0d4c64a-0b4c-4f7c-b4fa-60bb6c05606b); 10/22 mid 0.14 nat 0.19 -> L0 0.16, cap 0.17 (re-run R4 at order time)",
     "first_trade_if_L2": "BUY 1 NVDA 2027-01-15 350C (c86b3db1-2c7b-4d75-84f4-1c4669d0e5cf) 10/22 0.10/0.12 (re-run R4)",
     "position": null,
