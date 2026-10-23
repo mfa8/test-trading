@@ -300,3 +300,11 @@
 2026-10-23T16:44:04Z W-9 12:44 scan flat: NVDA 212.12 (-0.04%) QQQ +0.4% IWM -0.2%; NVDL 31.22
 2026-10-23T17:00:29Z W-9 13:00 ET SLEEVE SHADOW (R4, no order): E 96.01 S 211.68 B 16.01; spread 300/310 mid 0.135 nat 0.15 L0 0.14 cost 14.1; L2 call 350C 0.11/0.12 L0 0.12; cands [(280, 0.37, False), (285, 0.28, False), (290, 0.22, False), (300, 0.14, True), (310, 0.1, True), (320, 0.07, True), (330, 0.06, True), (340, 0.06, True)]
 2026-10-23T17:00:34Z W-9 13:00 HB flat E 96.01 cash: NVDA 211.68 (-0.25%) QQQ +0.3% IWM -0.4%; NVDL 31.09. Sleeve shadow #2: 300/310 back in budget (310C tightened to 0.34/0.35) at L0 0.14 = $14.10
+2026-10-23T17:08:04Z W-9 13:08 scan flat: NVDA 211.82 (-0.2%) QQQ +0.3% IWM -0.3%; NVDL 31.14
+2026-10-23T17:16:05Z W-9 13:16 scan flat: NVDA 211.48 (-0.3%) QQQ +0.1% IWM -0.5%; NVDL 31.04
+2026-10-23T17:24:04Z W-9 13:24 scan flat: NVDA 211.78 (-0.2%) QQQ +0.1% IWM -0.4%; NVDL 31.13
+2026-10-23T17:32:04Z W-9 13:32 scan flat: NVDA 211.70 (-0.2%) QQQ +0.1% IWM -0.4%; NVDL 31.11
+2026-10-23T17:40:05Z W-9 13:40 scan flat: NVDA 211.79 (-0.2%) QQQ +0.1% IWM -0.4%; NVDL 31.13
+2026-10-23T17:48:04Z W-9 13:48 scan flat: NVDA 211.86 (-0.2%) QQQ +0.2% IWM -0.3%; NVDL 31.16
+2026-10-23T17:56:05Z W-9 13:56 scan flat: NVDA 211.84 (-0.2%) QQQ +0.2% IWM -0.4%; NVDL 31.15
+2026-10-23T18:04:05Z W-9 14:04 HB flat E 96.01 cash: NVDA 211.73 (-0.2%) QQQ +0.2% IWM -0.4%; NVDL 31.11
