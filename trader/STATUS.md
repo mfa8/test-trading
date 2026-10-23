@@ -1,6 +1,6 @@
 # T3X STATUS — Overnight Engine (started 2026-09-09)
 **Mode:** IN_POSITION_OVERNIGHT (night 33: NVDL 3 @31.03, entered 15:52 Fri 10/23, weekend hold; exit 09:31:05 Mon 10/26; day leg SUSPENDED)
-**Equity:** ~96.0 at 15:52 ET 10/23 (cash 2.92 + NVDL3 93.09 cost; -10.4% from HWM) · start 98.75 · HWM 107.11 · PAUSE 85.69 · KILL 50
+**Equity:** 95.69 at 16:01 ET 10/23 (cash 2.92 + NVDL3 92.77; -10.7% from HWM) · start 98.75 · HWM 107.11 · PAUSE 85.69 · KILL 50
 **Options (v2.0 §12 FFB-L):** PENDING — 8334 has no options level; human to apply (L3 preferred, L2 ok): https://applink.robinhood.com/upgrade_options?account_number=445788334 . Shadow quote log from 10/23. Plan: research/OPTIONS-PLAN-20261022.md
 thesis (v1.7): NVDA-2x earns overnight, loses intraday (NVDL ex-earnings overnight: +0.29%/night since Dec-2022, t 2.7; trailing 120 +0.33, t 1.4 — weekly audit 10/16); hold NVDL/NVDX close->open; planning edge +0.30%/night/unit; inverse day leg SUSPENDED 10/15 (no long-sample edge, ~4x PAUSE risk); never inverse overnight
 daily loop (v1.7): 09:26 wake -> sell 09:31 -> ALWAYS-ON scans (cash; day leg SUSPENDED since 10/15, shadow-logged only) -> buy 15:52 (NVDL first, NVDX filler) -> 16:02 EOD | Mon 07:45 analyst: §3(f) trailing-120 NVDL edge-decay check
