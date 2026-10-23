@@ -296,3 +296,7 @@
 2026-10-23T16:20:33Z W-9 12:20 scan flat: NVDA 212.16 (-0.02%) QQQ +0.4% IWM -0.2%; NVDL 31.25. Launched read-only week7-audit workflow (wf_7a85addb-6c0: ledger, rules, perf) for WEEK-T3X-7.
 2026-10-23T16:28:04Z W-9 12:28 scan flat: NVDA 211.80 (-0.2%) QQQ +0.3% IWM -0.3%; NVDL 31.12
 2026-10-23T16:36:25Z W-9 12:3x week7-audit DONE (3 agents): ledger reconciles to the cent (broker cash 96.01; only unexplained item still the +0.17 from 9/29-30); 0 rule violations; fixes applied: DAY-1020/1021/1022 NVDA-2x running-total $1 addition error corrected (now -9.35 thru N32), orders.jsonl backfilled the two 10/19 cancel lines, sleeve shadow now logs per-leg quotes. research/week7_audit_20261023.json
+2026-10-23T16:36:33Z W-9 12:36 scan flat: NVDA 212.33 (+0.1%) QQQ +0.5% IWM -0.2%; NVDL 31.29
+2026-10-23T16:44:04Z W-9 12:44 scan flat: NVDA 212.12 (-0.04%) QQQ +0.4% IWM -0.2%; NVDL 31.22
+2026-10-23T17:00:29Z W-9 13:00 ET SLEEVE SHADOW (R4, no order): E 96.01 S 211.68 B 16.01; spread 300/310 mid 0.135 nat 0.15 L0 0.14 cost 14.1; L2 call 350C 0.11/0.12 L0 0.12; cands [(280, 0.37, False), (285, 0.28, False), (290, 0.22, False), (300, 0.14, True), (310, 0.1, True), (320, 0.07, True), (330, 0.06, True), (340, 0.06, True)]
+2026-10-23T17:00:34Z W-9 13:00 HB flat E 96.01 cash: NVDA 211.68 (-0.25%) QQQ +0.3% IWM -0.4%; NVDL 31.09. Sleeve shadow #2: 300/310 back in budget (310C tightened to 0.34/0.35) at L0 0.14 = $14.10
