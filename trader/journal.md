@@ -315,3 +315,6 @@
 2026-10-23T18:44:04Z W-9 14:44 scan flat: NVDA 211.92 (-0.1%) QQQ +0.1% IWM -0.4%; NVDL 31.17
 2026-10-23T18:52:05Z W-9 14:52 scan flat: NVDA 211.73 (-0.2%) QQQ +0.1% IWM -0.4%; NVDL 31.11
 2026-10-23T19:00:07Z W-9 15:00 HB flat E 96.01 cash: NVDA 211.74 (-0.2%) QQQ +0.1% IWM -0.3%; NVDL 31.12 NVDX 17.49; entry plan night33 NVDL 3 (weekend hold)
+2026-10-23T19:08:04Z W-9 15:08 scan flat: NVDA 211.65 (-0.3%) QQQ +0.04% IWM -0.3%; NVDL 31.09
+2026-10-23T19:24:15Z W-9 15:24 ET SLEEVE SHADOW (R4, no order): E 96.01 S 211.76 B 16.01; spread 310/320 mid 0.085 nat 0.12 L0 0.1 cost 10.1; L2 call 340C 0.14/0.15 L0 0.15; cands [(280, 0.36, False), (285, 0.29, False), (290, 0.22, False), (300, 0.16, False), (310, 0.1, True), (320, 0.07, True), (330, 0.06, True), (340, 0.04, True)]
+2026-10-23T19:24:22Z W-9 15:24 note: shadow day 1 complete (3 snapshots). R4 pick moved 320/330 (10:28) -> 300/310 (13:00) -> 310/320 (15:24) as the far-leg spreads changed; at E~96 B is 16.01, so the pick sits on a knife edge between strikes. Observation for the first-fill review (instability, not a rule change).
