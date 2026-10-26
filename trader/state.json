@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "IN_POSITION_OVERNIGHT",
-  "mode_reason": "night 33 NVDL 3 @ 31.03 (15:52 Fri 10/23, v1.6; NVDX filler 0); weekend hold; exit 09:31:05 Mon 10/26 (pre-mkt shadow 09:25/09:29)",
+  "mode": "FLAT_NO_DAY_LEG",
+  "mode_reason": "night 33 closed 09:31 10/26 (+1.80); day leg suspended; entry night 34 15:52 (Mon->Tue; NVDL ex-date 10/28 listed -> re-verify Tue)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-26T13:00:07Z",
-    "loop_note": "HB 09:00 pre-mkt hold night33: NVDL b31.46/a31.49 (+1.29 mk), NVDA 213.00 (+1.0%), QQQ +0.56%; scans 07:58-08:54 every 8 min (NVDL bid range 31.46-31.66). Next:",
+    "last_heartbeat_utc": "2026-10-26T13:32:11Z",
+    "loop_note": "09:31 EXIT night33 NVDL 3 @31.631 (lim 31.53, bid 31.58 at 09:31:05 -> +5c vs bid; filled first try 09:31:20) = +1.80 (+1.94%). Broker: 0 positions, cash/BP 97.",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -242,6 +242,13 @@
         "pnl": -1.26,
         "pct": -1.34,
         "note": "after NVDA -4.4% day; premkt drifted from +0.57 (07:47) to -0.45; NVDL slid 31.20 (09:25) -> 30.87 (09:29) -> bid 30.75 at 09:31:05; filled 30.8701 (lim 30.70; +12c vs bid)"
+      },
+      {
+        "date": "2026-10-23",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0); weekend hold",
+        "pnl": 1.8,
+        "pct": 1.94,
+        "note": "Fri->Mon weekend night; NVDA +1.0-1.3% premkt all morning; NVDL 31.50 (09:25) -> 31.46 (09:29) -> bid 31.58 at 09:31:05; filled 31.631 (lim 31.53; +5c vs bid) first try 09:31:20"
       }
     ],
     "end_date": null,
@@ -403,9 +410,9 @@
     }
   },
   "account": {
-    "equity": 95.69,
-    "cash": 2.92,
-    "asof": "16:01 ET 2026-10-23 (broker total 95.6887; NVDL3 marked 92.77; at bid 95.47)"
+    "equity": 97.81,
+    "cash": 97.81,
+    "asof": "09:32 ET 2026-10-26 (broker total 97.81 = cash; 0 positions, BP 97.81)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -575,22 +582,11 @@
     }
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "NVDL",
-      "qty": 3,
-      "entry": 31.03,
-      "entry_t": "2026-10-23T15:52:07 ET",
-      "order_id": "6adbbae7-52fe-407e-97dd-fd25bf0691c8",
-      "leg": "overnight",
-      "n": 33,
-      "basket_version": "v1.6"
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-10-26",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": false,
@@ -622,9 +618,73 @@
     "earnings_check": {
       "note": "no NVDA event tonight; MSFT/GOOGL/META 10/28-29 are peer nights (no blackout, hyperscaler tag); NVDA 11/17 -> cash"
     },
-    "exit_shadow": {},
+    "exit_shadow": {
+      "q0925": {
+        "t_quote": "13:25:01Z",
+        "NVDL": {
+          "bid": 31.5,
+          "ask": 31.53,
+          "last": 31.545
+        },
+        "NVDX": {
+          "bid": 17.63,
+          "ask": 18.41,
+          "last": 17.71
+        }
+      },
+      "q0929": {
+        "t_quote": "13:29:00Z",
+        "NVDL": {
+          "bid": 31.46,
+          "ask": 31.5,
+          "last": 31.4528
+        },
+        "NVDX": {
+          "bid": 17.68,
+          "ask": 17.76,
+          "last": 17.71
+        }
+      },
+      "q093105": {
+        "t_quote": "13:31:05Z",
+        "NVDL": {
+          "bid": 31.58,
+          "ask": 31.61,
+          "last": 31.5913
+        }
+      },
+      "fill": {
+        "NVDL": {
+          "t": "13:31:20.692Z",
+          "px": 31.631,
+          "limit": 31.53,
+          "order_id": "6adf5628-e83a-4f92-99fa-6cbaa7c0695f"
+        }
+      },
+      "bp_0929bid_minus_fill": {
+        "NVDL": -54.1
+      },
+      "bp_0925bid_minus_fill": {
+        "NVDL": -41.4
+      }
+    },
     "sleeve_shadow": [],
-    "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night33 NVDL 3 (exit_ovn.py); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night34 (entry_v16.py); 16:01:30 EOD"
+    "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night33 NVDL 3 (exit_ovn.py); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night34 (entry_v16.py); 16:01:30 EOD",
+    "exit": {
+      "night": 33,
+      "NVDL": {
+        "qty": 3,
+        "entry": 31.03,
+        "exit": 31.631,
+        "limit": 31.53,
+        "bid_093105": 31.58,
+        "improvement_vs_bid_c": 5.1,
+        "pnl": 1.8,
+        "pct": 1.94
+      },
+      "t": "09:31:20 ET",
+      "cash_after": 97.81
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
