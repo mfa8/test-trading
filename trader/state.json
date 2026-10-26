@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-23T20:02:00Z",
-    "loop_note": "16:02 EOD E 95.69; night33 held over weekend (NVDL 3)",
+    "last_heartbeat_utc": "2026-10-26T11:50:38Z",
+    "loop_note": "07:47 ANALYST Mon: broker NVDL 3 @31.03 (avail 3), 0 open orders, approvals off, 8334 option_level none (sleeve PENDING). Pre-mkt NVDL b31.21/a31.30 (night33 +0",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -247,7 +247,7 @@
     "end_date": null,
     "rules_note": "never retire campaign/scheduler (human 2026-09-09)",
     "strategy_version": "T3X v1.7 (NVDA-2x overnight core, NVDL-first sizing, edge-decay switch; day leg suspended)",
-    "ranking_asof": "2026-10-19 (information only under v1.6)",
+    "ranking_asof": "2026-10-26 (information only under v1.6)",
     "ranking": {
       "overnight": {
         "METU": 0.34,
@@ -316,6 +316,19 @@
         "t": 1.4,
         "result": "POSITIVE -> overnight leg stays on",
         "source": "week-6 audit series (independently rebuilt by verifier; research/edge_decay/)"
+      },
+      {
+        "date": "2026-10-26",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-10-22->10-23",
+        "window_first_night": "2026-04-30",
+        "value_pct_raw": 0.383,
+        "value_pct_clean": 0.369,
+        "sd_pct": 2.596,
+        "t": 1.61,
+        "proxy_2xNVDA_4bp": 0.361,
+        "result": "POSITIVE -> overnight leg stays on",
+        "method": "overnight_thru_20261016.csv extended with 5 nights from get_equity_historicals day bars (research/edge_decay/overnight_thru_20261023.csv); script reproduces the 10/19 value exactly (+0.331, t 1.40)"
       }
     ],
     "rank_20261019": {
@@ -365,7 +378,29 @@
         "hyperscaler": false
       }
     ],
-    "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%."
+    "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
+    "rank_20261026": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only",
+      "top30": {
+        "GGLL": 0.27,
+        "MSFU": 0.22,
+        "AAPU": 0.11,
+        "NVDL": 0.06,
+        "NVDX": 0.06,
+        "METU": 0.03
+      },
+      "NVDL_250": 0.13,
+      "file": "research/rank_20261026.json",
+      "leads_vs_core_ge_0.06": [
+        "GGLL +0.21",
+        "MSFU +0.16"
+      ],
+      "two_monday_raw_leads": [
+        "GGLL",
+        "MSFU"
+      ],
+      "assessment": "raw 30-night leads only; 250-night scores GGLL 0.01, MSFU -0.01 vs NVDL 0.13; both report 10/28 after close (earnings nights in window). Not the \u00a73(b) gate basis (executable 15:52->09:31 ex-earnings both sides) and no proposal before the 2027-01-11 quarterly review. No action."
+    }
   },
   "account": {
     "equity": 95.69,
@@ -554,366 +589,42 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-23",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_done": true,
+    "date": "2026-10-26",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_done": false,
     "premarket": {
       "t": "07:47 ET",
-      "NVDL_bid": 31.48,
-      "NVDA": 213.11,
-      "NVDA_chg_pct": 0.42,
-      "QQQ_chg_pct": 0.01,
-      "IWM_chg_pct": -0.45,
-      "night32_marked": 0.57,
-      "E_broker": 98.02
+      "NVDL_bid": 31.21,
+      "NVDL_ask": 31.3,
+      "NVDA": 212.19,
+      "NVDA_chg_pct": 0.58,
+      "QQQ_chg_pct": 0.3,
+      "IWM_chg_pct": 0.17,
+      "night33_marked": 0.54,
+      "E_broker": 96.52,
+      "cash": 2.92
+    },
+    "broker_check": {
+      "positions": "NVDL 3 @31.03 (avail 3)",
+      "open_orders": 0,
+      "t": "07:47 ET"
     },
     "trade_approval": {
       "human_must_approve_trades": false,
       "checked": "07:47 ET"
     },
-    "option_level": "none (07:47 get_accounts) -> sleeve stays PENDING; shadow log R9 at ~10:30/13:00/15:25",
-    "day_leg": "SUSPENDED (v1.7) \u2014 shadow log only after close",
+    "option_level": "none (07:47 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25",
+    "day_leg": "SUSPENDED (v1.7) \u2014 TZA shadow log only after close",
+    "edge_decay": "+0.383 raw / +0.369 clean, t 1.61 -> leg stays on",
+    "nvdl_ex_date": "get_equity_fundamentals 07:50 ET lists NVDL ex_dividend_date 2026-10-28 (dividend_per_share 0.561749, record/payable fields stale 2023). Re-verify Tue 10/27 pre-entry; holding 10/27->10/28 is P&L-neutral pre-tax (opening drop = distribution, not a loss, not a PAUSE input); cash arrives on payable date.",
     "earnings_check": {
-      "note": "Fri night = weekend hold (v1.7); no NVDA event; NVDA 11/17 -> cash"
+      "note": "no NVDA event tonight; MSFT/GOOGL/META 10/28-29 are peer nights (no blackout, hyperscaler tag); NVDA 11/17 -> cash"
     },
-    "exit_shadow": {
-      "q0925": {
-        "t_quote": "13:25:01Z",
-        "NVDL": {
-          "bid": 31.2,
-          "ask": 31.29,
-          "last": 31.27
-        },
-        "NVDX": {
-          "bid": 17.47,
-          "ask": 17.63,
-          "last": 17.59
-        }
-      },
-      "q0929": {
-        "t_quote": "13:29:01Z",
-        "NVDL": {
-          "bid": 30.87,
-          "ask": 30.95,
-          "last": 30.88
-        },
-        "NVDX": {
-          "bid": 17.34,
-          "ask": 17.39,
-          "last": 17.35
-        }
-      },
-      "q093105": {
-        "t_quote": "13:31:05Z",
-        "NVDL": {
-          "bid": 30.75,
-          "ask": 30.77
-        }
-      },
-      "fill": {
-        "NVDL": {
-          "t": "13:31:12.569Z",
-          "px": 30.8701
-        }
-      },
-      "bp_0929bid_minus_fill": {
-        "NVDL": -0.0
-      },
-      "bp_0925bid_minus_fill": {
-        "NVDL": 106.9
-      }
-    },
-    "sleeve_shadow": [
-      {
-        "t": "10:28 ET",
-        "E": 96.01,
-        "S": 212.53,
-        "expiry": "2027-01-15",
-        "B": 16.01,
-        "spread": {
-          "K1": 320.0,
-          "K2": 330.0,
-          "mid": 0.065,
-          "nat": 0.09,
-          "L0": 0.08,
-          "cost": 8.1,
-          "W_L0": 125.0,
-          "ok": true,
-          "Lmax": 0.09
-        },
-        "call": {
-          "K": 350.0,
-          "bid": 0.13,
-          "ask": 0.14,
-          "L0": 0.14,
-          "cost": 14.05
-        },
-        "cands": [
-          [
-            280.0,
-            0.385,
-            0.45,
-            0.41,
-            false
-          ],
-          [
-            285.0,
-            0.285,
-            0.37,
-            0.31,
-            false
-          ],
-          [
-            290.0,
-            0.22,
-            0.26,
-            0.23,
-            false
-          ],
-          [
-            300.0,
-            0.155,
-            0.22,
-            0.18,
-            false
-          ],
-          [
-            310.0,
-            0.075,
-            0.14,
-            0.1,
-            false
-          ],
-          [
-            320.0,
-            0.065,
-            0.09,
-            0.08,
-            true
-          ],
-          [
-            330.0,
-            0.05,
-            0.07,
-            0.06,
-            true
-          ],
-          [
-            340.0,
-            0.035,
-            0.05,
-            0.04,
-            true
-          ]
-        ],
-        "leg_quotes": "280:1.08:1.16 285:0.86:0.93 290:0.71:0.76 295:0.56:0.66 300:0.50:0.53 310:0.31:0.41 320:0.27:0.30 330:0.21:0.23 340:0.16:0.18 350:0.13:0.14"
-      },
-      {
-        "E": 96.01,
-        "S": 211.68,
-        "expiry": "2027-01-15",
-        "B": 16.01,
-        "spread": {
-          "K1": 300.0,
-          "K2": 310.0,
-          "mid": 0.135,
-          "nat": 0.15,
-          "L0": 0.14,
-          "cost": 14.1,
-          "W_L0": 71.4,
-          "ok": true,
-          "Lmax": 0.15
-        },
-        "call": {
-          "K": 350.0,
-          "bid": 0.11,
-          "ask": 0.12,
-          "L0": 0.12,
-          "cost": 12.05
-        },
-        "t": "13:00 ET",
-        "leg_quotes": "280:1.02:1.07 285:0.82:0.86 290:0.67:0.71 295:0.55:0.60 300:0.47:0.49 310:0.34:0.35 320:0.23:0.29 330:0.19:0.22 340:0.14:0.18 350:0.11:0.12",
-        "cands": [
-          [
-            280.0,
-            0.355,
-            0.4,
-            0.37,
-            false
-          ],
-          [
-            285.0,
-            0.265,
-            0.31,
-            0.28,
-            false
-          ],
-          [
-            290.0,
-            0.21,
-            0.24,
-            0.22,
-            false
-          ],
-          [
-            300.0,
-            0.135,
-            0.15,
-            0.14,
-            true
-          ],
-          [
-            310.0,
-            0.085,
-            0.12,
-            0.1,
-            true
-          ],
-          [
-            320.0,
-            0.055,
-            0.1,
-            0.07,
-            true
-          ],
-          [
-            330.0,
-            0.045,
-            0.08,
-            0.06,
-            true
-          ],
-          [
-            340.0,
-            0.045,
-            0.07,
-            0.06,
-            true
-          ]
-        ]
-      },
-      {
-        "E": 96.01,
-        "S": 211.76,
-        "expiry": "2027-01-15",
-        "B": 16.01,
-        "spread": {
-          "K1": 310.0,
-          "K2": 320.0,
-          "mid": 0.085,
-          "nat": 0.12,
-          "L0": 0.1,
-          "cost": 10.1,
-          "W_L0": 100.0,
-          "ok": true,
-          "Lmax": 0.12
-        },
-        "call": {
-          "K": 340.0,
-          "bid": 0.14,
-          "ask": 0.15,
-          "L0": 0.15,
-          "cost": 15.05
-        },
-        "t": "15:24 ET",
-        "leg_quotes": "280:1.02:1.06 285:0.82:0.87 290:0.67:0.71 295:0.55:0.59 300:0.48:0.49 310:0.32:0.36 320:0.24:0.27 330:0.19:0.21 340:0.14:0.15 350:0.11:0.12",
-        "cands": [
-          [
-            280.0,
-            0.35,
-            0.39,
-            0.36,
-            false
-          ],
-          [
-            285.0,
-            0.275,
-            0.32,
-            0.29,
-            false
-          ],
-          [
-            290.0,
-            0.205,
-            0.23,
-            0.22,
-            false
-          ],
-          [
-            300.0,
-            0.145,
-            0.17,
-            0.16,
-            false
-          ],
-          [
-            310.0,
-            0.085,
-            0.12,
-            0.1,
-            true
-          ],
-          [
-            320.0,
-            0.055,
-            0.08,
-            0.07,
-            true
-          ],
-          [
-            330.0,
-            0.055,
-            0.07,
-            0.06,
-            true
-          ],
-          [
-            340.0,
-            0.03,
-            0.04,
-            0.04,
-            true
-          ]
-        ]
-      }
-    ],
-    "plan": "09:25 + 09:29 pre-mkt shadow quotes; 09:31:05 exit night 32 (NVDL 3); 8-min loop + sleeve R4 shadow at 10:30/13:00/15:25; 15:52 entry night 33 (weekend hold); EOD + TZA shadow + WEEK-T3X-7 report",
-    "exit": {
-      "t": "09:31:12",
-      "NVDL": 30.8701,
-      "pnl": -1.26,
-      "fill_ids": [
-        "6adb61a0-f79a-4c10-a7bd-502e3bf135e7"
-      ]
-    },
-    "entry": {
-      "t": "15:52:07",
-      "night": 33,
-      "NVDL": {
-        "qty": 3,
-        "lim": 31.1,
-        "fill": 31.03,
-        "ask": 31.05
-      },
-      "NVDX": {
-        "qty": 0,
-        "note": "filler: 93.09 + 17.48 > cap 94.09"
-      },
-      "cost": 93.09,
-      "cash_after": 2.92,
-      "note": "weekend hold; 0 open orders after fill"
-    },
-    "eod": {
-      "t": "16:01:30",
-      "E_broker": 95.69,
-      "E_bid": 95.47,
-      "day_chg": -1.61,
-      "night33_marked": -0.32,
-      "tza_shadow": "+1.01% (TP 10:17)",
-      "option_level": "none (16:01 get_accounts)"
-    }
+    "exit_shadow": {},
+    "sleeve_shadow": [],
+    "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night33 NVDL 3 (exit_ovn.py); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night34 (entry_v16.py); 16:01:30 EOD"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
