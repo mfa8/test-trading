@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-26T20:02:33Z",
-    "loop_note": "16:03 absorbed 15 queued cron wakes (exit 09:26, wake-a/b 09:35-15:36, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night34 (NVDL 2 ",
+    "last_heartbeat_utc": "2026-10-26T20:13:04Z",
+    "loop_note": "16:12 t2x-wake-b (16:09 slot) NOOP: post-close, state IN_POSITION night34 (NVDL 2 + NVDX 1), exit/entry/EOD done for 10/26. Next: 07:45 analyst Tue 10/27, 09:31",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
