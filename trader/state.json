@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-26T17:00:14Z",
-    "loop_note": "HB 13:00 flat cash 97.81; NVDA 215.86 (+2.3%), drifted 215.0-215.8 since noon; QQQ +1.1%. 13:00 sleeve shadow logged. Next: 15:25 shadow, 15:40 pre-entry, 15:52",
+    "last_heartbeat_utc": "2026-10-26T18:00:00Z",
+    "loop_note": "HB 14:00 flat cash 97.81; scans 13:08-13:56: NVDA 215.9-216.4 (+2.3-2.6%), QQQ +1.1-1.4%, IWM +0.5-0.8%; NVDL 32.32-32.47. Next: 15:25 shadow, 15:40 pre-entry, ",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
