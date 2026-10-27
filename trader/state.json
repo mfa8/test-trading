@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T13:31:55Z",
-    "loop_note": "09:31 EXIT night34 NVDL 2 @32.95 (lim 32.92, bid 32.97 -> -2c vs bid) + NVDX 1 @18.5247 (lim 18.50, bid 18.53) = +1.27 (+1.53%); filled first try 09:31:16/17. B",
+    "last_heartbeat_utc": "2026-10-27T14:00:00Z",
+    "loop_note": "HB 10:00 flat cash 99.08; NVDA faded 218.16 (09:40) -> 216.00 (09:56, flat) after our 09:31 exit at the gap; QQQ +0.4%, IWM +0.2%; NVDL 32.34. Sleeve shadow ~10",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
