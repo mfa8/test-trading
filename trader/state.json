@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T20:02:15Z",
-    "loop_note": "16:02 EOD: E 99.08 (bid 98.83), day +1.62; night35 held (NVDL 2 + NVDX 1, ~0.00 marked); TZA shadow #9 -2.65% (close exit), 9-leg mean -0.94%; option_level stil",
+    "last_heartbeat_utc": "2026-10-27T20:02:24Z",
+    "loop_note": "16:03 absorbed 15 queued cron wakes (wake-a/b 09:35-15:36, exit 09:26, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night35 (NVDL 2 ",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
