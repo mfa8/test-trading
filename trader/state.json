@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T14:00:00Z",
-    "loop_note": "HB 10:00 flat cash 99.08; NVDA faded 218.16 (09:40) -> 216.00 (09:56, flat) after our 09:31 exit at the gap; QQQ +0.4%, IWM +0.2%; NVDL 32.34. Sleeve shadow ~10",
+    "last_heartbeat_utc": "2026-10-27T15:00:00Z",
+    "loop_note": "HB 11:00 flat cash 99.08; NVDA 216.9-217.3 (+0.4-0.6%), QQQ +0.6-0.8%, IWM +0.4-0.7%; NVDL 32.60-32.73. 10:30 sleeve shadow logged (R4 300/310 L0 0.16 cost 16.1",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -690,7 +690,92 @@
         "NVDX": -207.7
       }
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 99.08,
+        "S": 217.15,
+        "expiry": "2027-01-15",
+        "B": 19.08,
+        "spread": {
+          "K1": 300.0,
+          "K2": 310.0,
+          "mid": 0.15,
+          "nat": 0.19,
+          "L0": 0.16,
+          "cost": 16.1,
+          "W_L0": 62.5,
+          "ok": true,
+          "Lmax": 0.18
+        },
+        "call": {
+          "K": 330.0,
+          "bid": 0.16,
+          "ask": 0.19,
+          "L0": 0.18,
+          "cost": 18.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:1.11:1.15 285:0.85:0.95 290:0.70:0.77 295:0.57:0.84 300:0.48:0.51 310:0.32:0.37 320:0.23:0.26 330:0.16:0.19 340:0.12:0.15 350:0.09:0.10",
+        "cands": [
+          [
+            280.0,
+            0.395,
+            0.45,
+            0.41,
+            false
+          ],
+          [
+            285.0,
+            0.195,
+            0.38,
+            0.25,
+            false
+          ],
+          [
+            290.0,
+            0.24,
+            0.29,
+            0.26,
+            false
+          ],
+          [
+            300.0,
+            0.15,
+            0.19,
+            0.16,
+            true
+          ],
+          [
+            310.0,
+            0.1,
+            0.14,
+            0.11,
+            true
+          ],
+          [
+            320.0,
+            0.07,
+            0.1,
+            0.08,
+            true
+          ],
+          [
+            330.0,
+            0.04,
+            0.07,
+            0.05,
+            true
+          ],
+          [
+            340.0,
+            0.04,
+            0.06,
+            0.05,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night34 NVDL 2 + NVDX 1 (exit_ovn.py); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry incl. ex-date verdict; 15:52 entry night35; 16:01:30 EOD",
     "exit": {
       "night": 34,
