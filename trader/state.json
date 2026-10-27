@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T11:59:36Z",
-    "loop_note": "08:00 NVDL ex-date verified (read-only workflow, 3 sweeps + adversarial judge): NO distribution expected at 10/28 open, confidence high -- 10/28 is a family-wid",
+    "last_heartbeat_utc": "2026-10-27T13:00:00Z",
+    "loop_note": "HB 09:00 pre-mkt hold night34: NVDL b33.02 NVDX b18.56 (+1.45 mk), NVDA 218.29 (+1.1%), QQQ +0.58%; scans 08:00-08:56 every 8 min (NVDL bid 32.75 -> 33.04). Nex",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
