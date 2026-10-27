@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T20:02:24Z",
-    "loop_note": "16:03 absorbed 15 queued cron wakes (wake-a/b 09:35-15:36, exit 09:26, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night35 (NVDL 2 ",
+    "last_heartbeat_utc": "2026-10-27T20:12:53Z",
+    "loop_note": "16:12 t2x-wake-b (16:09 slot) post-close: NVDL fundamentals re-pulled per ex-date check plan -- record_date 2023-12-28 / amount 0.561749 unchanged (no declarati",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -1025,7 +1025,8 @@
       "IWM_chg_pct": 1.15,
       "tza_shadow": "-2.65 pct (close exit 15:48); 9 legs mean -0.94 pct",
       "option_level": "none",
-      "nvdl_fundamentals_1540": "record_date 2023-12-28, amount 0.561749 unchanged -> no declaration"
+      "nvdl_fundamentals_1540": "record_date 2023-12-28, amount 0.561749 unchanged -> no declaration",
+      "nvdl_fundamentals_postclose": "16:12 ET re-pull: record_date 2023-12-28, payable 2023-12-29, amount 0.561749 unchanged -> no declaration; post-mkt NVDL 32.83 / NVDA 217.65 consistent"
     }
   },
   "schedule": {
