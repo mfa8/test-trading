@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 34 closed 09:31 10/27 (+1.27); day leg suspended; entry night 35 15:52 (Tue->Wed, FOMC eve; NVDL 10/28 ex-date verified false)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 35 NVDL 2 @32.9299 + NVDX 1 @18.4793 (15:52 Tue 10/27, v1.6; FOMC eve); exit 09:31:05 Wed 10/28 (pre-mkt shadow 09:25/09:29 + NVDL adjusted_previous_close check)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T19:00:00Z",
-    "loop_note": "HB 15:00 flat cash 99.08; NVDA 217.4-217.8 (+0.7-0.8%) all hour, QQQ +1.1-1.2%, IWM +1.0-1.1%; NVDL 32.78-32.87. Expected sizing NVDL 2 + NVDX 1. Next: 15:25 sh",
+    "last_heartbeat_utc": "2026-10-27T19:52:51Z",
+    "loop_note": "15:52 ENTRY night35 NVDL 2 @32.9299 (lim 32.97, ask 32.92; +1c vs ask) + NVDX 1 @18.4793 (lim 18.54, ask 18.51; -3c) = 84.34 (85.1% of E 99.08); cash 14.74; 0 o",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 34,
+    "nights_held": 35,
     "R_history": [],
     "night_returns": [
       {
@@ -417,9 +417,9 @@
     }
   },
   "account": {
-    "equity": 99.08,
-    "cash": 99.08,
-    "asof": "09:32 ET 2026-10-27 (broker total 99.08 = cash; 0 positions, BP 99.08)"
+    "equity": 98.96,
+    "cash": 14.74,
+    "asof": "15:52 ET 2026-10-27 (broker total 98.955 after entry)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -589,12 +589,33 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 2,
+      "entry": 32.9299,
+      "entry_t": "2026-10-27T15:52:08 ET",
+      "order_id": "6ae100e8-3c59-424c-a31d-0ccb02ae8852",
+      "leg": "overnight",
+      "n": 35,
+      "basket_version": "v1.6"
+    },
+    {
+      "sym": "NVDX",
+      "qty": 1,
+      "entry": 18.4793,
+      "entry_t": "2026-10-27T15:52:30 ET",
+      "order_id": "6ae100fe-92fa-4e72-8a81-92b985c210a8",
+      "leg": "overnight",
+      "n": 35,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-27",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": false,
     "premarket": {
@@ -858,6 +879,90 @@
             true
           ]
         ]
+      },
+      {
+        "E": 99.08,
+        "S": 217.49,
+        "expiry": "2027-01-15",
+        "B": 19.08,
+        "spread": {
+          "K1": 300.0,
+          "K2": 310.0,
+          "mid": 0.16,
+          "nat": 0.19,
+          "L0": 0.17,
+          "cost": 17.1,
+          "W_L0": 58.8,
+          "ok": true,
+          "Lmax": 0.18
+        },
+        "call": {
+          "K": 330.0,
+          "bid": 0.17,
+          "ask": 0.2,
+          "L0": 0.19,
+          "cost": 19.05
+        },
+        "t": "15:25 ET",
+        "leg_quotes": "280:1.18:1.22 285:0.94:0.98 290:0.74:0.79 295:0.59:0.65 300:0.49:0.52 310:0.33:0.36 320:0.22:0.32 330:0.17:0.20 340:0.13:0.15 350:0.09:0.11",
+        "cands": [
+          [
+            280.0,
+            0.435,
+            0.48,
+            0.45,
+            false
+          ],
+          [
+            285.0,
+            0.34,
+            0.39,
+            0.36,
+            false
+          ],
+          [
+            290.0,
+            0.26,
+            0.3,
+            0.27,
+            false
+          ],
+          [
+            300.0,
+            0.16,
+            0.19,
+            0.17,
+            true
+          ],
+          [
+            310.0,
+            0.075,
+            0.14,
+            0.1,
+            false
+          ],
+          [
+            320.0,
+            0.085,
+            0.15,
+            0.11,
+            false
+          ],
+          [
+            330.0,
+            0.045,
+            0.07,
+            0.06,
+            true
+          ],
+          [
+            340.0,
+            0.04,
+            0.06,
+            0.05,
+            true
+          ]
+        ]
       }
     ],
     "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night34 NVDL 2 + NVDX 1 (exit_ovn.py); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry incl. ex-date verdict; 15:52 entry night35; 16:01:30 EOD",
@@ -885,6 +990,29 @@
       "pct": 1.53,
       "t": "09:31:17 ET",
       "cash_after": 99.08
+    },
+    "entry": {
+      "night": 35,
+      "t": "15:52 ET",
+      "E": 99.08,
+      "NVDL": {
+        "qty": 2,
+        "lim": 32.97,
+        "ask": 32.92,
+        "fill": 32.9299,
+        "vs_ask_c": 1.0
+      },
+      "NVDX": {
+        "qty": 1,
+        "lim": 18.54,
+        "ask": 18.51,
+        "fill": 18.4793,
+        "vs_ask_c": -3.1
+      },
+      "cost": 84.34,
+      "pct_E": 85.1,
+      "cash_after": 14.74,
+      "note": "3 NVDL (98.91 at lim 32.97) > 0.98E 97.10 -> NVDL 2 + NVDX filler 1. Ops: chained hb+bridge in one command hit the 600s tool timeout (moved to background); re-bridged separately, placed 15:52:08 on time."
     }
   },
   "schedule": {
