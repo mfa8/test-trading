@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-27T11:50:29Z",
-    "loop_note": "07:49 ANALYST Tue: broker NVDL 2 @32.46 + NVDX 1 @18.24, 0 open orders, unsettled 0, approvals off, 8334 option_level none (sleeve PENDING). Pre-mkt NVDL b32.73",
+    "last_heartbeat_utc": "2026-10-27T11:59:36Z",
+    "loop_note": "08:00 NVDL ex-date verified (read-only workflow, 3 sweeps + adversarial judge): NO distribution expected at 10/28 open, confidence high -- 10/28 is a family-wid",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -637,7 +637,7 @@
     },
     "option_level": "none (07:49 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25",
     "day_leg": "SUSPENDED (v1.7) \u2014 TZA shadow log only after close",
-    "nvdl_ex_date": "07:50 get_equity_fundamentals still lists NVDL ex_dividend_date 2026-10-28 (dividend_per_share 0.561749 = last annual; record/payable fields stale 2023). Verification in progress (read-only research) before 15:52 entry.",
+    "nvdl_ex_date": "VERIFIED 07:59 (read-only workflow wf_676522b1-487, research/NVDL-EXDATE-20261027.md): NO distribution expected at the 10/28 open, confidence high (10/28 is stamped on all 16 GraniteShares leveraged funds incl. never-payers; NVDL paid only once, ex 2023-12-27; Dec 2024 = 0.00 official; no notice). Enter as usual. Checks: re-pull fundamentals after close; 10/28 pre-open adjusted_previous_close vs previous_close; open residual vs 2x NVDA and NVDX.",
     "earnings_check": {
       "note": "FOMC eve (decision Wed 10/28 14:00); no NVDA event; MSFT/GOOGL/META report Wed 10/28 after close -> hyperscaler tag, no blackout; NVDA 11/17 -> cash"
     },
