@@ -347,3 +347,4 @@
 2026-10-27T14:00:00Z W-9 HB 10:00 flat cash 99.08; NVDA faded 218.16 (09:40) -> 216.00 (09:56, flat) after our 09:31 exit at the gap; QQQ +0.4%, IWM +0.2%; NVDL 32.34. Sleeve shadow ~10:30; entry night35 15:52.
 2026-10-27T14:30:10Z W-9 10:30 ET SLEEVE SHADOW (R4, no order): E 99.08 S 217.15 B 19.08; spread 300/310 mid 0.15 nat 0.19 L0 0.16 cost 16.1; L2 call 330C 0.16/0.19 L0 0.18; cands [(280, 0.41, False), (285, 0.25, False), (290, 0.26, False), (300, 0.16, True), (310, 0.11, True), (320, 0.08, True), (330, 0.05, True), (340, 0.05, True)]
 2026-10-27T15:00:00Z W-9 HB 11:00 flat cash 99.08; NVDA 216.9-217.3 (+0.4-0.6%), QQQ +0.6-0.8%, IWM +0.4-0.7%; NVDL 32.60-32.73. 10:30 sleeve shadow logged (R4 300/310 L0 0.16 cost 16.10, B 19.08). Entry night35 15:52.
+2026-10-27T16:00:00Z W-9 HB 12:00 flat cash 99.08; scans 11:08-11:56: NVDA 217.5 -> 218.96 (+1.4%), QQQ +1.0 -> +1.3%, IWM +0.7 -> +1.0%; NVDL 32.79 -> 33.23. Sleeve shadow 13:00; entry night35 15:52.
