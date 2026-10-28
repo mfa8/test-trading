@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T11:48:05Z",
-    "loop_note": "07:47 ANALYST Wed: broker NVDL 2 @32.93 + NVDX 1 @18.48, 0 open orders, unsettled 0, approvals off, option_level none. Pre-mkt NVDL b33.46 NVDX b18.79 (night35 ",
+    "last_heartbeat_utc": "2026-10-28T13:00:08Z",
+    "loop_note": "HB 09:00 pre-mkt hold night35: NVDL b33.38 NVDX b18.72 (+1.14 mk), NVDA 219.51 (+0.7%), QQQ +0.31%; scans 07:56-08:52 every 8 min (NVDL bid 33.36-33.49). Next: ",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
