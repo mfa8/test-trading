@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T15:00:00Z",
-    "loop_note": "HB 11:00 flat cash 100.30; quiet pre-FOMC tape: NVDA 217.6-218.2 (~flat), QQQ ~flat, IWM -0.1%; NVDL 32.80-32.91. 10:30 sleeve shadow: wide option quotes, R4 pi",
+    "last_heartbeat_utc": "2026-10-28T16:00:00Z",
+    "loop_note": "HB 12:00 flat cash 100.30; quiet pre-FOMC: NVDA 217.3-217.9 (-0.3..0%), QQQ +0.1%, IWM ~flat; NVDL 32.71-32.91. Sleeve shadow 13:00; FOMC 14:00; entry night36 1",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
