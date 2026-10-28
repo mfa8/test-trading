@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T13:31:52Z",
-    "loop_note": "09:31 EXIT night35 NVDL 2 @33.3901 (lim 33.30, bid 33.36 -> +3c) + NVDX 1 @18.7753 (lim 18.72, bid 18.75 -> +2.5c) = +1.22 (+1.44%); first try 09:31:18/20. Brok",
+    "last_heartbeat_utc": "2026-10-28T14:00:00Z",
+    "loop_note": "HB 10:00 flat cash 100.30; NVDA faded 219.52 (09:40) -> 217.69 (09:56, -0.1%) after our 09:31 exit at the gap; QQQ flat, IWM +0.3%; NVDL 32.84. FOMC 14:00. Slee",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
