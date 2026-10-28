@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T20:02:27Z",
-    "loop_note": "16:03 absorbed 15 queued cron wakes (wake-a/b 09:35-15:36, exit 09:26, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night36 (NVDL 3)",
+    "last_heartbeat_utc": "2026-10-28T20:14:03Z",
+    "loop_note": "16:13 t2x-wake-b (16:09 slot) post-close: hyperscaler AH snapshot for night36 tag -- GOOGL 297.77 (-8.6% AH), MSFT 553.45 (+4.1%), META ~flat, QQQ -0.25%, NVDA ",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -417,7 +417,15 @@
           "NVDL": 32.059
         },
         "NVDA_close_chg_pct_at_entry": -1.5,
-        "realized": "fill at exit 10/29"
+        "realized": "fill at exit 10/29",
+        "ah_1613": {
+          "GOOGL": "297.77 vs 325.63 close (-8.6%)",
+          "MSFT": "553.45 vs 531.73 (+4.1%)",
+          "META": "613.23 vs 612.41 (+0.1%, not yet reported?)",
+          "QQQ": "723.64 (-0.25%)",
+          "NVDA": "215.22 (-0.08%)",
+          "NVDL": "32.07 (-0.25%; night36 +0.03 marked)"
+        }
       }
     ],
     "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
