@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T20:02:15Z",
-    "loop_note": "16:02 EOD: E 100.90 (bid 100.87), day +1.82 (first close >100 since 10/21); night36 held (NVDL 3, +0.60 marked; MSFT +2.1% AH at 16:01); TZA shadow #10 +1.02% (",
+    "last_heartbeat_utc": "2026-10-28T20:02:27Z",
+    "loop_note": "16:03 absorbed 15 queued cron wakes (wake-a/b 09:35-15:36, exit 09:26, entry 15:48) as NOOPs: all work done live in the loop; state IN_POSITION night36 (NVDL 3)",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
