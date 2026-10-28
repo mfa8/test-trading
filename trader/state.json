@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T17:00:13Z",
-    "loop_note": "HB 13:00 flat cash 100.30; quiet pre-FOMC: NVDA 216.9-217.6 (-0.5..-0.2%), QQQ +0.1-0.2%, IWM ~flat; NVDL 32.59-32.78. 13:00 sleeve shadow logged. FOMC 14:00; n",
+    "last_heartbeat_utc": "2026-10-28T18:00:07Z",
+    "loop_note": "HB 14:00 flat cash 100.30; FOMC release: at 14:00:02 spreads widened (NVDL 32.57/32.78, QQQ 723.50/724.00, IWM 280.50/280.93); NVDA 217.2 (-0.3%), QQQ +0.3%. Pr",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
