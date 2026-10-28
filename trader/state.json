@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T14:00:00Z",
-    "loop_note": "HB 10:00 flat cash 100.30; NVDA faded 219.52 (09:40) -> 217.69 (09:56, -0.1%) after our 09:31 exit at the gap; QQQ flat, IWM +0.3%; NVDL 32.84. FOMC 14:00. Slee",
+    "last_heartbeat_utc": "2026-10-28T15:00:00Z",
+    "loop_note": "HB 11:00 flat cash 100.30; quiet pre-FOMC tape: NVDA 217.6-218.2 (~flat), QQQ ~flat, IWM -0.1%; NVDL 32.80-32.91. 10:30 sleeve shadow: wide option quotes, R4 pi",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -709,7 +709,92 @@
         "NVDX": -13.5
       }
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 100.3,
+        "S": 218.23,
+        "expiry": "2027-01-15",
+        "B": 20.06,
+        "spread": {
+          "K1": 340.0,
+          "K2": 350.0,
+          "mid": 0.045,
+          "nat": 0.07,
+          "L0": 0.06,
+          "cost": 6.1,
+          "W_L0": 166.7,
+          "ok": true,
+          "Lmax": 0.07
+        },
+        "call": {
+          "K": 340.0,
+          "bid": 0.13,
+          "ask": 0.16,
+          "L0": 0.15,
+          "cost": 15.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:1.18:1.29 285:0.92:1.02 290:0.74:0.82 295:0.59:0.66 300:0.49:0.54 310:0.28:0.38 320:0.23:0.32 330:0.15:0.28 340:0.13:0.16 350:0.09:0.11",
+        "cands": [
+          [
+            280.0,
+            0.455,
+            0.55,
+            0.48,
+            false
+          ],
+          [
+            285.0,
+            0.345,
+            0.43,
+            0.37,
+            false
+          ],
+          [
+            290.0,
+            0.265,
+            0.33,
+            0.29,
+            false
+          ],
+          [
+            300.0,
+            0.185,
+            0.26,
+            0.21,
+            false
+          ],
+          [
+            310.0,
+            0.055,
+            0.15,
+            0.08,
+            false
+          ],
+          [
+            320.0,
+            0.06,
+            0.17,
+            0.09,
+            false
+          ],
+          [
+            330.0,
+            0.07,
+            0.15,
+            0.09,
+            false
+          ],
+          [
+            340.0,
+            0.045,
+            0.07,
+            0.06,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night35 NVDL 2 + NVDX 1 (exit_ovn.py) + open-residual distribution check; 8-min loop + hourly HB (watch 14:00 FOMC); sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night36 (tag hyperscaler/FOMC); 16:01:30 EOD",
     "exit": {
       "night": 35,
