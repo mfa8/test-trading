@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-29T11:49:56Z",
-    "loop_note": "07:49 ANALYST Thu: broker NVDL 3 @32.06, 0 open orders, unsettled 0, approvals off, option_level none. Pre-mkt after hyperscaler night: GOOGL -11.2%, MSFT +1.6%",
+    "last_heartbeat_utc": "2026-10-29T13:00:00Z",
+    "loop_note": "HB 09:00 pre-mkt hold night36 (NVDL 3): NVDL b31.58-31.79 (-0.8..-1.4 marked), NVDA 213.7-214.4 (-0.5..-0.8%), QQQ -1.2..-1.4% after GOOGL -11%. Next: 09:25/09:",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
