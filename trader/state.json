@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-29T18:00:04Z",
-    "loop_note": "14:00 heartbeat flat E 99.55: NVDA 212.76 -1.2% QQQ -1.8% IWM +0.7% at 13:56; NVDL 31.35 -> night37 sizing likely 3 NVDL (~94.1) no filler; AMZN/INTC report aft",
+    "last_heartbeat_utc": "2026-10-29T19:00:04Z",
+    "loop_note": "15:00 heartbeat flat E 99.55: NVDA 212.87 -1.2% QQQ -1.7% IWM +0.7% at 14:56; NVDL 31.38; pre-entry 15:40, entry 15:52 (night 37, AMZN/INTC AMC tag)",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {

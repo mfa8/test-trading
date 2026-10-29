@@ -385,3 +385,4 @@
 2026-10-29T17:00:09Z W-9 13:00 ET SLEEVE SHADOW (R4, no order): E 99.55 S 213.64 B 19.55; spread 300/310 mid 0.145 nat 0.2 L0 0.16 cost 16.1; L2 call 330C 0.13/0.16 L0 0.15; cands [(280, 0.36, False), (285, 0.28, False), (290, 0.22, False), (300, 0.16, True), (310, 0.09, True), (320, 0.08, True), (330, 0.04, True), (340, 0.05, True)]
 2026-10-29T17:00:13Z W-9 13:00 heartbeat flat E 99.55: NVDA 213.64 -0.81% QQQ -1.4% IWM +1.1% (megacap->smallcap rotation); sleeve shadow 13:00 300/310 L0 0.16 cost 16.10 (B 19.55), L2 330C 0.15; options approval still pending
 2026-10-29T18:00:04Z W-9 14:00 heartbeat flat E 99.55: NVDA 212.76 -1.2% QQQ -1.8% IWM +0.7% at 13:56; NVDL 31.35 -> night37 sizing likely 3 NVDL (~94.1) no filler; AMZN/INTC report after close
+2026-10-29T19:00:04Z W-9 15:00 heartbeat flat E 99.55: NVDA 212.87 -1.2% QQQ -1.7% IWM +0.7% at 14:56; NVDL 31.38; pre-entry 15:40, entry 15:52 (night 37, AMZN/INTC AMC tag)
