@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-29T13:32:43Z",
-    "loop_note": "09:31 EXIT night36 NVDL 3 @31.81 (lim 31.81 = bid 31.86 - 0.15%; rested 33s as bid fell to 31.65, filled at limit 09:31:48, before the 60s re-price) = -0.75 (-0",
+    "last_heartbeat_utc": "2026-10-29T14:00:00Z",
+    "loop_note": "HB 10:00 flat cash 99.55; megacap->smallcap rotation after GOOGL miss: QQQ -1.6..-1.8%, IWM +0.7..+1.0%, NVDA 212.2-213.4 (-0.9..-1.5%); NVDL 31.18-31.54 (below",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
