@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-29T17:00:13Z",
-    "loop_note": "13:00 heartbeat flat E 99.55: NVDA 213.64 -0.81% QQQ -1.4% IWM +1.1% (megacap->smallcap rotation); sleeve shadow 13:00 300/310 L0 0.16 cost 16.10 (B 19.55), L2 ",
+    "last_heartbeat_utc": "2026-10-29T18:00:04Z",
+    "loop_note": "14:00 heartbeat flat E 99.55: NVDA 212.76 -1.2% QQQ -1.8% IWM +0.7% at 13:56; NVDL 31.35 -> night37 sizing likely 3 NVDL (~94.1) no filler; AMZN/INTC report aft",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
