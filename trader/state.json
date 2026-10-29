@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-28T20:14:03Z",
-    "loop_note": "16:13 t2x-wake-b (16:09 slot) post-close: hyperscaler AH snapshot for night36 tag -- GOOGL 297.77 (-8.6% AH), MSFT 553.45 (+4.1%), META ~flat, QQQ -0.25%, NVDA ",
+    "last_heartbeat_utc": "2026-10-29T11:49:56Z",
+    "loop_note": "07:49 ANALYST Thu: broker NVDL 3 @32.06, 0 open orders, unsettled 0, approvals off, option_level none. Pre-mkt after hyperscaler night: GOOGL -11.2%, MSFT +1.6%",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -639,436 +639,45 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-10-28",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_done": true,
+    "date": "2026-10-29",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_done": false,
     "premarket": {
-      "t": "07:47 ET",
-      "NVDL_bid": 33.46,
-      "NVDL_ask": 33.5,
-      "NVDX_bid": 18.79,
-      "NVDX_ask": 18.82,
-      "NVDA": 219.83,
-      "NVDA_chg_pct": 0.87,
-      "QQQ_chg_pct": 0.52,
-      "IWM_chg_pct": -0.09,
-      "night35_marked": 1.37,
-      "E_broker": 100.47,
-      "cash": 14.74
+      "t": "07:49 ET",
+      "NVDL_bid": 31.79,
+      "NVDL_ask": 31.85,
+      "NVDA": 214.4,
+      "NVDA_chg_pct": -0.45,
+      "QQQ_chg_pct": -1.09,
+      "IWM_chg_pct": 0.28,
+      "GOOGL_chg_pct": -11.2,
+      "MSFT_chg_pct": 1.6,
+      "META_chg_pct": 0.9,
+      "AMZN_chg_pct": -1.8,
+      "night36_marked": -0.81,
+      "E_broker": 99.65,
+      "cash": 4.12
     },
     "broker_check": {
-      "positions": "NVDL 2 @32.93, NVDX 1 @18.48 (avail 2/1)",
+      "positions": "NVDL 3 @32.06 (avail 3)",
       "open_orders": 0,
       "unsettled_funds": 0.0,
-      "t": "07:47 ET"
+      "t": "07:49 ET"
     },
     "trade_approval": {
       "human_must_approve_trades": false,
-      "checked": "07:47 ET"
+      "checked": "07:49 ET"
     },
-    "option_level": "none (07:47 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25",
+    "option_level": "none (07:49 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25",
     "day_leg": "SUSPENDED (v1.7) \u2014 TZA shadow log only after close",
-    "nvdl_distribution_check": "CONFIRMED NONE at 07:47: adjusted_previous_close 32.92 == previous_close 32.92; fundamentals unchanged (record 2023-12-28, 0.561749); pre-mkt NVDL +1.64% vs 2x NVDA +1.74% (residual -0.09%), NVDX +1.62% -> no distribution. Final open-residual check at 09:31. | 09:31:05 open residual: NVDL bid +1.34% vs close, 2x NVDA bid +1.33% -> r=+0.01%; NVDX +1.41% -> d=-0.07%: NO distribution (final).",
     "earnings_check": {
-      "note": "FOMC decision 14:00 today; MSFT/GOOGL/META report after close -> night36 = hyperscaler + FOMC-day night (tag H1/H3 per shadow_logs.hyperscaler_nights; NO behaviour change); NVDA 11/17 -> cash"
+      "note": "AMZN/INTC report after close -> night37 = hyperscaler night (tag H1/H2; AMZN+INTC in H2 tail set); no blackout; NVDA 11/17 -> cash"
     },
-    "exit_shadow": {
-      "q0925": {
-        "t_quote": "13:25:00Z",
-        "NVDL": {
-          "bid": 33.42,
-          "ask": 33.54,
-          "last": 33.29
-        },
-        "NVDX": {
-          "bid": 18.75,
-          "ask": 19.02,
-          "last": 18.8308
-        },
-        "NVDA": {
-          "bid": 219.66,
-          "ask": 219.79
-        }
-      },
-      "q0929": {
-        "t_quote": "13:29:00Z",
-        "NVDL": {
-          "bid": 33.49,
-          "ask": 33.54,
-          "last": 33.49
-        },
-        "NVDX": {
-          "bid": 18.77,
-          "ask": 18.86,
-          "last": 18.8308
-        },
-        "NVDA": {
-          "bid": 219.9,
-          "ask": 219.96
-        }
-      },
-      "q093105": {
-        "t_quote": "13:31:05Z",
-        "NVDL": {
-          "bid": 33.36,
-          "ask": 33.38,
-          "last": 33.38
-        },
-        "NVDX": {
-          "bid": 18.75,
-          "ask": 18.76,
-          "last": 18.73
-        },
-        "NVDA": {
-          "bid": 219.39,
-          "ask": 219.46
-        }
-      },
-      "fill": {
-        "NVDL": {
-          "t": "13:31:18.967Z",
-          "px": 33.3901,
-          "limit": 33.3,
-          "order_id": "6ae1f926-559e-49a7-9959-09b228019b19"
-        },
-        "NVDX": {
-          "t": "13:31:20.135Z",
-          "px": 18.7753,
-          "limit": 18.72,
-          "order_id": "6ae1f928-a471-4a15-924b-8c2dd9a240c0"
-        }
-      },
-      "bp_0929bid_minus_fill": {
-        "NVDL": 29.9,
-        "NVDX": -2.8
-      },
-      "bp_0925bid_minus_fill": {
-        "NVDL": 9.0,
-        "NVDX": -13.5
-      }
-    },
-    "sleeve_shadow": [
-      {
-        "E": 100.3,
-        "S": 218.23,
-        "expiry": "2027-01-15",
-        "B": 20.06,
-        "spread": {
-          "K1": 340.0,
-          "K2": 350.0,
-          "mid": 0.045,
-          "nat": 0.07,
-          "L0": 0.06,
-          "cost": 6.1,
-          "W_L0": 166.7,
-          "ok": true,
-          "Lmax": 0.07
-        },
-        "call": {
-          "K": 340.0,
-          "bid": 0.13,
-          "ask": 0.16,
-          "L0": 0.15,
-          "cost": 15.05
-        },
-        "t": "10:30 ET",
-        "leg_quotes": "280:1.18:1.29 285:0.92:1.02 290:0.74:0.82 295:0.59:0.66 300:0.49:0.54 310:0.28:0.38 320:0.23:0.32 330:0.15:0.28 340:0.13:0.16 350:0.09:0.11",
-        "cands": [
-          [
-            280.0,
-            0.455,
-            0.55,
-            0.48,
-            false
-          ],
-          [
-            285.0,
-            0.345,
-            0.43,
-            0.37,
-            false
-          ],
-          [
-            290.0,
-            0.265,
-            0.33,
-            0.29,
-            false
-          ],
-          [
-            300.0,
-            0.185,
-            0.26,
-            0.21,
-            false
-          ],
-          [
-            310.0,
-            0.055,
-            0.15,
-            0.08,
-            false
-          ],
-          [
-            320.0,
-            0.06,
-            0.17,
-            0.09,
-            false
-          ],
-          [
-            330.0,
-            0.07,
-            0.15,
-            0.09,
-            false
-          ],
-          [
-            340.0,
-            0.045,
-            0.07,
-            0.06,
-            true
-          ]
-        ]
-      },
-      {
-        "E": 100.3,
-        "S": 217.56,
-        "expiry": "2027-01-15",
-        "B": 20.06,
-        "spread": {
-          "K1": 300.0,
-          "K2": 310.0,
-          "mid": 0.17,
-          "nat": 0.22,
-          "L0": 0.19,
-          "cost": 19.1,
-          "W_L0": 52.6,
-          "ok": true,
-          "Lmax": 0.19
-        },
-        "call": {
-          "K": 330.0,
-          "bid": 0.16,
-          "ask": 0.18,
-          "L0": 0.18,
-          "cost": 18.05
-        },
-        "t": "13:00 ET",
-        "leg_quotes": "280:1.18:1.25 285:0.91:1.00 290:0.74:0.80 295:0.60:0.64 300:0.49:0.53 310:0.31:0.37 320:0.23:0.27 330:0.16:0.18 340:0.13:0.15 350:0.09:0.10",
-        "cands": [
-          [
-            280.0,
-            0.445,
-            0.51,
-            0.47,
-            false
-          ],
-          [
-            285.0,
-            0.335,
-            0.4,
-            0.36,
-            false
-          ],
-          [
-            290.0,
-            0.26,
-            0.31,
-            0.28,
-            false
-          ],
-          [
-            300.0,
-            0.17,
-            0.22,
-            0.19,
-            true
-          ],
-          [
-            310.0,
-            0.09,
-            0.14,
-            0.11,
-            true
-          ],
-          [
-            320.0,
-            0.08,
-            0.11,
-            0.09,
-            true
-          ],
-          [
-            330.0,
-            0.03,
-            0.05,
-            0.04,
-            true
-          ],
-          [
-            340.0,
-            0.045,
-            0.06,
-            0.05,
-            true
-          ]
-        ]
-      },
-      {
-        "E": 100.3,
-        "S": 214.74,
-        "expiry": "2027-01-15",
-        "B": 20.06,
-        "spread": {
-          "K1": 300.0,
-          "K2": 310.0,
-          "mid": 0.14,
-          "nat": 0.18,
-          "L0": 0.15,
-          "cost": 15.1,
-          "W_L0": 66.7,
-          "ok": true,
-          "Lmax": 0.18
-        },
-        "call": {
-          "K": 330.0,
-          "bid": 0.16,
-          "ask": 0.18,
-          "L0": 0.18,
-          "cost": 18.05
-        },
-        "t": "15:25 ET",
-        "leg_quotes": "280:1.05:1.14 285:0.86:0.94 290:0.68:0.73 295:0.56:0.64 300:0.46:0.50 310:0.32:0.36 320:0.18:0.29 330:0.16:0.18 340:0.10:0.16 350:0.09:0.10",
-        "cands": [
-          [
-            280.0,
-            0.39,
-            0.46,
-            0.41,
-            false
-          ],
-          [
-            285.0,
-            0.3,
-            0.38,
-            0.32,
-            false
-          ],
-          [
-            290.0,
-            0.225,
-            0.27,
-            0.24,
-            false
-          ],
-          [
-            300.0,
-            0.14,
-            0.18,
-            0.15,
-            true
-          ],
-          [
-            310.0,
-            0.105,
-            0.18,
-            0.13,
-            false
-          ],
-          [
-            320.0,
-            0.065,
-            0.13,
-            0.09,
-            false
-          ],
-          [
-            330.0,
-            0.04,
-            0.08,
-            0.05,
-            true
-          ],
-          [
-            340.0,
-            0.035,
-            0.07,
-            0.05,
-            true
-          ]
-        ]
-      }
-    ],
-    "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night35 NVDL 2 + NVDX 1 (exit_ovn.py) + open-residual distribution check; 8-min loop + hourly HB (watch 14:00 FOMC); sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night36 (tag hyperscaler/FOMC); 16:01:30 EOD",
-    "exit": {
-      "night": 35,
-      "NVDL": {
-        "qty": 2,
-        "entry": 32.9299,
-        "exit": 33.3901,
-        "limit": 33.3,
-        "bid_093105": 33.36,
-        "vs_bid_c": 3.0,
-        "pnl": 0.92
-      },
-      "NVDX": {
-        "qty": 1,
-        "entry": 18.4793,
-        "exit": 18.7753,
-        "limit": 18.72,
-        "bid_093105": 18.75,
-        "vs_bid_c": 2.5,
-        "pnl": 0.3
-      },
-      "pnl": 1.22,
-      "pct": 1.44,
-      "t": "09:31:20 ET",
-      "cash_after": 100.3
-    },
-    "entry": {
-      "night": 36,
-      "t": "15:52 ET",
-      "E": 100.3,
-      "NVDL": {
-        "qty": 3,
-        "lim": 32.1,
-        "ask": 32.05,
-        "fill": 32.059,
-        "vs_ask_c": 0.9
-      },
-      "NVDX": {
-        "qty": 0,
-        "note": "cap left 2.11 < 1 share"
-      },
-      "cost": 96.18,
-      "pct_E": 95.9,
-      "cash_after": 4.12,
-      "note": "NVDA -1.5% post-FOMC -> NVDL 31.9-32.1 so 3 NVDL fit cap 98.29"
-    },
-    "eod": {
-      "t": "16:01 ET",
-      "E_broker": 100.9,
-      "E_bid": 100.87,
-      "day_pnl": 1.82,
-      "night36_marked": 0.6,
-      "NVDA_close": 215.39,
-      "NVDA_close_chg_pct": -1.17,
-      "QQQ_chg_pct": 0.59,
-      "IWM_chg_pct": 0.4,
-      "post_mkt_1601": {
-        "MSFT": "542.65 vs 531.73 close (+2.1%)",
-        "GOOGL": "327.06 vs 325.63 (+0.4%)",
-        "META": "613.28 vs 612.41 (+0.1%)",
-        "QQQ": "728.61 (+0.43% vs close)",
-        "NVDL": "32.26 (+0.3%)"
-      },
-      "tza_shadow": "+1.02 pct (TP 14:32); 10 legs mean -0.74 pct",
-      "option_level": "none"
-    }
+    "exit_shadow": {},
+    "sleeve_shadow": [],
+    "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night36 NVDL 3 + record hyperscaler-night outcome in event tag; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night37 (tag); 16:01:30 EOD"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
