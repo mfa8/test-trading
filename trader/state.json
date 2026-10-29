@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-29T14:00:00Z",
-    "loop_note": "HB 10:00 flat cash 99.55; megacap->smallcap rotation after GOOGL miss: QQQ -1.6..-1.8%, IWM +0.7..+1.0%, NVDA 212.2-213.4 (-0.9..-1.5%); NVDL 31.18-31.54 (below",
+    "last_heartbeat_utc": "2026-10-29T15:00:00Z",
+    "loop_note": "HB 11:00 flat cash 99.55; rotation day: QQQ -1.3..-1.7%, IWM +1.0..+1.2%, NVDA 212.9-214.1 (-0.6..-1.2%); NVDL 31.37-31.75. 10:30 sleeve shadow 300/310 L0 0.16.",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
@@ -731,7 +731,92 @@
         "NVDL": 3.1
       }
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 99.55,
+        "S": 213.66,
+        "expiry": "2027-01-15",
+        "B": 19.55,
+        "spread": {
+          "K1": 300.0,
+          "K2": 310.0,
+          "mid": 0.145,
+          "nat": 0.17,
+          "L0": 0.16,
+          "cost": 16.1,
+          "W_L0": 62.5,
+          "ok": true,
+          "Lmax": 0.17
+        },
+        "call": {
+          "K": 330.0,
+          "bid": 0.13,
+          "ask": 0.2,
+          "L0": 0.18,
+          "cost": 18.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:0.98:1.04 285:0.79:0.84 290:0.65:0.68 295:0.50:0.77 300:0.43:0.45 310:0.28:0.31 320:0.20:0.23 330:0.13:0.20 340:0.09:0.19 350:0.07:0.09",
+        "cands": [
+          [
+            280.0,
+            0.345,
+            0.39,
+            0.36,
+            false
+          ],
+          [
+            285.0,
+            0.18,
+            0.34,
+            0.22,
+            false
+          ],
+          [
+            290.0,
+            0.225,
+            0.25,
+            0.24,
+            false
+          ],
+          [
+            300.0,
+            0.145,
+            0.17,
+            0.16,
+            true
+          ],
+          [
+            310.0,
+            0.08,
+            0.11,
+            0.09,
+            true
+          ],
+          [
+            320.0,
+            0.05,
+            0.1,
+            0.07,
+            true
+          ],
+          [
+            330.0,
+            0.025,
+            0.11,
+            0.05,
+            false
+          ],
+          [
+            340.0,
+            0.06,
+            0.12,
+            0.08,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:25/09:29 shadow quotes; 09:31:05 exit night36 NVDL 3 + record hyperscaler-night outcome in event tag; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry; 15:52 entry night37 (tag); 16:01:30 EOD",
     "exit": {
       "night": 36,
