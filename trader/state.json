@@ -1325,6 +1325,23 @@
       "L2-only: run single far-OTM call (default yes)",
       "risk dial: $80 floor (default) vs $70"
     ],
-    "shadow_rule_note": "per R9 log each leg bid/ask (K:bid:ask string) with every shadow entry (audit 10/23)"
+    "shadow_rule_note": "per R9 log each leg bid/ask (K:bid:ask string) with every shadow entry (audit 10/23)",
+    "feb19_2027_call_ids": {
+      "expiry": "2027-02-19",
+      "fetched": "2026-10-30 11:20 ET (get_option_instruments, read-only)",
+      "260": "8f4eab52-ea35-40e4-8064-33e0cd5ccdf0",
+      "270": "e850ccf9-eadb-4ec5-8c25-cae816ae5a31",
+      "280": "e7b16f2f-097b-4149-8ab1-35ee07f32b09",
+      "285": "9db949b8-15b8-4979-89be-f79f8e2d2b9c",
+      "290": "05fae247-759f-46c8-9796-75b39ee081f1",
+      "295": "bf750713-c34d-4105-9abe-8066836e803c",
+      "300": "81e1a0d4-ab83-473f-88f3-ce0bddd52a42",
+      "310": "843aff2f-e7d1-4f4b-a730-e4a7822827b2",
+      "320": "f20603e9-7314-4e73-a2e4-50c124712df2",
+      "330": "c6cc8117-f07c-43bb-a7c9-478c6d8c90fa",
+      "340": "2f65741b-2a11-4932-91ba-9a72fef56dcb",
+      "350": "acf6ad89-3e0b-4f23-8e55-6a01cfdc600d",
+      "note": "Jan-15-2027 reaches 70 DTE on 11/6; from 11/9 the R4 shadow uses Feb-19-2027 (shadow_rec.sh currently hard-codes 2027-01-15 -> pass expiry as arg before 11/9)"
+    }
   }
 }

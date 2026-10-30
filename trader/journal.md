@@ -401,3 +401,4 @@
 2026-10-30T14:30:22Z W-9 10:30 ET SLEEVE SHADOW (R4, no order): E 94.82 S 206.06 B 14.82; spread 300/310 mid 0.1 nat 0.13 L0 0.11 cost 11.1; L2 call 330C 0.11/0.14 L0 0.13; cands [(280, 0.27, False), (285, 0.19, False), (290, 0.15, False), (300, 0.11, True), (310, 0.07, True), (320, 0.06, True), (330, 0.03, True), (340, 0.04, True)]
 2026-10-30T14:47:27Z W-9 10:55 WEEK-T3X-8 drafted (night-38 row to fill at EOD). Next-week calendar: Mon PLTR/ON amc; Tue 11/3 midterm election + AMD/SMCI/ANET/ALAB amc (tag); Wed QCOM/ARM amc (tag); 11/6 Jan-15 expiry at 70 DTE -> Feb-19 shadow from 11/9.
 2026-10-30T15:00:07Z W-9 11:00 heartbeat flat E 94.82: NVDA 206.86 -3.18% QQQ -2.62% IWM -1.25%; NVDL 29.60 (below our 29.89 exit)
+2026-10-30T15:16:25Z W-9 11:20 sleeve prep: fetched NVDA Feb-19-2027 call instrument ids (260-350) into state.sleeve.feb19_2027_call_ids for the 11/9 roll of the R4 shadow (Jan-15 hits 70 DTE 11/6).
