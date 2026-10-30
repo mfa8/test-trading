@@ -491,7 +491,7 @@
           "AVGO": "336.00 vs 345.05 (-2.6%)",
           "QQQ": "706.08 (-1.29%)",
           "NVDA": "211.33 (-1.12%)",
-          "NVDL": "30.94 b30.88/a30.96 (-2.15% vs close; night37 -1.59 marked)"
+          "NVDL": "30.94 b30.88/a30.96 (-2.15% vs close; night37 -1.58 marked)"
         },
         "note_1613": "semis-wide AH selloff led by INTC; no after-hours exit under RULES_v3 \u00a75 (pre-registered tag, no behaviour change; gap-down exit delays not adopted per IDLE-CAPITAL-20261014)"
       }
@@ -716,12 +716,12 @@
       "AMZN_chg_pct": -6.7,
       "AMD_chg_pct": -8.7,
       "AVGO_chg_pct": -4.0,
-      "night37_marked": -5.91,
+      "night37_marked": -5.9,
       "E_broker": 93.68,
       "cash": 5.15
     },
     "broker_check": {
-      "positions": "NVDL 3 @31.47 (avail 3)",
+      "positions": "NVDL 3 @31.4667 (avail 3)",
       "open_orders": 0,
       "unsettled_funds": 0.0,
       "t": "07:47 ET"
