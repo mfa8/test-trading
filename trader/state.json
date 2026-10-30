@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-30T17:00:12Z",
-    "loop_note": "13:00 heartbeat flat E 94.82: NVDA 203.90 -4.57% QQQ -3.5% IWM -2.0%; NVDL ~28.6; sleeve shadow 13:00 logged",
+    "last_heartbeat_utc": "2026-10-30T18:00:04Z",
+    "loop_note": "14:00 heartbeat flat E 94.82: NVDA 202.68 -5.14% QQQ -3.9% IWM -2.1% at 13:56; NVDL 28.35 (flat since 09:31 avoided ~4.6 on NVDL 3)",
     "last": "2026-10-30T13:31Z exit night37"
   },
   "campaign": {
