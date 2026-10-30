@@ -407,3 +407,4 @@
 2026-10-30T17:00:12Z W-9 13:00 heartbeat flat E 94.82: NVDA 203.90 -4.57% QQQ -3.5% IWM -2.0%; NVDL ~28.6; sleeve shadow 13:00 logged
 2026-10-30T18:00:04Z W-9 14:00 heartbeat flat E 94.82: NVDA 202.68 -5.14% QQQ -3.9% IWM -2.1% at 13:56; NVDL 28.35 (flat since 09:31 avoided ~4.6 on NVDL 3)
 2026-10-30T19:00:05Z W-9 15:00 heartbeat flat E 94.82: NVDA 201.61 -5.64% QQQ -4.30% IWM -2.34% at 14:56; NVDL 28.03. Night 38 at 15:52 (weekend hold): dry sizing est 3 NVDL (~84.2, cap 92.92), NVDX filler 0. Big down day; no rule filter on day return -> standard entry.
+2026-10-30T19:25:11Z W-9 15:25 ET SLEEVE SHADOW (R4, no order): E 94.82 S 202.81 B 14.82; spread 300/310 mid 0.09 nat 0.11 L0 0.1 cost 10.1; L2 call 340C 0.08/0.1 L0 0.1; cands [(280, 0.21, False), (285, 0.18, False), (290, 0.15, False), (300, 0.1, True), (310, 0.07, True), (320, 0.04, True), (330, 0.06, True), (340, 0.03, True)]
