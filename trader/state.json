@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-30T11:49:00Z",
-    "loop_note": "07:47 ANALYST Fri: broker NVDL 3 @31.47, 0 open orders, unsettled 0, approvals off, option_level none. Pre-mkt after AMZN/INTC night: INTC -25.4%, AMD -8.7%, AMZN -6.7%, AVGO -4.0%, QQQ -2.6%, SPY -1.1%, IWM -0.6%; NVDA 206.64 (-3.3%); NVDL b29.50 (night37 -5.91 marked); E 93.68. Exit 09:31:05 per \u00a75 (gap-down delay variants refuted 10/14).",
+    "last_heartbeat_utc": "2026-10-30T13:00:04Z",
+    "loop_note": "HB 09:00 pre-mkt hold night37 (NVDL 3): NVDL b29.50->30.05 (07:47->08:56; -5.91 -> -4.26 marked), NVDA 206.64->208.53 (-3.3% -> -2.4%), QQQ -2.5..-2.6%; INTC -2",
     "last": "2026-10-16T13:31Z exit night27"
   },
   "campaign": {
