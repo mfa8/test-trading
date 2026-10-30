@@ -402,3 +402,4 @@
 2026-10-30T14:47:27Z W-9 10:55 WEEK-T3X-8 drafted (night-38 row to fill at EOD). Next-week calendar: Mon PLTR/ON amc; Tue 11/3 midterm election + AMD/SMCI/ANET/ALAB amc (tag); Wed QCOM/ARM amc (tag); 11/6 Jan-15 expiry at 70 DTE -> Feb-19 shadow from 11/9.
 2026-10-30T15:00:07Z W-9 11:00 heartbeat flat E 94.82: NVDA 206.86 -3.18% QQQ -2.62% IWM -1.25%; NVDL 29.60 (below our 29.89 exit)
 2026-10-30T15:16:25Z W-9 11:20 sleeve prep: fetched NVDA Feb-19-2027 call instrument ids (260-350) into state.sleeve.feb19_2027_call_ids for the 11/9 roll of the R4 shadow (Jan-15 hits 70 DTE 11/6).
+2026-10-30T16:00:04Z W-9 12:00 heartbeat flat E 94.82: NVDA 205.84 -3.66% QQQ -3.04% IWM -1.66% at 11:56; NVDL 29.29; being flat since 09:31 avoided ~1.8 on NVDL 3
