@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 37 closed 09:31 10/30 (-4.73, AMZN/INTC night); day leg suspended; entry night 38 15:52 (weekend hold Fri->Mon)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 38 NVDL 3 @28.8791 (15:52 Fri 10/30, v1.6; NVDX filler 0); weekend hold Fri->Mon after a -4.4% NVDA / -4% QQQ day; exit 09:31:05 Mon 11/2",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-30T19:00:05Z",
-    "loop_note": "15:00 heartbeat flat E 94.82: NVDA 201.61 -5.64% QQQ -4.30% IWM -2.34% at 14:56; NVDL 28.03. Night 38 at 15:52 (weekend hold): dry sizing est 3 NVDL (~84.2, cap",
+    "last_heartbeat_utc": "2026-10-30T19:53:30Z",
+    "loop_note": "15:52 ENTRY night38 NVDL 3 @28.8791 (lim 28.89, ask 28.84; +0.4c vs ask) = 86.64 (91.4% of E 94.82); NVDX filler 0 (cap left 6.28 < 1 sh 16.21); cash 8.18; 0 open orders after fill. Weekend hold; exit 09:31:05 Mon 11/2.",
     "last": "2026-10-30T13:31Z exit night37"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 37,
+    "nights_held": 38,
     "R_history": [],
     "night_returns": [
       {
@@ -522,8 +522,8 @@
   },
   "account": {
     "equity": 94.82,
-    "cash": 94.82,
-    "asof": "09:32 ET 2026-10-30 (broker total 94.82 = cash; 0 positions, BP 94.82)"
+    "cash": 8.18,
+    "asof": "15:52 ET 2026-10-30 (broker total 94.79 after entry; 0 open orders)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -693,12 +693,23 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 3,
+      "entry": 28.8791,
+      "entry_t": "2026-10-30T15:52:12 ET",
+      "order_id": "6ae4f56c-0f8b-401a-ab40-280e610c6c85",
+      "leg": "overnight",
+      "n": 38,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-10-30",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": false,
     "premarket": {
@@ -1066,7 +1077,30 @@
           ]
         ]
       }
-    ]
+    ],
+    "entry": {
+      "night": 38,
+      "t": "15:52 ET",
+      "E": 94.82,
+      "NVDL": {
+        "qty": 3,
+        "lim": 28.89,
+        "ask": 28.84,
+        "last": 28.84,
+        "fill": 28.8791,
+        "vs_ask_c": 0.4,
+        "order_id": "6ae4f56c-0f8b-401a-ab40-280e610c6c85"
+      },
+      "NVDX": {
+        "qty": 0,
+        "note": "cap left after NVDL fill 92.92-86.64=6.28 < 1 share (16.21)"
+      },
+      "cost": 86.64,
+      "pct_E": 91.4,
+      "cash_after": 8.18,
+      "open_orders_after": 0,
+      "note": "weekend hold after NVDA -4.4% (204.31 at 15:52; low ~201.4 at 14:48) / QQQ ~-4% semis-led selloff (INTC/AMZN/AMD); NVDA bounced +1.4% off the low into the entry"
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
