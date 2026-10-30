@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-30T19:53:30Z",
-    "loop_note": "15:52 ENTRY night38 NVDL 3 @28.8791 (lim 28.89, ask 28.84; +0.4c vs ask) = 86.64 (91.4% of E 94.82); NVDX filler 0 (cap left 6.28 < 1 sh 16.21); cash 8.18; 0 open orders after fill. Weekend hold; exit 09:31:05 Mon 11/2.",
+    "last_heartbeat_utc": "2026-10-30T20:03:00Z",
+    "loop_note": "16:02 EOD Fri: E 95.30 (bid 95.18), day -4.59 (N37 -5.07 from its 10/29 EOD mark to the exit, N38 +0.48 marked); night38 held (NVDL 3); NVDA 204.81 -4.14%, QQQ -3.47%, AMD -10.8%, INTC -28.5%; TZA shadow #12 +1.01% (TP 09:48); options still none.",
     "last": "2026-10-30T13:31Z exit night37"
   },
   "campaign": {
@@ -521,9 +521,9 @@
     }
   },
   "account": {
-    "equity": 94.82,
+    "equity": 95.3,
     "cash": 8.18,
-    "asof": "15:52 ET 2026-10-30 (broker total 94.79 after entry; 0 open orders)"
+    "asof": "16:01 ET 2026-10-30 (broker total 95.30; NVDL3 marked 87.12; at bid 95.18; unsettled 89.67 from 09:31 sale, limited margin)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -710,8 +710,8 @@
     "date": "2026-10-30",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
-    "day_leg_done": false,
+    "eod_done": true,
+    "day_leg_done": true,
     "premarket": {
       "t": "07:47 ET",
       "NVDL_bid": 29.5,
@@ -1100,6 +1100,32 @@
       "cash_after": 8.18,
       "open_orders_after": 0,
       "note": "weekend hold after NVDA -4.4% (204.31 at 15:52; low ~201.4 at 14:48) / QQQ ~-4% semis-led selloff (INTC/AMZN/AMD); NVDA bounced +1.4% off the low into the entry"
+    },
+    "eod": {
+      "t": "16:01 ET",
+      "E_broker": 95.3,
+      "E_bid": 95.18,
+      "day_pnl": -4.59,
+      "night38_marked": 0.48,
+      "NVDA_close": 204.81,
+      "NVDA_close_chg_pct": -4.14,
+      "NVDA_open_to_close_pct": -1.95,
+      "QQQ_chg_pct": -3.47,
+      "IWM_chg_pct": -1.64,
+      "SPY_chg_pct": -1.77,
+      "peers": {
+        "AMD": "505.18 (-10.8%)",
+        "INTC": "65.84 (-28.5%)",
+        "AMZN": "240.47 (-1.4%)"
+      },
+      "post_mkt_1601": {
+        "NVDA": "205.21 (+0.20% vs close)",
+        "NVDL": "29.04 b29.00/a29.05",
+        "QQQ": "691.12 (+0.09%)"
+      },
+      "flat_day_saved": "NVDL 29.89 exit -> 28.965 close = 0.93/sh x3 = 2.77 avoided 09:31->16:00",
+      "tza_shadow": "+1.01 pct (TP 09:48); 12 legs mean -0.58 pct",
+      "option_level": "none"
     }
   },
   "schedule": {
@@ -1469,6 +1495,17 @@
         "at": "15:48",
         "ret_pct": -0.524,
         "ret_net015_pct": -0.674
+      },
+      {
+        "date": "2026-10-30",
+        "sym": "TZA",
+        "entry": 45.4225,
+        "tp": 45.88,
+        "exit": 45.88,
+        "how": "tp",
+        "at": "09:48",
+        "ret_pct": 1.007,
+        "ret_net015_pct": 0.857
       }
     ],
     "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"
@@ -1511,11 +1548,11 @@
   "sleeve": {
     "plan": "FFB-L v1 (RULES_v3 \u00a712)",
     "mode": "PENDING_OPTIONS_APPROVAL",
-    "option_level_seen": "none (2026-10-29 16:01 get_accounts)",
+    "option_level_seen": "none (2026-10-30 16:01 get_accounts)",
     "floor": 80,
     "f": 0.2,
     "lock": 200,
-    "shadow_days": 5,
+    "shadow_days": 6,
     "first_trade_if_L3": "BUY NVDA 2027-01-15 300C (8acaf208-49b6-4861-bf3c-9a68cf60ac75) / SELL 310C (f0d4c64a-0b4c-4f7c-b4fa-60bb6c05606b); 10/22 mid 0.14 nat 0.19 -> L0 0.16, cap 0.17 (re-run R4 at order time)",
     "first_trade_if_L2": "BUY 1 NVDA 2027-01-15 350C (c86b3db1-2c7b-4d75-84f4-1c4669d0e5cf) 10/22 0.10/0.12 (re-run R4)",
     "position": null,

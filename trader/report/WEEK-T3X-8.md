@@ -1,9 +1,9 @@
 # T3X WEEK 8 (Mon 10/26 – Fri 10/30): engine v1.7 unchanged; a bad AMZN/INTC night wiped out a good week
 
-**E 95.69 (10/23 close, night 33 marked) → 94.82 (10/30 09:32, all cash): −0.87 (−0.9%) on the week.**
+**E 95.69 (10/23 close, night 33 marked) → 95.30 (10/30 close, night 38 marked): −0.39 (−0.4%) on the week.**
 - Realised this week: **−1.19**, from five overnight exits (N33–N37): 3 wins, 2 losses. The day leg is off.
-- Campaign since the T3X start: 98.75 → 94.82 (−3.93). Since your original $100: −5.18 (−5.2%).
-- HWM 107.11; E is 11.5% below it. PAUSE 85.69 (E is 10.7% above it), KILL 50.
+- Campaign since the T3X start: 98.75 → 95.30 (−3.45). Since your original $100: −4.70 (−4.7%).
+- HWM 107.11; E is 11.0% below it. PAUSE 85.69 (E is 11.2% above it), KILL 50.
 
 ## Overnight leg
 | night | basket | P&L | NVDA close→open | note |
@@ -13,7 +13,7 @@
 | 35 (10/27→10/28) | NVDL ×2 + NVDX | **+1.22** | +0.91% | FOMC eve |
 | 36 (10/28→10/29) | NVDL ×3 | **−0.75** | −0.47% | tagged: MSFT/GOOGL/META after the close on FOMC day; GOOGL −11% |
 | 37 (10/29→10/30) | NVDL ×3 | **−4.73** | −2.23% | tagged: AMZN/INTC after the close; INTC −25%, AMD −9% pre-market |
-| 38 (10/30→11/2) | _filled in at EOD_ | | | weekend hold |
+| 38 (10/30→11/2) | NVDL ×3 @ 28.8791 | +0.48 marked (open) | | weekend hold, entered after NVDA's −4.1% day |
 
 - **Week: −1.19 on 5 closed nights.** The three untagged nights made +4.29; the two earnings-tagged nights lost 5.48.
 - N37 was the second-worst live NVDA-2x night (after N26, TSM, −5.61%). NVDA was −3.3% at 07:47 and −2.75% at our 09:31 exit; NVDL was −5.4% from its close.
@@ -36,7 +36,7 @@
 - Only crash opens of −5% or worse rebound (2019+: +4.7% at 2× by 10:00, n = 16, t 3.3; without the top 3 events, +2.8%). That stays a pre-registered shadow rule, judged at the 2027-01-11 review.
 - Today NVDA kept falling after 09:31 (−3.5% by 10:24), and NVDL traded below our 29.89 exit all morning.
 
-**Being flat during the day helped again.** NVDA's day sessions moved +1.36%, −0.17%, −2.06% and −0.33% (Mon–Thu). Being in cash saved $2.05 net, and about $0.9 more by mid-morning Friday.
+**Being flat during the day helped again.** NVDA's day sessions moved +1.36%, −0.17%, −2.06% and −0.33% (Mon–Thu). Being in cash saved $2.05 net. On Friday NVDA fell another 1.95% after the open, and being flat from 09:31 avoided about $2.8 more.
 
 ## Risk, plainly (bootstrap from E 94.82; verifier reproduced it)
 | | with the long-run edge | with zero edge |
@@ -67,15 +67,15 @@
 
 ## Shadow logs (no orders)
 - **Pre-market exit (§5), 7 days:** the 09:29 bid averaged +7bp vs our fill (t ≈ 0.5); 09:25 ≈ 0bp. Today's +74bp was the best day so far. The switch test is not met.
-- **Day-leg TZA, 11 legs:** mean −0.72% gross (t −1.15). It stays suspended.
-- **Options sleeve, 6 days (16 snapshots):** the Jan-15 300/310 spread was the pick in 11 of them and has been stable for the last 6. Today's budget fell to 14.82 with E, and 300/310 still fits (limit 0.11).
+- **Day-leg TZA, 12 legs:** mean −0.58% gross. Friday hit its take-profit (+1.01%). It stays suspended.
+- **Options sleeve, 6 days (18 snapshots):** the Jan-15 300/310 spread was the pick in 13 of them, including the last 8 in a row. Friday's budget fell to 14.82 with E, and 300/310 still fits (limit 0.10–0.11).
 
 ## Next week
 - **Sun 11/1:** daylight saving ends. The crons are already in ET.
 - **Mon 11/2:** §3(f) edge-decay check (the preview is +0.32% per night, t 1.34, so the leg stays on); exit night 38. PLTR and ON report after the close.
 - **Tue 11/3:** US midterm election day. AMD, SMCI, ANET and ALAB report after the close, a semis-peer night. Tagged; the engine holds as normal.
 - **Wed 11/4:** QCOM and ARM report after the close (tagged).
-- **Fri 11/6:** the Jan-15-2027 expiry reaches 70 days. From 11/9 the sleeve shadow moves to the Feb-19-2027 monthly, which needs new contract IDs.
+- **Fri 11/6:** the Jan-15-2027 expiry reaches 70 days. From 11/9 the sleeve shadow moves to the Feb-19-2027 monthly; its contract IDs are already stored.
 - **Tue 11/17:** NVDA earnings. That night we hold cash.
 
 ## For you to know
