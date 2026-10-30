@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-10-30T13:32:30Z",
-    "loop_note": "09:31 EXIT night37 NVDL 3 @29.89 (lim 29.85 = bid 29.90 - 0.15%; filled 09:31:13 first try) = -4.73 (-5.01%); cash/BP 94.82, 0 positions. AMZN/INTC night: NVDA -2.75% to 09:31, INTC -25%. PAUSE 85.69 not hit (E +10.7% above).",
+    "last_heartbeat_utc": "2026-10-30T14:00:04Z",
+    "loop_note": "10:00 heartbeat flat E 94.82 (cash): NVDA 207.14 -3.05% QQQ -2.6% IWM -1.0% at 09:56; NVDL 29.67; week-8 audit wf running (read-only)",
     "last": "2026-10-30T13:31Z exit night37"
   },
   "campaign": {
