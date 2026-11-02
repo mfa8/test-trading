@@ -531,6 +531,26 @@
         "MSFU"
       ],
       "assessment": "raw 30-night leads only; 250-night scores GGLL 0.01, MSFU -0.01 vs NVDL 0.13; both report 10/28 after close (earnings nights in window). Not the \u00a73(b) gate basis (executable 15:52->09:31 ex-earnings both sides) and no proposal before the 2027-01-11 quarterly review. No action."
+    },
+    "rank_20261102": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only; nights through 10/29->10/30",
+      "top30": {
+        "MSFU": 0.26,
+        "NVDL": 0.04,
+        "NVDX": 0.04,
+        "AAPU": 0.03,
+        "TNA": -0.03,
+        "SPXL": -0.08
+      },
+      "top250": {
+        "MUU": 0.12,
+        "NVDL": 0.11,
+        "NVDX": 0.09,
+        "SOXL": 0.07,
+        "TSMX": 0.07
+      },
+      "file": "research/rank_20261102.json",
+      "assessment": "MSFU leads 30n for a 3rd Monday but its 250n score is -0.02 (vs NVDL 0.11) and the 30n window contains MSFT's 10/28 earnings night; GGLL fell from 0.27 to -0.14 after GOOGL's -11% night. NVDL is 2nd on 250n (MUU 0.12, single-stock memory 2x, much higher variance). Not the \u00a73(b) gate basis; no proposal before the 2027-01-11 quarterly review. No action."
     }
   },
   "account": {
