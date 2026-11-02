@@ -420,3 +420,4 @@
 2026-11-02T15:00:04Z W-9 10:00 heartbeat flat E 97.58 (cash) after night-38 +2.76: NVDA 207.56 +1.43% QQQ +0.66% IWM +1.12% at 09:56; NVDL 29.75 (below our 29.80 exit)
 2026-11-02T15:30:14Z W-9 10:30 ET SLEEVE SHADOW (R4, no order): E 97.58 S 209.76 B 17.58; spread 290/300 mid 0.15 nat 0.18 L0 0.16 cost 16.1; L2 call 330C 0.11/0.12 L0 0.12; cands [(280, 0.26, False), (285, 0.29, False), (290, 0.16, True), (300, 0.11, True), (310, 0.04, False), (320, 0.11, False), (330, 0.04, True), (340, 0.03, True)]
 2026-11-02T16:00:04Z W-9 11:00 heartbeat flat E 97.58: NVDA 207.02 +1.16% (faded from +2.5% at 10:30) QQQ +0.82% IWM +1.12% at 10:54; NVDL 29.59
+2026-11-02T17:00:04Z W-9 12:00 heartbeat flat E 97.58: NVDA 206.86 +1.08% QQQ +0.45% IWM +1.10% at 11:56; NVDL 29.55
