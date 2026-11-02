@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-02T14:32:30Z",
-    "loop_note": "09:31 EXIT night38 NVDL 3 @29.80 (lim 29.80 = bid 29.85 - 0.15%; rested ~10s, filled 09:31:28) = +2.76 (+3.19%); cash/BP 97.58, 0 positions, 0 open orders. Weekend night: NVDA +1.61% close->09:31.",
+    "last_heartbeat_utc": "2026-11-02T15:00:04Z",
+    "loop_note": "10:00 heartbeat flat E 97.58 (cash) after night-38 +2.76: NVDA 207.56 +1.43% QQQ +0.66% IWM +1.12% at 09:56; NVDL 29.75 (below our 29.80 exit)",
     "last": "2026-11-02T14:31Z exit night38"
   },
   "campaign": {
