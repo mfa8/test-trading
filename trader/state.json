@@ -776,7 +776,92 @@
     "earnings_check": {
       "note": "Mon amc: PLTR, ON (single analog/auto semis peer) -> note only; Tue 11/3 election + AMD/SMCI/ANET/ALAB amc -> tag night40; NVDA 11/17 -> cash"
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 97.58,
+        "S": 209.76,
+        "expiry": "2027-01-15",
+        "B": 17.58,
+        "spread": {
+          "K1": 290.0,
+          "K2": 300.0,
+          "mid": 0.15,
+          "nat": 0.18,
+          "L0": 0.16,
+          "cost": 16.1,
+          "W_L0": 62.5,
+          "ok": true,
+          "Lmax": 0.17
+        },
+        "call": {
+          "K": 330.0,
+          "bid": 0.11,
+          "ask": 0.12,
+          "L0": 0.12,
+          "cost": 12.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:0.68:0.73 285:0.51:0.69 290:0.44:0.49 295:0.28:0.42 300:0.31:0.32 310:0.20:0.24 320:0.14:0.26 330:0.11:0.12 340:0.07:0.09 350:0.05:0.07",
+        "cands": [
+          [
+            280.0,
+            0.24,
+            0.29,
+            0.26,
+            false
+          ],
+          [
+            285.0,
+            0.25,
+            0.41,
+            0.29,
+            false
+          ],
+          [
+            290.0,
+            0.15,
+            0.18,
+            0.16,
+            true
+          ],
+          [
+            300.0,
+            0.095,
+            0.12,
+            0.11,
+            true
+          ],
+          [
+            310.0,
+            0.02,
+            0.1,
+            0.04,
+            false
+          ],
+          [
+            320.0,
+            0.085,
+            0.15,
+            0.11,
+            false
+          ],
+          [
+            330.0,
+            0.035,
+            0.05,
+            0.04,
+            true
+          ],
+          [
+            340.0,
+            0.02,
+            0.04,
+            0.03,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night38 NVDL 3; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; info re-rank (Monday); 15:40 pre-entry (journaled); 15:52 entry night39 + post-fill open-order check; 16:01:30 EOD",
     "exit_shadow": {
       "q0925": {
