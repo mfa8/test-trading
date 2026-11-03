@@ -442,3 +442,4 @@
 2026-11-03T18:00:12Z W-9 13:00 heartbeat flat E 101.26: NVDA 208.36 +3.12% QQQ ~+0.8% IWM ~+0.5%; NVDL ~29.90; sleeve shadow 13:00 logged
 2026-11-03T19:00:04Z W-9 14:00 heartbeat flat E 101.26: NVDA 207.69 +2.79% QQQ +0.89% IWM +0.63% at 13:56; NVDL 29.74 (above our 29.51 exit; flat cost ~0.7)
 2026-11-03T20:00:08Z W-9 15:00 heartbeat flat E 101.26: NVDA 206.32 +2.11% QQQ +0.40% IWM +0.32% at 14:56; NVDL 29.35. Night 40 at 15:52 (election night + AMD/SMCI/ANET/ALAB amc tag): dry est NVDL 3 (~88 of cap 99.23), NVDX filler 0.
+2026-11-03T20:26:26Z W-9 15:25 ET SLEEVE SHADOW (R4, no order): E 101.26 S 206.96 B 20.25; spread 285/295 mid 0.18 nat 0.21 L0 0.19 cost 19.1; L2 call 310C 0.17/0.19 L0 0.19; cands [(280, 0.25, False), (285, 0.19, True), (290, 0.14, True), (300, 0.11, True), (310, 0.05, True), (320, 0.04, True), (330, 0.04, True), (340, 0.03, True)]
