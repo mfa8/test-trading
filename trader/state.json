@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-03T19:00:04Z",
-    "loop_note": "14:00 heartbeat flat E 101.26: NVDA 207.69 +2.79% QQQ +0.89% IWM +0.63% at 13:56; NVDL 29.74 (above our 29.51 exit; flat cost ~0.7)",
+    "last_heartbeat_utc": "2026-11-03T20:00:08Z",
+    "loop_note": "15:00 heartbeat flat E 101.26: NVDA 206.32 +2.11% QQQ +0.40% IWM +0.32% at 14:56; NVDL 29.35. Night 40 at 15:52 (election night + AMD/SMCI/ANET/ALAB amc tag): d",
     "last": "2026-11-03T14:31Z exit night39"
   },
   "campaign": {
