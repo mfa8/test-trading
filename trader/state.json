@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-03T12:49:00Z",
-    "loop_note": "07:47 ANALYST Tue (election day): broker NVDL 3 @28.2849, 0 open orders, unsettled 0, approvals off, option_level none. Pre-mkt: NVDA 205.46 (+1.68%), NVDL b29.10 (night39 +2.45 marked), QQQ +0.33%, IWM +0.04%, AMD +3.0%, PLTR -6.4% (earnings), TSM +1.0%; E_broker 100.15. Exit 09:31:05.",
+    "last_heartbeat_utc": "2026-11-03T14:00:06Z",
+    "loop_note": "HB 09:00 pre-mkt hold night39 (NVDL 3 @28.2849): NVDL b29.10->29.72 (07:47->08:44; +2.45..+4.30 marked), NVDA 205.5->207.6 (+1.7..+2.8%), QQQ +0.3..+0.8%. Next:",
     "last": "2026-11-02T14:31Z exit night38"
   },
   "campaign": {
