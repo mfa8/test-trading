@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-03T21:03:00Z",
-    "loop_note": "16:02 EOD Tue: E 97.54->101.56 (+4.02; bid 100.96); night39 +3.68 realised, night40 NVDL 3 @29.50 held (+0.30 marked AH); NVDA 206.56 +2.23%, QQQ +0.62%; AMD/SMCI/ANET/ALAB amc + election night; TZA shadow #14 -0.36%; options still none.",
+    "last_heartbeat_utc": "2026-11-03T21:14:00Z",
+    "loop_note": "16:13 AH: NVDA 207.42 (+0.42%), NVDL b29.67 (night40 +0.51 at bid); AMD +0.25%, ANET +7..8%, SMCI +4.8%, ALAB -6.1%. Next: 07:45 analyst wake, 09:25/09:29 shadow, 09:31:05 exit night40.",
     "last": "2026-11-03T14:31Z exit night39"
   },
   "campaign": {
@@ -544,7 +544,27 @@
         },
         "NVDA_close_chg_pct_at_entry": 2.3,
         "context": "NVDA +2.3% day (206.7) after Mon -1.2%; QQQ +0.6%, IWM +0.4%",
-        "realized": "fill at exit 11/4"
+        "realized": "fill at exit 11/4",
+        "ah_1601": {
+          "AMD": "483.77 vs 484.50 close (-0.15%, pre-report)",
+          "SMCI": "31.58 (+0.3%)",
+          "ANET": "~170 (+0.2%)",
+          "ALAB": "237.76 (+1.5%)",
+          "NVDA": "206.68 (+0.06%)",
+          "NVDL": "29.60 b29.40/a29.58"
+        },
+        "ah_1613": {
+          "AMD": "485.73 b485.74/a485.94 vs 484.50 close (+0.25%)",
+          "SMCI": "33.01 vs 31.485 (+4.8%)",
+          "ANET": "184.40 last, b181.25/a182.16 vs 169.90 (+6.7..+8.5%)",
+          "ALAB": "219.88 vs 234.16 (-6.1%)",
+          "AVGO": "331.85 (-0.07%)",
+          "TSM": "b405.25 (+0.15%)",
+          "QQQ": "685.32 (~0.00%)",
+          "NVDA": "207.42 (+0.42%)",
+          "NVDL": "29.69 b29.67/a29.69 (+0.88% vs close; night40 +0.51 at bid)"
+        },
+        "note_1613": "mixed AI-infra prints: ANET/SMCI up, ALAB down, AMD ~flat; NVDA +0.4% AH. No after-hours exit under RULES_v3 \u00a75 (tag only); election results overnight."
       }
     ],
     "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
