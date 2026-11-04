@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-04T21:03:00Z",
-    "loop_note": "16:02 EOD Wed: E 101.56->98.92 (-2.64); night40 -2.16 realised, night41 NVDL 3 @27.769 held (-0.18 marked); NVDA 200.29 -3.10% (semis -2.7% vs SPY +1.6%); flat 09:31->15:52 saved 3.03; TZA shadow #15 +1.02% (TP); options still none.",
+    "last_heartbeat_utc": "2026-11-04T21:14:00Z",
+    "loop_note": "16:13 AH: NVDA 200.78 (+0.24%), NVDL b27.75 (night41 -0.06 at bid); QCOM -4.2%, ARM -2.1% after prints, AMD/AVGO/TSM +0.3%. Next: 07:45 analyst wake, 09:25/09:29 shadow, 09:31:05 exit night41.",
     "last": "2026-11-04T14:31Z exit night40"
   },
   "campaign": {
@@ -606,7 +606,26 @@
         },
         "NVDA_close_chg_pct_at_entry": -2.83,
         "context": "day after election: semis -3% (SMH) vs QQQ +1%, IWM +1.4%; ARM -5.5% into print",
-        "realized": "fill at exit 11/5"
+        "realized": "fill at exit 11/5",
+        "ah_1601": {
+          "QCOM": "174.83 vs 173.73 close (+0.6%, pre-report)",
+          "ARM": "193.97 vs 192.28 (+0.9%, pre-report)",
+          "AMD": "490.70 (+0.4%)",
+          "NVDA": "200.53 (+0.12%)",
+          "NVDL": "27.71 b27.70/a27.73"
+        },
+        "ah_1613": {
+          "QCOM": "166.50 b165.90/a166.77 vs 173.73 close (-4.2%)",
+          "ARM": "188.25 b187.50/a190.00 vs 192.28 (-2.1%)",
+          "AMD": "490.10 (+0.3%)",
+          "AVGO": "326.70 (+0.3%)",
+          "TSM": "396.80 (+0.4%)",
+          "SMH": "504.30 (~0.0%)",
+          "QQQ": "692.78 (+0.13%)",
+          "NVDA": "200.78 (+0.24%)",
+          "NVDL": "27.77 b27.75/a27.76 (+0.5% vs close; night41 -0.06 at bid)"
+        },
+        "note_1613": "both peers down after their prints (QCOM -4%, ARM -2%); NVDA/semis flat-to-up AH. No after-hours exit under RULES_v3 \u00a75 (tag only)."
       }
     ],
     "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
