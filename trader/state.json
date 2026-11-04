@@ -852,7 +852,92 @@
     "earnings_check": {
       "note": "QCOM/ARM report after close -> night41 = semis-peer tag (2 peers; QCOM mobile/AI-PC, ARM IP; H1 info only, no behaviour change); NVDA 11/17 -> cash"
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 99.1,
+        "S": 204.66,
+        "expiry": "2027-01-15",
+        "B": 19.1,
+        "spread": {
+          "K1": 285.0,
+          "K2": 295.0,
+          "mid": 0.17,
+          "nat": 0.21,
+          "L0": 0.18,
+          "cost": 18.1,
+          "W_L0": 55.6,
+          "ok": true,
+          "Lmax": 0.18
+        },
+        "call": {
+          "K": 310.0,
+          "bid": 0.16,
+          "ask": 0.19,
+          "L0": 0.18,
+          "cost": 18.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:0.57:0.63 285:0.46:0.51 290:0.37:0.40 295:0.30:0.33 300:0.24:0.26 310:0.16:0.19 320:0.10:0.21 330:0.09:0.10 340:0.07:0.08 350:0.06:0.07",
+        "cands": [
+          [
+            280.0,
+            0.215,
+            0.26,
+            0.23,
+            false
+          ],
+          [
+            285.0,
+            0.17,
+            0.21,
+            0.18,
+            true
+          ],
+          [
+            290.0,
+            0.135,
+            0.16,
+            0.15,
+            true
+          ],
+          [
+            300.0,
+            0.075,
+            0.1,
+            0.09,
+            true
+          ],
+          [
+            310.0,
+            0.02,
+            0.09,
+            0.04,
+            false
+          ],
+          [
+            320.0,
+            0.06,
+            0.12,
+            0.08,
+            true
+          ],
+          [
+            330.0,
+            0.02,
+            0.03,
+            0.03,
+            true
+          ],
+          [
+            340.0,
+            0.01,
+            0.02,
+            0.02,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night40 + post-fill check + election/AMD tag realized; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry (journaled); 15:52 entry night41 + QCOM/ARM tag; 16:01:30 EOD; ~16:13 AH snapshot (QCOM/ARM)",
     "pause_check": {
       "E": 100.62,
