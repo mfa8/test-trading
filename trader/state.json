@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-05T12:49:00Z",
-    "loop_note": "07:46 ANALYST Thu: broker NVDL 3 @27.769, 0 open orders, approvals off, option_level none. Pre-mkt: NVDA 197.10 (-1.51%), NVDL b26.75 (night41 -3.06 marked); semis selloff after QCOM -9.7%/ARM -6.2% prints: SMH -3.3%, AMD -4.2%, TSM -2.7%; QQQ -0.9%, SPY flat, IWM +0.2%; E_broker 96.10. Exit 09:31:05.",
+    "last_heartbeat_utc": "2026-11-05T14:00:20Z",
+    "loop_note": "HB 09:00 pre-mkt hold night41 (NVDL 3 @27.769): NVDL b26.75->26.70 (07:46->09:00; -2.97..-3.69 marked, now -3.21), NVDA 197.0 (-1.55%), semis selloff: SMH -3.6%",
     "last": "2026-11-04T14:31Z exit night40"
   },
   "campaign": {
