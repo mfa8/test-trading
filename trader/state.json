@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 41 closed 09:31 11/5 (-4.74); day leg suspended; entry night 42 15:52",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 42 NVDL 4 @22.7153 (15:52 Thu 11/5, v1.6; NVDX filler 0) after NVDA -8.8% day; MCHP amc (note only); exit 09:31:05 Fri 11/6",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-05T20:00:07Z",
-    "loop_note": "HB 15:00 flat E 94.36: NVDA 184.13 -7.99% at 14:56 (low 181.8 13:08), QQQ -5.2%, SPY -3.6%, IWM -4.0%, SMH -9.0%; NVDL 23.16 vs 26.19 exit (flat avoided ~9.1). ",
+    "last_heartbeat_utc": "2026-11-05T20:53:00Z",
+    "loop_note": "15:52 ENTRY night42 NVDL 4 @22.7153 (lim 22.75, ask 22.71, last 22.70; +0.5c vs ask) = 90.86 (96.3% of E 94.36); NVDX filler 0 (cap left 1.61 < 1 sh 12.76); cash 3.50; 0 open orders after fill. Exit 09:31:05 Fri 11/6.",
     "last": "2026-11-05T14:31Z exit night41"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 41,
+    "nights_held": 42,
     "R_history": [],
     "night_returns": [
       {
@@ -367,7 +367,18 @@
       "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
       "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
       "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout) | 2026-10-22 long-sample study (research/PEER-NIGHTS-20261022.md, 2 analysts+2 verifiers): NO evidence for any peer blackout/half-size (all variants lower growth, no DD/tail benefit). Keep NVDA-own blackout only.",
-      "hyperscaler_nights": "pre-registered 2026-10-22 (out-of-sample from 10/22, judge at 2027-01-11, NO behaviour change before): H1 megacap (MSFT/GOOGL/META/AMZN/ORCL) and 2+-peer nights have higher overnight variance (long sample sd ratio 1.25-1.45, fragile); H2 AMZN/GOOGL/INTC nights elevated tails (nominal 5/36, 4/36, 4/36); H3 megacap nights on FOMC day elevated tails. Tag every such night in campaign.event_night_tags with realized NVDL/NVDX overnight %."
+      "hyperscaler_nights": "pre-registered 2026-10-22 (out-of-sample from 10/22, judge at 2027-01-11, NO behaviour change before): H1 megacap (MSFT/GOOGL/META/AMZN/ORCL) and 2+-peer nights have higher overnight variance (long sample sd ratio 1.25-1.45, fragile); H2 AMZN/GOOGL/INTC nights elevated tails (nominal 5/36, 4/36, 4/36); H3 megacap nights on FOMC day elevated tails. Tag every such night in campaign.event_night_tags with realized NVDL/NVDX overnight %.",
+      "down_session_skip_log": [
+        {
+          "night": 42,
+          "date": "2026-11-05",
+          "vs_prior_close": "DOWN",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": -8.86,
+          "NVDA_1550_chg_vs_open_pct": -6.98,
+          "realized": "fill at exit 11/6"
+        }
+      ]
     },
     "edge_decay_checks": [
       {
@@ -693,8 +704,8 @@
   },
   "account": {
     "equity": 94.36,
-    "cash": 94.36,
-    "asof": "09:32 ET 2026-11-05 (broker total 94.36 = cash; 0 positions, 0 open orders, BP 94.36)"
+    "cash": 3.5,
+    "asof": "15:52 ET 2026-11-05 (broker total 94.36 after entry; NVDL 4 = 90.86; 0 open orders; BP 3.50)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -864,12 +875,23 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 4,
+      "entry": 22.7153,
+      "entry_t": "2026-11-05T15:52:16 ET",
+      "order_id": "6aecec80-a0a3-409d-b29c-189c24e3bdd9",
+      "leg": "overnight",
+      "n": 42,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-05",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": false,
     "premarket": {
@@ -1259,6 +1281,49 @@
       "cash_after": 94.36,
       "open_orders_after": 0,
       "note": "first try; limit = bid-0.15% (26.19); bid slid to ~26.10 after placement, order rested ~31s and filled at limit at 09:31:53.8 (before 60s re-price point)"
+    },
+    "pre_entry": {
+      "t": "15:40 ET",
+      "cash": 94.36,
+      "bp": 94.36,
+      "positions": 0,
+      "open_orders": 0,
+      "approvals": "OFF",
+      "blackout": false,
+      "pause": "OK (94.36 vs 85.69)",
+      "dry": "NVDL 4 @22.71 = 90.84 (cap 92.47); NVDX 0"
+    },
+    "entry": {
+      "night": 42,
+      "t": "15:52 ET",
+      "E": 94.36,
+      "NVDL": {
+        "qty": 4,
+        "lim": 22.75,
+        "ask": 22.71,
+        "last": 22.7,
+        "fill": 22.7153,
+        "vs_ask_c": 0.5,
+        "order_id": "6aecec80-a0a3-409d-b29c-189c24e3bdd9"
+      },
+      "NVDX": {
+        "qty": 0,
+        "note": "cap left after NVDL fill 92.47-90.86=1.61 < 1 share (12.76)"
+      },
+      "cost": 90.86,
+      "pct_E": 96.3,
+      "cash_after": 3.5,
+      "open_orders_after": 0,
+      "note": "NVDA 182.44 (-8.84%) at 15:52 after a broad tech crash (QQQ ~-5.9%, SMH ~-10%); NVDL low price gave a 4th share (exposure 96% vs ~85-88% typical). MCHP amc note only."
+    },
+    "down_session_shadow": {
+      "t": "15:50 ET",
+      "NVDA_1550": 182.4,
+      "prior_close": 200.13,
+      "open": 196.08,
+      "sign_vs_prior_close": "DOWN",
+      "sign_vs_open": "DOWN",
+      "note": "pre-registered down_session_skip shadow (log only; judged after >=120 nights at t>=1.5); history N25-N41 reconstructed in research/down_session_live_20261105.csv"
     }
   },
   "schedule": {
