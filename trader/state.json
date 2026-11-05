@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-05T14:33:00Z",
-    "loop_note": "09:31 EXIT night41 NVDL 3 @26.19 (-4.74, -5.69%); flat cash 94.36; next: 8-min loop, sleeve shadow 10:30, entry night42 15:52.",
+    "last_heartbeat_utc": "2026-11-05T15:00:15Z",
+    "loop_note": "HB 10:00 flat E 94.36 after night41 exit (-4.74 @26.19): tech rout after the open - NVDA 189.09 -5.52% at 09:57 (from -2.4% at 09:31), QQQ -3.73%, SMH -7.1%, SP",
     "last": "2026-11-05T14:31Z exit night41"
   },
   "campaign": {
