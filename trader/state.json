@@ -906,7 +906,8 @@
     "option_level": "none (07:46 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25 (Jan-15 until 11/6; Feb-19 from 11/9)",
     "day_leg": "SUSPENDED (v1.7) \u2014 TZA shadow log only after close",
     "earnings_check": {
-      "note": "Thu amc: no major NVDA semis peer flagged (check list at 15:40); NVDA 11/17 -> cash"
+      "note": "Thu 11/5 amc (RH calendar, high mkt cap): MCHP (analog/MCU semis; not in the 13-name peer set -> note only, like ON 11/2), NET, ABNB, TEAM, DKNG, AFRM, LYFT; am: MTSI, NVMI. Night 42 untagged. NVDA 11/17 -> cash",
+      "checked": "13:40 ET"
     },
     "sleeve_shadow": [
       {
