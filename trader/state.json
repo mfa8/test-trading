@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-05T16:00:09Z",
-    "loop_note": "HB 11:00 flat E 94.36: broad tech crash - NVDA 182.57 -8.77% at 10:54, QQQ -6.1%, SPY -3.7%, IWM -3.2%, SMH -10.7% (press: AI-regulation fears after the midterm",
+    "last_heartbeat_utc": "2026-11-05T17:00:11Z",
+    "loop_note": "HB 12:00 flat E 94.36: NVDA 185.83 -7.15% at 11:56 (low ~182.6 at 10:54, bounce to 187.2 at 11:40, fading again), QQQ -5.0%, SPY -3.3%, IWM -3.5%, SMH -8.7%; NV",
     "last": "2026-11-05T14:31Z exit night41"
   },
   "campaign": {
