@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-04T21:14:00Z",
-    "loop_note": "16:13 AH: NVDA 200.78 (+0.24%), NVDL b27.75 (night41 -0.06 at bid); QCOM -4.2%, ARM -2.1% after prints, AMD/AVGO/TSM +0.3%. Next: 07:45 analyst wake, 09:25/09:29 shadow, 09:31:05 exit night41.",
+    "last_heartbeat_utc": "2026-11-05T12:49:00Z",
+    "loop_note": "07:46 ANALYST Thu: broker NVDL 3 @27.769, 0 open orders, approvals off, option_level none. Pre-mkt: NVDA 197.10 (-1.51%), NVDL b26.75 (night41 -3.06 marked); semis selloff after QCOM -9.7%/ARM -6.2% prints: SMH -3.3%, AMD -4.2%, TSM -2.7%; QQQ -0.9%, SPY flat, IWM +0.2%; E_broker 96.10. Exit 09:31:05.",
     "last": "2026-11-04T14:31Z exit night40"
   },
   "campaign": {
@@ -859,463 +859,54 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-11-04",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_done": true,
+    "date": "2026-11-05",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_done": false,
     "premarket": {
-      "t": "07:47 ET",
-      "NVDL_bid": 29.21,
-      "NVDL_ask": 29.29,
-      "NVDX_bid": 16.4,
-      "NVDX_ask": 16.48,
-      "NVDA": 205.9,
-      "NVDA_chg_pct": -0.38,
-      "QQQ_chg_pct": 0.25,
-      "IWM_chg_pct": 1.39,
-      "SPY_chg_pct": 0.88,
-      "AMD_chg_pct": -0.97,
-      "SMCI_chg_pct": 3.09,
-      "ANET_chg_pct": 6.05,
-      "ALAB_chg_pct": -6.6,
-      "TSM_chg_pct": -0.13,
-      "AVGO_chg_pct": -0.34,
-      "QCOM_chg_pct": -0.46,
-      "ARM_chg_pct": -0.56,
-      "night40_marked": -0.87,
-      "E_broker": 100.62,
-      "cash": 12.76
+      "t": "07:46 ET",
+      "NVDL_bid": 26.75,
+      "NVDL_ask": 26.77,
+      "NVDX_bid": 15.0,
+      "NVDX_ask": 15.1,
+      "NVDA": 197.1,
+      "NVDA_chg_pct": -1.51,
+      "QQQ_chg_pct": -0.86,
+      "IWM_chg_pct": 0.24,
+      "SPY_chg_pct": 0.04,
+      "SMH_chg_pct": -3.29,
+      "QCOM_chg_pct": -9.75,
+      "ARM_chg_pct": -6.22,
+      "AMD_chg_pct": -4.17,
+      "TSM_chg_pct": -2.71,
+      "AVGO_chg_pct": -2.32,
+      "night41_marked": -3.06,
+      "E_broker": 96.1,
+      "cash": 15.79
     },
     "broker_check": {
-      "positions": "NVDL 3 @29.50 (avail 3)",
+      "positions": "NVDL 3 @27.769 (avail 3)",
       "open_orders": 0,
       "unsettled_funds": 0.0,
-      "t": "07:47 ET"
+      "t": "07:46 ET"
     },
     "trade_approval": {
       "human_must_approve_trades": false,
-      "checked": "07:47 ET"
+      "checked": "07:46 ET"
     },
-    "option_level": "none (16:01 get_accounts)",
+    "option_level": "none (07:46 get_accounts) -> sleeve stays PENDING; shadow log R4 at ~10:30/13:00/15:25 (Jan-15 until 11/6; Feb-19 from 11/9)",
     "day_leg": "SUSPENDED (v1.7) \u2014 TZA shadow log only after close",
     "earnings_check": {
-      "note": "QCOM/ARM report after close -> night41 = semis-peer tag (2 peers; QCOM mobile/AI-PC, ARM IP; H1 info only, no behaviour change); NVDA 11/17 -> cash"
+      "note": "Thu amc: no major NVDA semis peer flagged (check list at 15:40); NVDA 11/17 -> cash"
     },
-    "sleeve_shadow": [
-      {
-        "E": 99.1,
-        "S": 204.66,
-        "expiry": "2027-01-15",
-        "B": 19.1,
-        "spread": {
-          "K1": 285.0,
-          "K2": 295.0,
-          "mid": 0.17,
-          "nat": 0.21,
-          "L0": 0.18,
-          "cost": 18.1,
-          "W_L0": 55.6,
-          "ok": true,
-          "Lmax": 0.18
-        },
-        "call": {
-          "K": 310.0,
-          "bid": 0.16,
-          "ask": 0.19,
-          "L0": 0.18,
-          "cost": 18.05
-        },
-        "t": "10:30 ET",
-        "leg_quotes": "280:0.57:0.63 285:0.46:0.51 290:0.37:0.40 295:0.30:0.33 300:0.24:0.26 310:0.16:0.19 320:0.10:0.21 330:0.09:0.10 340:0.07:0.08 350:0.06:0.07",
-        "cands": [
-          [
-            280.0,
-            0.215,
-            0.26,
-            0.23,
-            false
-          ],
-          [
-            285.0,
-            0.17,
-            0.21,
-            0.18,
-            true
-          ],
-          [
-            290.0,
-            0.135,
-            0.16,
-            0.15,
-            true
-          ],
-          [
-            300.0,
-            0.075,
-            0.1,
-            0.09,
-            true
-          ],
-          [
-            310.0,
-            0.02,
-            0.09,
-            0.04,
-            false
-          ],
-          [
-            320.0,
-            0.06,
-            0.12,
-            0.08,
-            true
-          ],
-          [
-            330.0,
-            0.02,
-            0.03,
-            0.03,
-            true
-          ],
-          [
-            340.0,
-            0.01,
-            0.02,
-            0.02,
-            true
-          ]
-        ]
-      },
-      {
-        "E": 99.1,
-        "S": 203.57,
-        "expiry": "2027-01-15",
-        "B": 19.1,
-        "spread": {
-          "K1": 285.0,
-          "K2": 295.0,
-          "mid": 0.165,
-          "nat": 0.19,
-          "L0": 0.18,
-          "cost": 18.1,
-          "W_L0": 55.6,
-          "ok": true,
-          "Lmax": 0.18
-        },
-        "call": {
-          "K": 310.0,
-          "bid": 0.16,
-          "ask": 0.17,
-          "L0": 0.17,
-          "cost": 17.05
-        },
-        "t": "13:00 ET",
-        "leg_quotes": "280:0.55:0.59 285:0.45:0.47 290:0.35:0.39 295:0.28:0.31 300:0.23:0.24 310:0.16:0.17 320:0.11:0.12 330:0.09:0.10 340:0.07:0.08 350:0.05:0.06",
-        "cands": [
-          [
-            280.0,
-            0.2,
-            0.24,
-            0.21,
-            false
-          ],
-          [
-            285.0,
-            0.165,
-            0.19,
-            0.18,
-            true
-          ],
-          [
-            290.0,
-            0.135,
-            0.16,
-            0.15,
-            true
-          ],
-          [
-            300.0,
-            0.07,
-            0.08,
-            0.08,
-            true
-          ],
-          [
-            310.0,
-            0.05,
-            0.06,
-            0.06,
-            true
-          ],
-          [
-            320.0,
-            0.02,
-            0.03,
-            0.03,
-            true
-          ],
-          [
-            330.0,
-            0.02,
-            0.03,
-            0.03,
-            true
-          ],
-          [
-            340.0,
-            0.02,
-            0.03,
-            0.03,
-            true
-          ]
-        ]
-      },
-      {
-        "E": 99.1,
-        "S": 202.07,
-        "expiry": "2027-01-15",
-        "B": 19.1,
-        "spread": {
-          "K1": 285.0,
-          "K2": 295.0,
-          "mid": 0.14,
-          "nat": 0.18,
-          "L0": 0.15,
-          "cost": 15.1,
-          "W_L0": 66.7,
-          "ok": true,
-          "Lmax": 0.18
-        },
-        "call": {
-          "K": 310.0,
-          "bid": 0.15,
-          "ask": 0.17,
-          "L0": 0.17,
-          "cost": 17.05
-        },
-        "t": "15:25 ET",
-        "leg_quotes": "280:0.50:0.53 285:0.40:0.43 290:0.32:0.35 295:0.25:0.30 300:0.21:0.23 310:0.15:0.17 320:0.11:0.12 330:0.08:0.09 340:0.06:0.07 350:0.05:0.06",
-        "cands": [
-          [
-            280.0,
-            0.18,
-            0.21,
-            0.19,
-            false
-          ],
-          [
-            285.0,
-            0.14,
-            0.18,
-            0.15,
-            true
-          ],
-          [
-            290.0,
-            0.115,
-            0.14,
-            0.13,
-            true
-          ],
-          [
-            300.0,
-            0.06,
-            0.08,
-            0.07,
-            true
-          ],
-          [
-            310.0,
-            0.045,
-            0.06,
-            0.05,
-            true
-          ],
-          [
-            320.0,
-            0.03,
-            0.04,
-            0.04,
-            true
-          ],
-          [
-            330.0,
-            0.02,
-            0.03,
-            0.03,
-            true
-          ],
-          [
-            340.0,
-            0.01,
-            0.02,
-            0.02,
-            true
-          ]
-        ]
-      }
-    ],
-    "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night40 + post-fill check + election/AMD tag realized; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry (journaled); 15:52 entry night41 + QCOM/ARM tag; 16:01:30 EOD; ~16:13 AH snapshot (QCOM/ARM)",
+    "sleeve_shadow": [],
+    "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night41 + post-fill check + QCOM/ARM tag realized; 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; 15:40 pre-entry (journaled); 15:52 entry night42; 16:01:30 EOD",
     "pause_check": {
-      "E": 100.62,
+      "E": 96.1,
       "pause": 85.69,
       "kill": 50,
-      "result": "OK (99.10 is +15.6% above PAUSE 85.69)",
-      "E_after_exit": 99.1
-    },
-    "exit_shadow": {
-      "q0925": {
-        "t_quote": "14:25:00Z",
-        "NVDL": {
-          "bid": 28.69,
-          "ask": 28.9,
-          "last": 28.74
-        },
-        "NVDX": {
-          "bid": 16.08,
-          "ask": 16.25,
-          "last": 16.13
-        },
-        "NVDA": {
-          "bid": 204.32,
-          "ask": 204.42
-        }
-      },
-      "q0929": {
-        "t_quote": "14:29:00Z",
-        "NVDL": {
-          "bid": 28.51,
-          "ask": 28.55,
-          "last": 28.5
-        },
-        "NVDX": {
-          "bid": 16.0,
-          "ask": 16.16,
-          "last": 15.97
-        },
-        "NVDA": {
-          "bid": 203.35,
-          "ask": 203.45
-        }
-      },
-      "q093105": {
-        "t_quote": "14:31:05Z",
-        "NVDL": {
-          "bid": 28.83,
-          "ask": 28.86,
-          "last": 28.85
-        },
-        "NVDX": {
-          "bid": 16.19,
-          "ask": 16.22,
-          "last": 16.2
-        },
-        "NVDA": {
-          "bid": 204.48,
-          "ask": 204.58
-        }
-      },
-      "fill": {
-        "NVDL": {
-          "t": "14:31:25.99Z",
-          "px": 28.78,
-          "limit": 28.78
-        }
-      },
-      "vs_fill_bp": {
-        "q0925_NVDL": -31,
-        "q0929_NVDL": -94
-      },
-      "running_0929": {
-        "n": 10,
-        "mean_bp": 6.4,
-        "sd_bp": 58.8,
-        "t": 0.34,
-        "test": "mean>=+10bp AND t>=2 at 40-night review -> NOT met"
-      }
-    },
-    "exit": {
-      "night": 40,
-      "NVDL": {
-        "qty": 3,
-        "entry": 29.5,
-        "exit": 28.78,
-        "limit": 28.78,
-        "bid_093105": 28.83,
-        "vs_bid_c": -5.0,
-        "pnl": -2.16
-      },
-      "pnl": -2.16,
-      "pct": -2.44,
-      "t": "09:31:26 ET",
-      "cash_after": 99.1,
-      "open_orders_after": 0,
-      "note": "first try; limit = bid-0.15% (28.78); bid slipped to ~28.73 after placement, filled at limit at 09:31:25.99 (before 60s re-price point)"
-    },
-    "pre_entry": {
-      "t": "15:40 ET",
-      "cash": 99.1,
-      "bp": 99.1,
-      "positions": 0,
-      "open_orders": 0,
-      "approvals": "OFF",
-      "blackout": false,
-      "pause": "OK (99.10 vs 85.69)",
-      "dry": "NVDL 3 @27.90 = 83.70 (cap 97.12); NVDX 0"
-    },
-    "entry": {
-      "night": 41,
-      "t": "15:52 ET",
-      "E": 99.1,
-      "NVDL": {
-        "qty": 3,
-        "lim": 27.84,
-        "ask": 27.79,
-        "last": 27.8,
-        "fill": 27.769,
-        "vs_ask_c": -2.1,
-        "order_id": "6aeb9afd-056b-467f-beef-08d7b29d4115"
-      },
-      "NVDX": {
-        "qty": 0,
-        "note": "cap left after NVDL fill 97.12-83.31=13.81 < 1 share (15.61)"
-      },
-      "cost": 83.31,
-      "pct_E": 84.1,
-      "cash_after": 15.79,
-      "open_orders_after": 0,
-      "note": "NVDA 200.85 (-2.83%) at 15:52, fresh session low into the close (semis -3%, QQQ ~+1%). QCOM/ARM report after the close (tagged)."
-    },
-    "eod": {
-      "t": "16:01 ET",
-      "E_broker": 98.92,
-      "E_bid": 98.89,
-      "day_pnl": -2.64,
-      "night40_from_mark": -2.46,
-      "night41_marked": -0.18,
-      "NVDA_close": 200.29,
-      "NVDA_close_chg_pct": -3.1,
-      "NVDA_intraday_note": "-1.1% at 09:31, ~-0.5% at 10:15, slid to ~-2.0% by 11:00, range-bound -1.3..-2.0% midday, fresh lows into the close (200.85 at 15:52)",
-      "QQQ_chg_pct": 0.96,
-      "IWM_chg_pct": 1.51,
-      "SPY_chg_pct": 1.64,
-      "SMH_chg_pct": -2.71,
-      "QCOM_chg_pct": 5.66,
-      "ARM_chg_pct": -5.04,
-      "AMD_chg_pct": 1.0,
-      "post_mkt_1601": {
-        "QCOM": "174.83 vs 173.73 close (+0.6%, pre-report)",
-        "ARM": "193.97 vs 192.28 (+0.9%, pre-report)",
-        "AMD": "490.70 (+0.4%)",
-        "NVDA": "200.53 (+0.12%)",
-        "NVDL": "27.71 b27.70/a27.73"
-      },
-      "flat_day_saved": "NVDL 28.78 exit -> 27.769 re-entry = 1.01/sh x3 = 3.03 avoided 09:31->15:52",
-      "tza_shadow": "+1.02 pct (TP 09:55); 15 legs mean -0.351 pct",
-      "option_level": "none",
-      "unsettled": 86.34,
-      "note": "last-trade closes; official closes to be checked at 07:45 analyst"
+      "result": "OK (+12.1% above PAUSE)"
     }
   },
   "schedule": {
