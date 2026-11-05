@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-05T18:00:27Z",
-    "loop_note": "HB 13:00 flat E 94.36: NVDA 182.22 -8.95% (new low), QQQ -6.0%, SPY -4.0%, IWM -4.5%, SMH -10.3%; NVDL 22.65 vs 26.19 exit (flat avoided ~10.6). 13:00 sleeve sh",
+    "last_heartbeat_utc": "2026-11-05T19:00:13Z",
+    "loop_note": "HB 14:00 flat E 94.36: NVDA 183.07 -8.52% at 13:57 (range 181.8-197.3), QQQ -5.7%, SPY -4.0%, IWM -4.4%, SMH -9.7%; NVDL 22.88 vs 26.19 exit (flat avoided ~9.9)",
     "last": "2026-11-05T14:31Z exit night41"
   },
   "campaign": {
