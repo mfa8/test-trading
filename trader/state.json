@@ -9,9 +9,9 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-06T20:00:00Z",
-    "loop_note": "15:00 heartbeat: flat E 103.58; NVDA ~187.8 +3.4% NVDL ~23.96 (4-sh zone); next 15:25 sleeve shadow, 15:40 pre-entry, 15:52 N43 weekend hold",
-    "last": "2026-11-06T14:31Z exit night42"
+    "last_heartbeat_utc": "2026-11-06T21:23:35Z",
+    "loop_note": "post-EOD 11/6: holding NVDL 4 @23.7899 (N43 weekend hold); E 103.61; next Mon 11/9 07:45 analyst (3(f), PAUSE 84.65), 09:31:05 exit N43",
+    "last": "2026-11-06T21:01Z EOD (after 20:52Z entry night43)"
   },
   "campaign": {
     "name": "T3X",
@@ -728,15 +728,15 @@
       "assessment": "MSFU leads 30n for a 3rd Monday but its 250n score is -0.02 (vs NVDL 0.11) and the 30n window contains MSFT's 10/28 earnings night; GGLL fell from 0.27 to -0.14 after GOOGL's -11% night. NVDL is 2nd on 250n (MUU 0.12, single-stock memory 2x, much higher variance). Not the \u00a73(b) gate basis; no proposal before the 2027-01-11 quarterly review. No action."
     },
     "pause_schedule": {
-      "asof": "2026-11-06 (week-9 audit, verified)",
+      "asof": "2026-11-06 16:01 EOD (week-9 audit, verified; 11/11 level re-verified post-EOD)",
       "basis": "0.80 x rolling 20-session high of recorded account totals (equity.csv EOD marks + all-cash broker totals after each 09:31 exit)",
       "levels": {
         "through 11/6": 85.69,
         "11/9": 84.65,
         "11/10": 82.94,
-        "11/11-12/4": 82.86
+        "11/11-12/4": 82.89
       },
-      "note": "82.86 = 0.8 x 103.58 (11/6 all-cash total after N42 exit); supersedes the week-8 forecast 80.95/80.72; rises if a new high is recorded"
+      "note": "82.89 = 0.8 x 103.61 (11/6 16:01 EOD mark, broker 103.614; was 82.86 = 0.8 x 103.58 before the EOD mark); supersedes the week-8 forecast 80.95/80.72; rises if a new high is recorded"
     },
     "record_corrections_20261106": [
       "N38 entry vs_ask was logged +0.4c; actual +3.91c (fill 28.8791 vs ask 28.84)",
@@ -744,7 +744,11 @@
       "DAY-20261102: NVDL official close 28.24 (not 28.21); flat saving 4.68 to close / 4.55 to re-entry (not ~4.8)",
       "exit order ids N40-N42 added to night_returns (N38/N39 ids: 6ae... see broker; were only in overwritten today blocks)",
       "DAY-20261104 15:25 sleeve pick corrected to 280/290 (sleeve_r4 float bug fixed)",
-      "journal timestamps 11/3-11/6 were partly hand-entered (approximate); from 11/6 10:22 ET lines use date -u"
+      "journal timestamps 11/3-11/6 were partly hand-entered (approximate); from 11/6 10:22 ET lines use date -u",
+      "post-EOD verify (wf_7dff5bb7-c8c): PAUSE 11/11-12/4 82.86 -> 82.89 (0.8 x 103.61 EOD mark is the new 20-session high)",
+      "WEEK-T3X-9: N38 NVDA close->09:31 +1.4% -> +1.6%; week-8 live sum -10.53 -> -10.54 (rounded per-night basis, matching -1.78); exact-fill basis noted (-1.77 / -10.53; campaign +1.50 vs rounded +1.48)",
+      "WEEK-T3X-9: 4-NVDL exposure range corrected (86-98% of E, price-dependent; 91.9% on N43); Friday overnight +5.3% close->open (+5.9% to 09:31 bid); 3(f) -44% refers to the 11/16 check",
+      "state.sleeve.option_level_seen and state.wake refreshed after 11/6 EOD (were stale at 11/5 16:01 and the 15:00 heartbeat)"
     ]
   },
   "account": {
@@ -1854,7 +1858,7 @@
   "sleeve": {
     "plan": "FFB-L v1 (RULES_v3 \u00a712)",
     "mode": "PENDING_OPTIONS_APPROVAL",
-    "option_level_seen": "none (2026-11-05 16:01 get_accounts)",
+    "option_level_seen": "none (2026-11-06 16:01 get_accounts)",
     "floor": 80,
     "f": 0.2,
     "lock": 200,

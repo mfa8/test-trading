@@ -7,7 +7,7 @@
 
 **Equity:** 103.61 at the 11/6 close (cash 8.42 + NVDL 4 marked 95.19; 103.06 at the bid).
 - Start 98.75. HWM 107.11 (10/12).
-- PAUSE 85.69 through 11/6, then 84.65 on 11/9, 82.94 on 11/10 and 82.86 from 11/11 (`state.campaign.pause_schedule`).
+- PAUSE 85.69 through 11/6, then 84.65 on 11/9, 82.94 on 11/10 and 82.89 from 11/11 (`state.campaign.pause_schedule`).
 - KILL 50.
 
 **Campaign:** 42 nights closed, +1.48 (19 wins, 23 losses). Live NVDA-2x-only nights (N25–N42): 18, totalling −1.78.

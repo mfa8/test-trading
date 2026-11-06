@@ -3,7 +3,7 @@
 **E 95.30 (10/30 close, night 38 marked) → 103.61 (Friday 16:01 close, night 43 marked): +8.31 (+8.7%) on the week.** That is 103.58 in cash after Friday's 09:31 exit, plus +0.03 on night 43's mark (NVDL 4 @ 23.7899, held over the weekend; 103.06 at the bid). Details are in DAY-20261106.
 - Realised this week: **+8.76**, from five overnight exits (N38–N42): 3 wins, 2 losses. The day leg is off.
 - Campaign since the T3X start: 98.75 → 103.61 (+4.86). Since your original $100: +3.61.
-- **The campaign total is back above zero: 42 nights, +1.48** (19 wins, 23 losses).
+- **The campaign total is back above zero: 42 nights, +1.48** (19 wins, 23 losses; +1.50 on exact fills, the difference being per-night rounding).
 - HWM 107.11; E is 3.3% below it.
 - KILL 50.
 - PAUSE 85.69 through today (E is 20.9% above it), then:
@@ -12,12 +12,14 @@
 |---|---|
 | 11/9 | 84.65 |
 | 11/10 | 82.94 |
-| 11/11 to 12/4 | 82.86 |
+| 11/11 to 12/4 | 82.89 † |
+
+† 0.8 × 103.61, Friday's close. It was 82.86 (0.8 × 103.58) before the 16:01 mark set a new 20-session high; corrected after the EOD check.
 
 ## Overnight leg
 | night | basket | P&L | NVDA close→09:31 | note |
 |---|---|---|---|---|
-| 38 (10/30→11/2) | NVDL ×3 | **+2.76** (+3.19%) | +1.4% | weekend hold |
+| 38 (10/30→11/2) | NVDL ×3 | **+2.76** (+3.19%) | +1.6% | weekend hold |
 | 39 (11/2→11/3) | NVDL ×3 | **+3.68** (+4.33%) | +2.3% | election day |
 | 40 (11/3→11/4) | NVDL ×3 | **−2.16** (−2.44%) | −1.1% | tagged: election + AMD/SMCI/ANET/ALAB reported |
 | 41 (11/4→11/5) | NVDL ×3 | **−4.74** (−5.69%) | −2.4% | tagged: QCOM −12% and ARM −8% after reporting |
@@ -32,7 +34,7 @@
 - **Execution was clean.** Every order filled at or better than its limit on the first try. The longest rest was 31.7s (N41), well inside the 60s re-price.
 
 ## Why the live record still sits near zero (week-9 audit, verified)
-**Live NVDA-2x-only nights (N25–N42): 18 nights, −$1.78, mean −0.08% per night** (t −0.08). Week 8 stood at −$10.53 after 13 nights. The extra nights are still far too few to tell edge from no edge: t = 2 would take about 740 nights at +0.30%.
+**Live NVDA-2x-only nights (N25–N42): 18 nights, −$1.78, mean −0.08% per night** (t −0.08). Week 8 stood at −$10.54 after 13 nights. (Both figures are sums of the rounded per-night P&Ls, as in the state file; on exact fills they are −1.77 and −10.53.) The extra nights are still far too few to tell edge from no edge: t = 2 would take about 740 nights at +0.30%.
 
 **Where the shortfall now comes from,** against a long-run model of 1.9× NVDA:
 - **NVDA's own nights: −0.49 (11%).** Over 18 nights NVDA's overnight moves were about average (+0.15% close→open). This reverses week 8, when about 80% of the shortfall was NVDA's bad nights.
@@ -44,21 +46,21 @@
 - The 09:29 pre-market exit test (12 days): +5.7bp, t 0.3. Not met.
 
 ## Research and audit this week (all read-only, every number independently verified)
-1. **Overnight after big NVDA down days** (2005–2026, earnings nights excluded): the next overnight averages about 0 (−0.04%, n 202). The risk is about 1.8× normal: an overnight of −5% or worse happens about 4% of the time against 0.5%. The usual rebound arrives in the next *day* session, which we don't hold. Friday's +5.9% overnight was the good side of that higher variance.
+1. **Overnight after big NVDA down days** (2005–2026, earnings nights excluded): the next overnight averages about 0 (−0.04%, n 202). The risk is about 1.8× normal: an overnight of −5% or worse happens about 4% of the time against 0.5%. The usual rebound arrives in the next *day* session, which we don't hold. Friday's +5.3% overnight (close→open; +5.9% to the 09:31:05 bid) was the good side of that higher variance.
 2. **Earnings nights of chip peers, live:** 7 nights, **0 wins, −$23.09**, mean −3.68%. The other 11 live nights made +$21.31. A 9-year long sample (n 384) shows no penalty on these nights. The judgement is pre-registered for 2027-01-11, so nothing changes now. See "For you to decide" below.
 3. **The pre-registered "skip after a down session" shadow had not been logged nightly.**
    - It is now rebuilt for N25–N41 and logged nightly from 11/5.
    - Both definitions are noise (t 0.76 and −0.58).
    - N42 was a down-session night and made +10.15%.
 4. **Week-9 audit (8 agents: 4 auditors, each checked by an independent verifier):**
-   - **Ledger:** 10 broker orders, 10 logged intents, no orphans. The cash path ends at the broker's 103.58 with 0.00 unexplained.
+   - **Ledger (as of the 09:31 exit):** 10 broker orders, 10 logged intents, no orphans. The cash path ends at the broker's 103.58 with 0.00 unexplained. The 15:52 night-43 entry (order 6aee3dfe) and the 16:01 close were checked separately after EOD and match to the cent.
    - **Rules:** 0 trading violations. Every limit, size, time, blackout and PAUSE check passed. The 4-NVDL entry on 11/5 is exactly what v1.6 prescribes.
    - **Fixed today:**
      - A floating-point slip in `sleeve_r4.py` rejected a spread costing exactly the budget. One shadow pick changed (11/4 15:25).
      - STATUS.md was stale since 10/23.
      - Corrected: one slippage figure, one closing price and the exit order IDs.
      - Journal timestamps had partly been typed by hand; they now come from the clock.
-5. **§3(f) preview for Monday:** trailing-120 NVDL overnight mean **+0.364%** (t 1.40), so the leg stays on. It would take −44% over the next 5 nights to flip it.
+5. **§3(f) preview for Monday:** trailing-120 NVDL overnight mean **+0.364%** (t 1.40), and Monday's window is already complete, so the leg stays on. Flipping the following check (11/16) would take about −44% over the 5 nights before it.
 
 ## Risk, plainly (from E 103.58; bootstrap of the NVDL overnight series since 12/2022; v1.6 whole-share sizing; verified)
 | | planning edge (+0.30%/night) | long-run 1.9× NVDA model | zero edge |
@@ -70,7 +72,7 @@
 
 - **The planning-edge column is optimistic.** The long-run 1.9× NVDA model is the fairer middle case. If the measured execution drag (about −0.27pt per night) persists, the odds fall to about 4% for $200 and 25% for KILL.
 - **On a like-for-like basis the odds improved this week.** In the long-run-model column, P($200) went from about 24% at E 94.82 to about 32% at E 103.58.
-- **Bigger nights at 4 NVDL:** about 40% of nights will get 4 shares (95–98% of E) rather than 3 + 1 (87–90%). That adds about 2 points to the 20-session PAUSE odds. It is the v1.6 rule working as written, so no change.
+- **Bigger nights at 4 NVDL:** at E ≈ 103.6, sizing buys 4 NVDL whenever NVDL is below about 25.3. That costs about 86–98% of E depending on NVDL's price (91.9% tonight); below about 22.25 an NVDX filler is added. Above 25.3 it buys 3 NVDL + 1 NVDX, about 87–98%. Simulated from NVDL near 25.3, about 40% of nights get 4 shares, which adds about 2 points to the 20-session PAUSE odds. It is the v1.6 rule working as written, so no change.
 - **A single night triggers PAUSE only on an NVDA overnight gap of about −9% to −11%**, which happens about 0.5 times a year.
 
 ## Options sleeve (shadow only; approval still pending)
