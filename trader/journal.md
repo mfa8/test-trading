@@ -499,3 +499,4 @@
 2026-11-06T17:00:00Z W-9 12:00 heartbeat: flat E 103.58; NVDA ~188.3 +3.7% NVDL ~24.09; QQQ +2.1% IWM +1.1%; next 13:00 sleeve shadow, 15:40 pre-entry, 15:52 N43
 2026-11-06T18:00:10Z W-9 13:00 ET SLEEVE SHADOW (R4, no order): E 103.58 S 186.38 B 20.72; spread 280/290 mid 0.1 nat 0.15 L0 0.12 cost 12.1; L2 call 310C 0.15/0.19 L0 0.18; cands [(280, 0.12, True), (285, 0.08, False), (290, 0.08, True), (300, 0.05, True), (310, 0.06, False), (320, 0.06, True), (330, 0.02, True), (340, 0.03, True)]
 2026-11-06T19:00:00Z W-9 14:00 heartbeat: flat E 103.58; NVDA ~187.2 +3.1% NVDL ~23.82; QQQ +1.7% IWM +1.2%; 13:00 sleeve shadow 280/290 L0 0.12; next 15:25 shadow, 15:40 pre-entry, 15:52 N43
+2026-11-06T20:00:00Z W-9 15:00 heartbeat: flat E 103.58; NVDA ~187.8 +3.4% NVDL ~23.96 (4-sh zone); next 15:25 sleeve shadow, 15:40 pre-entry, 15:52 N43 weekend hold
