@@ -1,11 +1,11 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** FLAT_NO_DAY_LEG (as of 10:45 ET Fri 11/6).
+**Mode:** IN_POSITION_OVERNIGHT (as of 16:01 ET Fri 11/6).
 - Night 42 closed at 09:31: NVDL 4, 22.7153 → 25.02, **+9.22**.
-- Night 43 enters at 15:52 today, a weekend hold. The exit is 09:31:05 Mon 11/9.
+- Night 43 entered at 15:52: NVDL 4 @ 23.7899 (91.9% of E), a weekend hold. The exit is 09:31:05 Mon 11/9.
 - The day leg is SUSPENDED.
 
-**Equity:** 103.58, all cash, after the 11/6 exit.
+**Equity:** 103.61 at the 11/6 close (cash 8.42 + NVDL 4 marked 95.19; 103.06 at the bid).
 - Start 98.75. HWM 107.11 (10/12).
 - PAUSE 85.69 through 11/6, then 84.65 on 11/9, 82.94 on 11/10 and 82.86 from 11/11 (`state.campaign.pause_schedule`).
 - KILL 50.

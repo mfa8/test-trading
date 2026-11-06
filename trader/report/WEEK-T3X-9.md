@@ -1,8 +1,8 @@
 # T3X WEEK 9 (Mon 11/2 – Fri 11/6): engine v1.7 unchanged; a crash, then the best night of the campaign
 
-**E 95.30 (10/30 close, night 38 marked) → 103.58 (all cash after Friday's 09:31 exit): +8.28 (+8.7%) on the week.** Friday's close, with night 43 marked, is in DAY-20261106.
+**E 95.30 (10/30 close, night 38 marked) → 103.61 (Friday 16:01 close, night 43 marked): +8.31 (+8.7%) on the week.** That is 103.58 in cash after Friday's 09:31 exit, plus +0.03 on night 43's mark (NVDL 4 @ 23.7899, held over the weekend; 103.06 at the bid). Details are in DAY-20261106.
 - Realised this week: **+8.76**, from five overnight exits (N38–N42): 3 wins, 2 losses. The day leg is off.
-- Campaign since the T3X start: 98.75 → 103.58 (+4.83). Since your original $100: +3.58.
+- Campaign since the T3X start: 98.75 → 103.61 (+4.86). Since your original $100: +3.61.
 - **The campaign total is back above zero: 42 nights, +1.48** (19 wins, 23 losses).
 - HWM 107.11; E is 3.3% below it.
 - KILL 50.
@@ -27,7 +27,8 @@
 - **Thursday 11/5 was a broad tech crash.** NVDA −9.3% (181.60), QQQ −6.5%, SMH −11.2%, AMD −17.3%. Press accounts blamed fears of tighter AI rules after the midterms, plus a hot inflation print.
   - We were in cash from 09:31 to 15:52 and avoided **$10.42**.
   - NVDL's lower price then let v1.6 sizing buy a fourth share (96% of E). That share caught Friday's rebound.
-- **Being flat during the day saved $18.03 Mon–Thu** (4.55, 0.03, 3.03, 10.42). Friday is in the DAY report.
+- **Being flat during the day saved $22.95 this week** (Mon–Fri: 4.55, 0.03, 3.03, 10.42, 4.92). On Friday NVDA opened near +5.3% and faded to +2.8% by the close; we were in cash from 09:31 to 15:52.
+- **Night 43 (weekend hold): NVDL 4 @ 23.7899** = 95.16, 91.9% of E. It is untagged (Friday's after-close reporters were HE, ACA and BH). The exit is Mon 11/9 at 09:31:05.
 - **Execution was clean.** Every order filled at or better than its limit on the first try. The longest rest was 31.7s (N41), well inside the 60s re-price.
 
 ## Why the live record still sits near zero (week-9 audit, verified)
