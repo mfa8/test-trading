@@ -2,8 +2,8 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 42 closed 09:31 11/6 (+9.22); day leg suspended; entry night 43 15:52 (weekend hold)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 43 NVDL 4 @23.7899 (15:52 Fri 11/6, v1.6; NVDX filler 0) weekend hold; untagged (Fri amc HE/ACA/BH only); exit 09:31:05 Mon 11/9",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 42,
+    "nights_held": 43,
     "R_history": [],
     "night_returns": [
       {
@@ -393,6 +393,16 @@
             "night_pct": 10.15,
             "night_pnl": 9.22
           }
+        },
+        {
+          "night": 43,
+          "date": "2026-11-06",
+          "vs_prior_close": "UP",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": 3.17,
+          "NVDA_1550_chg_vs_open_pct": -2.0,
+          "realized": null,
+          "note": "open ~191.19 (approx, from 09:31 tape); weekend night"
         }
       ]
     },
@@ -739,8 +749,8 @@
   },
   "account": {
     "equity": 103.58,
-    "cash": 103.58,
-    "asof": "09:32 ET 2026-11-06 (broker total 103.58 = cash; 0 positions, 0 open orders, BP 103.58)"
+    "cash": 8.42,
+    "asof": "15:52 ET 2026-11-06 (post-fill: NVDL 4 avg 23.79, 0 open orders; cash 103.58-95.16)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -910,12 +920,23 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 4,
+      "entry": 23.7899,
+      "entry_t": "2026-11-06T15:52:14 ET",
+      "order_id": "6aee3dfe-6933-4473-bb2a-4c79560ce065",
+      "leg": "overnight",
+      "n": 43,
+      "basket_version": "v1.6"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-06",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": false,
     "premarket": {
@@ -1122,6 +1143,90 @@
             true
           ]
         ]
+      },
+      {
+        "E": 103.58,
+        "S": 188.01,
+        "expiry": "2027-01-15",
+        "B": 20.72,
+        "spread": {
+          "K1": 280.0,
+          "K2": 290.0,
+          "mid": 0.095,
+          "nat": 0.11,
+          "L0": 0.1,
+          "cost": 10.1,
+          "W_L0": 100.0,
+          "ok": true,
+          "Lmax": 0.11
+        },
+        "call": {
+          "K": 310.0,
+          "bid": 0.15,
+          "ask": 0.17,
+          "L0": 0.17,
+          "cost": 17.05
+        },
+        "t": "15:25 ET",
+        "leg_quotes": "280:0.36:0.38 285:0.30:0.34 290:0.27:0.28 295:0.22:0.26 300:0.20:0.21 310:0.15:0.17 320:0.10:0.13 330:0.08:0.09 340:0.07:0.08 350:0.05:0.06",
+        "cands": [
+          [
+            280.0,
+            0.095,
+            0.11,
+            0.1,
+            true
+          ],
+          [
+            285.0,
+            0.08,
+            0.12,
+            0.09,
+            true
+          ],
+          [
+            290.0,
+            0.07,
+            0.08,
+            0.08,
+            true
+          ],
+          [
+            300.0,
+            0.045,
+            0.06,
+            0.05,
+            true
+          ],
+          [
+            310.0,
+            0.045,
+            0.07,
+            0.06,
+            true
+          ],
+          [
+            320.0,
+            0.03,
+            0.05,
+            0.04,
+            true
+          ],
+          [
+            330.0,
+            0.01,
+            0.02,
+            0.02,
+            true
+          ],
+          [
+            340.0,
+            0.02,
+            0.03,
+            0.03,
+            true
+          ]
+        ]
       }
     ],
     "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night42 (NVDL 4) + post-fill check; crash-open shadow n/a (gap up); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; WEEK-T3X-9 report + week-9 audit (read-only workflow); 15:40 pre-entry; 15:52 entry night43 (weekend); 16:01:30 EOD",
@@ -1221,6 +1326,30 @@
       "cash_after": 103.58,
       "open_orders_after": 0,
       "note": "first try; limit = bid-0.15% (25.02); bid dipped after placement, filled at limit at 09:31:24.7 (before 60s re-price point). Best live night of the campaign."
+    },
+    "entry": {
+      "night": 43,
+      "t": "15:52 ET",
+      "E": 103.58,
+      "NVDL": {
+        "qty": 4,
+        "lim": 23.83,
+        "ask": 23.79,
+        "last": 23.7813,
+        "fill": 23.7899,
+        "vs_ask_c": -0.01,
+        "order_id": "6aee3dfe-6933-4473-bb2a-4c79560ce065",
+        "filled_t": "15:52:14.6"
+      },
+      "NVDX": {
+        "qty": 0,
+        "note": "cap left after NVDL fill 101.51-95.16=6.35 < 1 share (13.36)"
+      },
+      "cost": 95.16,
+      "pct_E": 91.9,
+      "cash_after": 8.42,
+      "open_orders_after": 0,
+      "note": "weekend hold; NVDA 187.36 (+3.17%) at 15:50, faded from 191.2 open; Fri amc earnings HE/ACA/BH only (untagged)"
     }
   },
   "schedule": {
