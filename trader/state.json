@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-06T14:33:00Z",
-    "loop_note": "09:31 EXIT night42 NVDL 4 @25.02 (+9.22, +10.15%; best night); flat cash 103.58; next: week-9 audit workflow, 8-min loop, sleeve shadow 10:30, entry night43 15:52 (weekend).",
+    "last_heartbeat_utc": "2026-11-06T15:00:05Z",
+    "loop_note": "HB 10:00 flat E 103.58 after night42 exit (+9.22 @25.02): NVDA 192.57 +6.04% at 09:57 (high ~194.3 at 09:49), QQQ +2.2%, SMH +4.9%, IWM +0.3%; NVDL 25.15 vs 25.",
     "last": "2026-11-06T14:31Z exit night42"
   },
   "campaign": {
