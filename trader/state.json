@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-06T12:49:00Z",
-    "loop_note": "07:47 ANALYST Fri: broker NVDL 4 @22.7153, 0 open orders, approvals off, option_level none. Pre-mkt REBOUND: NVDA 188.60 (+3.85% vs official 181.60), NVDL b24.13 (night42 +5.66 marked), SMH +5.1%, AMD +8.0%, TSM +7.1%, AMAT +8.3%; QQQ +1.6%, SPY +0.2%; E_broker 100.14. Exit 09:31:05.",
+    "last_heartbeat_utc": "2026-11-06T14:00:09Z",
+    "loop_note": "HB 09:00 pre-mkt hold night42 (NVDL 4 @22.7153): NVDL b24.13->24.39 (07:47->09:00; +5.66..+6.78 marked, now +6.70), NVDA 189.60 (+4.41% vs 181.60), rebound: SMH",
     "last": "2026-11-05T14:31Z exit night41"
   },
   "campaign": {
