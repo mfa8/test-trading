@@ -6,8 +6,13 @@ usage: sleeve_r4.py E S EXPIRY K:bid:ask [K:bid:ask ...]
   L2 call-mode pick, plus every candidate considered, as one JSON line."""
 import sys, json, math
 
+EPS = 1e-9  # float guard (week-9 audit 11/6: 19.1 <= 19.099999999999994 was False)
+
 def up(x):
     return math.ceil(round(x * 100, 6)) / 100
+
+def le(a, b):
+    return a <= b + EPS
 
 def main():
     E, S, exp = float(sys.argv[1]), float(sys.argv[2]), sys.argv[3]
@@ -27,18 +32,18 @@ def main():
             mid = (b1 + a1) / 2 - (b2 + a2) / 2
             nat = a1 - b2
             L0 = up(mid + 0.25 * (nat - mid))
-            ok = (100 * L0 + 0.10 <= B) and L0 > 0 and (W / L0 >= 4) and b1 > 0 and (nat - mid <= max(0.06, 0.5 * mid))
+            ok = le(100 * L0 + 0.10, B) and L0 > 0 and le(4, W / L0) and b1 > 0 and le(nat - mid, max(0.06, 0.5 * mid))
             c = {"K1": k1, "K2": k2, "mid": round(mid, 3), "nat": round(nat, 3), "L0": L0, "cost": round(100 * L0 + 0.10, 2),
                  "W_L0": round(W / L0, 1) if L0 > 0 else None, "ok": ok}
             out["cands"].append(c)
             if ok and out["spread"] is None:
-                c2 = dict(c); c2["Lmax"] = min(round(nat, 2), math.floor((B - 0.10)) / 100)
+                c2 = dict(c); c2["Lmax"] = min(round(nat, 2), math.floor(round(B - 0.10, 6)) / 100)
                 out["spread"] = c2
     for k in sorted(k for k in q if k >= S):
         b, a = q[k]
         mid = (b + a) / 2
         L0 = up(mid + 0.25 * (a - mid))
-        if b > 0 and (a - b) <= max(0.03, 0.5 * mid) and 100 * L0 + 0.05 <= B:
+        if b > 0 and le(a - b, max(0.03, 0.5 * mid)) and le(100 * L0 + 0.05, B):
             out["call"] = {"K": k, "bid": b, "ask": a, "L0": L0, "cost": round(100 * L0 + 0.05, 2)}
             break
     print(json.dumps(out))
