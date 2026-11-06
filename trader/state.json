@@ -929,7 +929,92 @@
     "earnings_check": {
       "note": "Fri: weekend hold night43; check amc list at 15:40 (few Friday reports); NVDA 11/17 -> cash"
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 103.58,
+        "S": 189.9,
+        "expiry": "2027-01-15",
+        "B": 20.72,
+        "spread": {
+          "K1": 290.0,
+          "K2": 300.0,
+          "mid": 0.08,
+          "nat": 0.13,
+          "L0": 0.1,
+          "cost": 10.1,
+          "W_L0": 100.0,
+          "ok": true,
+          "Lmax": 0.13
+        },
+        "call": {
+          "K": 310.0,
+          "bid": 0.16,
+          "ask": 0.22,
+          "L0": 0.2,
+          "cost": 20.05
+        },
+        "t": "10:30 ET",
+        "leg_quotes": "280:0.42:0.49 285:0.35:0.42 290:0.29:0.36 295:0.25:0.37 300:0.23:0.26 310:0.16:0.22 320:0.12:0.17 330:0.09:0.11 340:0.08:0.09 350:0.05:0.07",
+        "cands": [
+          [
+            280.0,
+            0.13,
+            0.2,
+            0.15,
+            false
+          ],
+          [
+            285.0,
+            0.075,
+            0.17,
+            0.1,
+            false
+          ],
+          [
+            290.0,
+            0.08,
+            0.13,
+            0.1,
+            true
+          ],
+          [
+            300.0,
+            0.055,
+            0.1,
+            0.07,
+            true
+          ],
+          [
+            310.0,
+            0.045,
+            0.1,
+            0.06,
+            true
+          ],
+          [
+            320.0,
+            0.045,
+            0.08,
+            0.06,
+            true
+          ],
+          [
+            330.0,
+            0.015,
+            0.03,
+            0.02,
+            true
+          ],
+          [
+            340.0,
+            0.025,
+            0.04,
+            0.03,
+            true
+          ]
+        ]
+      }
+    ],
     "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night42 (NVDL 4) + post-fill check; crash-open shadow n/a (gap up); 8-min loop + hourly HB; sleeve shadow ~10:30/13:00/15:25; WEEK-T3X-9 report + week-9 audit (read-only workflow); 15:40 pre-entry; 15:52 entry night43 (weekend); 16:01:30 EOD",
     "pause_check": {
       "E": 100.14,
