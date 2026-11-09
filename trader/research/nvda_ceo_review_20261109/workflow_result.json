@@ -1,0 +1,1480 @@
+{
+  "summary": "Read-only research: risk of holding NVDA-2x overnight during the Nvidia board review of the CEO (history, cases, implied vol, news timeline)",
+  "agentCount": 9,
+  "logs": [
+    "4/4 streams researched and verified"
+  ],
+  "result": {
+    "streams": [
+      {
+        "key": "idio-gap-history",
+        "research": {
+          "stream": "NVDA idiosyncratic overnight gap-downs: what happened next (non-earnings NVDA close-to-open <= -4% with QQQ close-to-open >= -0.5%, compared with all non-earnings NVDA gaps <= -4%)",
+          "key_findings": [
+            "FREQUENCY. Purely company-specific gaps are rare. 2015-2026 has n=5 out of 2,931 non-earnings nights (0.17%). Dates are the night's close date: 2016-12-28, 2017-02-22, 2017-04-03, 2022-08-05 (pre-announcement), 2025-11-24. Only 2 fall after 2019. Extending back: 2005-2026 has n=12 (heuristic earnings flags before 2015) and 1999-2026 has n=19 (17 separate episodes). The extra pre-2015 dates are 1999-11-22, 2000-09-18, 2000-09-21, 2002-11-08, 2003-06-12, 2003-07-28, 2003-09-26, 2005-11-28, 2008-04-16, 2008-07-02, 2008-11-12, 2008-11-13, 2010-07-28 and 2013-08-09. For comparison, all non-earnings gaps <= -4% number 46 in 2015-2026 (31 episodes), 69 in 2005-2026 and 121 in 1999-2026. Every result for the company-specific set is tiny-n.",
+            "GAP DAY OPEN-TO-CLOSE. Company-specific gaps show no reliable rebound or follow-through. 2015-2026: +0.52% mean (n=5, bootstrap 95% CI -3.03 to +3.71, Welch t +0.23). 2005-2026: +0.82% (n=12). 1999-2026: +1.57% (n=19, t +1.2). All gaps <= -4% do rebound during the gap day: +1.66% (n=46, CI +0.29 to +3.07, t +2.2) and, for 1999-2026, +2.20% (n=121, t +3.5). The unconditional mean is about +0.08%.",
+            "NEXT OVERNIGHT (the hold from 15:52 today to 09:31 tomorrow; daily bars measure close to open). After company-specific gaps the point estimate is negative in every sample, but nothing is significant. 2015-2026: -1.06% (n=5, 1 of 5 positive, CI -2.76 to +0.65, t -1.16). 2005-2026: -0.59% (n=12, 4 of 12 positive, t -1.1). 1999-2026: -0.25% (n=19, 7 of 19 positive, t -0.7). The unconditional night averages +0.12% (sd 1.58, 56% positive). After all gaps <= -4% the next night is positive instead: 2015-2026 +0.63% (n=46, t +1.0; +0.16% when counted by episode); 1999-2026 +0.79% (n=121, CI +0.15 to +1.43, t +2.1). Gaps caused by the whole market partly reverse overnight; company-specific gaps did not.",
+            "NEXT-NIGHT TAIL. After company-specific gaps, a next overnight of -3% or worse occurred 2/5 (2015-2026), 3/12 (2005-2026) and 3/19 (1999-2026). The unconditional rates are 2.6%, 2.4% and 3.2% (binomial p 0.006, 0.003, 0.022), and the vol-matched baselines are 3.2%, 3.0% and 4.6%. This is the strongest company-specific result, but it is one of many metrics tested. The worst next nights were -4.03% (2008-11-12), -3.46% (2017-02-22) and -3.04% (2022-08-05). A next night of -5.1% or worse occurred 0/19 times (Wilson upper bound about 17%). Across all gaps <= -4% it occurred 1/46 in 2015-2026 (2024-08-02 to 08-05, -14.2%, a market-wide crash) and 4/121 in 1999-2026.",
+            "VOLATILITY. The next overnight moves about 1.7-1.8x as much as usual. Mean absolute move: 1.92% vs 1.06% (2015-2026, t 1.3) and 1.73% vs 0.99% (2005-2026, t 1.9). After all gaps <= -4% it is 2.2-2.4x (t 3.7 to 6.5). For a 2x ETF, variance on the night after the gap is roughly 3x normal.",
+            "SUM OF THE NEXT 5 AND 10 OVERNIGHTS (earnings nights set to 0, matching the account's rule). No reliable drift. Company-specific gaps: 2015-2026 +0.10% and -1.16% against unconditional +0.61% and +1.19% (sum10 t -2.0, but random-date p 0.25). 2005-2026: +0.16% and +0.61% against +0.45% and +0.87%. 1999-2026: +1.17% and +2.09% against +0.47% and +0.90%. All gaps <= -4%, 2015-2026: +0.95% and +1.24% against +0.61% and +1.19% (t 0.3 and 0.0).",
+            "FURTHER CRASH WITHIN 10 NIGHTS (another non-earnings overnight <= -5%). Company-specific gaps were not followed by more crashes: 0/5 (2015-2026), 0/12 (2005-2026) and 2/19 (1999-2026; both hits are 2000-2002, one of them near a heuristic earnings date). Unconditional rates are 4.9%, 4.3% and 7.6%; vol-matched rates are 4.6%, 5.8% and 11.7%. The Wilson upper bounds are wide (43%, 24% and 31%), so a raised risk cannot be ruled out. All gaps <= -4% cluster strongly: 12/46 = 26% (Wilson 16-40%) against 4.9% (p<0.001), 5/31 = 16% by episode (p 0.016), and 36/121 = 30% in 1999-2026 against 7.6%. Those clusters come from market regimes (COVID Feb-Mar 2020, DeepSeek Jan 2025, tariffs Apr 2025), not company news.",
+            "CAUSES AND THE POST-HOC NEWS SET. Causes I verified: 2017-02-22 Nomura downgrade; 2017-04-03 Pacific Crest downgrade; 2019-01-25 revenue pre-announcement; 2022-08-05 pre-announcement; 2022-08-31 China export licence (8-K); 2023-10-16 US export rules; 2025-04-15 H20 charge; 2025-11-24 Meta/Google TPU report; 2008-07-02 revenue warning plus faulty-chip charge. Four of these fail the QQQ >= -0.5% filter because NVDA's own weight and its peers dragged QQQ down. Together the 8 dated 2015-2026 (selected after the fact) give: next overnight -1.05% (6 of 8 negative, CI -2.35 to +0.33, t -1.6); gap-day open-to-close -0.60%; sum of 5 nights +0.95%; sum of 10 nights -1.07% (6 of 8 negative, t -2.2); further crash 0/8. The three US/China export-policy nights give a next overnight of +1.17%, -3.07% and -0.04%. NVDA has no history of a CEO, key-person or counter-intelligence event, so there is no direct analog.",
+            "WHAT THE DATA SAYS OVERALL. After a company-specific gap, NVDA's usual overnight edge does not show up: the next nights are flat to slightly negative, more volatile, and more often -3% or worse, but they did not lead into a run of crashes. After market-wide gaps the next night tends to rebound, while further -5% nights cluster (26-30% within 10 nights)."
+          ],
+          "numbers": [
+            {
+              "name": "Company-specific gaps (NVDA overnight <= -4%, QQQ >= -0.5%, non-earnings), count",
+              "value": "5 in 2015-2026 (0.17% of 2,931 non-earnings nights); 12 in 2005-2026; 19 in 1999-2026 (17 episodes)",
+              "n": "5 / 12 / 19",
+              "source": "Robinhood get_equity_historicals, day bars, split-adjusted (data/rh_day_*.json); 2015+ earnings flags from repo overnight_thru_20261106.csv; out/events_idio_le4_*.csv"
+            },
+            {
+              "name": "All non-earnings NVDA gaps <= -4%, count",
+              "value": "46 in 2015-2026 (31 episodes); 69 in 2005-2026; 121 in 1999-2026 (78 episodes)",
+              "n": "46 / 69 / 121",
+              "source": "same; out/events_all_le4_*.csv"
+            },
+            {
+              "name": "Gap-day open-to-close after company-specific gap (2015-2026)",
+              "value": "+0.52% mean (median +1.66), bootstrap 95% CI -3.03 to +3.71; unconditional +0.08%; Welch t +0.23",
+              "n": "5",
+              "source": "out/results.json key 2015_2026_exact|IDIO_le4_qqq_ge_m05"
+            },
+            {
+              "name": "Gap-day open-to-close after company-specific gap (2005-2026 / 1999-2026)",
+              "value": "+0.82% (CI -1.92 to +4.02) / +1.57% (CI -0.76 to +4.09, t +1.2)",
+              "n": "12 / 19",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Gap-day open-to-close after any gap <= -4%",
+              "value": "2015-2026: +1.66% (CI +0.29 to +3.07, t +2.2); 1999-2026: +2.20% (CI +1.06 to +3.45, t +3.5)",
+              "n": "46 / 121",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Next overnight after company-specific gap (2015-2026)",
+              "value": "-1.06% mean (median -0.77), 1 of 5 positive, CI -2.76 to +0.65, Welch t -1.16; unconditional +0.12% (sd 1.58, 56% positive)",
+              "n": "5 (pool 2,931)",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Next overnight after company-specific gap (2005-2026 / 1999-2026)",
+              "value": "-0.59% (4 of 12 positive, CI -1.75 to +0.61, t -1.1) / -0.25% (7 of 19 positive, CI -1.18 to +0.67, t -0.7); unconditional +0.09%",
+              "n": "12 / 19",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Next overnight after any gap <= -4%",
+              "value": "2015-2026: +0.63% (CI -0.40 to +1.51, t +1.0; episodes +0.16%); 1999-2026: +0.79% (CI +0.15 to +1.43, t +2.1; episodes +0.30%)",
+              "n": "46 / 121",
+              "source": "out/results.json"
+            },
+            {
+              "name": "P(next overnight <= -3%) after company-specific gap",
+              "value": "2/5 (2015-2026), 3/12 (2005-2026), 3/19 (1999-2026); unconditional 2.6% / 2.4% / 3.2%; binomial p 0.006 / 0.003 / 0.022; vol-matched baseline 3.2% / 3.0% / 4.6%",
+              "n": "5 / 12 / 19",
+              "source": "out/results.json metric on1_le_m3"
+            },
+            {
+              "name": "P(next overnight <= -5.1%), about the derived pause room tonight",
+              "value": "company-specific: 0/19 (Wilson 95% upper 17%); all gaps <= -4%: 1/46 (2015-2026), 4/121 (1999-2026); unconditional 0.6% (2015-2026), 0.9% (1999-2026)",
+              "n": "19 / 46 / 121",
+              "source": "out/results.json metric on1_le_m51"
+            },
+            {
+              "name": "Mean absolute next overnight (volatility)",
+              "value": "company-specific 1.92% vs 1.06% (2015-2026, t 1.3); 1.73% vs 0.99% (2005-2026, t 1.9); all gaps <= -4% 2.37% vs 1.06% (t 3.7)",
+              "n": "5 / 12 / 46",
+              "source": "out/results.json metric abs_on1"
+            },
+            {
+              "name": "Sum of next 5 overnights after company-specific gap",
+              "value": "2015-2026 +0.10% (CI -0.97 to +1.18) vs +0.61% (t -0.8); 2005-2026 +0.16% vs +0.45%; 1999-2026 +1.17% vs +0.47% (t +0.6)",
+              "n": "5 / 12 / 19",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Sum of next 10 overnights after company-specific gap",
+              "value": "2015-2026 -1.16% (CI -3.27 to +0.94) vs +1.19% (t -2.0, random-date p 0.25); 2005-2026 +0.61% vs +0.87% (t -0.2); 1999-2026 +2.09% vs +0.90% (t +0.7)",
+              "n": "5 / 12 / 19",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Sum of next 5 / 10 overnights after any gap <= -4% (2015-2026)",
+              "value": "+0.95% / +1.24% vs +0.61% / +1.19% (t 0.3 / 0.0)",
+              "n": "46",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Another overnight <= -5% within the next 10 nights, company-specific",
+              "value": "0/5 (2015-2026), 0/12 (2005-2026), 2/19 (1999-2026); unconditional 4.9% / 4.3% / 7.6%; vol-matched 4.6% / 5.8% / 11.7%; Wilson upper bounds 43% / 24% / 31%",
+              "n": "5 / 12 / 19",
+              "source": "out/results.json metric further5"
+            },
+            {
+              "name": "Another overnight <= -5% within the next 10 nights, any gap <= -4%",
+              "value": "2015-2026: 12/46 = 26% (Wilson 16-40%) vs 4.9% (vol-matched 6.7%), p<0.001; by episode 5/31 = 16% (p 0.016); 1999-2026: 36/121 = 30% vs 7.6% (vol-matched 14.5%)",
+              "n": "46 / 31 / 121",
+              "source": "out/results.json"
+            },
+            {
+              "name": "Post-hoc set of verified NVDA-specific news gaps, 2015-2026",
+              "value": "next overnight -1.05% (6 of 8 negative, CI -2.35 to +0.33, t -1.6); gap day -0.60%; sum5 +0.95%; sum10 -1.07% (t -2.2); further crash 0/8",
+              "n": "8",
+              "source": "out/newsset.json (newsset.py); causes from the URLs in sources"
+            },
+            {
+              "name": "Relative-gap variant (NVDA <= -4% and NVDA minus QQQ <= -4%)",
+              "value": "2015-2026: next overnight +0.32% (n=11, t +0.3), further crash 1/11; 1999-2026: +0.98% (n=47, t +1.8), further crash 13/47 = 28%",
+              "n": "11 / 47",
+              "source": "out/results.json key *|REL_le4_minus_qqq_le4"
+            },
+            {
+              "name": "Data check against the repo",
+              "value": "2,979 nights matched to overnight_thru_20261106.csv nvda_on; max absolute difference 1.38bp (1 night above 1bp); the pre-2015 earnings heuristic reproduces the week9/q1 list exactly (40/40) and scores 38/47 exact on 2015-2026",
+              "n": "2979",
+              "source": "build.py output"
+            }
+          ],
+          "caveats": [
+            "TINY n. 5 company-specific events in 2015-2026 and only 2 since 2020 (one is a revenue pre-announcement). 12 events in 2005-2026 and 19 in 1999-2026. No company-specific mean result reaches |t| >= 2 with a robust p-value. Bootstrap CIs on n=5 understate the uncertainty.",
+            "MULTIPLE COMPARISONS. I tested 6 definitions x 5 samples x more than 10 metrics. The only company-specific results below p 0.05 are the tail rate for a next night <= -3% and the post-hoc news set's sum10. Treat both as hypotheses, not findings.",
+            "THE QQQ FILTER IS IMPERFECT. NVDA is a large QQQ weight (the exact weight is UNVERIFIED; I assumed about 8-10%) and moves its peers, so its own news drags QQQ down. The QQQ >= -0.5% rule therefore drops real company-specific nights such as 2019-01-25, 2022-08-31, 2023-10-16 and 2025-04-15. The news-tagged set fixes this but is chosen after the fact.",
+            "EARNINGS FLAGS BEFORE 2015 ARE HEURISTIC. They come from the volume-ratio method (38/47 exact on 2015-2026). Three of the 19 company-specific events from 1999-2026 (1999-11-22, 2002-11-08, 2013-08-09) are within 3 sessions of a heuristic date and may be earnings-related. The conservative 2005-2026 variant without them gives n=11 and a next overnight of -0.65%.",
+            "The 1999-2004 period (dot-com era, high volatility) supplies the only 2 further-crash hits and raises the baselines. Results that include it are less relevant to today.",
+            "Random-date Monte Carlo p-values understate the uncertainty in means, because nights after a gap have 1.5-2x normal variance. Rely on the Welch t-stats and bootstrap CIs.",
+            "NO ANALOG. NVDA has no historical CEO, key-person or counter-intelligence governance event. The historical events are mostly one-shot news (downgrades, pre-announcements, export rules). A board review that is still open can produce more headlines at any hour, including overnight. That is my judgment and is not captured in the base rates.",
+            "These are daily bars measuring the 16:00 close to the 09:30 open, not the account's 15:52-to-09:31 hold. NVDL is not exactly 2x NVDA overnight (fees, NAV, spreads). Daily bars cannot estimate this morning's 09:31 exit price.",
+            "Today's classification as company-specific relies on the parent's premarket figures (NVDA about 176.9, -5.2%; QQQ +0.75%). I did not re-check them with a quote. The RH guide notes that the 2026-11-06 bar close is not the official settled close.",
+            "The roughly -5% pause room for tonight is my approximate derivation. It assumes the pause level stays where the parent stated (-9.8% NVDA from Friday's close), about 89-95% invested, and an exit near 176.9. The §6 rolling 20-session high may roll around 11/9, which would move the trigger. Recompute from the actual account state.",
+            "Cause of the 2016-12-28 to 12-29 gap itself: UNVERIFIED. Citron's intraday short call on 12/28 is verified. All pre-2015 causes except 2008-07-02 are UNVERIFIED and were not researched."
+          ],
+          "sources": [
+            "Robinhood get_equity_historicals: NVDA and QQQ, interval=day, adjustment=split, bounds=regular, 1999-09-15 to 2026-11-06, pulled 2026-11-09. Saved at /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/data/rh_day_1999_2014.json and rh_day_2015_2026.json",
+            "/home/user/test-trading/trader/research/edge_decay/overnight_thru_20261106.csv (earn and preann flags 2015+; cross-check)",
+            "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/week9/q1/earnings_dates.json (pre-2015 heuristic list, reproduced exactly)",
+            "Scripts: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/build.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/stats.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/newsset.py",
+            "Outputs: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/panel.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/results.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/summary.txt, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/newsset.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/events_idio_le4_1999_2026.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/events_idio_le4_2015_2026.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/events_all_le4_2015_2026.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/events_all_le4_1999_2026.csv, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/out/events_rel_le4_1999_2026.csv",
+            "https://www.cnbc.com/2016/12/28/nvidia-shares-fall-sharply-after-short-seller-citron-research-tweets.html (Citron, 2016-12-28)",
+            "https://www.cnbc.com/2017/02/23/nvidia-shares-drop-to-three-month-low-after-downgrade.html (Nomura/BMO downgrades, 2017-02-23)",
+            "https://www.cnbc.com/2017/04/04/sell-chipmaker-nvidia-because-demand-going-from-bad-to-worse.html (Pacific Crest downgrade, 2017-04-04)",
+            "https://www.bnnbloomberg.ca/nvidia-sinks-after-warning-on-revenue-especially-in-china-1.1204973 (Q4 FY19 pre-announcement, 2019-01-28)",
+            "https://www.fool.com/investing/2022/08/08/why-nvidia-stock-slumped-on-monday/ (Q2 FY23 pre-announcement, 2022-08-08)",
+            "https://www.cnbc.com/2022/08/31/nvidia-stock-falls-after-us-government-restricts-chip-sales-to-china.html (A100/H100 China licence, 2022-08-31)",
+            "https://www.techspot.com/news/100689-us-export-restrictions-could-cost-nvidia-5-billion.html (US export rules, 2023-10-17)",
+            "https://www.rte.ie/news/business/2025/0416/1507904-nvidia-faces-5-5-billion-charge-as-us-restricts-sales (H20 $5.5B charge, 2025-04-15/16)",
+            "https://finance.yahoo.com/news/nvidia-stock-falls-after-report-says-google-meta-in-talks-for-multibillion-dollar-ai-chip-deal-143725770.html (Meta/Google TPU report, 2025-11-25)",
+            "https://www.computing.co.uk/news/2025/chips-and-components/nvidia-stock-drops (Meta/Google TPU report, 2025-11-25)",
+            "https://fortune.com/2008/07/03/miss-by-chipmaker-nvidia-rattles-investors (2008-07-02 warning and faulty-chip charge)"
+          ],
+          "implication_for_overnight_holding": "History argues against reading today's gap as either a buy-the-dip night or the start of a crash run, and it does not show the usual positive overnight edge. Read it as a weak signal with higher-than-normal variance.\n\nAfter company-specific NVDA gaps, the next overnight (tonight's analog, Monday to Tuesday) averaged -0.25% to -1.06% across samples, against +0.1% normally. None of these t-stats exceed 1.2 in magnitude, and the n is 5 to 19. The planning edge of +0.30%/night is not present on these nights.\n\nNext-night volatility runs about 1.7x normal. A move of -3% or worse in NVDA (about -6% on NVDL) occurred 2/5, 3/12 and 3/19 times, against about 3% normally. A move of -5% or worse never occurred (0/19), but the 95% upper bound is about 17%.\n\nOver 5 to 10 nights there was no reliable drift. Another -5% gap within 10 nights did not follow any company-specific gap after 2002 (0/12 in 2005-2026). Market-wide gaps are different: they cluster (26-30%), but they also rebound on the next night.\n\nFor this account, if my approximate derivation holds, a further NVDA overnight of about -5% from the ~176.9 level would reach PAUSE. History puts that at roughly a 0-17% chance, with a point estimate near the low end. More likely is a -3% night costing about 6% of equity. Even the historical sample's average outcome is slightly negative.\n\nHolding at normal size tonight is therefore not supported by an edge. The downside is not historically catastrophic either. If the rules allow discretion, PAUSE-style sizing (1 share) or sitting out for 1 to 2 nights is a reasonable risk trade-off. The cost is about one night's expected edge (~0.3% gross per unit of exposure), and this evidence does not meet the repo's pre-registration bar (t >= 2) for a rule change.\n\nThe base rates cannot price the board review itself: it is an ongoing key-person and governance story with possible overnight headlines, and NVDA has no precedent for one."
+        },
+        "verification": {
+          "checks": [
+            {
+              "claim": "Raw data integrity: the saved Robinhood NVDA/QQQ day bars (1999-2026) are what the API returns, and NVDA overnight returns match the repo CSV (2,979 nights, max diff 1.38bp)",
+              "holds": true,
+              "reason": "I re-pulled NVDA and QQQ day bars (split-adjusted, regular) for 1999-2014 and 2015-2026. They are identical to idio/data/rh_day_*.json: same bar count and same open/close on every date, with 0 differing values. The repo cross-check reproduces exactly: 2,979 nights, max |diff| 1.38bp, 1 night above 1bp. Usable sessions start 1999-09-15.",
+              "corrected": ""
+            },
+            {
+              "claim": "Company-specific gap counts and dates: 5 in 2015-2026 (0.17% of 2,931 non-earnings nights; 2016-12-28, 2017-02-22, 2017-04-03, 2022-08-05, 2025-11-24), 12 in 2005-2026, 19 in 1999-2026 (17 episodes). All non-earnings gaps <= -4%: 46 (31 episodes), 69, 121 (78 episodes)",
+              "holds": true,
+              "reason": "My independent script (verify/verify.py) gives the same dates and counts: 5/12/19, 46/69/121, and 31 and 78 episodes. My pool is 2,932 because I include the last night (11-05 to 11-06), which is immaterial. The 14 extra pre-2015 dates match.",
+              "corrected": ""
+            },
+            {
+              "claim": "Gap-day open-to-close: company-specific +0.52% (n=5, CI -3.03 to +3.71, t +0.23), 2005-2026 +0.82%, 1999-2026 +1.57% (t +1.2); all gaps +1.66% (CI +0.29 to +3.07, t +2.2) and 1999-2026 +2.20% (t +3.5); unconditional ~+0.08%",
+              "holds": true,
+              "reason": "Reproduced: +0.52 (t +0.23), +0.82, +1.57 (t +1.18), +1.66 (CI +0.31 to +3.09, t +2.20), +2.20 (t +3.49), unconditional +0.082%. The exact enumerated bootstrap CI for n=5 is -2.82 to +3.71; the gap from -3.03 is Monte Carlo noise.",
+              "corrected": ""
+            },
+            {
+              "claim": "Next overnight after company-specific gaps: -1.06% (n=5, 1/5 positive, CI -2.76 to +0.65, t -1.16), -0.59% (n=12), -0.25% (n=19); unconditional +0.12% (sd 1.58, 56% positive). After all gaps <= -4%: +0.63% (t +1.0; +0.16% by episode); 1999-2026 +0.79% (CI +0.15 to +1.43, t +2.1)",
+              "holds": true,
+              "reason": "Reproduced with the stream's convention (an earnings next night is counted as 0): -1.06 (t -1.15, CI -2.76 to +0.65), -0.59, -0.25 (t -0.71); baseline +0.119% (sd 1.57); all-gaps +0.63 (t 1.04, episodes +0.16), 1999-2026 +0.79 (CI +0.14 to +1.42, t 2.12). None of the company-specific results are significant.",
+              "corrected": ""
+            },
+            {
+              "claim": "'Gaps caused by the whole market partly reverse overnight; company-specific gaps did not' / 'After market-wide gaps the next night tends to rebound'",
+              "holds": false,
+              "reason": "Neither the contrast nor the causal reading is supported. A direct test of the next overnight, company-specific vs the other <= -4% gaps, gives 2015-2026 -1.06% vs +0.84% (Welch t -1.65, permutation p 0.21) and 1999-2026 -0.25% vs +0.98% (t -2.0, permutation p 0.17). The rebound after all gaps is itself insignificant in 2015-2026 (t 1.0) and is only +0.16% by episode. It is significant only in the 1999-2026 sample, which is dominated by the dot-com era.",
+              "corrected": "Point estimates differ (company-specific next night negative, market-wide positive), but the difference is not significant (permutation p ~0.2). There is no evidence that the gap's cause drives the next-night outcome."
+            },
+            {
+              "claim": "Next night <= -3%: 2/5, 3/12, 3/19 vs unconditional 2.6/2.4/3.2% (binomial p 0.006/0.003/0.022); vol-matched 3.2/3.0/4.6%; worst -4.03% (2008-11-12), -3.46% (2017-02-22), -3.04% (2022-08-05)",
+              "holds": true,
+              "reason": "All counts, baselines, p-values and vol-matched baselines reproduce: quintile matching gives 3.2/3.0/4.6. Overstatement: the three samples are nested, so they are not three confirmations. The 2/5 hits recur in 3/12 and 3/19, and the rate shrinks as data are added (40% to 25% to 16%). The result is also the best of roughly 300 tests.",
+              "corrected": "Treat it as a single small-n tail signal (2-3 hits in total), not as being replicated across 3 samples."
+            },
+            {
+              "claim": "Next night <= -5.1%: 0/19 company-specific (Wilson upper ~17%); all gaps 1/46 (2024-08-02 to 08-05, -14.2%) and 4/121",
+              "holds": true,
+              "reason": "Reproduced: 0/19 (Wilson upper 16.8%), 1/46 (event night 2024-08-01, next night -14.18%), 4/121. Caveat on the threshold: at my 08:13 ET quote of NVDA 176.45 (not 176.9), the stream's own pause-room algebra gives about -4.8%, not -5.1%. Counts at <= -4.8% are unchanged (0/19, 1/46, 4/121).",
+              "corrected": "The pause room at the current premarket price is about -4.8% (still approximate; the 20-session high may roll ~11/9 per RULES §6). The base-rate counts are unchanged."
+            },
+            {
+              "claim": "Next-night volatility about 1.7-1.8x normal (mean abs 1.92 vs 1.06, 1.73 vs 0.99); 'For a 2x ETF, variance on the night after the gap is roughly 3x normal'",
+              "holds": false,
+              "reason": "The mean-absolute ratios hold (1.81x and 1.75x). The 3x variance claim does not: the actual variance ratio for company-specific next nights is 2.10x (2015-2026) and 2.06x (2005-2026), with E[x^2] ratio 2.13 and 2.03. The 3x figure comes from squaring the mean-absolute ratio. Leverage does not change a variance ratio. A 3x+ ratio applies only to all gaps <= -4% (2.9x for 1999-2026, 4.5x for 2015-2026).",
+              "corrected": "Next-night variance is about 2x normal after company-specific gaps (the same for NVDA and NVDL) and about 3-4.5x after all gaps <= -4%."
+            },
+            {
+              "claim": "Sum of next 5/10 overnights: company-specific 2015-2026 +0.10%/-1.16% vs +0.61%/+1.19% (sum10 t -2.0, random-date p 0.25); all gaps +0.95%/+1.24% (t 0.3/0.0)",
+              "holds": true,
+              "reason": "Numbers reproduce exactly (sum10 random-date p 0.248). The caveat to 'rely on the Welch t-stats' is wrong for this metric. The 5 events' sum10 sd is 2.64% against a pool sd of 4.77%, so Welch t -2.0 rests on an implausibly low event variance. Using the pool sd, z = -1.10, consistent with random-date p 0.25. The same problem affects the news-set sum10 t -2.2 (pool-sd z ~ -1.3).",
+              "corrected": "The sum10 'significance' for both the company-specific set and the news set does not hold up. Neither is evidence of drift."
+            },
+            {
+              "claim": "Further <= -5% overnight within 10 nights: company-specific 0/5, 0/12, 2/19 (both 2000-2002) vs 4.9/4.3/7.6% (vol-matched 4.6/5.8/11.7%); all gaps 12/46 = 26% (p<0.001), 5/31 episodes (p 0.016), 36/121",
+              "holds": true,
+              "reason": "Every count, baseline and p-value reproduces (vol-matched 4.6/5.8/11.7; episode binomial p 0.016).",
+              "corrected": ""
+            },
+            {
+              "claim": "The further-crash clusters 'come from market regimes (COVID Feb-Mar 2020, DeepSeek Jan 2025, tariffs Apr 2025), not company news'",
+              "holds": false,
+              "reason": "I listed the 12 hits for 2015-2026. 4 of the 12 triggering events were followed by NVDA-centric news crashes. Event 2025-01-10 was hit by 2025-01-24 to 01-27 (DeepSeek, -12.49%), an AI/NVDA-specific shock rather than a broad regime. Events 2025-04-02, 04-04 and 04-09 were hit by 2025-04-15 to 04-16 (-6.82%), the H20 $5.5B charge, which is in the stream's own verified company-specific news set. Only the COVID cluster (6) and Aug 2024 (1) are purely market-wide.",
+              "corrected": "Clusters occur in high-volatility regimes, but about a third of the follow-on crashes in 2015-2026 were NVDA-centric news (DeepSeek, H20) arriving during those regimes."
+            },
+            {
+              "claim": "Post-hoc news set (8 nights 2015-2026): next overnight -1.05% (6/8 negative, CI -2.35 to +0.33, t -1.6); gap day -0.60%; sum5 +0.95%; sum10 -1.07% (t -2.2); further 0/8; export-policy next nights +1.17/-3.07/-0.04",
+              "holds": true,
+              "reason": "Reproduced exactly: -1.05 (6/8 negative, t -1.60), -0.60, +0.95, -1.07 (t -2.18), 0/8, and +1.17/-3.07/-0.04. See the sum10 Welch caveat above.",
+              "corrected": ""
+            },
+            {
+              "claim": "Four news nights (2019-01-25, 2022-08-31, 2023-10-16, 2025-04-15) fail the QQQ >= -0.5% filter 'because NVDA's own weight and its peers dragged QQQ down'",
+              "holds": false,
+              "reason": "Partly true. QQQ gaps on those nights were -1.29/-0.85/-0.97/-1.96%, but SPY also gapped -0.90/-0.58/-0.74/-1.10% (RH day bars), so broad-market weakness was present. NVDA's QQQ weight in early 2019 was far below the 8-10% the stream assumed, so its own weight cannot explain a -1.29% QQQ gap. Peers (SMH -2.3 to -4.8%, AMD -2.7 to -8.1%) were hit by the same news. The filter-exclusion point stands; the attribution is overstated.",
+              "corrected": "These nights failed the filter because of a mix of sector co-movement and broad-market weakness (SPY -0.6% to -1.1%), not mainly NVDA's index weight."
+            },
+            {
+              "claim": "News causes: Nomura downgrade 2017-02-23, Pacific Crest 2017-04-04, Citron 2016-12-28, 2019-01-28 pre-announcement, 2022-08-08 pre-announcement, 2022-08-31 China licence, 2023-10-17 export rules, 2025-04-15 H20 charge, 2025-11-24/25 Meta/Google TPU report, 2008-07-02 warning plus chip charge",
+              "holds": true,
+              "reason": "Opened and confirmed: CNBC 2017-02-23 (Nomura buy to reduce, note dated 2/22; BMO also downgraded), CNBC 2017-04-04 (Pacific Crest to underweight), CNBC 2016-12-28 (Citron tweet, shares down more than 6% to $109.25 that day; bars show the drop was intraday on 12/28 and the 12/29 gap continued it), fool.com 2022-08-08 (~$6.7B vs $8.1B), CNBC 2022-08-31 (SEC filing, -6.5% after hours; the article does not say '8-K'), RTE 2025-04-16 ($5.5B H20 charge disclosed 4/15), Yahoo 2025-11-25 (The Information report Monday 11/24), Fortune 2008-07-03 (guidance cut to ~$912M, $150-200M defective-chip charge, -31%). Problems: the cited bnnbloomberg URL now opens a homepage (dead link). The 2019 cut is confirmed through alternative sources (https://www.business-standard.com/amp/article/reuters/nvidia-cuts-fourth-quarter-revenue-estimate-on-weak-china-demand-119012801187_1.html, https://siliconangle.com/2019/01/28/nvidias-stock-dives-17-slashes-revenue-guidance-500m). techspot and computing.co.uk return 403. The 2023-10-17 rules are confirmed in search results (e.g. https://www.businessinsider.in/stock-market/news/nvidia-falls-to-lead-chip-stocks-lower-as-us-clamps-down-on-key-ai-exports-to-china/articleshow/104506622.cms), but I did not open that article.",
+              "corrected": "Replace the dead bnnbloomberg link with the Reuters/Business Standard or SiliconANGLE link for 2019-01-28."
+            },
+            {
+              "claim": "Today is a company-specific gap (premarket NVDA ~176.9, -5.2%; QQQ +0.75%; AMD +4%; AVGO +2.8%)",
+              "holds": true,
+              "reason": "RH quotes at 08:13 ET: NVDA 176.45 (-5.46% vs official close 186.64), QQQ 661.06 (+0.76%), SPY 740.83 (+0.75%), AMD 464.88 (+3.5%), AVGO 302.45 (+3.0%), NVDL 21.12 (-10.9% vs 23.71). By the stream's definition this is clearly company-specific. The bnnbloomberg page incidentally carried the headline 'China dismisses a spy plot claim involving Nvidia CEO Jensen Huang as smear campaign', consistent with 'Beijing denies'.",
+              "corrected": "Use about 176.45 (-5.5%) rather than 176.9 (-5.2%)."
+            }
+          ],
+          "overall": "partially holds",
+          "missed": [
+            "All core numbers reproduce exactly from a fresh Robinhood re-pull. The problems are in interpretation: the 3x variance claim, the causal market-vs-company contrast, the attribution of the further-crash clusters, the attribution of the QQQ-filter failures, and the 'rely on Welch' caveat.",
+            "Weak analog: the historical 'company-specific' nights were mostly sector or GPU-vendor news. AMD gapped down on 8 of the 9 news nights (-0.35% to -8.06%; -6.31% on the 2025-11-24 Meta/TPU night), and SMH fell on 8 of 9. Today AMD (+3.5%) and AVGO (+3.0%) are up while NVDA is -5.5%. Today's event is more firm-specific (key-person/governance) than any event in the sample, so even the n=5-19 base rates are a loose analog.",
+            "Direct contrast test missing: company-specific vs market-wide next-night difference has permutation p 0.21 (2015-2026) and 0.17 (1999-2026).",
+            "Regime context: per the repo crashday_20261105.json table, NVDA was ~228 in mid-October 2026 and closed 186.64 on 11/6 (about -18%) before this weekend. Trailing volatility is therefore elevated, and the vol-matched baselines (applied only to the tail rates) are the more relevant comparison for every metric.",
+            "The pause room at the actual 08:13 ET premarket price (176.45) is about -4.8% NVDA, not -5.1%. It is still approximate and depends on the §6 rolling-high roll-off around 11/9. Base-rate counts at -4.8% are unchanged (0/19 company-specific, 1/46 and 4/121 for all gaps).",
+            "The 2008-07-02 (-28%) and 2022-08-05 events are revenue pre-announcements (earnings-like). Two of the 12 events in 2005-2026 are therefore not 'news shocks' in the sense relevant to tonight. The stream labels 2022-08-05 but keeps both in the headline set.",
+            "Verification files: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/idio/verify/verify.py (plus verify2-6.py, verify_out.txt, and the fresh pulls v_1999_2014.json, v_2015_2026.json, v_spy_smh_amd.json in the same directory)."
+          ]
+        }
+      },
+      {
+        "key": "governance-cases",
+        "research": {
+          "stream": "CEO governance/scandal/security shock case studies (second-gap frequency, paths, resolution time)",
+          "key_findings": [
+            "Sample: 15 cases measured with Robinhood daily bars (HPQ/Hurd 2010, WYNN 2018, META/Cambridge Analytica 2018, INTC/Krzanich 2018, JD/Liu 2018, TSLA/Musk SEC 2018, SMCI 'Big Hack' 2018, BA/Muilenburg 2019, MCD/Easterbrook 2019, BABA/Jack Ma 2020, ERIC Iraq-ISIS 2022, BP/Looney 2023, MSFT via OpenAI/Altman 2023, SMCI Hindenburg/10-K/EY 2024, INTC/Lip-Bu Tan 2025). CBS/Moonves, ATVI/Kotick and Uber/Kalanick are documented from web sources only, because Robinhood has no bars for them (CBS and ATVI) or the company was private (Uber).",
+            "The split that matters most is whether the CEO was still in place after the first shock. Where the exit was announced with the news (HPQ, INTC18, MCD, BP), there was no second move of 5% or more in the next 10 sessions (0/4), and 20-day paths were flat to modestly negative. Where the CEO stayed, 8/11 had a second move of 5% or more, against about 4.1 expected from each stock's own base rate.",
+            "Adverse overnight gaps of 5% or more after the shock day occurred in 4/15 cases (WYNN -5.0%, JD -5.1%, ERIC -6.6%, SMCI24 -11.3%). In all four, the first one came on the very next overnight, driven by a new revelation or escalation (regulators and the RNC exit over the weekend, the police report, continued selling in Stockholm, the 10-K delay).",
+            "A single overnight gap of -9.8% or worse within 2 weeks happened in only 2/15 cases: SMCI24 (-11.3% on the 10-K delay) and ERIC (-14.2% on the DOJ finding that it breached its plea deal). Both were sub-$100B names facing hard legal or accounting catalysts.",
+            "Size and type matter. Among names of roughly $100B or more at the time (HPQ, META, INTC18, BA, MCD, BABA, MSFT, BP; caps approximate), none had an overnight gap of 5% or more in the 10 sessions after the shock (0/8). Only BABA had a 5%+ close-to-close day (-8.3% on draft anti-monopoly rules; its open was only -3.6%). The large-cap cases where the CEO stayed (META, BA, BABA, MSFT) had worst overnights of -1.4% to -3.6%, but META and BABA still drifted about -10% over 10 sessions through a series of 2-4% down days.",
+            "For an overnight-only holder starting at the shock-day close, the median return over the next 10 overnights was -1.0% at 1x and -2.0% for a 2x daily-reset proxy. The range was enormous: ERIC -56.9% and SMCI24 -36.8% on the downside, TSLA +47.4%, SMCI18 +57.9% and INTC25 +22.0% on the upside. META lost 14.8% at 2x overnight-only with no single gap of 5% or more.",
+            "Resolution events usually gapped UP: 9/10 were positive, with a median of about +5.6%. Examples: WYNN +8.6% on the CEO's resignation, TSLA +17.3% on the SEC settlement, JD +5.9% when no charges were filed, SMCI +28.7% when the special committee found no misconduct, INTC25 +5.6% after the Trump meeting, BABA +5.5% when Ma reappeared, META +4.5% on testimony day, BA +2.9% on the firing, MSFT +2.05%. CBS was the exception at -1.5%. Adverse second gaps came from new escalations (regulators, DOJ, auditors, filings, state action), not from resolutions.",
+            "Resolution time is bimodal. When an outside party can end it (SEC settlement, a partner, the President), it took 2-5 days: TSLA 1 session, MSFT/Altman 1 session to the hire and about 5 days to reinstatement, INTC25 3 sessions to the White House meeting. Board-run or legal reviews took weeks to months: CEO exit after 11 days at WYNN, 44 days at CBS, 66 days at BA and about 4 months at Uber; formal findings after about 3 months at SMCI (12/2/2024) and about 4.7 months at CBS (12/17/2018); legal clearance after about 16 weeks at JD. The median across 9 cases where the CEO stayed and a resolution date is defined is 15 sessions.",
+            "NVDA mapping: the first leg of this story, the NYT report of 2026-10-29, had almost no NVDA-specific move (10/29 NVDA -0.8% vs QQQ -1.4%; 10/30 -4.2% vs -3.5%). Today's premarket move (about -5.2% vs QQQ +0.75%, so roughly -6% relative) is an escalation: a board-run independent review plus Huang's admission. That puts NVDA in the open-ended, CEO-stays bucket, but as a mega-cap. That is a combination where the analogs show drift risk more than single-night gap risk.",
+            "No precise precedent exists for a mega-cap CEO reportedly targeted by a foreign-intelligence (MSS) effort. The nearest national-security analogs: INTC/Lip-Bu Tan 2025 (China ties; the President turned supportive within 4 days and every 5%+ move in the first 8 sessions was UP); ERIC 2022 (terror financing, a cascade of large down gaps); SMCI 2018 (spy-chip allegation, -41% and then denials backed by DHS/NCSC; small cap). Here Trump backed Huang from the start, which looks more like the INTC25 de-escalation path.",
+            "Files: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/SUMMARY.md, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/case_metrics.json (and .csv), /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/overnight_only_paths.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/from_T0_open_paths.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/NVDA_context.md, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/NO_PRICE_DATA_cases.md, one <CASE>.md per case with its sources, raw bars in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/data/all_bars.csv, and scripts in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/scripts/."
+          ],
+          "numbers": [
+            {
+              "name": "Cases with a second move of 5% or more (close-to-close or overnight gap) within T0+1..T0+10 sessions",
+              "value": "8/15 (base-rate expectation 4.8)",
+              "n": "15",
+              "source": "Robinhood daily bars; cases/case_metrics.json"
+            },
+            {
+              "name": "Same, CEO still in place after first shock",
+              "value": "8/11 (expected 4.1)",
+              "n": "11",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Same, CEO exit announced with the shock",
+              "value": "0/4",
+              "n": "4",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Cases with any overnight gap of 5% or more within 10 sessions",
+              "value": "7/15 (expected 2.1); 7/11 where CEO stayed",
+              "n": "15",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Cases with an adverse overnight gap of -5% or worse within 10 sessions",
+              "value": "4/15 (WYNN -5.04, JD -5.10, ERIC -6.59, SMCI24 -11.27), all on the first overnight after T0",
+              "n": "15",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Cases with an adverse overnight gap of -9.8% or worse within 10 sessions",
+              "value": "2/15 (SMCI24 -11.27% at k=1; ERIC -14.22% at k=9)",
+              "n": "15",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Overnight gaps of 5% or more within 10 sessions, cap of roughly $100B or more (approximate)",
+              "value": "0/8 cases; close-to-close moves of 5% or more 1/8 (BABA -8.26%)",
+              "n": "8",
+              "source": "cases/case_metrics.json; caps UNVERIFIED approximations"
+            },
+            {
+              "name": "Median T0 move minus SPY",
+              "value": "-5.80% (all); -6.35% (CEO stayed)",
+              "n": "15 / 11",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Median return from T0 close at +5/+10/+20 sessions",
+              "value": "-4.81 / -2.26 / -0.54% (all); -6.66 / -7.80 / -2.26% (CEO stayed, 8/11 negative at +10)",
+              "n": "15 / 11",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Median excess vs SPY from prior close to T0+20",
+              "value": "-7.41% (all); -13.85% (CEO stayed)",
+              "n": "15 / 11",
+              "source": "cases/case_metrics.json"
+            },
+            {
+              "name": "Overnight-only return over 10 nights after T0 close, 2x daily-reset proxy",
+              "value": "median -2.04%; range -56.85% (ERIC) to +57.85% (SMCI18); META -14.82%, BABA -3.49%, BA -0.45%, MSFT -2.04%",
+              "n": "15",
+              "source": "cases/overnight_only_paths.json"
+            },
+            {
+              "name": "From first post-news open, next open at least 4.83% lower (raw, not market-adjusted)",
+              "value": "5/12 cases with premarket news (META, JD, SMCI18, ERIC, SMCI24); 9/12 at any open within 10 sessions",
+              "n": "12",
+              "source": "cases/from_T0_open_paths.json"
+            },
+            {
+              "name": "Resolution-day moves (exit, clearance, settlement)",
+              "value": "9/10 positive; median about +5.6% (WYNN +8.64, TSLA +17.35, JD +5.88, SMCI +28.68, INTC25 +5.62, BABA +5.50, META +4.50, BA +2.91, MSFT +2.05, CBS -1.5 from web)",
+              "n": "10",
+              "source": "Robinhood bars + nexttv.com (CBS)"
+            },
+            {
+              "name": "Sessions from T0 to first decisive resolution event, cases where CEO stayed",
+              "value": "1, 1, 3, 8, 15, 45, 52, 67, 76 (median 15)",
+              "n": "9",
+              "source": "cases/case_metrics.json + cited news"
+            },
+            {
+              "name": "Board or legal review time to formal findings",
+              "value": "SMCI about 3 months (to 2024-12-02); CBS about 4.7 months (to 2018-12-17); Uber Holder about 4 months; JD clearance about 16 weeks",
+              "n": "4",
+              "source": "nasdaq.com, npr.org, qz.com, cnbc.com"
+            },
+            {
+              "name": "WYNN next-overnight gap after the -10.1% shock day",
+              "value": "-5.04% gap, -9.32% close-to-close (2018-01-29); +7.52% gap on CEO resignation 8 sessions later",
+              "n": "1",
+              "source": "Robinhood bars"
+            },
+            {
+              "name": "NVDA overnight gaps of -5% or worse, non-earnings nights since 2015",
+              "value": "18/2932 (0.61%/night); -9.8% or worse 5/2932 (0.17%)",
+              "n": "2932",
+              "source": "/home/user/test-trading/trader/research/edge_decay/overnight_thru_20261106.csv"
+            },
+            {
+              "name": "NVDA overnight gaps of 5% or more in either direction, last 250 nights (non-earnings)",
+              "value": "1/246 (+5.23% on 11/5 to 11/6); 0/246 at -5% or worse; overnight sd 1.37%",
+              "n": "246",
+              "source": "overnight_thru_20261106.csv"
+            },
+            {
+              "name": "NVDA reaction to first leg (NYT report, 2026-10-29)",
+              "value": "10/29 -0.80% vs QQQ -1.42%; 10/30 -4.22% vs QQQ -3.47% (about zero NVDA-specific move)",
+              "n": "2 days",
+              "source": "Robinhood bars; thehill.com"
+            },
+            {
+              "name": "Further NVDA drop needed from 176.9 premarket to reach -9.8% vs Fri close 186.64",
+              "value": "-4.83% (to about 168.35)",
+              "n": "arithmetic",
+              "source": "task context"
+            }
+          ],
+          "caveats": [
+            "Small and mixed sample (n=15 with data). Shock types range from personal conduct to regulatory, legal, short-seller and national-security cases. Famous cases are partly famous because they moved, so there is selection bias.",
+            "Market confounders: WYNN's window overlaps the Feb 2018 volatility spike; ERIC's overlaps the Russian invasion (2/24/2022), so its 2/28 -9% gap is not purely the scandal; JD's overlaps the US-China tariff escalation (Sept 2018); TSLA and SMCI 2018 overlap the October 2018 selloff.",
+            "ERIC and BP 'overnight gaps' are US ADR gaps that include the Stockholm and London primary sessions. That inflates ERIC's gap counts relative to a US-primary stock like NVDA.",
+            "WYNN, BA and MSFT news broke intraday, so their T0 shock shows up as an intraday move and the gap metrics are not strictly comparable to NVDA's premarket shock.",
+            "Base rates use the prior up-to-250 sessions; for WYNN only 94 sessions were available (from Sep 2017), so its base rate of 0 is unreliable. SMCI 2024 (0.94) and INTC 2025 (0.79) already had very high base volatility.",
+            "Market-cap buckets (roughly $100B or more vs less) are approximate and UNVERIFIED; caps were not pulled from a data tool. Being open-ended and being small-cap overlap: every sub-$100B case was open-ended.",
+            "Daily RTH bars only. No extended-hours or intraday analog data, so 'overnight' means RTH close to next RTH open and does not reproduce the 15:52-09:31 hold exactly.",
+            "No price data for CBS 2018 or ATVI 2021 (not in Robinhood), so whether they had a second gap within 2 weeks is UNVERIFIED. Uber and OpenAI were private.",
+            "UNVERIFIED items: cause of INTC's +5.4% gap on 2025-08-19 (believed SoftBank investment, not checked); cause of META's -4.9% on 2018-03-27; the reported House request for Huang to appear in a private session on Nov 18 (it came from a search-result summary; the CNBC article does not mention it); exact CBS close on 2018-07-27 (sources say about -6%).",
+            "The 2x overnight-only figures are a daily-reset proxy (1 + 2 x each overnight return), not actual NVDL fills; they ignore fees and tracking error.",
+            "There is no historical precedent of a mega-cap CEO tied to a foreign-intelligence (MSS) targeting report. The national-security analogs (INTC/Tan, ERIC, SMCI 2018) differ materially in mechanism and size."
+          ],
+          "sources": [
+            "https://www.bloomberg.com/news/2010-08-06/hp-chief-mark-hurd-resigns-finance-chief-cathie-lesjak-named-interim-ceo.html",
+            "https://www.bloomberg.com/news/articles/2010-08-09/hp-s-lesjak-inherits-slowing-growth-job-search-distraction-as-hurd-leaves",
+            "https://m.washingtontimes.com/news/2010/aug/6/hp-ceo-forced-to-resign-amid-harassment-claims/",
+            "https://www.bloomberg.com/news/articles/2018-01-26/wynn-resorts-tumbles-on-steve-wynn-sexual-harassment-report",
+            "https://www.fool.com/investing/2018/01/26/why-wynn-resorts-limiteds-plunged-11-today.aspx",
+            "https://archives.lincolndailynews.com/2018/Jan/29/NEWS/news_w.shtml",
+            "https://thenevadaindependent.com/article/casino-mogul-steve-wynn-accused-by-dozens-of-sexual-misconduct-harassment-gaming-officials-aware-of-report",
+            "https://www.sec.gov/Archives/edgar/data/0001174922/000119312518033939/d538506d8k.htm",
+            "https://www.reviewjournal.com/business/casinos-gaming/shares-of-wynn-resorts-gain-on-wednesday",
+            "https://www.cnbc.com/amp/2018/03/20/ftc-reportedly-to-investigate-facebooks-use-of-personal-data.html",
+            "https://fortune.com/2018/03/26/facebook-stock-ftc-investigation-cambridge-analytica",
+            "https://6abc.com/post/ftc-confirms-investigation-of-facebook-company-shares-plunge/3263741/",
+            "https://techcrunch.com/2018/04/10/facebook-share-price-climbs-as-zuckerberg-gets-grilled-by-the-senate",
+            "https://fortune.com/2018/04/10/heres-why-facebook-just-gained-21-billion-in-value",
+            "https://betanews.com/2018/06/21/intel-ceo-resigns",
+            "https://www.rappler.com/technology/205492-intel-ceo-brian-krzanich-resignation/",
+            "https://www.cnbc.com/2018/09/05/jdcom-ceo-was-arrested-in-us-on-allegation-of-rape-police-report-says.html",
+            "https://www.cnbc.com/2018/09/05/china-e-retailer-jdcom-plunges-for-a-second-day-after-ceo-arrest.html",
+            "https://www.fool.com/investing/2018/10/02/why-jdcom-inc-stock-lost-17-last-month.aspx",
+            "https://www.cnbc.com/2018/12/21/jdcom-ceo-will-not-face-assault-charges-in-minnesota.html",
+            "https://money.cnn.com/2018/09/27/technology/tesla-stock-musk-sec/index.html",
+            "https://www.bloomberg.com/news/articles/2018-09-28/markets-to-musk-stop-messing-around-and-settle-with-the-sec-now",
+            "https://www.sec.gov/news/press-release/2018-226",
+            "https://www.npr.org/2018/09/29/653014733/elon-musk-settles-with-sec-agrees-to-step-down-as-tesla-chairman",
+            "https://fortune.com/2018/10/04/super-micro-shares-hacking",
+            "https://www.bloomberg.com/news/articles/2018-10-04/super-micro-computer-tumbles-most-in-its-short-history-chart",
+            "https://www.macrumors.com/2018/10/06/dhs-backs-apple-denial-of-businessweek/",
+            "https://www.infosecurity-magazine.com/news/us-uk-governments-back-denial/",
+            "https://king5.com/article/tech/science/aerospace/boeing/boeing-stock-prices-dip/281-e9873100-4d8b-4b92-a2ba-238aaf14088c",
+            "https://www.cnbc.com/2019/10/21/cramer-regrets-believing-boeing-after-737-max-crashes.html",
+            "https://www.voanews.com/a/economy-business_boeing-fires-ceo-muilenburg-restore-confidence-amid-737-crisis/6181530.html",
+            "https://www.axios.com/boeing-dennis-muilenburg-resigns-737-max-crashes-d1208e87-7b7e-4aa6-9baa-2e257fbe594f.html",
+            "https://www.cnbc.com/2019/11/03/mcdonalds-steve-easterbrook-is-out-as-ceo-due-to-a-consensual-relationship-with-an-employee.html",
+            "https://www.cnbc.com/2019/11/04/mcdonalds-stock-falls-after-firing-ceo-and-announcing-successor.html",
+            "https://www.fool.com/investing/2020/11/03/alibaba-tumbles-as-china-suspends-ant-groups-ipo",
+            "https://www.koreatimes.co.kr/amp/economy/20201104/ant-groups-shock-ipo-suspension-hammers-alibaba-shares",
+            "https://www.businesslive.co.za/bd/world/asia/2020-11-10-china-draws-up-first-anti-monopoly-rules-to-increase-scrutiny-of-tech-giants/",
+            "https://www.bloomberg.com/news/articles/2020-12-24/alibaba-adrs-tumble-most-ever-on-worry-over-china-monopoly-probe",
+            "https://www.fool.com/investing/2021/01/20/jack-ma-pops-up-again-easing-fears-surrounding-his",
+            "https://asiatimes.com/2021/01/alibabas-shares-surge-as-jack-ma-reappears/",
+            "https://www.bloomberg.com/news/articles/2022-02-16/ericsson-ceo-concedes-company-may-have-paid-off-isis-in-iraq",
+            "https://www.irishexaminer.com/business/companies/arid-40809555.html",
+            "https://newarab.com/news/ericsson-informed-us-doj-2019-about-iraq-probe-sources",
+            "https://english.alarabiya.net/business/telecoms/2022/03/02/US-finds-Ericsson-disclosures-on-Iraq-conduct-suspected-ISIS-bribes-insufficient-",
+            "https://www.euronews.com/next/2022/03/02/ericson-probe",
+            "https://www.iraq-businessnews.com/2022/03/03/ericsson-shares-slide-further-on-new-iraq-revelations/",
+            "https://abc17news.com/money/cnn-business-consumer/2023/09/12/bp-ceo-resigns-after-probe-reveals-undisclosed-relationships-with-colleagues/",
+            "https://uk.investing.com/news/stock-market-news/bp-shares-slip-in-london-after-surprise-resignation-of-ceo-bernard-looney-3153327",
+            "https://www.businesspost.ie/news/bp-shares-recover-after-shock-bernard-looney-exit-as-focus-turns-to-successor/",
+            "https://techcrunch.com/2023/11/20/microsoft-stock-recovers-from-weekend-decline-after-hiring-openais-leaders",
+            "https://www.semafor.com/article/11/20/2023/openai-sam-altman-joins-microsoft",
+            "https://www.npr.org/2023/11/22/1214621010/openai-reinstates-sam-altman-as-its-chief-executive",
+            "https://www.bnnbloomberg.ca/business/company-news/2024/08/28/super-micro-slides-on-10-k-delay-following-hindenburg-report/",
+            "https://cfodive.com/news/super-micro-delay-10-k-filing-to-assess-internal-controls/725579",
+            "https://bnnbloomberg.ca/business/company-news/2024/09/26/super-micro-probed-by-us-following-hindenburg-report-wsj-says",
+            "https://siliconangle.com/2024/10/30/supermicro-shares-plummet-33-auditor-resigns/",
+            "https://www.theregister.com/2024/10/30/supermicro_audit_ey_quit",
+            "https://www.bnnbloomberg.ca/business/company-news/2024/11/18/super-micro-shares-jump-on-compliance-plan-new-auditor/",
+            "https://www.nasdaq.com/articles/supermicro-rises-special-committee-finds-no-misconduct",
+            "https://abc7news.com/post/intel-trump-calls-ceo-lip-bu-tan-resign/17463378/",
+            "https://www.cbsnews.com/sanfrancisco/news/why-is-president-trump-calling-on-the-ceo-of-intel-to-resign",
+            "https://fortune.com/2025/08/11/trump-intel-ceo-lip-bu-tan-white-house-meeting-cabinet-talks/",
+            "https://www.pcgamer.com/hardware/talks-are-reportedly-underway-for-the-us-gov-to-take-a-stake-in-intel-and-its-share-price-has-already-jumped-7-percent-in-response",
+            "https://www.aljazeera.com/economy/2025/8/22/trump-says-us-to-take-10-percent-stake-in-intel",
+            "https://www.tomshardware.com/tech-industry/big-tech/trump-says-u-s-govt-will-take-a-10-percent-ownership-stake-in-intel-lip-bu-tan-reportedly-agreed-to-unprecedented-arrangement-for-a-domestic-chipmaker",
+            "https://www.bnnbloomberg.ca/cbs-falls-on-report-ceo-moonves-to-be-accused-by-new-yorker-1.1115356",
+            "https://fortune.com/2018/07/27/cbs-les-moonves-sexual-misconduct",
+            "https://www.thewrap.com/cbs-stock-les-moonves-remain-ceo",
+            "https://www.nexttv.com/news/cbs-stock-drops-following-departure-of-ceo-moonves",
+            "https://www.npr.org/2018/12/17/677587813/cbs-denies-former-ceo-les-moonves-120-million-severance-package",
+            "https://www.fool.com/investing/2021/11/16/why-activision-blizzard-stock-was-losing-the-game",
+            "https://news.bloomberglaw.com/esg/activision-shares-plummet-on-report-that-ceo-knew-of-misconduct",
+            "https://news.yahoo.com/activision-blizzard-stock-jumps-36-on-microsoft-takeover-news-141836539.html",
+            "https://qz.com/1010986/a-timeline-of-events-that-led-to-travis-kalanick-stepping-down-as-ceo-of-uber",
+            "https://fortune.com/2017/06/21/uber-controversy-timeline-travis-kalanick",
+            "https://thehill.com/policy/technology/6181938-nvidia-huang-china-intelligence-report/amp/",
+            "https://www.scmp.com/tech/tech-war/article/3372743/china-dismisses-us-report-suspected-spy-targeting-nvidia-ceo-jensen-huang-groundless",
+            "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html",
+            "https://www.benzinga.com/markets/equities/26/11/63023739/nvda-stock-falls-over-5-pre-market-trump-backs-jensen-huang-to-stay-as-nvidia-ceo",
+            "https://qz.com/nvidia-stock-board-investigation-jensen-huang-spy-110926",
+            "Robinhood get_equity_historicals daily bars (HPQ, WYNN, META, INTC, JD, TSLA, SMCI, BA, MCD, BABA, ERIC, BP, MSFT, SPY, QQQ, NVDA, AMD, AVGO), saved to /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/data/all_bars.csv",
+            "/home/user/test-trading/trader/research/edge_decay/overnight_thru_20261106.csv (read-only)"
+          ],
+          "implication_for_overnight_holding": "These cases suggest the highest-risk point is the first one or two overnights after an escalation, not the shock itself. Where the CEO stayed in place, 4 of 11 cases had an adverse overnight gap of -5% or worse, and in each the first one came on the very next night, driven by fresh news (regulators, a police report, a 10-K delay, DOJ action).\n\nNVDA should be read against the mega-cap subset. None of the 8 names worth roughly $100B or more had any overnight gap of 5% or more in the following 2 weeks. A -9.8% or worse single night occurred in only 2 of 15 cases, both smaller companies facing filing, auditor or DOJ catalysts, with no mega-cap analog. NVDA's own base rate for a -5% or worse non-earnings overnight is about 0.6% per night, with none in the last 246 nights. My judgment, not a measured probability: the risk of a -5% NVDA night (about -10% NVDL) over the next few nights is several times normal but probably still well under 1 in 3. A -9.8% single night remains a tail scenario.\n\nThe larger documented risk for a 2x overnight-only holder is drift through repeated -2% to -4% opens without any big gap. META in 2018 lost 14.8% over 10 nights on a 2x overnight-only basis with no gap of 5% or more; BABA's 10-session close-to-close path was about -10%. With equity near the pause level, that cumulative bleed matters as much as a single gap.\n\nIf the pause is measured against Friday's close of 186.64, the remaining cushion from the 176.9 premarket is about -4.8%. In 5 of 12 cases where the news broke before the open, the stock was at least that much lower at the next day's open (raw, not market-adjusted), and in 9 of 12 at some open within 10 sessions.\n\nOffsetting factors:\n- Resolution and de-escalation events usually gapped up (9 of 10 positive, median about +5.6%), so the second large gap is two-sided for a long holder.\n- Trump's early support resembles the Intel/Lip-Bu Tan 2025 de-escalation path.\n- Board-run reviews typically take 6 weeks to 5 months, so the review is unlikely to resolve before the Nov 17 earnings night unless Huang exits.\n\nWatch for fresh revelations: new NYT or FT reporting, government or congressional action (the Nov 18 congressional session is UNVERIFIED), or board findings. In the analogs, events like these, rather than the original shock, produced the adverse second gaps."
+        },
+        "verification": {
+          "checks": [
+            {
+              "claim": "Raw price data integrity: all_bars.csv (used for every case metric) is accurate Robinhood daily RTH data.",
+              "holds": true,
+              "reason": "I pulled fresh get_equity_historicals daily bars for WYNN (Jan-Feb 2018), SMCI (Oct 2018 and Aug-Sep 2024), ERIC (Feb-Mar 2022), JD and TSLA (Sep-Oct 2018) and NVDA/QQQ/AMD/AVGO (Oct-Nov 2026). Every sampled OHLC matched all_bars.csv exactly. I recomputed the case metrics with my own script, verify_cases/recompute.py, and got the same numbers as case_metrics.json. CBS, ATVI, VIAC and PSKY return not_found and PARA returns no 2018 bars, which confirms the no-data cases.",
+              "corrected": ""
+            },
+            {
+              "claim": "8/15 cases had a second move of 5% or more (gap or close-to-close) within T0+1..T0+10, against 4.8 expected; 8/11 where the CEO stayed (4.1 expected); 0/4 where the exit came with the shock.",
+              "holds": true,
+              "reason": "I recomputed the counts and they are exact (expected 4.83 / 4.08 / 0.75 using max(p_cc, p_gap) per day; a union-based rate gives 5.06 / 4.27). WYNN's base rate of 0 comes from the data pull starting in Sep 2017, not a lack of history. Robinhood has 2017 WYNN bars with several 5%+ moves (2017-01-27 gap +6.3%, 2017-07-26 gap -5.0%, 2017-08-15 close-to-close +6.4%), so the true expectation is about 5.0. HPQ, META, INTC18, JD, TSLA and SMCI18 also used fewer than 250 base sessions. None of this changes the conclusion.",
+              "corrected": "8/15 (expected about 5.0 with full 250-session bases); 8/11 CEO stayed (expected about 4.2); 0/4 exit-at-shock (expected 0.75)."
+            },
+            {
+              "claim": "The split that matters most is whether the CEO stayed in place after the first shock.",
+              "holds": false,
+              "reason": "The counts are correct, but the causal framing is not supported. CEO status is fully confounded with size and volatility. All 7 sub-$100B cases were 'stayed' and all 7 had a big move (expected about 3.5). The large caps had 1/8 (expected about 1.5). Among large caps where the CEO stayed (META, BA, BABA, MSFT), 1/4 had a big move against about 0.7 expected, so there is no excess. All 4 exit cases were large caps. In addition, 4 of the 11 'CEO stayed' cases were not reviews of the company's own CEO: SMCI18 (hardware spy-chip story), ERIC (corporate bribery), BABA (Ma was not CEO in 2020) and MSFT (partner's CEO). There is also no control group of equal-sized non-governance shocks, and volatility clustering after any -6% to -40% day predicts elevated follow-on moves on its own.",
+              "corrected": "Second big moves were concentrated in sub-$100B, high-volatility names (7/7); large caps showed none beyond their base rate (1/8 vs about 1.5 expected). With this sample, the effect of CEO status cannot be separated from size and volatility."
+            },
+            {
+              "claim": "Adverse overnight gaps of 5% or more occurred in 4/15 cases (WYNN -5.04, JD -5.10, ERIC -6.59, SMCI24 -11.27), all first on the next overnight and driven by new revelations.",
+              "holds": true,
+              "reason": "The numbers are exact (WYNN 171.20/180.29; JD 27.93/29.43; ERIC 10.28/11.005; SMCI 48.594/54.764). The 'new revelation' attribution is overstated for 2 of the 4. WYNN's news broke intraday on Friday, so Monday's gap is partly unfinished price discovery. Lincoln Daily News confirms the RNC exit on Saturday but does not mention regulators. ERIC's k=1 gap is an ADR gap reflecting continued Stockholm selling, not a new revelation. NVDA's shock was fully digested premarket, so the k=1 pattern partly reflects T0 timing in those two analogs.",
+              "corrected": "4/15, each at k=1; clean new-catalyst cases are JD (police report) and SMCI24 (10-K delay); WYNN (intraday T0) and ERIC (ADR/Stockholm) are partly timing artifacts."
+            },
+            {
+              "claim": "An overnight gap of -9.8% or worse within 10 sessions occurred in 2/15 cases (SMCI24 -11.27% at k=1; ERIC -14.22% at k=9).",
+              "holds": true,
+              "reason": "I reproduced both (ERIC 7.60/8.86 on 2022-03-02). The iraq-businessnews article confirms DOJ told Ericsson on Mar 1, 2022 that it had breached its DPA. CFO Dive confirms SMCI's 10-K delay announcement on Wed Aug 28, 2024 (-19% that day). With n=15, the 95% CI on 2/15 is roughly 2% to 40%.",
+              "corrected": ""
+            },
+            {
+              "claim": "Among names of roughly $100B or more (HPQ, META, INTC18, BA, MCD, BABA, MSFT, BP), 0/8 had a 5%+ overnight gap within 10 sessions; only BABA had a 5%+ close-to-close day (-8.26%, open -3.63%).",
+              "holds": true,
+              "reason": "Reproduced exactly. But each stock's own base rate implies only about 0.61 such gaps across these 8, so 0/8 is what you would expect anyway. It does not show safety: even at 3x the base rate (about 1.8 expected), P(0) is about 16%. Caps are still unverified (HPQ in Aug 2010 was about $100B, borderline).",
+              "corrected": "0/8 (expected about 0.6 from base rates), which is uninformative about whether the risk is elevated."
+            },
+            {
+              "claim": "Overnight-only over 10 nights from the T0 close: median -1.0% (1x) and -2.04% (2x proxy); range -56.85% (ERIC) to +57.85% (SMCI18); META -14.82%, BABA -3.49%, BA -0.45%, MSFT -2.04%.",
+              "holds": true,
+              "reason": "Recomputed independently, all values match. The more decision-relevant number is the worst cumulative 2x overnight drawdown within 10 nights, which the report did not give. It was -10% or worse in 6/15 cases: WYNN -16.5, META -16.3, INTC18 -10.4, JD -11.4, ERIC -57.8, SMCI24 -40.0 (BABA -8.6). That is 2/8 large caps (META, plus INTC18, which was an exit case). NVDA's unconditional rate from the repo CSV (earnings nights in cash) is 7.9% over the last 250 nights, 13.5% since 2015 and 15.1% over the last 500.",
+              "corrected": "Add: a 2x overnight-only drawdown of -10% or worse within 10 nights occurred in 6/15 analogs (2/8 large caps) vs an NVDA base of about 8-15%."
+            },
+            {
+              "claim": "Resolution events usually gapped UP: 9/10 positive, median about +5.6%.",
+              "holds": false,
+              "reason": "The +5.6% median uses close-to-close moves, not gaps. The actual resolution-day overnight gaps were WYNN +7.52, TSLA +15.57, SMCI +15.75, BABA +6.30, BA +2.67, INTC25 +2.66, JD +0.90, MSFT +0.37 and META -0.17, a median of +2.67% (8/9 positive). META's 'testimony day' is not a resolution. The CBS -1.5% is not supported by the cited nexttv page, which says 'down more than 3%' intraday; TVWeek/MediaPost gives a -1.5% close at $55.20. The list also excludes the four exit-with-shock days (HPQ -8.0, INTC18 -2.4, MCD -2.7, BP +0.4). The positive skew comes from clearances and from relief exits of already-battered stocks (WYNN, BA). For NVDA, a founder-CEO exit has no analog and analysts call Huang irreplaceable, so the 'two-sided' offset does not cover that branch.",
+              "corrected": "Resolution days were positive close-to-close in 9/10 (median +5.6%), but the overnight gaps had a median of only about +2.7% (8/9 positive). CEO exits announced with the shock were negative (3/4). Clearance tends to be positive; a Huang exit has no analog."
+            },
+            {
+              "claim": "Median time to the first decisive resolution, where the CEO stayed, is 15 sessions (1, 1, 3, 8, 15, 45, 52, 67, 76).",
+              "holds": false,
+              "reason": "The arithmetic and the session counts check out (WYNN k=8, 1/26 to 2/7; BA 45 sessions to 12/23/2019; INTC25 k=3; TSLA k=1, settlement Sat 9/29 per SEC release 2018-226; Trump-Tan meeting 8/11/2025 per Fortune). But the 15 is META's testimony day, which is not a resolution. Excluding META gives a median of 26.5 (n=8). The unresolved cases (ERIC, and SMCI18 depending on definition) are dropped, which biases the median down.",
+              "corrected": "Bimodal: 1-3 sessions when an outside actor ends it (TSLA, MSFT, INTC25); otherwise 8-76 sessions. The median is fragile (15 to 26.5 depending on whether META counts)."
+            },
+            {
+              "claim": "Board or legal review durations: WYNN CEO exit 11 days, CBS 44 days, BA 66 days, Uber about 4 months; SMCI findings about 3 months (12/2/2024), CBS about 4.7 months (12/17/2018), JD clearance about 16 weeks.",
+              "holds": true,
+              "reason": "Date arithmetic checks out. A web search confirms SMCI's special committee found no misconduct on Mon Dec 2, 2024 (stock up about 15-31% intraday; the bars give +28.68% close-to-close). TSLA settlement dated 9/29/2018 (sec.gov). WYNN shows a CEO exit can come within 2 weeks, well before the review concludes.",
+              "corrected": ""
+            },
+            {
+              "claim": "NVDA base rates (repo CSV): 5%-or-worse non-earnings overnights 18/2932 (0.61%); -9.8% or worse 5/2932; last 250 nights 1/246 at |5%| or more (+5.23% on 11/5 to 11/6), 0/246 at -5% or worse; overnight sd 1.37%.",
+              "holds": true,
+              "reason": "Exact match. Context: of the 5 nights at -9.8% or worse, three were market-wide crashes (2020-03-06, 2020-03-13, 2024-08-02), one was a company pre-announcement (2019-01-25) and one was DeepSeek (2025-01-24). The current regime is hotter than the 246-night sd suggests: NVDA fell -9.26% close-to-close on 11/5 and gapped +5.23% on 11/6.",
+              "corrected": ""
+            },
+            {
+              "claim": "First leg (NYT, 2026-10-29) had almost no NVDA-specific move: 10/29 NVDA -0.80% vs QQQ -1.42%; 10/30 -4.22% vs -3.47%.",
+              "holds": true,
+              "reason": "The bars confirm it (213.66/215.38; 204.64/213.66; QQQ 715.34/725.61; 690.49/715.34). The Hill (10/29, 2:31 PM ET) confirms the NYT report was published Thu 10/29. On 10/30 AMD fell -10.9% and AVGO -5.5%, so NVDA actually beat semis.",
+              "corrected": ""
+            },
+            {
+              "claim": "Today's escalation: about -5.2% premarket vs QQQ +0.75%; board review plus Huang's admission; Trump backs Huang; Beijing denies; the House Nov 18 session is unverified.",
+              "holds": true,
+              "reason": "Robinhood quote at 08:19 ET: NVDA 176.43 (-5.47% vs 186.64), QQQ +0.74%, SPY +0.78%, AMD +3.3%, AVGO +2.8%, NVDL 21.03 (-11.3%). CNBC 11/9 confirms the board review (Sun 11/8), Huang's email ('I was unfaithful to my wife'), Trump's support and China's FM denial. CNBC does not mention any Nov 18 House session, so it is correctly flagged UNVERIFIED.",
+              "corrected": ""
+            },
+            {
+              "claim": "Implication: the remaining cushion from 176.9 is -4.8% vs Friday's close; in 5/12 premarket-news cases the next open was at least that much lower, and in 9/12 some open within 10 sessions was.",
+              "holds": false,
+              "reason": "The counts reproduce, but the metric is wrong for this account. (1) The account is flat from 09:31 to 15:52, so moves from T0 open to later opens include intraday returns it never holds. (2) A price-level cushion vs Friday's close applies only to this morning's 09:31 exit. After that, losses build only from overnight returns starting at each 15:52 entry. (3) There is no base rate: on 2017-19 NVDA bars, 'any open within 10 sessions 4.83% or more below a given open' happens 40.5% of the time unconditionally (next open 3.6%). Using the context's numbers, the remaining cushion after today's exit is about -9 to -10% cumulative NVDL overnight (about -4.6% NVDA). The right analog metric is cumulative 2x overnight drawdown.",
+              "corrected": "After today's exit, about -9 to -10% cumulative 2x overnight-only drawdown within 10 nights occurred in 6/15 analogs (WYNN, META, INTC18, JD, ERIC, SMCI24) and 2/8 large caps (META, INTC18), vs an NVDA base of about 8-15%."
+            },
+            {
+              "claim": "Drift evidence for a 2x overnight-only holder: META -14.8% over 10 nights; BABA's 10-session path about -10%.",
+              "holds": false,
+              "reason": "The META figure holds (-14.82% end, -16.3% worst). BABA's -10.07% was close-to-close, mostly intraday. Its 2x overnight-only result was only -3.49% (worst -8.6%), so it is not evidence of drift for this account. INTC18 (-10.4% worst, -7.4% end, 2x overnight) is a better second example and was left out.",
+              "corrected": "META (-14.8%, worst -16.3%) and INTC18 (worst -10.4%) show 2x overnight-only drift without any 5%+ gap; BABA does not (-3.5%)."
+            },
+            {
+              "claim": "Exit-with-shock cases (HPQ, INTC18, MCD, BP) had 20-day paths that were flat to modestly negative.",
+              "holds": true,
+              "reason": "Close-to-close from T0 close: HPQ -8.36% at +10 and -6.29% at +20; INTC18 -0.54%; MCD +2.36%; BP +1.02%. 'Modestly negative' undersells HPQ (-13.8% from the prior close to +20), and INTC18's 2x overnight-only path hit -10.4%.",
+              "corrected": "No second 5%+ move (0/4), but HPQ drifted -8% over 10 sessions and INTC18 had a -10% 2x overnight drawdown."
+            },
+            {
+              "claim": "UNVERIFIED: cause of INTC's +5.4% gap on 2025-08-19 (believed SoftBank).",
+              "holds": true,
+              "reason": "Now verified. SoftBank announced a $2B stake (at $23/share) on Mon Aug 18, 2025 after the close; INTC rose about 5-6% premarket on 8/19 (qz.com/softbank-takes-2bn-stake-intel-as-us-considers-investment; aibusiness.com). This was a separate catalyst, not the Trump de-escalation.",
+              "corrected": "Verified: SoftBank's $2B investment, announced 8/18/2025."
+            }
+          ],
+          "overall": "partially holds",
+          "missed": [
+            "The analysis never computes the decision-relevant metric for a 15:52-to-09:31 holder: the worst cumulative 2x overnight-only drawdown. I computed it: -10% or worse within 10 nights in 6/15 analogs and 2/8 large caps, vs an NVDA unconditional 7.9% (last 250 nights) to 15.1% (last 500). This suggests drift risk about 2-4x normal for NVDA. Scripts: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/verify_cases/onpath.py and /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/verify_cases/recompute.py.",
+            "There is no control group. Any large idiosyncratic drop is followed by elevated volatility (volatility clustering), so the excess second moves cannot be attributed to governance or CEO status without comparing to equal-sized non-governance shocks.",
+            "Small-n uncertainty is not quantified. 0/8 large-cap gaps has a 95% upper bound of about 31%; 0/4 exit cases has about 60%; 2/15 is roughly 2-40%.",
+            "Large-cap results are uninformative relative to their own base rates (about 0.6 expected gaps across 8 names), so 'mega-caps are safe from gaps' is a weak inference.",
+            "No analog covers a founder-CEO exit at a mega-cap. The 'resolutions gap up' offset comes from clearances and from relief exits of battered smaller stocks (WYNN), so it should not be assumed for a Huang departure.",
+            "Overlapping catalysts inside the 10-session window are not handled. NVDA's own earnings (11/17, about T0+6, a blackout night) fall inside the window, and HPQ's 8/19/2010 earnings fell inside its window.",
+            "Citation errors: the CBS -1.5% is attributed to nexttv.com, which says 'down more than 3%' intraday (the -1.5% close comes from TVWeek/MediaPost). The WYNN Lincoln Daily News source confirms the RNC exit and the special committee but not a regulator review.",
+            "Per RULES_v3 §6, the PAUSE basis is a rolling 20-session high, and the 10/12 high was due to leave the window around 11/9. The pause cushion after today's exit should be recomputed from current equity marks rather than taken as a fixed NVDA price level vs Friday's close."
+          ]
+        }
+      },
+      {
+        "key": "implied-vol",
+        "research": {
+          "stream": "NVDA options-implied volatility, event split and overnight tail probabilities (pre-open read 2026-11-09 08:00-08:15 ET; files in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/)",
+          "key_findings": [
+            "The options market has not priced the CEO news yet. Every NVDA option quote pulled at 08:02-08:05 ET carries updated_at 2026-11-06T20:59:59Z, which is Friday's close. Options have not traded since the weekend reports. So the measured surface is Friday's pre-news surface, valued against Friday's spot of 186.64 (put-call parity confirms that spot). Robinhood's own implied_volatility field is meaningless right now: it combines stale Friday prices with the live premarket spot of ~177, which gives 175C = 172% and ITM puts = 0.02%. I did not use it. Live numbers need a re-poll after about 09:45 ET; the recipe is in repoll_ids.json and the script accepts a live quotes file, spot and time.",
+            "Volatility was already very high before the news. Friday ATM IV was 60.3% for 11/11, 61.5% for 11/13, 56.2% for 11/16, 73.6% for 11/18 (first expiry after earnings), 71.9% for 11/20 and 54.5% for 12/18. ATM straddles as a share of spot: 5.63% (11/11), 6.80% ($12.69, 11/13), 7.42% (11/16), 10.63% (11/18), 11.23% ($20.95, 11/20), 14.74% ($27.51, 12/18).",
+            "Implied daily move (1-sigma close-to-close per trading day): about 3.8% excluding earnings, the same from 11/13 (3.81%) and 11/16 (3.80%). That is about 3.0% expected absolute move a day, or ~60% annualized. Excluding earnings, the term structure slopes down: 3.8%/day near-term, 3.67% for the 11/20 base and 3.08% (48.8% annualized) for the 12/18 base. The market expected the stress to fade.",
+            "Skew on Friday's surface was steep on the downside: 11/13 IV was 68.7% at 175 against 61.0-61.3% at 187.5. Reading Friday's surface at today's strike (~177, sticky-strike) gives 67.3% for 11/13, 4.17% per trading day. That is a re-centring of Friday prices, not a live price.",
+            "Event split, method A (the requested one): take a constant per-trading-day variance from 11/13 (5 trading days, no earnings). The 11/20 variance (10 trading days) minus 9 of those base days leaves the earnings day. Result: earnings-day sigma 8.2%, which is 34% of 11/20 variance. The 7 pre-earnings trading days (11/9-11/17) are ~51% and the 2 days after are ~15%. In dollars, the earnings premium is $3.92 of the $20.95 11/20 straddle (18.7%).",
+            "Event split, method B (cleaner): 11/16 (6 trading days, before earnings) against 11/18 (8 trading days, includes the 11/17 earnings night). Result: earnings-day sigma 8.8%, which is 43% of 11/18 variance and 39% of 11/20 variance. The earnings premium is $4.57 of the 11/20 straddle (21.8%). Removing a normal intraday share from the earnings day leaves an earnings-night sigma of about 7.6-8.2%, so the expected absolute move is ~6.5-7.0%. This is consistent with EarningsWatcher's quoted ±10.5% implied move as of Nov 6, which equals the full 11/18 straddle (10.63%), not the event alone.",
+            "Prior-week reference, from daily last-trade option bars: 11/20 ATM IV was 39-40% (10/19-10/21), ~43.5% (10/22-10/29), 49% (10/30), 55% (11/2), 52-54% (11/3-11/4), 75% (11/5, after NVDA's -9.3% close-to-close day) and 70-72% (11/6). 12/18 ATM IV went 37% to 39%, 46% (11/2), 58% (11/5) and 54% (11/6). Backing out Friday's earnings variance, the 11/20 non-earnings base vol rose from ~25% (late October) to 31-38% (10/30-11/4) and 55-62% (11/5-11/6). The base vol had already roughly doubled before the CEO story.",
+            "Overnight translation. NVDA's overnight share of close-to-close variance excluding earnings is 0.34 over 1 year, 0.39 over 2 years, 0.42 over the last 60 nights and 0.43 over the last 20. Weekend-night variance is 2.1x a weeknight (2 years). NVDL's overnight beta to NVDA is 1.97.",
+            "Friday pre-news pricing gives an NVDA 1-sigma overnight of 2.24-2.38% (weekend night 3.2-3.5%) and a 6-night cumulative 6.0-6.4%. NVDL is 4.5-4.8% a night and 11.9-12.7% over 6 nights. Sticky-strike gives NVDA 2.45-2.61% a night and 6.5-7.0% over 6 nights; NVDL 4.9-5.2% a night and 13.0-13.9% over 6 nights. For comparison, NVDA's normal 1-year overnight sd is 1.37%, so implied is about 1.6-1.9x normal. Realized overnight sd was 2.29% over the last 10 nights and 1.98% over the last 20. Under Friday's pricing, this morning's -5.2% weekend gap is only about a 1.5-1.6 sigma weekend move.",
+            "Single weeknight probabilities at Friday/sticky-strike vol, overnight share 0.34-0.39. NVDA <= -5%: normal 1.1-2.5%, t4 1.6-2.5%, t3 1.4-2.1%, empirical-z 3.1-4.1%. NVDA <= -9.8%: normal ~0.00%, t4 0.14-0.25%, t3 0.20-0.32%, empirical-z 0.45-0.69%. Empirical-z standardizes 2015-2026 overnights by trailing-20 realized sd; it lags regime shifts, so it overstates.",
+            "At least one hit in the 6 nights before earnings (tonight through 11/16-17, earnings night excluded, weekend night at 2.1x variance). NVDA <= -5%: normal 10.7-19.4%, t4 11.7-17.4%, t3 10.2-14.6%, empirical-z 20-25%. NVDA <= -9.8%: normal 0.07-0.34%, t4 1.25-2.1%, t3 1.6-2.5%, empirical-z 3.3-5.2%.",
+            "Stress cases are scenarios, not measured. If live IV opens 20 vol points above Friday and news pushes the overnight share to 0.60: NVDA overnight sigma 3.9%, NVDL 7.9% a night and ~21% over 6 nights. One night: P(<= -5%) is 5.4-9.6% and P(<= -9.8%) is 0.4-2.1%. Any of 6 nights: P(<= -5%) is 33-51% and P(<= -9.8%) is 5.6-14.6%.",
+            "Historical base rates (repo CSV, NVDA non-earnings nights): since 2015, 18 of 2932 nights were <= -5% (0.61%) and 5 were <= -9.8% (0.17%). Over the last 2 years: 4 of 493 (0.81%) and 1 of 493 (0.20%). All 5 nights at or below -9.8% were weekend gaps: 2019-01-28 -14.8%, 2020-03-09 -9.8%, 2020-03-16 -11.8%, 2024-08-05 -14.2%, 2025-01-27 -12.5%. 11 of the 18 nights at or below -5% were weekend or holiday gaps. The 11/13 to 11/16 weekend is the riskiest of the 6 nights.",
+            "Check for this morning's exit: to reach -9.8% versus Friday's close (168.35) by 09:31, NVDA must fall another 5.0% (log) from 177.05 premarket. If the rest of the morning carries 25-50% of a night's variance, that is about 0.2-0.75% under t3 and under 0.2% under a normal. This is rough."
+          ],
+          "numbers": [
+            {
+              "name": "NVDA premarket last (08:01 ET)",
+              "value": "177.05 (bid 177.01 / ask 177.10), -5.14% vs 186.64 Fri close; NVDL 21.28 (-10.25%, ratio 1.99x); QQQ 663.05 (+1.06%)",
+              "n": "1 quote each",
+              "source": "get_equity_quotes 2026-11-09T13:01:42Z"
+            },
+            {
+              "name": "Option quote timestamp (all contracts)",
+              "value": "2026-11-06T20:59:59Z (Friday close) - no post-news option prices exist pre-open",
+              "n": "58 contracts across 6 expiries",
+              "source": "get_option_quotes"
+            },
+            {
+              "name": "ATM IV / ATM straddle %spot, 2026-11-13 weekly (Fri close)",
+              "value": "61.5% / 6.80% ($12.69); 1-sigma per trading day 3.81%",
+              "n": "10 contracts (175-187.5)",
+              "source": "get_option_quotes + Black-76, F from parity, r=3.3%"
+            },
+            {
+              "name": "ATM IV / straddle %spot, 2026-11-20 (post-earnings weekly)",
+              "value": "71.9% / 11.23% ($20.95); 4.45% per trading day incl. earnings",
+              "n": "6 contracts (175/180/185; 177.5 and 187.5 had no quote)",
+              "source": "get_option_quotes + Black-76"
+            },
+            {
+              "name": "ATM IV / straddle %spot, 2026-12-18 monthly",
+              "value": "54.5% / 14.74% ($27.51); ex-earnings base 48.8% (3.08%/TD)",
+              "n": "6 contracts",
+              "source": "get_option_quotes + Black-76"
+            },
+            {
+              "name": "ATM IV / straddle %spot, 11/11, 11/16, 11/18",
+              "value": "11/11 60.3% / 5.63%; 11/16 56.2% / 7.42% (3.80%/TD); 11/18 73.6% / 10.63%",
+              "n": "10 contracts each",
+              "source": "get_option_quotes + Black-76"
+            },
+            {
+              "name": "Sticky-strike IV at K~177 (Fri surface)",
+              "value": "11/11 66.5%, 11/13 67.3% (4.17%/TD), 11/16 62.9%, 11/18 79.6%, 11/20 75.6%, 12/18 56.5%",
+              "n": "strike interpolation 175-180",
+              "source": "get_option_quotes + Black-76"
+            },
+            {
+              "name": "Earnings-day sigma, method A (11/13 vs 11/20)",
+              "value": "8.20%; earnings day = 34.0% of 11/20 variance; 7 pre-earnings trading days ~51%, 2 post-earnings days ~15%; $3.92 = 18.7% of 11/20 straddle",
+              "n": "2 expiries",
+              "source": "derived (trading-day variance model)"
+            },
+            {
+              "name": "Earnings-day sigma, method B (11/16 vs 11/18)",
+              "value": "8.78%; 43% of 11/18 variance, 39% of 11/20 variance; $4.57 = 21.8% of 11/20 straddle; earnings-night-only sigma ~7.6-8.2%",
+              "n": "2 expiries",
+              "source": "derived"
+            },
+            {
+              "name": "External implied earnings move (cross-check)",
+              "value": "+/-10.5% as of Nov 6, 2026; 10-yr avg +/-8.4% (matches our 11/18 straddle 10.63%)",
+              "n": "1 page",
+              "source": "https://earnings-watcher.com/wiki/nvda-earnings-november-2026 (fetched 2026-11-09)"
+            },
+            {
+              "name": "11/20 ATM IV history (last-trade daily bars)",
+              "value": "10/19 38.9%, 10/22 43.3%, 10/29 43.6%, 10/30 49.2%, 11/2 55.1%, 11/3 54.2%, 11/4 52.3%, 11/5 75.1%, 11/6 69.6% (quote-mid 71.9%)",
+              "n": "15 sessions x 14 contracts",
+              "source": "get_option_historicals day bars + get_equity_historicals"
+            },
+            {
+              "name": "12/18 ATM IV history",
+              "value": "10/19 37.0%, 10/29 39.2%, 11/2 45.8%, 11/4 44.6%, 11/5 57.9%, 11/6 54.2% (quote-mid 54.5%)",
+              "n": "15 sessions x 12 contracts",
+              "source": "get_option_historicals"
+            },
+            {
+              "name": "11/20 ex-earnings base vol history",
+              "value": "~25% (10/27-10/29) -> 31-38% (10/30-11/4) -> 62.5% (11/5) -> 55% (11/6)",
+              "n": "15 sessions",
+              "source": "derived (removes method-B earnings variance)"
+            },
+            {
+              "name": "NVDA overnight share of close-to-close variance (ex-earnings)",
+              "value": "1y 0.34, 2y 0.39, last60 0.42, last20 0.43",
+              "n": "247 / 496 / 60 / 20 days",
+              "source": "get_equity_historicals daily 2024-11..2026-11 + repo CSV earn flags"
+            },
+            {
+              "name": "Weekend vs weeknight overnight variance ratio",
+              "value": "2.10 (last 2y), 1.91 (2015-2026)",
+              "n": "381/104 and 2286/618 nights",
+              "source": "overnight_thru_20261106.csv"
+            },
+            {
+              "name": "NVDL overnight beta to NVDA",
+              "value": "1.97",
+              "n": "non-earnings nights with NVDL data",
+              "source": "overnight_thru_20261106.csv"
+            },
+            {
+              "name": "Implied NVDA 1-sigma overnight (weeknight) / 6-night cumulative",
+              "value": "Fri pre-news 2.24-2.38% / 6.0-6.4%; sticky-strike 2.45-2.61% / 6.5-7.0%; +20 vol scenario 2.98-3.17% / 7.9-8.5%",
+              "n": "share 0.34-0.39",
+              "source": "derived"
+            },
+            {
+              "name": "Implied NVDL 1-sigma overnight / 6-night cumulative",
+              "value": "Fri pre-news 4.5-4.8% / 11.9-12.7%; sticky-strike 4.9-5.2% / 13.0-13.9%; +20 vol 6.0-6.3% / 15.9-16.9%; stress (share .60, +20) 7.9% / 20.9%",
+              "n": "2x NVDA",
+              "source": "derived"
+            },
+            {
+              "name": "P(NVDA overnight <= -5%), one weeknight",
+              "value": "Fri: N 1.1-1.6%, t4 1.6-1.9%, t3 1.4-1.7%, emp-z 3.1-3.5%; sticky: N 1.8-2.5%, t4 2.1-2.5%, t3 1.8-2.1%, emp-z 3.6-4.1%",
+              "n": "share 0.34-0.39",
+              "source": "derived (t scaled to equal variance)"
+            },
+            {
+              "name": "P(NVDA overnight <= -9.8%), one weeknight",
+              "value": "Fri: N ~0.00%, t4 0.14-0.18%, t3 0.20-0.25%, emp-z 0.45-0.55%; sticky: N ~0.00%, t4 0.20-0.25%, t3 0.26-0.32%, emp-z 0.58-0.69%",
+              "n": "share 0.34-0.39",
+              "source": "derived"
+            },
+            {
+              "name": "P(at least one NVDA overnight <= -5% in next 6 nights)",
+              "value": "Fri: N 10.7-14.0%, t4 11.7-13.9%, t3 10.2-11.9%, emp-z 19.9-22.1%; sticky: N 15.4-19.4%, t4 14.9-17.4%, t3 12.7-14.6%, emp-z 22.7-25.2%",
+              "n": "6 nights (5 weeknights + 1 weekend at 2.1x var)",
+              "source": "derived"
+            },
+            {
+              "name": "P(at least one NVDA overnight <= -9.8% in next 6 nights)",
+              "value": "Fri: N 0.07-0.15%, t4 1.25-1.57%, t3 1.6-1.9%, emp-z 3.3-4.0%; sticky: N 0.19-0.34%, t4 1.7-2.1%, t3 2.1-2.5%, emp-z 4.4-5.2%",
+              "n": "6 nights",
+              "source": "derived"
+            },
+            {
+              "name": "Stress scenario (+20 vol pts, overnight share 0.60) - NOT measured",
+              "value": "1 night <=-5%: N 9.6%, t4 6.9%, t3 5.4%, emp 8.1%; <=-9.8%: 0.4-2.1%; any of 6 <=-5%: 33-51%; <=-9.8%: 5.6-14.6%",
+              "n": "scenario",
+              "source": "derived"
+            },
+            {
+              "name": "Empirical standardized overnight tail vs t3 (2015-2026, trailing-20 sd)",
+              "value": "P(z<=-3) 1.30% vs t3 0.69% vs normal 0.13%; P(z<=-4) 0.69% vs 0.31%; P(z<=-5) 0.31% vs 0.16%; excess kurtosis 12.7",
+              "n": "2912 nights",
+              "source": "overnight_thru_20261106.csv"
+            },
+            {
+              "name": "Raw NVDA non-earnings overnight frequency",
+              "value": "<= -5%: 18 (0.61%) since 2015, 4 (0.81%) last 2y; <= -9.8%: 5 (0.17%) since 2015, 1 (0.20%) last 2y; all 5 <= -9.8% were weekend gaps",
+              "n": "2932 / 493 nights",
+              "source": "overnight_thru_20261106.csv"
+            },
+            {
+              "name": "Realized NVDA vol (reference)",
+              "value": "overnight sd last10 2.29%, last20 1.98%; close-to-close ann. last10 60.6%, last20 47.8%; 1y normal overnight sd 1.37%",
+              "n": "10/20/247 nights",
+              "source": "repo CSV + get_equity_historicals"
+            },
+            {
+              "name": "Morning exit check (to 168.35 = -9.8% vs Fri by 09:31)",
+              "value": "needs a further -5.0% log from 177.05; P ~0.2-0.75% (t3) / <0.2% (normal) if 25-50% of a night's variance remains",
+              "n": "rough",
+              "source": "derived"
+            }
+          ],
+          "caveats": [
+            "No live post-news option prices exist before 09:30 ET. Every figure labelled 'Friday' is pre-news (spot 186.64). 'Sticky-strike' rows re-centre Friday's surface on 177 and are not market quotes. The '+10/+20/+30 vol' rows and the 0.60 overnight share are scenarios. Re-poll after ~09:45 ET with repoll_ids.json and run: python3 iv_analysis.py <new.json> <live_spot> 2026-11-09THH:MM. Live mode reproduces the Friday numbers when given Friday's inputs.",
+            "Robinhood's implied_volatility and greeks fields on these quotes are invalid pre-open (stale option prices against the live premarket spot). I recomputed all IVs myself: Black-76 on bid/ask mids, forward from put-call parity, r = 3.3% (implied by 12/18 parity at 3.1-3.4%; negligible effect).",
+            "ATM IV comes from interpolating each strike's call/put IV average to the forward. 11/20 has no 177.5 or 187.5 quote, so IV above 185 is flat-extrapolated (straddle about ±$0.1). 11/16 and 11/18 are thin weeklies with wide call spreads ($0.2-2.4) and low open interest (18-1320). Method B therefore rests on noisier prices than method A.",
+            "Event split model: total variance = base variance per trading day x trading days + earnings-day variance. Weekends are folded into Monday's day, and base vol is assumed constant over the window. If the 11/13 base includes post-crash or headline vol that the market expected to decay, method A understates the earnings variance. Both methods give 8.2-8.8%.",
+            "Historical IV uses daily last-trade option closes, which are asynchronous with the stock close and are not mids. ATM is interpolated from OTM options only. Spot sat slightly outside the fetched strikes on 10/19-10/21 and 10/26-10/28 (flat extrapolation). The base-vol history subtracts Friday's earnings variance, assuming it was constant through the window.",
+            "Overnight sigma = implied per-trading-day sigma x sqrt(overnight share). The share comes from 1-2 years of RTH open/close bars. In a headline-driven week more variance may arrive overnight (the last 20 nights show 0.43), hence the 0.60 stress row. NVDL is modelled as 2.0x NVDA close-to-open; the empirical beta is 1.97. The 15:52-16:00 and 09:30-09:31 slivers, premarket spreads and NVDL tracking or fees are ignored.",
+            "Tail models: t3 and t4 are scaled to the same variance as the normal. 'empz' standardizes 2015-2026 overnights by a lagged trailing-20 realized sd. That inflates tails in regime shifts relative to an implied-sigma forecast, so read it as an upper reference. The 6-night 'any' probabilities assume independent nights, but real vol clustering and news follow-through correlate them.",
+            "The external Stockwirex claim (30-day IV ~34%, IV rank 2.7%) is UNVERIFIED and undated. It was not fetched and appears to predate the 11/5 selloff. The search-result snippet's '±7.9% as of Nov 3' for EarningsWatcher was superseded on the fetched page by '±10.5% as of Nov 6'.",
+            "No account data was queried. The '-5% NVDA ~ pause after today's loss' framing in the implication is conditional on the orchestrator's equity math, which I did not verify.",
+            "No orders or order-related tools were used. Nothing under /home/user/test-trading was modified."
+          ],
+          "sources": [
+            "Robinhood MCP get_option_chains NVDA (chain 8d629e37-6050-47e4-906e-1c0c4de93f71), 2026-11-09 ~08:02 ET",
+            "Robinhood MCP get_option_instruments (expiries 11/09, 11/11, 11/13, 11/16, 11/18, 11/20, 12/18; strikes 175-215)",
+            "Robinhood MCP get_option_quotes (58 contracts, all stamped 2026-11-06T20:59:59Z)",
+            "Robinhood MCP get_option_historicals (daily bars 2026-10-19..11-06, 11/20 and 12/18 strikes 175-215)",
+            "Robinhood MCP get_equity_quotes NVDA/NVDL/QQQ 2026-11-09T13:01Z; get_equity_historicals NVDA daily 2024-11-01..2026-11-06",
+            "Robinhood MCP get_earnings_results NVDA (2026-11-17 pm, verified)",
+            "/home/user/test-trading/trader/research/edge_decay/overnight_thru_20261106.csv (read-only)",
+            "/home/user/test-trading/trader/RULES_v3.md (read-only, context for section 5 and section 6)",
+            "https://earnings-watcher.com/wiki/nvda-earnings-november-2026 (fetched: implied move ±10.5% as of Nov 6, 2026; 10-yr average ±8.4%)",
+            "https://stockwirex.com/?p=47322 (search snippet only, UNVERIFIED: ~34% 30-day IV, IV rank 2.7%)",
+            "Output files: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/iv_analysis.py, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/results.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/results_stdout.txt, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/data_quotes_fri1106close.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/data_opt_hist_daily.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/nvda_daily_2y.json, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/repoll_ids.json"
+          ],
+          "implication_for_overnight_holding": "Even before the CEO news, options priced NVDA at about 60% vol excluding earnings. That is roughly 3.8% per trading day, or 2.2-2.4% per overnight for NVDA and 4.5-4.8% per night for NVDL. Ex-earnings vol had about doubled from late-October levels after the 11/5 selloff. Re-centring Friday's skew on today's ~177 spot raises this to 2.5-2.6% per NVDA night and 4.9-5.2% per NVDL night. Live IV after the open will probably be higher still. Against that, the account's planning edge (+0.3% per night on NVDL) is under 0.07 sigma per night, so risk dominates over the 6 nights left before the earnings blackout (11/9-10 through 11/16-17). The cumulative 1-sigma for NVDL over those nights is about 12-14%, or 16-21% in stress.\n\nOdds over the 6 nights:\n- At least one NVDA overnight of -5% or worse: about 10-19% under normal or t models at measured or sticky-strike vol, about 20-25% under the empirical fat-tail standardization, and 33-51% if live IV opens about 20 points higher and news pushes more variance overnight. This matters if, after today's gap, a -5% night is close to the pause level.\n- A -9.8% NVDA night: about 1.3-2.5% under t3/t4 at measured vol, about 3-5% empirically, and 6-15% in the stress case.\n\nThe Fri 11/13 to Mon 11/16 weekend night carries about 2.1x weeknight variance. All five non-earnings NVDA overnights of -9.8% or worse since 2015 were weekend gaps, so that night is the single largest tail exposure in the window.\n\nThe earnings night (11/17-18) is priced at about an 8-9% one-day sigma, and the existing blackout already excludes it.\n\nBefore the 15:48 entry decision, re-poll the 11/13 and 11/16 ATM straddles after about 09:45 ET. If 11/13 ATM IV is above about 70% (above about 4.4% per trading day), the +10/+20 vol rows apply rather than the Friday rows."
+        },
+        "verification": {
+          "checks": [
+            {
+              "claim": "No post-news option prices exist pre-open. Every NVDA option quote carries updated_at 2026-11-06T20:59:59Z, and put-call parity implies Friday's spot (~186.6), not the premarket ~177. RH's implied_volatility field is invalid.",
+              "holds": true,
+              "reason": "I re-queried 32 contracts at ~08:25 ET (11/13, 11/16, 11/18, 11/20, 12/18 at strikes 175-190). All are stamped 2026-11-06T20:59:59Z. Parity forwards are 186.80-186.83 for 11/13 and 187.31-187.38 for 12/18, which discount to about 186.7 spot. RH IV shows 11/13 175C at 177.8% and 185P/187.5P/190P at 0.0224%, which is nonsense. Live premarket NVDA was 176.49 (bid 176.47/ask 176.50) at 13:23Z.",
+              "corrected": ""
+            },
+            {
+              "claim": "11/13 ATM IV 61.5%, straddle $12.69 = 6.80% of spot, 3.81% per trading day. 11/16 56.2% / 7.42% (3.80%/TD). 11/18 73.6% / 10.63%. Skew 68.7% at 175 vs ~61% at 187.5.",
+              "holds": true,
+              "reason": "My own Black-76 (mids, parity forward, r=3.3%, ACT/365 from Fri 16:00) gives 11/13 61.6% / $12.69 / 6.80% / 3.81%/TD. 11/16 is 56.2% / 7.42% / 3.80%/TD. 11/18 is 73.5% / 10.63%. Strike IVs for 11/13 are 175: 68.7%, 180: 65.6%, 185: 62.6%, 187.5: 61.2%, 190: 59.7%. Sticky-strike at 177 interpolates to ~67.4%, or 4.17%/TD. Quotes match their saved file exactly.",
+              "corrected": ""
+            },
+            {
+              "claim": "11/20 ATM IV 71.9%, straddle $20.95 = 11.23%. 12/18 ATM IV 54.5%, straddle $27.51 = 14.74%, ex-earnings base 48.8%. The extrapolation error is about ±$0.1.",
+              "holds": false,
+              "reason": "Both expiries have a quoted 190 strike: 11/20 190C 8.75/8.85, 190P 11.80/11.90; 12/18 190C 12.20/12.35, 190P 14.85/15.05. The stream never fetched it and flat-extrapolated the 185 IV up to F≈187. Interpolating 185-190 gives 11/20 ATM 71.0%, straddle $20.71 = 11.10%, and 12/18 ATM 54.0%, straddle $27.25 = 14.60%. The 12/18 ex-earnings base becomes 48.3% (3.04%/TD) and the 11/20 ex-earnings base 3.60%/TD (they had 3.67%). The overstatement is $0.24-0.26, so the stated ±$0.1 error is too small. 11/20 187.5 really is unquoted; my request for it returned nothing.",
+              "corrected": "11/20 ATM ~71.0%, straddle ~$20.71 (11.10% of 186.64). 12/18 ATM ~54.0%, straddle ~$27.25 (14.60%). 12/18 ex-earnings base ~48.3%."
+            },
+            {
+              "claim": "Event split method A (11/13 vs 11/20): earnings-day sigma 8.20%, 34% of 11/20 variance, $3.92 = 18.7% of the straddle. Method B (11/16 vs 11/18): 8.78%, 43% of 11/18 variance, 39% of 11/20 variance, $4.57 = 21.8%.",
+              "holds": false,
+              "reason": "Method B reproduces (8.77%, 43.3%, 39.7%, $4.63 = 22.4%). Method A inherits the inflated 11/20 ATM: with the 190 strike I get 7.92%, 32.4% of 11/20 variance (pre-earnings days 52.5%, post 15.0%), and $3.68 = 17.8%. The headline range 8.2-8.8% becomes 7.9-8.8%. The derived earnings-night-only sigma of 7.6-8.2% drops to about 7.3-8.2%. The method itself is sound and correctly stated.",
+              "corrected": "Method A earnings-day sigma ~7.9% (32% of 11/20 variance, ~$3.7 = 18% of the straddle). Overall range 7.9-8.8%."
+            },
+            {
+              "claim": "EarningsWatcher shows an implied move of ±10.5% as of Nov 6, 2026 and a 10-year average of ±8.4%. This matches the full 11/18 straddle (10.63%), not the event alone.",
+              "holds": true,
+              "reason": "I re-fetched https://earnings-watcher.com/wiki/nvda-earnings-november-2026. It reads: 'As of November 6, 2026, options price NVDA for a ±10.5% move on the Nov 17, 2026 report'; '±8.4% on average ... over the last 10 years' (median ±6.6%); report Nov 17 after the close. get_earnings_results confirms 2026-11-17 pm, verified.",
+              "corrected": ""
+            },
+            {
+              "claim": "Overnight share of close-to-close variance excluding earnings: 1y 0.34, 2y 0.39, last60 0.42, last20 0.43. Realized overnight sd: last10 2.29%, last20 1.98%, 1y 1.37%. Close-to-close annualized: last10 60.6%, last20 47.8%.",
+              "holds": true,
+              "reason": "I re-pulled NVDA daily bars 2024-10-25..2026-11-06 independently. Overnight returns match the CSV within 1.4bp. Shares by var ratio: 1y 0.344, 2y 0.391, last60 0.418, last20 0.431. On a sum-of-squares basis the last-20 share is 0.384. Every realized-vol figure reproduced exactly.",
+              "corrected": ""
+            },
+            {
+              "claim": "Implied NVDA 1-sigma weeknight overnight is 2.24-2.38% (weekend 3.2-3.5%), 6 nights 6.0-6.4%. NVDL is 4.5-4.8% a night and 11.9-12.7% over 6 nights.",
+              "holds": false,
+              "reason": "The arithmetic reproduces: 3.81% x sqrt(0.34..0.39) = 2.22-2.38%. The model double-counts the weekend, though. The overnight share is averaged over all days, so Monday's weekend gap is already in it, and iv_analysis.py six_night() then adds a 2.1x weekend night on top. Total modeled overnight variance is overstated by about 22%, or about 10% in sigma. Done consistently, the weeknight sigma is ~2.03-2.15% and the weekend ~2.9-3.1%. The 6-night cumulative is ~5.4-5.8% for NVDA and ~10.9-11.6% for NVDL. The bias makes the stream's risk numbers more conservative, not less.",
+              "corrected": "Weeknight ~2.0-2.15%, weekend ~2.9-3.1%, 6-night ~5.4-5.8% for NVDA (NVDL ~2x). The stream's figures are a slightly conservative upper version."
+            },
+            {
+              "claim": "Single-weeknight probabilities at Friday vol: P(<=-5%) normal 1.1-1.6%, t4 1.6-1.9%, t3 1.4-1.7%; P(<=-9.8%) t4 0.14-0.18%, t3 0.20-0.25%. Any of 6 nights <=-5%: normal 10.7-14.0%, t4 11.7-13.9%, t3 10.2-11.9%; <=-9.8%: t4 1.25-1.57%, t3 1.6-1.9%. Stress case (+20 vol, share 0.60): one night 5.4-9.6%, any of 6 32-51%.",
+              "holds": true,
+              "reason": "I recomputed with scipy, using t scaled to equal variance and log thresholds. Single night: N 1.05-1.56%, t4 1.55-1.90%, t3 1.40-1.67%; at -9.8%, t4 0.14-0.18% and t3 0.20-0.24%. Six nights: N 10.4-13.9%, t4 11.5-13.9%, t3 10.1-11.9% at -5%; t4 1.22-1.56% and t3 1.57-1.91% at -9.8%. Stress: N 9.5% / t4 6.9% / t3 5.4% for one night, 32-50% for any of 6. These reproduce given their sigmas. Two caveats: they inherit the ~10% sigma inflation above, which overstates weeknight normal P(<=-5%) by ~1.5-2x (consistent version ~0.6-0.9%), and the 6-night figures assume independent nights.",
+              "corrected": ""
+            },
+            {
+              "claim": "Historical base rates (repo CSV, non-earnings nights): 18/2932 <=-5% and 5/2932 <=-9.8% since 2015; 4/493 and 1/493 over the last 2 years. All 5 nights at or below -9.8% were weekend gaps, and 11 of 18 at or below -5% were weekend or holiday gaps.",
+              "holds": true,
+              "reason": "Every count, date and magnitude is exact: 2019-01-28 -14.8%, 2020-03-09 -9.83%, 2020-03-16 -11.8%, 2024-08-05 -14.2%, 2025-01-27 -12.5%, all with gapdays=3. Also 11 of 18 have gapdays>=3. Caveats: n=5, and 2020-03-09 is barely past the threshold. 2019-01-28 was an NVDA Monday-premarket pre-announcement (CSV preann column). The other four were macro or sector shocks, not CEO or governance events, so they are weak analogues for this situation.",
+              "corrected": ""
+            },
+            {
+              "claim": "Weekend/weeknight overnight variance ratio is 2.10 over 2y and 1.91 over 2015-2026 (2286/618). NVDL overnight beta is 1.97.",
+              "holds": true,
+              "reason": "The 2y ratio is 2.08-2.13 depending on window, using gap==3 (1.97 with holidays included). The long-run ratio is 1.89 for gap==3 and 1.80 for gap>=3 (n=618), so the stated 1.91 is a little high. NVDL beta is 1.975 using nvdl_clean (1.92 using raw nvdl_on).",
+              "corrected": "Long-run ratio ~1.8-1.9."
+            },
+            {
+              "claim": "Empirical standardized tail (trailing-20 sd): P(z<=-3) 1.30%, P(z<=-4) 0.69%, P(z<=-5) 0.31%, excess kurtosis 12.7.",
+              "holds": false,
+              "reason": "With ddof=1 I get 1.30%, 0.62% and 0.27%; with ddof=0 I get 1.34%, 0.69% and 0.31%. The stream mixes the two conventions. Excess kurtosis of z is 6.0-6.6, and of raw overnight returns 10.5. I could not reproduce 12.7. The qualitative point stands: empirical tails are ~2x t3 at 3-5 sigma.",
+              "corrected": "Excess kurtosis of z ~6. Tail frequencies 1.3% / 0.6-0.7% / 0.27-0.31%."
+            },
+            {
+              "claim": "Prior-week IV history: 11/20 ATM IV went ~39-40% (10/19-21) → ~43.5% → 49% (10/30) → 55% (11/2) → 75% (11/5) → 70% (11/6). Ex-earnings base vol went ~25% → 31-38% → 55-62%, so base vol had already roughly doubled before the CEO story.",
+              "holds": false,
+              "reason": "The IV series reproduces from the stream's saved last-trade bars, and its NVDA closes match my re-pulled bars. I did not re-query get_option_historicals because it is not in the hard-constraint tool list. The 'base doubled' inference depends on assuming October's earnings variance equalled Friday's 8.77% day-sigma. With a 7% October earnings sigma, the 10/29 base is ~33% rather than 25%, which is ~1.7x instead of 2.2x. The 12/18 ATM IV, which is less earnings-dominated, rose only 39% to 54% (~1.4x). Vol clearly rose sharply after 11/5, but 'doubled' is model-dependent and overstated.",
+              "corrected": "Ex-earnings vol rose roughly 1.4-2.2x from late October to 11/5-11/6, depending on the earnings-variance assumption."
+            },
+            {
+              "claim": "Morning exit check: reaching 168.35 (-9.8% vs Friday) needs a further -5.0% log move from 177.05. Probability is ~0.2-0.75% under t3 and <0.2% under a normal.",
+              "holds": false,
+              "reason": "The threshold arithmetic holds: 186.64 x 0.902 = 168.35, and ln(168.35/177.05) = -5.04%. The probabilities use the weeknight sigma (2.24-2.38%) on a news-driven weekend morning, using a pre-news vol surface. With the stream's own weekend sigma (3.25-3.45%) and 25-50% of the variance remaining, I get normal 0.1-1.9% and t3 0.6-1.9%. At 08:23 ET NVDA was 176.49, so the further move needed was -4.73%. The check is moot after the 09:31 exit.",
+              "corrected": "Roughly 0.2-2% depending on the sigma basis. The upper end applies if the weekend or news-driven vol is used."
+            },
+            {
+              "claim": "The planning edge of +0.3%/night on NVDL is under 0.07 sigma per night.",
+              "holds": true,
+              "reason": "RULES_v3.md §3 v1.6(a) says 'Planning edge: +0.30%/night gross per unit exposure (90% CI ~+0.1..+0.6)', and 0.30/4.5 = 0.067. Note that the same file's execution-timing study puts realized 15:52→09:31 at ~+20bp/night (t~1.0), which makes the ratio smaller still.",
+              "corrected": ""
+            }
+          ],
+          "overall": "partially holds",
+          "missed": [
+            "Compliance: the stream called get_option_historicals. The stream task did say 'if exposed', but the tool is not in the HARD CONSTRAINTS allowed-tool list, so this should be flagged. I did not call it and verified the IV history only from the stream's saved file (/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/data_opt_hist_daily.json), whose NVDA closes match my independently pulled bars.",
+            "The 11/20 and 12/18 ATM figures ignore the available, quoted 190 strike. The stream's caveat that 11/20 'has no 187.5 quote, so IV above 185 is flat-extrapolated' is misleading because 190 was there. Using it moves 11/20 ATM IV down ~0.9 points and the method-A earnings sigma from 8.2% to 7.9%.",
+            "Weekend double-count: the overnight share already includes Monday weekend gaps, and the 2.1x weekend multiplier is applied on top (iv_analysis.py six_night()). All overnight sigmas and probabilities are biased up by ~10% in sigma, or up to ~2x for normal weeknight P(<=-5%). This is the conservative direction but it should be stated.",
+            "Under the variance-matched t models, P(<=-5%) is LOWER than under the normal for the measured sigmas (t3 1.4-1.7% vs N 1.6%). 'Fatter tails' raises only the -9.8% probabilities. The stream's tables show this, but its prose does not say so.",
+            "The analogue set for <=-9.8% nights (n=5) is almost entirely macro or sector shocks plus one NVDA pre-announcement. There are no governance or CEO-scandal analogues. The empirical-z and base-rate figures therefore say little about how this specific news propagates, and the CSV ends with the 11/5→11/6 night, before this morning's gap.",
+            "On 11/6 NVDA gapped UP +5.2% overnight (open 191.10 vs 181.60). Recent overnight vol is two-sided, so the last-10/20 realized sd is not purely downside stress.",
+            "All 'Friday' numbers are pre-news, and the 'live IV will probably be higher' claim is unmeasured. No live option print existed at 08:25 ET. The re-poll recipe in repoll_ids.json is the right next step.",
+            "The probabilities are per single night. The account's PAUSE trigger depends on cumulative equity versus a rolling 20-session high, and RULES_v3 §6 says the trigger level shifts around 11/9 as 10/12 leaves the window. Multi-night paths (several -2% to -3% nights) are not translated into P(PAUSE). Account math was correctly left unverified."
+          ]
+        }
+      },
+      {
+        "key": "news-timeline",
+        "research": {
+          "stream": "News/catalyst facts: Nvidia board review of CEO Jensen Huang (as of Mon 2026-11-09 ~08:15 ET) plus dated events before and after the 2026-11-17 earnings",
+          "key_findings": [
+            "CONFIRMED (primary source): On Sun 2026-11-08 the NVIDIA Board of Directors issued a press release, 'Statement from NVIDIA Board of Directors', on investor.nvidia.com. A secondary source (24/7 Wall St) times it at about 2:59pm ET; that time is UNVERIFIED. The board is opening an independent investigation 'in light of recent reporting' that Huang was the target of a foreign intelligence effort. A committee of independent directors, assisted by outside independent counsel, will oversee it. Neither the directors nor the law firm is named in any source found. The board gave NO timeline and says only that it 'will provide further updates as appropriate'. It says it has 'no reason to believe that either national security or NVIDIA secrets were compromised' and that it 'has confidence in Jensen and his leadership team'. Huang 'fully supports the review' and remains CEO.",
+            "CONFIRMED: As of 08:06 ET on 11/09 there is NO 8-K. I checked the SEC EDGAR submissions JSON and the atom feed for CIK 0001045810. The last filing is a Form 4 on 2026-11-06, and the last 8-K was 2026-09-03 (item 8.01). The announcement exists only as a press release, which CNBC says carried a GlobeNewswire link dated 2026/11/08.",
+            "CONFIRMED as statements (quoted by CBS, ABC, CNBC and NBC): Huang's Sunday memo to staff says 'I was unfaithful to my wife. My actions hurt her and our children. There is no excuse for what I did. I am deeply sorry.' It also says he will cooperate fully. It does not name the woman. Nvidia's statement: 'Today's news will not slow NVIDIA. Jensen is committed to continuing to lead NVIDIA as CEO without interruption.' Spokesman John Rizzo declined to say whether Huang will brief Congress. This admission contradicts Nvidia's earlier line (Oct 29 / Nov 6) that his contacts with Alice Huang were 'not unusual' and ordinary customer contacts, which is a credibility gap.",
+            "REPORTED, NOT confirmed by the US government (anonymous sources): The NYT reported on 10/29 that US intelligence surveilled Alice Huang, an executive at Megaspeed in Singapore, as a suspected Chinese intelligence asset. On Fri 11/06 the NYT reported a memo sent 'last spring' to Trump administration policymakers saying she had been recruited by China's Ministry of State Security (MSS). The FT, also on 11/06 per NBC, reported that the memo describes a romantic relationship. On 11/07 the NYT published a separate report on New Matrix, a Chinese firm Commerce reportedly cleared for Nvidia chips. On Sun 11/08 the NYT reported that Rubio oversaw the memo. An NBC source said US intelligence 'determined' she was a spy. Megaspeed reportedly bought more than $4.8B of Nvidia chips over two years (NYT via CBS). Megaspeed denies wrongdoing.",
+            "CONFIRMED: Congress has a dated ask. I read the House letter PDF dated 2026-11-04 (press release 11/05). Chairs Mast (Foreign Affairs), Moolenaar (Select Committee on the CCP) and Crawford (Intelligence) ask Huang to attend a joint closed-door briefing in Room 2172 Rayburn on Nov 18 2026. He must accept, or propose another session day of the 119th Congress, by Nov 11 2026. Whether he will attend is unknown. Other reactions: Sen. Coons (D) posted on 11/7 'Congress will investigate and get answers'; Sen. Warren (D) posted on 10/29 that Huang and the board 'owe Congress answers'; Rep. Magaziner (D) wants Lutnick to testify as well; Sen. Cornyn (R) called the New Matrix report 'outrageous'. No hearing has been scheduled.",
+            "No FBI, DOJ, CFIUS or SEC involvement is reported in any source checked (CNBC x4, CBS, ABC, NBC, Reuters via Yahoo/Investing, TechCrunch, House letter). The House letter names no agency. The US government has not publicly confirmed the intelligence assessment. Secretary Rubio declined to comment ('internal corporate matter' / 'can't comment because of the nature of it'). CIA, NSA and ODNI did not respond to CBS. Commerce previously scrutinised Megaspeed over export controls (Dec 2025 Bloomberg; Cotton letters). Singapore police are investigating Megaspeed but say they did not investigate Alice Huang's intelligence ties.",
+            "Political reactions: On Sun 11/8 Trump said 'I think he's an honorable guy. I think he probably has an excuse for it. You have to hear it.' He has not spoken to Huang, said he would 'certainly take him' on next week's Asia trip, and said 'no' when asked whether he wished he had acted on the intelligence. On Mon 11/9 China's Foreign Ministry spokesman Guo Jiakun called the allegation 'unsubstantiated... nothing but smears against China'.",
+            "Market reaction (Robinhood data): Friday's after-hours session ended near 188.70. The 24/5 overnight session opened Sun 20:00 ET and NVDA dropped to 178.73 within 30 minutes. The overnight low was 175.26 and the premarket low was 174.49 (-6.51% vs 186.64). At 08:11 ET NVDA was 176.80 (-5.27%) and NVDL 21.17 (-10.7%), while QQQ was +0.8%, AMD +3.6% and AVGO +3.0%, so the move is company-specific. Reuters/CNBC said 'nearly 5%' premarket, with roughly $230B (NBC) to $250B (Reuters) of market value erased. Background: NVDA fell 9.26% on Thu 11/5 in a post-midterm tech selloff (QQQ -6.49%) and is down 22% from its 10/6 close.",
+            "Analyst actions: as of about 08:15 ET I found NO rating or price-target changes, only commentary. Bernstein (Rasgon): '(so far) more form than substance, though a (very) bad look', and Huang 'IS NVIDIA' (key-man risk). Citi (Atif Malik): governance, regulatory scrutiny, export-control compliance on H200 flows through intermediaries, and leadership stability. Dan Ives: a 'black eye moment' and calls to replace Huang are 'comedy'. Panmure Liberum (Klement): impact contained to Nvidia for now. Pepperstone (Weston): does not expect Huang to step down but says the stock would fall sharply if he did. Gary Black (Future Fund, on X): 'I doubt Jensen Huang will be able to remain as CEO' (opinion). eToro (Gilbert): the 11/17 earnings are 'the next real test'.",
+            "Dated catalysts before earnings: Tue 11/10 08:30 ET, October CPI (BLS schedule, confirmed), which lands inside the Mon-to-Tue hold before the 09:31 exit. Wed 11/11, Huang's deadline to answer the House (confirmed in the letter), and Veterans Day. Fri 11/13 08:30, PPI (BLS). Tue 11/17 08:30, import prices (BLS). Tue 11/17 after the close, Q3 FY27 earnings: results about 1:20pm PT, call 2pm PT / 5pm ET, quarter ended 10/25. These are confirmed by the 10/28 NVIDIA press release and by Robinhood (verified=true, EPS estimate 2.48).",
+            "Dated catalysts after earnings: Wed 11/18, the requested closed-door House briefing (attendance unconfirmed). Nov 18-19, the APEC leaders' meeting in Shenzhen (Shenzhen government / Xinhua), with the APEC CEO Summit on Nov 17-18 per secondary sources. Shenzhen is UTC+8, so events there happen during the US overnight. A Trump-Xi meeting is expected but not confirmed by the White House, and Trump has floated bringing Huang. Nov 30-Dec 3, GTC Washington DC (nvidia.com), with Huang's keynote Dec 1 at 2pm ET per baxtel (secondary). There is no scheduled board meeting and no date for the investigation's findings. NVIDIA's next earnings date, 2027-02-24, is unverified.",
+            "Conflicting or incorrect reports to flag: (1) When the memo was written: 'last spring' (NYT/CNBC), 'roughly a year ago' for Trump's briefing (Reuters), 'earlier this year' (TechCrunch), '2025' (OpIndia). (2) Who first reported the romance: CNBC says NYT, while NBC and TechCrunch say FT. (3) The House letter is dated Nov 4 but was publicised Nov 5. (4) Alice Huang is called an 'executive' (House) or a 'former executive' (Reuters/CBS), alias Huang Le. (5) She is described as 'suspected' by most outlets but 'determined' a spy by NBC's source. (6) tech-insider.org says NVDA 'fell 3.4% after hours Monday per Reuters'; this is mislabelled, since Reuters reported about 5% premarket. (7) The Stocktwits/Yahoo lede says 'U.S. spy', which is wrong. (8) One outlet calls Cornyn 'governor', which is wrong. (9) The 24/7 Wall St 'history' piece has arithmetic errors and poor analogies. (10) A WSJ claim that authorities in at least three countries are concerned is UNVERIFIED (seen only in a search summary). (11) No fake resignation rumor was found; resignation talk is opinion only."
+          ],
+          "numbers": [
+            {
+              "name": "NVDA official close Fri 2026-11-06",
+              "value": "186.64",
+              "n": "1",
+              "source": "Robinhood get_equity_quotes (sip-list-exchange-close)"
+            },
+            {
+              "name": "NVDA extended-hours last, 2026-11-09 08:11 ET",
+              "value": "176.80 (-5.27%)",
+              "n": "1 snapshot",
+              "source": "Robinhood get_equity_quotes 13:11:33 UTC"
+            },
+            {
+              "name": "NVDA extended-hours last, 2026-11-09 08:04 ET",
+              "value": "177.40 (-4.95%)",
+              "n": "1 snapshot",
+              "source": "Robinhood get_equity_quotes 13:04:55 UTC"
+            },
+            {
+              "name": "NVDA premarket low so far (07:30-08:00 ET bar)",
+              "value": "174.49 (-6.51%)",
+              "n": "30-min 24_5 bars since Sun 20:00 ET",
+              "source": "Robinhood get_equity_historicals 30minute bounds=24_5"
+            },
+            {
+              "name": "NVDA overnight-session first 30 min (Sun 20:00-20:30 ET)",
+              "value": "open 188.70, close 178.73, low 178.50",
+              "n": "1 bar",
+              "source": "Robinhood get_equity_historicals 30minute 24_5"
+            },
+            {
+              "name": "NVDA price equivalent to the -9.8% pause trigger from Friday close",
+              "value": "168.35",
+              "n": "computed",
+              "source": "186.64 x (1-0.098)"
+            },
+            {
+              "name": "NVDL extended-hours 08:11 ET vs 23.71 close",
+              "value": "21.17 (-10.7%)",
+              "n": "1 snapshot",
+              "source": "Robinhood get_equity_quotes"
+            },
+            {
+              "name": "QQQ / AMD / AVGO premarket 08:11 ET",
+              "value": "+0.80% / +3.59% / +3.00%",
+              "n": "1 snapshot each",
+              "source": "Robinhood get_equity_quotes"
+            },
+            {
+              "name": "Reported premarket decline (media)",
+              "value": "nearly 5% / -4.8%",
+              "n": "2 outlets",
+              "source": "Reuters via Yahoo Finance (6:09 AM CST); CNBC 2026-11-09"
+            },
+            {
+              "name": "Market value erased premarket (media)",
+              "value": "~$230B (NBC) vs ~$250B (Reuters)",
+              "n": "2 outlets (conflict)",
+              "source": "NBC News; Reuters via Yahoo Finance"
+            },
+            {
+              "name": "NVDA Thu 2026-11-05 regular-session change (QQQ same day)",
+              "value": "-9.26% (QQQ -6.49%)",
+              "n": "1 day",
+              "source": "Robinhood daily bars"
+            },
+            {
+              "name": "NVDA change 10/6 close (239.24) to 11/6 close (186.64)",
+              "value": "-22.0%",
+              "n": "23 sessions",
+              "source": "Robinhood daily bars"
+            },
+            {
+              "name": "Q3 FY27 earnings date/time",
+              "value": "Tue 2026-11-17, results ~1:20pm PT, call 2pm PT/5pm ET",
+              "n": "1",
+              "source": "NVIDIA press release 2026-10-28; Robinhood get_earnings_results verified=true"
+            },
+            {
+              "name": "Q3 FY27 consensus EPS",
+              "value": "2.48",
+              "n": "consensus",
+              "source": "Robinhood get_earnings_results"
+            },
+            {
+              "name": "House briefing request date / response deadline",
+              "value": "Nov 18 2026 (Rm 2172 Rayburn) / Nov 11 2026",
+              "n": "1 letter",
+              "source": "House letter PDF dated 2026-11-04"
+            },
+            {
+              "name": "Megaspeed Nvidia chip purchases (reported)",
+              "value": ">$4.8B over two years",
+              "n": "1 report",
+              "source": "NYT via CBS News"
+            },
+            {
+              "name": "Huang ownership stake (reported)",
+              "value": "~3.6%, no dual-class control",
+              "n": "1 report",
+              "source": "Reuters (LSEG data) via Yahoo Finance"
+            },
+            {
+              "name": "Analyst rating/PT changes found",
+              "value": "0",
+              "n": "~10 named analysts/strategists quoted",
+              "source": "Reuters reactions roundup; Investing.com; CNBC; Stocktwits"
+            },
+            {
+              "name": "8-K filings since 2026-09-03",
+              "value": "0",
+              "n": "EDGAR recent filings list",
+              "source": "data.sec.gov submissions CIK0001045810, checked 13:06 UTC"
+            }
+          ],
+          "caveats": [
+            "Several outlets could not be fetched directly: Bloomberg (403), WSJ (not fetched), Washington Post (403), Axios (403), NPR (503), CNN (451), SCMP (403) and Benzinga (403). Claims attributed to them come from other outlets or search summaries and are marked as such. The WSJ 'three countries' claim is UNVERIFIED.",
+            "The NYT and FT were not read directly. Their content comes from CNBC, NBC, TechCrunch, CBS and Reuters. The dates of the memo and of the first report of the relationship conflict across outlets.",
+            "The board statement's time of about 2:59pm ET comes from 24/7 Wall St only (UNVERIFIED). The investor.nvidia.com page shows a date but no time.",
+            "The APEC dates (Nov 18-19) come from Shenzhen government / Xinhua sources. Trump's attendance and a Trump-Xi meeting are not confirmed by the White House (UNVERIFIED), nor is Huang joining the trip.",
+            "Treating Veterans Day as a day US equities trade normally is general knowledge, not checked here. The BLS page only lists it as a federal holiday.",
+            "Premarket prices are from about 08:11 ET and will change before the 09:31 exit. Premarket liquidity is thin.",
+            "No analyst rating or price-target changes were found as of about 08:15 ET. Notes may still arrive during the day.",
+            "Whether US intelligence actually concluded Alice Huang is an MSS asset rests on anonymous sourcing. China denies it, and neither Megaspeed nor Alice Huang has commented (Monday was a public holiday in Singapore).",
+            "This stream covers news and catalysts only. No statistics on overnight returns were computed here; the repository CSV was only glanced at."
+          ],
+          "sources": [
+            "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx",
+            "https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873",
+            "https://data.sec.gov/submissions/CIK0001045810.json",
+            "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&output=atom",
+            "https://chinaselectcommittee.house.gov/sites/evo-subsites/selectcommitteeontheccp.house.gov/files/evo-media-document/nvidia-letter-pdf.pdf",
+            "https://chinaselectcommittee.house.gov/media/press-releases/moolenaar-mast-and-crawford-seek-briefing-from-jensen-huang-on-ties-to-chinese-intelligence-asset",
+            "https://foreignaffairs.house.gov/news/press-releases/chairmen-mast-moolenaar-and-crawford-request-jensen-huang-brief-congress-on-link-to-chinese-intelligence-asset",
+            "https://www.cnbc.com/2026/10/29/nvidia-jensen-huang-chinese-intelligence-asset.html",
+            "https://www.cnbc.com/2026/11/08/jensen-huang-nvidia-china-spy-congress.html",
+            "https://www.cnbc.com/2026/11/08/nvidia-jensen-huang-investigation-china-spy.html",
+            "https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html",
+            "https://www.cnbc.com/2026/11/09/megaspeed-nvidia-jensen-huang-alice-huang.html",
+            "https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/",
+            "https://abcnews.com/Technology/nvidia-announces-investigation-ceo-amid-foreign-intelligence-target/story?id=137959091",
+            "https://www.nbcnews.com/tech/tech-news/nvidia-ceo-jensen-huang-investigation-rcna608148",
+            "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+            "https://www.investing.com/news/stock-market-news/nvidia-launches-probe-into-reported-espionage-plot-targeting-ceo-jensen-huang-5010308",
+            "https://finance.yahoo.com/technology/ai/articles/reactions-nvidias-probe-ceo-jensen-093933384.html",
+            "https://finance.yahoo.com/technology/articles/south-korea-says-nvidia-issues-022650481.html",
+            "https://finance.yahoo.com/markets/stocks/articles/nvidia-faces-governance-overhang-jensen-020907411.html",
+            "https://finance.yahoo.com/markets/stocks/articles/nvda-stock-slides-premarket-beijing-091437044.html",
+            "https://finance.yahoo.com/technology/ai/articles/elizabeth-warren-says-nvidia-board-015437533.html",
+            "https://247wallst.com/investing/2026/11/08/nvidias-board-just-opened-an-investigation-into-jensen-huang-heres-what-history-says-comes-next-for-the-stock/",
+            "https://tech-insider.org/nvidia-after-hours-falls-3-4-percent-hyperliquid-huang-probe-2026/",
+            "https://www.bls.gov/schedule/2026/11_sched.htm",
+            "https://www.lg.gov.cn/english/news/latestnews/content/post_12588327.html",
+            "https://www.nvidia.com/en-us/gtc-dc/attend/",
+            "https://baxtel.com/events/nvidia-gtc-washington-d-c-2026",
+            "https://www.bloomberg.com/news/articles/2026-11-08/trump-defends-nvidia-s-huang-after-he-admits-affair-with-spy (headline only, not fetched)",
+            "https://www.washingtonpost.com/business/2026/11/09/nvidia-shares-fall-company-investigates-ceo-relationship-with-suspected-spy/ (headline only, 403)",
+            "Robinhood MCP: get_equity_quotes (13:04:55 and 13:11:33 UTC), get_equity_historicals (daily Oct 1-Nov 6; 30min 24_5 since Nov 6 20:00 UTC), get_earnings_results NVDA",
+            "Local notes: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/news/01_primary_and_tier1.md, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/news/02_market_analysts_catalysts.md, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/news/03_timeline_catalysts_conflicts.md, /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/news/house_letter/letter.txt"
+          ],
+          "implication_for_overnight_holding": "This morning's exit (09:31): at about 08:11 ET NVDA is at 176.80 (-5.3% vs 186.64). The premarket low so far is 174.49 (-6.5%). The pause-equivalent level is about 168.35 (-9.8%), so another drop of roughly 4.8% from current levels before 09:31 would be needed to reach it. No new news is scheduled before the open. Looking ahead, the story is open-ended and the risk falls largely outside market hours. Every major development so far landed outside regular trading or on weekends: NYT 10/29, NYT/FT Fri 11/6, NYT Sat 11/7, and the NYT, board statement and Huang memo all on Sun 11/8. The board set no timeline, so its next update is an unscheduled release that could come at any time. That is exactly the gap risk an overnight NVDL holder carries. The serious tail case would be a CEO leave, departure or adverse finding. Pepperstone's Weston says the stock would 'fall sharply'. That could plausibly be a non-earnings gap of -10% or worse, which at 2x leverage would likely trip PAUSE in one night. No source suggests such a decision is imminent: the board says it has confidence in Huang, and Trump publicly backs him. Known dated risk inside held nights: (a) Mon-to-Tue 11/10, October CPI at 08:30 ET before the 09:31 exit (market-wide). (b) Wed 11/11, Huang's deadline to answer the House; his acceptance, refusal or rescheduling may be reported Wednesday or overnight into Thursday. (c) Fri 11/13, PPI at 08:30. (d) Mon-to-Tue 11/16-17, the night before earnings (held under the rules): the APEC CEO Summit in Shenzhen starts and a pre-earnings leak or board update is possible. (e) 11/17, earnings night, already excluded. (f) Wed-to-Thu 11/18-19, held: the House briefing date (US daytime 11/18) and the APEC leaders' meeting in Shenzhen, which runs during US overnight hours, with a possible Trump-Xi meeting and Huang possibly travelling with Trump. Since the earnings night is already excluded, the most news-dense held nights are 11/9-10, 11/11-12 and 11/18-19. Whether to change position size on those nights is for the decision stream to weigh against the historical overnight statistics, which this stream did not compute."
+        },
+        "verification": {
+          "checks": [
+            {
+              "claim": "On Sun 11/8 the NVIDIA board issued 'Statement from NVIDIA Board of Directors' on investor.nvidia.com. A committee of independent directors with outside counsel will oversee the review. Neither the directors nor the counsel is named. There is no timeline, only 'further updates as appropriate'. It says it has 'no reason to believe that either national security or NVIDIA secrets were compromised' and 'has confidence in Jensen'. 2:59pm ET is unverified.",
+              "holds": true,
+              "reason": "I re-fetched the investor.nvidia.com page. It is dated November 8, 2026 with no time of day. Every quoted phrase is present, nobody is named, and there is no timeline. The 2:59 PM ET time appears only in the 24/7 Wall St article (re-fetched). GlobeNewswire returned 403, so the time is still single-source. ABC adds that the investigation 'will examine all available information'.",
+              "corrected": ""
+            },
+            {
+              "claim": "As of about 08:06 ET there is no 8-K. The last filing is a Form 4 on 11/06 and the last 8-K was on 2026-09-03 (item 8.01).",
+              "holds": true,
+              "reason": "I re-pulled data.sec.gov submissions for CIK0001045810 at 13:21 UTC (08:21 ET). The latest filing is a Form 4 accepted 2026-11-06 21:12Z. The latest 8-K is dated 2026-09-03 with item 8.01; earlier 8-Ks are 08-26 (2.02), 08-17 and 07-02 (5.02). There is still no 8-K.",
+              "corrected": ""
+            },
+            {
+              "claim": "Huang's memo: 'I was unfaithful to my wife... There is no excuse... I am deeply sorry.' Nvidia's statement: 'Today's news will not slow NVIDIA... continuing to lead NVIDIA as CEO without interruption.' Rizzo declined to say whether Huang will brief Congress. Earlier, Nvidia called the contacts 'not unusual' or ordinary customer contacts.",
+              "holds": true,
+              "reason": "ABC, NBC and CBS quote the memo text. ABC quotes 'Today's news will not slow NVIDIA' verbatim and NBC paraphrases it. CNBC 11/08 says Rizzo 'declined to comment' when the NYT asked whether Huang would appear. CNBC 10/29 and TechCrunch report the 'not unusual' line. Missing from the claim: CBS quotes Rizzo saying 'We trust that if we were the target of a genuine threat, the U.S. government would have notified us', and a secondary report says Huang never received a defensive briefing.",
+              "corrected": ""
+            },
+            {
+              "claim": "Reported only: NYT on 10/29 (surveillance), NYT on Fri 11/6 (memo from 'last spring' saying she was recruited by the MSS), FT on 11/6 (romance), NYT on 11/7 (New Matrix), NYT on Sun 11/8 (Rubio oversaw the memo), NBC source ('determined' she was a spy), Megaspeed >$4.8B in chip purchases (NYT via CBS).",
+              "holds": true,
+              "reason": "Each item matches what I found. CNBC 10/29 covers the surveillance report. CNBC 11/08 has 'last spring' and the NYT report on Friday 11/6. NBC says the FT reported the romance on Friday and quotes its source that agencies 'had determined'. TechCrunch 11/7 covers New Matrix. Yahoo/ProtoThema say the NYT reported Rubio supervised the memo, which went out before Trump's May China visit. CBS gives the $4.8B figure. All of it rests on anonymous sourcing.",
+              "corrected": ""
+            },
+            {
+              "claim": "The House letter is dated 2026-11-04 (press release 11/05) and comes from Mast, Moolenaar and Crawford. It asks for a closed-door briefing in Rm 2172 Rayburn on Nov 18. Huang must accept or offer another session day of the 119th Congress by Nov 11. No hearing is scheduled.",
+              "holds": true,
+              "reason": "I downloaded the PDF and extracted its text. Every detail matches word for word. The press release page is dated November 5. Bernstein (via Yahoo) notes it is a request, not a subpoena.",
+              "corrected": ""
+            },
+            {
+              "claim": "No FBI, DOJ, CFIUS or SEC involvement is reported. Rubio declined to comment ('internal corporate matter'). CIA, NSA and ODNI did not respond. Singapore did not investigate Alice Huang's intelligence ties.",
+              "holds": true,
+              "reason": "None of the sources mention those agencies: CNBC x4, CBS, ABC, NBC, Reuters/Yahoo, TechCrunch, the House letter, or an extended search. CBS confirms Rubio's 'internal corporate matter' and the non-responses from CIA, NSA and ODNI. CNBC Megaspeed says Singapore's government 'had not investigated Alice Huang's alleged intelligence ties'. I did not verify the Cotton letters on Megaspeed.",
+              "corrected": ""
+            },
+            {
+              "claim": "Trump: 'honorable guy', 'probably has an excuse for it', has not spoken to Huang, would 'certainly take him' on the Asia trip, and said 'no' to wishing he had acted. China's foreign ministry (Guo Jiakun): 'unsubstantiated... nothing but smears against China'.",
+              "holds": true,
+              "reason": "CNBC 11/09, NBC and Investing.com confirm each Trump quote. Stocktwits/Yahoo, citing Bloomberg, confirms the Guo wording. Reuters translates the same remark differently: 'purely a groundless accusation, slander, and a smear'.",
+              "corrected": ""
+            },
+            {
+              "claim": "Market data: after-hours ended near 188.70. The overnight session opened Sun 20:00 ET with the first bar at O188.70, C178.73, L178.50. The overnight low was 175.26 and the premarket low 174.49 (-6.51%). At 08:11 NVDA was 176.80 (-5.27%) and NVDL 21.17 (-10.7%). QQQ was +0.8%, AMD +3.6%, AVGO +3.0%.",
+              "holds": true,
+              "reason": "I re-queried Robinhood 24_5 30-minute bars. The 01:00Z bar (Sun 20:00 EST) matches exactly. The minimum overnight low is 175.26 in the 07:30Z bar and the premarket low is 174.49 in the 12:30Z bar; 174.49/186.64-1 = -6.51%. My own quote at 08:21 ET: NVDA 176.45 (-5.46%), NVDL 21.11 (-10.97%), QQQ +0.68%, SPY +0.76%, AMD +3.31%, AVGO +2.59%. That is consistent with a company-specific move, slightly worse than at 08:11.",
+              "corrected": "Updated at 08:21 ET: NVDA 176.45 (-5.46%), NVDL 21.11 (-10.97%). Bloomberg reported about -6% at one point before the open."
+            },
+            {
+              "claim": "Media figures: Reuters 'nearly 5%' and ~$250B erased; NBC ~$230B; Huang's stake ~3.6% (LSEG) with no dual-class shares.",
+              "holds": true,
+              "reason": "Reuters via Yahoo, 6:09 AM CST, confirms 'nearly 5%', about $250B, 3.6% (LSEG) and no dual-class structure. NBC confirms about $230B as an estimate. FourWeekMBA computes about $231B itself. The gap between $230B and $250B comes from different price snapshots, not a real dispute.",
+              "corrected": ""
+            },
+            {
+              "claim": "NVDA fell 9.26% on Thu 11/5 in a post-midterm tech selloff (QQQ -6.49%) and is down 22% from its 10/6 close (239.24), over 23 sessions.",
+              "holds": true,
+              "reason": "Robinhood daily bars give 181.60/200.13 = -9.26% and QQQ 647.05/691.95 = -6.49%. 186.64/239.24 = -21.99%, and I counted 23 sessions. Axios ('election rattles AI trade') and CNN/CNBC support the cause: post-election AI and data-center fears, with the Nasdaq-100 down 6.36%. That cause is a media attribution, not something I established.",
+              "corrected": ""
+            },
+            {
+              "claim": "Analyst actions: as of about 08:15 ET there were NO rating or price-target changes, only commentary (numbers row: 'Analyst rating/PT changes found = 0').",
+              "holds": false,
+              "reason": "Refuted. Aletheia Capital (Stefan Chang) cut NVDA from Buy to Hold and withdrew its $340 price target on Mon 11/9. Crypto Briefing reported it at 04:40 EST, 24/7 Wall St's upgrades/downgrades list at 07:40 ET, and Investing.com UK also carried it. The main stated reason was about $165B of AI financing commitments, not the probe. Finbold says Chang also cited 'potential internal turmoil'; that link to the probe has a single source. There were also reiterations: Goldman Buy/$300 (Investing.com 05:18), Bernstein Outperform/$400 (Yahoo/Finbold), and RBC $330 (Finbold).",
+              "corrected": "One downgrade before 08:15 ET: Aletheia Capital cut Buy to Hold and removed its $340 PT. It was driven mainly by financing commitments; one secondary source says it also cited turmoil from the probe. Reiterations: Goldman Buy/$300, Bernstein Outperform/$400 ('heavy distraction', per Bloomberg), RBC $330. No probe-driven price-target cut was found."
+            },
+            {
+              "claim": "Bernstein (Rasgon): 'more form than substance' and Huang 'IS NVIDIA'. Citi (Atif Malik): governance and export-control concerns. Ives: 'black eye' and 'comedy'. Klement: impact contained. Weston: no step-down expected, but a sharp fall if he did. Gary Black: 'I doubt...'. Gilbert: earnings are 'the next real test'.",
+              "holds": true,
+              "reason": "Investing.com has the Rasgon phrases. The Reuters reactions roundup on Yahoo has Malik, Weston, Black and Gilbert. Weston's fuller quote is that it 'would be an absolute bloodbath'. CNBC 11/09 has Ives ('comedy') and Klement. Stocktwits/Yahoo has 'black eye moment'. I did not separately confirm the exact 'next real test' wording.",
+              "corrected": ""
+            },
+            {
+              "claim": "Catalysts before earnings: CPI Tue 11/10 08:30, Huang's House deadline Wed 11/11 (Veterans Day), PPI Fri 11/13 08:30, import prices Tue 11/17 08:30, earnings Tue 11/17 (results about 1:20pm PT, call 2pm PT/5pm ET, quarter ended 10/25; Robinhood verified, EPS estimate 2.48).",
+              "holds": true,
+              "reason": "The BLS November 2026 schedule confirms CPI (with Real Earnings) on 11/10, PPI on 11/13, import/export prices on 11/17, all at 8:30 AM, and lists Veterans Day on 11/11. NVIDIA's 10/28 press release confirms the call time and the 10/25 quarter end. Robinhood shows 2026-11-17 pm, verified=true, estimate 2.48, and 2027-02-24 verified=false.",
+              "corrected": ""
+            },
+            {
+              "claim": "After earnings: House briefing 11/18 (attendance unconfirmed), APEC leaders 11/18-19 in Shenzhen, CEO Summit 11/17-18, Trump-Xi not confirmed by the White House, GTC DC Nov 30-Dec 3 with the keynote Dec 1 at 2pm ET per baxtel (secondary).",
+              "holds": true,
+              "reason": "Search results from Shenzhen government and CGTN confirm the APEC leaders' meeting on 11/18-19 and the CEO Summit on 11/17-18. I found no White House confirmation of Trump-Xi; some outlets report Trump accepted the invitation. nvidia.com itself lists GTC DC Nov 30-Dec 3 and the keynote on Tue Dec 1 at 2 p.m. ET, so the keynote is confirmed by a primary source, not only a secondary one. The stream missed APEC side meetings on Nov 14-16 (ABAC) and Nov 14-15 (senior officials).",
+              "corrected": "The GTC DC keynote (Dec 1, 2pm ET) is confirmed on nvidia.com, the primary source."
+            },
+            {
+              "claim": "Conflicting or incorrect reports: the memo timing varies by outlet; CNBC credits the NYT for the romance while NBC/TechCrunch credit the FT; tech-insider's '3.4% after hours Monday per Reuters' is mislabelled; the Stocktwits lede says 'U.S. spy'; the 24/7 Wall St article has arithmetic errors; the WSJ 'three countries' claim is unverified.",
+              "holds": true,
+              "reason": "Each one checks out. Reuters: 'roughly a year ago'. TechCrunch: 'earlier this year'. CNBC: 'last spring'. tech-insider literally says 'fell about 3.4% in after-hours trading on Monday... according to Reuters', which is impossible at that time. The Stocktwits lede does say 'suspected to be a U.S. spy'. 24/7 Wall St's Wynn six-month figure ($73,479 vs $60,041) is wrong. The WSJ 'at least three countries' claim appears only via Axios as cited by others, and Singapore's Home Affairs ministry disputes part of the WSJ account.",
+              "corrected": ""
+            },
+            {
+              "claim": "Implication: the pause-equivalent price is 168.35, about 4.8% below 176.80. Every major development so far landed outside regular trading hours or on weekends (NYT 10/29, NYT/FT Fri 11/6, NYT Sat 11/7, everything on Sun 11/8).",
+              "holds": false,
+              "reason": "The arithmetic holds: 186.64 x 0.902 = 168.35, and 168.35/176.80-1 = -4.78%. The 'all outside regular hours' claim is not verified. I found no publication time for the NYT and FT stories of Fri 11/6. NVDA fell 0.98% in the 12:30 ET bar on Friday while QQQ fell 0.45%, so a news hit during the session cannot be ruled out. The House letter was publicised on Thu 11/5 at an unknown time. The 10/29 NYT story was before the open, and the 11/7 and 11/8 items fell on the weekend. The broader point, that unscheduled news is gap risk, still stands.",
+              "corrected": "Most developments (NYT 10/29 before the open, NYT 11/7 on the weekend, and the board statement, Huang memo and NYT on Sun 11/8) landed outside regular hours. The timing of the Fri 11/6 NYT/FT reports and the Thu 11/5 House letter is UNVERIFIED and may have fallen within regular hours."
+            }
+          ],
+          "overall": "partially holds",
+          "missed": [
+            "An analyst action was missed. On Mon 11/9, before 08:15 ET, Aletheia Capital downgraded NVDA from Buy to Hold and withdrew its $340 PT. The main stated reason was about $165B of AI financing commitments; Finbold, a single source, says it also cited 'potential internal turmoil'. Sources: https://cryptobriefing.com/aletheia-capital-downgrades-nvidia-hold/ , https://247wallst.com/investing/2026/11/09/buy-sell-or-hold-mondays-top-upgrades-and-downgrades-advanced-micro-devices-airbnb-draftkings-l3-harris-technologies-molson-coors-nvidia-take-two-interactive-uber-technologies-and-more , https://uk.investing.com/news/stock-market-news/aletheia-capital-cuts-nvidia-stock-rating-on-ai-partner-risks-93CH-4967312 , https://finbold.com/wall-street-sets-nvidia-stock-price-for-the-next-12-months-15/",
+            "Reiterations were not reported: Goldman Buy/$300 (https://www.investing.com/news/analyst-ratings/goldman-sachs-reiterates-nvidia-stock-rating-on-ai-demand-outlook-93CH-5011056), Bernstein Outperform/$400 and RBC $330. Bernstein, via Bloomberg, called it a possible 'heavy distraction' and noted the House request is not a subpoena (https://finance.yahoo.com/markets/stocks/articles/nvidia-shares-fall-more-4-111021784.html).",
+            "Bloomberg reported NVDA about 6% lower before the open, which is a third figure next to Reuters and CNBC (headline: https://www.bloomberg.com/news/articles/2026-11-09/nvidia-shares-dip-on-robinhood-as-huang-affair-spurs-board-probe ; figure seen in a search summary only).",
+            "Rizzo told CBS 'We trust that if we were the target of a genuine threat, the U.S. government would have notified us'. Secondary reports say Huang never received a defensive briefing. Both bear on Nvidia's credibility (https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/).",
+            "The NYT, via Yahoo/ProtoThema, reported that the Rubio-supervised memo was circulated before Trump's May 2026 China visit. That supports 'last spring' and resolves part of the timing conflict (https://en.protothema.gr/2026/11/09/rubio-warned-trump-in-classified-memo-about-nvidia-ceos-alleged-links-to-chinese-spy/).",
+            "Singapore's Home Affairs ministry disputed the WSJ account that Singapore officials had concerns about Alice Huang (seen in a search summary only, UNVERIFIED).",
+            "APEC side meetings on Nov 14-16 (ABAC) and Nov 14-15 (final senior officials meeting) in Shenzhen fall on the weekend before earnings and are not listed. Shenzhen leaders-day hours on Nov 18 fall mostly in the excluded 11/17-18 earnings night, and only the Nov 19 hours fall in a held night.",
+            "The GTC DC keynote (Dec 1, 2pm ET) is confirmed on nvidia.com itself, so the claim understates its sourcing.",
+            "The 'every development outside regular trading hours' claim ignores the unknown timing of the Fri 11/6 NYT/FT reports and the Thu 11/5 House letter. NVDA underperformed QQQ midday Friday, with the 12:30 ET bar at -0.98% vs -0.45%.",
+            "Reuters and Bloomberg render the China foreign ministry quote differently ('purely a groundless accusation, slander, and a smear' vs 'unsubstantiated... smears')."
+          ]
+        }
+      }
+    ],
+    "synthesis": {
+      "memo": "# NVDL hold: decision memo (Mon 9 Nov, ~08:30 ET)\n\n## 1. What happened\nConfirmed: on Sunday Nvidia's board opened an independent review of Jensen Huang. It set no timeline and has \"confidence in Jensen\" [1]. Huang admitted an affair and remains CEO. Trump backs him, and China calls the story \"smears\" [2]. House chairs have requested, not subpoenaed, a briefing from him on Nov 18 [3]. There is no 8-K filing yet [4]. At 08:21, NVDA was down 5.5% and QQQ up 0.7%, so the move is Nvidia-only.\nReported only, from anonymous sources: a US memo says the woman was recruited by Chinese intelligence [2][5].\n\n## 2. Extra risk before earnings\nSix held nights remain. The 11/17 earnings night is already in cash [6].\n- Friday's options, priced before the news, implied about ±2-2.4% per NVDA night. That is ±4-5% a night for NVDL and ±11-13% over six nights. Live volatility is probably higher.\n- Chance over six nights of an NVDA night of -5% or worse: 10-25%. Of -9.8% or worse: 1-5%.\n- History: after 19 Nvidia-only gaps since 1999, the next night averaged -0.25% to -1.06%, against +0.12% normally. Not statistically reliable. Swings ran 1.8x normal; no crash runs followed after 2005.\n- In 15 CEO-scandal cases [7], slow bleed was the commonest harm: a 2x overnight loss of 10%+ within 10 nights hit 6, against a normal 8-15%. Board reviews take weeks to months [8].\n- After this morning's exit, the PAUSE cushion is roughly a 9-10% cumulative NVDL fall. Approximate; recompute from the account.\n- My rough simulation (UNVERIFIED) puts the chance of hitting PAUSE before earnings at 19-33%, or 40-48% under stress.\n\n## 3. Options\n(a) Keep the rules. Expected gain +1.1-1.6% of equity if the planning edge holds (past gaps like this showed none). PAUSE chance is 19-33%. PAUSE then means 1 share for 5 sessions.\n(b) Hold cash until 11/18 15:52. Forgoes about $1 (1.1-1.6%) and removes this risk. But the House date and the Shenzhen APEC summit fall on 11/18-19 [9], and the review could take months.\n(c) Trade smaller, in whole shares; one NVDL share is about 25% of equity. Two shares forgo 0.5-0.7% with a 5-11% PAUSE chance. One share forgoes 0.8-1.2% with under 1% PAUSE chance. Both are rule changes: PAUSE only acts at 80% of the 20-session high.\n\n## 4. Recommendation\nKeep (a). Evidence of extra harm is weak. §6 accepts single-stock gap risk, and PAUSE is the built-in brake. §3(g) forbids rule changes on drawdowns, so the agent cannot deviate on its own.\nIf a roughly 1-in-4 PAUSE risk is too much, choose (c) at 2 shares for these six nights, costing about 50 cents in expectation. Give an explicit instruction or a dated rule amendment before 15:48. If live 11/13 option volatility is above about 70% after 09:45, I lean to (c).\n\nSources: [1] https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/default.aspx [2] https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html [3] https://chinaselectcommittee.house.gov/sites/evo-subsites/selectcommitteeontheccp.house.gov/files/evo-media-document/nvidia-letter-pdf.pdf [4] https://data.sec.gov/submissions/CIK0001045810.json [5] https://www.nbcnews.com/tech/tech-news/nvidia-ceo-jensen-huang-investigation-rcna608148 [6] https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873 [7] /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/cases/case_metrics.json [8] https://www.nasdaq.com/articles/supermicro-rises-special-committee-finds-no-misconduct [9] https://www.lg.gov.cn/english/news/latestnews/content/post_12588327.html",
+      "summary": "On Sun 11/8 Nvidia's board opened an independent review of CEO Jensen Huang, with no timeline, and said it has confidence in him. Huang admitted an affair and remains CEO. Trump backs him and China denies the reports. The claim that the woman is a Chinese MSS asset rests on anonymous sourcing and has not been confirmed. NVDA traded about -5.5% premarket while QQQ was up about 0.7%, so the move is company-specific (NVDL about -11%). There are six held nights before the 11/17 earnings blackout. Friday's pre-news options implied about ±2-2.4% per NVDA night, which is about ±4-5% a night for NVDL and ±11-13% over the six nights; live volatility is probably higher. The chance of at least one NVDA night of -5% or worse in that span is about 10-25%, and of -9.8% or worse about 1-5% (33-50% and 6-15% in an unmeasured stress case). History shows no usual overnight edge after Nvidia-only gaps (next night -0.25% to -1.06%, n=5-19, not significant) and no crash runs since 2005. Governance analogs point to slow bleed and multi-week reviews more than single-night collapses. My rough, unverified simulation puts the chance of hitting PAUSE before earnings at about 19-33% at full size, 5-11% at 2 shares and under 1% at 1 share. The expected gain given up is about 1.1-1.6%, 0.5-0.7% and 0.8-1.2% of equity respectively. Recommendation: keep the pre-registered rules. If the owner wants less risk, the best-value change is 2 NVDL shares for the six nights, about 50 cents of expected gain, given as an explicit instruction or a dated amendment before the 15:48 entry wake. The memo is 496 words. Draft: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/memo/memo.md. Simulation scripts: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/memo/pause_path.py and /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/memo/pause_size.py. Nothing under /home/user/test-trading was modified, no account data was queried and no orders were placed.",
+      "recommendation": "Option (a): keep the pre-registered rules and hold NVDL every night except 11/17. The evidence of extra harm is weak: no company-specific result is statistically reliable, and the tail signal is a single small-sample hit among about 300 tests. RULES_v3 §6 already accepts single-underlying gap risk, and PAUSE (1 share for 5 sessions) is the built-in brake. §3(g) forbids ad-hoc rule changes on drawdowns, so the agent cannot change course on its own. The owner may accept roughly a 1-in-4 chance of hitting PAUSE before earnings and the unpriced, unprecedented risk of a Huang exit; if not, the best-value alternative is option (c) at 2 NVDL shares for the six nights (11/9-10 through 11/16-17), returning to normal sizing at 11/18 15:52. That costs about 0.5-0.7% of equity (about 50 cents) in expected gain and cuts the PAUSE odds to about 5-11%. It needs the owner's explicit instruction or a dated RULES_v3 amendment before the 15:48 ET entry wake. Do not use open-ended cash \"until the review resolves\", because board reviews take weeks to months and the rules have no event blackouts. If live 11/13 at-the-money implied volatility is above about 70% after 09:45 ET, the stress numbers apply and the lean shifts to (c).",
+      "key_numbers": [
+        "NVDA premarket 176.45 at 08:21 ET (-5.5% vs Fri close 186.64); QQQ +0.7%, AMD +3.3%, AVGO +2.6-3.0%; NVDL about 21.1 (-11%). The move is company-specific (Robinhood quotes, verified)",
+        "Option quotes are all stamped Fri 2026-11-06 close, so no post-news implied volatility exists before the open. Friday's 11/13 at-the-money implied volatility was 61.5% (about 3.8% per trading day)",
+        "Implied NVDA move per overnight about ±2.0-2.4% (weekend about ±3%); NVDL about ±4-5% a night and ±11-13% over the 6 nights to 11/16-17 (Friday pre-news basis; the verifier says the stream's figure runs about 10% high)",
+        "P(at least one NVDA night <= -5% in 6 nights): about 10-25% (normal, t and empirical models); stress case 33-50%. P(<= -9.8%): about 1-5%; stress case 6-15%",
+        "Nvidia-only gaps (NVDA <= -4% with QQQ >= -0.5%, non-earnings): n=5 since 2015, 12 since 2005, 19 since 1999. Next night averaged -1.06% / -0.59% / -0.25% vs +0.12% normally, |t| <= 1.2, not significant",
+        "Next night <= -3% after Nvidia-only gaps: 3 of 19 vs about 3% normally (a single small-n signal); <= -5.1%: 0 of 19 (95% upper bound about 17%); another <= -5% night within 10: 0 of 12 since 2005",
+        "Next-night move size about 1.8x normal (variance about 2x)",
+        "Governance cases: 2x overnight-only drawdown of -10% or worse within 10 nights in 6/15 analogs (2/8 large caps) vs an NVDA base of about 8-15%; -9.8% single-night gap in 2/15 (both sub-$100B with legal or audit catalysts); resolution-day overnight gaps median about +2.7% (8/9 positive)",
+        "Board or legal reviews: weeks to months (SMCI about 3 months, CBS about 4.7 months); median of 15-26.5 sessions to the first decisive event",
+        "PAUSE cushion after this morning's exit: about -9 to -10% cumulative NVDL (about -4.6% NVDA in one night). Approximate; recompute from the account (the §6 rolling high may roll around 11/9)",
+        "My rough simulation (UNVERIFIED), P(hit PAUSE within the 6 nights): full size (about 90%) 19-33% (stress 40-48%); 2 shares (about 50%) 5-11%; 1 share (about 25%) under 1%",
+        "Expected edge given up over 6 nights at +0.2-0.3%/night planning edge: cash 1.1-1.6% of equity (about $1); 2 shares 0.5-0.7%; 1 share 0.8-1.2%",
+        "Planning edge +0.30%/night gross (90% CI +0.1 to +0.6), under 0.07 sigma per night at current NVDL volatility; the execution-timing study finds about +20bp/night realized (t about 1.0)",
+        "Dated catalysts: CPI Tue 11/10 08:30 (inside tonight's hold); Huang's House reply deadline 11/11; PPI 11/13; earnings 11/17 after the close (blackout); House briefing request date 11/18; APEC Shenzhen leaders' meeting 11/18-19"
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Research"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Synthesize"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "research:idio-gap-history",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "ad650dad5bd7e2369",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794228612090,
+      "queuedAt": 1794228612056,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "NVDA idiosyncratic overnight gap-downs: what happened next …",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794229298793,
+      "tokens": 171509,
+      "toolCalls": 38,
+      "durationMs": 686702,
+      "resultPreview": "{\"stream\":\"NVDA idiosyncratic overnight gap-downs: what happened next (non-earnings NVDA close-to-open <= -4% with QQQ close-to-open >= -0.5%, compared with all non-earnings NVDA gaps <= -4%)\",\"key_findings\":[\"FREQUENCY. Purely company-specific gaps are rare. 2015-2026 has n=5 out of 2,931 non-earnings nights (0.17%). Dates are the night's close date: 2016-12-28, 2017-02-22, 2017-04-03, 2022-08-05…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "research:governance-cases",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a18b2d1ad2ea86039",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794228612091,
+      "queuedAt": 1794228612057,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "CEO governance/scandal/security shock case studies (second-…",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794229491164,
+      "tokens": 292263,
+      "toolCalls": 75,
+      "durationMs": 878335,
+      "resultPreview": "{\"stream\":\"CEO governance/scandal/security shock case studies (second-gap frequency, paths, resolution time)\",\"key_findings\":[\"Sample: 15 cases measured with Robinhood daily bars (HPQ/Hurd 2010, WYNN 2018, META/Cambridge Analytica 2018, INTC/Krzanich 2018, JD/Liu 2018, TSLA/Musk SEC 2018, SMCI 'Big Hack' 2018, BA/Muilenburg 2019, MCD/Easterbrook 2019, BABA/Jack Ma 2020, ERIC Iraq-ISIS 2022, BP/Loo…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "research:implied-vol",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a341e55472674e607",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794229298802,
+      "queuedAt": 1794228612057,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "NVDA options-implied volatility, event split and overnight …",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230022312,
+      "tokens": 240428,
+      "toolCalls": 44,
+      "durationMs": 723510,
+      "resultPreview": "{\"stream\":\"NVDA options-implied volatility, event split and overnight tail probabilities (pre-open read 2026-11-09 08:00-08:15 ET; files in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/nvda_ceo_1109/iv/)\",\"key_findings\":[\"The options market has not priced the CEO news yet. Every NVDA option quote pulled at 08:02-08:05 ET carries updated_at 2026-11-06T20:59:…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "research:news-timeline",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "adc830f87bbc881ae",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794229491172,
+      "queuedAt": 1794228612057,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "News/catalyst facts: Nvidia board review of CEO Jensen Huan…",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230006787,
+      "tokens": 167921,
+      "toolCalls": 74,
+      "durationMs": 515614,
+      "resultPreview": "{\"stream\":\"News/catalyst facts: Nvidia board review of CEO Jensen Huang (as of Mon 2026-11-09 ~08:15 ET) plus dated events before and after the 2026-11-17 earnings\",\"key_findings\":[\"CONFIRMED (primary source): On Sun 2026-11-08 the NVIDIA Board of Directors issued a press release, 'Statement from NVIDIA Board of Directors', on investor.nvidia.com. A secondary source (24/7 Wall St) times it at abou…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "verify:idio-gap-history",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a9dfad25b88742bdf",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794230006816,
+      "queuedAt": 1794229298832,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "partially holds",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230462348,
+      "tokens": 155139,
+      "toolCalls": 36,
+      "durationMs": 455531,
+      "resultPreview": "{\"checks\":[{\"claim\":\"Raw data integrity: the saved Robinhood NVDA/QQQ day bars (1999-2026) are what the API returns, and NVDA overnight returns match the repo CSV (2,979 nights, max diff 1.38bp)\",\"holds\":true,\"reason\":\"I re-pulled NVDA and QQQ day bars (split-adjusted, regular) for 1999-2014 and 2015-2026. They are identical to idio/data/rh_day_*.json: same bar count and same open/close on every d…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "verify:governance-cases",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a0e35e1e020bd6b40",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794230022318,
+      "queuedAt": 1794229491199,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "partially holds",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230618322,
+      "tokens": 200101,
+      "toolCalls": 38,
+      "durationMs": 596004,
+      "resultPreview": "{\"checks\":[{\"claim\":\"Raw price data integrity: all_bars.csv (used for every case metric) is accurate Robinhood daily RTH data.\",\"holds\":true,\"reason\":\"I pulled fresh get_equity_historicals daily bars for WYNN (Jan-Feb 2018), SMCI (Oct 2018 and Aug-Sep 2024), ERIC (Feb-Mar 2022), JD and TSLA (Sep-Oct 2018) and NVDA/QQQ/AMD/AVGO (Oct-Nov 2026). Every sampled OHLC matched all_bars.csv exactly. I reco…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "verify:news-timeline",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a7bb4d64293cbd875",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794230462423,
+      "queuedAt": 1794230006845,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "partially holds",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230866890,
+      "tokens": 157887,
+      "toolCalls": 59,
+      "durationMs": 404466,
+      "resultPreview": "{\"checks\":[{\"claim\":\"On Sun 11/8 the NVIDIA board issued 'Statement from NVIDIA Board of Directors' on investor.nvidia.com. A committee of independent directors with outside counsel will oversee the review. Neither the directors nor the counsel is named. There is no timeline, only 'further updates as appropriate'. It says it has 'no reason to believe that either national security or NVIDIA secrets…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "verify:implied-vol",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a45a17c0bd1f6eb37",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794230618328,
+      "queuedAt": 1794230022339,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "partially holds",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794230951124,
+      "tokens": 156439,
+      "toolCalls": 33,
+      "durationMs": 332796,
+      "resultPreview": "{\"checks\":[{\"claim\":\"No post-news option prices exist pre-open. Every NVDA option quote carries updated_at 2026-11-06T20:59:59Z, and put-call parity implies Friday's spot (~186.6), not the premarket ~177. RH's implied_volatility field is invalid.\",\"holds\":true,\"reason\":\"I re-queried 32 contracts at ~08:25 ET (11/13, 11/16, 11/18, 11/20, 12/18 at strikes 175-190). All are stamped 2026-11-06T20:59:5…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "synthesize",
+      "phaseIndex": 3,
+      "phaseTitle": "Synthesize",
+      "agentId": "a3d216bf10bb27c7f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794230951166,
+      "queuedAt": 1794230951132,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "# NVDL hold: decision memo (Mon 9 Nov, ~08:30 ET) ## 1. Wha…",
+      "promptPreview": "HARD CONSTRAINTS (absolute):\n- Strictly READ-ONLY. Never call place_*/cancel_*/review_*/approve/decline/exercise or any order-changing tool. Never call get_accounts, get_portfolio, get_equity_positions or get_equity_orders (account data is not needed). Never query or mention any account; never touch account ending 3273.\n- Do not modify any file under /home/user/test-trading. Write scratch files ON…",
+      "promptFramed": true,
+      "lastProgressAt": 1794231268532,
+      "tokens": 171718,
+      "toolCalls": 11,
+      "durationMs": 317365,
+      "resultPreview": "{\"memo\":\"# NVDL hold: decision memo (Mon 9 Nov, ~08:30 ET)\\n\\n## 1. What happened\\nConfirmed: on Sunday Nvidia's board opened an independent review of Jensen Huang. It set no timeline and has \\\"confidence in Jensen\\\" [1]. Huang admitted an affair and remains CEO. Trump backs him, and China calls the story \\\"smears\\\" [2]. House chairs have requested, not subpoenaed, a briefing from him on Nov 18 [3…"
+    }
+  ],
+  "totalTokens": 1713405,
+  "totalToolCalls": 408
+}
