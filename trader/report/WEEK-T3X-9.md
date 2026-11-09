@@ -29,7 +29,7 @@
 - **Thursday 11/5 was a broad tech crash.** NVDA −9.3% (181.60), QQQ −6.5%, SMH −11.2%, AMD −17.3%. Press accounts blamed fears of tighter AI rules after the midterms, plus a hot inflation print.
   - We were in cash from 09:31 to 15:52 and avoided **$10.42**.
   - NVDL's lower price then let v1.6 sizing buy a fourth share (96% of E). That share caught Friday's rebound.
-- **Being flat during the day saved $22.95 this week** (Mon–Fri: 4.55, 0.03, 3.03, 10.42, 4.92). On Friday NVDA opened near +5.3% and faded to +2.8% by the close; we were in cash from 09:31 to 15:52.
+- **Being flat during the day saved $22.95 this week** (Mon–Fri: 4.55, 0.03, 3.03, 10.42, 4.92). On Friday NVDA opened +5.2% and faded to +2.8% by the close; we were in cash from 09:31 to 15:52.
 - **Night 43 (weekend hold): NVDL 4 @ 23.7899** = 95.16, 91.9% of E. It is untagged (Friday's after-close reporters were HE, ACA and BH). The exit is Mon 11/9 at 09:31:05.
 - **Execution was clean.** Every order filled at or better than its limit on the first try. The longest rest was 31.7s (N41), well inside the 60s re-price.
 
@@ -46,7 +46,7 @@
 - The 09:29 pre-market exit test (12 days): +5.7bp, t 0.3. Not met.
 
 ## Research and audit this week (all read-only, every number independently verified)
-1. **Overnight after big NVDA down days** (2005–2026, earnings nights excluded): the next overnight averages about 0 (−0.04%, n 202). The risk is about 1.8× normal: an overnight of −5% or worse happens about 4% of the time against 0.5%. The usual rebound arrives in the next *day* session, which we don't hold. Friday's +5.3% overnight (close→open; +5.9% to the 09:31:05 bid) was the good side of that higher variance.
+1. **Overnight after big NVDA down days** (2005–2026, earnings nights excluded): the next overnight averages about 0 (−0.04%, n 202). The risk is about 1.8× normal: an overnight of −5% or worse happens about 4% of the time against 0.5%. The usual rebound arrives in the next *day* session, which we don't hold. Friday's +5.2% overnight (close→open, official open 191.10; +5.9% to the 09:31:05 bid) was the good side of that higher variance.
 2. **Earnings nights of chip peers, live:** 7 nights, **0 wins, −$23.09**, mean −3.68%. The other 11 live nights made +$21.31. A 9-year long sample (n 384) shows no penalty on these nights. The judgement is pre-registered for 2027-01-11, so nothing changes now. See "For you to decide" below.
 3. **The pre-registered "skip after a down session" shadow had not been logged nightly.**
    - It is now rebuilt for N25–N41 and logged nightly from 11/5.
