@@ -431,7 +431,7 @@
         {
           "date": "2026-11-09",
           "night": 43,
-          "trigger": "NVDA open about -8% (09:31:05 bid 171.56 vs 186.64; non-earnings, company-specific: board review of CEO); QQQ +0.9%",
+          "trigger": "NVDA open 172.99 (-7.31% vs 186.64, first 1-min bar; 09:31:05 bid 171.56 = -8.08%); non-earnings, company-specific (board review of CEO); QQQ +0.9%",
           "at_fill_0931": {
             "t": "09:31:15.6",
             "NVDL_fill": 19.8301,
@@ -810,6 +810,13 @@
       "WEEK-T3X-9: N38 NVDA close->09:31 +1.4% -> +1.6%; week-8 live sum -10.53 -> -10.54 (rounded per-night basis, matching -1.78); exact-fill basis noted (-1.77 / -10.53; campaign +1.50 vs rounded +1.48)",
       "WEEK-T3X-9: 4-NVDL exposure range corrected (86-98% of E, price-dependent; 91.9% on N43); Friday overnight +5.3% close->open (+5.9% to 09:31 bid); 3(f) -44% refers to the 11/16 check",
       "state.sleeve.option_level_seen and state.wake refreshed after 11/6 EOD (were stale at 11/5 16:01 and the 15:00 heartbeat)"
+    ],
+    "record_corrections_20261109": [
+      "post-EOD verify (wf_426654cd-f4f): DAY-20261109 SMH +5.1% -> +5.0%; NVDL N44 fill 1.01c (not 0.01c) under ask; '-16% night enters the 11/16 window' clarified (N43, NVDL close->open ~-14.7%); Next: QQQ leg of crash-open trigger and CPI inside the N44 hold",
+      "STATUS: live NVDA-2x nights 19 (not 18); 09:29 shadow n13 +20bp t 0.9; sleeve B per s12(c) at bid 7.72",
+      "crash-open trigger text: NVDA open 172.99 (-7.31%), not '~-8%' (that was the 09:31:05 bid)",
+      "journal 14:00 HB: 4-NVDL threshold was ask <= 21.45 (not ~21.46)",
+      "memo condition (Nov-13 ATM IV > ~70%) checked at close: ~67% -> not met"
     ]
   },
   "account": {
@@ -1448,7 +1455,7 @@
     "crash_open_shadow": {
       "date": "2026-11-09",
       "night": 43,
-      "trigger": "NVDA open about -8% (09:31:05 bid 171.56 vs 186.64; non-earnings, company-specific: board review of CEO); QQQ +0.9%",
+      "trigger": "NVDA open 172.99 (-7.31% vs 186.64, first 1-min bar; 09:31:05 bid 171.56 = -8.08%); non-earnings, company-specific (board review of CEO); QQQ +0.9%",
       "at_fill_0931": {
         "t": "09:31:15.6",
         "NVDL_fill": 19.8301,
@@ -1529,6 +1536,20 @@
       "unsettled": 79.32,
       "news": "NVDA-specific: board review of CEO Huang (reported PRC-intelligence link); broad market strong (SPY +2.4, QQQ +3.5, AMD +13 pct)",
       "note": "last-trade closes; official closes to be checked at Tue 07:45 analyst"
+    },
+    "memo_condition_check": {
+      "t": "16:00 close 11/9",
+      "rule": "memo: lean to 2 NVDL if Nov-13 ATM IV > ~70% after 09:45",
+      "nov13_atm_iv": {
+        "177.5C": 0.701,
+        "177.5P": 0.661,
+        "180C": 0.682,
+        "180P": 0.647,
+        "atm_interp": 0.674
+      },
+      "fri_1106": 0.615,
+      "straddle_177.5": 10.125,
+      "result": "~67% < 70% -> lean stays (a) keep rules"
     }
   },
   "schedule": {

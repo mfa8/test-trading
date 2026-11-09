@@ -16,7 +16,7 @@
 
 **Options (v2.0 §12 FFB-L):** PENDING. Account 8334 has no options level. The human applies here (L3 preferred, L2 ok): https://applink.robinhood.com/upgrade_options?account_number=445788334
 - The shadow quote log has run since 10/23. The plan is in `research/OPTIONS-PLAN-20261022.md`.
-- From 11/9 the R4 shadow uses the Feb-19-2027 contracts. At E 87.78 the budget (E − 80 = 7.78) is under $8, so the sleeve sleeps.
+- From 11/9 the R4 shadow uses the Feb-19-2027 contracts. Under §12(c), E at bid was 87.72 at the 11/9 close, so B = min(17.54, 7.72) = 7.72 < 8 and the sleeve sleeps. It wakes once E at bid is ≥ 88.00.
 
 **Thesis (v1.7):** NVDA at 2x earns its return overnight and loses it intraday.
 - We hold NVDL (NVDX as filler) from close to open.
@@ -40,10 +40,10 @@ Mondays add the §3(f) edge-decay check. Fridays add the weekly report and audit
 **Blackouts:** NVDA earnings night 2026-11-17 (cash). No other blackouts. Half-days 11/27 and 12/24 have the entry at 12:52 ET.
 
 **Pre-registered reviews (no behaviour change before them):**
-- 40 live NVDA-2x nights (18 so far, around mid-December).
+- 40 live NVDA-2x nights (19 so far, around mid-December).
 - 2027-01-11 quarterly review: event-night hypotheses H1–H3. Live semis-peer nights are 0 for 7, −$23.
 - down_session_skip: needs ≥ 120 nights at t ≥ 1.5. Logged nightly from 11/5; history is in `research/down_session_live_20261105.csv`.
-- 09:29 pre-market exit: needs mean ≥ +10bp and t ≥ 2. After 12 days: +5.7bp, t 0.30.
+- 09:29 pre-market exit: needs mean ≥ +10bp and t ≥ 2. After 13 days: +20bp (sd 82bp), t 0.9. Not met.
 
 **Schedule:** 5 crons, all live: t2x-analyst 07:45, t3x-exit-0926, t3x-entry-1548, and the t2x-wake-a/b hourly backstops. They are NEVER retired (human rule).
 
