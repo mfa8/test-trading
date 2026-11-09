@@ -519,3 +519,4 @@
 2026-11-09T15:30:11Z W-9 10:30 ET SLEEVE SHADOW (R4, no order): E 87.74 S 179.19 B 7.74; spread none; L2 call none; cands [(260, 0.38, False), (270, 0.26, False), (280, 0.21, False), (285, 0.17, False), (290, 0.15, False), (300, 0.18, False), (310, 0.04, False), (320, 0.1, False), (330, 0.04, False), (340, 0.07, False)]
 2026-11-09T15:30:16Z W-9 10:30 note: sleeve budget B = min(0.2E, E-80) = 7.74 < 8 -> R4 sleeve SLEEPS at E 87.74 (would not trade even with approval); first Feb-19-2027 shadow, no candidate passes.
 2026-11-09T16:00:00Z W-9 11:00 heartbeat: flat E 87.74 after N43 exit (-15.84); NVDA ~179.2 -4.0% (open ~-8%), NVDL ~21.78; QQQ +3.2% IWM +2.5% SMH +4.7%; sleeve sleeps (B 7.74); next 13:00 shadow, 15:40 pre-entry, 15:52 N44
+2026-11-09T17:00:00Z W-9 12:00 heartbeat: flat E 87.74; NVDA ~177.0 -5.2% NVDL ~21.23 (range 20.64-21.80 since exit); QQQ +3.2% IWM +2.8% SMH +4.5%; next 13:00 sleeve shadow, 15:40 pre-entry, 15:52 N44
