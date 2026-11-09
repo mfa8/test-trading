@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-09T14:00:00Z",
-    "loop_note": "09:00 heartbeat: holding NVDL 4 (N43) into 09:31:05 exit; NVDA ~176.5 -5.4% premkt on CEO-review news, NVDL ~21.07 (N43 ~-10.9 marked); PAUSE 84.65 OK; research",
+    "last_heartbeat_utc": "2026-11-09T15:00:19Z",
+    "loop_note": "10:00 heartbeat + CRASH-OPEN SHADOW (first live trigger, NVDA open ~-8% non-earnings): 10:00 NVDL 21.68/21.70, NVDX 12.15/12.16, NVDA 178.67 (-4.27%); vs 19.830",
     "last": "2026-11-06T21:01Z EOD (after 20:52Z entry night43)"
   },
   "campaign": {
@@ -415,6 +415,32 @@
             "night_pnl": -15.84
           },
           "note": "official open 191.10 (RH day bar, checked 11/9); weekend night"
+        }
+      ],
+      "crash_open_exit_delay_log": [
+        {
+          "date": "2026-11-09",
+          "night": 43,
+          "trigger": "NVDA open about -8% (09:31:05 bid 171.56 vs 186.64; non-earnings, company-specific: board review of CEO); QQQ +0.9%",
+          "at_fill_0931": {
+            "t": "09:31:15.6",
+            "NVDL_fill": 19.8301,
+            "NVDL_bid_093105": 19.86,
+            "NVDX_bid_093105": 11.15
+          },
+          "at_1000": {
+            "t": "10:00:00",
+            "NVDL_bid": 21.68,
+            "NVDL_ask": 21.7,
+            "NVDX_bid": 12.15,
+            "NVDX_ask": 12.16,
+            "NVDA": 178.67
+          },
+          "delay_gain": {
+            "NVDL_pct_vs_fill": 9.33,
+            "usd_4sh": 7.4
+          },
+          "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
         }
       ]
     },
@@ -1120,6 +1146,30 @@
       "cash_after": 87.74,
       "open_orders_after": 0,
       "note": "first try; limit = bid 19.86 - 0.15% = 19.83; filled 19.8301 at 09:31:15.6 (0.15s after placement). Worst live night: weekend NVDA-specific news (board review of CEO Huang). NVDA close 186.64 -> 171.56 bid 09:31:05 (-8.08%); NVDL 23.71 -> 19.86 bid (-16.24%); QQQ +0.9%."
+    },
+    "crash_open_shadow": {
+      "date": "2026-11-09",
+      "night": 43,
+      "trigger": "NVDA open about -8% (09:31:05 bid 171.56 vs 186.64; non-earnings, company-specific: board review of CEO); QQQ +0.9%",
+      "at_fill_0931": {
+        "t": "09:31:15.6",
+        "NVDL_fill": 19.8301,
+        "NVDL_bid_093105": 19.86,
+        "NVDX_bid_093105": 11.15
+      },
+      "at_1000": {
+        "t": "10:00:00",
+        "NVDL_bid": 21.68,
+        "NVDL_ask": 21.7,
+        "NVDX_bid": 12.15,
+        "NVDX_ask": 12.16,
+        "NVDA": 178.67
+      },
+      "delay_gain": {
+        "NVDL_pct_vs_fill": 9.33,
+        "usd_4sh": 7.4
+      },
+      "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
     }
   },
   "schedule": {
