@@ -2,8 +2,8 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.0: v1.7 NVDA-2x overnight engine + FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_NO_DAY_LEG",
-  "mode_reason": "night 43 closed 09:31 11/9 (-15.84, NVDA CEO-review gap); day leg suspended; entry night 44 15:52 per v1.6",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 44 NVDL 3 @21.5999 + NVDX 1 @12.11 (15:52 Mon 11/9, v1.6) after NVDA -4.4% CEO-review day; untagged; exit 09:31:05 Tue 11/10 (PAUSE 82.94)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": null,
     "sessions_done": 0,
-    "nights_held": 43,
+    "nights_held": 44,
     "R_history": [],
     "night_returns": [
       {
@@ -415,6 +415,16 @@
             "night_pnl": -15.84
           },
           "note": "official open 191.10 (RH day bar, checked 11/9); weekend night"
+        },
+        {
+          "night": 44,
+          "date": "2026-11-09",
+          "vs_prior_close": "DOWN",
+          "vs_open": "UP",
+          "NVDA_1550_chg_vs_pc_pct": -4.4,
+          "NVDA_1550_chg_vs_open_pct": 3.15,
+          "realized": null,
+          "note": "open 172.99 (first 1-min bar open); day after CEO-review news"
         }
       ],
       "crash_open_exit_delay_log": [
@@ -804,8 +814,8 @@
   },
   "account": {
     "equity": 87.74,
-    "cash": 87.74,
-    "asof": "09:31 ET 2026-11-09 (broker total 87.74 = cash; 0 positions, 0 open orders, BP 87.74)"
+    "cash": 10.83,
+    "asof": "15:52 ET 2026-11-09 (post-fill: NVDL 3 avg 21.60 + NVDX 1 avg 12.11, 0 open orders; cash 10.83)"
   },
   "ranking": {
     "asof": "2026-09-28",
@@ -975,12 +985,33 @@
     }
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 3,
+      "entry": 21.5999,
+      "entry_t": "2026-11-09T15:52:15.6 ET",
+      "order_id": "6af2327f-1cef-44da-a100-8343e30cc0ac",
+      "leg": "overnight",
+      "n": 44,
+      "basket_version": "v1.6"
+    },
+    {
+      "sym": "NVDX",
+      "qty": 1,
+      "entry": 12.11,
+      "entry_t": "2026-11-09T15:52:41.6 ET",
+      "order_id": "6af23299-923c-4413-89cb-ade4cbb0a081",
+      "leg": "overnight",
+      "n": 44,
+      "basket_version": "v1.6 filler"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-09",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": false,
     "premarket": {
@@ -1221,6 +1252,98 @@
             false
           ]
         ]
+      },
+      {
+        "E": 87.74,
+        "S": 178.06,
+        "expiry": "2027-02-19",
+        "B": 7.74,
+        "spread": {
+          "K1": 320.0,
+          "K2": 330.0,
+          "mid": 0.045,
+          "nat": 0.09,
+          "L0": 0.06,
+          "cost": 6.1,
+          "W_L0": 166.7,
+          "ok": true,
+          "Lmax": 0.07
+        },
+        "call": null,
+        "t": "15:25 ET",
+        "leg_quotes": "260:1.12:1.21 270:0.79:0.89 280:0.60:0.64 285:0.49:0.55 290:0.43:0.48 295:0.37:0.41 300:0.33:0.36 310:0.14:0.35 320:0.20:0.25 330:0.16:0.20 340:0.10:0.18 350:0.08:0.17",
+        "cands": [
+          [
+            260.0,
+            0.325,
+            0.42,
+            0.35,
+            false
+          ],
+          [
+            270.0,
+            0.22,
+            0.29,
+            0.24,
+            false
+          ],
+          [
+            280.0,
+            0.165,
+            0.21,
+            0.18,
+            false
+          ],
+          [
+            285.0,
+            0.13,
+            0.18,
+            0.15,
+            false
+          ],
+          [
+            290.0,
+            0.11,
+            0.15,
+            0.12,
+            false
+          ],
+          [
+            300.0,
+            0.1,
+            0.22,
+            0.13,
+            false
+          ],
+          [
+            310.0,
+            0.02,
+            0.15,
+            0.06,
+            false
+          ],
+          [
+            320.0,
+            0.045,
+            0.09,
+            0.06,
+            true
+          ],
+          [
+            330.0,
+            0.04,
+            0.1,
+            0.06,
+            true
+          ],
+          [
+            340.0,
+            0.015,
+            0.1,
+            0.04,
+            false
+          ]
+        ]
       }
     ],
     "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night43 (NVDL 4) + post-fill check + re-price at 60s; crash-open shadow: if NVDA official open <= -5% log NVDL/NVDX bid at fill time and 10:00; 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25 on Feb-19-2027 IDs (expiry arg 2027-02-19); 15:40 pre-entry; 15:52 entry night44; 16:01:30 EOD",
@@ -1345,6 +1468,38 @@
         "usd_4sh": 7.4
       },
       "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
+    },
+    "entry": {
+      "night": 44,
+      "t": "15:52 ET",
+      "E": 87.74,
+      "NVDL": {
+        "qty": 3,
+        "lim": 21.65,
+        "ask": 21.61,
+        "last": 21.6099,
+        "fill": 21.5999,
+        "vs_ask_c": -1.01,
+        "order_id": "6af2327f-1cef-44da-a100-8343e30cc0ac",
+        "filled_t": "15:52:15.6",
+        "note": "4 x 21.65 = 86.60 > cap 85.99 -> 3 (NVDL had risen from 21.35 at 15:40, where the dry run gave 4)"
+      },
+      "NVDX": {
+        "qty": 1,
+        "lim": 12.16,
+        "ask": 12.14,
+        "last": 12.1333,
+        "fill": 12.11,
+        "vs_ask_c": -3.0,
+        "order_id": "6af23299-923c-4413-89cb-ade4cbb0a081",
+        "filled_t": "15:52:41.6",
+        "note": "cap left after NVDL fill 85.99-64.80=21.19 -> 1 x 12.16"
+      },
+      "cost": 76.91,
+      "pct_E": 87.7,
+      "cash_after": 10.83,
+      "open_orders_after": 0,
+      "note": "NVDA 178.43 (-4.40%) at 15:50 after CEO-review gap (open ~173); untagged (amc TTWO/SANM/ONTO/QRVO/TTD/OXY); research memo: keep rules (no human instruction)"
     }
   },
   "schedule": {
