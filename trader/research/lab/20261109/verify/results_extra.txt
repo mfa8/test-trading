@@ -1,0 +1,77 @@
+X1. pure-python loop recomputation of NVDA full/mkt (independent of the vectorised path)
+   2000-2014 n=3373 nBELOW=1026 full g=0.030 DD=93%  mkt g=0.096 DD=49%   | vectorised: full 0.030 mkt 0.096
+   2015-2026 n=2979 nBELOW=534 full g=0.184 DD=87%  mkt g=0.238 DD=59%   | vectorised: full 0.184 mkt 0.238
+   2000-2026 n=6352 nBELOW=1560 full g=0.102 DD=93%  mkt g=0.163 DD=59%   | vectorised: full 0.102 mkt 0.163
+
+X2. NVDA R (gross 2x) ABOVE vs BELOW QQQ: difference in means, Welch t, and decomposition of the mkt-full gain
+   2000-2014: mean R ABOVE 0.279% BELOW 0.063%  diff 0.215  Welch t=1.11 | gain/BELOW night 0.216 = cost saved 0.068 + avoided mean -0.048 + variance-drag 0.196; x frac BELOW 0.304 = 0.066
+   2015-2026: mean R ABOVE 0.449% BELOW -0.143%  diff 0.592  Welch t=2.58 | gain/BELOW night 0.304 = cost saved 0.068 + avoided mean +0.108 + variance-drag 0.129; x frac BELOW 0.179 = 0.054
+   2000-2026: mean R ABOVE 0.365% BELOW -0.007%  diff 0.373  Welch t=2.49 | gain/BELOW night 0.246 = cost saved 0.068 + avoided mean +0.006 + variance-drag 0.173; x frac BELOW 0.246 = 0.060
+
+X3. symmetric trimming (drop nights with |NVDA overnight| > X in BOTH states): mkt - full, g%/night
+       X                  2000-2014                  2015-2026                  2000-2026
+   1.000    +0.066 (drop   0; B  0)    +0.054 (drop   0; B  0)    +0.060 (drop   0; B  0)
+   0.250    +0.004 (drop   3; B  3)    +0.054 (drop   1; B  0)    +0.028 (drop   4; B  3)
+   0.200    +0.004 (drop   3; B  3)    +0.054 (drop   1; B  0)    +0.028 (drop   4; B  3)
+   0.150    -0.005 (drop   6; B  4)    +0.042 (drop   3; B  1)    +0.017 (drop   9; B  5)
+   0.100    +0.013 (drop  15; B 10)    +0.025 (drop  11; B  3)    +0.019 (drop  26; B 13)
+   0.075    +0.012 (drop  35; B 23)    +0.023 (drop  24; B  9)    +0.017 (drop  59; B 32)
+   0.050    +0.024 (drop  82; B 54)    +0.017 (drop  54; B 27)    +0.021 (drop 136; B 81)
+   winsorised instead of dropped (clip NVDA overnight to +/-X):
+   0.200                     +0.040                     +0.054                     +0.047
+   0.150                     +0.028                     +0.051                     +0.039
+   0.100                     +0.019                     +0.043                     +0.030
+   0.050                     +0.014                     +0.029                     +0.021
+
+X4. earnings / pre-announcement flags in csv; NVDA 2015-26 excluding earn=1 OR preann set
+   preann non-null rows:       date       next  earn                                       preann   nvda_on
+   2019-01-25 2019-01-28     0 NVDA pre-announced Q4 miss before 01-28 open -0.147674
+   2022-08-05 2022-08-08     0 NVDA pre-announced Q2 miss before 08-08 open -0.078308
+   ex earn+preann n=2930: full 0.122 DD 81%  own 0.141  mkt 0.154 DD 56%  diff +0.032
+   ex-earnings(+preann) 2015-26 diff: 20-night block 90% CI [-0.0038,+0.0722] P=0.929; year-block [-0.0086,+0.0873] P=0.858
+
+X5. NVDL / NVDX: leverage actually delivered and shortfall vs synthetic 2x
+   NVDL close-to-close beta vs NVDA by quarter: 2023Q1:1.45 2023Q2:1.49 2023Q3:1.50 2023Q4:1.50 2024Q1:1.92 2024Q2:2.00 2024Q3:2.00 2024Q4:2.00 2025Q1:1.98 2025Q2:1.96 2025Q3:1.99 2025Q4:1.99 2026Q1:1.99 2026Q2:1.99 2026Q3:1.97 2026Q4:1.98
+   NVDL since 2024-04: overnight actual minus 2x NVDA overnight: mean -0.0298%/night (se 0.0068), n=654; log growth actual 0.337 vs synthetic 0.366
+   NVDX close-to-close beta vs NVDA by quarter: 2023Q4:2.01 2024Q1:1.96 2024Q2:2.03 2024Q3:2.01 2024Q4:2.00 2025Q1:1.99 2025Q2:1.97 2025Q3:2.01 2025Q4:2.00 2026Q1:2.00 2026Q2:2.00 2026Q3:1.97 2026Q4:1.97
+   NVDX since 2024-04: overnight actual minus 2x NVDA overnight: mean -0.0697%/night (se 0.0224), n=654; log growth actual 0.296 vs synthetic 0.366
+   NVDL from 2024-04-01: n=654 BELOW=59 full 0.247 DD 58% mkt 0.268 DD 37% diff +0.021; block-bootstrap 90% CI [-0.053,+0.127] P(mkt>full)=0.59
+   NVDL from 2022-12-13: n=974 BELOW=86 full 0.278 DD 58% mkt 0.298 DD 37% diff +0.020; block-bootstrap 90% CI [-0.029,+0.090] P(mkt>full)=0.65
+   NVDX from 2023-10-19: n=765 BELOW=59 full 0.297 DD 59% mkt 0.319 DD 37% diff +0.022; block-bootstrap 90% CI [-0.043,+0.112] P(mkt>full)=0.60
+
+X6. which rule is best per name, 2000-2026 (g%/night)
+   NVDA  best=mkt     full=0.102 own=0.144 mkt=0.163 both=0.157 either=0.149
+   AMD   best=full    full=0.167 own=0.123 mkt=0.138 both=0.134 either=0.126
+   INTC  best=either  full=-0.103 own=-0.072 mkt=-0.064 both=-0.074 either=-0.062
+   MU    best=mkt     full=0.159 own=0.162 mkt=0.175 both=0.168 either=0.168
+   AAPL  best=either  full=0.017 own=0.050 mkt=0.063 both=0.043 either=0.070
+   MSFT  best=mkt     full=-0.058 own=-0.051 mkt=-0.034 both=-0.046 either=-0.039
+   AMZN  best=either  full=-0.058 own=-0.017 mkt=-0.001 both=-0.036 either=0.018
+   QCOM  best=either  full=-0.144 own=-0.092 mkt=-0.082 both=-0.102 either=-0.073
+   TXN   best=either  full=-0.134 own=-0.069 mkt=-0.086 both=-0.093 either=-0.062
+   AMAT  best=either  full=-0.041 own=0.002 mkt=0.005 both=-0.003 either=0.010
+   ORCL  best=either  full=-0.097 own=-0.059 mkt=-0.055 both=-0.065 either=-0.048
+
+X7. NVDA spec-literal vs excluding the 9 pre-break Oct-2000 nights vs repaired
+   spec-literal             2000-2014 n=3373 full 0.030 mkt 0.096 DD 93/49% | 2015-2026 n=2979 full 0.184 mkt 0.238 DD 87/59% | 2000-2026 n=6352 full 0.102 mkt 0.163 DD 93/59%
+   drop 9 pre-break nights  2000-2014 n=3364 full 0.033 mkt 0.097 DD 93/49% | 2015-2026 n=2979 full 0.184 mkt 0.238 DD 87/59% | 2000-2026 n=6343 full 0.104 mkt 0.163 DD 93/59%
+   repaired /10             2000-2014 n=3573 full -0.008 mkt 0.083 DD 95/49% | 2015-2026 n=2979 full 0.184 mkt 0.238 DD 87/59% | 2000-2026 n=6552 full 0.079 mkt 0.154 DD 95/59%
+
+X8. QQQ-BELOW episodes (NVDA sample): count, length distribution, and gain by episode
+   82 episodes; length median 4, <=5 nights: 47, >=60 nights: 8
+   episodes with gain>0: 31, <0: 51; total gain 3.84 log pts; short (<=20 nights) episodes total -1.03; long (>20) total +4.87
+     best  2022-04-05..2023-01-25 len 203 gain +1.13
+     best  2008-08-29..2009-04-29 len 167 gain +1.04
+     best  2008-06-20..2008-08-07 len  34 gain +0.73
+     best  2004-07-08..2004-09-30 len  60 gain +0.64
+     best  2018-11-09..2019-02-14 len  65 gain +0.53
+     worst 2003-01-17..2003-02-27 len  28 gain -0.22
+     worst 2006-05-12..2006-09-14 len  87 gain -0.16
+     worst 2005-04-08..2005-05-17 len  28 gain -0.15
+     worst 2004-10-25..2004-10-25 len   1 gain -0.13
+     worst 2011-08-04..2011-09-15 len  30 gain -0.12
+   last 2026 episodes:
+     2023-03-10..2023-03-10 len   1 gain +0.015
+     2025-03-06..2025-05-09 len  46 gain +0.267
+     2026-03-20..2026-04-07 len  12 gain -0.048
+     2026-11-05..2026-11-05 len   1 gain -0.073

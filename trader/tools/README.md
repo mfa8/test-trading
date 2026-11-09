@@ -4,6 +4,9 @@ All order scripts append an INV-12 intent line to trader/orders.jsonl and print 
 - `bridge.py HH:MM:SS[et]` — exact-time sleep (UTC, or ET with `et`), refuses legs >= 500s. After 2026-11-01 (EST) always use the `et` form.
 - `exit_ovn.py NIGHT YYYYMMDD SYM:QTY:BID ... [--reprice]` — §5 09:31 exit limits.
 - `entry_v16.py nvdl NIGHT YYYYMMDD NVDL_ask NVDL_last E [--dry]` then `entry_v16.py nvdx NIGHT YYYYMMDD NVDX_ask NVDX_last E SPENT [--dry]` — §3 v1.6 NVDL-first sizing (entry_v15.py kept for history only).
+- `trend.py add YYYY-MM-DD QQQ=.. NVDA=.. SMH=..` (07:45, prior session's official closes) and `trend.py state QQQ=<px> NVDA=<px> SMH=<px> --log` (15:50) — §13 market-trend state (v1.8, no orders). QQQ binds: UP -> f 0.98, DOWN -> f 0.25. Exit code 2 = no valid state: repair the cache, else size DOWN. `trend.py show` lists the cache; `trend.py init BARS.json ...` rebuilds it from day-bar files.
+- `entry_v18.py core NIGHT YYYYMMDD NVDL_ask NVDL_last E up|down|pause [--dry]` then, after the core fill, `entry_v18.py topup NIGHT YYYYMMDD E SPENT up|down|pause [--dry]` — §3(c) v1.8 sizing: whole NVDL shares by limit, then one dollar-based market top-up (>= $2.00). Supersedes entry_v16.py from night 45.
+- `exit_frac.py NIGHT YYYYMMDD SYM QTY [--dry]` — §5 v1.8: market sell of the fractional remainder, only after the whole-share limit sell (exit_ovn.py) has filled.
 - `shadow_tza.py YYYY-MM-DD BARS.json` — §11 v1.7 TZA shadow log (no orders); feed it 1-minute TZA bars.
 - `dayleg.py N YYYYMMDD TZA_ask TZA_last cash E [--dry]` / `daytp.py N YYYYMMDD ENTRY QTY` / `daysell.py N YYYYMMDD QTY BID [--reprice]` — §11 day leg.
 
