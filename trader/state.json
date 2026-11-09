@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-06T21:23:35Z",
-    "loop_note": "post-EOD 11/6: holding NVDL 4 @23.7899 (N43 weekend hold); E 103.61; next Mon 11/9 07:45 analyst (3(f), PAUSE 84.65), 09:31:05 exit N43",
+    "last_heartbeat_utc": "2026-11-09T14:00:00Z",
+    "loop_note": "09:00 heartbeat: holding NVDL 4 (N43) into 09:31:05 exit; NVDA ~176.5 -5.4% premkt on CEO-review news, NVDL ~21.07 (N43 ~-10.9 marked); PAUSE 84.65 OK; research",
     "last": "2026-11-06T21:01Z EOD (after 20:52Z entry night43)"
   },
   "campaign": {
