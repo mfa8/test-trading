@@ -32,6 +32,11 @@ if mode == 'core':
     rest = 0.0 if state == 'pause' else math.floor((target - q * lim) * 100) / 100
     print(f"{SYM} state {state}  target {target:.2f} ({(target/E*100):.1f}% of E {E:.2f})  lim {lim:.2f} x{q} = {q*lim:.2f}"
           f"  -> planned top-up {rest:.2f}" + ("" if rest >= MIN_TOPUP else " (below 2.00: none)"))
+    if q == 0 and state != 'pause' and rest >= MIN_TOPUP:
+        print(f"NO CORE ORDER: one share at the limit costs more than the target. §3(c): place the top-up at once -> "
+              f"entry_v18.py topup {n} {day} {E:.2f} 0 {state}   (review_equity_order first on first live use, §13(h); never after 15:58)")
+    elif q == 0:
+        print("NO ORDER: size is 0 (pause with one share above 0.98*E, or a target under 2.00). Stay in cash tonight.")
     if dry or q == 0: sys.exit()
     d = {"t": now, "coid": f"T3X-{day}-{n}-{SYM}-E", "ref_id": str(uuid.uuid4()), "sym": SYM, "side": "buy", "qty": q, "type": "limit",
          "limit": lim, "tif": "gfd", "hours": "regular_hours",

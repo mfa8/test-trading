@@ -858,14 +858,15 @@
    "version": "v1.8",
    "symbol": "NVDL",
    "core": "whole shares by §4 marketable limit, a = floor(f*E / lim)",
-   "topup": "one dollar-based market buy for floor_cent(f*E - spent) if >= 2.00, after the core fill, not after 15:58",
+   "topup": "one dollar-based market buy for floor_cent(f*E - spent) if >= 2.00: after the core fill, OR at once with SPENT 0 when core prints x0 (one share above the target, typical on a DOWN night; then there is no core order). Never after 15:58; never if a core order was cancelled unfilled",
    "pause": "exactly 1 share, no top-up",
    "tools": [
     "trader/tools/trend.py",
     "trader/tools/entry_v18.py",
     "trader/tools/exit_frac.py"
    ],
-   "first_fractional_order": "review_equity_order first (§13(h)); simulation 2026-11-09 17:06 ET: $5 NVDL market buy -> order_checks {} and customer_approval_required false"
+   "first_fractional_order": "review_equity_order first (§13(h)); simulation 2026-11-09 17:06 ET: $5 NVDL market buy -> order_checks {} and customer_approval_required false",
+   "exit": "whole-share part by exit_ovn.py (QTY must be a bare integer, e.g. 3); then the remainder by exit_frac.py with the exact quantity from get_equity_positions stripped of trailing zeros (0 < QTY < 1, at most 6 decimals). A position under 1 share: exit_frac.py only, at 09:31:05"
   },
   "lab": {
    "ledger": "trader/LAB.md",
@@ -1110,7 +1111,7 @@
    "E_broker": 86.23,
    "E_bid": 86.15,
    "cash": 10.83,
-   "news": "pending: morning sweep running (workflow wgnt57hhf); CPI 08:30 ET"
+   "news": "Morning sweep (07:53 ET, sources in research/lab/20261110/preflight_result.json): no new statement from Nvidia, its board or Huang since Sunday; the Wed 11/11 item is a House chairs' deadline for Huang to answer a Nov 18 briefing request; new since Monday's close: The Information report that new chip export controls may be allowed, a Banks-Warren statement, Trump saying the FBI is looking into it, a shareholder class action, Ives expects a 4-6 week board investigation. TSMC October revenue +59.7% y/y. CPI consensus +0.3% headline / +0.2% core m/m; markets priced ~83% odds of a 25bp Fed HIKE in December. 10-year auction 13:00; Bowman 15:30; CoreWeave after the close."
   },
   "broker_check": {
    "t": "07:48 ET",
@@ -1148,7 +1149,7 @@
    "dist_pct": -0.81,
    "state": "DOWN (reference only; the binding read is 15:50)"
   },
-  "plan": "08:30 CPI; 09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night44 (exit_ovn.py 44 20261110 NVDL:3:BID NVDX:1:BID) + post-fill check + re-price at 60s; PAUSE check vs 82.94 on the all-cash total; crash-open shadow if NVDA open <= -5% or QQQ <= -3%; 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25 (Feb-19-2027 IDs); 15:40 pre-entry (incl. review_equity_order of a dollar-based NVDL buy if a top-up is possible); 15:50 trend.py state QQQ= NVDA= SMH= --log -> night-45 size (UP f 0.98, DOWN f 0.25, PAUSE 1 share); 15:52 entry_v18.py core, then topup only after the core fill and before 15:58; 16:01:30 EOD; DAY-20261110 with the trend line and, on a DOWN night, the full-size counterfactual",
+  "plan": "08:30 CPI; 09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL+NVDX; 09:31:05 exit night44 (exit_ovn.py 44 20261110 NVDL:3:BID NVDX:1:BID) + post-fill check + re-price at 60s; PAUSE check vs 82.94 on the all-cash total; crash-open shadow if NVDA open <= -5% or QQQ <= -3%; 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25 (Feb-19-2027 IDs); 15:40 pre-entry (incl. review_equity_order of a dollar-based NVDL buy if a top-up is possible); 15:50 trend.py state QQQ= NVDA= SMH= --log -> night-45 size (UP f 0.98, DOWN f 0.25, PAUSE 1 share); BEFORE sizing: trend.py show must give 2026-11-09 as the last QQQ date, and any WARNING on the QQQ line counts as exit code 2 (repair, else size DOWN); 15:52 entry_v18.py core; if it prints x1 or more, topup only after the core fill; if it prints x0 (one share costs more than the target) there is NO core order: run entry_v18.py topup 45 20261110 <E> 0 <state> at once (review_equity_order first, §13(h)); nothing after 15:58; 16:01:30 EOD; DAY-20261110 with the trend line and, on a DOWN night, the full-size counterfactual",
   "pause_check": {
    "E": 86.23,
    "pause": 82.94,
@@ -1156,7 +1157,27 @@
    "result": "OK at the 07:48 mark (E at bids 86.15 is +3.9% above 82.94). PAUSE would need the positions to lose a further 4.3% by the exit: NVDL bid <= about 20.25, roughly NVDA -3.2% vs Monday's close. CPI at 08:30 could do that."
   },
   "preflight": {
-   "workflow": "wgnt57hhf (v18-preflight-and-morning-sweep): 3 read-only review lenses over trend.py / entry_v18.py / exit_frac.py + docs, adversarial verify of the top findings, plus a news sweep; results to be recorded before 15:40"
+   "workflow": "wgnt57hhf done 08:29 ET: 8 agents, 25 findings, 0 high. Verified: 1 medium (docs and plan omitted the a = 0 branch on a DOWN night -> FIXED 08:40: tool message, README, STATUS, RULES_v3 §7, plan), 3 low in trend.py (staleness and add guards -> code fix after the close; operating check today). Archive: research/lab/20261110/PREFLIGHT.md",
+   "operating_checks_today": [
+    "trend.py show: last QQQ date must be 2026-11-09",
+    "any WARNING on the QQQ line of trend.py state = exit code 2 (repair, else DOWN)",
+    "exit_ovn.py takes whole-share integers only; exit_frac.py takes the remainder with trailing zeros stripped"
+   ]
+  },
+  "cpi_reaction": {
+   "t": "08:30:39 ET",
+   "NVDL_bid": 20.91,
+   "NVDL_ask": 20.96,
+   "NVDX_bid": 11.74,
+   "NVDA": 175.72,
+   "NVDA_chg_pct": -1.65,
+   "QQQ": 672.0,
+   "QQQ_chg_pct": -1.08,
+   "SPY_chg_pct": -0.41,
+   "IWM_chg_pct": -0.92,
+   "TLT_chg_pct": -0.56,
+   "E_bid": 85.3,
+   "note": "stocks and bonds both fell in the first 40 seconds, which reads as a hotter print; the figures themselves are not yet confirmed from a source. PAUSE 82.94 is 2.8% below E at bids; it needs NVDL bid <= about 20.2"
   }
  },
  "schedule": {

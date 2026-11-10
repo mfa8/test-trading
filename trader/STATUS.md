@@ -27,7 +27,7 @@
 - We hold NVDL from close to open.
 - **Size follows the market trend (§13).** At 15:50 we compare QQQ with its 200-day average. At or above it we invest 98% of equity; below it, 25%. Nights below the line are about twice as volatile, and at 2x that volatility eats the compound return. An independent re-check on 11/9 reproduced the numbers and calls the rule insurance, not extra return: nearly all of its historical gain came from ten nights in long bear markets, and in most short dips it loses a little.
 - Trend state on 11/9 (provisional closes): QQQ 678.77 against a line at 681.18, 0.35% below → DOWN. That close to the line the state can flip on any day; the 15:50 price on 11/10 decides night 45.
-- At equity near $88: DOWN means 1 NVDL share (about $22); UP means 3 shares plus about $20 of fractional NVDL.
+- At equity near $86: DOWN means about $21.50 of NVDL, which is one whole share if it fits under 25% of equity and otherwise a fractional position of just under one share; UP means 3 shares plus about $20 of fractional NVDL.
 - Planning edge: +0.30% per night per unit invested.
 - §3(f) trailing-120 NVDL check (11/9): +0.363%, t 1.40 → the overnight leg stays on. Next check 11/16.
 - The inverse day leg has been SUSPENDED since 10/15. Never hold an inverse product overnight.
@@ -40,7 +40,7 @@
 5. Sleeve shadow at 10:30, 13:00 and 15:25.
 6. 15:40 pre-entry check, journaled.
 7. 15:50 trend state (`tools/trend.py state ... --log`).
-8. Buy at 15:52 (`tools/entry_v18.py`): whole NVDL shares by limit order, then one dollar-based top-up if at least $2 of the target is left.
+8. Buy at 15:52 (`tools/entry_v18.py`): whole NVDL shares by limit order, then one dollar-based top-up if at least $2 of the target is left. If one share costs more than the target (likely on a DOWN night), there is no limit order: the whole position is the dollar-based order, and the next morning's exit is a market sell of that fractional position.
 9. 16:01:30 EOD. On DOWN nights the report shows what full size would have made.
 10. 16:13 after-hours snapshot on tagged nights.
 
