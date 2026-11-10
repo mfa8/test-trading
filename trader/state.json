@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-10T21:04:01Z",
-    "loop_note": "NOOP: 15 queued scheduled wakes of 11/10 absorbed (t3x-exit-0926, t2x-wake-a x7, t2x-wake-b x6, t3x-entry-1548); each was already handled by the live loop (exit",
+    "last_heartbeat_utc": "2026-11-10T21:10:53Z",
+    "loop_note": "NOOP 16:10 ET (t2x-wake-b, last hourly wake of 11/10): state and broker agree: NVDL 1 (avail 1), 0 open orders; exit, entry and EOD all done; no HUMAN_STOP; PAU",
     "last": "2026-11-10T21:02Z EOD (after 20:52Z entry night45)"
   },
   "campaign": {
