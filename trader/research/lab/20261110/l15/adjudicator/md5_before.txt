@@ -1,0 +1,17 @@
+b005b5441c74c89feffc9715f98afdaf  analyst_a/hand_test.py
+2c7b2aaa817feb7e9c9faf48c0f055bf  analyst_a/loader.py
+ea87127b69aae6c0fac85f8aecabef62  analyst_a/results.json
+d34e398f7dbc099e256cfd7c45c1e1fb  analyst_a/results.txt
+ca5b60bdab63b367105560c069e2aea3  analyst_a/results_handtest.txt
+f827aa2868a6be27b9304db13d82ad9c  analyst_a/results_main.txt
+93b03b148923d53dc1523880a9c16b16  analyst_a/run_l15.py
+9ff4e33f7c3ae86b72259a7c81a3980a  analyst_a/sim.py
+d225a8b43b252741c40ea880df46cc84  analyst_b/b_checks.py
+ad706bb37da8b036a20b31c905c2f921  analyst_b/b_loader.py
+cc4e6b9916cda7650e2f9512e7f4b0b4  analyst_b/b_run.py
+09e32eeab57c46adefc89583a19dda70  analyst_b/b_sim.py
+090d536b0f013efe5d2b3782c5f5e89f  analyst_b/checks.txt
+73ad351eb0be40a04dee62ca47df607d  analyst_b/nvda_table.json
+453fb3c492d5b01f5bddca155cb13c83  analyst_b/results.txt
+33592ba15d61161445ac86e1ce99e0df  analyst_b/run.log
+79fc8954d4dea9fb4349381ba0f7457e  analyst_b/summary.json

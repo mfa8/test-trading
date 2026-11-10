@@ -1,0 +1,120 @@
+
+====================================================================================================
+11. HAND CHECK ON A TINY SERIES
+====================================================================================================
+Part 1: 30 nights, base size 1.0 on every night, pause size 0.5, window 20, threshold 0.80, minimum 5.
+  unit returns u_t (zero unless listed): u2=-0.30, u3=+0.10, u4=+0.20, u6=-0.05, u12=-0.10, u16=+0.10, u23=-0.25, u24=+0.40
+  Derivation by hand (E_t = equity before night t; "trig" = 0.80 x max of the last 20 E):
+   E0=E1=E2=1. Night 2 at size 1: -30%  -> E3 = 0.70 in every variant.
+   t=3: trig 0.80, 0.70 <= 0.80 -> C true.  t=4: E4 = 0.70*1.05 = 0.735 (paused, half size) -> C true.
+   t=5: E5 = 0.735*1.10 = 0.8085 > 0.80 -> C false.  t=6: C false.
+   P1/P2 (still inside the 5 nights at t=6): E7 = 0.8085*0.975 = 0.7882875 -> C true at t=7 and onward.
+   P3 (not paused at t=6, full size): E7 = 0.8085*0.95 = 0.768075 -> C true at t=7 and onward.
+   The three 1.0 values (E0..E2) stay inside the 20-window up to t=21 (window E2..E21), so trig = 0.80 up to t=21.
+   At t=22 the window is E3..E22, max 0.8085 (E5,E6), trig 0.6468 -> C false for every variant.
+   P1 : paused 3..7 (minimum), stays paused 8..21 because C holds, normal at 22.  Episode (3, 19 nights).
+        E13 = 0.7882875*0.95 = 0.748873125; E17 = *1.05 = 0.78631678125 (<= 0.80, still paused);
+        E24 = *0.75 = 0.5897375859375 <= 0.6468 -> new pause 24..28 (C false from 25 on) -> episode (24, 5).
+        E25 = *1.20 = 0.707685103125 = final equity.
+   P2 reading A: paused 3..7; re-armed at t=5 (C false inside the pause); t=8 C true and armed -> second pause 8..12;
+        normal from 13 (disarmed, C true 13..16); E13 = 0.748873125; night 16 at full size: E17 = *1.10 = 0.8237604375 > 0.80
+        -> C false at 17 -> re-armed; E24 = *0.75 = 0.617820328125; window max now 0.8237604375, trig 0.65900835 -> pause 24..28.
+        E25 = *1.20 = 0.74138439375 = final.  Starts 3, 8, 24.
+   P2 reading B: paused 3..7; C false at t=5,6 is ignored (inside the pause); t=8 C true -> not re-armed -> normal 8..23.
+        E13 = 0.7882875*0.90 = 0.70945875; E17 = *1.10 = 0.780404625 (<= 0.80, C true, still disarmed);
+        t=22 C false -> re-armed; E24 = *0.75 = 0.58530346875 <= 0.6468 -> pause 24..28; E25 = *1.20 = 0.7023641625 = final.
+        Starts 3, 24.
+   P3 : paused exactly where C holds: 3,4 | 7..21 | 24.  E13 = 0.768075*0.95 = 0.72967125; E17 = *1.05 = 0.7661548125;
+        E24 = *0.75 = 0.574616109375; E25 = *1.20 = 0.68953933125 = final (0.6895 > 0.6468 -> C false at 25).
+   P0 : never paused. Final = 0.70*1.10*1.20*0.95*0.90*1.10*0.75*1.40 = 0.9124731.
+   P2x10 (reading A): pause 3..12; re-armed at t=5; t=13: E13 = 0.748873125 <= 0.80, armed -> second pause 13..22;
+        E17 = 0.78631678125; re-armed at t=22 (C false); E24 = 0.5897375859375 -> third pause from 24 (cut by the end of the series, 6 nights).
+
+  Trace from sim.simulate (E_t before the night; C = trigger condition; size used):
+  P1
+    t   :     0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29
+    E_t : 1.000 1.000 1.000 0.700 0.735 0.808 0.808 0.788 0.788 0.788 0.788 0.788 0.788 0.749 0.749 0.749 0.749 0.786 0.786 0.786 0.786 0.786 0.786 0.786 0.590 0.708 0.708 0.708 0.708 0.708
+    C   :     .     .     .     C     C     .     .     C     C     C     C     C     C     C     C     C     C     C     C     C     C     C     .     .     C     .     .     .     .     .
+    size:  1.00  1.00  1.00  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  1.00  1.00  0.50  0.50  0.50  0.50  0.50  1.00
+  P2A
+    t   :     0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29
+    E_t : 1.000 1.000 1.000 0.700 0.735 0.808 0.808 0.788 0.788 0.788 0.788 0.788 0.788 0.749 0.749 0.749 0.749 0.824 0.824 0.824 0.824 0.824 0.824 0.824 0.618 0.741 0.741 0.741 0.741 0.741
+    C   :     .     .     .     C     C     .     .     C     C     C     C     C     C     C     C     C     C     .     .     .     .     .     .     .     C     .     .     .     .     .
+    size:  1.00  1.00  1.00  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  0.50  0.50  0.50  0.50  0.50  1.00
+  P2B
+    t   :     0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29
+    E_t : 1.000 1.000 1.000 0.700 0.735 0.808 0.808 0.788 0.788 0.788 0.788 0.788 0.788 0.709 0.709 0.709 0.709 0.780 0.780 0.780 0.780 0.780 0.780 0.780 0.585 0.702 0.702 0.702 0.702 0.702
+    C   :     .     .     .     C     C     .     .     C     C     C     C     C     C     C     C     C     C     C     C     C     C     C     .     .     C     .     .     .     .     .
+    size:  1.00  1.00  1.00  0.50  0.50  0.50  0.50  0.50  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  0.50  0.50  0.50  0.50  0.50  1.00
+  P3
+    t   :     0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29
+    E_t : 1.000 1.000 1.000 0.700 0.735 0.808 0.808 0.768 0.768 0.768 0.768 0.768 0.768 0.730 0.730 0.730 0.730 0.766 0.766 0.766 0.766 0.766 0.766 0.766 0.575 0.690 0.690 0.690 0.690 0.690
+    C   :     .     .     .     C     C     .     .     C     C     C     C     C     C     C     C     C     C     C     C     C     C     C     .     .     C     .     .     .     .     .
+    size:  1.00  1.00  1.00  0.50  0.50  1.00  1.00  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  0.50  1.00  1.00  0.50  1.00  1.00  1.00  1.00  1.00
+
+  Comparison with the hand-derived expectations:
+   [ok] P0    paused nights []
+   [ok] P0    episodes (start, length) []
+   [ok] P0    final equity 0.912473100000 (hand 0.912473100000)
+   [ok] P0    equity at t=[3, 4, 5, 7, 13, 17, 24, 25] matches hand values
+   [ok] P0    size is 0.5 on paused nights and 1.0 otherwise
+   [ok] P1    paused nights [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28]
+   [ok] P1    episodes (start, length) [(3, 19), (24, 5)]
+   [ok] P1    final equity 0.707685103125 (hand 0.707685103125)
+   [ok] P1    equity at t=[3, 4, 5, 7, 13, 17, 24, 25] matches hand values
+   [ok] P1    size is 0.5 on paused nights and 1.0 otherwise
+   [ok] P2A   paused nights [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 25, 26, 27, 28]
+   [ok] P2A   episodes (start, length) [(3, 5), (8, 5), (24, 5)]
+   [ok] P2A   final equity 0.741384393750 (hand 0.741384393750)
+   [ok] P2A   equity at t=[7, 13, 17, 24, 25] matches hand values
+   [ok] P2A   size is 0.5 on paused nights and 1.0 otherwise
+   [ok] P2B   paused nights [3, 4, 5, 6, 7, 24, 25, 26, 27, 28]
+   [ok] P2B   episodes (start, length) [(3, 5), (24, 5)]
+   [ok] P2B   final equity 0.702364162500 (hand 0.702364162500)
+   [ok] P2B   equity at t=[7, 13, 17, 24, 25] matches hand values
+   [ok] P2B   size is 0.5 on paused nights and 1.0 otherwise
+   [ok] P3    paused nights [3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24]
+   [ok] P3    episodes (start, length) [(3, 2), (7, 15), (24, 1)]
+   [ok] P3    final equity 0.689539331250 (hand 0.689539331250)
+   [ok] P3    equity at t=[7, 13, 17, 24, 25] matches hand values
+   [ok] P3    size is 0.5 on paused nights and 1.0 otherwise
+   [ok] P2x10 paused nights [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29]
+   [ok] P2x10 episodes (start, length) [(3, 10), (13, 10), (24, 6)]
+   [ok] P2x10 final equity 0.707685103125 (hand 0.707685103125)
+   [ok] P2x10 size is 0.5 on paused nights and 1.0 otherwise
+
+Part 2: 24 nights with the real sizes. b = 0.98, 0.98, then 0.25 on even nights and 0.98 on odd nights; u1 = -0.50, all other u = 0.
+  By hand: night 1 at 0.98 loses 49% -> E2 = 0.51 and equity never moves again. C holds from t=2 while E1 = 1 is in the window (t <= 20);
+  at t=21 the window is E2..E21 = 0.51 throughout, trig 0.408 -> C false. So P1 and P3 pause 2..20 (19 nights), P2 pauses 2..6.
+   [ok] p=0.10 P1 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.10 P2 paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.10 P2B paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.10 P3 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.25 P1 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.25 P2 paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.25 P2B paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.25 P3 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.50 P1 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.50 P2 paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.50 P2B paused 2..6, sizes = min(b,p) when paused else b, final E = 0.51
+   [ok] p=0.50 P3 paused 2..20, sizes = min(b,p) when paused else b, final E = 0.51
+    sizes P1 p=0.50, t=0..23: 0.98 0.98 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.50 0.25 0.98 0.25 0.98
+    sizes P2 p=0.10, t=0..23: 0.98 0.98 0.10 0.10 0.10 0.10 0.10 0.98 0.25 0.98 0.25 0.98 0.25 0.98 0.25 0.98 0.25 0.98 0.25 0.98 0.25 0.98 0.25 0.98
+
+Part 3: structural checks on the real runs (all 11 names, trend on and off, p = 0.10 / 0.25 / 0.50)
+   [ok] trend state: "close >= mean of previous 199 closes" equals "close >= 200-session SMA incl. today" on all 6553 sessions (differences: 0)
+   66 (name, trend, p) cells checked
+   [ok] sizes: s = min(b, p) on paused nights and b otherwise, every run (violations 0)
+   [ok] equity: ln E_final = sum of ln(1+R) and E path = cumprod(1 + s*u) rebuilt with numpy, every run (violations 0)
+   [ok] trigger condition C recomputed from the equity path with a numpy rolling 20-value max: night-level mismatches 0
+   [ok] P0 total log return equals an independent numpy computation (violations 0)
+   [ok] P1 episodes: length >= 5 unless cut by the end of the sample (violations 0)
+   [ok] P1 episodes: start on a night with C true after an unpaused night; no unpaused night has C true (violations 0)
+   [ok] P1 episodes: the night after an episode has C false and is unpaused (violations 0)
+   [ok] P1 episodes: every night beyond the 5th has C true (violations 0)
+   [ok] P2/P2B episodes: exactly 5 nights, start on C true, paused flags = union of episodes (violations 0 / 0)
+   [ok] P2 reading A: between two starts there is a night with C false after the first start (violations 0)
+   [ok] P2 reading B: between two starts there is a night with C false after the first pause ended (violations 0)
+   [ok] P3: paused flags identical to C (violations 0)
+
+HAND CHECK RESULT: all checks passed.

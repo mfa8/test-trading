@@ -1,0 +1,681 @@
+====================================================================================================
+L15  PAUSE exit condition: as written (P1) vs fixed 5 sessions (P2)   -- analyst A
+====================================================================================================
+Scripts: /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/l15/adjudicator/copy_a/{loader.py, sim.py, run_l15.py, hand_test.py}
+Bootstrap: block by calendar year of the entry date, 2000 draws, numpy default_rng seed 20261110
+           (the generator is re-seeded for every comparison, so all comparisons in a period use the same year draws)
+
+READINGS TAKEN (ambiguities in the specification)
+  R1 Night t is dated by its ENTRY session (close of t). H1 = entry dates up to 2014-12-31 (the last H1 night exits at the 2015-01-02 open); H2 = entry dates 2015-01-02..2026-11-05 (last exit: the 2026-11-06 open, the last non-provisional bar).
+  R2 One continuous simulation 2000->2026 per name; the period figures are cut out of it (pause state and the 20-session window carry across 2015-01-02). Alternative (restart E=1, fresh state on 2015-01-02) is shown in section 8.
+  R3 P2 re-arming, reading A (primary): after a pause starts the rule is disarmed and re-arms on the first later night on which C is false, even if that night is still inside the 5-night pause. Reading B (re-arming is only looked at on nights after the 5 have run out) is reported next to it everywhere it matters (label P2B).
+  R4 Trend: UP if QQQ close_t >= mean of the 199 closes before t (identical to close >= 200-session SMA including today). First night with a trend state: QQQ session 200 = 2000-10-16.
+  R5 Each name starts at E=1 on its first night with a trend state. For NVDA that is 2000-10-30 (bars before are dropped). For the other ten it is 2000-10-16, so their first period holds 10 nights before 2000-10-30. Alternative (all names start 2000-10-30) in section 8.
+  R6 Trend-off table uses the same nights as the trend-on table (b = 0.98 on every night).
+  R7 H_t uses the E values available (fewer than 20 during the first 19 nights), E_0 = 1 included.
+  R8 Worst drawdown of a period = worst peak-to-trough with both peak and trough inside the period. Alternative (peak carried in from before the period) in section 8.
+  R9 A pause episode belongs to the period in which it starts; its full length is counted. Paused nights are counted in the period of the night.
+  R10 Event study horizon h = nights t .. t+h-1, where t is the night on which the P1 pause starts (the first paused night). Events too close to the end of the sample for a horizon are left out of that horizon (counts shown).
+  R11 A skipped bar (zero volume) removes that session for that name: the night then runs from the previous close to the next available open (one case: AMZN 2008-10-29). Alternative (flat that night) in section 8.
+  R12 "Paused night" = a night on which the pause is in force, whether or not it changes the size. "eff" = paused nights on which the size was actually cut (b_t > p). With the trend rule on and p >= 0.25, a pause changes nothing on DOWN nights.
+
+1. DATA
+  QQQ   kept  6752 bars 2000-01-03..2026-11-06 | raw 6754, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 1 (price mismatch 0), zero-volume 0, interpolated 0
+  NVDA  kept  6543 bars 2000-10-30..2026-11-06 | raw 6754, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 209, duplicates 1 (price mismatch 0), zero-volume 0, interpolated 0
+  AMD   kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  INTC  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  MU    kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  AAPL  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  MSFT  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  AMZN  kept  6751 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 1, interpolated 0
+  QCOM  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  TXN   kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  AMAT  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+  ORCL  kept  6752 bars 2000-01-03..2026-11-06 | raw 6753, after 2026-11-06 dropped 1, NVDA<=2000-10-27 dropped 0, duplicates 0 (price mismatch 0), zero-volume 0, interpolated 0
+   SKIP zero/missing volume AMZN 2008-10-29 (file x4)
+
+  Nights per name (entry dates):
+   NVDA   6542 nights 2000-10-30..2026-11-05 (last exit 2026-11-06) | H1 3563, H2 2979 | trend UP on 4792 (73.2%) | gap nights [] | dates not in QQQ calendar: []
+   AMD    6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   INTC   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   MU     6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   AAPL   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   MSFT   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   AMZN   6551 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3572, H2 2979 | trend UP on 4792 (73.1%) | gap nights [('2008-10-28', '2008-10-30')] | dates not in QQQ calendar: []
+   QCOM   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   TXN    6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   AMAT   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+   ORCL   6552 nights 2000-10-16..2026-11-05 (last exit 2026-11-06) | H1 3573, H2 2979 | trend UP on 4792 (73.1%) | gap nights [] | dates not in QQQ calendar: []
+
+  Sanity filter: overnight moves beyond +/-45% in the underlying (reported, NOT dropped):
+   none in any of the 11 names
+  Largest overnight moves per name (for information):
+   NVDA  worst: 2004-08-05 -30.6%, 2008-07-02 -28.0% | best: 2023-05-24 +26.1%, 2003-11-06 +19.2%
+   AMD   worst: 2018-10-24 -21.5%, 2014-07-17 -18.4% | best: 2002-10-16 +39.5%, 2025-10-03 +37.5%
+   INTC  worst: 2026-10-29 -25.8%, 2024-08-01 -24.5% | best: 2025-09-17 +27.6%, 2026-04-23 +23.1%
+   MU    worst: 2015-06-25 -15.6%, 2002-12-17 -15.5% | best: 2024-09-25 +18.1%, 2024-03-20 +17.8%
+   AAPL  worst: 2000-12-05 -14.0%, 2002-06-18 -13.8% | best: 2006-07-19 +12.7%, 2005-01-12 +12.5%
+   MSFT  worst: 2020-03-13 -11.9%, 2006-04-27 -11.1% | best: 2000-10-18 +12.9%, 2007-10-25 +12.6%
+   AMZN  worst: 2005-02-02 -16.7%, 2001-10-23 -15.7% | best: 2001-04-06 +41.5%, 2002-01-18 +25.4%
+   QCOM  worst: 2026-11-04 -13.4%, 2002-06-13 -12.4% | best: 2008-07-23 +19.4%, 2020-11-04 +13.1%
+   TXN   worst: 2002-10-21 -21.7%, 2008-07-21 -12.7% | best: 2000-10-18 +21.4%, 2001-04-10 +20.8%
+   AMAT  worst: 2025-08-14 -13.6%, 2020-03-13 -13.4% | best: 2026-02-12 +11.1%, 2001-04-10 +11.1%
+   ORCL  worst: 2001-03-01 -24.0%, 2000-11-17 -15.6% | best: 2025-09-09 +32.2%, 2021-12-09 +17.5%
+  QQQ trend state on the last five sessions: 2026-11-02 UP, 2026-11-03 UP, 2026-11-04 UP, 2026-11-05 DOWN, 2026-11-06 DOWN
+
+2. NVDA, TREND RULE ON (main case). g = 100*mean ln(1+R). maxDD within the period. epis/med/max = pause episodes, median and maximum length in nights.
+   P2 = reading A, P2B = reading B (see R3). P2x10/P2Bx10 = 10-night fixed pause.
+
+   NVDA trend ON
+  period                 variant     p nights g %/night     terminal x  maxDD%  epis paused   eff   med  max
+  2000-10-30..2014-12-31 P0          -   3563   +0.0829          19.19   47.78     0      0     0     -    0
+  2000-10-30..2014-12-31 P1       0.10   3563   +0.0770          15.55   49.10     9     72    72     5   19
+  2000-10-30..2014-12-31 P1       0.25   3563   +0.0778          15.98   47.33    10     77    55     5   19
+  2000-10-30..2014-12-31 P1       0.50   3563   +0.0809          17.86   47.33     9     79    57     8   17
+  2000-10-30..2014-12-31 P2       0.10   3563   +0.0837          19.73   47.33     9     45    45     5    5
+  2000-10-30..2014-12-31 P2       0.25   3563   +0.0842          20.06   47.33    10     50    36     5    5
+  2000-10-30..2014-12-31 P2       0.50   3563   +0.0842           20.1   47.33     9     45    30     5    5
+  2000-10-30..2014-12-31 P2B      0.10   3563   +0.0837          19.73   47.33     9     45    45     5    5
+  2000-10-30..2014-12-31 P2B      0.25   3563   +0.0842          20.06   47.33    10     50    36     5    5
+  2000-10-30..2014-12-31 P2B      0.50   3563   +0.0840          19.93   47.33     8     40    26     5    5
+  2000-10-30..2014-12-31 P3       0.10   3563   +0.0775          15.83   49.10    10     67    67     5   19
+  2000-10-30..2014-12-31 P3       0.25   3563   +0.0783           16.3   47.33    11     71    49     5   19
+  2000-10-30..2014-12-31 P3       0.50   3563   +0.0807          17.71   47.33     9     72    50     8   17
+  2000-10-30..2014-12-31 P2x10    0.10   3563   +0.0805           17.6   47.78     6     60    60    10   10
+  2000-10-30..2014-12-31 P2x10    0.25   3563   +0.0818          18.47   47.33     7     70    47    10   10
+  2000-10-30..2014-12-31 P2x10    0.50   3563   +0.0817          18.35   47.36     8     80    57    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.10   3563   +0.0805           17.6   47.78     6     60    60    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.25   3563   +0.0818          18.47   47.33     7     70    47    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.50   3563   +0.0817          18.35   47.36     8     80    57    10   10
+
+  2015-01-02..2026-11-06 P0          -   2979   +0.2341           1068   58.03     0      0     0     -    0
+  2015-01-02..2026-11-06 P1       0.10   2979   +0.2063            466   55.24    14    138   138     7   19
+  2015-01-02..2026-11-06 P1       0.25   2979   +0.2134          577.3   55.72    14    125   108     6   19
+  2015-01-02..2026-11-06 P1       0.50   2979   +0.2241          793.8   56.52    12    114    97     5   19
+  2015-01-02..2026-11-06 P2       0.10   2979   +0.1982          366.4   55.24    15     75    75     5    5
+  2015-01-02..2026-11-06 P2       0.25   2979   +0.2115          544.5   55.72    16     80    75     5    5
+  2015-01-02..2026-11-06 P2       0.50   2979   +0.2211          724.4   56.52    15     75    70     5    5
+  2015-01-02..2026-11-06 P2B      0.10   2979   +0.1993          378.4   55.24    14     70    70     5    5
+  2015-01-02..2026-11-06 P2B      0.25   2979   +0.2120          553.4   55.72    14     70    65     5    5
+  2015-01-02..2026-11-06 P2B      0.50   2979   +0.2216            737   56.52    14     70    65     5    5
+  2015-01-02..2026-11-06 P3       0.10   2979   +0.2074          482.4   55.95    15    125   125     7   19
+  2015-01-02..2026-11-06 P3       0.25   2979   +0.2205          713.2   55.72    15     95    83     3   19
+  2015-01-02..2026-11-06 P3       0.50   2979   +0.2290          918.7   56.52    13     94    81     4   19
+  2015-01-02..2026-11-06 P2x10    0.10   2979   +0.2116          546.1   55.24    12    120   120    10   10
+  2015-01-02..2026-11-06 P2x10    0.25   2979   +0.2173          647.4   55.72    12    120   106    10   10
+  2015-01-02..2026-11-06 P2x10    0.50   2979   +0.2242          795.5   56.52    11    110    98    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.10   2979   +0.2116          546.1   55.24    12    120   120    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.25   2979   +0.2173          647.4   55.72    12    120   106    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.50   2979   +0.2242          795.5   56.52    11    110    98    10   10
+
+  whole span             P0          -   6542   +0.1518       2.05e+04   58.03     0      0     0     -    0
+  whole span             P1       0.10   6542   +0.1359           7247   55.24    23    210   210     7   19
+  whole span             P1       0.25   6542   +0.1396           9227   55.72    24    202   163     5   19
+  whole span             P1       0.50   6542   +0.1461      1.418e+04   56.52    21    193   154     6   19
+  whole span             P2       0.10   6542   +0.1358           7230   55.24    24    120   120     5    5
+  whole span             P2       0.25   6542   +0.1421      1.092e+04   55.72    26    130   111     5    5
+  whole span             P2       0.50   6542   +0.1465      1.456e+04   56.52    24    120   100     5    5
+  whole span             P2B      0.10   6542   +0.1363           7466   55.24    23    115   115     5    5
+  whole span             P2B      0.25   6542   +0.1424       1.11e+04   55.72    24    120   101     5    5
+  whole span             P2B      0.50   6542   +0.1467      1.469e+04   56.52    22    110    91     5    5
+  whole span             P3       0.10   6542   +0.1367           7637   55.95    25    192   192     5   19
+  whole span             P3       0.25   6542   +0.1431      1.162e+04   55.72    26    166   132     4   19
+  whole span             P3       0.50   6542   +0.1482      1.627e+04   56.52    22    166   131   4.5   19
+  whole span             P2x10    0.10   6542   +0.1402           9609   55.24    18    180   180    10   10
+  whole span             P2x10    0.25   6542   +0.1435      1.195e+04   55.72    19    190   153    10   10
+  whole span             P2x10    0.50   6542   +0.1466       1.46e+04   56.52    19    190   155    10   10
+  whole span             P2Bx10   0.10   6542   +0.1402           9609   55.24    18    180   180    10   10
+  whole span             P2Bx10   0.25   6542   +0.1435      1.195e+04   55.72    19    190   153    10   10
+  whole span             P2Bx10   0.50   6542   +0.1466       1.46e+04   56.52    19    190   155    10   10
+
+3. NVDA, TREND RULE OFF (b = 0.98 every night; the pre-2026-11-10 engine)
+
+   NVDA trend OFF
+  period                 variant     p nights g %/night     terminal x  maxDD%  epis paused   eff   med  max
+  2000-10-30..2014-12-31 P0          -   3563   -0.0017          0.941   94.33     0      0     0     -    0
+  2000-10-30..2014-12-31 P1       0.10   3563   +0.0119           1.53   87.73    45    413   413     5   19
+  2000-10-30..2014-12-31 P1       0.25   3563   +0.0071          1.288   89.64    48    409   409     5   19
+  2000-10-30..2014-12-31 P1       0.50   3563   +0.0065           1.26   91.22    45    417   417     6   22
+  2000-10-30..2014-12-31 P2       0.10   3563   -0.0111         0.6727   93.46    54    270   270     5    5
+  2000-10-30..2014-12-31 P2       0.25   3563   -0.0019         0.9351   91.31    53    265   265     5    5
+  2000-10-30..2014-12-31 P2       0.50   3563   +0.0032          1.121   91.78    48    240   240     5    5
+  2000-10-30..2014-12-31 P2B      0.10   3563   -0.0100         0.7002   93.46    52    260   260     5    5
+  2000-10-30..2014-12-31 P2B      0.25   3563   +0.0003           1.01   91.35    48    240   240     5    5
+  2000-10-30..2014-12-31 P2B      0.50   3563   +0.0030          1.113   91.95    46    230   230     5    5
+  2000-10-30..2014-12-31 P3       0.10   3563   -0.0043         0.8592   91.70    57    406   406     5   19
+  2000-10-30..2014-12-31 P3       0.25   3563   -0.0020         0.9327   91.24    63    400   400     3   19
+  2000-10-30..2014-12-31 P3       0.50   3563   -0.0048         0.8433   92.79    67    403   403     3   19
+  2000-10-30..2014-12-31 P2x10    0.10   3563   +0.0249          2.426   87.80    38    380   380    10   10
+  2000-10-30..2014-12-31 P2x10    0.25   3563   +0.0044           1.17   92.74    41    410   410    10   10
+  2000-10-30..2014-12-31 P2x10    0.50   3563   +0.0141          1.652   91.00    42    420   420    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.10   3563   +0.0278          2.695   87.46    37    370   370    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.25   3563   +0.0098           1.42   91.51    39    390   390    10   10
+  2000-10-30..2014-12-31 P2Bx10   0.50   3563   +0.0138          1.634   91.33    39    390   390    10   10
+
+  2015-01-02..2026-11-06 P0          -   2979   +0.1815          222.7   86.80     0      0     0     -    0
+  2015-01-02..2026-11-06 P1       0.10   2979   +0.1751          184.2   80.25    31    292   292     7   19
+  2015-01-02..2026-11-06 P1       0.25   2979   +0.1615          122.7   83.83    34    293   293     5   19
+  2015-01-02..2026-11-06 P1       0.50   2979   +0.1840          239.9   82.31    32    288   288     5   20
+  2015-01-02..2026-11-06 P2       0.10   2979   +0.1423          69.26   84.46    32    160   160     5    5
+  2015-01-02..2026-11-06 P2       0.25   2979   +0.1672          145.4   84.75    37    185   185     5    5
+  2015-01-02..2026-11-06 P2       0.50   2979   +0.1751          184.5   85.56    35    175   175     5    5
+  2015-01-02..2026-11-06 P2B      0.10   2979   +0.1433          71.52   84.46    31    155   155     5    5
+  2015-01-02..2026-11-06 P2B      0.25   2979   +0.1564          105.6   85.36    34    170   170     5    5
+  2015-01-02..2026-11-06 P2B      0.50   2979   +0.1733          174.8   86.01    34    170   170     5    5
+  2015-01-02..2026-11-06 P3       0.10   2979   +0.1857          252.6   81.46    34    266   266     5   19
+  2015-01-02..2026-11-06 P3       0.25   2979   +0.1893          281.1   84.42    36    228   228     3   19
+  2015-01-02..2026-11-06 P3       0.50   2979   +0.1786          204.2   85.76    36    240   240     3   20
+  2015-01-02..2026-11-06 P2x10    0.10   2979   +0.1564          105.6   87.20    26    260   260    10   10
+  2015-01-02..2026-11-06 P2x10    0.25   2979   +0.1727          171.5   89.44    26    260   260    10   10
+  2015-01-02..2026-11-06 P2x10    0.50   2979   +0.1801          213.6   86.36    26    260   260    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.10   2979   +0.1564          105.6   87.20    26    260   260    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.25   2979   +0.1581            111   89.44    26    260   260    10   10
+  2015-01-02..2026-11-06 P2Bx10   0.50   2979   +0.1844          242.8   86.36    24    240   240    10   10
+
+  whole span             P0          -   6542   +0.0817          209.6   94.33     0      0     0     -    0
+  whole span             P1       0.10   6542   +0.0862          281.8   87.73    76    705   705     5   19
+  whole span             P1       0.25   6542   +0.0774            158   89.64    82    702   702     5   19
+  whole span             P1       0.50   6542   +0.0873          302.3   91.22    77    705   705     5   22
+  whole span             P2       0.10   6542   +0.0587          46.59   93.46    86    430   430     5    5
+  whole span             P2       0.25   6542   +0.0751            136   91.31    90    450   450     5    5
+  whole span             P2       0.50   6542   +0.0815          206.7   91.78    83    415   415     5    5
+  whole span             P2B      0.10   6542   +0.0598          50.08   93.46    83    415   415     5    5
+  whole span             P2B      0.25   6542   +0.0714          106.7   91.35    82    410   410     5    5
+  whole span             P2B      0.50   6542   +0.0806          194.5   91.95    80    400   400     5    5
+  whole span             P3       0.10   6542   +0.0822            217   91.70    91    672   672     5   19
+  whole span             P3       0.25   6542   +0.0851          262.2   91.24    99    628   628     3   19
+  whole span             P3       0.50   6542   +0.0787          172.2   92.79   103    643   643     3   20
+  whole span             P2x10    0.10   6542   +0.0848          256.2   87.80    64    640   640    10   10
+  whole span             P2x10    0.25   6542   +0.0810          200.7   92.74    67    670   670    10   10
+  whole span             P2x10    0.50   6542   +0.0897          352.8   91.00    68    680   680    10   10
+  whole span             P2Bx10   0.10   6542   +0.0864          284.6   87.46    63    630   630    10   10
+  whole span             P2Bx10   0.25   6542   +0.0773          157.5   91.51    65    650   650    10   10
+  whole span             P2Bx10   0.50   6542   +0.0915          396.7   91.33    63    630   630    10   10
+
+4. NVDA DIFFERENCES IN g (percent per night), 90% year-block bootstrap intervals
+  -- trend ON --
+  p=0.10 P1-P0     2000-10-30..2014-12-31  dg =  -0.0059 %/night  90% [ -0.0205,  +0.0036]  boot share>0 0.31 | total log diff  -0.210 | nights with different return 72
+  p=0.10 P1-P0     2015-01-02..2026-11-06  dg =  -0.0278 %/night  90% [ -0.0512,  -0.0050]  boot share>0 0.02 | total log diff  -0.829 | nights with different return 138
+  p=0.10 P1-P0     whole span              dg =  -0.0159 %/night  90% [ -0.0298,  -0.0040]  boot share>0 0.01 | total log diff  -1.040 | nights with different return 210
+  p=0.10 P2-P0     2000-10-30..2014-12-31  dg =  +0.0008 %/night  90% [ -0.0006,  +0.0029]  boot share>0 0.64 | total log diff  +0.028 | nights with different return 45
+  p=0.10 P2-P0     2015-01-02..2026-11-06  dg =  -0.0359 %/night  90% [ -0.0597,  -0.0132]  boot share>0 0.00 | total log diff  -1.070 | nights with different return 75
+  p=0.10 P2-P0     whole span              dg =  -0.0159 %/night  90% [ -0.0284,  -0.0047]  boot share>0 0.00 | total log diff  -1.042 | nights with different return 120
+  p=0.10 P3-P0     2000-10-30..2014-12-31  dg =  -0.0054 %/night  90% [ -0.0198,  +0.0045]  boot share>0 0.31 | total log diff  -0.192 | nights with different return 67
+  p=0.10 P3-P0     2015-01-02..2026-11-06  dg =  -0.0267 %/night  90% [ -0.0493,  -0.0048]  boot share>0 0.02 | total log diff  -0.795 | nights with different return 125
+  p=0.10 P3-P0     whole span              dg =  -0.0151 %/night  90% [ -0.0290,  -0.0033]  boot share>0 0.02 | total log diff  -0.987 | nights with different return 192
+  p=0.10 P2-P1     2000-10-30..2014-12-31  dg =  +0.0067 %/night  90% [ -0.0020,  +0.0210]  boot share>0 0.73 | total log diff  +0.238 | nights with different return 27
+  p=0.10 P2-P1     2015-01-02..2026-11-06  dg =  -0.0081 %/night  90% [ -0.0394,  +0.0119]  boot share>0 0.36 | total log diff  -0.241 | nights with different return 77
+  p=0.10 P2-P1     whole span              dg =  -0.0000 %/night  90% [ -0.0143,  +0.0130]  boot share>0 0.55 | total log diff  -0.002 | nights with different return 104
+  p=0.10 P2B-P1    2000-10-30..2014-12-31  dg =  +0.0067 %/night  90% [ -0.0020,  +0.0210]  boot share>0 0.73 | total log diff  +0.238 | nights with different return 27
+  p=0.10 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0070 %/night  90% [ -0.0387,  +0.0138]  boot share>0 0.38 | total log diff  -0.208 | nights with different return 78
+  p=0.10 P2B-P1    whole span              dg =  +0.0005 %/night  90% [ -0.0141,  +0.0139]  boot share>0 0.56 | total log diff  +0.030 | nights with different return 105
+  p=0.10 P2x10-P1  2000-10-30..2014-12-31  dg =  +0.0035 %/night  90% [ +0.0003,  +0.0080]  boot share>0 0.96 | total log diff  +0.124 | nights with different return 36
+  p=0.10 P2x10-P1  2015-01-02..2026-11-06  dg =  +0.0053 %/night  90% [ -0.0052,  +0.0173]  boot share>0 0.77 | total log diff  +0.158 | nights with different return 70
+  p=0.10 P2x10-P1  whole span              dg =  +0.0043 %/night  90% [ -0.0009,  +0.0102]  boot share>0 0.91 | total log diff  +0.282 | nights with different return 106
+  p=0.10 P3-P1     2000-10-30..2014-12-31  dg =  +0.0005 %/night  90% [ +0.0000,  +0.0012]  boot share>0 0.89 | total log diff  +0.018 | nights with different return 9
+  p=0.10 P3-P1     2015-01-02..2026-11-06  dg =  +0.0012 %/night  90% [ -0.0009,  +0.0043]  boot share>0 0.64 | total log diff  +0.034 | nights with different return 17
+  p=0.10 P3-P1     whole span              dg =  +0.0008 %/night  90% [ -0.0002,  +0.0022]  boot share>0 0.83 | total log diff  +0.052 | nights with different return 26
+
+  p=0.25 P1-P0     2000-10-30..2014-12-31  dg =  -0.0051 %/night  90% [ -0.0170,  +0.0023]  boot share>0 0.31 | total log diff  -0.183 | nights with different return 55
+  p=0.25 P1-P0     2015-01-02..2026-11-06  dg =  -0.0207 %/night  90% [ -0.0364,  -0.0063]  boot share>0 0.01 | total log diff  -0.615 | nights with different return 108
+  p=0.25 P1-P0     whole span              dg =  -0.0122 %/night  90% [ -0.0227,  -0.0036]  boot share>0 0.01 | total log diff  -0.798 | nights with different return 163
+  p=0.25 P2-P0     2000-10-30..2014-12-31  dg =  +0.0012 %/night  90% [ -0.0001,  +0.0028]  boot share>0 0.89 | total log diff  +0.044 | nights with different return 36
+  p=0.25 P2-P0     2015-01-02..2026-11-06  dg =  -0.0226 %/night  90% [ -0.0394,  -0.0064]  boot share>0 0.01 | total log diff  -0.674 | nights with different return 75
+  p=0.25 P2-P0     whole span              dg =  -0.0096 %/night  90% [ -0.0185,  -0.0016]  boot share>0 0.02 | total log diff  -0.629 | nights with different return 111
+  p=0.25 P3-P0     2000-10-30..2014-12-31  dg =  -0.0046 %/night  90% [ -0.0166,  +0.0034]  boot share>0 0.31 | total log diff  -0.164 | nights with different return 49
+  p=0.25 P3-P0     2015-01-02..2026-11-06  dg =  -0.0136 %/night  90% [ -0.0334,  +0.0062]  boot share>0 0.13 | total log diff  -0.404 | nights with different return 83
+  p=0.25 P3-P0     whole span              dg =  -0.0087 %/night  90% [ -0.0205,  +0.0017]  boot share>0 0.08 | total log diff  -0.567 | nights with different return 132
+  p=0.25 P2-P1     2000-10-30..2014-12-31  dg =  +0.0064 %/night  90% [ +0.0000,  +0.0180]  boot share>0 0.89 | total log diff  +0.227 | nights with different return 21
+  p=0.25 P2-P1     2015-01-02..2026-11-06  dg =  -0.0020 %/night  90% [ -0.0171,  +0.0100]  boot share>0 0.45 | total log diff  -0.058 | nights with different return 49
+  p=0.25 P2-P1     whole span              dg =  +0.0026 %/night  90% [ -0.0055,  +0.0117]  boot share>0 0.71 | total log diff  +0.169 | nights with different return 70
+  p=0.25 P2B-P1    2000-10-30..2014-12-31  dg =  +0.0064 %/night  90% [ +0.0000,  +0.0180]  boot share>0 0.89 | total log diff  +0.227 | nights with different return 21
+  p=0.25 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0014 %/night  90% [ -0.0168,  +0.0116]  boot share>0 0.48 | total log diff  -0.042 | nights with different return 49
+  p=0.25 P2B-P1    whole span              dg =  +0.0028 %/night  90% [ -0.0054,  +0.0119]  boot share>0 0.73 | total log diff  +0.185 | nights with different return 70
+  p=0.25 P2x10-P1  2000-10-30..2014-12-31  dg =  +0.0041 %/night  90% [ +0.0004,  +0.0093]  boot share>0 0.96 | total log diff  +0.144 | nights with different return 32
+  p=0.25 P2x10-P1  2015-01-02..2026-11-06  dg =  +0.0038 %/night  90% [ -0.0015,  +0.0097]  boot share>0 0.87 | total log diff  +0.115 | nights with different return 56
+  p=0.25 P2x10-P1  whole span              dg =  +0.0040 %/night  90% [ +0.0007,  +0.0076]  boot share>0 0.97 | total log diff  +0.259 | nights with different return 88
+  p=0.25 P3-P1     2000-10-30..2014-12-31  dg =  +0.0005 %/night  90% [ +0.0000,  +0.0013]  boot share>0 0.89 | total log diff  +0.019 | nights with different return 10
+  p=0.25 P3-P1     2015-01-02..2026-11-06  dg =  +0.0071 %/night  90% [ -0.0011,  +0.0170]  boot share>0 0.90 | total log diff  +0.211 | nights with different return 27
+  p=0.25 P3-P1     whole span              dg =  +0.0035 %/night  90% [ -0.0003,  +0.0082]  boot share>0 0.92 | total log diff  +0.231 | nights with different return 37
+
+  p=0.50 P1-P0     2000-10-30..2014-12-31  dg =  -0.0020 %/night  90% [ -0.0095,  +0.0036]  boot share>0 0.36 | total log diff  -0.072 | nights with different return 57
+  p=0.50 P1-P0     2015-01-02..2026-11-06  dg =  -0.0100 %/night  90% [ -0.0194,  -0.0015]  boot share>0 0.02 | total log diff  -0.297 | nights with different return 97
+  p=0.50 P1-P0     whole span              dg =  -0.0056 %/night  90% [ -0.0122,  -0.0004]  boot share>0 0.04 | total log diff  -0.369 | nights with different return 154
+  p=0.50 P2-P0     2000-10-30..2014-12-31  dg =  +0.0013 %/night  90% [ -0.0000,  +0.0029]  boot share>0 0.89 | total log diff  +0.046 | nights with different return 30
+  p=0.50 P2-P0     2015-01-02..2026-11-06  dg =  -0.0130 %/night  90% [ -0.0237,  -0.0029]  boot share>0 0.01 | total log diff  -0.388 | nights with different return 70
+  p=0.50 P2-P0     whole span              dg =  -0.0052 %/night  90% [ -0.0107,  -0.0002]  boot share>0 0.04 | total log diff  -0.342 | nights with different return 100
+  p=0.50 P3-P0     2000-10-30..2014-12-31  dg =  -0.0023 %/night  90% [ -0.0097,  +0.0032]  boot share>0 0.33 | total log diff  -0.080 | nights with different return 50
+  p=0.50 P3-P0     2015-01-02..2026-11-06  dg =  -0.0051 %/night  90% [ -0.0177,  +0.0086]  boot share>0 0.25 | total log diff  -0.151 | nights with different return 81
+  p=0.50 P3-P0     whole span              dg =  -0.0035 %/night  90% [ -0.0113,  +0.0036]  boot share>0 0.20 | total log diff  -0.231 | nights with different return 131
+  p=0.50 P2-P1     2000-10-30..2014-12-31  dg =  +0.0033 %/night  90% [ -0.0014,  +0.0107]  boot share>0 0.65 | total log diff  +0.118 | nights with different return 27
+  p=0.50 P2-P1     2015-01-02..2026-11-06  dg =  -0.0031 %/night  90% [ -0.0141,  +0.0068]  boot share>0 0.33 | total log diff  -0.091 | nights with different return 39
+  p=0.50 P2-P1     whole span              dg =  +0.0004 %/night  90% [ -0.0057,  +0.0067]  boot share>0 0.57 | total log diff  +0.026 | nights with different return 66
+  p=0.50 P2B-P1    2000-10-30..2014-12-31  dg =  +0.0031 %/night  90% [ -0.0018,  +0.0105]  boot share>0 0.65 | total log diff  +0.109 | nights with different return 31
+  p=0.50 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0025 %/night  90% [ -0.0140,  +0.0074]  boot share>0 0.37 | total log diff  -0.074 | nights with different return 38
+  p=0.50 P2B-P1    whole span              dg =  +0.0005 %/night  90% [ -0.0056,  +0.0068]  boot share>0 0.58 | total log diff  +0.035 | nights with different return 69
+  p=0.50 P2x10-P1  2000-10-30..2014-12-31  dg =  +0.0008 %/night  90% [ -0.0008,  +0.0027]  boot share>0 0.70 | total log diff  +0.027 | nights with different return 26
+  p=0.50 P2x10-P1  2015-01-02..2026-11-06  dg =  +0.0001 %/night  90% [ -0.0033,  +0.0036]  boot share>0 0.52 | total log diff  +0.002 | nights with different return 47
+  p=0.50 P2x10-P1  whole span              dg =  +0.0004 %/night  90% [ -0.0014,  +0.0023]  boot share>0 0.63 | total log diff  +0.029 | nights with different return 73
+  p=0.50 P3-P1     2000-10-30..2014-12-31  dg =  -0.0002 %/night  90% [ -0.0010,  +0.0004]  boot share>0 0.27 | total log diff  -0.008 | nights with different return 7
+  p=0.50 P3-P1     2015-01-02..2026-11-06  dg =  +0.0049 %/night  90% [ -0.0009,  +0.0130]  boot share>0 0.88 | total log diff  +0.146 | nights with different return 18
+  p=0.50 P3-P1     whole span              dg =  +0.0021 %/night  90% [ -0.0007,  +0.0058]  boot share>0 0.84 | total log diff  +0.138 | nights with different return 25
+
+  -- trend OFF --
+  p=0.10 P1-P0     2000-10-30..2014-12-31  dg =  +0.0136 %/night  90% [ -0.0185,  +0.0464]  boot share>0 0.77 | total log diff  +0.486 | nights with different return 413
+  p=0.10 P1-P0     2015-01-02..2026-11-06  dg =  -0.0064 %/night  90% [ -0.0486,  +0.0372]  boot share>0 0.41 | total log diff  -0.190 | nights with different return 292
+  p=0.10 P1-P0     whole span              dg =  +0.0045 %/night  90% [ -0.0220,  +0.0299]  boot share>0 0.60 | total log diff  +0.296 | nights with different return 705
+  p=0.10 P2-P0     2000-10-30..2014-12-31  dg =  -0.0094 %/night  90% [ -0.0571,  +0.0306]  boot share>0 0.39 | total log diff  -0.336 | nights with different return 270
+  p=0.10 P2-P0     2015-01-02..2026-11-06  dg =  -0.0392 %/night  90% [ -0.0703,  -0.0062]  boot share>0 0.03 | total log diff  -1.168 | nights with different return 160
+  p=0.10 P2-P0     whole span              dg =  -0.0230 %/night  90% [ -0.0521,  +0.0038]  boot share>0 0.08 | total log diff  -1.504 | nights with different return 430
+  p=0.10 P3-P0     2000-10-30..2014-12-31  dg =  -0.0026 %/night  90% [ -0.0371,  +0.0321]  boot share>0 0.47 | total log diff  -0.091 | nights with different return 406
+  p=0.10 P3-P0     2015-01-02..2026-11-06  dg =  +0.0042 %/night  90% [ -0.0301,  +0.0416]  boot share>0 0.59 | total log diff  +0.126 | nights with different return 266
+  p=0.10 P3-P0     whole span              dg =  +0.0005 %/night  90% [ -0.0267,  +0.0248]  boot share>0 0.50 | total log diff  +0.035 | nights with different return 672
+  p=0.10 P2-P1     2000-10-30..2014-12-31  dg =  -0.0231 %/night  90% [ -0.0773,  +0.0143]  boot share>0 0.26 | total log diff  -0.822 | nights with different return 221
+  p=0.10 P2-P1     2015-01-02..2026-11-06  dg =  -0.0328 %/night  90% [ -0.0822,  +0.0059]  boot share>0 0.10 | total log diff  -0.978 | nights with different return 164
+  p=0.10 P2-P1     whole span              dg =  -0.0275 %/night  90% [ -0.0617,  +0.0024]  boot share>0 0.07 | total log diff  -1.800 | nights with different return 385
+  p=0.10 P2B-P1    2000-10-30..2014-12-31  dg =  -0.0219 %/night  90% [ -0.0766,  +0.0152]  boot share>0 0.28 | total log diff  -0.782 | nights with different return 215
+  p=0.10 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0318 %/night  90% [ -0.0814,  +0.0076]  boot share>0 0.11 | total log diff  -0.946 | nights with different return 165
+  p=0.10 P2B-P1    whole span              dg =  -0.0264 %/night  90% [ -0.0610,  +0.0035]  boot share>0 0.08 | total log diff  -1.727 | nights with different return 380
+  p=0.10 P2x10-P1  2000-10-30..2014-12-31  dg =  +0.0129 %/night  90% [ -0.0032,  +0.0311]  boot share>0 0.91 | total log diff  +0.461 | nights with different return 235
+  p=0.10 P2x10-P1  2015-01-02..2026-11-06  dg =  -0.0187 %/night  90% [ -0.0607,  +0.0206]  boot share>0 0.22 | total log diff  -0.556 | nights with different return 168
+  p=0.10 P2x10-P1  whole span              dg =  -0.0015 %/night  90% [ -0.0223,  +0.0187]  boot share>0 0.47 | total log diff  -0.095 | nights with different return 403
+  p=0.10 P3-P1     2000-10-30..2014-12-31  dg =  -0.0162 %/night  90% [ -0.0332,  -0.0024]  boot share>0 0.02 | total log diff  -0.577 | nights with different return 121
+  p=0.10 P3-P1     2015-01-02..2026-11-06  dg =  +0.0106 %/night  90% [ -0.0033,  +0.0265]  boot share>0 0.86 | total log diff  +0.316 | nights with different return 38
+  p=0.10 P3-P1     whole span              dg =  -0.0040 %/night  90% [ -0.0166,  +0.0079]  boot share>0 0.30 | total log diff  -0.261 | nights with different return 159
+
+  p=0.25 P1-P0     2000-10-30..2014-12-31  dg =  +0.0088 %/night  90% [ -0.0175,  +0.0361]  boot share>0 0.71 | total log diff  +0.314 | nights with different return 409
+  p=0.25 P1-P0     2015-01-02..2026-11-06  dg =  -0.0200 %/night  90% [ -0.0488,  +0.0098]  boot share>0 0.14 | total log diff  -0.596 | nights with different return 293
+  p=0.25 P1-P0     whole span              dg =  -0.0043 %/night  90% [ -0.0248,  +0.0161]  boot share>0 0.35 | total log diff  -0.282 | nights with different return 702
+  p=0.25 P2-P0     2000-10-30..2014-12-31  dg =  -0.0002 %/night  90% [ -0.0397,  +0.0357]  boot share>0 0.53 | total log diff  -0.006 | nights with different return 265
+  p=0.25 P2-P0     2015-01-02..2026-11-06  dg =  -0.0143 %/night  90% [ -0.0353,  +0.0089]  boot share>0 0.16 | total log diff  -0.426 | nights with different return 185
+  p=0.25 P2-P0     whole span              dg =  -0.0066 %/night  90% [ -0.0303,  +0.0158]  boot share>0 0.32 | total log diff  -0.433 | nights with different return 450
+  p=0.25 P3-P0     2000-10-30..2014-12-31  dg =  -0.0002 %/night  90% [ -0.0230,  +0.0255]  boot share>0 0.49 | total log diff  -0.009 | nights with different return 400
+  p=0.25 P3-P0     2015-01-02..2026-11-06  dg =  +0.0078 %/night  90% [ -0.0188,  +0.0365]  boot share>0 0.70 | total log diff  +0.233 | nights with different return 228
+  p=0.25 P3-P0     whole span              dg =  +0.0034 %/night  90% [ -0.0149,  +0.0209]  boot share>0 0.61 | total log diff  +0.224 | nights with different return 628
+  p=0.25 P2-P1     2000-10-30..2014-12-31  dg =  -0.0090 %/night  90% [ -0.0497,  +0.0187]  boot share>0 0.39 | total log diff  -0.320 | nights with different return 222
+  p=0.25 P2-P1     2015-01-02..2026-11-06  dg =  +0.0057 %/night  90% [ -0.0240,  +0.0354]  boot share>0 0.64 | total log diff  +0.170 | nights with different return 146
+  p=0.25 P2-P1     whole span              dg =  -0.0023 %/night  90% [ -0.0271,  +0.0199]  boot share>0 0.47 | total log diff  -0.150 | nights with different return 368
+  p=0.25 P2B-P1    2000-10-30..2014-12-31  dg =  -0.0068 %/night  90% [ -0.0388,  +0.0165]  boot share>0 0.40 | total log diff  -0.243 | nights with different return 223
+  p=0.25 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0050 %/night  90% [ -0.0307,  +0.0147]  boot share>0 0.40 | total log diff  -0.150 | nights with different return 147
+  p=0.25 P2B-P1    whole span              dg =  -0.0060 %/night  90% [ -0.0259,  +0.0118]  boot share>0 0.33 | total log diff  -0.393 | nights with different return 370
+  p=0.25 P2x10-P1  2000-10-30..2014-12-31  dg =  -0.0027 %/night  90% [ -0.0382,  +0.0210]  boot share>0 0.45 | total log diff  -0.096 | nights with different return 245
+  p=0.25 P2x10-P1  2015-01-02..2026-11-06  dg =  +0.0112 %/night  90% [ -0.0208,  +0.0427]  boot share>0 0.72 | total log diff  +0.335 | nights with different return 181
+  p=0.25 P2x10-P1  whole span              dg =  +0.0037 %/night  90% [ -0.0195,  +0.0242]  boot share>0 0.63 | total log diff  +0.239 | nights with different return 426
+  p=0.25 P3-P1     2000-10-30..2014-12-31  dg =  -0.0090 %/night  90% [ -0.0198,  +0.0009]  boot share>0 0.08 | total log diff  -0.322 | nights with different return 117
+  p=0.25 P3-P1     2015-01-02..2026-11-06  dg =  +0.0278 %/night  90% [ +0.0062,  +0.0540]  boot share>0 0.99 | total log diff  +0.829 | nights with different return 91
+  p=0.25 P3-P1     whole span              dg =  +0.0077 %/night  90% [ -0.0054,  +0.0223]  boot share>0 0.83 | total log diff  +0.506 | nights with different return 208
+
+  p=0.50 P1-P0     2000-10-30..2014-12-31  dg =  +0.0082 %/night  90% [ -0.0130,  +0.0334]  boot share>0 0.71 | total log diff  +0.292 | nights with different return 417
+  p=0.50 P1-P0     2015-01-02..2026-11-06  dg =  +0.0025 %/night  90% [ -0.0162,  +0.0232]  boot share>0 0.59 | total log diff  +0.074 | nights with different return 288
+  p=0.50 P1-P0     whole span              dg =  +0.0056 %/night  90% [ -0.0094,  +0.0216]  boot share>0 0.70 | total log diff  +0.366 | nights with different return 705
+  p=0.50 P2-P0     2000-10-30..2014-12-31  dg =  +0.0049 %/night  90% [ -0.0134,  +0.0256]  boot share>0 0.64 | total log diff  +0.175 | nights with different return 240
+  p=0.50 P2-P0     2015-01-02..2026-11-06  dg =  -0.0063 %/night  90% [ -0.0213,  +0.0109]  boot share>0 0.27 | total log diff  -0.188 | nights with different return 175
+  p=0.50 P2-P0     whole span              dg =  -0.0002 %/night  90% [ -0.0127,  +0.0130]  boot share>0 0.46 | total log diff  -0.014 | nights with different return 415
+  p=0.50 P3-P0     2000-10-30..2014-12-31  dg =  -0.0031 %/night  90% [ -0.0262,  +0.0251]  boot share>0 0.39 | total log diff  -0.110 | nights with different return 403
+  p=0.50 P3-P0     2015-01-02..2026-11-06  dg =  -0.0029 %/night  90% [ -0.0203,  +0.0166]  boot share>0 0.40 | total log diff  -0.087 | nights with different return 240
+  p=0.50 P3-P0     whole span              dg =  -0.0030 %/night  90% [ -0.0184,  +0.0137]  boot share>0 0.35 | total log diff  -0.196 | nights with different return 643
+  p=0.50 P2-P1     2000-10-30..2014-12-31  dg =  -0.0033 %/night  90% [ -0.0150,  +0.0069]  boot share>0 0.32 | total log diff  -0.117 | nights with different return 225
+  p=0.50 P2-P1     2015-01-02..2026-11-06  dg =  -0.0088 %/night  90% [ -0.0286,  +0.0080]  boot share>0 0.22 | total log diff  -0.263 | nights with different return 127
+  p=0.50 P2-P1     whole span              dg =  -0.0058 %/night  90% [ -0.0164,  +0.0045]  boot share>0 0.19 | total log diff  -0.380 | nights with different return 352
+  p=0.50 P2B-P1    2000-10-30..2014-12-31  dg =  -0.0035 %/night  90% [ -0.0162,  +0.0072]  boot share>0 0.33 | total log diff  -0.124 | nights with different return 231
+  p=0.50 P2B-P1    2015-01-02..2026-11-06  dg =  -0.0106 %/night  90% [ -0.0314,  +0.0068]  boot share>0 0.18 | total log diff  -0.317 | nights with different return 138
+  p=0.50 P2B-P1    whole span              dg =  -0.0067 %/night  90% [ -0.0179,  +0.0038]  boot share>0 0.16 | total log diff  -0.441 | nights with different return 369
+  p=0.50 P2x10-P1  2000-10-30..2014-12-31  dg =  +0.0076 %/night  90% [ -0.0011,  +0.0166]  boot share>0 0.92 | total log diff  +0.271 | nights with different return 189
+  p=0.50 P2x10-P1  2015-01-02..2026-11-06  dg =  -0.0039 %/night  90% [ -0.0224,  +0.0102]  boot share>0 0.38 | total log diff  -0.116 | nights with different return 170
+  p=0.50 P2x10-P1  whole span              dg =  +0.0024 %/night  90% [ -0.0071,  +0.0109]  boot share>0 0.69 | total log diff  +0.155 | nights with different return 359
+  p=0.50 P3-P1     2000-10-30..2014-12-31  dg =  -0.0113 %/night  90% [ -0.0236,  -0.0008]  boot share>0 0.03 | total log diff  -0.401 | nights with different return 98
+  p=0.50 P3-P1     2015-01-02..2026-11-06  dg =  -0.0054 %/night  90% [ -0.0224,  +0.0096]  boot share>0 0.29 | total log diff  -0.161 | nights with different return 74
+  p=0.50 P3-P1     whole span              dg =  -0.0086 %/night  90% [ -0.0184,  +0.0006]  boot share>0 0.07 | total log diff  -0.562 | nights with different return 172
+
+5. NVDA PAUSE EPISODES UNDER P1 (p = 0.25): start = entry date of the first paused night, len = nights under P1,
+   UPn = nights in the episode with base size 0.98; cum = sum of ln(1+R) over the episode's nights on each variant's own path.
+  -- trend ON --
+  start      last night  len   UPn    P0 cum    P1 cum    P2 cum   P2B cum     P2-P1
+  2003-08-08 2003-09-04   19    19   +0.2857   +0.0756   +0.3013   +0.3013   +0.2256
+  2003-09-29 2003-10-03    5     5   +0.0257   +0.0069   +0.0069   +0.0069   +0.0000
+  2008-07-03 2008-07-15    8     0   +0.0039   +0.0039   +0.0039   +0.0039   +0.0000
+  2010-05-06 2010-05-12    5     5   +0.0702   +0.0192   +0.0192   +0.0192   +0.0000
+  2010-05-14 2010-05-28   11     9   -0.0875   -0.0227   -0.0520   -0.0520   -0.0293
+  2010-06-04 2010-06-10    5     2   -0.0043   +0.0061   -0.0103   -0.0103   -0.0163
+  2010-08-11 2010-08-23    9     0   -0.0125   -0.0125   -0.0125   -0.0125   +0.0000
+  2013-08-15 2013-08-21    5     5   -0.0430   -0.0109   -0.0109   -0.0109   +0.0000
+  2013-08-27 2013-09-03    5     5   -0.0011   -0.0003   -0.0003   -0.0003   +0.0000
+  2013-09-05 2013-09-11    5     5   +0.0148   +0.0038   +0.0038   +0.0038   +0.0000
+  2015-05-11 2015-05-19    7     7   -0.0028   -0.0007   -0.0007   -0.0061   +0.0000
+  2018-02-06 2018-02-12    5     5   +0.2568   +0.0686   +0.0686   +0.0686   +0.0000
+  2018-11-16 2018-11-23    5     0   -0.0169   -0.0169   -0.0169   -0.0169   +0.0000
+  2019-05-09 2019-05-22   10    10   -0.1913   -0.0477   -0.1214   -0.1214   -0.0736
+  2019-05-31 2019-06-06    5     3   +0.0536   +0.0219   +0.0536   +0.0536   +0.0317
+  2019-08-14 2019-08-20    5     5   +0.2187   +0.0578   +0.0578   +0.0578   +0.0000
+  2020-02-27 2020-03-23   18     8   -0.3924   -0.1176   -0.3555   -0.3555   -0.2379
+  2020-09-08 2020-09-14    5     5   +0.3396   +0.0896   +0.0896   +0.0896   +0.0000
+  2020-09-17 2020-09-30   10    10   +0.0072   +0.0023   +0.0195   +0.0195   +0.0173
+  2023-02-16 2023-02-23    5     5   +0.1198   +0.0359   +0.0359   +0.0359   +0.0000
+  2023-10-18 2023-10-26    7     7   +0.0391   +0.0102   +0.0102   +0.0399   +0.0000
+  2023-10-31 2023-11-06    5     5   +0.0797   +0.0206   +0.0766   +0.0797   +0.0560
+  2024-08-05 2024-08-29   19    19   +0.2779   +0.0734   +0.1111   +0.1111   +0.0378
+  2025-01-27 2025-02-21   19    19   +0.0347   +0.0109   +0.1037   +0.1037   +0.0928
+  TOTAL                  202         +1.0757   +0.2774   +0.3814   +0.4088   +0.1040
+
+  -- trend OFF --
+  start      last night  len   UPn    P0 cum    P1 cum    P2 cum   P2B cum     P2-P1
+  2000-12-15 2001-01-09   16    16   -0.2116   -0.0474   -0.1648   -0.1648   -0.1174
+  2001-01-11 2001-01-18    5     5   +0.2325   +0.0616   +0.2325   +0.2325   +0.1710
+  2001-01-25 2001-01-31    5     5   -0.1496   -0.0364   -0.1248   -0.1248   -0.0883
+  2001-02-06 2001-02-14    7     7   +0.2027   +0.0576   +0.2027   +0.2027   +0.1451
+  2001-02-16 2001-02-23    5     5   -0.2120   -0.0529   -0.1495   -0.1495   -0.0966
+  2001-02-28 2001-03-15   12    12   -0.3494   -0.0812   -0.3494   -0.3494   -0.2682
+  2001-04-04 2001-04-10    5     5   +0.2892   +0.0768   +0.2892   +0.2892   +0.2124
+  2001-04-16 2001-04-23    6     6   -0.0170   -0.0034   -0.0170   -0.0170   -0.0136
+  2001-07-03 2001-07-10    5     5   -0.0654   -0.0164   -0.0164   -0.0164   +0.0000
+  2001-09-07 2001-09-27   11    11   -0.1609   -0.0332   +0.0065   +0.0016   +0.0397
+  2001-10-25 2001-10-31    5     5   +0.0479   +0.0129   +0.0129   +0.0129   +0.0000
+  2002-02-21 2002-03-14   16    16   -0.0777   -0.0181   -0.0413   -0.0413   -0.0231
+  2002-04-02 2002-04-15   10    10   +0.0856   +0.0238   +0.1417   +0.1417   +0.1180
+  2002-04-19 2002-04-25    5     5   +0.0245   +0.0064   +0.0245   +0.0245   +0.0181
+  2002-06-07 2002-07-03   19    19   -0.2998   -0.0659   -0.2576   -0.2576   -0.1917
+  2002-07-25 2002-08-14   15    15   -0.3687   -0.0424   -0.5660   -0.5660   -0.5236
+  2002-08-16 2002-08-22    5     5   +0.0597   +0.0172   +0.0597   +0.0597   +0.0425
+  2002-11-08 2002-12-04   18    18   +0.5012   +0.1419   +0.0974   +0.0974   -0.0446
+  2003-03-10 2003-03-14    5     5   +0.0564   +0.0148   +0.0148   +0.0148   +0.0000
+  2003-08-08 2003-09-04   19    19   +0.2857   +0.0756   +0.3013   +0.3013   +0.2256
+  2003-09-29 2003-10-03    5     5   +0.0257   +0.0069   +0.0069   +0.0069   +0.0000
+  2004-08-06 2004-09-01   19    19   +0.2528   +0.0670   +0.1283   +0.1283   +0.0613
+  2008-01-16 2008-02-11   18    18   -0.2269   -0.0513   -0.0534   -0.0534   -0.0021
+  2008-03-10 2008-03-14    5     5   -0.0380   -0.0085   -0.0085   -0.0085   +0.0000
+  2008-07-03 2008-07-30   19    19   +0.0559   +0.0151   +0.0467   +0.0467   +0.0317
+  2008-09-11 2008-09-23    9     9   -0.1596   -0.0386   -0.0179   -0.0179   +0.0206
+  2008-09-26 2008-10-02    5     5   -0.0128   -0.0027   -0.0027   -0.0027   +0.0000
+  2008-10-06 2008-10-10    5     5   +0.0299   +0.0146   +0.0146   +0.0146   +0.0000
+  2008-10-24 2008-10-31    6     6   +0.1413   +0.0387   +0.0387   +0.0689   +0.0000
+  2008-11-05 2008-11-11    5     5   +0.0959   +0.0328   +0.0150   -0.0625   -0.0178
+  2008-11-13 2008-11-19    5     5   -0.1011   -0.0249   -0.0249   -0.1011   +0.0000
+  2008-12-04 2008-12-24   15    15   -0.1123   -0.0269   -0.0664   -0.0664   -0.0395
+  2009-01-14 2009-01-27    9     9   +0.0582   +0.0165   +0.0165   +0.0365   +0.0000
+  2009-01-29 2009-02-05    6     6   -0.0824   -0.0207   -0.0166   -0.0166   +0.0040
+  2009-02-11 2009-02-25   10    10   -0.0613   -0.0138   +0.0275   +0.0407   +0.0413
+  2009-02-27 2009-03-10    8     8   +0.0242   +0.0077   -0.0049   -0.0049   -0.0127
+  2009-04-21 2009-04-27    5     5   -0.0357   -0.0089   -0.0089   -0.0089   +0.0000
+  2010-05-06 2010-05-12    5     5   +0.0702   +0.0192   +0.0192   +0.0192   +0.0000
+  2010-05-14 2010-05-28   11    11   -0.0970   -0.0227   -0.0171   -0.0171   +0.0056
+  2010-06-04 2010-06-10    5     5   +0.0229   +0.0061   +0.0061   +0.0061   +0.0000
+  2010-07-30 2010-08-05    5     5   +0.0210   +0.0055   +0.0055   +0.0055   +0.0000
+  2010-08-10 2010-08-16    5     5   -0.0298   -0.0068   -0.0068   -0.0068   +0.0000
+  2010-08-18 2010-08-24    5     5   -0.0802   -0.0199   -0.0199   -0.0199   +0.0000
+  2011-08-10 2011-08-16    5     5   +0.1889   +0.0518   +0.0518   +0.0518   +0.0000
+  2011-08-18 2011-08-24    5     5   +0.0178   +0.0053   +0.0053   +0.0053   +0.0000
+  2013-08-15 2013-08-21    5     5   -0.0430   -0.0109   -0.0109   -0.0109   +0.0000
+  2013-08-27 2013-09-03    5     5   -0.0011   -0.0003   -0.0003   -0.0003   +0.0000
+  2013-09-05 2013-09-11    5     5   +0.0148   +0.0038   +0.0038   +0.0038   +0.0000
+  2015-05-11 2015-05-19    7     7   -0.0028   -0.0007   -0.0007   -0.0061   +0.0000
+  2015-08-24 2015-08-28    5     5   +0.1511   +0.0396   +0.0396   +0.0396   +0.0000
+  2015-09-01 2015-09-08    5     5   +0.0953   +0.0250   +0.0250   +0.0250   +0.0000
+  2018-02-06 2018-02-12    5     5   +0.2568   +0.0686   +0.0686   +0.0686   +0.0000
+  2018-10-26 2018-11-01    5     5   +0.1336   +0.0347   +0.0347   +0.0347   +0.0000
+  2018-11-06 2018-11-13    6     6   +0.0320   +0.0091   +0.0091   +0.0572   +0.0000
+  2018-11-16 2018-12-14   19    19   -0.0232   -0.0003   +0.0067   +0.0391   +0.0070
+  2019-01-28 2019-02-22   19    19   +0.1766   +0.0469   +0.1528   +0.1528   +0.1059
+  2019-05-09 2019-05-22   10    10   -0.1913   -0.0477   -0.1214   -0.1214   -0.0736
+  2019-05-31 2019-06-06    5     5   +0.0846   +0.0219   +0.0846   +0.0846   +0.0628
+  2019-08-14 2019-08-20    5     5   +0.2187   +0.0578   +0.0578   +0.0578   +0.0000
+  2020-02-27 2020-03-23   18    18   -0.5491   -0.1176   -0.5122   -0.5122   -0.3946
+  2020-09-08 2020-09-14    5     5   +0.3396   +0.0896   +0.0896   +0.0896   +0.0000
+  2020-09-17 2020-09-30   10    10   +0.0072   +0.0023   +0.0195   +0.0195   +0.0173
+  2022-01-24 2022-01-28    5     5   +0.1025   +0.0277   +0.0277   +0.0277   +0.0000
+  2022-02-22 2022-03-02    7     7   -0.0972   -0.0231   -0.0231   -0.0048   +0.0000
+  2022-03-04 2022-03-10    5     5   +0.0470   +0.0128   +0.0589   +0.0045   +0.0461
+  2022-05-26 2022-06-17   16    16   -0.1649   -0.0385   -0.0175   -0.0175   +0.0210
+  2022-07-13 2022-07-19    5     5   +0.1300   +0.0339   +0.0339   +0.0339   +0.0000
+  2022-07-25 2022-07-29    5     5   +0.0408   +0.0108   +0.0108   +0.0108   +0.0000
+  2022-08-08 2022-09-01   19    19   -0.3113   -0.0763   -0.3316   -0.3316   -0.2553
+  2022-09-20 2022-09-26    5     5   -0.0100   -0.0022   -0.0100   -0.0100   -0.0078
+  2022-09-29 2022-10-07    7     7   -0.0804   -0.0190   -0.0750   -0.0750   -0.0560
+  2022-10-13 2022-10-19    5     5   +0.1290   +0.0337   +0.1180   +0.1180   +0.0843
+  2022-12-07 2022-12-13    5     5   +0.1135   +0.0301   +0.0301   +0.0301   +0.0000
+  2022-12-16 2022-12-22    5     5   -0.0921   -0.0232   -0.0232   -0.0232   +0.0000
+  2022-12-28 2023-01-04    5     5   +0.0390   +0.0106   +0.0106   +0.0106   +0.0000
+  2023-02-06 2023-02-10    5     5   +0.0424   +0.0114   +0.0114   +0.0114   +0.0000
+  2023-02-15 2023-02-22    5     5   +0.1010   +0.0313   +0.0313   +0.0313   +0.0000
+  2023-10-18 2023-10-26    7     7   +0.0391   +0.0102   +0.0102   +0.0399   +0.0000
+  2023-10-31 2023-11-06    5     5   +0.0797   +0.0206   +0.0766   +0.0797   +0.0560
+  2024-08-05 2024-08-29   19    19   +0.2779   +0.0734   +0.1111   +0.1111   +0.0378
+  2025-01-27 2025-02-21   19    19   +0.0347   +0.0109   +0.1037   +0.1037   +0.0928
+  2025-04-02 2025-04-23   15    15   -0.2410   -0.0513   -0.1023   -0.1023   -0.0510
+  TOTAL                  702         +0.7209   +0.4385   -0.1714   -0.1947   -0.6099
+
+5b. WHERE P1 AND P2 CAN DIFFER: P1 "extension" nights (night 6 onward of a P1 episode), p = 0.25
+   ext = all extension nights; extUP = those with base size 0.98 (only there does P1 hold less than normal size).
+   mean u = mean unit return 2r-9bp on extUP nights; dlog = sum over extUP nights of ln(1+0.98u) - ln(1+0.25u).
+  -- trend ON --
+  name    epis   ext  extUP   mean u %    pos %      dlog
+  NVDA      24    82     64    +0.2877     59.4   +0.0807
+  AMD       53   305    261    +0.1653     57.1   +0.1625
+  INTC      28   148    138    +0.0564     53.6   -0.0046
+  MU        34   108     96    -0.1713     50.0   -0.2890
+  AAPL       8    60     41    -0.6112     51.2   -0.2095
+  MSFT      10    37     18    -1.1355     44.4   -0.1599
+  AMZN      24   141    129    -0.1806     48.1   -0.1971
+  QCOM      18    95     79    +0.0308     53.2   -0.0446
+  TXN       20    52     40    -0.2799     35.0   -0.0881
+  AMAT      24    94     78    -0.1073     52.6   -0.1172
+  ORCL      15    92     83    +0.3488     48.2   +0.1635
+  POOLED               1027    -0.0040     52.3
+  for comparison NVDA mean u: all nights +0.1659%, UP-trend nights +0.2753%, DOWN-trend nights -0.1336%
+  -- trend OFF --
+  name    epis   ext  extUP   mean u %    pos %      dlog
+  NVDA      82   292    292    +0.1861     52.1   -0.0557
+  AMD       86   469    469    +0.5293     52.9   +1.0540
+  INTC      58   274    274    -0.0560     50.7   -0.3241
+  MU        77   281    281    +0.1120     49.8   -0.3794
+  AAPL      36   208    208    -0.1721     56.2   -0.4739
+  MSFT      29    66     66    -0.3617     47.0   -0.2543
+  AMZN      63   399    399    +0.0004     49.1   -0.5018
+  QCOM      52   223    223    +0.0183     52.5   -0.1769
+  TXN       49   177    177    +0.0782     44.1   -0.0572
+  AMAT      61   209    209    -0.2892     51.2   -0.7093
+  ORCL      46   212    212    +0.1359     47.6   +0.0140
+  POOLED               2810    +0.0874     50.7
+  for comparison NVDA mean u: all nights +0.1659%, UP-trend nights +0.2753%, DOWN-trend nights -0.1336%
+
+6. EVENT STUDY: P0 cumulative log return over the next h nights after each P1 pause start (p = 0.25), vs all h-night windows.
+   "mean diff" = conditional mean - unconditional mean, with a 90% year-block bootstrap interval (events and windows grouped by start year).
+
+  6a. PRIMARY: trend ON. Events = P1 starts under the trend rule; returns = P0 under the trend rule (0.98 / 0.25).
+  set       h events  cond mean   cond med  uncond mn  uncond md       mean diff 90% boot  share>0
+  NVDA      5     24    +0.0411    +0.0025    +0.0076    +0.0044    +0.0335 [+0.0053,+0.0639]     0.97
+  NVDA     10     24    +0.0448    +0.0289    +0.0152    +0.0080    +0.0296 [-0.0052,+0.0763]     0.92
+  NVDA     20     24    +0.0621    +0.0398    +0.0304    +0.0194    +0.0317 [-0.0146,+0.0855]     0.88
+  NVDA     40     24    +0.1121    +0.1039    +0.0609    +0.0404    +0.0512 [-0.0005,+0.1043]     0.95
+  POOL11    5    255    +0.0082    +0.0035    +0.0010    -0.0002    +0.0072 [-0.0039,+0.0167]     0.88
+  POOL11   10    253    +0.0075    +0.0080    +0.0020    -0.0008    +0.0054 [-0.0194,+0.0250]     0.70
+  POOL11   20    248    +0.0092    +0.0189    +0.0042    -0.0025    +0.0050 [-0.0234,+0.0290]     0.68
+  POOL11   40    242    +0.0473    +0.0395    +0.0089    -0.0070    +0.0384 [+0.0062,+0.0681]     0.98
+
+  6b. SECONDARY: trend OFF. Events = P1 starts with b = 0.98 always; returns = always-0.98 strategy.
+  set       h events  cond mean   cond med  uncond mn  uncond md       mean diff 90% boot  share>0
+  NVDA      5     82    +0.0082    +0.0163    +0.0040    +0.0064    +0.0042 [-0.0175,+0.0271]     0.65
+  NVDA     10     82    -0.0160    +0.0072    +0.0080    +0.0125    -0.0240 [-0.0461,-0.0004]     0.05
+  NVDA     20     82    -0.0258    -0.0194    +0.0162    +0.0286    -0.0420 [-0.0747,-0.0031]     0.04
+  NVDA     40     82    -0.0589    -0.0212    +0.0322    +0.0600    -0.0911 [-0.1459,-0.0292]     0.01
+  POOL11    5    636    +0.0000    +0.0019    -0.0009    +0.0001    +0.0009 [-0.0077,+0.0110]     0.59
+  POOL11   10    634    -0.0032    +0.0024    -0.0018    -0.0003    -0.0015 [-0.0150,+0.0120]     0.47
+  POOL11   20    629    -0.0111    -0.0054    -0.0034    -0.0015    -0.0076 [-0.0272,+0.0118]     0.30
+  POOL11   40    623    -0.0137    -0.0162    -0.0065    -0.0052    -0.0072 [-0.0321,+0.0208]     0.37
+
+  6c. SUPPLEMENT: events as in 6a (trend ON), returns of the always-0.98 strategy (true full size).
+  set       h events  cond mean   cond med  uncond mn  uncond md       mean diff 90% boot  share>0
+  NVDA      5     24    +0.0395    +0.0085    +0.0040    +0.0064    +0.0355 [+0.0076,+0.0646]     0.98
+  NVDA     10     24    +0.0441    +0.0425    +0.0080    +0.0125    +0.0360 [-0.0050,+0.0906]     0.92
+  NVDA     20     24    +0.0603    +0.0398    +0.0162    +0.0286    +0.0442 [-0.0077,+0.1040]     0.93
+  NVDA     40     24    +0.1195    +0.1231    +0.0322    +0.0600    +0.0873 [+0.0270,+0.1510]     0.99
+  POOL11    5    255    +0.0100    +0.0051    -0.0009    +0.0001    +0.0110 [-0.0020,+0.0216]     0.94
+  POOL11   10    253    +0.0061    +0.0117    -0.0018    -0.0003    +0.0079 [-0.0197,+0.0305]     0.74
+  POOL11   20    248    +0.0054    +0.0260    -0.0034    -0.0015    +0.0088 [-0.0312,+0.0422]     0.71
+  POOL11   40    242    +0.0483    +0.0667    -0.0065    -0.0052    +0.0549 [+0.0188,+0.0908]     0.99
+  trend on: 258 pooled P1 starts on 217 distinct dates in 24 distinct years; per year: 2001:1, 2003:15, 2004:3, 2005:5, 2006:5, 2007:4, 2008:1, 2009:4, 2010:13, 2011:7, 2012:5, 2013:10, 2014:6, 2015:15, 2016:5, 2017:4, 2018:19, 2019:17, 2020:19, 2021:2, 2023:12, 2024:16, 2025:20, 2026:50
+  trend off: 639 pooled P1 starts on 471 distinct dates in 27 distinct years; per year: 2000:19, 2001:78, 2002:62, 2003:24, 2004:10, 2005:6, 2006:6, 2007:4, 2008:53, 2009:25, 2010:18, 2011:26, 2012:5, 2013:10, 2014:6, 2015:23, 2016:11, 2017:4, 2018:26, 2019:23, 2020:19, 2021:2, 2022:55, 2023:16, 2024:16, 2025:40, 2026:52
+
+7. ELEVEN NAMES: P2 - P1 in g (percent per night), sign, 90% year-block interval
+  7a. trend ON, p = 0.25 (the pre-registered comparison)
+  name   | 2000-10-30..2014-12-31             | 2015-01-02..2026-11-06             | whole span                         | P1ep P2ep
+  NVDA   | +  +0.0064 [+0.0000,+0.0180]       | -  -0.0020 [-0.0171,+0.0100]       | +  +0.0026 [-0.0055,+0.0117]       |   24   26
+  AMD    | +  +0.0008 [-0.0064,+0.0085]       | +  +0.0012 [-0.0061,+0.0085]       | +  +0.0010 [-0.0044,+0.0063]       |   53   61
+  INTC   | +  +0.0014 [+0.0000,+0.0041]       | -  -0.0010 [-0.0190,+0.0179]       | +  +0.0003 [-0.0081,+0.0085]       |   28   30
+  MU     | +  +0.0025 [-0.0039,+0.0095]       | -  -0.0131 [-0.0401,+0.0135]       | -  -0.0046 [-0.0193,+0.0081]       |   34   35
+  AAPL   | +  +0.0014 [+0.0000,+0.0040]       | -  -0.0008 [-0.0044,+0.0020]       | +  +0.0004 [-0.0015,+0.0024]       |    8    9
+  MSFT   | -  -0.0001 [-0.0004,+0.0000]       | -  -0.0037 [-0.0132,+0.0020]       | -  -0.0018 [-0.0060,+0.0008]       |   10   11
+  AMZN   | -  -0.0041 [-0.0103,+0.0019]       | -  -0.0012 [-0.0095,+0.0062]       | -  -0.0028 [-0.0084,+0.0023]       |   24   24
+  QCOM   | +  +0.0003 [+0.0000,+0.0008]       | +  +0.0017 [-0.0032,+0.0070]       | +  +0.0009 [-0.0014,+0.0034]       |   18   22
+  TXN    | -  -0.0003 [-0.0007,-0.0000]       | -  -0.0020 [-0.0038,-0.0007]       | -  -0.0011 [-0.0019,-0.0004]       |   20   25
+  AMAT   | +  +0.0011 [+0.0000,+0.0031]       | +  +0.0051 [-0.0137,+0.0279]       | +  +0.0029 [-0.0054,+0.0135]       |   24   26
+  ORCL   | 0  +0.0000 [+0.0000,+0.0000]       | +  +0.0056 [-0.0021,+0.0165]       | +  +0.0025 [-0.0010,+0.0076]       |   15   18
+  P2-P1, trend on, p=0.25: positive/negative/zero of 11 -> H1 7/3/1, H2 4/7/0, whole 7/4/0
+
+  7b. trend OFF, p = 0.25
+  name   | 2000-10-30..2014-12-31             | 2015-01-02..2026-11-06             | whole span                         | P1ep P2ep
+  NVDA   | -  -0.0090 [-0.0497,+0.0187]       | +  +0.0057 [-0.0240,+0.0354]       | -  -0.0023 [-0.0271,+0.0199]       |   82   90
+  AMD    | +  +0.0190 [-0.0086,+0.0458]       | +  +0.0043 [-0.0156,+0.0210]       | +  +0.0123 [-0.0056,+0.0304]       |   86  100
+  INTC   | +  +0.0000 [-0.0105,+0.0106]       | -  -0.0044 [-0.0181,+0.0080]       | -  -0.0020 [-0.0105,+0.0061]       |   58   61
+  MU     | +  +0.0006 [-0.0106,+0.0109]       | -  -0.0084 [-0.0427,+0.0251]       | -  -0.0035 [-0.0201,+0.0130]       |   77   81
+  AAPL   | +  +0.0022 [-0.0097,+0.0151]       | -  -0.0020 [-0.0113,+0.0067]       | +  +0.0003 [-0.0075,+0.0085]       |   36   39
+  MSFT   | -  -0.0021 [-0.0080,+0.0016]       | -  -0.0057 [-0.0189,+0.0020]       | -  -0.0037 [-0.0097,+0.0012]       |   29   31
+  AMZN   | -  -0.0224 [-0.0596,+0.0118]       | +  +0.0037 [-0.0073,+0.0137]       | -  -0.0105 [-0.0356,+0.0087]       |   63   70
+  QCOM   | -  -0.0012 [-0.0079,+0.0066]       | -  -0.0042 [-0.0156,+0.0053]       | -  -0.0026 [-0.0087,+0.0034]       |   52   60
+  TXN    | +  +0.0004 [-0.0058,+0.0075]       | -  -0.0050 [-0.0201,+0.0099]       | -  -0.0020 [-0.0099,+0.0061]       |   49   53
+  AMAT   | +  +0.0019 [-0.0130,+0.0153]       | +  +0.0021 [-0.0263,+0.0339]       | +  +0.0020 [-0.0132,+0.0190]       |   61   65
+  ORCL   | +  +0.0089 [-0.0100,+0.0338]       | -  -0.0101 [-0.0338,+0.0093]       | +  +0.0002 [-0.0145,+0.0163]       |   46   53
+  P2-P1, trend off, p=0.25: positive/negative/zero of 11 -> H1 7/4/0, H2 4/7/0, whole 4/7/0
+
+  7c. sign counts for the other cells (no per-name lines)
+  P2-P1, trend on, p=0.10: positive/negative/zero of 11 -> H1 8/2/1, H2 3/8/0, whole 5/6/0
+  P2B-P1, trend on, p=0.10: positive/negative/zero of 11 -> H1 8/2/1, H2 4/7/0, whole 6/5/0
+  P2x10-P1, trend on, p=0.10: positive/negative/zero of 11 -> H1 7/3/1, H2 4/7/0, whole 5/6/0
+  P3-P1, trend on, p=0.10: positive/negative/zero of 11 -> H1 6/1/4, H2 7/4/0, whole 6/5/0
+  P2B-P1, trend on, p=0.25: positive/negative/zero of 11 -> H1 7/3/1, H2 3/8/0, whole 5/6/0
+  P2x10-P1, trend on, p=0.25: positive/negative/zero of 11 -> H1 8/2/1, H2 4/7/0, whole 6/5/0
+  P3-P1, trend on, p=0.25: positive/negative/zero of 11 -> H1 6/3/2, H2 5/5/1, whole 5/5/1
+  P2-P1, trend on, p=0.50: positive/negative/zero of 11 -> H1 8/2/1, H2 5/6/0, whole 7/4/0
+  P2B-P1, trend on, p=0.50: positive/negative/zero of 11 -> H1 7/3/1, H2 2/9/0, whole 5/6/0
+  P2x10-P1, trend on, p=0.50: positive/negative/zero of 11 -> H1 6/4/1, H2 4/7/0, whole 6/5/0
+  P3-P1, trend on, p=0.50: positive/negative/zero of 11 -> H1 5/3/3, H2 5/6/0, whole 5/6/0
+  P2-P1, trend off, p=0.10: positive/negative/zero of 11 -> H1 6/5/0, H2 3/8/0, whole 4/7/0
+  P2B-P1, trend off, p=0.10: positive/negative/zero of 11 -> H1 5/6/0, H2 4/7/0, whole 4/7/0
+  P2x10-P1, trend off, p=0.10: positive/negative/zero of 11 -> H1 8/3/0, H2 5/6/0, whole 6/5/0
+  P3-P1, trend off, p=0.10: positive/negative/zero of 11 -> H1 5/6/0, H2 6/5/0, whole 4/7/0
+  P2B-P1, trend off, p=0.25: positive/negative/zero of 11 -> H1 5/6/0, H2 3/8/0, whole 4/7/0
+  P2x10-P1, trend off, p=0.25: positive/negative/zero of 11 -> H1 5/6/0, H2 6/5/0, whole 8/3/0
+  P3-P1, trend off, p=0.25: positive/negative/zero of 11 -> H1 6/5/0, H2 5/6/0, whole 6/5/0
+  P2-P1, trend off, p=0.50: positive/negative/zero of 11 -> H1 4/7/0, H2 2/9/0, whole 2/9/0
+  P2B-P1, trend off, p=0.50: positive/negative/zero of 11 -> H1 3/8/0, H2 1/10/0, whole 1/10/0
+  P2x10-P1, trend off, p=0.50: positive/negative/zero of 11 -> H1 7/4/0, H2 4/7/0, whole 6/5/0
+  P3-P1, trend off, p=0.50: positive/negative/zero of 11 -> H1 4/7/0, H2 4/7/0, whole 3/8/0
+
+  7d. per name, whole span, trend ON p=0.25: g of P0, P1, P2, P2B, P3 and worst drawdown of P1 and P2
+  name        g P0      g P1      g P2     g P2B      g P3    DD P0    DD P1    DD P2
+  NVDA     +0.1518   +0.1396   +0.1421   +0.1424   +0.1431    58.03    55.72    55.72
+  AMD      +0.1367   +0.1235   +0.1246   +0.1260   +0.1205    82.45    85.84    85.20
+  INTC     -0.0626   -0.0621   -0.0618   -0.0641   -0.0595    99.71    99.59    99.56
+  MU       +0.1722   +0.1692   +0.1646   +0.1646   +0.1646    67.32    72.75    67.92
+  AAPL     +0.0608   +0.0666   +0.0670   +0.0670   +0.0666    88.52    83.17    82.83
+  MSFT     -0.0334   -0.0319   -0.0337   -0.0337   -0.0317    96.97    97.17    97.18
+  AMZN     -0.0005   +0.0018   -0.0009   -0.0015   +0.0025    98.70    98.58    98.84
+  QCOM     -0.0805   -0.0693   -0.0684   -0.0708   -0.0734    99.70    99.57    99.54
+  TXN      -0.0840   -0.0800   -0.0811   -0.0813   -0.0814    99.80    99.74    99.76
+  AMAT     +0.0054   +0.0037   +0.0066   +0.0069   +0.0102    91.45    91.78    91.46
+  ORCL     -0.0532   -0.0529   -0.0503   -0.0503   -0.0529    99.71    99.67    99.68
+
+8. SENSITIVITY TO THE READINGS (NVDA unless stated; trend ON, p = 0.25)
+  8a. P2 re-arming reading A vs B (R3): g per period
+     2000-10-30..2014-12-31 g P1 +0.0778 | P2(A) +0.0842 (P2-P1 +0.0064, DD 47.33) | P2(B) +0.0842 (P2B-P1 +0.0064, DD 47.33) | DD P1 47.33
+     2015-01-02..2026-11-06 g P1 +0.2134 | P2(A) +0.2115 (P2-P1 -0.0020, DD 55.72) | P2(B) +0.2120 (P2B-P1 -0.0014, DD 55.72) | DD P1 55.72
+     whole span             g P1 +0.1396 | P2(A) +0.1421 (P2-P1 +0.0026, DD 55.72) | P2(B) +0.1424 (P2B-P1 +0.0028, DD 55.72) | DD P1 55.72
+  8b. Restart E = 1 with fresh pause state on 2015-01-02 (R2), second half only
+     P0   restart: g +0.2341 DD 58.03 epis 0 paused 0 | continuous: g +0.2341 DD 58.03 epis 0 paused 0
+     P1   restart: g +0.2134 DD 55.72 epis 14 paused 125 | continuous: g +0.2134 DD 55.72 epis 14 paused 125
+     P2   restart: g +0.2115 DD 55.72 epis 16 paused 80 | continuous: g +0.2115 DD 55.72 epis 16 paused 80
+     P2B  restart: g +0.2120 DD 55.72 epis 14 paused 70 | continuous: g +0.2120 DD 55.72 epis 14 paused 70
+     P3   restart: g +0.2205 DD 55.72 epis 15 paused 95 | continuous: g +0.2205 DD 55.72 epis 15 paused 95
+  8c. Worst drawdown with the peak carried in from before the period (R8)
+     2000-10-30..2014-12-31 P0 within 47.78 carried 47.78 | P1 within 47.33 carried 47.33 | P2 within 47.33 carried 47.33 | P2B within 47.33 carried 47.33 | P3 within 47.33 carried 47.33
+     2015-01-02..2026-11-06 P0 within 58.03 carried 58.03 | P1 within 55.72 carried 55.72 | P2 within 55.72 carried 55.72 | P2B within 55.72 carried 55.72 | P3 within 55.72 carried 55.72
+     whole span             P0 within 58.03 carried 58.03 | P1 within 55.72 carried 55.72 | P2 within 55.72 carried 55.72 | P2B within 55.72 carried 55.72 | P3 within 55.72 carried 55.72
+  8d. Ten other names started on 2000-10-30 instead of 2000-10-16 (R5): whole-span P2-P1 (trend ON, p=0.25)
+     NVDA  P2-P1 +0.0026 (default start +0.0026) | P2B-P1 +0.0028
+     AMD   P2-P1 +0.0010 (default start +0.0010) | P2B-P1 +0.0025
+     INTC  P2-P1 +0.0003 (default start +0.0003) | P2B-P1 -0.0021
+     MU    P2-P1 -0.0046 (default start -0.0046) | P2B-P1 -0.0046
+     AAPL  P2-P1 +0.0004 (default start +0.0004) | P2B-P1 +0.0004
+     MSFT  P2-P1 -0.0018 (default start -0.0018) | P2B-P1 -0.0018
+     AMZN  P2-P1 -0.0028 (default start -0.0028) | P2B-P1 -0.0034
+     QCOM  P2-P1 +0.0009 (default start +0.0009) | P2B-P1 -0.0015
+     TXN   P2-P1 -0.0011 (default start -0.0011) | P2B-P1 -0.0013
+     AMAT  P2-P1 +0.0029 (default start +0.0029) | P2B-P1 +0.0031
+     ORCL  P2-P1 +0.0025 (default start +0.0025) | P2B-P1 +0.0025
+     positive/negative/zero: P2 7/4/0, P2B 5/6/0
+  8e. AMZN with the night across its skipped bar (2008-10-28 -> 2008-10-30) held flat instead (R11)
+     AMZN whole-span P2-P1 -0.0028 (default -0.0028)
+  8f. No overnight move beyond +/-45% exists, so the sanity filter changes nothing.
+  8g. Event study with the horizon starting the night AFTER the pause start (nights t+1..t+h) (R10), trend ON, p=0.25
+     set       h events  cond mean   cond med  uncond mn
+     NVDA      5     24    +0.0333    +0.0061    +0.0076
+     NVDA     10     24    +0.0417    +0.0351    +0.0152
+     NVDA     20     24    +0.0604    +0.0379    +0.0304
+     NVDA     40     24    +0.1145    +0.0957    +0.0609
+     POOL11    5    254    +0.0041    +0.0061    +0.0010
+     POOL11   10    253    +0.0021    +0.0098    +0.0020
+     POOL11   20    248    +0.0098    +0.0259    +0.0042
+     POOL11   40    242    +0.0451    +0.0339    +0.0089
+  8h. Nights assigned to periods by EXIT date instead of entry date (R1): NVDA, trend ON, p=0.25
+     H1 (exit <= 2014-12-31)    nights 3562 | g P1 +0.0776 P2 +0.0840 (diff +0.0064) P2B +0.0840 (diff +0.0064) | DD P1 47.33 P2 47.33
+     H2 (exit >= 2015-01-02)    nights 2980 | g P1 +0.2136 P2 +0.2116 (diff -0.0020) P2B +0.2122 (diff -0.0014) | DD P1 55.72 P2 55.72
+  8i. Pause episodes that start inside the first 19 nights, when the 20-session window is not yet full (R7)
+     AMAT  trend off: 18 of 18 paused variants affected, earliest start 2000-11-03
+     AMZN  trend off: 18 of 18 paused variants affected, earliest start 2000-10-30
+     MU    trend off: 18 of 18 paused variants affected, earliest start 2000-10-17
+     QCOM  trend off: 18 of 18 paused variants affected, earliest start 2000-10-31
+     No trend-ON run is affected, so R7 cannot change the pre-registered criteria (trend ON, p = 0.25).
+     Alternative reading (no trigger until 20 equity values exist): whole-span P2-P1, p = 0.25
+     trend on : names whose P2-P1 changes: none | positive/negative/zero 7/4/0 (default 7/4/0)
+     trend off: names whose P2-P1 changes: MU -0.0035 (default -0.0035); AMZN -0.0139 (default -0.0105); QCOM -0.0026 (default -0.0026); AMAT +0.0035 (default +0.0020) | positive/negative/zero 4/7/0 (default 4/7/0)
+  8j. Concentration: NVDA P2-P1 total log difference by calendar year (trend ON, p=0.25; years with no difference omitted)
+     P2(A)-P1  2003 +0.2256, 2010 +0.0017, 2015 +0.0048, 2019 -0.0419, 2020 -0.2142, 2023 +0.0623, 2024 +0.0378, 2025 +0.0928
+       H1 total +0.2273; largest single year 2003 (+0.2256); total without that year +0.0017
+       H2 total -0.0584; largest single year 2020 (-0.2142); total without that year +0.1558
+     P2(B)-P1  2003 +0.2256, 2010 +0.0017, 2015 -0.0055, 2019 -0.0419, 2020 -0.2142, 2023 +0.0888, 2024 +0.0378, 2025 +0.0928
+       H1 total +0.2273; largest single year 2003 (+0.2256); total without that year +0.0017
+       H2 total -0.0422; largest single year 2020 (-0.2142); total without that year +0.1720
+
+9. PRE-REGISTERED CRITERIA (LAB.md L15), trend ON, p = 0.25
+  reading A (primary):
+    (1) P2 g not lower than P1 in both halves: H1 +0.0842 vs +0.0778 (diff +0.0064), H2 +0.2115 vs +0.2134 (diff -0.0020) -> FAIL
+    (2) P2 worst drawdown no more than 5 points deeper in either half: H1 47.33 vs 47.33 (+0.00), H2 55.72 vs 55.72 (-0.00) -> PASS
+    (3) sign of P2-P1 (whole span) across 11 names: 7 positive, 4 negative, 0 exactly zero -> largest same-sign count 7, positive count 7 -> FAIL
+    OUTCOME: keep_as_written
+  reading B:
+    (1) P2 g not lower than P1 in both halves: H1 +0.0842 vs +0.0778 (diff +0.0064), H2 +0.2120 vs +0.2134 (diff -0.0014) -> FAIL
+    (2) P2 worst drawdown no more than 5 points deeper in either half: H1 47.33 vs 47.33 (+0.00), H2 55.72 vs 55.72 (-0.00) -> PASS
+    (3) sign of P2-P1 (whole span) across 11 names: 5 positive, 6 negative, 0 exactly zero -> largest same-sign count 6, positive count 5 -> FAIL
+    OUTCOME: keep_as_written
+
+10. MONEY AT STAKE AT E = $82
+  P1 and P2 hold the same size during the first 5 sessions of a pause and on every DOWN-trend night (both 0.25).
+  They differ only on extension nights (session 6 onward, equity still at or below the trigger) when the trend is UP:
+  P1 holds 0.25 of equity, P2 holds 0.98, a difference of 0.73 of equity = $59.86 of 2x exposure.
+   mean unit return NVDA all nights 2000-2026:                       +0.1659% a night (s.e. 0.0493%) -> $+0.099 a night, $+2.09 per 21-night month of UP-trend extension
+   mean unit return NVDA UP-trend nights 2000-2026:                  +0.2753% a night (s.e. 0.0456%) -> $+0.165 a night, $+3.46 per 21-night month of UP-trend extension
+   mean unit return NVDA UP-trend nights 2015-2026:                  +0.3586% a night (s.e. 0.0672%) -> $+0.215 a night, $+4.51 per 21-night month of UP-trend extension
+   mean unit return NVDA P1 extension nights with trend UP (n=64):   +0.2877% a night (s.e. 0.5276%) -> $+0.172 a night, $+3.62 per 21-night month of UP-trend extension
+  Realised in the 2000-2026 simulation (NVDA, trend ON, p=0.25): P2-P1 = +0.1689 log points in total over 6542 nights (26.0 years), reading B +0.1851.
+   as a long-run average over all months, pause or not: $+0.0445 a month at $82 (reading B $+0.0487)
+   P1 episodes 24; extension nights 82, of which trend UP 64 (2.67 per episode).
+   per episode at $82: +0.1689 log points / 24 episodes = +0.00704 -> $+0.577 per pause episode (reading B $+0.632)
+   pooled 11 names, P1 extension nights with trend UP (n=1027): mean unit return -0.0040% (naive s.e. 0.1183%) -> $-0.002 a night, $-0.05 per 21 such nights
+  Trend state at the last completed close in the sample (2026-11-06): DOWN. On a DOWN night the two variants are identical and the difference is $0.
+  Noise: the s.d. of the NVDA unit return is 3.99% a night, so the $59.86 size gap moves by about $2.39 (1 s.d.) on a single night,
+   against an expected difference of $0.10-$0.17 a night. Over a full extension (at most 14 nights) the 1-s.d. band is about $8.94.
+  Whole-span P2-P1 (reading A) = +0.0026 %/night, 90% interval [-0.0055, +0.0117] -> $+0.044 a month at $82, interval [$-0.095, $+0.201]
+  Whole-span P2-P1 (reading B) = +0.0028 %/night, 90% interval [-0.0054, +0.0119] -> $+0.049 a month at $82, interval [$-0.093, $+0.205]
+
+VARIANTS TRIED (adoption bar): 19 simulated variants per name and trend setting = P0 + {P1, P2 reading A, P2 reading B, P3,
+ P2x10 reading A, P2x10 reading B} x 3 pause sizes; run for 11 names x 2 trend settings (418 simulations). The pre-registered
+ decision uses one comparison only: P2 vs P1, pause size 0.25, trend rule ON (NVDA halves; 11-name sign count).

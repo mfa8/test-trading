@@ -1,0 +1,256 @@
+== LOADER (adjudicator) ==
+  QQQ   {'raw': 6754, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 1, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  NVDA  {'raw': 6754, 'late': 1, 'early': 209, 'bad': 0, 'bad_dates': [], 'dup': 1, 'dup_mismatch': 0, 'kept': 6543, 'first': '2000-10-30', 'last': '2026-11-06'}
+  AMD   {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  INTC  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  MU    {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  AAPL  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  MSFT  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  AMZN  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 1, 'bad_dates': ['2008-10-29'], 'dup': 0, 'dup_mismatch': 0, 'kept': 6751, 'first': '2000-01-03', 'last': '2026-11-06'}
+  QCOM  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  TXN   {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  AMAT  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+  ORCL  {'raw': 6753, 'late': 1, 'early': 0, 'bad': 0, 'bad_dates': [], 'dup': 0, 'dup_mismatch': 0, 'kept': 6752, 'first': '2000-01-03', 'last': '2026-11-06'}
+QQQ sessions 6752 first trend state 2000-10-16 | last 4: [('2026-11-03', True), ('2026-11-04', True), ('2026-11-05', False), ('2026-11-06', False)] | prev-199 mean on last 2: [680.88, 681.01]
+NVDA nights 6542 2000-10-30 .. 2026-11-05 last exit 2026-11-06 | H1 3563 H2 2979 | UP nights 4792
+overnight moves beyond +/-45%: none
+  NVDA  nights 6542 first 2000-10-30
+  AMD   nights 6552 first 2000-10-16
+  INTC  nights 6552 first 2000-10-16
+  MU    nights 6552 first 2000-10-16
+  AAPL  nights 6552 first 2000-10-16
+  MSFT  nights 6552 first 2000-10-16
+  AMZN  nights 6551 first 2000-10-16
+  QCOM  nights 6552 first 2000-10-16
+  TXN   nights 6552 first 2000-10-16
+  AMAT  nights 6552 first 2000-10-16
+  ORCL  nights 6552 first 2000-10-16
+
+== NIGHT-BY-NIGHT CROSS-RUN on the adjudicator night arrays (max |d lnR|, size mismatches) ==
+cells compared: 462 (11 names x 2 trend x 3 pause sizes x 7 variants)
+A vs adjudicator: max |d lnR| = 0.000e+00, mismatches = 0
+B vs adjudicator: max |d lnR| = 1.110e-16, mismatches = 0
+
+== NVDA, TREND ON, p=0.25: adjudicator vs A (results.json) vs B (nvda_table.json) ==
+(A json label P2 = "during" reading, P2B = "post"; B json label P2 = "post")
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | 0.0829 47.78 0 0  x19.192 med nan max 0 | 0.0829 47.78 0 0                   | 0.0829 47.78 0 0                   | same
+H1   P1           | 0.0778 47.33 10 77  x15.983 med 5.0 max 19 | 0.0778 47.33 10 77                 | 0.0778 47.33 10 77                 | same
+H1   P2post       | 0.0842 47.33 10 50  x20.062 med 5.0 max 5 | 0.0842 47.33 10 50                 | 0.0842 47.33 10 50                 | same
+H1   P2during     | 0.0842 47.33 10 50  x20.062 med 5.0 max 5 | 0.0842 47.33 10 50                 | (not in json)                      | same
+H1   P3           | 0.0783 47.33 11 71  x16.296 med 5.0 max 19 | 0.0783 47.33 11 71                 | 0.0783 47.33 11 71                 | same
+H1   P2x10post    | 0.0818 47.33 7 70  x18.466 med 10.0 max 10 | 0.0818 47.33 7 70                  | 0.0818 47.33 7 70                  | same
+H1   P2x10during  | 0.0818 47.33 7 70  x18.466 med 10.0 max 10 | 0.0818 47.33 7 70                  | (not in json)                      | same
+H2   P0           | 0.2341 58.03 0 0  x1068.1 med nan max 0 | 0.2341 58.03 0 0                   | 0.2341 58.03 0 0                   | same
+H2   P1           | 0.2134 55.72 14 125  x577.27 med 6.0 max 19 | 0.2134 55.72 14 125                | 0.2134 55.72 14 125                | same
+H2   P2post       | 0.2120 55.72 14 70  x553.41 med 5.0 max 5 | 0.2120 55.72 14 70                 | 0.2120 55.72 14 70                 | same
+H2   P2during     | 0.2115 55.72 16 80  x544.53 med 5.0 max 5 | 0.2115 55.72 16 80                 | (not in json)                      | same
+H2   P3           | 0.2205 55.72 15 95  x713.2 med 3.0 max 19 | 0.2205 55.72 15 95                 | 0.2205 55.72 15 95                 | same
+H2   P2x10post    | 0.2173 55.72 12 120  x647.4 med 10.0 max 10 | 0.2173 55.72 12 120                | 0.2173 55.72 12 120                | same
+H2   P2x10during  | 0.2173 55.72 12 120  x647.4 med 10.0 max 10 | 0.2173 55.72 12 120                | (not in json)                      | same
+ALL  P0           | 0.1518 58.03 0 0  x20499 med nan max 0 | 0.1518 58.03 0 0                   | 0.1518 58.03 0 0                   | same
+ALL  P1           | 0.1396 55.72 24 202  x9226.7 med 5.0 max 19 | 0.1396 55.72 24 202                | 0.1396 55.72 24 202                | same
+ALL  P2post       | 0.1424 55.72 24 120  x11103 med 5.0 max 5 | 0.1424 55.72 24 120                | 0.1424 55.72 24 120                | same
+ALL  P2during     | 0.1421 55.72 26 130  x10925 med 5.0 max 5 | 0.1421 55.72 26 130                | (not in json)                      | same
+ALL  P3           | 0.1431 55.72 26 166  x11622 med 4.0 max 19 | 0.1431 55.72 26 166                | 0.1431 55.72 26 166                | same
+ALL  P2x10post    | 0.1435 55.72 19 190  x11955 med 10.0 max 10 | 0.1435 55.72 19 190                | 0.1435 55.72 19 190                | same
+ALL  P2x10during  | 0.1435 55.72 19 190  x11955 med 10.0 max 10 | 0.1435 55.72 19 190                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+-- trend on, p=0.10 --
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | 0.0829 47.78 0 0  x19.192 med nan max 0 | 0.0829 47.78 0 0                   | 0.0829 47.78 0 0                   | same
+H1   P1           | 0.0770 49.10 9 72  x15.55 med 5.0 max 19 | 0.0770 49.10 9 72                  | 0.0770 49.10 9 72                  | same
+H1   P2post       | 0.0837 47.33 9 45  x19.732 med 5.0 max 5 | 0.0837 47.33 9 45                  | 0.0837 47.33 9 45                  | same
+H1   P2during     | 0.0837 47.33 9 45  x19.732 med 5.0 max 5 | 0.0837 47.33 9 45                  | (not in json)                      | same
+H1   P3           | 0.0775 49.10 10 67  x15.833 med 5.0 max 19 | 0.0775 49.10 10 67                 | 0.0775 49.10 10 67                 | same
+H1   P2x10post    | 0.0805 47.78 6 60  x17.597 med 10.0 max 10 | 0.0805 47.78 6 60                  | 0.0805 47.78 6 60                  | same
+H1   P2x10during  | 0.0805 47.78 6 60  x17.597 med 10.0 max 10 | 0.0805 47.78 6 60                  | (not in json)                      | same
+H2   P0           | 0.2341 58.03 0 0  x1068.1 med nan max 0 | 0.2341 58.03 0 0                   | 0.2341 58.03 0 0                   | same
+H2   P1           | 0.2063 55.24 14 138  x466.05 med 7.0 max 19 | 0.2063 55.24 14 138                | 0.2063 55.24 14 138                | same
+H2   P2post       | 0.1993 55.24 14 70  x378.39 med 5.0 max 5 | 0.1993 55.24 14 70                 | 0.1993 55.24 14 70                 | same
+H2   P2during     | 0.1982 55.24 15 75  x366.42 med 5.0 max 5 | 0.1982 55.24 15 75                 | (not in json)                      | same
+H2   P3           | 0.2074 55.95 15 125  x482.37 med 7.0 max 19 | 0.2074 55.95 15 125                | 0.2074 55.95 15 125                | same
+H2   P2x10post    | 0.2116 55.24 12 120  x546.07 med 10.0 max 10 | 0.2116 55.24 12 120                | 0.2116 55.24 12 120                | same
+H2   P2x10during  | 0.2116 55.24 12 120  x546.07 med 10.0 max 10 | 0.2116 55.24 12 120                | (not in json)                      | same
+ALL  P0           | 0.1518 58.03 0 0  x20499 med nan max 0 | 0.1518 58.03 0 0                   | 0.1518 58.03 0 0                   | same
+ALL  P1           | 0.1359 55.24 23 210  x7247.1 med 7.0 max 19 | 0.1359 55.24 23 210                | 0.1359 55.24 23 210                | same
+ALL  P2post       | 0.1363 55.24 23 115  x7466.3 med 5.0 max 5 | 0.1363 55.24 23 115                | 0.1363 55.24 23 115                | same
+ALL  P2during     | 0.1358 55.24 24 120  x7230.1 med 5.0 max 5 | 0.1358 55.24 24 120                | (not in json)                      | same
+ALL  P3           | 0.1367 55.95 25 192  x7637.4 med 5.0 max 19 | 0.1367 55.95 25 192                | 0.1367 55.95 25 192                | same
+ALL  P2x10post    | 0.1402 55.24 18 180  x9608.9 med 10.0 max 10 | 0.1402 55.24 18 180                | 0.1402 55.24 18 180                | same
+ALL  P2x10during  | 0.1402 55.24 18 180  x9608.9 med 10.0 max 10 | 0.1402 55.24 18 180                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+-- trend on, p=0.50 --
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | 0.0829 47.78 0 0  x19.192 med nan max 0 | 0.0829 47.78 0 0                   | 0.0829 47.78 0 0                   | same
+H1   P1           | 0.0809 47.33 9 79  x17.864 med 8.0 max 17 | 0.0809 47.33 9 79                  | 0.0809 47.33 9 79                  | same
+H1   P2post       | 0.0840 47.33 8 40  x19.93 med 5.0 max 5 | 0.0840 47.33 8 40                  | 0.0840 47.33 8 40                  | same
+H1   P2during     | 0.0842 47.33 9 45  x20.1 med 5.0 max 5 | 0.0842 47.33 9 45                  | (not in json)                      | same
+H1   P3           | 0.0807 47.33 9 72  x17.713 med 8.0 max 17 | 0.0807 47.33 9 72                  | 0.0807 47.33 9 72                  | same
+H1   P2x10post    | 0.0817 47.36 8 80  x18.352 med 10.0 max 10 | 0.0817 47.36 8 80                  | 0.0817 47.36 8 80                  | same
+H1   P2x10during  | 0.0817 47.36 8 80  x18.352 med 10.0 max 10 | 0.0817 47.36 8 80                  | (not in json)                      | same
+H2   P0           | 0.2341 58.03 0 0  x1068.1 med nan max 0 | 0.2341 58.03 0 0                   | 0.2341 58.03 0 0                   | same
+H2   P1           | 0.2241 56.52 12 114  x793.8 med 5.0 max 19 | 0.2241 56.52 12 114                | 0.2241 56.52 12 114                | same
+H2   P2post       | 0.2216 56.52 14 70  x736.98 med 5.0 max 5 | 0.2216 56.52 14 70                 | 0.2216 56.52 14 70                 | same
+H2   P2during     | 0.2211 56.52 15 75  x724.42 med 5.0 max 5 | 0.2211 56.52 15 75                 | (not in json)                      | same
+H2   P3           | 0.2290 56.52 13 94  x918.71 med 4.0 max 19 | 0.2290 56.52 13 94                 | 0.2290 56.52 13 94                 | same
+H2   P2x10post    | 0.2242 56.52 11 110  x795.47 med 10.0 max 10 | 0.2242 56.52 11 110                | 0.2242 56.52 11 110                | same
+H2   P2x10during  | 0.2242 56.52 11 110  x795.47 med 10.0 max 10 | 0.2242 56.52 11 110                | (not in json)                      | same
+ALL  P0           | 0.1518 58.03 0 0  x20499 med nan max 0 | 0.1518 58.03 0 0                   | 0.1518 58.03 0 0                   | same
+ALL  P1           | 0.1461 56.52 21 193  x14180 med 6.0 max 19 | 0.1461 56.52 21 193                | 0.1461 56.52 21 193                | same
+ALL  P2post       | 0.1467 56.52 22 110  x14688 med 5.0 max 5 | 0.1467 56.52 22 110                | 0.1467 56.52 22 110                | same
+ALL  P2during     | 0.1465 56.52 24 120  x14561 med 5.0 max 5 | 0.1465 56.52 24 120                | (not in json)                      | same
+ALL  P3           | 0.1482 56.52 22 166  x16273 med 4.5 max 19 | 0.1482 56.52 22 166                | 0.1482 56.52 22 166                | same
+ALL  P2x10post    | 0.1466 56.52 19 190  x14598 med 10.0 max 10 | 0.1466 56.52 19 190                | 0.1466 56.52 19 190                | same
+ALL  P2x10during  | 0.1466 56.52 19 190  x14598 med 10.0 max 10 | 0.1466 56.52 19 190                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+-- trend off, p=0.10 --
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | -0.0017 94.33 0 0  x0.94103 med nan max 0 | -0.0017 94.33 0 0                  | -0.0017 94.33 0 0                  | same
+H1   P1           | 0.0119 87.73 45 413  x1.5298 med 5.0 max 19 | 0.0119 87.73 45 413                | 0.0119 87.73 45 413                | same
+H1   P2post       | -0.0100 93.46 52 260  x0.7002 med 5.0 max 5 | -0.0100 93.46 52 260               | -0.0100 93.46 52 260               | same
+H1   P2during     | -0.0111 93.46 54 270  x0.67268 med 5.0 max 5 | -0.0111 93.46 54 270               | (not in json)                      | same
+H1   P3           | -0.0043 91.70 57 406  x0.85921 med 5.0 max 19 | -0.0043 91.70 57 406               | -0.0043 91.70 57 406               | same
+H1   P2x10post    | 0.0278 87.46 37 370  x2.6946 med 10.0 max 10 | 0.0278 87.46 37 370                | 0.0278 87.46 37 370                | same
+H1   P2x10during  | 0.0249 87.80 38 380  x2.4259 med 10.0 max 10 | 0.0249 87.80 38 380                | (not in json)                      | same
+H2   P0           | 0.1815 86.80 0 0  x222.71 med nan max 0 | 0.1815 86.80 0 0                   | 0.1815 86.80 0 0                   | same
+H2   P1           | 0.1751 80.25 31 292  x184.18 med 7.0 max 19 | 0.1751 80.25 31 292                | 0.1751 80.25 31 292                | same
+H2   P2post       | 0.1433 84.46 31 155  x71.519 med 5.0 max 5 | 0.1433 84.46 31 155                | 0.1433 84.46 31 155                | same
+H2   P2during     | 0.1423 84.46 32 160  x69.256 med 5.0 max 5 | 0.1423 84.46 32 160                | (not in json)                      | same
+H2   P3           | 0.1857 81.46 34 266  x252.56 med 5.0 max 19 | 0.1857 81.46 34 266                | 0.1857 81.46 34 266                | same
+H2   P2x10post    | 0.1564 87.20 26 260  x105.61 med 10.0 max 10 | 0.1564 87.20 26 260                | 0.1564 87.20 26 260                | same
+H2   P2x10during  | 0.1564 87.20 26 260  x105.61 med 10.0 max 10 | 0.1564 87.20 26 260                | (not in json)                      | same
+ALL  P0           | 0.0817 94.33 0 0  x209.58 med nan max 0 | 0.0817 94.33 0 0                   | 0.0817 94.33 0 0                   | same
+ALL  P1           | 0.0862 87.73 76 705  x281.75 med 5.0 max 19 | 0.0862 87.73 76 705                | 0.0862 87.73 76 705                | same
+ALL  P2post       | 0.0598 93.46 83 415  x50.078 med 5.0 max 5 | 0.0598 93.46 83 415                | 0.0598 93.46 83 415                | same
+ALL  P2during     | 0.0587 93.46 86 430  x46.587 med 5.0 max 5 | 0.0587 93.46 86 430                | (not in json)                      | same
+ALL  P3           | 0.0822 91.70 91 672  x217 med 5.0 max 19 | 0.0822 91.70 91 672                | 0.0822 91.70 91 672                | same
+ALL  P2x10post    | 0.0864 87.46 63 630  x284.58 med 10.0 max 10 | 0.0864 87.46 63 630                | 0.0864 87.46 63 630                | same
+ALL  P2x10during  | 0.0848 87.80 64 640  x256.2 med 10.0 max 10 | 0.0848 87.80 64 640                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+-- trend off, p=0.25 --
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | -0.0017 94.33 0 0  x0.94103 med nan max 0 | -0.0017 94.33 0 0                  | -0.0017 94.33 0 0                  | same
+H1   P1           | 0.0071 89.64 48 409  x1.2876 med 5.0 max 19 | 0.0071 89.64 48 409                | 0.0071 89.64 48 409                | same
+H1   P2post       | 0.0003 91.35 48 240  x1.0096 med 5.0 max 5 | 0.0003 91.35 48 240                | 0.0003 91.35 48 240                | same
+H1   P2during     | -0.0019 91.31 53 265  x0.93506 med 5.0 max 5 | -0.0019 91.31 53 265               | (not in json)                      | same
+H1   P3           | -0.0020 91.24 63 400  x0.93273 med 3.0 max 19 | -0.0020 91.24 63 400               | -0.0020 91.24 63 400               | same
+H1   P2x10post    | 0.0098 91.51 39 390  x1.4195 med 10.0 max 10 | 0.0098 91.51 39 390                | 0.0098 91.51 39 390                | same
+H1   P2x10during  | 0.0044 92.74 41 410  x1.1702 med 10.0 max 10 | 0.0044 92.74 41 410                | (not in json)                      | same
+H2   P0           | 0.1815 86.80 0 0  x222.71 med nan max 0 | 0.1815 86.80 0 0                   | 0.1815 86.80 0 0                   | same
+H2   P1           | 0.1615 83.83 34 293  x122.72 med 5.0 max 19 | 0.1615 83.83 34 293                | 0.1615 83.83 34 293                | same
+H2   P2post       | 0.1564 85.36 34 170  x105.64 med 5.0 max 5 | 0.1564 85.36 34 170                | 0.1564 85.36 34 170                | same
+H2   P2during     | 0.1672 84.75 37 185  x145.43 med 5.0 max 5 | 0.1672 84.75 37 185                | (not in json)                      | same
+H2   P3           | 0.1893 84.42 36 228  x281.12 med 3.0 max 19 | 0.1893 84.42 36 228                | 0.1893 84.42 36 228                | same
+H2   P2x10post    | 0.1581 89.44 26 260  x110.96 med 10.0 max 10 | 0.1581 89.44 26 260                | 0.1581 89.44 26 260                | same
+H2   P2x10during  | 0.1727 89.44 26 260  x171.51 med 10.0 max 10 | 0.1727 89.44 26 260                | (not in json)                      | same
+ALL  P0           | 0.0817 94.33 0 0  x209.58 med nan max 0 | 0.0817 94.33 0 0                   | 0.0817 94.33 0 0                   | same
+ALL  P1           | 0.0774 89.64 82 702  x158.02 med 5.0 max 19 | 0.0774 89.64 82 702                | 0.0774 89.64 82 702                | same
+ALL  P2post       | 0.0714 91.35 82 410  x106.66 med 5.0 max 5 | 0.0714 91.35 82 410                | 0.0714 91.35 82 410                | same
+ALL  P2during     | 0.0751 91.31 90 450  x135.99 med 5.0 max 5 | 0.0751 91.31 90 450                | (not in json)                      | same
+ALL  P3           | 0.0851 91.24 99 628  x262.21 med 3.0 max 19 | 0.0851 91.24 99 628                | 0.0851 91.24 99 628                | same
+ALL  P2x10post    | 0.0773 91.51 65 650  x157.5 med 10.0 max 10 | 0.0773 91.51 65 650                | 0.0773 91.51 65 650                | same
+ALL  P2x10during  | 0.0810 92.74 67 670  x200.7 med 10.0 max 10 | 0.0810 92.74 67 670                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+-- trend off, p=0.50 --
+per  variant      | adjudicator g/dd/eps/paused        | A g/dd/eps/paused                  | B g/dd/eps/paused                  | verdict
+H1   P0           | -0.0017 94.33 0 0  x0.94103 med nan max 0 | -0.0017 94.33 0 0                  | -0.0017 94.33 0 0                  | same
+H1   P1           | 0.0065 91.22 45 417  x1.2599 med 6.0 max 22 | 0.0065 91.22 45 417                | 0.0065 91.22 45 417                | same
+H1   P2post       | 0.0030 91.95 46 230  x1.1126 med 5.0 max 5 | 0.0030 91.95 46 230                | 0.0030 91.95 46 230                | same
+H1   P2during     | 0.0032 91.78 48 240  x1.1208 med 5.0 max 5 | 0.0032 91.78 48 240                | (not in json)                      | same
+H1   P3           | -0.0048 92.79 67 403  x0.84334 med 3.0 max 19 | -0.0048 92.79 67 403               | -0.0048 92.79 67 403               | same
+H1   P2x10post    | 0.0138 91.33 39 390  x1.6339 med 10.0 max 10 | 0.0138 91.33 39 390                | 0.0138 91.33 39 390                | same
+H1   P2x10during  | 0.0141 91.00 42 420  x1.6516 med 10.0 max 10 | 0.0141 91.00 42 420                | (not in json)                      | same
+H2   P0           | 0.1815 86.80 0 0  x222.71 med nan max 0 | 0.1815 86.80 0 0                   | 0.1815 86.80 0 0                   | same
+H2   P1           | 0.1840 82.31 32 288  x239.93 med 5.0 max 20 | 0.1840 82.31 32 288                | 0.1840 82.31 32 288                | same
+H2   P2post       | 0.1733 86.01 34 170  x174.81 med 5.0 max 5 | 0.1733 86.01 34 170                | 0.1733 86.01 34 170                | same
+H2   P2during     | 0.1751 85.56 35 175  x184.46 med 5.0 max 5 | 0.1751 85.56 35 175                | (not in json)                      | same
+H2   P3           | 0.1786 85.76 36 240  x204.25 med 3.0 max 20 | 0.1786 85.76 36 240                | 0.1786 85.76 36 240                | same
+H2   P2x10post    | 0.1844 86.36 24 240  x242.79 med 10.0 max 10 | 0.1844 86.36 24 240                | 0.1844 86.36 24 240                | same
+H2   P2x10during  | 0.1801 86.36 26 260  x213.61 med 10.0 max 10 | 0.1801 86.36 26 260                | (not in json)                      | same
+ALL  P0           | 0.0817 94.33 0 0  x209.58 med nan max 0 | 0.0817 94.33 0 0                   | 0.0817 94.33 0 0                   | same
+ALL  P1           | 0.0873 91.22 77 705  x302.29 med 5.0 max 22 | 0.0873 91.22 77 705                | 0.0873 91.22 77 705                | same
+ALL  P2post       | 0.0806 91.95 80 400  x194.49 med 5.0 max 5 | 0.0806 91.95 80 400                | 0.0806 91.95 80 400                | same
+ALL  P2during     | 0.0815 91.78 83 415  x206.74 med 5.0 max 5 | 0.0815 91.78 83 415                | (not in json)                      | same
+ALL  P3           | 0.0787 92.79 103 643  x172.25 med 3.0 max 20 | 0.0787 92.79 103 643               | 0.0787 92.79 103 643               | same
+ALL  P2x10post    | 0.0915 91.33 63 630  x396.7 med 10.0 max 10 | 0.0915 91.33 63 630                | 0.0915 91.33 63 630                | same
+ALL  P2x10during  | 0.0897 91.00 68 680  x352.81 med 10.0 max 10 | 0.0897 91.00 68 680                | (not in json)                      | same
+rows differing from the adjudicator (matched reading): 0
+
+== AS REPORTED by each analyst (their primary P2 reading), NVDA trend on p=0.25: tolerance g 0.002, dd 0.5 ==
+H1   P0     A g 0.0829 dd 47.78 eps 0 pz 0 | B g 0.0829 dd 47.78 eps 0 pz 0 | dg +0.0000 ddd -0.00 within tol
+H1   P1     A g 0.0778 dd 47.33 eps 10 pz 77 | B g 0.0778 dd 47.33 eps 10 pz 77 | dg -0.0000 ddd -0.00 within tol
+H1   P2     A g 0.0842 dd 47.33 eps 10 pz 50 | B g 0.0842 dd 47.33 eps 10 pz 50 | dg -0.0000 ddd -0.00 within tol
+H1   P3     A g 0.0783 dd 47.33 eps 11 pz 71 | B g 0.0783 dd 47.33 eps 11 pz 71 | dg +0.0000 ddd -0.00 within tol
+H1   P2x10  A g 0.0818 dd 47.33 eps 7 pz 70 | B g 0.0818 dd 47.33 eps 7 pz 70 | dg +0.0000 ddd -0.00 within tol
+H2   P0     A g 0.2341 dd 58.03 eps 0 pz 0 | B g 0.2341 dd 58.03 eps 0 pz 0 | dg -0.0000 ddd +0.00 within tol
+H2   P1     A g 0.2134 dd 55.72 eps 14 pz 125 | B g 0.2134 dd 55.72 eps 14 pz 125 | dg +0.0000 ddd -0.00 within tol
+H2   P2     A g 0.2115 dd 55.72 eps 16 pz 80 | B g 0.2120 dd 55.72 eps 14 pz 70 | dg -0.0005 ddd -0.00 within tol (episode counts differ)
+H2   P3     A g 0.2205 dd 55.72 eps 15 pz 95 | B g 0.2205 dd 55.72 eps 15 pz 95 | dg +0.0000 ddd -0.00 within tol
+H2   P2x10  A g 0.2173 dd 55.72 eps 12 pz 120 | B g 0.2173 dd 55.72 eps 12 pz 120 | dg -0.0000 ddd -0.00 within tol
+ALL  P0     A g 0.1518 dd 58.03 eps 0 pz 0 | B g 0.1518 dd 58.03 eps 0 pz 0 | dg -0.0000 ddd +0.00 within tol
+ALL  P1     A g 0.1396 dd 55.72 eps 24 pz 202 | B g 0.1396 dd 55.72 eps 24 pz 202 | dg -0.0000 ddd -0.00 within tol
+ALL  P2     A g 0.1421 dd 55.72 eps 26 pz 130 | B g 0.1424 dd 55.72 eps 24 pz 120 | dg -0.0003 ddd -0.00 within tol (episode counts differ)
+ALL  P3     A g 0.1431 dd 55.72 eps 26 pz 166 | B g 0.1431 dd 55.72 eps 26 pz 166 | dg -0.0000 ddd -0.00 within tol
+ALL  P2x10  A g 0.1435 dd 55.72 eps 19 pz 190 | B g 0.1435 dd 55.72 eps 19 pz 190 | dg +0.0000 ddd -0.00 within tol
+
+== P2 - P1 in g (%/night), p=0.25, adjudicator. post = re-arm only after the pause; during = re-arm inside the pause ==
+trend on
+  NVDA  +0.0064 -0.0014 +0.0028  | +0.0064 -0.0020 +0.0026  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMD   +0.0027 +0.0023 +0.0025  | +0.0008 +0.0012 +0.0010  |  (post H1 H2 ALL | during H1 H2 ALL)
+  INTC  +0.0014 -0.0063 -0.0021  | +0.0014 -0.0010 +0.0003  |  (post H1 H2 ALL | during H1 H2 ALL)
+  MU    +0.0025 -0.0131 -0.0046  | +0.0025 -0.0131 -0.0046  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AAPL  +0.0014 -0.0008 +0.0004  | +0.0014 -0.0008 +0.0004  |  (post H1 H2 ALL | during H1 H2 ALL)
+  MSFT  -0.0001 -0.0037 -0.0018  | -0.0001 -0.0037 -0.0018  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMZN  -0.0052 -0.0012 -0.0034  | -0.0041 -0.0012 -0.0028  |  (post H1 H2 ALL | during H1 H2 ALL)
+  QCOM  +0.0003 -0.0035 -0.0015  | +0.0003 +0.0017 +0.0009  |  (post H1 H2 ALL | during H1 H2 ALL)
+  TXN   -0.0007 -0.0019 -0.0013  | -0.0003 -0.0020 -0.0011  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMAT  +0.0015 +0.0051 +0.0031  | +0.0011 +0.0051 +0.0029  |  (post H1 H2 ALL | during H1 H2 ALL)
+  ORCL  +0.0000 +0.0056 +0.0025  | +0.0000 +0.0056 +0.0025  |  (post H1 H2 ALL | during H1 H2 ALL)
+  post   positive/negative/zero: H1 [7, 3, 1]  H2 [3, 8, 0]  ALL [5, 6, 0]
+  during positive/negative/zero: H1 [7, 3, 1]  H2 [4, 7, 0]  ALL [7, 4, 0]
+trend off
+  NVDA  -0.0068 -0.0050 -0.0060  | -0.0090 +0.0057 -0.0023  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMD   +0.0187 +0.0054 +0.0126  | +0.0190 +0.0043 +0.0123  |  (post H1 H2 ALL | during H1 H2 ALL)
+  INTC  +0.0000 -0.0090 -0.0041  | +0.0000 -0.0044 -0.0020  |  (post H1 H2 ALL | during H1 H2 ALL)
+  MU    +0.0051 -0.0085 -0.0011  | +0.0006 -0.0084 -0.0035  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AAPL  +0.0022 -0.0004 +0.0010  | +0.0022 -0.0020 +0.0003  |  (post H1 H2 ALL | during H1 H2 ALL)
+  MSFT  -0.0021 -0.0067 -0.0042  | -0.0021 -0.0057 -0.0037  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMZN  -0.0319 +0.0044 -0.0154  | -0.0224 +0.0037 -0.0105  |  (post H1 H2 ALL | during H1 H2 ALL)
+  QCOM  -0.0023 -0.0075 -0.0047  | -0.0012 -0.0042 -0.0026  |  (post H1 H2 ALL | during H1 H2 ALL)
+  TXN   -0.0009 -0.0058 -0.0031  | +0.0004 -0.0050 -0.0020  |  (post H1 H2 ALL | during H1 H2 ALL)
+  AMAT  -0.0015 +0.0021 +0.0002  | +0.0019 +0.0021 +0.0020  |  (post H1 H2 ALL | during H1 H2 ALL)
+  ORCL  +0.0106 -0.0101 +0.0012  | +0.0089 -0.0101 +0.0002  |  (post H1 H2 ALL | during H1 H2 ALL)
+  post   positive/negative/zero: H1 [5, 6, 0]  H2 [3, 8, 0]  ALL [4, 7, 0]
+  during positive/negative/zero: H1 [7, 4, 0]  H2 [4, 7, 0]  ALL [4, 7, 0]
+
+whole-span positive counts of 11 for P2-P1 at other pause sizes (post / during):
+  trend on  p=0.10: post 6, during 5
+  trend on  p=0.25: post 5, during 7
+  trend on  p=0.50: post 5, during 7
+  trend off p=0.10: post 4, during 4
+  trend off p=0.25: post 4, during 4
+  trend off p=0.50: post 1, during 2
+
+== EVENT STUDY (P1 starts, p=0.25; P0 cumulative log return over nights t..t+h-1) ==
+  trend on  NVDA  h= 5: events  24 mean +0.0411 median +0.0025 | unconditional mean +0.0076
+  trend on  NVDA  h=10: events  24 mean +0.0448 median +0.0289 | unconditional mean +0.0152
+  trend on  NVDA  h=20: events  24 mean +0.0621 median +0.0398 | unconditional mean +0.0304
+  trend on  NVDA  h=40: events  24 mean +0.1121 median +0.1039 | unconditional mean +0.0609
+  trend on  POOLED h= 5: events 255 mean +0.0082 median +0.0035 | unconditional mean +0.0010
+  trend on  POOLED h=10: events 253 mean +0.0075 median +0.0080 | unconditional mean +0.0020
+  trend on  POOLED h=20: events 248 mean +0.0092 median +0.0189 | unconditional mean +0.0042
+  trend on  POOLED h=40: events 242 mean +0.0473 median +0.0395 | unconditional mean +0.0089
+  trend off NVDA  h= 5: events  82 mean +0.0082 median +0.0163 | unconditional mean +0.0040
+  trend off NVDA  h=10: events  82 mean -0.0160 median +0.0072 | unconditional mean +0.0080
+  trend off NVDA  h=20: events  82 mean -0.0258 median -0.0194 | unconditional mean +0.0162
+  trend off NVDA  h=40: events  82 mean -0.0589 median -0.0212 | unconditional mean +0.0322
+  trend off POOLED h= 5: events 636 mean +0.0000 median +0.0019 | unconditional mean -0.0009
+  trend off POOLED h=10: events 634 mean -0.0032 median +0.0024 | unconditional mean -0.0018
+  trend off POOLED h=20: events 629 mean -0.0111 median -0.0054 | unconditional mean -0.0034
+  trend off POOLED h=40: events 623 mean -0.0137 median -0.0162 | unconditional mean -0.0065

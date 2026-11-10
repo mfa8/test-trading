@@ -1,0 +1,29 @@
+== per name, trend on, p=0.25, whole span ==
+name   P0 g     P1 g     P2post-P1  P2during-P1  P1 episodes  nights differing (post)  largest single-year share of |P2post-P1| total
+NVDA  +0.1518  +0.1396  +0.0028    +0.0026        24            70        total +0.1851; biggest year 2003 +0.2256; without it -0.0405  SIGN FLIPS
+AMD   +0.1367  +0.1235  +0.0025    +0.0010        53           274        total +0.1640; biggest year 2013 +0.1818; without it -0.0178  SIGN FLIPS
+INTC  -0.0626  -0.0621  -0.0021    +0.0003        28           155        total -0.1375; biggest year 2019 -0.1486; without it +0.0110  SIGN FLIPS
+MU    +0.1722  +0.1692  -0.0046    -0.0046        34            93        total -0.3014; biggest year 2020 -0.2970; without it -0.0044
+AAPL  +0.0608  +0.0666  +0.0004    +0.0004         8            38        total +0.0256; biggest year 2019 -0.0518; without it +0.0774
+MSFT  -0.0334  -0.0319  -0.0018    -0.0018        10            13        total -0.1163; biggest year 2020 -0.1409; without it +0.0246  SIGN FLIPS
+AMZN  -0.0005  +0.0018  -0.0034    -0.0028        24           134        total -0.2221; biggest year 2026 -0.1201; without it -0.1021
+QCOM  -0.0805  -0.0693  -0.0015    +0.0009        18            91        total -0.0951; biggest year 2020 -0.1557; without it +0.0606  SIGN FLIPS
+TXN   -0.0840  -0.0800  -0.0013    -0.0011        20            48        total -0.0822; biggest year 2026 -0.0209; without it -0.0613
+AMAT  +0.0054  +0.0037  +0.0031    +0.0029        24            87        total +0.2057; biggest year 2026 +0.3183; without it -0.1126  SIGN FLIPS
+ORCL  -0.0532  -0.0529  +0.0025    +0.0025        15            90        total +0.1662; biggest year 2026 +0.1596; without it +0.0066
+P1 episodes over 11 names: 258
+
+== NVDA drawdowns inside calendar windows (trend on, p=0.25): P0 / P1 / P2post ==
+  2020-01-02..2020-12-31: 52.28 / 37.19 / 50.49
+  2003-01-02..2003-12-31: 39.76 / 46.99 / 38.81
+  2019-01-02..2019-12-31: 36.76 / 27.00 / 32.18
+  2022-01-03..2023-12-29: 58.03 / 55.72 / 55.72
+  2024-01-02..2025-12-31: 35.52 / 38.61 / 36.24
+  P1 worst H1 drawdown runs 2000-12-07 -> 2002-07-30 ; worst H2 drawdown runs 2022-01-03 -> 2023-02-17
+  P2post worst H1 drawdown runs 2000-12-07 -> 2002-07-30 ; worst H2 drawdown runs 2022-01-03 -> 2023-02-17
+
+P2post - P1 on the nights of 2020-03-05, 03-06, 03-10: ['-0.0405', '-0.1644', '-0.0330'] ; sum -0.2379 ; H2 total -0.0422 ; H2 total without these three nights +0.1957
+P2post - P1 on the 14 nights 2003-08-15..2003-09-04: sum +0.2256 ; H1 total +0.2273 ; best single night +0.0811
+trigger night of the 2003 episode: overnight r on 2003-08-07 = -14.25% ; of the 2020 episode: 2020-02-26 = -4.76%
+largest single-night P2post-P1 differences: [(np.str_('2020-03-06'), -0.1644), (np.str_('2003-08-21'), 0.0811), (np.str_('2010-05-24'), -0.059), (np.str_('2010-05-25'), 0.0553), (np.str_('2024-08-28'), -0.0523), (np.str_('2010-06-03'), 0.0473), (np.str_('2020-10-01'), 0.044), (np.str_('2024-08-12'), 0.0435)]
+sum of the 5 largest |night| differences: -0.1392 of total +0.1851

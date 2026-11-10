@@ -1,0 +1,107 @@
+== 1. NVDA trend on p=0.25: P1 episodes ==
+start       len ext upExt  P0      P1      P2post  P2during  (cum log return over the P1 episode nights, own paths)
+2003-08-08  19  14   14  +0.2857 +0.0756 +0.3013 +0.3013
+2003-09-29   5   0    0  +0.0257 +0.0069 +0.0069 +0.0069
+2008-07-03   8   3    0  +0.0039 +0.0039 +0.0039 +0.0039
+2010-05-06   5   0    0  +0.0702 +0.0192 +0.0192 +0.0192
+2010-05-14  11   6    5  -0.0875 -0.0227 -0.0520 -0.0520
+2010-06-04   5   0    0  -0.0043 +0.0061 -0.0103 -0.0103
+2010-08-11   9   4    0  -0.0125 -0.0125 -0.0125 -0.0125
+2013-08-15   5   0    0  -0.0430 -0.0109 -0.0109 -0.0109
+2013-08-27   5   0    0  -0.0011 -0.0003 -0.0003 -0.0003
+2013-09-05   5   0    0  +0.0148 +0.0038 +0.0038 +0.0038
+2015-05-11   7   2    2  -0.0028 -0.0007 -0.0061 -0.0007
+2018-02-06   5   0    0  +0.2568 +0.0686 +0.0686 +0.0686
+2018-11-16   5   0    0  -0.0169 -0.0169 -0.0169 -0.0169
+2019-05-09  10   5    5  -0.1913 -0.0477 -0.1214 -0.1214
+2019-05-31   5   0    0  +0.0536 +0.0219 +0.0536 +0.0536
+2019-08-14   5   0    0  +0.2187 +0.0578 +0.0578 +0.0578
+2020-02-27  18  13    3  -0.3924 -0.1176 -0.3555 -0.3555
+2020-09-08   5   0    0  +0.3396 +0.0896 +0.0896 +0.0896
+2020-09-17  10   5    5  +0.0072 +0.0023 +0.0195 +0.0195
+2023-02-16   5   0    0  +0.1198 +0.0359 +0.0359 +0.0359
+2023-10-18   7   2    2  +0.0391 +0.0102 +0.0399 +0.0102
+2023-10-31   5   0    0  +0.0797 +0.0206 +0.0797 +0.0766
+2024-08-05  19  14   14  +0.2779 +0.0734 +0.1111 +0.1111
+2025-01-27  19  14   14  +0.0347 +0.0109 +0.1037 +0.1037
+episodes 24 | exactly 5 nights: 13 | longer than 5: 11 | with at least one UP-trend extension night: 9 | UP-trend extension nights: 64
+sums P0 +1.0757 P1 +0.2774 P2post +0.4088 P2during +0.3814
+
+== 2. P2 - P1: nights that differ, per-year totals, leave-one-year-out ==
+reading post  : nights with a different return 70 of 6542 | total log diff H1 +0.2273 H2 -0.0422 ALL +0.1851 | g diff H1 +0.0064 H2 -0.0014 ALL +0.0028
+   per-year totals (non-zero only): 2003 +0.2256, 2010 +0.0017, 2015 -0.0055, 2019 -0.0419, 2020 -0.2142, 2023 +0.0888, 2024 +0.0378, 2025 +0.0928
+   H1 total +0.2273; years whose removal flips the sign of the half: none
+   H2 total -0.0422; years whose removal flips the sign of the half: ['2020 (half total -0.0422 -> +0.1720)']
+   largest absolute year contributions: [(np.int64(2003), np.float64(0.22563150059778286)), (np.int64(2020), np.float64(-0.21421985172599226)), (np.int64(2025), np.float64(0.09282355983956159)), (np.int64(2023), np.float64(0.08880707626759407))]
+reading during: nights with a different return 70 of 6542 | total log diff H1 +0.2273 H2 -0.0584 ALL +0.1689 | g diff H1 +0.0064 H2 -0.0020 ALL +0.0026
+   per-year totals (non-zero only): 2003 +0.2256, 2010 +0.0017, 2015 +0.0048, 2019 -0.0419, 2020 -0.2142, 2023 +0.0623, 2024 +0.0378, 2025 +0.0928
+   H1 total +0.2273; years whose removal flips the sign of the half: none
+   H2 total -0.0584; years whose removal flips the sign of the half: ['2020 (half total -0.0584 -> +0.1558)']
+   largest absolute year contributions: [(np.int64(2003), np.float64(0.22563150059778286)), (np.int64(2020), np.float64(-0.21421985172599226)), (np.int64(2025), np.float64(0.09282355983956159)), (np.int64(2023), np.float64(0.06233341255144665))]
+
+== 3. year-block bootstrap of P2 - P1 (own code; seeds 20261110 and 7) ==
+  post   H1  seed 20261110: +0.0064 [+0.0000, +0.0180] share of draws > 0 0.89
+  post   H1  seed 7       : +0.0064 [+0.0000, +0.0190] share of draws > 0 0.87
+  post   H2  seed 20261110: -0.0014 [-0.0168, +0.0116] share of draws > 0 0.48
+  post   H2  seed 7       : -0.0014 [-0.0165, +0.0117] share of draws > 0 0.48
+  post   ALL seed 20261110: +0.0028 [-0.0054, +0.0119] share of draws > 0 0.73
+  post   ALL seed 7       : +0.0028 [-0.0060, +0.0113] share of draws > 0 0.70
+  during H1  seed 20261110: +0.0064 [+0.0000, +0.0180] share of draws > 0 0.89
+  during H1  seed 7       : +0.0064 [+0.0000, +0.0190] share of draws > 0 0.87
+  during H2  seed 20261110: -0.0020 [-0.0171, +0.0100] share of draws > 0 0.45
+  during H2  seed 7       : -0.0020 [-0.0167, +0.0103] share of draws > 0 0.46
+  during ALL seed 20261110: +0.0026 [-0.0055, +0.0117] share of draws > 0 0.71
+  during ALL seed 7       : +0.0026 [-0.0061, +0.0109] share of draws > 0 0.69
+
+== 4. sensitivity of NVDA P2 - P1 (g, %/night; H1 / H2 / ALL), post | during ==
+  trend on  p=0.10: +0.0067 / -0.0070 / +0.0005  |  +0.0067 / -0.0081 / -0.0000   (P1 episodes 23)
+  trend on  p=0.25: +0.0064 / -0.0014 / +0.0028  |  +0.0064 / -0.0020 / +0.0026   (P1 episodes 24)
+  trend on  p=0.50: +0.0031 / -0.0025 / +0.0005  |  +0.0033 / -0.0031 / +0.0004   (P1 episodes 21)
+  trend off p=0.10: -0.0219 / -0.0318 / -0.0264  |  -0.0231 / -0.0328 / -0.0275   (P1 episodes 76)
+  trend off p=0.25: -0.0068 / -0.0050 / -0.0060  |  -0.0090 / +0.0057 / -0.0023   (P1 episodes 82)
+  trend off p=0.50: -0.0035 / -0.0106 / -0.0067  |  -0.0033 / -0.0088 / -0.0058   (P1 episodes 77)
+  -- not pre-registered, fragility probes only (trend on, p=0.25) --
+  threshold 0.78: +0.0038 / -0.0064 / -0.0008  |  +0.0038 / -0.0064 / -0.0008   (P1 episodes 17)
+  threshold 0.79: +0.0063 / -0.0062 / +0.0006  |  +0.0063 / -0.0058 / +0.0008   (P1 episodes 20)
+  threshold 0.80: +0.0064 / -0.0014 / +0.0028  |  +0.0064 / -0.0020 / +0.0026   (P1 episodes 24)
+  threshold 0.81: +0.0055 / +0.0065 / +0.0060  |  +0.0055 / +0.0065 / +0.0060   (P1 episodes 28)
+  threshold 0.82: +0.0028 / -0.0049 / -0.0007  |  +0.0028 / -0.0049 / -0.0007   (P1 episodes 28)
+  window 15: +0.0033 / -0.0037 / +0.0001  |  +0.0033 / -0.0046 / -0.0003   (P1 episodes 20)
+  window 20: +0.0064 / -0.0014 / +0.0028  |  +0.0064 / -0.0020 / +0.0026   (P1 episodes 24)
+  window 25: +0.0013 / -0.0033 / -0.0008  |  +0.0013 / -0.0042 / -0.0012   (P1 episodes 22)
+  cost 0.0bp: +0.0060 / -0.0041 / +0.0014  |  +0.0060 / -0.0043 / +0.0013   (P1 episodes 20)
+  cost 9.0bp: +0.0064 / -0.0014 / +0.0028  |  +0.0064 / -0.0020 / +0.0026   (P1 episodes 24)
+  cost 20.0bp: +0.0050 / -0.0023 / +0.0017  |  +0.0050 / -0.0023 / +0.0017   (P1 episodes 29)
+  pause size 0.20: +0.0068 / -0.0016 / +0.0030  |  +0.0068 / -0.0021 / +0.0027   (P1 episodes 26)
+  pause size 0.30: +0.0059 / -0.0036 / +0.0016  |  +0.0059 / -0.0041 / +0.0014   (P1 episodes 23)
+
+== 5. the nights that separate P1 from P2: P1 extension nights with base size 0.98 ==
+NVDA: 64 UP-trend extension nights; mean unit return +0.2877% (sd 4.254%, s.e. 0.532%), share positive 0.59
+NVDA unit return (2r - 9bp): all nights mean +0.1659% sd 3.991% | UP-trend nights mean +0.2753% sd 3.156% | UP-trend 2015-26 mean +0.3586% sd 3.321% | DOWN nights mean -0.1336%
+per-episode count of UP-trend extension nights: [14, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 0, 5, 0, 0, 3, 0, 5, 0, 2, 0, 14, 14]
+pooled 11 names: 1027 UP-trend extension nights, mean unit return -0.0040% (s.e. 0.118%)
+
+== 6. dollars at 82 dollars of equity ==
+extra exposure of P2 over P1 on an UP-trend extension night: 0.73 x 82 = $59.86; on the first 5 nights and on every DOWN-trend night: $0
+  expected $ per such night at the NVDA all nights            mean (+0.166%): +0.099 ; x14 nights (longest extension) +1.39 ; x16 (21-session month minus 5) +1.59
+  expected $ per such night at the NVDA UP-trend nights       mean (+0.275%): +0.165 ; x14 nights (longest extension) +2.31 ; x16 (21-session month minus 5) +2.64
+  expected $ per such night at the NVDA 64 extension nights   mean (+0.288%): +0.172 ; x14 nights (longest extension) +2.41 ; x16 (21-session month minus 5) +2.76
+  expected $ per such night at the pooled extension nights    mean (-0.004%): -0.002 ; x14 nights (longest extension) -0.03 ; x16 (21-session month minus 5) -0.04
+  one-night s.d. of the gap P&L: all-night sd $2.39, UP-night sd $1.89, extension-night sd $2.55
+  long-run simulated average, reading post   H1 : +0.0064 %/night x $82 x 21 nights = $+0.110 per month
+  long-run simulated average, reading post   H2 : -0.0014 %/night x $82 x 21 nights = $-0.024 per month
+  long-run simulated average, reading post   ALL: +0.0028 %/night x $82 x 21 nights = $+0.049 per month
+     whole-span 90% interval in $ per month: -0.093 .. +0.205 ; per P1 episode (24): $+0.63
+  long-run simulated average, reading during H1 : +0.0064 %/night x $82 x 21 nights = $+0.110 per month
+  long-run simulated average, reading during H2 : -0.0020 %/night x $82 x 21 nights = $-0.034 per month
+  long-run simulated average, reading during ALL: +0.0026 %/night x $82 x 21 nights = $+0.044 per month
+     whole-span 90% interval in $ per month: -0.095 .. +0.201 ; per P1 episode (24): $+0.58
+QQQ trend state at the end of the sample: [('2026-11-04', True), ('2026-11-05', False), ('2026-11-06', False)]
+
+== 7. criteria on the pre-registered cell (NVDA, trend on, p=0.25) ==
+  post   H1: P1 g 0.077787, P2 g 0.084166, diff +0.006380 | P1 dd 47.3255, P2 dd 47.3255, diff +0.0000 points
+  post   H2: P1 g 0.213438, P2 g 0.212021, diff -0.001417 | P1 dd 55.7188, P2 dd 55.7188, diff +0.0000 points
+  post  : c1 False, c2 True, names positive 5 negative 6 -> largest same-sign group 6
+  during H1: P1 g 0.077787, P2 g 0.084166, diff +0.006380 | P1 dd 47.3255, P2 dd 47.3255, diff +0.0000 points
+  during H2: P1 g 0.213438, P2 g 0.211478, diff -0.001960 | P1 dd 55.7188, P2 dd 55.7188, diff +0.0000 points
+  during: c1 False, c2 True, names positive 7 negative 4 -> largest same-sign group 7
