@@ -901,7 +901,7 @@
    ],
    "first_fractional_order": "review_equity_order first (§13(h)); simulation 2026-11-09 17:06 ET: $5 NVDL market buy -> order_checks {} and customer_approval_required false",
    "exit": "exit_ovn.py NIGHT YYYYMMDD SYM:QTY:BID (QTY may be the broker's string; whole shares by limit; prints the exit_frac.py command for a remainder); exit_frac.py for 0 < QTY < 1. A position under 1 share: exit_frac.py only, at 09:31:05",
-   "tools_version": "v2.2, deployed 2026-11-10 16:20 ET after three read-only reviews (research/lab/20261110/TOOLS-REVIEW.md); backup of the previous files is in the session scratchpad only, git history has them"
+   "tools_version": "v2.2, deployed 2026-11-10 16:03 ET after three read-only reviews (research/lab/20261110/TOOLS-REVIEW.md); backup of the previous files is in the session scratchpad only, git history has them"
   },
   "lab": {
    "ledger": "trader/LAB.md",
@@ -1434,7 +1434,7 @@
    "tza_shadow": "+1.01 pct (TP 46.36 hit 10:45; entry 45.8967); 19 legs mean -0.476 pct",
    "option_level": "none (16:02 get_accounts, 8334 row only); unsettled 71.48 from the morning sale (limited margin, usable)"
   },
-  "tools_deploy": "16:20 ET: tools v2.2 live; smoke tests on the real cache and intent log passed (same DOWN state and flip as the 15:50 read; PAUSE dry run 1 share; today's intent line recognised); nothing written by the tests"
+  "tools_deploy": "16:03 ET: tools v2.2 live; smoke tests on the real cache and intent log passed (same DOWN state and flip as the 15:50 read; PAUSE dry run 1 share; today's intent line recognised); nothing written by the tests"
  },
  "schedule": {
   "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
