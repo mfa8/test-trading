@@ -34,13 +34,13 @@
 - The inverse day leg has been SUSPENDED since 10/15. Never hold an inverse product overnight.
 
 **Daily loop (v1.8):**
-1. 07:45 analyst check. Add the prior session's official closes to the trend cache (`tools/trend.py add`).
+1. 07:45 analyst check. Add the prior session's official closes to the trend cache (`tools/trend.py add`). If the tool refuses a symbol, fix that symbol; QQQ is the one that matters.
 2. 09:25 and 09:29 shadow quotes.
 3. Sell at 09:31:05: whole shares by limit order, then any fractional remainder by market order.
 4. Always-on 8-minute scans with hourly heartbeats.
 5. Sleeve shadow at 10:30, 13:00 and 15:25.
 6. 15:40 pre-entry check, journaled.
-7. 15:50 trend state (`tools/trend.py state ... --log`).
+7. 15:50 trend state (`tools/trend.py state ... --log`; 12:50 on a half-day). Exit code 2 means no valid state: follow the printed repair, else size DOWN.
 8. Buy at 15:52 (`tools/entry_v18.py`): whole NVDL shares by limit order, then one dollar-based top-up if at least $2 of the target is left. If one share costs more than the target (likely on a DOWN night), there is no limit order: the whole position is the dollar-based order, and the next morning's exit is a market sell of that fractional position.
 9. 16:01:30 EOD. On DOWN nights the report shows what full size would have made.
 10. 16:13 after-hours snapshot on tagged nights.
