@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-10T15:45:00Z",
-    "loop_note": "HB 10:45 ET flat, PAUSE (E 82.31, all cash). 10:30: NVDA 171.58 (-3.97%), NVDL 19.92/19.93, QQQ 676.99 (-0.35%; flip 681.45 = 0.66% above). Sleeve shadow 10:30 ",
+    "last_heartbeat_utc": "2026-11-10T16:45:07Z",
+    "loop_note": "HB 11:45 ET flat, PAUSE (E 82.31 cash). NVDA 167.99 (-5.98%), NVDL 19.05/19.06 (-11.9% vs close; 5.1% below our 20.07 exit), QQQ 672.25 (-1.05%; 1.35% below fli",
     "last": "2026-11-10T14:33Z exit night 44"
   },
   "campaign": {
