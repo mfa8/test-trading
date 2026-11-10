@@ -1,16 +1,17 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** IN_POSITION_OVERNIGHT (as of 16:01 ET Mon 11/9).
-- Night 43 closed at 09:31: NVDL 4, 23.7899 → 19.8301, **−15.84**. NVDA-specific weekend news: the board opened a review of CEO Huang.
-- Night 44 entered at 15:52: NVDL 3 @ 21.5999 + NVDX 1 @ 12.11 (87.7% of E). The exit is 09:31:05 Tue 11/10.
+**Mode:** FLAT_DAY, **PAUSE in force** (as of 09:32 ET Tue 11/10).
+- Night 44 closed at 09:31: NVDL 3, 21.5999 → 20.07, and NVDX 1, 12.11 → 11.27: **−5.43 (−7.06%)**. NVDA opened 3.5% lower (second day of the CEO-review story, and stocks fell on the 08:30 inflation release).
+- **PAUSE triggered.** All cash after the exit is 82.31, under the 82.94 level (80% of the 20-session high). Nights 45–49 (11/10, 11/11, 11/12, 11/13, 11/16) are exactly 1 NVDL share, about $20, with no top-up, whatever the trend state.
+- Tue 11/17 is the NVDA earnings night: cash. From Wed 11/18 normal sizing returns only if equity is above 82.89; otherwise PAUSE continues.
 - The day leg is SUSPENDED.
 
-**Equity:** 87.78 at the 11/9 close (cash 10.83 + positions marked 76.95; 87.72 at the bids).
+**Equity:** 82.31, all cash (09:32 ET 11/10).
 - Start 98.75. HWM 107.11 (10/12).
-- PAUSE 84.65 on 11/9, 82.94 on 11/10 and 82.89 from 11/11 (`state.campaign.pause_schedule`). An NVDA overnight of about −3.1% tonight would reach PAUSE.
+- PAUSE level 82.94 on 11/10 and 82.89 from 11/11 to 12/4 (`state.campaign.pause_schedule`).
 - KILL 50.
 
-**Campaign:** 43 nights closed, −14.36 (19 wins, 24 losses). Live NVDA-2x-only nights (N25–N43): 19, totalling −17.62.
+**Campaign:** 44 nights closed, −19.79 (19 wins, 25 losses). Live NVDA-2x-only nights (N25–N44): 20, totalling −23.05.
 
 **Rules changed on 11/9 (v2.1, engine v1.8), on the human's instruction to review the plan and act autonomously:**
 - New: the position size follows the market trend (RULES_v3 §13). In force from the night-45 entry on Tue 11/10. Night 44 is not resized.
