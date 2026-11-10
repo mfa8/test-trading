@@ -1,0 +1,379 @@
+{
+ "reviewers": [
+  {
+   "lens": "trend",
+   "safe_to_deploy": true,
+   "summary": "cand/trend.py (version 2.1) is safe to put in place of live/trend.py after today's close. I found no high or medium problem, no regression on legitimate inputs and no new false refusal on the PAUSE path; six low findings follow, each needing an operator typo, a hand-damaged file or a rare maintenance step.\n\nAll work was done in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_trend (called W below). My copies differ from cand/ and live/ only in the data path; nothing under /home/user/test-trading, cand/, live/ or data/ was touched. Future dates used a frozen clock (W/t/fakeclock.py runs the unmodified tool) and made-up closes after 2026-11-09, so those runs are simulations.\n\n- **Holiday table:** all 2026, 2027 and 2028 dates match both a rule-based calendar I wrote and the table fetched today from nyse.com/markets/hours-calendars. 2028 has no New Year closure, Juneteenth is Mon 06-19, July 4 is Tue, Christmas is Mon 12-25. No half-day is listed.\n- **Calendar sweep 2026-11-10 to 2028-12-29:** on all 559 weekdays (538 sessions, 21 weekday holidays, 5 half-days) the 07:45 add and its duplicate exit 0 and leave the cache byte-identical to live's. All 2,152 state runs (15:50, or 12:50 on half-days, with --log) exit 0 with the same state, flip, distance, f and JSON as live. The only state differences are 2 exact ties, where the candidate says UP and live says DOWN.\n- **Same sweep, other conditions:** repeating it through the real command line (1,097 runs) and with the time-zone database removed (1,097 runs) gave exit 0 everywhere.\n- **Numbers:** 6,000 random three-symbol runs, a 4,001-price cent grid on today's real cache and 288,360 function-level cases agree with exact arithmetic everywhere and with live except on exact ties. The one visible difference is the informational SMA200 figure, which differs by 0.001 in about 1% of rows, each an exact rounding tie. add, show and init gave identical output and files in 1,500 random rounds.\n- **Validity guard:** on 4,000 randomly damaged caches (missing dates, weekend or holiday dates, zero values, declared closures) the exit code matched an independent check every time, in both directions.\n- **Repairs followed literally, all 538 sessions:**\n  - Yesterday's close missing: exit 2, the printed add restores exit 0 with live's flip.\n  - A hole in the window: the same.\n  - QQQ refused at 07:45 with the shadows saved: the 15:50 state is STALE with exit 2, the `closed` shortcut is refused, and the printed add repairs it.\n  - A shadow refused: QQQ is saved and the state is valid.\n- **Closure flow:** 14 closure sets (Friday, Monday, around Thanksgiving and year-end, two consecutive days, random) over 210 following sessions each, 2,940 runs. There is exactly one exit 2 per closed day; one `closed` command then gives exit 0 and live's flip on every later session.\n- **Log:** a 7-column log written by live today is padded and extended correctly, including after a rollback to live and back.\n- **Exit codes:** state exits 2 on every bad QQQ input or broken QQQ cache I tried (about 35 cases) and never exits 1. The other sub-commands exit 1 and change nothing.\n\nKnown limits that I do not count as findings:\n- The first 15:50 run after an unscheduled closure still exits 2 until `closed` is typed.\n- Using `closed` as a shortcut for a merely stale cache gives a valid state with one close missing. The message says ONLY, and a NOTE is printed on every later run.\n- From 2029-01-02 the state is invalid until the holiday table is extended; a warning is printed from 2028-11-01.\n\nFollow-up outside the code: tools/README.md and RULES_v3 §13(a) should mention `closed` and `del`.",
+   "prior_findings": [
+    {
+     "title": "Unscheduled market closure: state exits 2 on the next session and on each of the following ~199 sessions unless --closed is retyped; the printed repair never mentions --closed",
+     "status": "closed",
+     "note": "Re-ran the reproduction with a closure on Wed 2026-12-09. The STALE and HOLE messages now name `trend.py closed 2026-12-09`. After that one command the state is exit 0 with live's flip on 12-10, 12-11 and all 210 following sessions, for 14 closure sets (2,940 runs). `add 2026-12-09` is then refused, show lists the closure, and `closed` is refused for a cached date, weekend, holiday, future date, bad date and unknown flag. Residual: the first run after a closure still exits 2 until declared, and add's own missing-session WARNING does not mention `closed` (new low finding)."
+    },
+    {
+     "title": "A problem with a shadow symbol (NVDA or SMH) voids the binding QQQ add or the QQQ state",
+     "status": "partly_closed",
+     "note": "Both original reproductions now pass. With NVDA +25%, QQQ and SMH are saved (exit 1) and the 15:50 state is valid with exit 0. With NVDA=0 the state is exit 0 with an invalid shadow row. Still open, all loud and on the safe side: a malformed shadow value in add (NVDA=None, NVDA=0, NVDA=) saves nothing, QQQ included; a shadow typed twice or without '=', or a non-numeric cached shadow value, still makes state exit 2. See the two new low findings."
+    },
+    {
+     "title": "Stock split: the refusal offers only --force, which stores a post-split close among pre-split closes and reports the shadow as valid",
+     "status": "closed",
+     "note": "The refusal now says not to force and to rebuild with init from bars of ALL symbols. QQQ and SMH are saved, and the NVDA shadow is INVALID (STALE) while the QQQ state is exit 0. init with only NVDA bars is refused (\"would drop QQQ, SMH\") and the cache is untouched; init with all symbols works."
+    },
+    {
+     "title": "Validity check does not see non-session dates or sub-25% typos in the cache; a forced holiday date gives a STALE state whose printed repair cannot work",
+     "status": "closed",
+     "note": "Forced Labor Day and Saturday dates now give exit 2 NON-SESSION with `trend.py del <date>`, and show flags them. After del the cache is byte-identical to the clean one. A holiday or weekend add is refused with the correct previous session on all 243 non-session days to 2028-12-29, and following the hint works. A typo inside 25% is still accepted (not detectable), but `del DATE QQQ` then add corrects it without --force."
+    },
+    {
+     "title": "Fixed temp-file name: two simultaneous adds make one crash with FileNotFoundError after it printed the saved lines",
+     "status": "closed",
+     "note": "100 rounds of 2 and 40 rounds of 6 parallel identical adds, plus 40 rounds of 4 parallel state --log: 0 failed processes, 0 incomplete files, 0 leftover temp files."
+    },
+    {
+     "title": "A failed log write turns a valid state into exit 2 after the valid line was printed",
+     "status": "closed",
+     "note": "With log.csv as a directory, or containing invalid UTF-8, the state prints \"WARNING: log not written (...); the state above stands\" and exits 0."
+    },
+    {
+     "title": "add now needs the time-zone database; without it add crashes, and the fallback clock is never reached",
+     "status": "closed",
+     "note": "With the database blocked, add and state work (exit 0) and today's date is still refused for add. The whole calendar sweep under the fallback clock gave exit 0 on 559 adds and 538 states."
+    },
+    {
+     "title": "Holiday table ends 2027-12-31: every state from 2028-01-03 exits 2 with no warning beforehand and no command-line override",
+     "status": "closed",
+     "note": "The 2028 dates are correct against nyse.com. 2028-01-03 is exit 0 and `add 2028-01-17` is refused as a holiday. The warning appears from 2028-11-01 (60 days left) on both add and state, and not on 2028-10-31. From 2029-01-02 the state is invalid again by design."
+    },
+    {
+     "title": "Three printed texts are inaccurate (half-day deadline, scope of --force, \"completed sessions\")",
+     "status": "closed",
+     "note": "(a) The failure line now reads \"before the entry (15:50 ET; 12:50 ET on a half-day)\". (b) The header says --force never overrides a malformed date or a non-positive value, and the code agrees. (c) The 16:05 ET refusal now reads \"is today (ET) or later; closes are added the next morning at 07:45 (--force for an end-of-day add ...)\"."
+    }
+   ],
+   "checks_run": [
+    "Copies in work_trend differ from cand/ and live/ only in the data path (diff); git status of /home/user/test-trading is empty; review data/closes.json is byte-identical to the real cache",
+    "HOLIDAYS against an independent rule-based NYSE calendar (2025-11 to 2028) and against the table fetched from nyse.com/markets/hours-calendars (2026, 2027, 2028 identical, including the 2028 footnotes)",
+    "Calendar sweep 2026-11-10 to 2028-12-29, in-process with a frozen clock: 559 weekday 07:45 adds plus duplicate re-adds, and 2,152 state --log runs at 15:50 (12:50 on 5 half-days) at four prices (close, flip, flip +/- 1 cent), candidate against live",
+    "The same sweep through the real command line with the unmodified candidate (559 adds, 538 states): exit 0 everywhere, output and files identical to the in-process run",
+    "The same sweep with the time-zone database unavailable (fallback clock): 559 adds and 538 states, all exit 0",
+    "State differential: 6,000 random three-symbol runs, a 4,001-price cent grid on the real cache for 2026-11-10, and 288,360 function-level cases against exact (Fraction) arithmetic and against live's formula",
+    "add / show / init differential on legitimate inputs: 1,500 rounds of add, identical re-add, show and backfill, plus init on an empty and an existing cache",
+    "Literal-repair sweep on all 538 sessions: stale cache, hole in the window, QQQ refused with shadows saved (including the `closed` shortcut attempt), shadow refused, malformed shadow value",
+    "Independent validity check on 4,000 randomly damaged caches with and without declared closures",
+    "Closure flow: the first review's 2026-12-09 scenario, then 14 closure sets over 210 following sessions each (2,940 state runs) compared with live's flip; undeclared-closure and shortcut scenarios",
+    "Weekend and holiday dates passed to add: 243 non-session days, hint checked against the rule-based calendar and followed literally",
+    "Exit codes: about 70 bad-input and broken-file cases over state, add, del, closed, init, show and no or unknown command",
+    "All 9 trend findings of the first review re-run on version 2.1",
+    "Log hand-over: live's 7-column rows from today, a candidate re-run for the same date, rollback to live and back, CRLF and blank lines; parallel runs (100x2 and 40x6 adds, 40x4 state --log)",
+    "Sanity run with the real clock (show, idempotent add of 2026-11-09, state --log, add of today refused); TREND_BASE unset in this environment, an empty value falls back to the default, a set value prints the NOTE"
+   ]
+  },
+  {
+   "lens": "entry",
+   "safe_to_deploy": true,
+   "summary": "Verdict for cand/entry_v18.py (version 2.1) against live/entry_v18.py: safe to deploy after today's close. I found no high or medium problem. All three medium findings of the first review are closed, there is no numeric regression, and no legitimate command in the listed situations is refused without a correct way out. Three low findings remain; none is a regression against the live tool.\n\nEverything was run in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_entry/ on my own copies (scripts in its t/ folder). The repository (git status empty) and the shared cand/, live/, data/ folders are unchanged. The large tests execute the real tool source in-process with only the orders path re-pointed; a sanity run showed the same stdout and exit code as a real subprocess.\n\n**PAUSE path (tonight and the next four nights)**\n- `core 45 20261110 20.53 20.52 82.31 pause` writes exactly 1 share at 20.57; the intent line is byte-identical to the live tool's apart from `t` and `ref_id`.\n- `topup ... pause` prints \"pause: no top-up\", exit 0, nothing written, with or without --again.\n- Exhaustive non-dry check, 139,779 sequences (nights 45-49, E 76.00-86.63 and 82.31, ask 18.00-23.00, ask minus last from -2 to +6 cents): 110,050 wrote a line identical to live's, always quantity 1; 29,729 were refused by the §4 cap in both tools, the same cases; 0 problems.\n- Re-run, broker rejection with --again, and the 15:55 re-price all work on the PAUSE path.\n\n**Regression against live**\n- Core, cent grid, 20,275,203 cases (E 55.00-130.00, ask 17.00-26.00, up/down/pause, last = ask): limit, exit code and next-step branch identical. Quantity differs in 26 cases, all exact ties f*E = q*lim in state up, where the candidate equals the exact rule and live is one share short. The printed top-up estimate differs by one cent in 493,083 cases (candidate exact, live a cent low; a print, not an order).\n- Core with last = ask -6 to +6 cents, 2,530,008 cases: exit codes identical; the candidate refuses exactly when the exact rule does.\n- Top-up, 17,852,586 cases: amount, below-2.00 flag and exit code identical and exact; spent + amount never above the target.\n- Off the cent grid (4-decimal last, ask and SPENT), 600,000 core and 354,498 top-up runs: no difference.\n- Limit for every ask 5.00-500.00: identical to live and to the exact rule; the re-price limit equals ceil_cent(ask*1.003).\n\n**False refusals**\n- 163,000 random legitimate non-dry sequences (fill, partial fill, re-price then fill, rejection then --again, x0 then top-up): 0 refusals of a legitimate step. All 29,954 commands the tool printed were accepted when run as printed. 18,882 re-runs were refused with the stored ref_id shown. The 4 line differences are exact ties.\n- Sequences a-k were also run by hand: each completes, or stops with a message that names the right way out.\n- The tool has no clock or calendar logic: with the clock frozen on 2026-11-27 and 2026-12-24 at 12:52 ET, two Mondays and two later dates, behaviour is identical.\n- Against a copy of the real orders.jsonl (258 object lines, ASCII, newline-terminated, no duplicate entry coid, none for night 45 or later): no collision; after the live tool appended a night-45 line, the candidate accepted night 46 and correctly refused a second night-45 core.\n\n**Re-price bound last*1.0055**\n- §4 gives no bound for the re-price, so this is a tool sanity bound that is stricter than the rule text. It is coherent: it gives the re-price about the same room for ask above last as the first order has.\n- Measured for price 18.00-25.00: refused 0% for ask = last + 0 to 3 cents, 3.7% at +4 cents (12% for 18.00-19.99, 3% for 20.00-21.00, 0% above 21), 60% at +5 cents, 100% from +6 cents. The first-order cap on the same quotes: about 0.4% at +4 cents, 65% at +5 cents.\n- 19,513 runs matched the exact rule with 0 mismatches.\n\n**Overrides**\n- --again overrides only the log checks. Hard stops stay in force with it: unknown flag, bad number, E <= 50, cap, re-price without a core intent.\n- Every override prints the full rule text first, including \"cancelled unfilled means NO top-up\" and \"ONE top-up per night\", so nothing passes silently.\n- By design one --again on core passes both the duplicate check and the top-up check, so after a filled core and top-up it writes a second core intent; two override messages are printed.\n\n**Robustness**\n- 110,000 fuzz runs with random and damaged logs: no traceback, exit code only 0 or 1, nothing written on exit 1 or under --dry, at most one well-formed line per accepted run.\n\n**To do at deployment (not in the tool)**\n- trader/tools/README.md line 8 still describes only core and topup with --dry; it should name the reprice mode and --again.\n- §4 should state the re-price bound if it is to be a rule.",
+   "prior_findings": [
+    {
+     "title": "reprice applies the first-order cap (last*1.004) to the +0.3% limit and refuses most quotes with ask 2c or more above last",
+     "status": "closed",
+     "note": "Original reproduction re-run: after core 45 20261110 21.58 21.57 86.02 up, `reprice 45 20261110 21.66 21.64 86.02 up` now writes 'NVDL 3 21.73' (rc 0). The bound is last*1.0055 for reprice only; core keeps 1.004. Measured for 18.00-25.00: 0% refused up to ask = last + 3c, 3.7% at +4c, 60% at +5c, 100% from +6c. A mistyped ask (26.16 against last 21.64) and a 16c gap are still refused, rc 1."
+    },
+    {
+     "title": "After a core intent exists, an x0 result prints 'place the top-up at once ... topup N D E 0', and that command is then refused with no override",
+     "status": "closed",
+     "note": "Re-run of both variants. Rejected core then x0: the tool prints a three-way text (live or filled: do nothing; cancelled unfilled: no top-up; never reached the broker or rejected: the full command with --again). That command is accepted and writes 21.50; without --again it is refused with a message naming --again. Re-price x0: prints 'NO ORDER ... NO top-up (§3(c)). Stay in cash tonight', and topup 0 is refused, so print and guard agree."
+    },
+    {
+     "title": "A top-up intent line blocks core/reprice for the rest of the night with no override, and the x0 hint printed under --dry omits --dry",
+     "status": "closed",
+     "note": "Re-run: the x0 hint of a --dry run ends in --dry and writes nothing when run as printed. With a stray top-up intent, core is refused with a text that says when --again is right ('never sent ... or was rejected ... and never send that top-up'); with --again it writes 'NVDL 1 21.48'. The override is broader than the first review's verifier proposed: --again also passes when a core and a top-up intent both exist. Both override messages are printed, so it is not silent."
+    },
+    {
+     "title": "A partial fill followed by a re-price has no path through the tool; the SPENT bound then refuses the top-up",
+     "status": "partly_closed",
+     "note": "Still no tool path: reprice prints the full x3 with 2 shares held, and passing the remaining cash as E gives the KILL stop (both re-run). The header now says to size the remainder by hand. The SPENT bound now uses the largest cost over all core intents of the night and has an --again override whose text names this case; `topup 45 20261110 86.02 64.90 up --again` writes 19.39. Matters little: it needs a partial fill plus a re-price, and only the top-up needs the override."
+    },
+    {
+     "title": "Several refusal messages give no next step or an incomplete one",
+     "status": "partly_closed",
+     "note": "Closed: the duplicate refusal prints coid, qty, limit, ref_id and time; 'SPENT > 0 but no core intent' gives a next step and is only a REHEARSAL NOTE with rc 0 under --dry; the SPENT bound names the maximum. Not addressed, all cosmetic: 15:57 and 15:58 are hard-coded (12:57 and 12:58 on half-days), an x0 line still says 'top-up after the fill about', and swapped ask and E still print the KILL text."
+    },
+    {
+     "title": "Top-up and duplicate guards still let some bad inputs through",
+     "status": "partly_closed",
+     "note": "Closed: NIGHT is normalised (045 is caught as a duplicate of 45). Not addressed, each needs an operator slip and behaves as in live: `topup 45 20261110 86.02 0 up` on an empty log writes 84.29; SPENT 0.01 passes; date 20261310 is accepted; --again with nothing to override is silent. See the first new finding for the PAUSE variant."
+    },
+    {
+     "title": "The new log read aborts or misreads on a malformed orders.jsonl, and T3X_ORDERS silently redirects it",
+     "status": "closed",
+     "note": "Re-run: non-object lines, broken JSON and invalid UTF-8 are skipped without a traceback; a missing final newline is repaired before the append, and the following top-up then finds the core intent; a text limit in an E2 line no longer crashes; T3X_ORDERS prints a NOTE with the path. Residual: damaged lines are skipped without a warning."
+    }
+   ],
+   "checks_run": [
+    "Read RULES_v3.md §3(c), §3(e), §4, §5, §6, §7, §13, STATUS.md, tools/README.md and the first review's entry findings; confirmed live/entry_v18.py equals the deployed trader/tools/entry_v18.py except for the data path",
+    "Set up work_entry/ with own copies of cand/, live/, data/ and re-pointed data paths; confirmed at the end that the repository (git status empty) and the shared cand/, live/, data/ are unchanged",
+    "In-process harness (t/h.py) running the real source with only the orders path re-pointed; sanity-checked against real subprocess runs (same stdout and exit code)",
+    "PAUSE path by hand: core 45 20261110 20.53 20.52 82.31 pause in both tools, intent lines compared key by key; topup pause with and without --again and --dry",
+    "Exhaustive non-dry PAUSE comparison (t/pause_grid.py): 139,779 sequences, intent line bytes compared after masking t and ref_id, then topup pause",
+    "Core differential on the cent grid (t/grid_core.py): 20,275,203 cases with last = ask and 2,530,008 cases with last = ask -6..+6 cents, each checked against live and against an exact integer rule (limit, quantity, estimate, branch, exit code)",
+    "Top-up differential (t/grid_topup.py): 12,522,880 cases (E 55.00-130.00 in steps of 0.07) and 5,329,706 cases (E 81.50-86.50 in cents), amount, flag and exit code against live and the exact rule",
+    "Off-grid random differential (t/offgrid.py): 600,000 core and 354,498 top-up runs with 4-decimal last, ask and SPENT",
+    "Limit for every ask 1.00-500.00 in cents (t/lim_all.py): core against live and the exact rule, reprice against ceil_cent(ask*1.003)",
+    "Re-ran every reproduction of the 3 confirmed and 4 unverified entry findings of the first review on version 2.1",
+    "Sequences a-k by hand on the candidate: UP night, DOWN x0, DOWN x1, PAUSE, re-price after cancel (including quantity 4 to 3), --dry rehearsal then real run, broker rejection then --again, transient failure then re-run, partial fill, half-day, real-log collision",
+    "163,000 random legitimate non-dry sequences (t/seq_diff.py, seeds 1 and 11-14) against live and the exact rule, including running every command the tool printed",
+    "Re-price bound: frequency table by price band and ask-minus-last (t/reprice_freq.py) and 19,513 runs against the exact rule (t/rp_exact.py)",
+    "Frozen-clock runs (t/clock.py) for 2026-11-27 and 2026-12-24 at 12:52 ET, Mon 2026-11-16, Mon 2026-11-30, Mon 2027-01-04 and a summer date",
+    "Read-only profile of the real trader/orders.jsonl and candidate runs against a copy of it, including a night-45 line appended by the live tool first",
+    "Hard-stop matrix with exit codes: unknown and single-dash flags, wrong argument count, bad NIGHT or date, malformed, negative, nan and inf numbers, zero ask, E 50.00 and 50.01, bad STATE, bad mode, cap for core and reprice",
+    "Override probes: --again after a core cancelled unfilled, two top-ups, core --again after core plus top-up, reprice --again, --again with nothing to override, --dry with --again",
+    "Fuzz (t/fuzz.py, 110,000 runs): random and damaged logs with random commands; checked for tracebacks, exit codes, no write on exit 1 or --dry, one well-formed line per accepted run",
+    "Environment checks: stdout encoding (UTF-8 mode by default; ASCII stdout crashes on the section sign in both tools), T3X_ORDERS not set anywhere in the repository, printed command path is absolute from any working directory"
+   ]
+  },
+  {
+   "lens": "exit",
+   "safe_to_deploy": true,
+   "summary": "Verdict for KEY=exit: version 2.1 of exit_ovn.py and exit_frac.py is safe to put in place of the live tools after today's close.\n\nAll seven first-review findings on these two tools are closed. I found no regression against live on legitimate inputs and no refusal of a legitimate command. Six low findings follow; each needs an operator slip or an input that real quotes and broker quantities do not produce.\n\n**Tomorrow's PAUSE command**\n- `exit_ovn.py 45 20261111 NVDL:1:BID` and the broker-format variants `NVDL:1.000000:BID` and `NVDL:1.00000000:BID` write the same intent line as live, apart from `t` and `ref_id`.\n- This held for every cent bid from 15.00 to 30.00, with and without `--reprice` (coid -X and -X2), through the real scripts run from `/`: 12,008 process runs, 0 differences.\n- With the literal word BID both tools stop with rc 1 and write nothing; the candidate prints a message, live a traceback.\n- A simulated PAUSE week on a copy of the real 258-line log gave identical logs for live and candidate exits (19 appended lines). It covered nights 45-49, re-prices, a re-run, a late exit, and the exits after both half-days.\n\n**Regression against live**\n- **Cent bids 1.00-60.00, both modes, real scripts (23,604 runs):** the candidate equals the exact §5 rule everywhere. Live differs at 21 bids, all 4.02 or lower and non-reprice, where it is 1 cent low on an exact tie. Nothing differs from 4.03 to 60.00.\n- **Wider sets:** cent bids 0.03-1000.00 add 13 ties below 1.00 and two reprice ties (610.00, 650.00). All 1,180,002 four-decimal cases are exact.\n- **One non-tie difference:** 1 of 800,000 random six-decimal cases, 28.555667 with `--reprice`, gives 28.47 against 28.46. This is finding 6; whole-cent quotes cannot produce it.\n- **Live grammar:** in 150,000 random commands (280,885 legs) the candidate never refused what live accepts. Differences were only ties and NIGHT typed with leading zeros (045 becomes 45).\n- **exit_frac.py:** 60,000 canonical quantities give byte-identical lines. Other spellings are normalised (0.500000 becomes 0.5) and numerically equal.\n- **Benign differences not on the intended list:** stdout shows the limit with two decimals; the symbol is upper-cased; all legs are validated before anything is written; flags may be in any position; `--dry` is honoured (live exit_ovn ignores it and writes).\n\n**False refusals**\n- No date or clock logic exists in either tool, so Mondays, post-holiday days and half-days cannot matter.\n- Re-run, re-price twice, partial fill then re-price, an under-one-share position, a broker reject then `--again`, and dust 0.000001 with `--again` all write.\n- 15 damaged log contents (non-object lines, invalid UTF-8, NUL bytes, no final newline, half-written line) never stopped either tool, and the missing newline is repaired.\n- The printed remainder command ran when pasted from `/` and `/home/user`, and keeps `--dry`.\n\n**Overrides**\n- `--again` bypasses only the duplicate check: the guard matched a simple model in 31,804 runs, and 120,000 malformed commands produced no bad intent.\n- After `--again` the refusal shows the latest intent, which is the right one to send.\n\n**Seen but not listed as findings**\n- NIGHT typed as `²` (both tools) and a bid of 1e308 (exit_ovn) end in a traceback with nothing written.\n- The printed command is unquoted and would break if the tools path had a space; the deployed path has none.\n- A matching log line without fields prints \"written NoneZ\".\n\n**Not changed**\n- Neither version writes an intent for the §5 step-3 whole-share market order.\n\n**Hygiene**\n- I wrote nothing under /home/user/test-trading or the shared cand/, live/ and data/ folders; shared orders.jsonl is still 0 bytes.\n- `git status` shows journal.md and state.json modified; those are the live session's files, not this review's.\n- Everything is in /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_exit/ (scripts in t/).",
+   "prior_findings": [
+    {
+     "title": "exit_frac.py: duplicate guard has no override and gives the wrong instruction after a broker reject or a corrected quantity (confirmed, medium)",
+     "status": "closed",
+     "note": "Original reproduction re-run. The second run still stops (rc 1, nothing written) but now prints the stored intent (qty, ref_id, time) and the three cases. `--again` writes a new intent with a fresh ref_id for the same quantity, a corrected quantity and dust 0.000001. NIGHT 045 no longer bypasses the guard. A stateful model test (1,500 sequences, 31,804 runs, damaged logs mixed in) matched in every run."
+    },
+    {
+     "title": "exit_ovn.py: the printed remainder command does not run when pasted literally (low)",
+     "status": "closed",
+     "note": "The command is now `python3 <absolute path>/exit_frac.py N DATE SYM QTY`. Pasted with `bash -c` from `/` and `/home/user` it ran (rc 0, intent written), for both the remainder and the under-one-share message, and it keeps `--dry` in a rehearsal. The path is built correctly when exit_ovn.py is called by a relative path. It is not quoted, which matters only for a tools path containing a space; the deployed path has none."
+    },
+    {
+     "title": "exit_ovn.py accepts a quantity with more than 6 decimals and prints a remainder command that exit_frac.py refuses (low)",
+     "status": "closed",
+     "note": "NVDL:3.9976425 still writes the whole-share intent and now prints an instruction to re-read the position in place of an unusable command; 3.99764200 gives the normal command. The new exit_frac.py wording for this case has a dead end for dust below 0.000001 (new low finding 3)."
+    },
+    {
+     "title": "exit_frac.py: the duplicate check crashes on a non-object log line or invalid UTF-8 in orders.jsonl (low)",
+     "status": "closed",
+     "note": "Original reproductions re-run plus more: `[]`, `null`, a quoted string, a number, blank lines, bad JSON, `{\"coid\": null}`, a coid that is a list, 0xFF 0xFE bytes, NUL bytes, a BOM, CRLF, a half-written line with no newline, and a missing file. exit_frac.py and exit_ovn.py (plain and --reprice) returned rc 0 on all 15 contents, and every appended line parses."
+    },
+    {
+     "title": "exit_frac.py: --dry skips the duplicate check, and the check compares NIGHT as text (low)",
+     "status": "closed",
+     "note": "`--dry` after an existing intent prints a REHEARSAL NOTE with the stored intent and writes nothing. NIGHT 045 and 0045 are normalised to 45 and are caught by the guard. Leftover: with `--dry --again` the note still says a real run would stop (new low finding 4)."
+    },
+    {
+     "title": "Both exit tools: new T3X_ORDERS environment variable silently redirects the intent log (low)",
+     "status": "closed",
+     "note": "Both tools print `NOTE: T3X_ORDERS override active: intent log is <path>` when the variable points elsewhere. An empty value is treated as unset and no longer crashes. The variable set to the default path prints no note. The variable is not set in this environment."
+    },
+    {
+     "title": "exit_ovn.py: a bid of 0.02 or less still writes an intent with a zero or negative limit, and an empty symbol is accepted (low)",
+     "status": "closed",
+     "note": "Bids 0.02 and 0.01 are refused with the would-be limit shown; 0.03 writes limit 0.01. An empty symbol, NVD1 and a symbol given twice (also in mixed case) are refused. Nothing is written in any refused case."
+    },
+    {
+     "title": "First-review remark (not a finding): no path for dust left after a fractional fill",
+     "status": "closed",
+     "note": "After a first -XF intent, `exit_frac.py N D NVDL 0.000001 --again` writes a second intent. Dust below 0.000001 cannot be passed at all (see new finding 3); Robinhood quantities stop at 6 decimals, so this is hypothetical."
+    },
+    {
+     "title": "First-review remark (not a finding): neither version writes an intent for the §5 step-3 whole-share market order",
+     "status": "not_addressed",
+     "note": "Same as live, so no regression. exit_frac.py refuses a quantity of 1 or more and exit_ovn.py has no market mode. It does not block the exit: that intent line is written by hand, as it is today."
+    }
+   ],
+   "checks_run": [
+    "Set-up: copied cand/, live/ and data/ to work_exit/ plus eight parallel copies, re-pointed the data paths with sed, confirmed my copies equal the shared files apart from that path, and confirmed live/ equals trader/tools apart from the log path",
+    "Read RULES_v3.md in full, tools/README.md, the INV-9/INV-12/X-5 lines of RULES.md and ADAPTATION_RH.md, cand/entry_v18.py (how it matches log lines), and the real orders.jsonl read-only (258 lines; exit coids, quantity types, multi-leg commands)",
+    "Tomorrow's command: NVDL:1:21.43 and NVDL:1.000000:21.43 on live and candidate, with and without --reprice; the literal word BID on both",
+    "PAUSE sweep through the real scripts from cwd /: every cent bid 15.00-30.00, both modes, four command forms (live NVDL:1, cand NVDL:1, cand NVDL:1.000000 with a 6-decimal bid, cand NVDL:1.00000000); 12,008 process runs, raw intent text compared",
+    "Limit differential through the real scripts: every cent bid 1.00-60.00, both modes, live and candidate, against an exact Fraction reference (23,604 process runs)",
+    "Limit differential in-process (unmodified source, sys.argv patched): all four-decimal bids 1.0000-60.0000 (1,180,002 cases), cent bids 0.03-1000.00 (199,996), six-decimal spelling of cent bids (11,802), 400,000 random six-decimal bids and 300,000 random five-decimal bids 15-35 in both modes, 60,000 random spellings",
+    "Quantity differential for exit_ovn: 60,000 random multi-leg whole-quantity commands, 40,000 broker spellings of whole quantities, 20,000 fractional legs (whole part, printed remainder, and the printed command fed to candidate and live exit_frac)",
+    "History replay: 85 real -X/-X2 intents re-created through live and candidate (66 identical, 19 differ only in the zero-padded night token 01-09)",
+    "Raw byte-level comparison of the written line apart from t and ref_id: 30,000 exit_ovn and 20,000 exit_frac cases",
+    "Wide differential over the live grammar: 150,000 random commands (1-4 legs, nights with and without leading zeros, bids 0.03-1000 in five spellings, --reprice in any position after the date)",
+    "exit_frac differential: 60,000 canonical quantities, 40,000 non-canonical spellings, 30,000 invalid quantities, with --dry and mixed-case symbols",
+    "First-review reproductions for all seven exit findings re-run literally, plus cases a-e (re-price and re-run, broker reject then --again, and quantities 3, 3.0, 3.000000, 3.00000000, 1.015300, 3.997642, 3.99764200, 0.997642, 0.99764200, 0.000001, 1E-6, .5)",
+    "Scenario on a copy of the real log: PAUSE week nights 45-49 with candidate entry_v18 core ... pause each evening, exits by live in one copy and by candidate in the other, re-prices, a re-run, a late exit, and exits after both half-days; logs compared",
+    "Fractional scenarios on the same copy: 3.99764200 shares with re-price, pasted remainder command, broker reject then --again, dust with --again, under-one-share position, partial fill then re-price, full --dry rehearsal, NVDL fractional plus NVDX whole in one command",
+    "Stateful model test of the exit_frac duplicate guard: 1,500 sequences of 25 steps on empty, real, newline-less and junk logs, with exit_ovn runs and damage interleaved (31,804 runs)",
+    "Damaged log: 15 contents times three commands (exit_frac, exit_ovn, exit_ovn --reprice), missing file, byte check of the newline repair, live for contrast",
+    "Literal paste with bash -c from / and /home/user of every printed command form, including the more-than-6-decimals hint and a tools directory with a space in its path",
+    "Fuzz: 120,000 malformed commands on both candidates (bad nights, dates, symbols, quantities, bids, flags, pre-filled damaged logs); checked for tracebacks, writes on refusal and malformed intents",
+    "Flags and environment: --again, --force and misspelt flags on both tools, flags before the positionals, --dry on live exit_ovn, T3X_ORDERS set elsewhere, empty, equal to the default, and to a missing directory; LANG=C with ASCII stdout; Python 3.11, 3.12 and 3.13",
+    "Hygiene: shared cand/, live/ and data/ timestamps unchanged (14:48), shared orders.jsonl 0 bytes, real orders.jsonl and tool files unchanged; git status shows only journal.md and state.json, which the live session writes"
+   ]
+  }
+ ],
+ "confirmed": [],
+ "refuted": [],
+ "unverified": [
+  {
+   "lens": "trend",
+   "title": "add: a malformed or non-positive SHADOW value still refuses the whole line, so QQQ is not saved",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 175,
+   "severity": "low",
+   "kind": "false_refusal",
+   "claim": "Version 2.1 saves each symbol that passes its own checks only for the three listed checks (not in cache, different value, 25% jump). A shadow value that is not a positive number (NVDA=None, NVDA=0, NVDA=) is caught earlier and nothing is saved, QQQ included. The 15:50 state is then STALE with exit 2 until repaired. The message for an unparsable value does not name the symbol. It is loud (exit 1), the printed STALE repair works, and live also saves nothing here, so this is not a regression; it needs a bad value on the command line.",
+   "reproduction": "W=/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_trend; cd $W; cp t/real_closes.json data/closes.json\npython3 t/fakeclock.py 2026-11-11T12:45:00 cand/trend.py add 2026-11-10 QQQ=678.44 NVDA=None SMH=486.10\n-> NOTHING SAVED: could not convert string to float: 'None'   [rc=1]\n(same with NVDA=0 -> \"NOTHING SAVED: NVDA: price must be a positive finite number, got '0'\"; NVDA= -> \"could not convert string to float: ''\")\ncmp data/closes.json t/real_closes.json -> identical (QQQ and SMH not saved)\npython3 t/fakeclock.py 2026-11-11T20:50:00 cand/trend.py state QQQ=684.20 NVDA=175 SMH=490.00\n-> QQQ ... INVALID: STALE: last cached close is 2026-11-09, the previous session is 2026-11-10 -> trend.py add 2026-11-10 QQQ=<official close> ...  BINDING QQQ: NO VALID STATE (exit code 2)   [rc=2]\nt/repair.py case (5): QQQ not saved on 538 of 538 sessions.",
+   "suggested_fix": "In cmd_add parse the values per symbol: put a symbol whose value is not a positive number into serr (with the symbol name in the text) and save the others, exactly as for the 25% check. Keep the all-or-nothing refusal only for a bad date."
+  },
+  {
+   "lens": "trend",
+   "title": "state: a shadow typed twice or without '=', or a non-numeric cached shadow value, still turns a computable QQQ state into exit 2",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 146,
+   "severity": "low",
+   "kind": "false_refusal",
+   "claim": "The header says a problem with a shadow never changes the QQQ result or the exit code. That holds for a bad shadow price, a stale or holed shadow cache and an unknown symbol. It does not hold for a duplicated shadow symbol, a shadow token without '=', or a cached shadow value that is a string or null (or an impossible date key such as 2026-02-30): the run exits 2 with \"NO VALID STATE ... size DOWN\" although QQQ is computable. Live exits 0 for the duplicate (last value wins). The error is on the safe side and needs a typo or a hand-edited cache.",
+   "reproduction": "W=.../v21_review/work_trend; cd $W; cp t/real_closes.json data/closes.json\npython3 t/fakeclock.py 2026-11-10T20:50:00 cand/trend.py state QQQ=678.10 NVDA=178.50 NVDA=487.00\n-> BINDING QQQ: NO VALID STATE (exit code 2): ValueError: NVDA given twice -> ... size DOWN (f = 0.25)   [rc=2]\nsame with live/trend.py -> BINDING QQQ DOWN -> target fraction f = 0.25   [rc=0]\npython3 t/fakeclock.py 2026-11-10T20:50:00 cand/trend.py state QQQ=678.10 NVDA 178.50\n-> ... ValueError: expected SYM=price, got 'NVDA' ...   [rc=2]\nSet NVDA 2026-06-01 to the string \"201.5\" in data/closes.json, then: cand/trend.py state QQQ=678.10 NVDA=178.50 SMH=487.00\n-> BINDING QQQ: NO VALID STATE (exit code 2): TypeError: must be real number, not str   [rc=2]; the same cache with QQQ alone -> DOWN, valid, rc=0.",
+   "suggested_fix": "In kv() with lenient='*', treat a duplicate or malformed non-QQQ token as an invalid shadow row instead of raising. In cmd_state wrap state_one for shadow symbols in try/except and turn any exception into an INVALID shadow row."
+  },
+  {
+   "lens": "trend",
+   "title": "--log: a later run for the same date overwrites the 15:50 row that sized the order (live appended)",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 262,
+   "severity": "low",
+   "kind": "other",
+   "claim": "write_log drops every existing row of the same date and symbol. That is right for a duplicate wake at 15:50. But any later run with --log, at EOD or days later with --date, silently replaces the row of the binding 15:50 read with a different price, state and f. The §13(e) shadow log, which is audited at the quarterly review, can then show DOWN / 0.25 for a night that was sized UP / 0.98. Live keeps both rows. No order is affected.",
+   "reproduction": "W=.../v21_review/work_trend; cd $W; cp t/real_closes.json data/closes.json; rm -f data/log.csv\npython3 t/fakeclock.py 2026-11-10T20:50:00 cand/trend.py state QQQ=682.00 --log   -> BINDING QQQ UP -> target fraction f = 0.98\npython3 t/fakeclock.py 2026-11-10T21:05:00 cand/trend.py state QQQ=679.10 --log   -> BINDING QQQ DOWN -> target fraction f = 0.25\ncat data/log.csv\n-> date,utc,sym,price,flip,dist_pct,state,valid,f\n-> 2026-11-10,2026-11-10T21:05:00Z,QQQ,679.1000,681.4490,-0.345,DOWN,1,0.25      (the 15:50 UP row is gone)\nAlso (t/probe4.py case 2): `state QQQ=650.00 --date 2026-11-10 --log` run on 2026-11-14 replaces the 11-10 row with utc 2026-11-14T19:30:00Z.\nlive with the same two runs keeps both rows.",
+   "suggested_fix": "Replace a date's rows only when the run date (ET) equals --date and the existing rows are from the same ET day before the entry time, or simpler: never delete, append with a run counter or a 'superseded' mark. Refuse --log together with a --date that is not today."
+  },
+  {
+   "lens": "trend",
+   "title": "add's missing-session WARNING does not mention `closed`, and `closed` after an invented close does not mention `del`",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 204,
+   "severity": "low",
+   "kind": "wrong_instruction",
+   "claim": "The state messages were fixed for the closure case, but add's own WARNING still only says to add an official close for the missing date. After an undeclared full-day closure it prints that for all three symbols on the second morning, for a day that has no official close. If the operator instead adds the closed day with the stale quote close on the first morning, the tool accepts it (as live does) and the state is valid. A later `closed` is refused with \"has a cached close ..., so it was a session\" and no hint that `del <date>` must come first. The 07:45 add on the first morning after a closure gives no warning that the 15:50 state will be STALE.",
+   "reproduction": "W=.../v21_review/work_trend; python3 t/probe4.py (case 1) and python3 t/probe3.py (case B); both build the cache from t/full_cache.json cut before 2026-12-09.\n[2026-12-11 07:45 ET] trend.py add 2026-12-10 QQQ=730.5 NVDA=166.57 SMH=576.14   -> rc=0\n-> WARNING NVDA: missing session(s) 2026-12-09 -> trend.py add <date> NVDA=<official close>\n-> WARNING QQQ: missing session(s) 2026-12-09 -> trend.py add <date> QQQ=<official close>   (and SMH; no mention of `closed`)\n[2026-12-10 07:45 ET] trend.py add 2026-12-09 QQQ=719.88 NVDA=165.34 SMH=558.79   -> saved, rc=0 (719.88 is the 12-08 close)\n[2026-12-10 15:50 ET] trend.py state QQQ=700 --log -> UP, valid, rc=0, flip 690.977 (690.458 without the invented close)\n[2026-12-10 15:51 ET] trend.py closed 2026-12-09 -> NOTHING SAVED: 2026-12-09 has a cached close for NVDA, QQQ, SMH, so it was a session   [rc=1]\nOnly `del 2026-12-09` followed by `closed 2026-12-09` gets to the right state (rc=0, flip 690.458).",
+   "suggested_fix": "Append the same \"ONLY for a date on which NYSE was closed all day: trend.py closed <date>\" to add's WARNING. In the `closed` refusal add \"(if those closes were added by mistake: trend.py del <date>, then closed <date>)\". At the end of add, print a WARNING when the newest QQQ date is not prev_session(today), so the 15:50 STALE is announced at 07:45."
+  },
+  {
+   "lens": "trend",
+   "title": "After an init that contains an unfinished bar, the next 07:45 add of the official close is refused for every symbol and the state stays valid on the old value",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 188,
+   "severity": "low",
+   "kind": "regression",
+   "claim": "init stores whatever the bar file holds, including a bar for the session still in progress. Next morning the normal add of the official close is refused for all three symbols (\"already X; refusing to replace it\"), exit 1, with the del hint. Live replaced the value and printed \"(replaced X)\". If the exit 1 is ignored, the 15:50 state is valid (exit 0) on the intraday value with no reminder: flip 681.650 instead of 681.687 in the example. The same happens after an end-of-day `add --force` with a value that is not the official close, which the refusal text suggests. It needs an init during the session, which is the documented split remedy, plus an ignored refusal; the flip moves by 1/199 of the difference.",
+   "reproduction": "W=.../v21_review/work_trend; cd $W; cp t/real_closes.json data/closes.json   (t/bars_today.json = the real closes as bars plus a 2026-11-10 bar QQQ 671.20, NVDA 172.90, SMH 479.80)\npython3 t/fakeclock.py 2026-11-10T18:00:00 cand/trend.py init t/bars_today.json   -> QQQ: 280 closes 2025-10-01 .. 2026-11-10 (last 671.2)   [rc=0]\npython3 t/fakeclock.py 2026-11-11T12:45:00 cand/trend.py add 2026-11-10 QQQ=678.44 NVDA=179.02 SMH=486.10\n-> NOT SAVED (nothing saved):\n->   - QQQ 2026-11-10 is already 671.2; refusing to replace it with 678.44 (to correct a typo: trend.py del 2026-11-10 QQQ, then add again)   (same for NVDA, SMH)   [rc=1]\npython3 t/fakeclock.py 2026-11-11T20:50:00 cand/trend.py state QQQ=681.70 -> flip 681.650 -> UP, BINDING QQQ UP   [rc=0]\nlive, same three commands: \"QQQ 2026-11-10 = 678.4400 (replaced 671.2)\", then flip 681.687.",
+   "suggested_fix": "In cmd_init skip (and report) any bar dated today (ET) or later. In the \"already X\" refusal say plainly that the cached value stays in use for the state until it is corrected, and reword the end-of-day --force hint to \"only with the official close\"."
+  },
+  {
+   "lens": "trend",
+   "title": "The holiday table has no start guard: on a cache rebuilt from longer history, show reports old holidays as MISSING and past --date runs exit 2",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/trend.py",
+   "line": 54,
+   "severity": "low",
+   "kind": "false_refusal",
+   "claim": "HOLIDAYS starts at 2025-11-27, which is enough for the present 279-close cache (it starts 2025-10-01). If the cache is rebuilt with init from a longer bar history, the split remedy the tool now recommends, every NYSE holiday before 2025-11-27 counts as a missing session. show prints a MISSING list for each symbol, and a state with --date far enough back to have such a date in its window is INVALID with HOLE and exits 2, with the advice to add an official close for Memorial Day. Today's state is not affected (its window starts 2026-01-27), so no order is touched; this hits show and audit or lab re-runs only.",
+   "reproduction": "W=.../v21_review/work_trend; data dir dz = rule-based sessions 2025-01-02 .. 2026-11-09 for the three symbols (real closes where they exist), run in-process with the frozen clock (t/h.py):\ntrend.py state QQQ=678.10 (2026-11-10 15:50 ET) -> DOWN, valid, rc 0\ntrend.py state QQQ=600 --date 2026-03-02 -> QQQ ... INVALID: HOLE: 4 session(s) missing inside the window: 2025-05-26, 2025-06-19, 2025-07-04, 2025-09-01 -> trend.py add <date> QQQ=<official close>; ...   rc 2   (live: rc 0)\ntrend.py show -> QQQ: 466 closes; last: ...   MISSING: 2025-01-20, 2025-02-17, 2025-04-18, 2025-05-26, 2025-06-19, 2025-07-04, 2025-09-01",
+   "suggested_fix": "Add HOLIDAYS_FROM = '2025-11-27' and ignore dates before it in missing_sessions and non_sessions (or mark the state \"not checked before <date>\"), or add the 2025 holidays to the table (01-01, 01-09, 01-20, 02-17, 04-18, 05-26, 06-19, 07-04, 09-01)."
+  },
+  {
+   "lens": "entry",
+   "title": "Top-up is not compared with the stored core intent: on a PAUSE night 'topup ... up' writes a 60-dollar market-buy intent",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/entry_v18.py",
+   "line": 145,
+   "severity": "low",
+   "kind": "ineffective_guard",
+   "claim": "The header says a top-up that does not match the night's core intent stops the tool. The top-up reads the core intent but uses it only for SPENT = 0 and for the upper bound on SPENT. It does not compare its STATE argument with the state recorded in the core intent, and it has no lower bound on SPENT. So on a PAUSE night (the next five sessions), a top-up typed with the trend state instead of 'pause' writes a market-buy intent for about three more shares, although the stored core intent says '1 share (PAUSE)'. The same gap lets through the average price typed as SPENT, and SPENT 0 in state up when no core intent exists. The live tool behaves the same in all three cases, so this is not a regression, and each case needs an operator slip. The plan for PAUSE nights says no top-up is run at all.",
+   "reproduction": "cd /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_entry && : > data/orders.jsonl\n$ python3 cand/entry_v18.py core 46 20261111 20.53 20.52 82.31 pause\nNVDL state pause  target 20.5700 (25.0% of E 82.31)  lim 20.57 x1 = 20.57\nNVDL 1 20.57 <ref_id>   [rc=0]\n$ python3 cand/entry_v18.py topup 46 20261111 82.31 20.55 up\nNVDL top-up: target 80.6638 - spent 20.55 = 60.11\nNVDL dollar_amount 60.11 <ref_id>   [rc=0]\n(live tool, same two commands: 'NVDL dollar_amount 60.11 <ref_id>' rc=0)\n: > data/orders.jsonl\n$ python3 cand/entry_v18.py core 50 20261118 20.58 20.58 84.10 up      -> NVDL 3 20.62 <ref_id> [rc=0]\n$ python3 cand/entry_v18.py topup 50 20261118 84.10 20.60 up           (average price typed instead of qty*avg)\nNVDL top-up: target 82.4180 - spent 20.60 = 61.81\nNVDL dollar_amount 61.81 <ref_id>   [rc=0]\n: > data/orders.jsonl\n$ python3 cand/entry_v18.py topup 45 20261110 86.02 0 up               (no core intent in the log)\nNVDL top-up: target 84.2996 - spent 0.00 = 84.29\nNVDL dollar_amount 84.29 <ref_id>   [rc=0]",
+   "suggested_fix": "In topup, read the state of the night's latest core intent (store it as its own field in the intent line, or take it from the rule text '(§13 trend <state>)'). Add one log check through check(): if that state differs from the STATE argument, stop and print both; if it is pause, print 'PAUSE night: no top-up (§3(e))'. Optionally add a second log check that SPENT > 0 is at least about 0.9 of one share's limit, with --again for a real exception. Both are log checks, so --again and --dry keep working as designed."
+  },
+  {
+   "lens": "entry",
+   "title": "Remaining message inaccuracies in rare paths",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/entry_v18.py",
+   "line": 74,
+   "severity": "low",
+   "kind": "wrong_instruction",
+   "claim": "None of these blocks or mis-sizes an order; each is a text that is wrong or incomplete in a rare path. (1) With --dry and --again together the note says 'a real run would stop here', but the real run with --again continues and writes. (2) reprice at size 0 prints 'the first core order was cancelled unfilled' even when the log holds no core intent. (3) 'reprice without a core intent for this night; use core' is a hard stop under --dry and --again; it does not say to check NIGHT and the date, and 'use core' gives the +0.15% price, not +0.3%. (4) The plain x0 line still has the parenthesis after the command, so pasting the whole line gives a shell syntax error and nothing runs; the command alone runs. (5) The duplicate refusal says to send the stored ref_id and keeps --again for a broker rejection; it does not cover a stored intent that was written by a rehearsal run without --dry and carries an old limit. (6) From the first review, not addressed: 15:57 and 15:58 are hard-coded (12:57 and 12:58 on the half-days), and an x0 line says 'top-up after the fill about'.",
+   "reproduction": "cd /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_entry && : > data/orders.jsonl\n(1) $ python3 cand/entry_v18.py core 50 20261118 20.90 20.90 84.10 down      -> NVDL 1 20.94 <ref_id> [rc=0]\n    $ python3 cand/entry_v18.py topup 50 20261118 84.10 0 down --again --dry\n    NVDL top-up: target 21.0250 - spent 0.00 = 21.02\n    REHEARSAL NOTE (a real run would stop here): a core intent exists for night 50: [...], but SPENT is 0. ...   [rc=0]\n    The same command without --dry prints '--again: overriding: ...' and 'NVDL dollar_amount 21.02 <ref_id>' [rc=0].\n(2) : > data/orders.jsonl\n    $ python3 cand/entry_v18.py reprice 50 20261118 21.10 21.10 84.10 down\n    NVDL state down  target 21.0250 (25.0% of E 84.10)  lim 21.17 x0 = 0.00  -> top-up after the fill about 21.02\n    NO ORDER: at the re-price limit one share costs more than the target, and the first core order was cancelled unfilled: NO top-up (§3(c)). Stay in cash tonight.   [rc=0]\n(3) $ python3 cand/entry_v18.py reprice 46 20261111 20.66 20.64 81.90 pause --dry\n    NVDL state pause  target 20.7300 (25.3% of E 81.90)  lim 20.73 x1 = 20.73\n    NOTHING WRITTEN: reprice without a core intent for this night; use core   [rc=1]   (same with --again)\n(4) $ python3 cand/entry_v18.py core 50 20261118 21.10 21.10 84.10 down\n    ... place the top-up at once -> python3 <path>/entry_v18.py topup 50 20261118 84.10 0 down   (review_equity_order first on first live use, §13(h); never after 15:58)\n    Pasting everything after '->' into bash: \"syntax error near unexpected token `('\", rc=2, log unchanged.\n(5) $ python3 cand/entry_v18.py core 46 20261111 20.58 20.58 81.90 pause      -> NVDL 1 20.62 <ref_id> [rc=0]\n    $ python3 cand/entry_v18.py core 46 20261111 20.59 20.58 81.90 pause\n    NOTHING WRITTEN: an intent of this kind already exists for night 46: [T3X-20261111-46-NVDL-E: qty 1 limit 20.62, ref_id <ref_id>, written ...]. If that order is live or filled, do nothing. If it never reached the broker, send it with THAT ref_id. Only if the broker rejected it (a new order is needed): run again with --again.   [rc=1]",
+   "suggested_fix": "(1) In check(), when both flags are set print 'REHEARSAL NOTE (a real run would stop here without --again): ...'. (2) In the reprice x0 branch print the 'cancelled unfilled' text only when a core intent exists; otherwise print the 'reprice without a core intent' text. (3) Extend that text: 'check NIGHT and the date against the core run'. (4) Put the '(review_equity_order ...; never after the §4 cut-off)' remark on its own line before the command, so that the command ends the line. (5) Add to the duplicate text: 'or if the stored intent was a rehearsal and its limit is stale'. (6) Write 'the §4 cut-off (15:57/15:58; 12:57/12:58 on half-days)' and 'top-up about' when q is 0."
+  },
+  {
+   "lens": "entry",
+   "title": "The re-price bound last*1.0055 is a tool rule that §4 does not contain, and its refusal tells the operator to skip the entry citing §4",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/entry_v18.py",
+   "line": 100,
+   "severity": "low",
+   "kind": "other",
+   "claim": "RULES_v3 §4 reads 'Unfilled at 15:55: re-price once to ask + 0.3%' with no cap; the '(<= last*1.004)' belongs to the first order. Version 2.1 bounds the re-price by last*1.0055. That is a sound sanity bound: it gives the same tolerance for a stale or wide quote as the first order and it still stops a mistyped ask. It is stricter than the rule, and the refusal ends with 'if it still fails at 15:57, skip the entry (§4)', which §4 does not say for this bound. Measured on the real code for price 18.00-25.00: refused 0% of quotes with ask = last + 0 to 3 cents, 3.7% at +4 cents (12% for 18.00-19.99, 3% for 20.00-21.00, 0% for 21.00-25.00), 60% at +5 cents, 100% from +6 cents. The first-order cap on the same quotes refuses about 0.4% at +4 cents and 65% at +5 cents. So a night is lost to this bound only if a re-price is needed and the ask stays 5 cents or more above the last trade until the cut-off. No entry has needed a re-price in 44 nights, and no entry in the log has an E2 line.",
+   "reproduction": "cd /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_entry && : > data/orders.jsonl\n$ python3 cand/entry_v18.py core 46 20261111 20.53 20.52 82.31 pause      -> NVDL 1 20.57 <ref_id> [rc=0]\n$ python3 cand/entry_v18.py reprice 46 20261111 20.60 20.58 82.31 pause --dry\nNVDL state pause  target 20.6700 (25.1% of E 82.31)  lim 20.67 x1 = 20.67   [rc=0]\n$ python3 cand/entry_v18.py reprice 46 20261111 20.65 20.58 82.31 pause\nNOTHING WRITTEN: limit 20.72 is above last*1.0055 = 20.6932 (re-price bound: the §4 cap plus the extra 0.15%). The quote is stale or the spread is wide: take a fresh quote and run again; if it still fails at 15:57, skip the entry (§4).   [rc=1]\nFrequency tables: python3 t/reprice_freq.py and python3 t/rp_exact.py (19,513 runs, 0 mismatches against the exact rule ceil_cent(ask*1.003) <= last*1.0055).",
+   "suggested_fix": "Keep the bound. Add '(<= last*1.0055)' after 're-price once to ask + 0.3%' in RULES_v3 §4 and in tools/README.md, so that the tool and the rule say the same thing. Until then change the end of the reprice refusal to 'if it still fails at the §4 cut-off, cancel and skip (tool bound; §4 itself sets no cap for the re-price)'."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_ovn.py: a zero-quantity leg stops the whole command, including the valid leg",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_ovn.py",
+   "line": 27,
+   "severity": "low",
+   "kind": "false_refusal",
+   "claim": "All legs are validated before anything is written, and a quantity of 0 counts as malformed. A command that carries a flat position next to the real one therefore writes nothing, not even the valid NVDL intent. Live writes the NVDL line in the same situation.\n\nThis needs an operator slip: building the legs from a position list that still shows NVDX with quantity 0 after this morning's exit. The real log has no zero-quantity intent in 258 lines, so the form has not been used before. The message is clear and a re-run without that leg works; the cost is a few seconds at 09:31:05.",
+   "reproduction": "cd /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/work_exit && : > data/orders.jsonl\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:21.43 NVDX:0:11.30\nNOTHING WRITTEN: SYM must be letters, QTY and BID must be > 0 in 'NVDX:0:11.30'      [rc=1, 0 lines]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1.00000000:21.43 NVDX:0.00000000:11.30\nNOTHING WRITTEN: SYM must be letters, QTY and BID must be > 0 in 'NVDX:0.00000000:11.30'      [rc=1, 0 lines]\nLive, first command:\nNVDL 1 21.39 <ref_id>\nNVDX 0 11.28 <ref_id>      [rc=0, 2 lines]\nLive, second command: the NVDL intent is written, then ValueError on the NVDX leg      [rc=1, 1 line]",
+   "suggested_fix": "Treat a leg whose quantity is exactly 0 as nothing to sell: print `NVDX: quantity 0, nothing to sell, skipped` and continue with the other legs. Keep refusing negative and non-numeric quantities."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_ovn.py rejects --again, the flag its two sibling tools tell the operator to use after a broker rejection",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_ovn.py",
+   "line": 13,
+   "severity": "low",
+   "kind": "false_refusal",
+   "claim": "exit_frac.py and entry_v18.py both print \"run again with --again\" for a broker rejection. exit_ovn.py needs no override, because every run writes a new intent, but it treats `--again` as an unknown option and writes nothing. Live ignores unknown flags and writes.\n\nAn operator who carries the habit over to a rejected whole-share exit loses one round at 09:31. The message names the known options and the same command without the flag works, so the cost is a few seconds. exit_ovn.py's own usage line does not list `--again`, so this is an operator slip.",
+   "reproduction": "cd .../v21_review/work_exit && : > data/orders.jsonl\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:21.43\nNVDL 1 21.39 <ref_id>      [rc=0]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:21.41 --again\nNOTHING WRITTEN: unknown option '--again' (known: --reprice, --dry)      [rc=1]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:21.41 --reprice --again\nNOTHING WRITTEN: unknown option '--again' (known: --reprice, --dry)      [rc=1]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:21.41\nNVDL 1 21.37 <ref_id>      [rc=0]\nLive with --again: NVDL 1 21.37 <ref_id>      [rc=0]",
+   "suggested_fix": "Accept `--again` in exit_ovn.py as a no-op and print one line, for example `note: --again is not needed here; every run writes a new intent`."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_frac.py: the instruction for a quantity with more than 6 decimals ends in two refusals",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_frac.py",
+   "line": 29,
+   "severity": "low",
+   "kind": "wrong_instruction",
+   "claim": "The refusal says: round DOWN to 6 decimals and sell any dust with a second run (--again). The dust left by that rounding is below 0.000001 by construction. Passed as it is, it has more than 6 decimals and is refused with the same message; rounded down, it is 0 and is refused as nothing to sell. The second half of the instruction cannot be carried out.\n\nexit_ovn.py line 38 has a related wording slip: for a position under 1 share with more than 6 decimals it says \"re-read get_equity_positions after the fill\", although there is no order to fill.\n\nBoth need the broker to report a seventh significant decimal, which I could not test and which Robinhood's 6-decimal fractions should not produce. Quantities padded with zeros (0.99764200) are handled correctly.",
+   "reproduction": "cd .../v21_review/work_exit && : > data/orders.jsonl\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.9976425\nNOTHING WRITTEN: QTY 0.9976425 has more than 6 decimals. Fractional orders take at most 6: re-read get_equity_positions; if the broker itself reports more, round DOWN to 6 decimals and sell any dust with a second run (--again)      [rc=1]\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.997642\nNVDL 0.997642 <ref_id>      [rc=0]\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.0000005 --again\nNOTHING WRITTEN: QTY 0.0000005 has more than 6 decimals. Fractional orders take at most 6: ...      [rc=1]\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.000000 --again\nNOTHING WRITTEN: QTY is 0: nothing to sell      [rc=1]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:0.9976425:21.50\nNVDL: position under 1 share -> no limit order; run: re-read get_equity_positions after the fill and pass the remaining quantity (at most 6 decimals) to python3 <path>/exit_frac.py 45 20261111 NVDL <QTY>      [rc=0]",
+   "suggested_fix": "Reword the exit_frac.py message: \"round DOWN to 6 decimals; a remainder below 0.000001 cannot be sold by a share order, so leave it and note it in the journal\". In exit_ovn.py drop \"after the fill\" from the hint when the whole-share part is 0."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_frac.py: with --dry --again the rehearsal note says a real run would stop, but it would write",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_frac.py",
+   "line": 43,
+   "severity": "low",
+   "kind": "wrong_instruction",
+   "claim": "Line 43 tests `dry` before `again`. A rehearsal of the override command therefore prints \"REHEARSAL NOTE (a real run would stop here)\", while the same command without `--dry` prints \"--again: overriding\" and writes a new intent. The rehearsal misdescribes the real run. Nothing is written in the rehearsal, so the effect is confusion only.",
+   "reproduction": "cd .../v21_review/work_exit && : > data/orders.jsonl\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.997642\nNVDL 0.997642 <ref_id>      [rc=0, 1 line]\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.997642 --dry --again\nREHEARSAL NOTE (a real run would stop here): an intent T3X-20261111-45-NVDL-XF already exists (qty 0.997642, ref_id <ref_id>, written 2026-11-10T15:20:12Z). ...\nNVDL market sell 0.997642 (fractional remainder, night 45)      [rc=0, 1 line]\n$ python3 cand/exit_frac.py 45 20261111 NVDL 0.997642 --again\n--again: overriding: an intent T3X-20261111-45-NVDL-XF already exists ...\nNVDL 0.997642 <new ref_id>      [rc=0, 2 lines]",
+   "suggested_fix": "When both flags are given, print `REHEARSAL NOTE (a real run would override with --again): ...`. The same order of tests is in entry_v18.py's check()."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_frac.py: --again with nothing to override is accepted without a note",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_frac.py",
+   "line": 39,
+   "severity": "low",
+   "kind": "ineffective_guard",
+   "claim": "When no earlier -XF intent exists for the night and symbol, a run with `--again` behaves exactly like a run without it and prints nothing about the flag. The written line carries no mark that an override was requested. An operator who adds `--again` out of habit switches the duplicate guard off with no trace in the output or the log.\n\nThe flag bypasses only the duplicate check: quantity, date and symbol checks still apply (120,000 fuzzed commands, no malformed intent written). When an earlier intent does exist, the override is announced with that intent's quantity, ref_id and time.",
+   "reproduction": "cd .../v21_review/work_exit && : > data/orders.jsonl\n$ python3 cand/exit_frac.py 60 20261203 NVDL 0.5 --again\nNVDL market sell 0.5 (fractional remainder, night 60)\nNVDL 0.5 <ref_id>      [rc=0, 1 line; no mention of --again]",
+   "suggested_fix": "Print `note: --again given, but no earlier intent exists for this night and symbol` in that case, and consider adding `\"again\": true` to an intent written under the override."
+  },
+  {
+   "lens": "exit",
+   "title": "exit_ovn.py: a bid with 5 or 6 decimals can give a limit 1 cent above the exact rule (not a tie)",
+   "file": "/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/v21_review/cand/exit_ovn.py",
+   "line": 28,
+   "severity": "low",
+   "kind": "regression",
+   "claim": "Line 28 rounds the value in cents to 6 decimals before taking the floor. That fixes the exact ties, but it also lifts any value within 0.0000005 cent below a cent boundary. For bid 28.555667 with `--reprice` the exact value is 28.469999999; the candidate gives 28.47, while live and the exact rule give 28.46.\n\nThis was 1 case in 800,000 random six-decimal bids. It cannot happen for bids with up to 4 decimals: the smallest distance below a cent boundary is then 0.000005 cent, and all 1,180,002 four-decimal cases from 1.0000 to 60.0000 matched the exact rule. Quotes at or above $1 are in whole cents, so a real NVDL bid cannot trigger it. The effect would be a sell limit 1 cent less aggressive.",
+   "reproduction": "cd .../v21_review/work_exit\n$ python3 live/exit_ovn.py 45 20261111 NVDL:1:28.555667 --reprice\nNVDL 1 28.46 <ref_id>      [rc=0]\n$ python3 cand/exit_ovn.py 45 20261111 NVDL:1:28.555667 --reprice\nNVDL 1 28.47 <ref_id>      [rc=0]\nExact: 28.555667 x 0.997 = 28.469999999, floor to the cent = 28.46.",
+   "suggested_fix": "No change is needed for deployment. For exactness, compute the limit from the typed string with Fraction or Decimal, for example `math.floor(Fraction(p[2]) * Fraction(997, 1000) * 100) / 100` and the matching expression for the first order."
+  }
+ ]
+}
