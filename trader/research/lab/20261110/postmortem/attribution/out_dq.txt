@@ -1,0 +1,108 @@
+  N sym   q   fill$   fill%   col15   col16  col16-is
+  1 NVDL  1   -0.93   -2.62   -0.93   -0.94  
+  1 AMZU  1   -0.73   -2.06   -0.73   -0.74  
+  2 NVDL  1    0.45    1.33    0.45    0.46  
+  2 AMZU  1    0.86    2.44    0.86    0.88  <-- col16 not dollars (OTHER); col15=dollars
+  3 NVDL  1   -2.72   -8.01   -2.72   -2.76  <-- col16 not dollars (OTHER); col15=dollars
+  3 AMZU  1   -1.61   -4.39   -1.61   -1.64  <-- col16 not dollars (OTHER); col15=dollars
+  4 NVDL  2    0.66    1.04    0.66    0.70  <-- col16 not dollars (OTHER); col15=dollars
+  4 METU  1   -0.38   -1.43   -0.38   -0.40  <-- col16 not dollars (OTHER); col15=dollars
+  5 NVDL  2    0.88    1.38    0.88    0.93  <-- col16 not dollars (OTHER); col15=dollars
+  5 METU  1    0.63    2.34    0.63    0.67  <-- col16 not dollars (OTHER); col15=dollars
+  6 NVDL  2    2.66    4.11    2.66    2.78  <-- col16 not dollars (OTHER); col15=dollars
+  6 METU  1    0.14    0.51    0.14    0.15  <-- col16 not dollars (OTHER); col15=dollars
+  7 NVDL  2   -1.02   -1.49   -1.02   -1.02  
+  7 METU  1    0.21    0.77    0.21    0.21  
+  8 NVDL  2    1.46    2.14    1.46    2.14  <-- col16 not dollars (percent); col15=dollars
+  8 METU  1    2.11    8.02    2.11    8.02  <-- col16 not dollars (percent); col15=dollars
+  9 NVDL  1    0.31    0.85    0.31    0.85  <-- col16 not dollars (percent); col15=dollars
+  9 METU  1   -0.80   -2.42   -0.80   -2.42  <-- col16 not dollars (percent); col15=dollars
+  9 NVDX  1    0.20    0.97    0.20    0.97  <-- col16 not dollars (percent); col15=dollars
+ 10 NVDL  1   -0.47   -1.26   -0.47   -1.26  <-- col16 not dollars (percent); col15=dollars
+ 10 METU  1    0.45    1.40    0.45    1.40  <-- col16 not dollars (percent); col15=dollars
+ 10 NVDX  1   -0.27   -1.28   -0.27   -1.28  <-- col16 not dollars (percent); col15=dollars
+ 11 NVDL  1   -0.66   -1.86   -0.66   -1.86  <-- col16 not dollars (percent); col15=dollars
+ 11 METU  1    0.58    1.79    0.58    1.79  <-- col16 not dollars (percent); col15=dollars
+ 11 NVDX  1   -0.38   -1.89   -0.38   -1.89  <-- col16 not dollars (percent); col15=dollars
+ 12 NVDL  1    0.28    0.79    0.79    0.28  
+ 12 METU  1   -1.43   -4.03   -4.03   -1.43  
+ 12 NVDX  1    0.16    0.80    0.80    0.16  
+ 13 NVDL  1    2.08    5.84    5.84    2.08  
+ 13 METU  1   -1.27   -3.84   -3.84   -1.27  
+ 13 NVDX  1    1.19    5.93    5.93    1.19  
+ 14 METU  1    0.80    2.67    2.67    0.80  
+ 14 AAPU  1   -1.42   -3.11   -3.11   -1.42  
+ 15 METU  1   -0.66   -2.09   -2.09   -0.66  
+ 15 AAPU  1    0.56    1.30    1.30    0.56  
+ 16 METU  1    0.13    0.42    0.42    0.13  
+ 16 AAPU  1   -1.24   -2.78   -2.78   -1.24  
+ 17 METU  1    0.89    2.89    2.89    0.89  
+ 17 AAPU  1    0.37    0.85    0.85    0.37  
+ 18 METU  1    0.75    2.42    2.42    0.75  
+ 18 AAPU  1   -0.35   -0.80   -0.80   -0.35  
+ 19 METU  1    0.12    0.37    0.37    0.12  
+ 19 NVDL  1    1.19    2.95    2.95    1.19  
+ 20 METU  1   -0.43   -1.33   -1.33   -0.43  
+ 20 NVDL  1   -0.39   -0.97   -0.97   -0.39  
+ 21 METU  2   -0.33   -0.54   -0.54   -0.33  
+ 21 NVDL  1   -1.03   -2.60   -2.60   -1.03  
+ 22 METU  2    0.26    0.43    0.43    0.26  
+ 22 NVDL  1    0.47    1.26    1.26    0.47  
+ 23 METU  2    3.14    5.23    5.23    3.14  
+ 23 NVDL  1   -0.48   -1.30   -1.30   -0.48  
+ 24 METU  2   -0.80   -1.25   -1.25   -0.80  
+ 24 NVDL  1   -0.93   -2.58   -2.58   -0.93  
+ 25 NVDX  5   -2.25   -2.20   -2.20   -2.25  
+ 26 NVDL  2   -3.83   -5.62   -5.62   -3.83  
+ 26 NVDX  1   -1.07   -5.57   -5.57   -1.07  
+ 27 NVDL  2   -0.62   -0.94   -0.94   -0.62  
+ 27 NVDX  1   -0.16   -0.86   -0.86   -0.16  
+ 28 NVDL  2    0.82    1.28    1.28    0.82  
+ 28 NVDX  1    0.21    1.18    1.18    0.21  
+ 29 NVDL  2   -1.09   -1.66   -1.66   -1.09  
+ 29 NVDX  1   -0.29   -1.59   -1.59   -0.29  
+ 30 NVDL  2    2.92    4.47    4.47    2.92  
+ 30 NVDX  1    0.82    4.48    4.48    0.82  
+ 31 NVDL  2   -2.78   -4.06   -4.06   -2.78  
+ 31 NVDX  1   -0.78   -4.06   -4.06   -0.78  
+ 32 NVDL  3   -1.26   -1.34   -1.34   -1.26  
+ 33 NVDL  3    1.80    1.94    1.94    1.80  
+ 34 NVDL  2    0.99    1.52    1.53    0.99  
+ 34 NVDX  1    0.28    1.56    1.53    0.28  
+ 35 NVDL  2    0.92    1.40    1.44    0.92  
+ 35 NVDX  1    0.30    1.60    1.44    0.30  
+ 36 NVDL  3   -0.75   -0.78   -0.78   -0.75  
+ 37 NVDL  3   -4.73   -5.01   -5.01   -4.73  
+ 38 NVDL  3    2.76    3.19    3.19    2.76  
+ 39 NVDL  3    3.68    4.33    4.33    3.68  
+ 40 NVDL  3   -2.16   -2.44   -2.44   -2.16  
+ 41 NVDL  3   -4.74   -5.69   -5.69   -4.74  
+ 42 NVDL  4    9.22   10.15   10.15    9.22  
+ 43 NVDL  4  -15.84  -16.64  -16.64  -15.84  
+ 44 NVDL  3   -4.59   -7.08   -7.08   -4.59  
+ 44 NVDX  1   -0.84   -6.94   -6.94   -0.84  
+sum fills $ -19.764 sum col15 -26.96 sum col16 -15.69
+('dollars', 'dollars') legs 5 fill$ -2.01 col15 sum -2.02 col16 sum -2.03
+('dollars', 'OTHER') legs 9 fill$ 1.12 col15 sum 1.12 col16 sum 1.31
+('dollars', 'percent') legs 11 fill$ 2.54 col15 sum 2.53 col16 sum 6.46
+('percent', 'dollars') legs 54 fill$ -22.91 col15 sum -33.0 col16 sum -22.93
+('OTHER', 'dollars') legs 3 fill$ 1.5 col15 sum 4.41 col16 sum 1.5
+N1-7: legs 14 fill$ -0.90 col15 -0.90 col16 -0.72
+N8-11: legs 11 fill$ +2.54 col15 +2.53 col16 +6.46
+N12-44: legs 57 fill$ -21.41 col15 -28.59 col16 -21.43
+
+N1-7 col16 hypotheses:
+1 NVDL col15 -0.93 col16 -0.94 fill$ -0.929 model$ (O-C)*q -0.95 pct -2.62 pct_of_equity98.75? -0.94 vs limit -1.0
+1 AMZU col15 -0.73 col16 -0.74 fill$ -0.73 model$ (O-C)*q -0.53 pct -2.06 pct_of_equity98.75? -0.74 vs limit -0.77
+2 NVDL col15 0.45 col16 0.46 fill$ 0.45 model$ (O-C)*q 0.9 pct 1.33 pct_of_equity98.75? 0.46 vs limit 0.38
+2 AMZU col15 0.86 col16 0.88 fill$ 0.856 model$ (O-C)*q 0.57 pct 2.44 pct_of_equity98.75? 0.87 vs limit 0.789
+3 NVDL col15 -2.72 col16 -2.76 fill$ -2.718 model$ (O-C)*q -2.18 pct -8.01 pct_of_equity98.75? -2.75 vs limit -2.76
+3 AMZU col15 -1.61 col16 -1.64 fill$ -1.61 model$ (O-C)*q -0.89 pct -4.39 pct_of_equity98.75? -1.63 vs limit -1.69
+4 NVDL col15 0.66 col16 0.7 fill$ 0.66 model$ (O-C)*q 1.4 pct 1.04 pct_of_equity98.75? 0.67 vs limit 0.54
+4 METU col15 -0.38 col16 -0.4 fill$ -0.38 model$ (O-C)*q -0.51 pct -1.43 pct_of_equity98.75? -0.38 vs limit -0.43
+5 NVDL col15 0.88 col16 0.93 fill$ 0.88 model$ (O-C)*q 1.23 pct 1.38 pct_of_equity98.75? 0.89 vs limit 0.76
+5 METU col15 0.63 col16 0.67 fill$ 0.63 model$ (O-C)*q 0.77 pct 2.34 pct_of_equity98.75? 0.64 vs limit 0.59
+6 NVDL col15 2.66 col16 2.78 fill$ 2.66 model$ (O-C)*q 2.78 pct 4.11 pct_of_equity98.75? 2.69 vs limit 2.52
+6 METU col15 0.14 col16 0.15 fill$ 0.139 model$ (O-C)*q 0.78 pct 0.51 pct_of_equity98.75? 0.14 vs limit 0.07
+7 NVDL col15 -1.02 col16 -1.02 fill$ -1.018 model$ (O-C)*q -0.18 pct -1.49 pct_of_equity98.75? -1.03 vs limit -1.14
+7 METU col15 0.21 col16 0.21 fill$ 0.214 model$ (O-C)*q 0.415 pct 0.77 pct_of_equity98.75? 0.22 vs limit 0.16

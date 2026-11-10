@@ -1,0 +1,2 @@
+RACE C0 (2015-26, blackout, no edge in either state): by 250: above 98.75 first 48.8%, 50 first 18.9% | by 750: above 98.75 first 56.5%, 50 first 41.9% | by 1500: above 98.75 first 57.0%, 50 first 43.0%
+RACE C4 (2015-26, blackout, half edge): by 250: above 98.75 first 72.9%, 50 first 9.4% | by 750: above 98.75 first 81.9%, 50 first 17.1% | by 1500: above 98.75 first 82.5%, 50 first 17.5%

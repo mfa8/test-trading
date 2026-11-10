@@ -1,0 +1,281 @@
+#### PART 1: synthetic 2x NVDA, 2*(open_t+1/close_t - 1) - 0.0009 ####
+
+=== 2x NVDA overnight, all nights ===
+sample 2000-10-30 -> 2026-11-09 n 6544
+ALL                        n  6544  mean  +0.163%  sd  3.995%  t +3.30  log-growth  +0.078%  win 53.0%
+2000-2014                  n  3563  mean  +0.094%  sd  4.217%  t +1.32  log-growth  -0.004%  win 51.3%
+2015-2026                  n  2981  mean  +0.246%  sd  3.711%  t +3.61  log-growth  +0.176%  win 55.0%
+2015-2020                  n  1511  mean  +0.254%  sd  3.519%  t +2.80  log-growth  +0.190%  win 56.5%
+2021-2026                  n  1470  mean  +0.237%  sd  3.899%  t +2.33  log-growth  +0.163%  win 53.4%
+2015                       n   252  mean  +0.024%  sd  2.793%  t +0.13  log-growth  -0.014%  win 46.4%
+2016                       n   252  mean  +0.426%  sd  3.336%  t +2.03  log-growth  +0.376%  win 58.7%
+2017                       n   251  mean  +0.489%  sd  2.781%  t +2.78  log-growth  +0.450%  win 64.1%
+2018                       n   251  mean  -0.022%  sd  4.034%  t -0.08  log-growth  -0.113%  win 52.2%
+2019                       n   252  mean  +0.245%  sd  3.366%  t +1.16  log-growth  +0.185%  win 55.6%
+2020                       n   253  mean  +0.359%  sd  4.477%  t +1.28  log-growth  +0.255%  win 62.1%
+2021                       n   252  mean  +0.492%  sd  2.938%  t +2.66  log-growth  +0.449%  win 59.5%
+2022                       n   251  mean  -0.603%  sd  4.298%  t -2.22  log-growth  -0.698%  win 42.6%
+2023                       n   250  mean  +0.361%  sd  4.533%  t +1.26  log-growth  +0.274%  win 48.4%
+2024                       n   252  mean  +0.783%  sd  4.002%  t +3.11  log-growth  +0.699%  win 60.7%
+2025                       n   250  mean  +0.170%  sd  4.130%  t +0.65  log-growth  +0.082%  win 56.4%
+2026                       n   215  mean  +0.213%  sd  2.975%  t +1.05  log-growth  +0.168%  win 52.6%
+last 20 (to 2026-11-09)    n    20  mean  -0.817%  sd  5.270%  t -0.69  log-growth  -0.957%  win 40.0%
+last 44 (to 2026-11-09)    n    44  mean  -0.102%  sd  4.053%  t -0.17  log-growth  -0.185%  win 50.0%
+last 60 (to 2026-11-09)    n    60  mean  +0.224%  sd  3.944%  t +0.44  log-growth  +0.147%  win 55.0%
+last 120 (to 2026-11-09)   n   120  mean  +0.250%  sd  3.329%  t +0.82  log-growth  +0.194%  win 54.2%
+last 250 (to 2026-11-09)   n   250  mean  +0.210%  sd  3.023%  t +1.10  log-growth  +0.164%  win 52.4%
+  window  60: latest mean +0.224%; percentile among all 6485 overlapping windows 54.1; among windows ending 2015+ 42.3; among 109 non-overlapping windows (anchored at latest) 49.5 [rank 54 of 109 from bottom]; min -1.673 max +2.120 median +0.185
+      share of 60-night windows with mean <= 0: all 34.3%, 2015+ 26.5%
+  window 120: latest mean +0.250%; percentile among all 6425 overlapping windows 57.2; among windows ending 2015+ 43.3; among 54 non-overlapping windows (anchored at latest) 59.3 [rank 32 of 54 from bottom]; min -1.238 max +1.474 median +0.190
+      share of 120-night windows with mean <= 0: all 31.1%, 2015+ 22.8%
+  window 250: latest mean +0.210%; percentile among all 6295 overlapping windows 54.6; among windows ending 2015+ 39.0; among 26 non-overlapping windows (anchored at latest) 57.7 [rank 15 of 26 from bottom]; min -0.656 max +0.909 median +0.180
+      share of 250-night windows with mean <= 0: all 24.4%, 2015+ 19.6%
+
+=== 2x NVDA overnight, EX earnings nights (flags exist 2015+ only) ===
+sample 2000-10-30 -> 2026-11-09 n 6497
+ALL                        n  6497  mean  +0.118%  sd  3.785%  t +2.52  log-growth  +0.041%  win 52.9%
+2000-2014                  n  3563  mean  +0.094%  sd  4.217%  t +1.32  log-growth  -0.004%  win 51.3%
+2015-2026                  n  2934  mean  +0.148%  sd  3.182%  t +2.53  log-growth  +0.096%  win 54.9%
+2015-2020                  n  1487  mean  +0.163%  sd  2.932%  t +2.14  log-growth  +0.118%  win 56.4%
+2021-2026                  n  1447  mean  +0.133%  sd  3.422%  t +1.48  log-growth  +0.074%  win 53.4%
+2015                       n   248  mean  -0.127%  sd  1.886%  t -1.06  log-growth  -0.144%  win 46.0%
+2016                       n   248  mean  +0.122%  sd  1.983%  t +0.97  log-growth  +0.102%  win 58.1%
+2017                       n   247  mean  +0.389%  sd  2.276%  t +2.69  log-growth  +0.363%  win 64.0%
+2018                       n   247  mean  +0.098%  sd  2.980%  t +0.52  log-growth  +0.054%  win 52.6%
+2019                       n   248  mean  +0.158%  sd  3.201%  t +0.78  log-growth  +0.102%  win 55.6%
+2020                       n   249  mean  +0.337%  sd  4.440%  t +1.20  log-growth  +0.233%  win 62.2%
+2021                       n   248  mean  +0.422%  sd  2.604%  t +2.55  log-growth  +0.388%  win 59.7%
+2022                       n   247  mean  -0.512%  sd  4.252%  t -1.89  log-growth  -0.604%  win 43.3%
+2023                       n   246  mean  -0.001%  sd  2.546%  t -0.01  log-growth  -0.034%  win 48.0%
+2024                       n   248  mean  +0.655%  sd  3.646%  t +2.83  log-growth  +0.583%  win 60.5%
+2025                       n   246  mean  +0.069%  sd  4.041%  t +0.27  log-growth  -0.016%  win 56.1%
+2026                       n   212  mean  +0.169%  sd  2.870%  t +0.86  log-growth  +0.127%  win 52.8%
+last 20 (to 2026-11-09)    n    20  mean  -0.817%  sd  5.270%  t -0.69  log-growth  -0.957%  win 40.0%
+last 44 (to 2026-11-09)    n    44  mean  -0.102%  sd  4.053%  t -0.17  log-growth  -0.185%  win 50.0%
+last 60 (to 2026-11-09)    n    60  mean  +0.027%  sd  3.601%  t +0.06  log-growth  -0.039%  win 55.0%
+last 120 (to 2026-11-09)   n   120  mean  +0.153%  sd  3.145%  t +0.53  log-growth  +0.103%  win 54.2%
+last 250 (to 2026-11-09)   n   250  mean  +0.134%  sd  2.908%  t +0.73  log-growth  +0.091%  win 52.4%
+  window  60: latest mean +0.027%; percentile among all 6438 overlapping windows 40.7; among windows ending 2015+ 36.8; among 108 non-overlapping windows (anchored at latest) 40.7 [rank 44 of 108 from bottom]; min -1.655 max +2.120 median +0.122
+      share of 60-night windows with mean <= 0: all 37.8%, 2015+ 34.0%
+  window 120: latest mean +0.153%; percentile among all 6378 overlapping windows 53.6; among windows ending 2015+ 49.9; among 54 non-overlapping windows (anchored at latest) 51.9 [rank 28 of 54 from bottom]; min -1.086 max +1.474 median +0.123
+      share of 120-night windows with mean <= 0: all 35.3%, 2015+ 31.8%
+  window 250: latest mean +0.134%; percentile among all 6248 overlapping windows 51.3; among windows ending 2015+ 49.6; among 25 non-overlapping windows (anchored at latest) 52.0 [rank 13 of 25 from bottom]; min -0.642 max +0.909 median +0.128
+      share of 250-night windows with mean <= 0: all 27.8%, 2015+ 26.7%
+
+Earnings nights only, 2x NVDA overnight net 9bp:
+earnings nights 2015-26    n    47  mean  +6.308%  sd 14.434%  t +3.00  log-growth  +5.185%  win 57.4%
+    2023 [('2023-02-22', 25.8), ('2023-05-24', 52.2), ('2023-08-23', 13.1), ('2023-11-21', -0.5)]
+    2024 [('2024-02-21', 22.3), ('2024-05-22', 14.8), ('2024-08-28', -6.9), ('2024-11-20', 4.7)]
+    2025 [('2025-02-26', 5.6), ('2025-05-28', 10.9), ('2025-08-27', -0.9), ('2025-11-19', 10.0)]
+    2026 [('2026-02-25', -1.4), ('2026-05-20', -1.1), ('2026-08-26', 12.5)]
+
+=== 2x NVDA DAY (2*(close/open-1), no cost) - the part the account avoids ===
+sample 2000-10-30 -> 2026-11-10 n 6545
+ALL                        n  6545  mean  +0.071%  sd  5.808%  t +0.98  log-growth  -0.097%  win 50.2%
+2000-2014                  n  3563  mean  +0.008%  sd  6.552%  t +0.07  log-growth  -0.205%  win 48.9%
+2015-2026                  n  2982  mean  +0.146%  sd  4.771%  t +1.67  log-growth  +0.032%  win 51.8%
+2015-2020                  n  1511  mean  +0.167%  sd  4.359%  t +1.49  log-growth  +0.071%  win 52.0%
+2021-2026                  n  1471  mean  +0.125%  sd  5.161%  t +0.93  log-growth  -0.008%  win 51.7%
+2015                       n   252  mean  +0.304%  sd  3.098%  t +1.56  log-growth  +0.256%  win 52.4%
+2016                       n   252  mean  +0.481%  sd  3.955%  t +1.93  log-growth  +0.403%  win 55.2%
+2017                       n   251  mean  -0.016%  sd  4.083%  t -0.06  log-growth  -0.101%  win 50.6%
+2018                       n   251  mean  -0.273%  sd  5.463%  t -0.79  log-growth  -0.426%  win 52.2%
+2019                       n   252  mean  +0.207%  sd  3.703%  t +0.89  log-growth  +0.139%  win 50.0%
+2020                       n   253  mean  +0.295%  sd  5.340%  t +0.88  log-growth  +0.153%  win 51.4%
+2021                       n   252  mean  +0.149%  sd  4.785%  t +0.50  log-growth  +0.035%  win 50.4%
+2022                       n   251  mean  +0.120%  sd  6.818%  t +0.28  log-growth  -0.109%  win 49.8%
+2023                       n   250  mean  +0.605%  sd  4.456%  t +2.15  log-growth  +0.506%  win 55.2%
+2024                       n   252  mean  +0.044%  sd  5.226%  t +0.13  log-growth  -0.095%  win 53.2%
+2025                       n   250  mean  +0.115%  sd  5.134%  t +0.35  log-growth  -0.016%  win 54.0%
+2026                       n   216  mean  -0.349%  sd  3.929%  t -1.30  log-growth  -0.427%  win 46.8%
+last 20 (to 2026-11-10)    n    20  mean  -2.171%  sd  4.281%  t -2.27  log-growth  -2.289%  win 25.0%
+last 44 (to 2026-11-10)    n    44  mean  -1.191%  sd  3.424%  t -2.31  log-growth  -1.259%  win 29.5%
+last 60 (to 2026-11-10)    n    60  mean  -1.197%  sd  3.530%  t -2.63  log-growth  -1.269%  win 31.7%
+last 120 (to 2026-11-10)   n   120  mean  -0.740%  sd  3.846%  t -2.11  log-growth  -0.818%  win 38.3%
+last 250 (to 2026-11-10)   n   250  mean  -0.345%  sd  3.967%  t -1.37  log-growth  -0.425%  win 46.4%
+  window  60: latest mean -1.197%; percentile among all 6486 overlapping windows 5.3; among windows ending 2015+ 0.9; among 109 non-overlapping windows (anchored at latest) 5.5 [rank 6 of 109 from bottom]; min -3.087 max +5.025 median +0.079
+      share of 60-night windows with mean <= 0: all 44.8%, 2015+ 39.5%
+  window 120: latest mean -0.740%; percentile among all 6426 overlapping windows 6.1; among windows ending 2015+ 0.3; among 54 non-overlapping windows (anchored at latest) 11.1 [rank 6 of 54 from bottom]; min -2.289 max +3.123 median +0.074
+      share of 120-night windows with mean <= 0: all 43.4%, 2015+ 35.2%
+  window 250: latest mean -0.345%; percentile among all 6296 overlapping windows 11.2; among windows ending 2015+ 0.2; among 26 non-overlapping windows (anchored at latest) 11.5 [rank 3 of 26 from bottom]; min -1.399 max +2.054 median +0.061
+      share of 250-night windows with mean <= 0: all 41.1%, 2015+ 28.7%
+
+=== Drift of the overnight mean 2023..2026 (2x NVDA net 9bp) ===
+all nights: n 967 slope -0.1078% per night per year, t -0.93; intercept +0.595%
+   mean 2026 - mean 2023 = -0.149% (se 0.351, t -0.42)
+   mean 2026 - mean 2024 = -0.570% (se 0.324, t -1.76)
+   mean 2026 - mean 2025 = +0.042% (se 0.331, t 0.13)
+   mean 2025 - mean 2023 = -0.191% (se 0.388, t -0.49)
+   2023 H1 mean +0.499% (n 124)  H2 mean +0.226% (n 126)
+   2024 H1 mean +1.123% (n 124)  H2 mean +0.453% (n 128)
+   2025 H1 mean -0.046% (n 122)  H2 mean +0.377% (n 128)
+   2026 H1 mean +0.143% (n 123)  H2 mean +0.307% (n 92)
+ex earnings: n 952 slope +0.0040% per night per year, t 0.04; intercept +0.218%
+   mean 2026 - mean 2023 = +0.170% (se 0.255, t 0.67)
+   mean 2026 - mean 2024 = -0.486% (se 0.304, t -1.60)
+   mean 2026 - mean 2025 = +0.100% (se 0.324, t 0.31)
+   mean 2025 - mean 2023 = +0.070% (se 0.304, t 0.23)
+   2023 H1 mean -0.132% (n 122)  H2 mean +0.128% (n 124)
+   2024 H1 mean +0.838% (n 122)  H2 mean +0.478% (n 126)
+   2025 H1 mean -0.185% (n 120)  H2 mean +0.311% (n 126)
+   2026 H1 mean +0.166% (n 121)  H2 mean +0.173% (n 91)
+
+2026 by month, 2x NVDA overnight net 9bp (all nights) and 2x day:
+  2026-01 n 20 overnight mean +0.313% sum +6.3% | day mean -0.516% sum -10.3%
+  2026-02 n 19 overnight mean +0.449% sum +8.5% | day mean -1.174% sum -22.3%
+  2026-03 n 22 overnight mean -0.100% sum -2.2% | day mean +0.117% sum +2.6%
+  2026-04 n 21 overnight mean -0.265% sum -5.6% | day mean +1.516% sum +31.8%
+  2026-05 n 20 overnight mean +0.611% sum +12.2% | day mean +0.041% sum +0.8%
+  2026-06 n 21 overnight mean -0.081% sum -1.7% | day mean -0.854% sum -17.9%
+  2026-07 n 22 overnight mean -0.356% sum -7.8% | day mean +0.403% sum +8.9%
+  2026-08 n 21 overnight mean +1.620% sum +34.0% | day mean -0.761% sum -16.0%
+  2026-09 n 21 overnight mean +0.611% sum +12.8% | day mean -0.105% sum -2.2%
+  2026-10 n 22 overnight mean +0.017% sum +0.4% | day mean -1.003% sum -22.1%
+  2026-11 n  6 overnight mean -1.865% sum -11.2% | day mean -4.085% sum -28.6%
+
+#### PART 2: real NVDL and TQQQ bars ####
+
+=== NVDL overnight (real bars, open_t+1/close_t - 1, gross; 2023-12-26 distribution added back) ===
+sample 2022-12-13 -> 2026-11-09 n 976
+ALL                        n   976  mean  +0.425%  sd  3.737%  t +3.56  log-growth  +0.356%  win 56.8%
+2015-2026                  n   976  mean  +0.425%  sd  3.737%  t +3.56  log-growth  +0.356%  win 56.8%
+2021-2026                  n   976  mean  +0.425%  sd  3.737%  t +3.56  log-growth  +0.356%  win 56.8%
+2022                       n     9  mean  -1.048%  sd  3.309%  t -0.95  log-growth  -1.103%  win 22.2%
+2023                       n   250  mean  +0.396%  sd  3.645%  t +1.72  log-growth  +0.338%  win 52.8%
+2024                       n   252  mean  +0.825%  sd  4.014%  t +3.26  log-growth  +0.740%  win 62.7%
+2025                       n   250  mean  +0.240%  sd  4.116%  t +0.92  log-growth  +0.153%  win 57.2%
+2026                       n   215  mean  +0.268%  sd  2.965%  t +1.33  log-growth  +0.224%  win 55.3%
+last 20 (to 2026-11-09)    n    20  mean  -0.835%  sd  5.257%  t -0.71  log-growth  -0.974%  win 40.0%
+last 44 (to 2026-11-09)    n    44  mean  -0.085%  sd  4.045%  t -0.14  log-growth  -0.167%  win 50.0%
+last 60 (to 2026-11-09)    n    60  mean  +0.239%  sd  3.932%  t +0.47  log-growth  +0.162%  win 55.0%
+last 120 (to 2026-11-09)   n   120  mean  +0.303%  sd  3.317%  t +1.00  log-growth  +0.248%  win 54.2%
+last 250 (to 2026-11-09)   n   250  mean  +0.263%  sd  3.008%  t +1.38  log-growth  +0.217%  win 54.8%
+  window  60: latest mean +0.239%; percentile among all 917 overlapping windows 31.0; among windows ending 2015+ 31.0; among 16 non-overlapping windows (anchored at latest) 43.8 [rank 7 of 16 from bottom]; min -1.089 max +1.348 median +0.427
+      share of 60-night windows with mean <= 0: all 10.8%, 2015+ 10.8%
+  window 120: latest mean +0.303%; percentile among all 857 overlapping windows 31.3; among windows ending 2015+ 31.3; among 8 non-overlapping windows (anchored at latest) 50.0 [rank 4 of 8 from bottom]; min -0.192 max +1.274 median +0.440
+      share of 120-night windows with mean <= 0: all 6.5%, 2015+ 6.5%
+  window 250: latest mean +0.263%; percentile among all 727 overlapping windows 17.2; among windows ending 2015+ 17.2; among 3 non-overlapping windows (anchored at latest) 66.7 [rank 2 of 3 from bottom]; min +0.160 max +0.888 median +0.398
+      share of 250-night windows with mean <= 0: all 0.0%, 2015+ 0.0%
+
+=== NVDL overnight EX NVDA earnings nights ===
+sample 2022-12-13 -> 2026-11-09 n 961
+ALL                        n   961  mean  +0.286%  sd  3.269%  t +2.71  log-growth  +0.230%  win 56.6%
+2015-2026                  n   961  mean  +0.286%  sd  3.269%  t +2.71  log-growth  +0.230%  win 56.6%
+2021-2026                  n   961  mean  +0.286%  sd  3.269%  t +2.71  log-growth  +0.230%  win 56.6%
+2022                       n     9  mean  -1.048%  sd  3.309%  t -0.95  log-growth  -1.103%  win 22.2%
+2023                       n   246  mean  +0.111%  sd  2.082%  t +0.83  log-growth  +0.089%  win 52.4%
+2024                       n   248  mean  +0.698%  sd  3.665%  t +3.00  log-growth  +0.626%  win 62.5%
+2025                       n   246  mean  +0.143%  sd  4.034%  t +0.56  log-growth  +0.059%  win 56.9%
+2026                       n   212  mean  +0.228%  sd  2.863%  t +1.16  log-growth  +0.186%  win 55.7%
+last 20 (to 2026-11-09)    n    20  mean  -0.835%  sd  5.257%  t -0.71  log-growth  -0.974%  win 40.0%
+last 44 (to 2026-11-09)    n    44  mean  -0.085%  sd  4.045%  t -0.14  log-growth  -0.167%  win 50.0%
+last 60 (to 2026-11-09)    n    60  mean  +0.045%  sd  3.600%  t +0.10  log-growth  -0.020%  win 55.0%
+last 120 (to 2026-11-09)   n   120  mean  +0.209%  sd  3.140%  t +0.73  log-growth  +0.159%  win 54.2%
+last 250 (to 2026-11-09)   n   250  mean  +0.189%  sd  2.900%  t +1.03  log-growth  +0.147%  win 54.8%
+  window  60: latest mean +0.045%; percentile among all 902 overlapping windows 19.2; among windows ending 2015+ 19.2; among 16 non-overlapping windows (anchored at latest) 31.2 [rank 5 of 16 from bottom]; min -1.222 max +1.073 median +0.327
+      share of 60-night windows with mean <= 0: all 15.3%, 2015+ 15.3%
+  window 120: latest mean +0.209%; percentile among all 842 overlapping windows 35.2; among windows ending 2015+ 35.2; among 8 non-overlapping windows (anchored at latest) 50.0 [rank 4 of 8 from bottom]; min -0.269 max +0.970 median +0.317
+      share of 120-night windows with mean <= 0: all 10.1%, 2015+ 10.1%
+  window 250: latest mean +0.189%; percentile among all 712 overlapping windows 19.7; among windows ending 2015+ 19.7; among 3 non-overlapping windows (anchored at latest) 33.3 [rank 1 of 3 from bottom]; min +0.068 max +0.777 median +0.317
+      share of 250-night windows with mean <= 0: all 0.0%, 2015+ 0.0%
+
+=== NVDL DAY (close/open - 1) ===
+sample 2022-12-13 -> 2026-11-10 n 979
+ALL                        n   979  mean  +0.019%  sd  4.469%  t +0.14  log-growth  -0.081%  win 51.3%
+2015-2026                  n   979  mean  +0.019%  sd  4.469%  t +0.14  log-growth  -0.081%  win 51.3%
+2021-2026                  n   979  mean  +0.019%  sd  4.469%  t +0.14  log-growth  -0.081%  win 51.3%
+2022                       n    11  mean  -1.812%  sd  4.268%  t -1.41  log-growth  -1.917%  win 27.3%
+2023                       n   250  mean  +0.367%  sd  3.298%  t +1.76  log-growth  +0.313%  win 53.6%
+2024                       n   252  mean  +0.004%  sd  5.197%  t +0.01  log-growth  -0.133%  win 52.8%
+2025                       n   250  mean  +0.093%  sd  5.107%  t +0.29  log-growth  -0.036%  win 52.8%
+2026                       n   216  mean  -0.356%  sd  3.902%  t -1.34  log-growth  -0.433%  win 46.3%
+last 20 (to 2026-11-10)    n    20  mean  -2.110%  sd  4.327%  t -2.18  log-growth  -2.228%  win 30.0%
+last 44 (to 2026-11-10)    n    44  mean  -1.154%  sd  3.439%  t -2.23  log-growth  -1.222%  win 31.8%
+last 60 (to 2026-11-10)    n    60  mean  -1.163%  sd  3.519%  t -2.56  log-growth  -1.234%  win 33.3%
+last 120 (to 2026-11-10)   n   120  mean  -0.746%  sd  3.826%  t -2.14  log-growth  -0.823%  win 38.3%
+last 250 (to 2026-11-10)   n   250  mean  -0.346%  sd  3.931%  t -1.39  log-growth  -0.425%  win 46.0%
+  window  60: latest mean -1.163%; percentile among all 920 overlapping windows 0.2; among windows ending 2015+ 0.2; among 16 non-overlapping windows (anchored at latest) 6.2 [rank 1 of 16 from bottom]; min -1.214 max +1.353 median +0.040
+      share of 60-night windows with mean <= 0: all 47.0%, 2015+ 47.0%
+  window 120: latest mean -0.746%; percentile among all 860 overlapping windows 0.2; among windows ending 2015+ 0.2; among 8 non-overlapping windows (anchored at latest) 12.5 [rank 1 of 8 from bottom]; min -0.759 max +0.826 median +0.027
+      share of 120-night windows with mean <= 0: all 45.8%, 2015+ 45.8%
+  window 250: latest mean -0.346%; percentile among all 730 overlapping windows 0.1; among windows ending 2015+ 0.1; among 3 non-overlapping windows (anchored at latest) 33.3 [rank 1 of 3 from bottom]; min -0.346 max +0.410 median +0.073
+      share of 250-night windows with mean <= 0: all 33.4%, 2015+ 33.4%
+
+=== TQQQ overnight (real bars, gross) ===
+sample 2015-01-02 -> 2026-11-06 n 2980
+ALL                        n  2980  mean  +0.127%  sd  2.534%  t +2.73  log-growth  +0.094%  win 55.8%
+2015-2026                  n  2980  mean  +0.127%  sd  2.534%  t +2.73  log-growth  +0.094%  win 55.8%
+2015-2020                  n  1511  mean  +0.172%  sd  2.555%  t +2.62  log-growth  +0.138%  win 57.7%
+2021-2026                  n  1469  mean  +0.080%  sd  2.513%  t +1.22  log-growth  +0.049%  win 53.8%
+2015                       n   252  mean  +0.121%  sd  2.341%  t +0.82  log-growth  +0.093%  win 54.0%
+2016                       n   252  mean  +0.039%  sd  1.882%  t +0.33  log-growth  +0.021%  win 55.6%
+2017                       n   251  mean  +0.216%  sd  1.037%  t +3.30  log-growth  +0.210%  win 60.2%
+2018                       n   251  mean  +0.160%  sd  2.248%  t +1.13  log-growth  +0.135%  win 55.4%
+2019                       n   252  mean  +0.203%  sd  1.874%  t +1.72  log-growth  +0.186%  win 59.5%
+2020                       n   253  mean  +0.294%  sd  4.528%  t +1.03  log-growth  +0.185%  win 61.7%
+2021                       n   252  mean  +0.183%  sd  1.927%  t +1.50  log-growth  +0.164%  win 58.7%
+2022                       n   251  mean  -0.310%  sd  3.311%  t -1.48  log-growth  -0.365%  win 42.6%
+2023                       n   250  mean  +0.055%  sd  1.926%  t +0.45  log-growth  +0.036%  win 49.2%
+2024                       n   252  mean  +0.301%  sd  2.156%  t +2.22  log-growth  +0.277%  win 58.3%
+2025                       n   250  mean  +0.153%  sd  2.793%  t +0.87  log-growth  +0.114%  win 59.2%
+2026                       n   214  mean  +0.102%  sd  2.663%  t +0.56  log-growth  +0.067%  win 55.1%
+last 20 (to 2026-11-06)    n    20  mean  -0.568%  sd  3.247%  t -0.78  log-growth  -0.621%  win 50.0%
+last 44 (to 2026-11-06)    n    44  mean  -0.141%  sd  2.756%  t -0.34  log-growth  -0.179%  win 50.0%
+last 60 (to 2026-11-06)    n    60  mean  -0.164%  sd  2.540%  t -0.50  log-growth  -0.197%  win 50.0%
+last 120 (to 2026-11-06)   n   120  mean  +0.165%  sd  2.886%  t +0.62  log-growth  +0.123%  win 55.0%
+last 250 (to 2026-11-06)   n   250  mean  +0.114%  sd  2.577%  t +0.70  log-growth  +0.080%  win 54.8%
+  window  60: latest mean -0.164%; percentile among all 2921 overlapping windows 14.5; among windows ending 2015+ 14.5; among 49 non-overlapping windows (anchored at latest) 12.2 [rank 6 of 49 from bottom]; min -1.350 max +1.216 median +0.172
+      share of 60-night windows with mean <= 0: all 25.8%, 2015+ 25.8%
+  window 120: latest mean +0.165%; percentile among all 2861 overlapping windows 55.9; among windows ending 2015+ 55.9; among 24 non-overlapping windows (anchored at latest) 58.3 [rank 14 of 24 from bottom]; min -0.594 max +0.865 median +0.136
+      share of 120-night windows with mean <= 0: all 23.8%, 2015+ 23.8%
+  window 250: latest mean +0.114%; percentile among all 2731 overlapping windows 39.3; among windows ending 2015+ 39.3; among 11 non-overlapping windows (anchored at latest) 36.4 [rank 4 of 11 from bottom]; min -0.339 max +0.727 median +0.150
+      share of 250-night windows with mean <= 0: all 17.6%, 2015+ 17.6%
+
+=== TQQQ DAY (close/open - 1) ===
+sample 2015-01-02 -> 2026-11-09 n 2981
+ALL                        n  2981  mean  +0.070%  sd  3.230%  t +1.18  log-growth  +0.018%  win 53.9%
+2015-2026                  n  2981  mean  +0.070%  sd  3.230%  t +1.18  log-growth  +0.018%  win 53.9%
+2015-2020                  n  1511  mean  +0.065%  sd  2.951%  t +0.86  log-growth  +0.021%  win 54.3%
+2021-2026                  n  1470  mean  +0.074%  sd  3.494%  t +0.82  log-growth  +0.014%  win 53.5%
+2015                       n   252  mean  -0.029%  sd  2.591%  t -0.18  log-growth  -0.063%  win 51.6%
+2016                       n   252  mean  +0.085%  sd  2.389%  t +0.57  log-growth  +0.057%  win 54.4%
+2017                       n   251  mean  +0.111%  sd  1.587%  t +1.11  log-growth  +0.099%  win 58.6%
+2018                       n   251  mean  -0.181%  sd  3.817%  t -0.75  log-growth  -0.255%  win 50.2%
+2019                       n   252  mean  +0.211%  sd  2.236%  t +1.50  log-growth  +0.186%  win 53.6%
+2020                       n   253  mean  +0.194%  sd  4.216%  t +0.73  log-growth  +0.104%  win 57.7%
+2021                       n   252  mean  +0.112%  sd  2.749%  t +0.65  log-growth  +0.074%  win 56.3%
+2022                       n   251  mean  -0.123%  sd  5.138%  t -0.38  log-growth  -0.254%  win 47.8%
+2023                       n   250  mean  +0.415%  sd  2.872%  t +2.28  log-growth  +0.373%  win 59.2%
+2024                       n   252  mean  -0.047%  sd  2.642%  t -0.28  log-growth  -0.082%  win 52.8%
+2025                       n   250  mean  +0.075%  sd  3.849%  t +0.31  log-growth  +0.005%  win 54.8%
+2026                       n   215  mean  +0.007%  sd  2.975%  t +0.03  log-growth  -0.038%  win 49.8%
+last 20 (to 2026-11-09)    n    20  mean  -0.879%  sd  4.787%  t -0.82  log-growth  -0.999%  win 55.0%
+last 44 (to 2026-11-09)    n    44  mean  -0.270%  sd  3.515%  t -0.51  log-growth  -0.334%  win 50.0%
+last 60 (to 2026-11-09)    n    60  mean  -0.234%  sd  3.072%  t -0.59  log-growth  -0.283%  win 46.7%
+last 120 (to 2026-11-09)   n   120  mean  -0.269%  sd  3.152%  t -0.93  log-growth  -0.320%  win 45.8%
+last 250 (to 2026-11-09)   n   250  mean  -0.026%  sd  2.999%  t -0.14  log-growth  -0.072%  win 50.8%
+  window  60: latest mean -0.234%; percentile among all 2922 overlapping windows 16.5; among windows ending 2015+ 16.5; among 49 non-overlapping windows (anchored at latest) 22.4 [rank 11 of 49 from bottom]; min -1.355 max +1.166 median +0.073
+      share of 60-night windows with mean <= 0: all 40.9%, 2015+ 40.9%
+  window 120: latest mean -0.269%; percentile among all 2862 overlapping windows 2.7; among windows ending 2015+ 2.7; among 24 non-overlapping windows (anchored at latest) 4.2 [rank 1 of 24 from bottom]; min -0.521 max +0.834 median +0.066
+      share of 120-night windows with mean <= 0: all 36.3%, 2015+ 36.3%
+  window 250: latest mean -0.026%; percentile among all 2732 overlapping windows 16.9; among windows ending 2015+ 16.9; among 11 non-overlapping windows (anchored at latest) 27.3 [rank 3 of 11 from bottom]; min -0.260 max +0.452 median +0.074
+      share of 250-night windows with mean <= 0: all 24.6%, 2015+ 24.6%
+
+NVDL overnight beta to NVDA overnight by year (OLS through origin):
+   2022 9 beta 1.853
+   2023 249 beta 1.574
+   2024 252 beta 1.998
+   2025 250 beta 1.991
+   2026 215 beta 1.987
+   day-beta 2023-10 22 1.544
+   day-beta 2023-11 21 1.523
+   day-beta 2023-12 20 1.491
+   day-beta 2024-01 21 1.557
+   day-beta 2024-02 20 1.943
+   day-beta 2024-03 20 1.947
+
+RULE 3(f) reading: trailing-120 NVDL overnight mean, ex NVDA earnings nights, day-bar close->open:
+   window ending night of 2026-11-09: mean +0.209% sd 3.140 t 0.73
+   window ending night of 2026-11-06: mean +0.285% sd 3.118 t 1.00
+   window ending night of 2026-11-05: mean +0.363% sd 2.846 t 1.40
+   window ending night of 2026-11-04: mean +0.306% sd 2.711 t 1.24

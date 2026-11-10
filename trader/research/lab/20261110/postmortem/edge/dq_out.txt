@@ -1,0 +1,13 @@
+NVDA bars with open or close outside [low,high]: 0 []
+QQQ bars with open or close outside [low,high]: 0 []
+NVDL bars with open or close outside [low,high]: 0 []
+TQQQ bars with open or close outside [low,high]: 0 []
+10 worst 2x NVDA nights: [('2004-08-05', -61.4, 'DOWN', ''), ('2008-07-02', -56.1, 'DOWN', ''), ('2002-07-30', -54.3, 'DOWN', ''), ('2018-11-15', -38.5, 'DOWN', 'E'), ('2002-11-07', -31.0, 'DOWN', ''), ('2019-01-25', -29.6, 'DOWN', ''), ('2003-08-07', -28.6, 'UP', ''), ('2024-08-02', -28.4, 'UP', ''), ('2025-01-24', -25.1, 'UP', ''), ('2020-03-13', -23.7, 'DOWN', '')]
+10 best  2x NVDA nights: [('2002-04-26', 23.6, 'DOWN', ''), ('2023-02-22', 25.8, 'UP', 'E'), ('2003-02-13', 27.3, 'DOWN', ''), ('2001-02-14', 27.4, 'DOWN', ''), ('2008-11-06', 28.3, 'DOWN', ''), ('2004-11-04', 29.9, 'UP', ''), ('2016-11-10', 34.3, 'UP', 'E'), ('2003-05-08', 34.4, 'UP', ''), ('2003-11-06', 38.3, 'UP', ''), ('2023-05-24', 52.2, 'UP', 'E')]
+NVDA gaps >5 calendar days: [('2001-09-10', '2001-09-17')]
+QQQ gaps >5 calendar days: [('2001-09-10', '2001-09-17')]
+3(f) window now: 2026-05-18..2026-11-09 mean +0.209% sum +25.1%
+   after 4 more nights the window keeps a sum of +22.9% -> the next 4 NVDL nights would have to total <= -22.9% (arithmetic sum) for the mean to reach 0
+   after 5 more nights the window keeps a sum of +23.5% -> the next 5 NVDL nights would have to total <= -23.5% (arithmetic sum) for the mean to reach 0
+   after 9 more nights the window keeps a sum of +17.9% -> the next 9 NVDL nights would have to total <= -17.9% (arithmetic sum) for the mean to reach 0
+synthetic 2x ex-earnings 2015+: share of 120-night windows with mean <= 0: 31.4%; current +0.153%

@@ -1,0 +1,117 @@
+non-standard T3X-era lines: 28
+  83 {"ts": "2026-09-17T13:32:04.482256+00:00", "coid": "T3X-20260917-D1-TZA-B", "ref_id": "6554a69b-669d-4b84-8e8e-78311d46f6a0", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 43.23, "ask": 43.16, "last": 43.1596, "phase": "DAY_LEG_BUY", "day_tr
+  84 {"ts": "2026-09-17T19:49:11.408131+00:00", "coid": "T3X-20260917-D1-TZA-S", "ref_id": "a9a6a108-d121-4391-a982-aea835c2863a", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 44.0, "bid": 44.07, "phase": "DAY_LEG_SELL", "day_trade_no": 1}
+  90 {"ts": "2026-09-18T13:33:26.937906+00:00", "coid": "T3X-20260918-D2-TZA-B", "ref_id": "4facaae5-e37e-4f83-99f6-2d200c25e9ee", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 44.8, "ask": 44.73, "last": 44.72, "phase": "DAY_LEG_BUY", "day_trade
+  91 {"ts": "2026-09-18T19:49:09.302005+00:00", "coid": "T3X-20260918-D2-TZA-S", "ref_id": "6d630933-f985-44e1-a0f8-dd69a6b08db4", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 44.88, "bid": 44.95, "phase": "DAY_LEG_SELL", "day_trade_no": 2}
+  96 {"t": "2026-09-21T13:31:50Z", "coid": "T3X-20260921-D3-TZA-B", "ref_id": "02bc7615-31c9-46b1-8333-ac27973858e9", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 44.29, "tif": "gfd", "hours": "regular_hours", "rule": "\u00a711 day leg buy 09:32
+  97 {"t": "2026-09-21T19:49:14Z", "coid": "T3X-20260921-D3-TZA-S", "ref_id": "b44baf87-0210-469d-aef3-9340623778b3", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 43.87, "tif": "gfd", "hours": "regular_hours", "rule": "\u00a711 day leg sell 15:
+  117 {"t": "2026-09-24T13:33:30Z", "coid": "T3X-20260924-D4-TZA-B", "ref_id": "0bd575ca-5fff-4a59-b455-b96931d32036", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 45.67, "tif": "gfd", "hours": "regular_hours", "rule": "\u00a711 day leg buy 09:32
+  118 {"t": "2026-09-24T19:48:59Z", "coid": "T3X-20260924-D4-TZA-S", "ref_id": "4a42e647-6334-4d0a-9baa-b1ede35e3a2b", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 45.46, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.2 s11 day-leg exit
+  125 {"t": "2026-09-25T13:31:35Z", "coid": "T3X-20260925-D5-TZA-B", "ref_id": "29d5ed19-3bce-455d-8462-85384ff661a2", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 45.47, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.2 s11 day leg entry
+  126 {"t": "2026-09-25T19:48:59Z", "coid": "T3X-20260925-D5-TZA-S", "ref_id": "a5095a6f-5651-4bd1-bbaa-a5ea09c4291d", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 45.02, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.2 s11 day-leg exit
+  133 {"t": "2026-09-28T13:32:36Z", "coid": "T3X-20260928-D6-TZA-B", "ref_id": "b71a86fe-0a6d-46d7-9eff-dc2403b8d2ed", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 46.56, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.3 s11 day leg entry
+  134 {"t": "2026-09-28T13:33:21Z", "coid": "T3X-20260928-D6-TZA-TP", "ref_id": "b4f65031-f0cc-4eb8-8cdc-b52271c19bbf", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 47.0, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.3 s11 take-profit 
+  135 {"t": "2026-09-28T19:48:45Z", "coid": "T3X-20260928-D6-TZA-TP-CXL", "ref_id": null, "sym": "TZA", "side": "cancel", "qty": 2, "type": "cancel", "limit": 47.0, "order_id": "6aba6cb8-4c14-44e7-b414-3a00093cbd8e", "rule": "T3X v1.3 s11: TP unfilled at 15:48:30 ->
+  136 {"t": "2026-09-28T19:48:59Z", "coid": "T3X-20260928-D6-TZA-S", "ref_id": "f7f6db00-24f3-4707-91f3-15edd29b0ce5", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 46.28, "tif": "gfd", "hours": "regular_hours", "rule": "T3X v1.3 s11 day-leg exit
+  150 {"t": "2026-10-01T13:33:10+00:00", "coid": "T3X-20261001-D7-TZA-B", "ref_id": "0396b750-601f-41cf-b920-9377493c74cf", "sym": "TZA", "side": "buy", "qty": 1, "type": "limit", "limit": 47.59, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00a711 day
+  151 {"t": "2026-10-01T13:33:48+00:00", "coid": "T3X-20261001-D7-TZA-TP", "ref_id": "04797e44-0f82-4b34-92b4-5157c82b732d", "sym": "TZA", "side": "sell", "qty": 1, "type": "limit", "limit": 47.9, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00a711 v1
+  156 {"t": "2026-10-02T13:31:45+00:00", "coid": "T3X-20261002-D8-TZA-B", "ref_id": "87338988-28da-429d-90a8-0f153d58340b", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 45.54, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00a711 day
+  157 {"t": "2026-10-02T13:32:20+00:00", "coid": "T3X-20261002-D8-TZA-TP", "ref_id": "a5d9af52-0422-458c-8850-a774db7a409b", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 45.9, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00a711 v1
+  162 {"t": "2026-10-05T13:31:46.567985+00:00", "coid": "T3X-20261005-D9-TZA-B", "ref_id": "22e86d24-07a8-421f-a31a-3541ebf55c99", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 45.75, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00a
+  163 {"t": "2026-10-05T13:32:18.911225+00:00", "coid": "T3X-20261005-D9-TZA-TP", "ref_id": "ea94667f-c346-44af-8cb0-abf1ba3967fe", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 46.21, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u0
+  176 {"t": "2026-10-08T13:31:33.490635+00:00", "coid": "T3X-20261008-D10-TZA-B", "ref_id": "f76f3572-813d-49c3-b837-3021306c754f", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 48.44, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00
+  177 {"t": "2026-10-08T13:31:51.387707+00:00", "coid": "T3X-20261008-D10-TZA-TP", "ref_id": "d1ae22c4-3998-40da-bdfc-5429859c6b74", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 48.76, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u
+  182 {"t": "2026-10-09T13:32:29.023133+00:00", "coid": "T3X-20261009-D11-TZA-B", "ref_id": "6a6e75c4-108a-4830-97c6-5f5ef33cd0ac", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 47.54, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00
+  183 {"t": "2026-10-09T13:32:46.194361+00:00", "coid": "T3X-20261009-D11-TZA-TP", "ref_id": "a7799074-1daf-4aae-a60a-9287bc54ecfe", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 47.9, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u0
+  184 {"t": "2026-10-09T19:49:11.806572+00:00", "coid": "T3X-20261009-D11-TZA-S", "ref_id": "cf6ff526-3d53-477c-b82d-7395011e7c06", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 46.9, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00
+  189 {"t": "2026-10-12T13:31:37.054684+00:00", "coid": "T3X-20261012-D12-TZA-B", "ref_id": "e8513012-66d5-4e77-9d26-6cbcb7df3cfc", "sym": "TZA", "side": "buy", "qty": 2, "type": "limit", "limit": 47.47, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u00
+  190 {"t": "2026-10-12T13:31:55.469444+00:00", "coid": "T3X-20261012-D12-TZA-TP", "ref_id": "009a2133-62b1-45f5-9d35-c38d05ee0725", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 47.86, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u
+  191 {"t": "2026-10-12T19:49:07.641564+00:00", "coid": "T3X-20261012-D12-TZA-S", "ref_id": "a50b2143-a9ac-4520-835d-a5a953a5bce9", "sym": "TZA", "side": "sell", "qty": 2, "type": "limit", "limit": 47.56, "tif": "gfd", "hours": "regular_hours", "rule": "RULES_v3 \u0
+suffix kinds Counter({'X': 90, 'E': 83})
+
+  N sym   q | entry: fill   limit(s) qty  t                 | exit: fill   limit(s) qty t
+  1 NVDL  1 | E  35.4790 [35.55 x1 19:51:45 n01 E] | X  34.5500 [34.47 x1 13:31:18 n01 X]
+  1 AMZU  1 | E  35.3999 [35.44 x1 19:51:45 n01 E] | X  34.6700 [34.67 x1 13:31:18 n01 X]
+  2 NVDL  1 | E  33.9399 [34.01 x1 19:51:47 n02 E] | X  34.3901 [34.34 x1 13:31:17 n01 X]
+  2 AMZU  1 | E  35.1339 [35.2 x1 19:51:47 n02 E] | X  35.9895 [35.9 x1 13:31:17 n01 X]
+  3 NVDL  1 | E  33.9283 [33.97 x1 19:51:43 n02 E] | X  31.2101 [31.4 x1 13:31:14 n03 X ; bid-0.3% (to be set from fresh quote) x1 13:32:35 n03 X2]
+  3 AMZU  1 | E  36.6499 [36.73 x1 19:51:43 n02 E] | X  35.0399 [34.94 x1 13:31:14 n03 X]
+  4 NVDL  2 | E  31.7399 [31.8 x2 19:52:13 n04 E] | X  32.0700 [32.06 x2 13:31:15 n04 X]
+  4 METU  1 | E  26.6300 [26.68 x1 19:52:13 n04 E] | X  26.2501 [26.2 x1 13:31:15 n04 X]
+  5 NVDL  2 | E  31.8299 [31.89 x2 19:52:12 n05 E] | X  32.2701 [32.25 x2 13:31:16 n05 X]
+  5 METU  1 | E  26.9199 [26.96 x1 19:52:12 n05 E] | X  27.5501 [27.55 x1 13:31:16 n05 X]
+  6 NVDL  2 | E  32.3699 [32.44 x2 19:52:12 n06 E] | X  33.7001 [33.54 x2 13:31:17 n06 X]
+  6 METU  1 | E  27.3310 [27.4 x1 19:52:12 n06 E] | X  27.4700 [27.47 x1 13:31:17 n06 X]
+  7 NVDL  2 | E  34.1989 [34.26 x2 19:52:13 n07 E] | X  33.6901 [33.63 x2 13:31:15 n07 X]
+  7 METU  1 | E  27.6765 [27.73 x1 19:52:13 n07 E] | X  27.8901 [28.29 x1 13:31:15 n07 X ; bid-0.3% from fresh quote x1 13:32:38 n07 X2]
+  8 NVDL  2 | E  34.1790 [34.25 x2 19:51:27 n08 E] | X  34.9100 [34.69 x2 13:31:12 n08 X]
+  8 METU  1 | E  26.3100 [26.33 x1 19:51:27 n08 E] | X  28.4200 [28.29 x1 13:31:12 n08 X]
+  9 NVDL  1 | E  36.4700 [36.6 x1 19:49:51 n09 E] | X  36.7801 [36.63 x1 13:31:12 n09 X]
+  9 METU  1 | E  32.9800 [32.98 x1 19:49:51 n09 E] | X  32.1827 [32.14 x1 13:31:12 n09 X]
+  9 NVDX  1 | E  20.5799 [20.64 x1 19:49:51 n09 E] | X  20.7801 [20.64 x1 13:31:12 n09 X]
+ 10 NVDL  1 | E  37.2099 [37.25 x1 19:51:43 n10 E] | X  36.7409 [36.74 x1 13:31:11 n10 X]
+ 10 METU  1 | E  32.1399 [32.2 x1 19:51:43 n10 E] | X  32.5900 [32.59 x1 13:31:11 n10 X]
+ 10 NVDX  1 | E  20.9783 [21.01 x1 19:51:43 n10 E] | X  20.7100 [20.71 x1 13:31:11 n10 X]
+ 11 NVDL  1 | E  35.6950 [35.76 x1 19:51:43 n11 E] | X  35.0301 [34.87 x1 13:31:13 n11 X]
+ 11 METU  1 | E  32.6400 [32.64 x1 19:51:43 n11 E] | X  33.2237 [33.47 x1 13:31:13 n11 X ; 32.91 x1 13:32:49 n11 X2]
+ 11 NVDX  1 | E  20.1199 [20.16 x1 19:51:43 n11 E] | X  19.7401 [19.66 x1 13:31:13 n11 X]
+ 12 NVDL  1 | E  35.4492 [35.49 x1 19:51:48 n12 E] | X  35.7300 [35.69 x1 13:30:58 n12 X]
+ 12 METU  1 | E  35.5099 [35.57 x1 19:51:48 n12 E] | X  34.0800 [34.02 x1 13:30:58 n12 X]
+ 12 NVDX  1 | E  19.9899 [20.0 x1 19:51:48 n12 E] | X  20.1501 [20.11 x1 13:30:58 n12 X]
+ 13 NVDL  1 | E  35.6399 [35.69 x1 19:51:43 n13 E] | X  37.7201 [37.56 x1 13:31:36 n13 X]
+ 13 METU  1 | E  33.0299 [33.11 x1 19:51:43 n13 E] | X  31.7600 [31.76 x1 13:31:36 n13 X]
+ 13 NVDX  1 | E  20.0799 [20.12 x1 19:51:43 n13 E] | X  21.2701 [21.15 x1 13:31:36 n13 X]
+ 14 METU  1 | E  29.9199 [29.97 x1 19:51:49 n14 E] | X  30.7178 [30.51 x1 13:31:11 n14 X]
+ 14 AAPU  1 | E  45.8345 [45.89 x1 19:51:49 n14 E] | X  44.4101 [44.23 x1 13:31:11 n14 X]
+ 15 METU  1 | E  31.6099 [31.65 x1 19:51:45 n15 E] | X  30.9500 [30.72 x1 13:30:44 n15 X]
+ 15 AAPU  1 | E  43.2699 [43.34 x1 19:51:45 n15 E] | X  43.8332 [43.56 x1 13:30:44 n15 X]
+ 16 METU  1 | E  30.9699 [31.02 x1 19:51:47 n16 E] | X  31.1001 [31.08 x1 13:30:57 n16 X]
+ 16 AAPU  1 | E  44.5499 [44.65 x1 19:51:47 n16 E] | X  43.3100 [43.31 x1 13:30:57 n16 X ; None xNone 13:32:09 n16 X]
+ 17 METU  1 | E  30.7899 [30.8 x1 19:51:48 n17 E] | X  31.6797 [31.56 x1 13:30:54 n17 X]
+ 17 AAPU  1 | E  43.5300 [43.62 x1 19:51:48 n17 E] | X  43.9000 [43.9 x1 13:30:54 n17 X]
+ 18 METU  1 | E  30.7883 [30.83 x1 19:51:42 n18 E] | X  31.5344 [31.35 x1 13:31:13 n18 X]
+ 18 AAPU  1 | E  44.3100 [44.43 x1 19:51:42 n18 E] | X  43.9570 [43.72 x1 13:31:13 n18 X]
+ 19 METU  1 | E  32.0599 [32.12 x1 19:51:41 n19 E] | X  32.1801 [32.18 x1 13:31:12 n19 X]
+ 19 NVDL  1 | E  40.3199 [40.36 x1 19:51:41 n19 E] | X  41.5101 [41.49 x1 13:31:12 n19 X]
+ 20 METU  1 | E  31.9783 [32.02 x1 19:51:37 n20 E] | X  31.5520 [31.33 x1 13:31:11 n20 X]
+ 20 NVDL  1 | E  40.2299 [40.32 x1 19:51:37 n20 E] | X  39.8409 [39.63 x1 13:31:11 n20 X]
+ 21 METU  2 | E  30.2400 [30.29 x2 19:51:35 n21 E] | X  30.0767 [30.0 x2 13:31:10 n21 X]
+ 21 NVDL  1 | E  39.5083 [39.57 x1 19:51:35 n21 E] | X  38.4800 [38.42 x1 13:31:10 n21 X]
+ 22 METU  2 | E  30.0999 [30.15 x2 19:51:35 n22 E] | X  30.2301 [30.22 x2 13:31:11 n22 X]
+ 22 NVDL  1 | E  37.2999 [37.38 x1 19:51:35 n22 E] | X  37.7700 [37.77 x1 13:31:11 n22 X]
+ 23 METU  2 | E  30.0299 [30.08 x2 19:51:35 n23 E] | X  31.6000 [31.6 x2 13:31:12 n23 X]
+ 23 NVDL  1 | E  36.8899 [36.96 x1 19:51:35 n23 E] | X  36.4100 [36.41 x1 13:31:12 n23 X]
+ 24 METU  2 | E  31.9299 [31.97 x2 19:52:00 n24 E] | X  31.5309 [31.41 x2 13:31:09 n24 X]
+ 24 NVDL  1 | E  36.0299 [36.09 x1 19:52:00 n24 E] | X  35.1001 [35.09 x1 13:31:09 n24 X]
+ 25 NVDX  5 | E  20.4699 [20.51 x5 19:52:00 n25 E] | X  20.0201 [19.94 x5 13:31:09 n25 X]
+ 26 NVDL  2 | E  34.1059 [34.18 x2 19:52:00 n26 E] | X  32.1908 [32.15 x2 13:31:10 n26 X]
+ 26 NVDX  1 | E  19.1796 [19.21 x1 19:52:19 n26 E] | X  18.1105 [18.08 x1 13:31:10 n26 X]
+ 27 NVDL  2 | E  32.9799 [33.02 x2 19:52:03 n27 E] | X  32.6701 [32.57 x2 13:31:08 n27 X]
+ 27 NVDX  1 | E  18.5390 [18.58 x1 19:52:20 n27 E] | X  18.3800 [18.31 x1 13:31:08 n27 X]
+ 28 NVDL  2 | E  32.1599 [32.21 x2 19:52:03 n28 E] | X  32.5714 [32.83 x2 13:31:08 n28 X ; 32.48 x2 13:32:28 n28 X2 ; None xNone 13:32:20 n28 X]
+ 28 NVDX  1 | E  18.0868 [18.11 x1 19:52:19 n28 E] | X  18.3001 [18.45 x1 13:31:08 n28 X ; 18.27 x1 13:32:28 n28 X2 ; None xNone 13:32:21 n28 X]
+ 29 NVDL  2 | E  32.9056 [32.98 x2 19:52:04 n29 E] | X  32.3601 [32.35 x2 13:31:09 n29 X]
+ 29 NVDX  1 | E  18.4950 [18.53 x1 19:52:20 n29 E] | X  18.2007 [18.2 x1 13:31:09 n29 X]
+ 30 NVDL  2 | E  32.7085 [32.76 x2 19:52:04 n30 E] | X  34.1701 [34.13 x2 13:31:08 n30 X]
+ 30 NVDX  1 | E  18.3863 [18.42 x1 19:52:20 n30 E] | X  19.2100 [19.21 x1 13:31:08 n30 X]
+ 31 NVDL  2 | E  34.1999 [34.23 x2 19:52:03 n31 E] | X  32.8101 [32.66 x2 13:31:08 n31 X]
+ 31 NVDX  1 | E  19.2199 [19.25 x1 19:52:17 n31 E] | X  18.4400 [18.36 x1 13:31:08 n31 X]
+ 32 NVDL  3 | E  31.2899 [31.35 x3 19:52:03 n32 E] | X  30.8701 [30.7 x3 13:31:08 n32 X]
+ 33 NVDL  3 | E  31.0300 [31.1 x3 19:52:03 n33 E] | X  31.6310 [31.53 x3 13:31:16 n33 X]
+ 34 NVDL  2 | E  32.4556 [32.52 x2 19:52:06 n34 E] | X  32.9500 [32.92 x2 13:31:10 n34 X]
+ 34 NVDX  1 | E  18.2399 [18.27 x1 19:52:25 n34 E] | X  18.5247 [18.5 x1 13:31:10 n34 X]
+ 35 NVDL  2 | E  32.9299 [32.97 x2 19:52:04 n35 E] | X  33.3901 [33.3 x2 13:31:12 n35 X]
+ 35 NVDX  1 | E  18.4793 [18.54 x1 19:52:20 n35 E] | X  18.7753 [18.72 x1 13:31:12 n35 X]
+ 36 NVDL  3 | E  32.0590 [32.1 x3 19:52:04 n36 E] | X  31.8100 [31.81 x3 13:31:10 n36 X]
+ 37 NVDL  3 | E  31.4667 [31.53 x3 19:52:04 n37 E] | X  29.8900 [29.85 x3 13:31:09 n37 X]
+ 38 NVDL  3 | E  28.8791 [28.89 x3 19:52:05 n38 E] | X  29.8000 [29.8 x3 14:31:09 n38 X]
+ 39 NVDL  3 | E  28.2849 [28.33 x3 20:52:04 n39 E] | X  29.5100 [29.41 x3 14:31:14 n39 X]
+ 40 NVDL  3 | E  29.5000 [29.52 x3 20:52:05 n40 E] | X  28.7800 [28.78 x3 14:31:11 n40 X]
+ 41 NVDL  3 | E  27.7690 [27.84 x3 20:52:04 n41 E] | X  26.1900 [26.19 x3 14:31:13 n41 X]
+ 42 NVDL  4 | E  22.7153 [22.75 x4 20:52:06 n42 E] | X  25.0200 [25.02 x4 14:31:10 n42 X]
+ 43 NVDL  4 | E  23.7899 [23.83 x4 20:52:06 n43 E] | X  19.8301 [19.83 x4 14:31:09 n43 X]
+ 44 NVDL  3 | E  21.5999 [21.65 x3 20:52:06 n44 E] | X  20.0700 [20.07 x3 14:31:10 n44 X]
+ 44 NVDX  1 | E  12.1100 [12.16 x1 20:52:31 n44 E] | X  11.2700 [11.27 x1 14:31:10 n44 X]
+
+UNMATCHED T3X intent lines (not tied to an overnight leg in trades.csv):
+  ('2026-11-10', 'NVDL', 'E') 45 E {"t": "2026-11-10T20:52:03.703645+00:00", "sym": "NVDL", "side": "buy", "qty": 1, "type": "limit", "limit": 19.27, "note": "night 45 entry (core, whole shares)"}

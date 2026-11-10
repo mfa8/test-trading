@@ -1,0 +1,31 @@
+2015-2020 trend 1511 g +0.2047 worst -19.35 dd -52.3 sd 2.771 pauseN 54 | g +0.1353 worst -19.48 dd -52.7 sd 2.111 pauseN 42 | g +0.0556 worst -19.61 dd -54.0 sd 1.870 pauseN 40
+2015-2020 full 1511 g +0.1873 worst -37.75 dd -67.7 sd 3.449 pauseN 94 | g +0.1262 worst -25.78 dd -65.6 sd 2.730 pauseN 61 | g +0.0481 worst -28.33 dd -67.3 sd 2.504 pauseN 45
+2021-2026 trend 1468 g +0.2644 worst -27.88 dd -58.0 sd 3.221 pauseN 31 | g +0.1439 worst -21.83 dd -54.1 sd 2.385 pauseN 15 | g +0.0117 worst -15.79 dd -54.8 sd 1.901 pauseN 19
+2021-2026 full 1468 g +0.1755 worst -27.88 dd -86.8 sd 3.802 pauseN 140 | g +0.0740 worst -21.83 dd -81.2 sd 2.949 pauseN 90 | g -0.0419 worst -15.79 dd -77.1 sd 2.463 pauseN 62
+2015-2026 trend 2979 g +0.2341 worst -27.88 dd -58.0 sd 3.001 pauseN 85 | g +0.1395 worst -21.83 dd -54.1 sd 2.250 pauseN 57 | g +0.0339 worst -19.61 dd -54.8 sd 1.885 pauseN 59
+2015-2026 full 2979 g +0.1815 worst -37.75 dd -86.8 sd 3.627 pauseN 234 | g +0.1005 worst -25.78 dd -81.2 sd 2.840 pauseN 151 | g +0.0038 worst -28.33 dd -77.1 sd 2.483 pauseN 107
+nights with 2xNVDA leg >=8 points worse than TQQQ leg: 13 (earnings 4, non-earnings 9)
+   2015-05-07 size 0.98 E 2xNVDA -13.2% TQQQ +3.1% | account NVDL-only -12.99% split -5.02%
+   2016-12-28 size 0.98   2xNVDA -8.3% TQQQ -0.0% | account NVDL-only -8.22% split -4.17%
+   2017-02-22 size 0.98   2xNVDA -9.3% TQQQ +0.4% | account NVDL-only -9.22% split -4.46%
+   2017-04-03 size 0.98   2xNVDA -9.6% TQQQ -0.9% | account NVDL-only -9.51% split -5.23%
+   2017-08-10 size 0.98 E 2xNVDA -9.4% TQQQ +0.5% | account NVDL-only -9.30% split -4.43%
+   2018-10-24 size 0.25   2xNVDA -4.2% TQQQ +4.7% | account NVDL-only -1.06% split +0.04%
+   2018-11-15 size 0.25 E 2xNVDA -38.4% TQQQ -2.9% | account NVDL-only -9.63% split -5.19%
+   2019-01-25 size 0.25   2xNVDA -29.5% TQQQ -3.9% | account NVDL-only -7.41% split -4.20%
+   2022-05-25 size 0.25 E 2xNVDA -11.1% TQQQ -0.8% | account NVDL-only -2.79% split -1.50%
+   2022-08-05 size 0.25   2xNVDA -15.7% TQQQ +0.9% | account NVDL-only -3.94% split -1.87%
+   2022-08-31 size 0.25   2xNVDA -11.7% TQQQ -2.6% | account NVDL-only -2.95% split -1.82%
+   2024-08-02 size 0.98   2xNVDA -28.4% TQQQ -16.0% | account NVDL-only -27.88% split -21.83%
+   2025-01-24 size 0.98   2xNVDA -25.0% TQQQ -10.6% | account NVDL-only -24.58% split -17.51%
+non-earnings idiosyncratic nights: sum NVDL-only -94.8% split -61.0% (trend rule); log saved by the split over 12 years: 0.389
+total log growth 2015-26 (trend rule): NVDL-only 6.974 split 4.157 difference -2.817 over 11.87 years -> -0.237 log per year
+nights with 2xNVDA leg >=8 points BETTER than TQQQ: 24 (earnings 19, non-earnings 5)
+2015-2020 gross overnight, unsized: 2xNVDA all n=1511 mean +0.344% sd 3.52 t 3.80 | 2xNVDA ex-earnings n=1487 mean +0.253% sd 2.93 t 3.33 | TQQQ n=1511 mean +0.172% sd 2.55 t 2.62
+    net growth at 0.98 always after 9bp: 2xNVDA ex-earnings g +0.1150 | TQQQ g +0.0481
+2021-2026 gross overnight, unsized: 2xNVDA all n=1468 mean +0.341% sd 3.88 t 3.37 | 2xNVDA ex-earnings n=1445 mean +0.237% sd 3.40 t 2.66 | TQQQ n=1468 mean +0.078% sd 2.51 t 1.19
+    net growth at 0.98 always after 9bp: 2xNVDA ex-earnings g +0.0865 | TQQQ g -0.0419
+2015-2026 gross overnight, unsized: 2xNVDA all n=2979 mean +0.342% sd 3.70 t 5.05 | 2xNVDA ex-earnings n=2932 mean +0.245% sd 3.17 t 4.19 | TQQQ n=2979 mean +0.126% sd 2.53 t 2.71
+    net growth at 0.98 always after 9bp: 2xNVDA ex-earnings g +0.1010 | TQQQ g +0.0038
+2026 gross overnight, unsized: 2xNVDA all n=213 mean +0.399% sd 2.78 t 2.09 | 2xNVDA ex-earnings n=210 mean +0.356% sd 2.67 t 1.93 | TQQQ n=213 mean +0.089% sd 2.66 t 0.49
+    net growth at 0.98 always after 9bp: 2xNVDA ex-earnings g +0.2230 | TQQQ g -0.0351

@@ -1,0 +1,7 @@
+scalar vs vectorised, 3000 paths (2015-26, blackout): max abs equity difference at the 4 horizons = 0.00e+00
+scalar vs vectorised, 3000 paths (2000-14, no blackout): max abs difference = 0.00e+00
+RACE 2015-2026 blackout                           by 250 nights: above 98.75 first 78.3%, 50 first 3.3%, neither 18.4% | by 750 nights: above 98.75 first 89.6%, 50 first 9.5%, neither 0.9% | by 1500 nights: above 98.75 first 90.3%, 50 first 9.7%, neither 0.0%
+RACE 2000-2014 no blackout                        by 250 nights: above 98.75 first 62.7%, 50 first 2.8%, neither 34.5% | by 750 nights: above 98.75 first 82.7%, 50 first 13.4%, neither 3.9% | by 1500 nights: above 98.75 first 85.1%, 50 first 14.7%, neither 0.1%
+RACE 2015-2026 blackout, no edge (mean removed)   by 250 nights: above 98.75 first 61.8%, 50 first 14.6%, neither 23.5% | by 750 nights: above 98.75 first 71.0%, 50 first 27.9%, neither 1.1% | by 1500 nights: above 98.75 first 71.4%, 50 first 28.6%, neither 0.0%
+RACE 2015-2026 blackout, +10bp drag               by 250 nights: above 98.75 first 70.0%, 50 first 11.4%, neither 18.7% | by 750 nights: above 98.75 first 78.9%, 50 first 20.1%, neither 1.0% | by 1500 nights: above 98.75 first 79.4%, 50 first 20.6%, neither 0.0%
+RACE 2015-2026 blackout, +28bp drag               by 250 nights: above 98.75 first 36.9%, 50 first 36.7%, neither 26.3% | by 750 nights: above 98.75 first 42.1%, 50 first 57.3%, neither 0.6% | by 1500 nights: above 98.75 first 42.2%, 50 first 57.8%, neither 0.0%

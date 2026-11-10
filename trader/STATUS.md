@@ -14,6 +14,13 @@
 
 **Campaign:** 44 nights closed, −19.79 (19 wins, 25 losses). Live NVDA-2x-only nights (N25–N44): 20, totalling −23.05.
 
+**Why the account is down (post-mortem 11/10, independently checked; `research/POSTMORTEM-20261110.md`):**
+- It did not bleed slowly. On Fri 11/6 it stood at 103.61, above the 98.75 start. Two nights then lost 21.27 (11/6→11/9: −15.84; 11/9→11/10: −5.43). The other 42 nights together made +1.50.
+- A night that size is part of this strategy: a 2× NVIDIA overnight loss of 14.5% or more has come about once a year, and 25% or more three times since 2019.
+- There is no proven profit to absorb such nights. The edge before costs is about +0.2% a night and rests on NVIDIA's past rise; our fills ran 0.28% a night behind the official close and open. 44 nights cannot show whether an edge exists.
+- Three fixes were checked and none holds: selling at the opening price (worth between −$1.70 and +$1.70 a month, sign unknown), buying at the close (no gap on NVDL), and splitting with an index fund (failed its pre-registered test).
+- What actually changes the outcome is position size, which is the owner's decision. The default stays: current rules, PAUSE at one share through 11/16.
+
 **Rules changed on 11/9 (v2.1, engine v1.8), on the human's instruction to review the plan and act autonomously:**
 - New: the position size follows the market trend (RULES_v3 §13). In force from the night-45 entry on Tue 11/10. Night 44 is not resized.
 - New: one symbol (NVDL) with a fractional top-up to the target, replacing the NVDX filler.
@@ -30,7 +37,7 @@
 - **Size follows the market trend (§13).** At 15:50 we compare QQQ with its 200-day average. At or above it we invest 98% of equity; below it, 25%. Nights below the line are about twice as volatile, and at 2x that volatility eats the compound return. An independent re-check on 11/9 reproduced the numbers and calls the rule insurance, not extra return: nearly all of its historical gain came from ten nights in long bear markets, and in most short dips it loses a little.
 - Trend state on 11/9 (provisional closes): QQQ 678.77 against a line at 681.18, 0.35% below → DOWN. That close to the line the state can flip on any day; the 15:50 price on 11/10 decides night 45.
 - At equity near $86: DOWN means about $21.50 of NVDL, which is one whole share if it fits under 25% of equity and otherwise a fractional position of just under one share; UP means 3 shares plus about $20 of fractional NVDL.
-- Planning edge: +0.30% per night per unit invested.
+- Planning edge, corrected 11/10: about +0.2% a night before costs, and between about zero and +0.15% after them. At $82 that is $0 to about $2.60 a month at full size, against monthly swings near $10.
 - §3(f) trailing-120 NVDL check (11/9): +0.363%, t 1.40 → the overnight leg stays on. Next check 11/16.
 - The inverse day leg has been SUSPENDED since 10/15. Never hold an inverse product overnight.
 

@@ -1,0 +1,30 @@
+trend rule 2015-2020
+    NVDL-only              g +0.2047 sd 2.771 worst -19.35 maxDD -52.3 PAUSE nights 54 eps 7 | boot P(KILL250) 0.0220 P(PAUSE250) 0.7430
+    split                  g +0.1353 sd 2.111 worst -19.48 maxDD -52.7 PAUSE nights 42 eps 2 | boot P(KILL250) 0.0240 P(PAUSE250) 0.3325
+    half NVDL + half cash  g +0.1117 sd 1.385 worst -9.67 maxDD -29.9 PAUSE nights 12 eps 1 | boot P(KILL250) 0.0000 P(PAUSE250) 0.1635
+    TQQQ-only              g +0.0556 sd 1.870 worst -19.61 maxDD -54.0 PAUSE nights 40 eps 2 | boot P(KILL250) 0.0575 P(PAUSE250) 0.3325
+trend rule 2021-2026
+    NVDL-only              g +0.2644 sd 3.221 worst -27.88 maxDD -58.0 PAUSE nights 31 eps 4 | boot P(KILL250) 0.0005 P(PAUSE250) 0.5395
+    split                  g +0.1439 sd 2.385 worst -21.83 maxDD -54.1 PAUSE nights 15 eps 4 | boot P(KILL250) 0.0005 P(PAUSE250) 0.6170
+    half NVDL + half cash  g +0.1445 sd 1.610 worst -13.94 maxDD -34.7 PAUSE nights 0 eps 0 | boot P(KILL250) 0.0000 P(PAUSE250) 0.0000
+    TQQQ-only              g +0.0117 sd 1.901 worst -15.79 maxDD -54.8 PAUSE nights 19 eps 4 | boot P(KILL250) 0.0005 P(PAUSE250) 0.5505
+trend rule 2015-2026
+    NVDL-only              g +0.2341 sd 3.001 worst -27.88 maxDD -58.0 PAUSE nights 85 eps 11 | boot P(KILL250) 0.0120 P(PAUSE250) 0.6555
+    split                  g +0.1395 sd 2.250 worst -21.83 maxDD -54.1 PAUSE nights 57 eps 6 | boot P(KILL250) 0.0110 P(PAUSE250) 0.4835
+    half NVDL + half cash  g +0.1279 sd 1.500 worst -13.94 maxDD -34.7 PAUSE nights 12 eps 1 | boot P(KILL250) 0.0000 P(PAUSE250) 0.0885
+    TQQQ-only              g +0.0339 sd 1.885 worst -19.61 maxDD -54.8 PAUSE nights 59 eps 6 | boot P(KILL250) 0.0280 P(PAUSE250) 0.4495
+0.98 always 2015-2020
+    NVDL-only              g +0.1873 sd 3.449 worst -37.75 maxDD -67.7 PAUSE nights 94 eps 10 | boot P(KILL250) 0.1565 P(PAUSE250) 0.8025
+    split                  g +0.1262 sd 2.730 worst -25.78 maxDD -65.6 PAUSE nights 61 eps 4 | boot P(KILL250) 0.1145 P(PAUSE250) 0.5955
+    half NVDL + half cash  g +0.1093 sd 1.724 worst -18.88 maxDD -38.5 PAUSE nights 24 eps 3 | boot P(KILL250) 0.0010 P(PAUSE250) 0.3185
+    TQQQ-only              g +0.0481 sd 2.504 worst -28.33 maxDD -67.3 PAUSE nights 45 eps 3 | boot P(KILL250) 0.1525 P(PAUSE250) 0.4700
+0.98 always 2021-2026
+    NVDL-only              g +0.1755 sd 3.802 worst -27.88 maxDD -86.8 PAUSE nights 140 eps 11 | boot P(KILL250) 0.1795 P(PAUSE250) 0.7605
+    split                  g +0.0740 sd 2.949 worst -21.83 maxDD -81.2 PAUSE nights 90 eps 11 | boot P(KILL250) 0.1705 P(PAUSE250) 0.8160
+    half NVDL + half cash  g +0.1052 sd 1.901 worst -13.94 maxDD -61.6 PAUSE nights 15 eps 3 | boot P(KILL250) 0.1180 P(PAUSE250) 0.3410
+    TQQQ-only              g -0.0419 sd 2.463 worst -15.79 maxDD -77.1 PAUSE nights 62 eps 10 | boot P(KILL250) 0.1580 P(PAUSE250) 0.8365
+0.98 always 2015-2026
+    NVDL-only              g +0.1815 sd 3.627 worst -37.75 maxDD -86.8 PAUSE nights 234 eps 21 | boot P(KILL250) 0.1640 P(PAUSE250) 0.7945
+    split                  g +0.1005 sd 2.840 worst -25.78 maxDD -81.2 PAUSE nights 151 eps 15 | boot P(KILL250) 0.1425 P(PAUSE250) 0.7215
+    half NVDL + half cash  g +0.1073 sd 1.813 worst -18.88 maxDD -61.6 PAUSE nights 39 eps 6 | boot P(KILL250) 0.0660 P(PAUSE250) 0.3225
+    TQQQ-only              g +0.0038 sd 2.483 worst -28.33 maxDD -77.1 PAUSE nights 107 eps 13 | boot P(KILL250) 0.1640 P(PAUSE250) 0.6865

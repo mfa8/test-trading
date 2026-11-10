@@ -1,0 +1,156 @@
+symbols ['NVDA', 'NVDL', 'NVDX', 'QQQ', 'SMH', 'SOXL', 'SPY', 'TECL', 'TQQQ', 'UPRO'] | QQQ 2008-01-02 2026-11-06 | NVDA 2008-01-02 2026-11-06 | TQQQ 2015-01-02 2026-11-06
+calendar NVDA vs QQQ: only-in-NVDA [] only-in-QQQ [] n 2980 2980
+calendar TQQQ vs QQQ: only-in-TQQQ [] only-in-QQQ [] n 2980 2980
+nights 2979 2015-01-02 -> 2015-01-05 ... 2026-11-05 -> 2026-11-06 | UP nights 2445 DOWN nights 534 | NVDA earnings nights 47
+extreme (>45%) legs (data-break check): [('2023-05-24', 52.3, 6.7)]
+nights spanning >5 calendar days: []
+
+==============================================================================================================
+PRIMARY (pre-registered): size from the trend rule (0.98 UP / 0.25 DOWN), 9bp cost, synthetic 2x NVDA, real TQQQ, no earnings blackout
+==============================================================================================================
+
+--- 2015-2020  nights 1511 (2015-01-02 .. 2020-12-31), years 6 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.2047  +0.2424   2.771    -19.35     -52.3      54       7    22.04 |                      0.0220    0.7430      4.66   |                       0.0000    0.6775
+split w=0.5         +0.1353  +0.1579   2.111    -19.48     -52.7      42       2     7.73 |                      0.0240    0.3325      1.32   |                       0.0000    0.3300
+TQQQ-only w=0       +0.0556  +0.0734   1.870    -19.61     -54.0      40       2     2.32 |                      0.0575    0.3325      1.31   |                       0.1745    0.3300
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.3260 / 0.2675 / 0.3195 | level 0.70: 0.2100 / 0.1430 / 0.1720 | level 0.61: 0.0895 / 0.0905 / 0.1345 | level 0.50: 0.0220 / 0.0240 / 0.0575
+   boot(random phase) 5th pct of min equity in 250 nights: 0.553 / 0.536 / 0.494 | median end equity after 250 nights: 1.789 / 1.424 / 1.150 | 5th pct end equity: 0.795 / 0.803 / 0.764
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.0693   [-0.1170, -0.0214]   P(diff<0)=0.991   (random-phase interval [-0.1179, -0.0209])
+      sd %                       -0.6600   [-0.8940, -0.4589]   P(diff<0)=1.000   (random-phase interval [-0.8916, -0.4588])
+      worst night %              -0.1339   [-0.1339, +5.4042]   P(diff<0)=0.673   (random-phase interval [-0.1339, +5.4042])
+      max drawdown %             -0.3998   [-0.3998, +17.1647]   P(diff<0)=0.473   (random-phase interval [-0.3998, +17.1647])
+      PAUSE eps /1000 nights     -3.3091   [-5.2980, -1.3254]   P(diff<0)=0.999   (random-phase interval [-5.2945, -1.3236])
+      TQQQ-only minus NVDL-only growth:   -0.1491   [-0.2456, -0.0528]
+
+--- 2021-2026  nights 1468 (2021-01-04 .. 2026-11-05), years 6 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.2644  +0.3145   3.221    -27.88     -58.0      31       4    48.46 |                      0.0005    0.5395      2.67   |                       0.0000    0.5610
+split w=0.5         +0.1439  +0.1722   2.385    -21.83     -54.1      15       4     8.26 |                      0.0005    0.6170      2.71   |                       0.0000    0.6760
+TQQQ-only w=0       +0.0117  +0.0299   1.901    -15.79     -54.8      19       4     1.19 |                      0.0005    0.5505      2.89   |                       0.0000    0.5205
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.2505 / 0.2295 / 0.4025 | level 0.70: 0.1345 / 0.1095 / 0.1655 | level 0.61: 0.0875 / 0.0600 / 0.0165 | level 0.50: 0.0005 / 0.0005 / 0.0005
+   boot(random phase) 5th pct of min equity in 250 nights: 0.564 / 0.600 / 0.627 | median end equity after 250 nights: 1.972 / 1.437 / 1.037 | 5th pct end equity: 0.607 / 0.624 / 0.639
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.1205   [-0.1857, -0.0596]   P(diff<0)=1.000   (random-phase interval [-0.1795, -0.0598])
+      sd %                       -0.8359   [-1.1307, -0.4932]   P(diff<0)=1.000   (random-phase interval [-1.1322, -0.4955])
+      worst night %              +6.0459   [+1.4381, +7.0652]   P(diff<0)=0.002   (random-phase interval [+1.4381, +7.0652])
+      max drawdown %             +3.8876   [-1.5688, +7.0293]   P(diff<0)=0.152   (random-phase interval [-1.5688, +6.0363])
+      PAUSE eps /1000 nights     +0.0000   [-1.3643, +1.4378]   P(diff<0)=0.349   (random-phase interval [-1.3624, +1.3784])
+      TQQQ-only minus NVDL-only growth:   -0.2527   [-0.3842, -0.1289]
+
+--- 2015-2026  nights 2979 (2015-01-02 .. 2026-11-05), years 12 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.2341  +0.2779   3.001    -27.88     -58.0      85      11  1068.14 |                      0.0120    0.6555      3.68   |                       0.0000    0.6070
+split w=0.5         +0.1395  +0.1650   2.250    -21.83     -54.1      57       6    63.88 |                      0.0110    0.4835      2.01   |                       0.0000    0.5155
+TQQQ-only w=0       +0.0339  +0.0520   1.885    -19.61     -54.8      59       6     2.75 |                      0.0280    0.4495      2.06   |                       0.0905    0.4255
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.2790 / 0.2475 / 0.3600 | level 0.70: 0.1725 / 0.1280 / 0.1590 | level 0.61: 0.0890 / 0.0695 / 0.0780 | level 0.50: 0.0120 / 0.0110 / 0.0280
+   boot(random phase) 5th pct of min equity in 250 nights: 0.564 / 0.581 / 0.528 | median end equity after 250 nights: 1.841 / 1.415 / 1.091 | 5th pct end equity: 0.667 / 0.710 / 0.684
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.0946   [-0.1353, -0.0511]   P(diff<0)=1.000   (random-phase interval [-0.1351, -0.0540])
+      sd %                       -0.7510   [-0.9440, -0.5466]   P(diff<0)=1.000   (random-phase interval [-0.9440, -0.5493])
+      worst night %              +6.0459   [-0.1339, +7.0652]   P(diff<0)=0.082   (random-phase interval [-0.1339, +7.0652])
+      max drawdown %             +3.8876   [-2.4342, +8.9752]   P(diff<0)=0.399   (random-phase interval [-2.4342, +9.2036])
+      PAUSE eps /1000 nights     -1.6784   [-3.0232, -0.3396]   P(diff<0)=0.962   (random-phase interval [-3.0211, -0.3357])
+      TQQQ-only minus NVDL-only growth:   -0.2001   [-0.2826, -0.1117]
+
+==============================================================================================================
+SECONDARY: size 0.98 always
+==============================================================================================================
+
+--- 2015-2020  nights 1511 (2015-01-02 .. 2020-12-31), years 6 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1873  +0.2487   3.449    -37.75     -67.7      94      10    16.94 |                      0.1565    0.8025      6.75   |                       0.1745    0.6775
+split w=0.5         +0.1262  +0.1647   2.730    -25.78     -65.6      61       4     6.73 |                      0.1145    0.5955      2.66   |                       0.1745    0.6775
+TQQQ-only w=0       +0.0481  +0.0807   2.504    -28.33     -67.3      45       3     2.07 |                      0.1525    0.4700      1.98   |                       0.1745    0.4890
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.4280 / 0.3695 / 0.3905 | level 0.70: 0.3395 / 0.2455 / 0.2045 | level 0.61: 0.2380 / 0.1610 / 0.1630 | level 0.50: 0.1565 / 0.1145 / 0.1525
+   boot(random phase) 5th pct of min equity in 250 nights: 0.406 / 0.390 / 0.352 | median end equity after 250 nights: 1.769 / 1.435 / 1.143 | 5th pct end equity: 0.610 / 0.727 / 0.724
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.0611   [-0.1271, +0.0084]   P(diff<0)=0.922   (random-phase interval [-0.1264, +0.0051])
+      sd %                       -0.7191   [-1.0213, -0.4252]   P(diff<0)=1.000   (random-phase interval [-1.0247, -0.4210])
+      worst night %             +11.9730   [-2.5523, +17.4060]   P(diff<0)=0.084   (random-phase interval [-2.5523, +17.4060])
+      max drawdown %             +2.1505   [-1.0181, +22.7660]   P(diff<0)=0.421   (random-phase interval [-1.0181, +22.7660])
+      PAUSE eps /1000 nights     -3.9709   [-5.9642, -1.9868]   P(diff<0)=1.000   (random-phase interval [-5.9563, -1.9854])
+      TQQQ-only minus NVDL-only growth:   -0.1392   [-0.2727, -0.0020]
+
+--- 2021-2026  nights 1468 (2021-01-04 .. 2026-11-05), years 6 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1755  +0.2461   3.802    -27.88     -86.8     140      11    13.14 |                      0.1795    0.7605      7.47   |                       0.1650    0.7570
+split w=0.5         +0.0740  +0.1173   2.949    -21.83     -81.2      90      11     2.96 |                      0.1705    0.8160      7.38   |                       0.1650    0.8410
+TQQQ-only w=0       -0.0419  -0.0114   2.463    -15.79     -77.1      62      10     0.54 |                      0.1580    0.8365      6.76   |                       0.1650    0.8410
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.3725 / 0.3845 / 0.5480 | level 0.70: 0.2880 / 0.2955 / 0.3700 | level 0.61: 0.2480 / 0.2460 / 0.2625 | level 0.50: 0.1795 / 0.1705 / 0.1580
+   boot(random phase) 5th pct of min equity in 250 nights: 0.166 / 0.234 / 0.318 | median end equity after 250 nights: 1.959 / 1.370 / 0.988 | 5th pct end equity: 0.203 / 0.269 / 0.341
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.1015   [-0.1849, -0.0153]   P(diff<0)=0.972   (random-phase interval [-0.1775, -0.0168])
+      sd %                       -0.8534   [-1.1178, -0.5909]   P(diff<0)=1.000   (random-phase interval [-1.1270, -0.5917])
+      worst night %              +6.0459   [+4.5879, +7.0652]   P(diff<0)=0.000   (random-phase interval [+4.5879, +7.0652])
+      max drawdown %             +5.6063   [+0.6890, +7.0293]   P(diff<0)=0.020   (random-phase interval [+0.7791, +7.0293])
+      PAUSE eps /1000 nights     +0.0000   [-2.7305, +2.1536]   P(diff<0)=0.401   (random-phase interval [-2.7248, +2.0936])
+      TQQQ-only minus NVDL-only growth:   -0.2174   [-0.3815, -0.0455]
+
+--- 2015-2026  nights 2979 (2015-01-02 .. 2026-11-05), years 12 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | boot(random phase): P(KILL250) P(PAUSE250) eps/1000n  | boot(year-aligned): P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1815  +0.2474   3.627    -37.75     -86.8     234      21   222.71 |                      0.1640    0.7945      7.11   |                       0.1750    0.7070
+split w=0.5         +0.1005  +0.1414   2.840    -25.78     -81.2     151      15    19.94 |                      0.1425    0.7215      5.06   |                       0.1750    0.7490
+TQQQ-only w=0       +0.0038  +0.0353   2.483    -28.33     -77.1     107      13     1.12 |                      0.1640    0.6865      4.40   |                       0.1750    0.6685
+   boot(random phase) P(min equity within 250 nights <= level): level 0.80: 0.4010 / 0.3770 / 0.4630 | level 0.70: 0.3090 / 0.2680 / 0.2855 | level 0.61: 0.2270 / 0.2105 / 0.2165 | level 0.50: 0.1640 / 0.1425 / 0.1640
+   boot(random phase) 5th pct of min equity in 250 nights: 0.199 / 0.281 / 0.337 | median end equity after 250 nights: 1.825 / 1.410 / 1.062 | 5th pct end equity: 0.254 / 0.331 / 0.407
+   split minus NVDL-only (point; 90%% year-block interval [5th,95th]; share of draws < 0):
+      growth g %/night           -0.0810   [-0.1348, -0.0243]   P(diff<0)=0.989   (random-phase interval [-0.1333, -0.0255])
+      sd %                       -0.7872   [-0.9876, -0.5782]   P(diff<0)=1.000   (random-phase interval [-0.9857, -0.5814])
+      worst night %             +11.9730   [+2.1021, +17.4060]   P(diff<0)=0.029   (random-phase interval [+2.1021, +17.4060])
+      max drawdown %             +5.6063   [-1.0181, +11.0215]   P(diff<0)=0.172   (random-phase interval [-1.0181, +11.0215])
+      PAUSE eps /1000 nights     -2.0141   [-4.0241, +0.0000]   P(diff<0)=0.949   (random-phase interval [-4.0282, -0.3189])
+      TQQQ-only minus NVDL-only growth:   -0.1777   [-0.2845, -0.0642]
+
+==============================================================================================================
+SENSITIVITY E (live rule s3(d)): NVDA part in cash on the 47 NVDA earnings nights; trend-rule size
+==============================================================================================================
+
+--- 2015-2020  nights 1511 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1282  +0.1548   2.288    -19.35     -53.6      51       5     6.94 |   0.0550    0.5620      3.31 |   0.0000   0.5185
+split w=0.5         +0.0945  +0.1141   1.960    -19.48     -53.5      42       2     4.17 |   0.0560    0.3315      1.31 |   0.1745   0.3300
+TQQQ-only w=0       +0.0556  +0.0734   1.870    -19.61     -54.0      40       2     2.32 |   0.0575    0.3325      1.31 |   0.1745   0.3300
+   split minus NVDL-only growth:   -0.0337  [-0.0719, +0.0085]
+
+--- 2021-2026  nights 1468 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1623  +0.1983   2.641    -27.88     -57.0      42       4    10.84 |   0.0000    0.5395      2.68 |   0.0000   0.5610
+split w=0.5         +0.0908  +0.1141   2.137    -21.83     -54.1      21       4     3.79 |   0.0000    0.6155      2.70 |   0.0000   0.6760
+TQQQ-only w=0       +0.0117  +0.0299   1.901    -15.79     -54.8      19       4     1.19 |   0.0005    0.5505      2.89 |   0.0000   0.5205
+   split minus NVDL-only growth:   -0.0715  [-0.1347, -0.0172]
+
+--- 2015-2026  nights 2979 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1450  +0.1762   2.468    -27.88     -57.0      93       9    75.19 |   0.0225    0.5640      3.02 |   0.0000   0.5475
+split w=0.5         +0.0927  +0.1141   2.049    -21.83     -54.1      63       6    15.81 |   0.0250    0.4820      2.01 |   0.0905   0.5155
+TQQQ-only w=0       +0.0339  +0.0520   1.885    -19.61     -54.8      59       6     2.75 |   0.0280    0.4495      2.06 |   0.0905   0.4255
+   split minus NVDL-only growth:   -0.0523  [-0.0882, -0.0152]
+
+==============================================================================================================
+SENSITIVITY E2: NVDA part in cash on NVDA earnings nights; size 0.98 always
+==============================================================================================================
+
+--- 2015-2020  nights 1511 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1150  +0.1572   2.850    -29.03     -65.5      73       8     5.69 |   0.1230    0.7775      5.40 |   0.1745   0.6775
+split w=0.5         +0.0855  +0.1190   2.542    -25.78     -66.1      45       3     3.64 |   0.1415    0.4675      1.98 |   0.1745   0.4890
+TQQQ-only w=0       +0.0481  +0.0807   2.504    -28.33     -67.3      45       3     2.07 |   0.1525    0.4700      1.98 |   0.1745   0.4890
+   split minus NVDL-only growth:   -0.0295  [-0.0694, +0.0133]
+
+--- 2021-2026  nights 1468 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.0865  +0.1423   3.305    -27.88     -83.7     138      10     3.56 |   0.1815    0.7530      6.80 |   0.1650   0.7570
+split w=0.5         +0.0273  +0.0654   2.743    -21.83     -79.6      90      12     1.49 |   0.1680    0.8155      8.04 |   0.1650   0.8410
+TQQQ-only w=0       -0.0419  -0.0114   2.463    -15.79     -77.1      62      10     0.54 |   0.1580    0.8365      6.76 |   0.1650   0.8410
+   split minus NVDL-only growth:   -0.0592  [-0.1291, +0.0064]
+
+--- 2015-2026  nights 2979 ---
+                       g%/n    mean%     sd%    worst%    maxDD%  P-ngts   P-eps   x-mult | P(KILL250) P(PAUSE250) eps/1000n (random phase) | aligned P(KILL250) P(PAUSE250)
+NVDL-only w=1       +0.1010  +0.1499   3.082    -29.03     -83.7     211      18    20.24 |   0.1530    0.7790      6.10 |   0.1750   0.7160
+split w=0.5         +0.0568  +0.0926   2.643    -25.78     -79.6     135      15     5.43 |   0.1560    0.6710      5.06 |   0.1750   0.6685
+TQQQ-only w=0       +0.0038  +0.0353   2.483    -28.33     -77.1     107      13     1.12 |   0.1640    0.6865      4.40 |   0.1750   0.6685
+   split minus NVDL-only growth:   -0.0441  [-0.0839, -0.0039]
+
+wrote /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/pm/concentration/l5_results.json /tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/pm/concentration/l5_nights.csv

@@ -1,0 +1,100 @@
+tierA NVDL non-earnings mornings 164 2026-02-23 2026-10-20
+open->09:35 (5-min bar close)
+  all                                    n=164 mean    +3.0bp sd  126.8 t +0.30 median    -0.4 neg 82/164
+  gap<-2%                                n= 33 mean   -16.6bp sd  137.7 t -0.69 median   -25.9 neg 19/33
+  mid                                    n= 93 mean   +12.4bp sd  120.0 t +0.99 median    +5.7 neg 44/93
+  gap>+2%                                n= 38 mean    -3.0bp sd  134.2 t -0.14 median   -10.0 neg 19/38
+  |gap|>2%                               n= 71 mean    -9.3bp sd  135.1 t -0.58 median   -25.9 neg 38/71
+  before 2026-09-08 (pre-live)           n=133 mean    +8.1bp sd  131.2 t +0.71 median    +6.2 neg 63/133
+  pre-live |gap|>2%                      n= 55 mean    +7.1bp sd  141.3 t +0.37 median   +32.2 neg 25/55
+  pre-live gap<-2%                       n= 26 mean    +0.1bp sd  148.4 t +0.00 median   +12.8 neg 12/26
+  pre-live gap>+2%                       n= 29 mean   +13.4bp sd  137.0 t +0.52 median   +71.7 neg 13/29
+  from 2026-09-08 (live overlap)         n= 31 mean   -18.7bp sd  104.7 t -1.00 median   -26.6 neg 19/31
+  month 02                               n=  4 mean   -62.3bp sd  190.0 t -0.66 median   -57.1 neg 3/4
+  month 03                               n= 22 mean   +31.2bp sd  141.1 t +1.04 median   +10.7 neg 11/22
+  month 04                               n= 21 mean   +25.1bp sd  114.2 t +1.01 median   +20.3 neg 9/21
+  month 05                               n= 19 mean   +19.0bp sd  144.7 t +0.57 median   +40.7 neg 8/19
+  month 06                               n= 21 mean    -9.1bp sd  119.6 t -0.35 median    +1.0 neg 10/21
+  month 07                               n= 22 mean   -12.5bp sd  158.1 t -0.37 median   +46.6 neg 10/22
+  month 08                               n= 20 mean    -0.1bp sd  102.7 t -0.01 median    -6.3 neg 11/20
+  month 09                               n= 21 mean   +15.1bp sd  114.4 t +0.60 median    +5.7 neg 10/21
+  month 10                               n= 14 mean   -48.8bp sd   81.0 t -2.25 median   -38.4 neg 10/14
+open->bridge proxy 09:31:05
+  all                                    n=164 mean    +0.6bp sd   27.5 t +0.30 median    -0.1 neg 82/164
+  gap<-2%                                n= 33 mean    -3.6bp sd   29.8 t -0.69 median    -5.6 neg 19/33
+  mid                                    n= 93 mean    +2.7bp sd   26.0 t +0.99 median    +1.2 neg 44/93
+  gap>+2%                                n= 38 mean    -0.6bp sd   29.1 t -0.14 median    -2.2 neg 19/38
+  |gap|>2%                               n= 71 mean    -2.0bp sd   29.3 t -0.58 median    -5.6 neg 38/71
+  before 2026-09-08 (pre-live)           n=133 mean    +1.7bp sd   28.4 t +0.71 median    +1.3 neg 63/133
+  pre-live |gap|>2%                      n= 55 mean    +1.5bp sd   30.6 t +0.37 median    +7.0 neg 25/55
+  pre-live gap<-2%                       n= 26 mean    +0.0bp sd   32.2 t +0.00 median    +2.8 neg 12/26
+  pre-live gap>+2%                       n= 29 mean    +2.9bp sd   29.7 t +0.52 median   +15.5 neg 13/29
+  from 2026-09-08 (live overlap)         n= 31 mean    -4.1bp sd   22.7 t -1.00 median    -5.8 neg 19/31
+  month 02                               n=  4 mean   -13.5bp sd   41.2 t -0.66 median   -12.4 neg 3/4
+  month 03                               n= 22 mean    +6.8bp sd   30.6 t +1.04 median    +2.3 neg 11/22
+  month 04                               n= 21 mean    +5.4bp sd   24.8 t +1.01 median    +4.4 neg 9/21
+  month 05                               n= 19 mean    +4.1bp sd   31.3 t +0.57 median    +8.8 neg 8/19
+  month 06                               n= 21 mean    -2.0bp sd   25.9 t -0.35 median    +0.2 neg 10/21
+  month 07                               n= 22 mean    -2.7bp sd   34.2 t -0.37 median   +10.1 neg 10/22
+  month 08                               n= 20 mean    -0.0bp sd   22.2 t -0.01 median    -1.4 neg 11/20
+  month 09                               n= 21 mean    +3.3bp sd   24.8 t +0.60 median    +1.2 neg 10/21
+  month 10                               n= 14 mean   -10.6bp sd   17.5 t -2.25 median    -8.3 neg 10/14
+open->5min OHLC4
+  all                                    n=164 mean    -1.0bp sd   64.8 t -0.20 median    -7.3 neg 88/164
+  gap<-2%                                n= 33 mean    -9.7bp sd   71.8 t -0.77 median   -14.1 neg 20/33
+  mid                                    n= 93 mean    +3.7bp sd   61.1 t +0.59 median    -1.0 neg 47/93
+  gap>+2%                                n= 38 mean    -5.2bp sd   67.8 t -0.48 median   -17.5 neg 21/38
+  |gap|>2%                               n= 71 mean    -7.3bp sd   69.2 t -0.89 median   -16.2 neg 41/71
+  before 2026-09-08 (pre-live)           n=133 mean    +1.7bp sd   67.2 t +0.28 median    -1.0 neg 67/133
+  pre-live |gap|>2%                      n= 55 mean    +0.6bp sd   72.7 t +0.06 median    +3.6 neg 27/55
+  pre-live gap<-2%                       n= 26 mean    -1.3bp sd   77.5 t -0.08 median    -3.5 neg 13/26
+  pre-live gap>+2%                       n= 29 mean    +2.3bp sd   69.4 t +0.18 median   +15.6 neg 14/29
+  from 2026-09-08 (live overlap)         n= 31 mean   -12.6bp sd   52.2 t -1.34 median   -20.7 neg 21/31
+  month 02                               n=  4 mean   -20.7bp sd  101.4 t -0.41 median   -19.5 neg 3/4
+  month 03                               n= 22 mean   +19.5bp sd   68.7 t +1.33 median   +24.2 neg 9/22
+  month 04                               n= 21 mean   +10.1bp sd   60.6 t +0.76 median    -1.0 neg 11/21
+  month 05                               n= 19 mean    +1.8bp sd   78.6 t +0.10 median   +12.2 neg 9/19
+  month 06                               n= 21 mean    -6.7bp sd   63.4 t -0.48 median   -20.9 neg 13/21
+  month 07                               n= 22 mean   -10.6bp sd   78.4 t -0.63 median    +8.0 neg 10/22
+  month 08                               n= 20 mean    -3.2bp sd   51.2 t -0.28 median    -8.5 neg 11/20
+  month 09                               n= 21 mean    +5.1bp sd   56.1 t +0.42 median    -8.3 neg 11/21
+  month 10                               n= 14 mean   -30.8bp sd   36.8 t -3.12 median   -24.8 neg 11/14
+
+tierB NVDL 1-minute mornings 32 2026-09-08 2026-10-21
+open->09:31 bar OHLC4 (study live ref)
+  all                                    n= 32 mean   -18.7bp sd   67.3 t -1.58 median   -24.5 neg 21/32
+  |gap|>2%                               n= 17 mean   -28.0bp sd   75.2 t -1.54 median   -23.8 neg 12/17
+  |gap|<=2%                              n= 15 mean    -8.2bp sd   57.8 t -0.55 median   -25.2 neg 9/15
+  Sep                                    n= 17 mean    +2.4bp sd   68.8 t +0.15 median    -7.2 neg 9/17
+  Oct                                    n= 15 mean   -42.7bp sd   58.8 t -2.82 median   -45.0 neg 12/15
+open->09:31 bar close
+  all                                    n= 32 mean   -24.0bp sd   82.6 t -1.64 median   -31.7 neg 19/32
+  |gap|>2%                               n= 17 mean   -45.2bp sd   85.5 t -2.18 median   -48.1 neg 11/17
+  |gap|<=2%                              n= 15 mean    +0.0bp sd   74.7 t +0.00 median   -27.5 neg 8/15
+  Sep                                    n= 17 mean    +6.7bp sd   86.2 t +0.32 median   +10.3 neg 7/17
+  Oct                                    n= 15 mean   -58.8bp sd   64.4 t -3.54 median   -65.4 neg 12/15
+open->09:31 bar open
+  all                                    n= 32 mean   -16.2bp sd   56.3 t -1.63 median   -26.3 neg 20/32
+  |gap|>2%                               n= 17 mean   -15.6bp sd   67.0 t -0.96 median   -30.9 neg 11/17
+  |gap|<=2%                              n= 15 mean   -17.0bp sd   43.5 t -1.51 median    -8.2 neg 9/15
+  Sep                                    n= 17 mean    -4.1bp sd   52.5 t -0.32 median    -5.6 neg 9/17
+  Oct                                    n= 15 mean   -30.0bp sd   59.1 t -1.97 median   -43.4 neg 11/15
+open->bridge proxy from 5min
+  all                                    n= 32 mean    -3.9bp sd   22.3 t -0.99 median    -5.7 neg 19/32
+  |gap|>2%                               n= 17 mean   -13.3bp sd   20.1 t -2.73 median   -17.9 neg 13/17
+  |gap|<=2%                              n= 15 mean    +6.8bp sd   20.4 t +1.29 median    +3.6 neg 6/15
+  Sep                                    n= 17 mean    +1.3bp sd   25.5 t +0.21 median    -4.8 neg 9/17
+  Oct                                    n= 15 mean    -9.8bp sd   17.2 t -2.20 median    -6.3 neg 10/15
+bridge proxy vs 09:31 OHLC4 (proxy error)
+  all                                    n= 32 mean   +15.2bp sd   54.5 t +1.58 median   +18.9 neg 12/32
+  |gap|>2%                               n= 17 mean   +15.2bp sd   63.6 t +0.99 median   +18.3 neg 7/17
+  |gap|<=2%                              n= 15 mean   +15.2bp sd   44.0 t +1.34 median   +19.5 neg 5/15
+  Sep                                    n= 17 mean    -0.8bp sd   51.4 t -0.07 median    -5.4 neg 9/17
+  Oct                                    n= 15 mean   +33.4bp sd   53.7 t +2.41 median   +45.5 neg 3/15
+open->09:35
+  all                                    n= 32 mean   -21.9bp sd  106.1 t -1.17 median   -17.5 neg 20/32
+  |gap|>2%                               n= 17 mean   -65.9bp sd   99.9 t -2.72 median   -63.3 neg 15/17
+  |gap|<=2%                              n= 15 mean   +27.9bp sd   92.2 t +1.17 median   +14.3 neg 5/15
+  Sep                                    n= 17 mean    +6.6bp sd  119.2 t +0.23 median    +6.9 neg 8/17
+  Oct                                    n= 15 mean   -54.3bp sd   81.1 t -2.59 median   -59.8 neg 12/15
+sd open->09:31 OHLC4 (bp): 67.3

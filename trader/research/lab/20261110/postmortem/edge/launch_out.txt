@@ -1,0 +1,4 @@
+2x NVDA synthetic: 62-night mean ending night 2026-09-04->2026-09-08: +0.456%; percentile among all 62-night windows since 2000: 73.7; among windows ending 2015+: 65.9
+NVDL real bars: 62-night mean ending 2026-09-04: +0.539% (rules quoted +0.61%)
+after earlier 62-night windows at or above that level (non-overlapping, n=52): mean of the next 44 nights = +0.214% per night (sd across episodes 0.722); all-history mean +0.163%
+2x NVDA synthetic over the 44 live nights (entry 9/09..11/09): mean -0.102% sum -4.5% t -0.17 n 44

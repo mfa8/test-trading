@@ -1,0 +1,129 @@
+/tmp/claude-0/-home-user-test-trading/0c00e7d9-c916-50ae-ac83-8f6429819f25/scratchpad/pm/concentration/l5_real.py:41: RuntimeWarning: divide by zero encountered in divide
+  rat = cc / ncc
+####################################################################################################
+NVDL real bars: 974 nights with valid bars on both sides, 2022-12-13 .. 2026-11-05 (first valid bar 2022-12-13)
+   leverage check (OLS slope on NVDA): by half-year, close-to-close | overnight
+     2023H1 n=124  cc beta 1.48 (corr 0.994) | overnight beta 1.58 (corr 0.975)
+     2023H2 n=126  cc beta 1.50 (corr 0.966) | overnight beta 1.50 (corr 0.892)
+     2024H1 n=124  cc beta 1.96 (corr 0.998) | overnight beta 2.00 (corr 0.998)
+     2024H2 n=128  cc beta 2.00 (corr 1.000) | overnight beta 2.00 (corr 0.999)
+     2025H1 n=122  cc beta 1.97 (corr 0.999) | overnight beta 1.99 (corr 0.999)
+     2025H2 n=128  cc beta 1.99 (corr 1.000) | overnight beta 1.99 (corr 0.999)
+     2026H1 n=123  cc beta 1.99 (corr 0.999) | overnight beta 1.99 (corr 0.996)
+     2026H2 n= 90  cc beta 1.98 (corr 1.000) | overnight beta 1.99 (corr 0.999)
+   NVDL monthly close-to-close beta around the leverage change: 2023-10 1.51 2023-11 1.51 2023-12 1.45 2024-01 1.61 2024-02 1.98 2024-03 1.98 2024-04 1.99
+   daily ratio NVDL cc / NVDA cc on days NVDA moved >1%: 01-02 1.56 01-04 1.46 01-05 1.51 01-08 1.46 01-09 1.49 01-12 1.47 01-17 1.46 01-18 1.49 01-23 2.02 01-26 2.00 01-30 2.02 01-31 1.89 02-01 2.04 02-02 1.98 02-05 2.02 02-06 1.99 02-08 1.99 02-13 1.98 02-14 2.10 02-16 2.00 02-20 2.04 02-21 1.97 02-27 2.06 02-28 2.23 02-29 1.87
+   nights with |real - synthetic| > 1%: 55
+     2022-12-23 real   -2.98% syn   -1.74% diff  -1.24%  repo nvdl_on=-0.029801 clean=-0.017649
+     2022-12-27 real   -0.68% syn   -2.75% diff  +2.07%  repo nvdl_on=-0.006797 clean=-0.027764
+     2022-12-28 real   +4.13% syn   +5.22% diff  -1.09%  repo nvdl_on=0.041296 clean=0.051865
+     2023-01-03 real   -1.61% syn   +3.52% diff  -5.13%  repo nvdl_on=-0.016079 clean=0.034921
+     2023-01-05 real   +4.56% syn   +2.93% diff  +1.63%  repo nvdl_on=0.045553 clean=0.029015
+     2023-01-06 real  +10.99% syn   +5.72% diff  +5.27%  repo nvdl_on=0.109913 clean=0.056917
+     2023-01-09 real   +0.29% syn   -1.55% diff  +1.84%  repo nvdl_on=0.002886 clean=-0.015772
+     2023-01-11 real   -0.46% syn   +1.24% diff  -1.70%  repo nvdl_on=-0.004631 clean=0.012087
+     2023-01-12 real   +0.06% syn   -2.82% diff  +2.89%  repo nvdl_on=0.000627 clean=-0.028511
+     2023-01-13 real   +3.71% syn   +0.00% diff  +3.71%  repo nvdl_on=0.037078 clean=-0.000287
+     2023-01-19 real   +1.21% syn   +2.93% diff  -1.73%  repo nvdl_on=0.012074 clean=0.029060
+     2023-01-20 real   +1.04% syn   +2.52% diff  -1.48%  repo nvdl_on=0.010401 clean=0.024939
+     2023-01-23 real   -1.21% syn   -3.81% diff  +2.60%  repo nvdl_on=-0.012121 clean=-0.038426
+     2023-01-26 real   -0.86% syn   -3.43% diff  +2.58%  repo nvdl_on=-0.008568 clean=-0.034627
+     2023-02-02 real   -3.43% syn   -6.53% diff  +3.10%  repo nvdl_on=-0.034323 clean=-0.065606
+     2023-02-06 real   +1.60% syn   +2.78% diff  -1.18%  repo nvdl_on=0.015972 clean=0.027500
+     2023-02-10 real   +0.62% syn   +2.57% diff  -1.95%  repo nvdl_on=0.006215 clean=0.025389
+     2023-02-14 real   -2.66% syn   -3.67% diff  +1.01%  repo nvdl_on=-0.026600 clean=-0.037029
+     2023-02-15 real   -2.70% syn   -5.54% diff  +2.85%  repo nvdl_on=-0.026974 clean=-0.055725
+     2023-02-17 real   -1.29% syn   -3.63% diff  +2.34%  repo nvdl_on=-0.012915 clean=-0.036569
+     2023-02-21 real   -0.58% syn   +0.50% diff  -1.09%  repo nvdl_on=-0.005838 clean=0.004748
+     2023-02-22 real  +19.56% syn  +25.88% diff  -6.32% E repo nvdl_on=0.195617 clean=0.258555
+     2023-03-14 real   -1.38% syn   -2.51% diff  +1.13%  repo nvdl_on=-0.013829 clean=-0.025388
+     2023-03-15 real   -0.35% syn   -1.66% diff  +1.31%  repo nvdl_on=-0.003467 clean=-0.016879
+     2023-03-16 real   +1.51% syn   +3.45% diff  -1.94%  repo nvdl_on=0.015093 clean=0.034246
+     2023-03-17 real   +0.59% syn   -0.86% diff  +1.45%  repo nvdl_on=0.005927 clean=-0.008839
+     2023-03-24 real   +1.54% syn   +0.43% diff  +1.11%  repo nvdl_on=0.015405 clean=0.004045
+     2023-03-28 real   +1.88% syn   +3.14% diff  -1.26%  repo nvdl_on=0.018786 clean=0.031140
+     2023-04-04 real   -3.21% syn   -4.62% diff  +1.41%  repo nvdl_on=-0.032126 clean=-0.046529
+     2023-04-25 real   +4.29% syn   +5.80% diff  -1.51%  repo nvdl_on=0.042930 clean=0.057714
+     2023-05-02 real   -1.01% syn   -2.62% diff  +1.62%  repo nvdl_on=-0.010078 clean=-0.026519
+     2023-05-05 real   -0.02% syn   -1.10% diff  +1.08%  repo nvdl_on=-0.000205 clean=-0.011305
+     2023-05-19 real   -1.25% syn   -2.32% diff  +1.07%  repo nvdl_on=-0.012502 clean=-0.023509
+     2023-05-24 real  +42.35% syn  +52.30% diff  -9.95% E repo nvdl_on=0.423488 clean=0.522668
+     2023-05-26 real   +6.56% syn   +8.47% diff  -1.90%  repo nvdl_on=0.065650 clean=0.084394
+     2023-05-31 real   +2.00% syn   +3.46% diff  -1.46%  repo nvdl_on=0.019986 clean=0.034338
+     2023-06-12 real   +2.53% syn   +3.57% diff  -1.03%  repo nvdl_on=0.025333 clean=0.035375
+     2023-06-27 real   -4.68% syn   -5.81% diff  +1.13%  repo nvdl_on=-0.046817 clean=-0.058363
+     2023-07-11 real   +1.95% syn   +2.96% diff  -1.01%  repo nvdl_on=0.019527 clean=0.029332
+     2023-07-26 real   +3.24% syn   +4.70% diff  -1.46%  repo nvdl_on=0.032355 clean=0.046664
+     2023-08-18 real   +3.83% syn   +5.52% diff  -1.69%  repo nvdl_on=0.038255 clean=0.054911
+     2023-08-21 real   +3.61% syn   +4.97% diff  -1.36%  repo nvdl_on=0.036132 clean=0.049450
+     2023-08-23 real  +10.31% syn  +13.16% diff  -2.85% E repo nvdl_on=0.103093 clean=0.131303
+     2023-09-06 real   -5.27% syn   -6.53% diff  +1.26%  repo nvdl_on=-0.052653 clean=-0.065564
+     2023-09-15 real   -3.98% syn   -5.25% diff  +1.27%  repo nvdl_on=-0.039806 clean=-0.052770
+     2023-09-29 real   +0.75% syn   +2.44% diff  -1.69%  repo nvdl_on=0.007543 clean=0.024127
+     2023-10-06 real   -3.01% syn   -4.02% diff  +1.01%  repo nvdl_on=-0.030137 clean=-0.040495
+     2023-10-16 real   -6.74% syn   -9.09% diff  +2.35%  repo nvdl_on=-0.067435 clean=-0.091186
+     2023-10-17 real   -4.88% syn   -6.13% diff  +1.25%  repo nvdl_on=-0.048826 clean=-0.061601
+     2023-10-26 real   +2.89% syn   +3.99% diff  -1.09%  repo nvdl_on=0.028939 clean=0.039588
+     2023-11-01 real   +3.57% syn   +4.74% diff  -1.17%  repo nvdl_on=0.035723 clean=0.047108
+     2023-11-13 real   +3.17% syn   +4.36% diff  -1.19%  repo nvdl_on=0.031681 clean=0.043316
+     2023-12-26 real  -10.20% syn   +0.94% diff -11.15%  repo nvdl_on=-0.102043 clean=0.009129
+     2024-01-17 real   +3.16% syn   +4.31% diff  -1.14%  repo nvdl_on=0.031650 clean=0.042779
+     2026-05-01 real   +0.99% syn   -0.60% diff  +1.59%  repo nvdl_on=0.009868 clean=-0.006334
+   all nights                           n= 974 | mean real +0.4361% syn +0.4859% | mean diff -0.0498% (se 0.0238) median -0.0313% sd 0.744% | corr 0.9830 | slope real on NVDA 1.851 | g real +0.2733 syn +0.3152 (cost 9bp, 0.98)
+   from 2024-07-01                      n= 591 | mean real +0.3427% syn +0.3714% | mean diff -0.0287% (se 0.0072) median -0.0342% sd 0.175% | corr 0.9989 | slope real on NVDA 1.994 | g real +0.1781 syn +0.2059 (cost 9bp, 0.98)
+   2x era excl. |diff|>1%               n= 590 | mean real +0.3416% syn +0.3731% | mean diff -0.0315% (se 0.0067) median -0.0343% sd 0.162% | corr 0.9991 | slope real on NVDA 1.995 | g real +0.1769 syn +0.2074 (cost 9bp, 0.98)
+   2x era non-earnings excl. |diff|>1%  n= 581 | mean real +0.2918% syn +0.3201% | mean diff -0.0283% (se 0.0066) median -0.0333% sd 0.160% | corr 0.9990 | slope real on NVDA 1.997 | g real +0.1306 syn +0.1582 (cost 9bp, 0.98)
+   L5 on real      NVDL leg, trend rule, all real nights  n= 974: g +0.2928 / +0.1747 / +0.0436 (split-minus-only -0.1181) | worst -27.63 / -21.71 / -15.79 | maxDD -36.3 / -32.8 / -30.9 | PAUSE eps 2 / 3 / 4
+   L5 on synthetic NVDL leg, trend rule, all real nights  n= 974: g +0.3394 / +0.1989 / +0.0436 (split-minus-only -0.1405) | worst -27.88 / -21.83 / -15.79 | maxDD -35.5 / -32.7 / -30.9 | PAUSE eps 4 / 4 / 4
+   L5 on real      NVDL leg, trend rule, from 2024-07-01  n= 591: g +0.2008 / +0.1335 / +0.0550 (split-minus-only -0.0673) | worst -27.63 / -21.71 / -15.79 | maxDD -36.3 / -32.8 / -30.9 | PAUSE eps 2 / 3 / 3
+   L5 on synthetic NVDL leg, trend rule, from 2024-07-01  n= 591: g +0.2296 / +0.1480 / +0.0550 (split-minus-only -0.0817) | worst -27.88 / -21.83 / -15.79 | maxDD -35.5 / -32.7 / -30.9 | PAUSE eps 2 / 3 / 3
+   8 worst real NVDL nights: 2024-08-02 real -28.1% syn -28.4% TQQQ -16.0%; 2025-01-24 real -24.9% syn -25.0% TQQQ -10.6%; 2025-04-04 real -14.5% syn -14.5% TQQQ -10.6%; 2025-04-15 real -13.6% syn -13.6% TQQQ -5.9%; 2025-04-02 real -12.3% syn -12.5% TQQQ -12.5%; 2024-08-01 real -10.6% syn -10.0% TQQQ -5.9%; 2023-12-26 real -10.2% syn +0.9% TQQQ +0.2%; 2025-01-31 real -8.8% syn -8.9% TQQQ -5.1%
+####################################################################################################
+NVDX real bars: 765 nights with valid bars on both sides, 2023-10-19 .. 2026-11-05 (first valid bar 2023-10-19)
+   leverage check (OLS slope on NVDA): by half-year, close-to-close | overnight
+     2023H2 n= 50  cc beta 2.01 (corr 0.999) | overnight beta 2.01 (corr 0.919)
+     2024H1 n=124  cc beta 1.99 (corr 0.998) | overnight beta 2.06 (corr 0.996)
+     2024H2 n=128  cc beta 2.01 (corr 0.986) | overnight beta 2.00 (corr 0.968)
+     2025H1 n=122  cc beta 1.98 (corr 0.999) | overnight beta 1.99 (corr 0.999)
+     2025H2 n=128  cc beta 2.01 (corr 0.997) | overnight beta 2.01 (corr 0.994)
+     2026H1 n=123  cc beta 2.00 (corr 0.999) | overnight beta 1.99 (corr 0.996)
+     2026H2 n= 90  cc beta 1.97 (corr 0.999) | overnight beta 1.95 (corr 0.988)
+   nights with |real - synthetic| > 1%: 17
+     2023-10-24 real   -2.80% syn   -1.21% diff  -1.59%  
+     2023-10-25 real   +1.93% syn   +0.35% diff  +1.58%  
+     2023-10-26 real   +1.84% syn   +3.99% diff  -2.15%  
+     2023-10-30 real   -4.95% syn   -3.45% diff  -1.50%  
+     2023-10-31 real   +2.63% syn   +0.51% diff  +2.12%  
+     2023-11-02 real   +1.13% syn   +2.36% diff  -1.23%  
+     2023-11-17 real   +1.40% syn   +0.06% diff  +1.34%  
+     2023-12-08 real   +1.40% syn   -0.06% diff  +1.46%  
+     2024-02-22 real   +7.28% syn   +5.73% diff  +1.54%  
+     2024-06-21 real   -7.29% syn   -5.26% diff  -2.03%  
+     2024-06-25 real   -1.06% syn   +0.06% diff  -1.13%  
+     2024-07-01 real   -3.28% syn   -5.10% diff  +1.82%  
+     2024-12-23 real  -11.72% syn   +0.47% diff -12.20%  
+     2025-04-08 real   +4.30% syn   +5.38% diff  -1.07%  
+     2025-12-23 real   -4.32% syn   -1.34% diff  -2.98%  
+     2026-05-01 real   +1.14% syn   -0.60% diff  +1.74%  
+     2026-09-04 real   -1.88% syn   +2.39% diff  -4.27%  
+   all nights                           n= 765 | mean real +0.4569% syn +0.5104% | mean diff -0.0536% (se 0.0207) median -0.0305% sd 0.573% | corr 0.9879 | slope real on NVDA 2.002 | g real +0.2924 syn +0.3465 (cost 9bp, 0.98)
+   from 2024-07-01                      n= 591 | mean real +0.3001% syn +0.3714% | mean diff -0.0713% (se 0.0243) median -0.0400% sd 0.592% | corr 0.9876 | slope real on NVDA 1.990 | g real +0.1351 syn +0.2059 (cost 9bp, 0.98)
+   2x era excl. |diff|>1%               n= 585 | mean real +0.3302% syn +0.3732% | mean diff -0.0430% (se 0.0086) median -0.0388% sd 0.208% | corr 0.9985 | slope real on NVDA 1.995 | g real +0.1655 syn +0.2075 (cost 9bp, 0.98)
+   2x era non-earnings excl. |diff|>1%  n= 576 | mean real +0.2808% syn +0.3198% | mean diff -0.0390% (se 0.0085) median -0.0368% sd 0.205% | corr 0.9984 | slope real on NVDA 1.998 | g real +0.1195 syn +0.1578 (cost 9bp, 0.98)
+   L5 on real      NVDX leg, trend rule, all real nights  n= 765: g +0.3133 / +0.2069 / +0.0880 (split-minus-only -0.1064) | worst -27.75 / -21.77 / -15.79 | maxDD -36.8 / -33.1 / -30.9 | PAUSE eps 2 / 3 / 3
+   L5 on synthetic NVDX leg, trend rule, all real nights  n= 765: g +0.3648 / +0.2322 / +0.0880 (split-minus-only -0.1326) | worst -27.88 / -21.83 / -15.79 | maxDD -35.5 / -32.7 / -30.9 | PAUSE eps 2 / 3 / 3
+   L5 on real      NVDX leg, trend rule, from 2024-07-01  n= 591: g +0.1622 / +0.1146 / +0.0550 (split-minus-only -0.0476) | worst -27.75 / -21.77 / -15.79 | maxDD -36.8 / -33.1 / -30.9 | PAUSE eps 2 / 3 / 3
+   L5 on synthetic NVDX leg, trend rule, from 2024-07-01  n= 591: g +0.2296 / +0.1480 / +0.0550 (split-minus-only -0.0817) | worst -27.88 / -21.83 / -15.79 | maxDD -35.5 / -32.7 / -30.9 | PAUSE eps 2 / 3 / 3
+   8 worst real NVDX nights: 2024-08-02 real -28.2% syn -28.4% TQQQ -16.0%; 2025-01-24 real -25.0% syn -25.0% TQQQ -10.6%; 2025-04-04 real -14.6% syn -14.5% TQQQ -10.6%; 2025-04-15 real -13.9% syn -13.6% TQQQ -5.9%; 2025-04-02 real -12.3% syn -12.5% TQQQ -12.5%; 2024-12-23 real -11.7% syn +0.5% TQQQ +1.0%; 2024-08-01 real -10.5% syn -10.0% TQQQ -5.9%; 2025-01-31 real -8.8% syn -8.9% TQQQ -5.1%
+####################################################################################################
+NVDL vs NVDX, 765 common nights from 2023-10-19: mean +0.4544% vs +0.4569%, corr 0.9816, nights differing by >1%: [('2023-10-24', 1.93), ('2023-10-25', -1.48), ('2023-10-26', 1.06), ('2023-10-30', 2.34), ('2023-10-31', -2.46), ('2023-11-01', -1.49), ('2023-11-13', -1.8), ('2023-11-17', -1.1), ('2023-12-08', -1.29), ('2023-12-26', -11.3), ('2024-01-17', -1.35), ('2024-02-22', -1.54), ('2024-06-21', 1.29), ('2024-07-01', -1.41), ('2024-12-23', 12.24), ('2025-12-23', 2.95), ('2026-09-04', 4.32)]
+   from 2024-07-01: n=591 mean NVDL +0.3427% NVDX +0.3001% corr 0.9882
+####################################################################################################
+LIVE WINDOW (official close->open from pm/day_0908_1110.json; not our fills)
+   overnight legs in trades.csv: 82 rows, 44 nights, P&L recomputed from fills $-19.76; by symbol: {'AAPU': -2.08, 'AMZU': -1.48, 'METU': 4.12, 'NVDL': -17.45, 'NVDX': -2.87}
+   nights with both NVDL and TQQQ official bars: 43 of 44 (missing: ['T3X-N44'])
+   close->open over those 43 nights, full size, no cost: NVDL sum +1.5% compounded -2.0% | TQQQ sum -5.4% compounded -6.8% | 50/50 sum -1.9% compounded -3.8% | corr 0.58
+   same dollars as actually deployed each night (from trades.csv), at official close->open: all-NVDL $-1.10 | all-TQQQ $-5.47 | 50/50 $-3.29 | actual fills on those nights $-14.33
+   NVDA-only era (entries from 2026-10-14, 18 nights): all-NVDL $-9.34 | all-TQQQ $-6.29 | 50/50 $-7.81 | actual $-15.36
+   worst 6 actual nights: T3X-N43 2026-11-06 NVDL $-15.84 (NVDL c->o -14.6%, TQQQ c->o +2.9%); T3X-N44 2026-11-09 NVDL+NVDX $-5.43 (NVDL c->o -5.2%, TQQQ c->o n/a); T3X-N26 2026-10-14 NVDL+NVDX $-4.90 (NVDL c->o -5.7%, TQQQ c->o -4.3%); T3X-N41 2026-11-04 NVDL $-4.74 (NVDL c->o -4.4%, TQQQ c->o -3.9%); T3X-N37 2026-10-29 NVDL $-4.73 (NVDL c->o -4.6%, TQQQ c->o -7.7%); T3X-N03 2026-09-11 AMZU+NVDL $-4.33 (NVDL c->o -6.4%, TQQQ c->o -4.9%)
+   N43 (11/6->11/9): actual $-15.84 on $95.16 deployed; 50/50 at official prices would have been $-5.59; all-TQQQ $+2.75

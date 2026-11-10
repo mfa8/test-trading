@@ -1,0 +1,66 @@
+NIGHT level ALL
+  down<-2%                           n=10 mean exit -0.744% median -0.691% sd 0.952 t -2.47 boot90 [-1.214,-0.277] neg 7/10 sum$ -6.12 (inv $857, $-wtd -0.714%)
+  mid                                n=24 mean exit +0.103% median +0.017% sd 0.700 t +0.72 boot90 [-0.122,+0.337] neg 12/24 sum$ +2.06 (inv $2077, $-wtd +0.099%)
+  up>+2%                             n=10 mean exit -0.428% median -0.406% sd 0.808 t -1.68 boot90 [-0.834,-0.031] neg 7/10 sum$ -3.74 (inv $867, $-wtd -0.432%)
+  gap down (model<0)                 n=23 mean exit -0.234% median -0.113% sd 0.950 t -1.18 boot90 [-0.551,+0.086] neg 13/23 sum$ -4.59 (inv $1983, $-wtd -0.232%)
+  gap up (model>=0)                  n=21 mean exit -0.184% median -0.125% sd 0.745 t -1.13 boot90 [-0.445,+0.078] neg 13/21 sum$ -3.21 (inv $1818, $-wtd -0.176%)
+  |gap|>2%                           n=20 mean exit -0.586% median -0.540% sd 0.875 t -3.00 boot90 [-0.906,-0.276] neg 14/20 sum$ -9.86 (inv $1724, $-wtd -0.572%)
+  |gap|<=2%                          n=24 mean exit +0.103% median +0.017% sd 0.700 t +0.72 boot90 [-0.123,+0.338] neg 12/24 sum$ +2.06 (inv $2077, $-wtd +0.099%)
+NIGHT level era1 N1-24
+  down<-2%                           n= 2 mean exit -0.957% median -0.957% sd 0.846 t -1.60 boot90 [-1.555,-0.358] neg 2/2 sum$ -1.35 (inv $141, $-wtd -0.955%)
+  mid                                n=17 mean exit +0.197% median +0.201% sd 0.803 t +1.01 boot90 [-0.109,+0.516] neg 6/17 sum$ +2.78 (inv $1458, $-wtd +0.191%)
+  up>+2%                             n= 5 mean exit -0.591% median -0.529% sd 0.425 t -3.11 boot90 [-0.902,-0.334] neg 5/5 sum$ -2.71 (inv $438, $-wtd -0.619%)
+  gap down (model<0)                 n=11 mean exit +0.098% median +0.204% sd 0.978 t +0.33 boot90 [-0.364,+0.560] neg 4/11 sum$ +0.98 (inv $908, $-wtd +0.107%)
+  gap up (model>=0)                  n=13 mean exit -0.200% median -0.278% sd 0.696 t -1.04 boot90 [-0.498,+0.116] neg 9/13 sum$ -2.25 (inv $1129, $-wtd -0.200%)
+  |gap|>2%                           n= 7 mean exit -0.696% median -0.529% sd 0.521 t -3.53 boot90 [-1.014,-0.404] neg 7/7 sum$ -4.06 (inv $579, $-wtd -0.701%)
+  |gap|<=2%                          n=17 mean exit +0.197% median +0.201% sd 0.803 t +1.01 boot90 [-0.111,+0.513] neg 6/17 sum$ +2.78 (inv $1458, $-wtd +0.191%)
+NIGHT level era2 N25-44
+  down<-2%                           n= 8 mean exit -0.690% median -0.691% sd 1.023 t -1.91 boot90 [-1.254,-0.134] neg 5/8 sum$ -4.76 (inv $716, $-wtd -0.666%)
+  mid                                n= 7 mean exit -0.125% median -0.125% sd 0.275 t -1.20 boot90 [-0.273,+0.040] neg 6/7 sum$ -0.72 (inv $619, $-wtd -0.117%)
+  up>+2%                             n= 5 mean exit -0.265% median +0.168% sd 1.106 t -0.54 boot90 [-1.035,+0.439] neg 2/5 sum$ -1.03 (inv $429, $-wtd -0.241%)
+  gap down (model<0)                 n=12 mean exit -0.538% median -0.353% sd 0.852 t -2.18 boot90 [-0.940,-0.164] neg 9/12 sum$ -5.57 (inv $1074, $-wtd -0.518%)
+  gap up (model>=0)                  n= 8 mean exit -0.159% median +0.022% sd 0.869 t -0.52 boot90 [-0.653,+0.291] neg 4/8 sum$ -0.95 (inv $689, $-wtd -0.138%)
+  |gap|>2%                           n=13 mean exit -0.527% median -0.552% sd 1.032 t -1.84 boot90 [-0.992,-0.076] neg 7/13 sum$ -5.80 (inv $1144, $-wtd -0.507%)
+  |gap|<=2%                          n= 7 mean exit -0.125% median -0.125% sd 0.275 t -1.20 boot90 [-0.273,+0.038] neg 6/7 sum$ -0.72 (inv $619, $-wtd -0.117%)
+NIGHT level era2 excl N43-44
+  down<-2%                           n= 6 mean exit -0.226% median -0.251% sd 0.655 t -0.85 boot90 [-0.612,+0.188] neg 3/6 sum$ -1.19 (inv $544, $-wtd -0.219%)
+  mid                                n= 7 mean exit -0.125% median -0.125% sd 0.275 t -1.20 boot90 [-0.272,+0.039] neg 6/7 sum$ -0.72 (inv $619, $-wtd -0.117%)
+  up>+2%                             n= 5 mean exit -0.265% median +0.168% sd 1.106 t -0.54 boot90 [-1.035,+0.439] neg 2/5 sum$ -1.03 (inv $429, $-wtd -0.241%)
+  gap down (model<0)                 n=10 mean exit -0.228% median -0.158% sd 0.500 t -1.45 boot90 [-0.470,+0.023] neg 7/10 sum$ -2.00 (inv $902, $-wtd -0.221%)
+  gap up (model>=0)                  n= 8 mean exit -0.159% median +0.022% sd 0.869 t -0.52 boot90 [-0.654,+0.288] neg 4/8 sum$ -0.95 (inv $689, $-wtd -0.138%)
+  |gap|>2%                           n=11 mean exit -0.244% median +0.050% sd 0.839 t -0.96 boot90 [-0.645,+0.145] neg 5/11 sum$ -2.22 (inv $972, $-wtd -0.229%)
+  |gap|<=2%                          n= 7 mean exit -0.125% median -0.125% sd 0.275 t -1.20 boot90 [-0.273,+0.037] neg 6/7 sum$ -0.72 (inv $619, $-wtd -0.117%)
+NIGHT level ALL excl N43-44
+  down<-2%                           n= 8 mean exit -0.409% median -0.455% sd 0.723 t -1.60 boot90 [-0.805,-0.011] neg 5/8 sum$ -2.54 (inv $685, $-wtd -0.371%)
+  mid                                n=24 mean exit +0.103% median +0.017% sd 0.700 t +0.72 boot90 [-0.122,+0.337] neg 12/24 sum$ +2.06 (inv $2077, $-wtd +0.099%)
+  up>+2%                             n=10 mean exit -0.428% median -0.406% sd 0.808 t -1.68 boot90 [-0.835,-0.025] neg 7/10 sum$ -3.74 (inv $867, $-wtd -0.432%)
+  gap down (model<0)                 n=21 mean exit -0.057% median -0.110% sd 0.786 t -0.33 boot90 [-0.323,+0.226] neg 11/21 sum$ -1.02 (inv $1811, $-wtd -0.056%)
+  gap up (model>=0)                  n=21 mean exit -0.184% median -0.125% sd 0.745 t -1.13 boot90 [-0.442,+0.074] neg 13/21 sum$ -3.21 (inv $1818, $-wtd -0.176%)
+  |gap|>2%                           n=18 mean exit -0.420% median -0.444% sd 0.749 t -2.38 boot90 [-0.703,-0.138] neg 12/18 sum$ -6.29 (inv $1552, $-wtd -0.405%)
+  |gap|<=2%                          n=24 mean exit +0.103% median +0.017% sd 0.700 t +0.72 boot90 [-0.124,+0.337] neg 12/24 sum$ +2.06 (inv $2077, $-wtd +0.099%)
+ALL                n=44 corr(exit%,gap%)=+0.320 (t +2.19) slope +0.0717 intercept -0.193% spearman +0.116 | corr(exit%,|gap|%)=-0.331 (t -2.27) slope -0.1049 icpt +0.070 spearman -0.222
+era1               n=24 corr(exit%,gap%)=-0.049 (t -0.23) slope -0.0219 intercept -0.058% spearman -0.183 | corr(exit%,|gap|%)=-0.186 (t -0.89) slope -0.1457 icpt +0.160 spearman -0.103
+era2               n=20 corr(exit%,gap%)=+0.493 (t +2.41) slope +0.0805 intercept -0.319% spearman +0.400 | corr(exit%,|gap|%)=-0.362 (t -1.65) slope -0.0922 icpt -0.015 spearman -0.275
+ALL excl N43-44    n=42 corr(exit%,gap%)=+0.073 (t +0.46) slope +0.0182 intercept -0.125% spearman -0.014 | corr(exit%,|gap|%)=-0.073 (t -0.47) slope -0.0288 icpt -0.054 spearman -0.115
+era2 excl 43-44    n=18 corr(exit%,gap%)=+0.180 (t +0.73) slope +0.0287 intercept -0.203% spearman +0.191 | corr(exit%,|gap|%)=+0.072 (t +0.29) slope +0.0205 icpt -0.267 spearman -0.065
+
+LEG level (descriptive only; legs on the same morning are correlated)
+  ALL   down<-2%  legs=20 mean exit -0.507% $-wtd -0.556% sum$ -5.66 neg 13
+  ALL   mid       legs=42 mean exit -0.058% $-wtd -0.151% sum$ -2.79 neg 27
+  ALL   up>+2%    legs=20 mean exit +0.101% $-wtd +0.070% sum$ +0.65 neg 10
+  era1  down<-2%  legs= 9 mean exit -0.224% $-wtd -0.297% sum$ -0.90 neg 6
+  era1  mid       legs=31 mean exit -0.022% $-wtd -0.167% sum$ -2.07 neg 17
+  era1  up>+2%    legs=13 mean exit +0.354% $-wtd +0.339% sum$ +1.69 neg 7
+  era2  down<-2%  legs=11 mean exit -0.740% $-wtd -0.666% sum$ -4.76 neg 7
+  era2  mid       legs=11 mean exit -0.160% $-wtd -0.117% sum$ -0.72 neg 10
+  era2  up>+2%    legs= 7 mean exit -0.369% $-wtd -0.241% sum$ -1.03 neg 3
+
+NVDA-2x legs vs other names, nightly aggregation within family
+  NVDA2x all nights held             n=39 mean exit -0.282% median -0.237% sd 0.847 t -2.08 boot90 [-0.503,-0.060] neg 25/39 sum$ -7.72 (inv $2708, $-wtd -0.285%)
+  NVDA2x era1                        n=19 mean exit -0.172% median -0.453% sd 0.845 t -0.89 boot90 [-0.474,+0.139] neg 12/19 sum$ -1.20 (inv $944, $-wtd -0.127%)
+  NVDA2x era2                        n=20 mean exit -0.386% median -0.163% sd 0.857 t -2.01 boot90 [-0.702,-0.086] neg 13/20 sum$ -6.52 (inv $1764, $-wtd -0.370%)
+  NVDA2x ENTRY leg                   n=39 mean entry -0.016% median -0.053% sd 0.485 t -0.21 boot90 [-0.137,+0.115] neg 22/39 sum$ -0.19 (inv $2708, $-wtd -0.007%)
+  other all nights held              n=24 mean exit -0.026% median -0.153% sd 1.559 t -0.08 boot90 [-0.532,+0.494] neg 13/24 sum$ -0.08 (inv $1093, $-wtd -0.007%)
+  other era1                         n=24 mean exit -0.026% median -0.153% sd 1.559 t -0.08 boot90 [-0.541,+0.491] neg 13/24 sum$ -0.08 (inv $1093, $-wtd -0.007%)
+  other era2                         n=0
+  other ENTRY leg                    n=24 mean entry -0.286% median -0.218% sd 0.506 t -2.77 boot90 [-0.456,-0.127] neg 15/24 sum$ -2.67 (inv $1093, $-wtd -0.244%)
