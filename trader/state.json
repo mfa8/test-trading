@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-11T15:00:05Z",
-    "loop_note": "HB 10:00 ET flat, PAUSE session 2 of 5 (E 83.35 cash). NVDL 20.20/20.21, NVDA 172.98 (+2.42%), QQQ 685.82 (+1.63%; 0.61% above flip 681.67), SMH +3.65%. Exit-ti",
+    "last_heartbeat_utc": "2026-11-11T16:00:05Z",
+    "loop_note": "HB 11:00 ET flat, PAUSE session 2 of 5 (E 83.35 cash). NVDL 20.91/20.92 (+8.5%), NVDA 176.13 (+4.29%), QQQ 691.99 (+2.54%; 1.5% above flip 681.67), SMH +5.7%. S",
     "last": "2026-11-11T14:32Z exit night 45"
   },
   "campaign": {
@@ -1015,7 +1015,90 @@
       "nvda_earnings": "2026-11-17 amc -> cash that night (exit 11/17 09:31, no 11/17 entry, re-enter 11/18 15:52)",
       "next_tag": "Thu 11/12 AMAT/CSCO amc (night 47); NBIS before the open Thu"
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 83.35,
+        "S": 174.2261,
+        "expiry": "2027-02-19",
+        "B": 3.35,
+        "spread": null,
+        "call": null,
+        "t": "10:30 ET",
+        "leg_quotes": "260:1.00:1.21 270:0.74:0.89 280:0.57:0.64 285:0.48:0.59 290:0.38:0.50 295:0.30:0.47 300:0.29:0.40 310:0.25:0.41 320:0.20:0.25 330:0.11:0.23 340:0.11:0.18 350:0.03:0.22",
+        "cands": [
+          [
+            260.0,
+            0.29,
+            0.47,
+            0.34,
+            false
+          ],
+          [
+            270.0,
+            0.21,
+            0.32,
+            0.24,
+            false
+          ],
+          [
+            280.0,
+            0.165,
+            0.26,
+            0.19,
+            false
+          ],
+          [
+            285.0,
+            0.15,
+            0.29,
+            0.19,
+            false
+          ],
+          [
+            290.0,
+            0.095,
+            0.21,
+            0.13,
+            false
+          ],
+          [
+            300.0,
+            0.015,
+            0.15,
+            0.05,
+            false
+          ],
+          [
+            310.0,
+            0.105,
+            0.21,
+            0.14,
+            false
+          ],
+          [
+            320.0,
+            0.055,
+            0.14,
+            0.08,
+            false
+          ],
+          [
+            330.0,
+            0.025,
+            0.12,
+            0.05,
+            false
+          ],
+          [
+            340.0,
+            0.02,
+            0.15,
+            0.06,
+            false
+          ]
+        ]
+      }
+    ],
     "trend_premarket": {
       "t": "07:47 ET",
       "qqq": 688.16,
@@ -1024,7 +1107,7 @@
       "state": "UP (reference only; binding read 15:50; PAUSE sets the size anyway)"
     },
     "tools": "v2.2 first live uses today: trend.py add (07:47, ok, 280 closes), exit_ovn.py at 09:31:05, trend.py state --log at 15:50, entry_v18.py core at 15:52",
-    "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL; 09:31:05 exit night45 (exit_ovn.py 45 20261111 NVDL:1:BID) + post-fill check + re-price at 60s; PAUSE session 2 of 5 (1 share whatever E is); 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25; 15:40 pre-entry; 15:50 trend.py state QQQ= NVDA= SMH= --log; 15:52 entry_v18.py core 46 20261111 <ask> <last> <E> pause (exactly 1 share, no top-up); 16:01:30 EOD; DAY-20261111",
+    "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL; 09:31:05 exit night45 (exit_ovn.py 45 20261111 NVDL:1:BID) + post-fill check + re-price at 60s; PAUSE session 2 of 5 (1 share whatever E is); 8-min loop + hourly HB; sleeve shadow 10:30 (done) and 15:25 only (once a day from 11/11 while the budget above the floor is under 8; LAB L10); 15:40 pre-entry; 15:50 trend.py state QQQ= NVDA= SMH= --log; 15:52 entry_v18.py core 46 20261111 <ask> <last> <E> pause (exactly 1 share, no top-up); 16:01:30 EOD; DAY-20261111",
     "pause_check": {
       "E": 83.35,
       "pause": 82.89,
