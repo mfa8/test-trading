@@ -1,1623 +1,1629 @@
 {
- "schema": 3,
- "active_rules": "trader/RULES_v3.md",
- "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 §13) and a fractional top-up; weekly lab (§14); FFB-L options sleeve (inactive until options approval)",
- "mode": "FLAT_DAY",
- "mode_reason": "night 45 exited 09:31:19 Wed 11/11 (NVDL 1 @20.3001; +1.04); PAUSE session 2 of 5: night 46 = exactly 1 NVDL share at 15:52, no top-up",
- "wake": {
-  "n": 40,
-  "utc": "2026-09-18T13:26:43Z",
-  "et": "2026-09-18 09:33",
-  "phase": "LOOP",
-  "last_heartbeat_utc": "2026-11-11T14:31:59Z",
-  "loop_note": "FLAT after the N45 exit (+1.04); E 83.35; PAUSE session 2 of 5 (1 share tonight). Next: 8-min loop, sleeve shadows 10:30/13:00/15:25, 15:50 trend state --log, 15:52 entry core 46 ... pause",
-  "last": "2026-11-11T14:32Z exit night 45"
- },
- "campaign": {
-  "name": "T3X",
-  "start_date": "2026-09-09",
-  "start_equity": 98.75,
-  "equity_hwm": 107.11,
-  "kill": 50.0,
-  "pause_trigger_frac": 0.8,
-  "pause_until_session": "2026-11-16",
-  "sessions_done": 0,
-  "nights_held": 45,
-  "R_history": [],
-  "night_returns": [
-   {
-    "date": "2026-09-09",
-    "basket": "NVDL+AMZU",
-    "pnl": -1.66,
-    "pct": -1.68
-   },
-   {
-    "date": "2026-09-10",
-    "basket": "NVDL+AMZU",
-    "pnl": 1.31,
-    "pct": 1.34
-   },
-   {
-    "date": "2026-09-11",
-    "basket": "NVDL+AMZU",
-    "pnl": -4.33,
-    "pct": -4.4,
-    "note": "weekend; semis gap-down on AI-slowdown headlines"
-   },
-   {
-    "date": "2026-09-14",
-    "basket": "NVDL x2 + METU",
-    "pnl": 0.28,
-    "pct": 0.3
-   },
-   {
-    "date": "2026-09-15",
-    "basket": "NVDL x2 + METU",
-    "pnl": 1.51,
-    "pct": 1.6
-   },
-   {
-    "date": "2026-09-16",
-    "basket": "NVDL x2 + METU",
-    "pnl": 2.8,
-    "pct": 2.92
-   },
-   {
-    "date": "2026-09-17",
-    "basket": "NVDL x2 + METU",
-    "pnl": -0.81,
-    "pct": -0.81
-   },
-   {
-    "date": "2026-09-18",
-    "basket": "NVDL x2 + METU",
-    "pnl": 3.57,
-    "pct": 3.57,
-    "note": "weekend hold; NVDL +1.46, METU +2.11"
-   },
-   {
-    "date": "2026-09-21",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": -0.29,
-    "pct": -0.28,
-    "note": "NVDL +0.31 NVDX +0.20 METU -0.80 (post-spike fade)"
-   },
-   {
-    "date": "2026-09-22",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": -0.29,
-    "pct": -0.28,
-    "note": "NVDL -0.47 NVDX -0.27 METU +0.45"
-   },
-   {
-    "date": "2026-09-23",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": -0.46,
-    "pct": -0.45,
-    "note": "NVDL -0.66 NVDX -0.38 METU +0.58 (re-priced once)"
-   },
-   {
-    "date": "2026-09-24",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": -0.99,
-    "pct": -0.97,
-    "note": "NVDL +0.28 NVDX +0.16 METU -1.43 (METU faded 3.7% from prior close overnight)"
-   },
-   {
-    "date": "2026-09-25",
-    "basket": "NVDL+METU+NVDX",
-    "pnl": 2.0,
-    "pct": 2.0,
-    "note": "weekend hold; NVDL +2.08 NVDX +1.19 METU -1.27"
-   },
-   {
-    "date": "2026-09-28",
-    "basket": "METU+AAPU",
-    "pnl": -0.62,
-    "pct": -0.61,
-    "note": "first night of the 9/28 basket; METU +0.80, AAPU -1.42 (AAPL gapped -1.5%)"
-   },
-   {
-    "date": "2026-09-29",
-    "basket": "METU+AAPU",
-    "pnl": -0.1,
-    "pct": -0.13,
-    "note": "METU -0.66, AAPU +0.56; 08:30 data pop lifted AAPL, META faded"
-   },
-   {
-    "date": "2026-09-30",
-    "basket": "METU+AAPU",
-    "pnl": -1.11,
-    "pct": -1.47,
-    "note": "METU +0.13, AAPU -1.24; AAPL -1.5% at open; AAPU exit filled 42s in at the limit as cancel was rejected"
-   },
-   {
-    "date": "2026-10-01",
-    "basket": "METU+AAPU",
-    "pnl": 1.26,
-    "pct": 1.7,
-    "note": "METU +0.89, AAPU +0.37; 08:30 data pop, QQQ +1.2% at open"
-   },
-   {
-    "date": "2026-10-02",
-    "basket": "METU+AAPU",
-    "pnl": 0.39,
-    "pct": 0.38,
-    "note": "weekend hold; METU +0.75 (price-improved 31.5344 vs 31.35 lim), AAPU -0.35; AAPU last night in basket"
-   },
-   {
-    "date": "2026-10-05",
-    "basket": "METU+NVDL",
-    "pnl": 1.31,
-    "pct": 1.26,
-    "note": "first night of the 10/5 basket; METU +0.12, NVDL +1.19 (NVDA +1.7% pre-open)"
-   },
-   {
-    "date": "2026-10-06",
-    "basket": "METU+NVDL",
-    "pnl": -0.82,
-    "pct": -1.13,
-    "note": "METU -0.43, NVDL -0.39; QQQ -0.7% pre-open; both filled w/ price improvement (31.552 vs lim 31.33, 39.8409 vs 39.63)"
-   },
-   {
-    "date": "2026-10-07",
-    "basket": "METU x2+NVDL",
-    "pnl": -1.35,
-    "pct": -1.36,
-    "note": "METU -0.33 (2 sh), NVDL -1.03; NVDA weak at open (NVDL -2.75% vs close); first add-on night"
-   },
-   {
-    "date": "2026-10-08",
-    "basket": "METU x2+NVDL",
-    "pnl": 0.73,
-    "pct": 0.75,
-    "note": "down-day entry; pre-mkt marked +1.9 but open faded (NVDL 38.38 pre -> 37.83 open); METU 0.26, NVDL 0.47 (filled at limit 37.77 after 20s)"
-   },
-   {
-    "date": "2026-10-09",
-    "basket": "METU x2+NVDL",
-    "pnl": 2.66,
-    "pct": 2.74,
-    "note": "weekend hold; METU opened +5.8% vs Fri close (31.65); METU 3.14 (2 sh), NVDL -0.48"
-   },
-   {
-    "date": "2026-10-12",
-    "basket": "METU x2+NVDL",
-    "pnl": -1.73,
-    "pct": -1.73,
-    "note": "gap-down open (QQQ -0.75% premkt; META -1.3%, NVDA -0.8%); METU -0.80 (2 sh @31.5309), NVDL -0.93 (@35.1001); both filled at once with price improvement"
-   },
-   {
-    "date": "2026-10-13",
-    "basket": "NVDX x5 (v1.5)",
-    "pnl": -2.25,
-    "pct": -2.2,
-    "note": "risk-off after 08:30 data (QQQ -0.5%, IWM -1.0% premkt); NVDA -1.9% at open; filled 20.0201 vs lim 19.94 (+8c improvement)"
-   },
-   {
-    "date": "2026-10-14",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": -4.9,
-    "pct": -5.61,
-    "note": "TSM earnings morning: NVDA gapped ~-2.8% at open (-1.6% premkt at 07:46, worse by 09:31); NVDL 32.1908 (-3.83), NVDX 18.1105 (-1.07)"
-   },
-   {
-    "date": "2026-10-15",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": -0.78,
-    "pct": -0.92,
-    "note": "quiet night; NVDA -0.5% at open (216.19), QQQ -0.45%; NVDL 32.6701 (lim 32.57; +10c better), NVDX 18.38 (lim 18.31; +7c)"
-   },
-   {
-    "date": "2026-10-16",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": 1.04,
-    "pct": 1.26,
-    "note": "weekend hold; premkt ~+3.0 faded at the open (NVDL bid 32.88 at 09:31:05 -> 32.58 by 09:32:23); first limits 32.83/18.45 rested unfilled, §5 re-price at 60s to bid-0.3% (32.48/18.27) filled 32.5714/18.3001"
-   },
-   {
-    "date": "2026-10-19",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": -1.39,
-    "pct": -1.64,
-    "note": "NVDA -0.6% at open (215.73) after a +1.4% day; risk-off premkt (QQQ -0.6%); NVDL 32.3601 (lim 32.35), NVDX 18.2007 (lim 18.20); filled first try"
-   },
-   {
-    "date": "2026-10-20",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": 3.75,
-    "pct": 4.47,
-    "note": "NVDA +1.8% premkt (220.4 vs 216.47 close); NVDL 34.1701 (lim 34.13, filled 09:31:14); NVDX 19.21 (lim 19.21 rested 14s while bid faded 19.24->19.15, filled 09:31:30 before the 60s re-price)"
-   },
-   {
-    "date": "2026-10-21",
-    "basket": "NVDL x2 + NVDX x1 (v1.6)",
-    "pnl": -3.56,
-    "pct": -4.06,
-    "note": "semis-peer event night (LRCX -7% AH, META -3%): NVDA -2.5% premkt; NVDL 32.8101 (lim 32.66, bid 32.71 at 09:31:05 -> +10c improvement), NVDX 18.44 (lim 18.36, bid 18.39); filled first try 09:31:14/15"
-   },
-   {
-    "date": "2026-10-22",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": -1.26,
-    "pct": -1.34,
-    "note": "after NVDA -4.4% day; premkt drifted from +0.57 (07:47) to -0.45; NVDL slid 31.20 (09:25) -> 30.87 (09:29) -> bid 30.75 at 09:31:05; filled 30.8701 (lim 30.70; +12c vs bid)"
-   },
-   {
-    "date": "2026-10-23",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0); weekend hold",
-    "pnl": 1.8,
-    "pct": 1.94,
-    "note": "Fri->Mon weekend night; NVDA +1.0-1.3% premkt all morning; NVDL 31.50 (09:25) -> 31.46 (09:29) -> bid 31.58 at 09:31:05; filled 31.631 (lim 31.53; +5c vs bid) first try 09:31:20"
-   },
-   {
-    "date": "2026-10-26",
-    "basket": "NVDL x2 + NVDX x1 (v1.6; 3 NVDL > cap)",
-    "pnl": 1.27,
-    "pct": 1.53,
-    "note": "after NVDA +2.4% day; premkt +0.6..+1.1%; NVDL 32.81 (09:25, wide 32.81/32.97) -> 32.97 (09:29) -> bid 32.97 at 09:31:05; NVDL 32.95 (lim 32.92; -2c vs bid), NVDX 18.5247 (lim 18.50; -0.5c vs bid); first try 09:31:16/17"
-   },
-   {
-    "date": "2026-10-27",
-    "basket": "NVDL x2 + NVDX x1 (v1.6; 3 NVDL > cap)",
-    "pnl": 1.22,
-    "pct": 1.44,
-    "note": "FOMC eve; NVDA +0.7..+1.0% premkt; NVDL 33.42 (09:25) -> 33.49 (09:29) -> bid 33.36 at 09:31:05; NVDL 33.3901 (lim 33.30; +3c vs bid), NVDX 18.7753 (lim 18.72; +2.5c); first try 09:31:18/20. NVDL 'ex-date 10/28' = no distribution (open residual +0.01%)."
-   },
-   {
-    "date": "2026-10-28",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": -0.75,
-    "pct": -0.78,
-    "note": "hyperscaler+FOMC night: GOOGL -11% / MSFT +1.6% / META +0.9% premkt, QQQ -1.0..-1.4%; NVDA only -0.4%; NVDL 31.82 (09:25) -> 31.79 (09:29) -> bid 31.86 at 09:31:05; limit 31.81 rested 33s, filled at limit 09:31:48"
-   },
-   {
-    "date": "2026-10-29",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": -4.73,
-    "pct": -5.01,
-    "note": "AMZN/INTC amc night: INTC -25% / AMZN -6.7% / AMD -8.7% premkt, QQQ -2.5%; NVDA -3.3% at 07:47 -> -2.4% at 08:56 -> -2.75% at 09:31; NVDL bid 29.50 (07:47) -> 30.11 (09:29) -> 29.90 at 09:31:05; limit 29.85 filled 29.89 at 09:31:13"
-   },
-   {
-    "date": "2026-10-30",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": 2.76,
-    "pct": 3.19,
-    "note": "weekend hold after NVDA -4.1% Friday; NVDA +1.1% at 07:55 -> +1.6% at 09:31; NVDL bid 29.51 (07:55) -> 29.78 (09:29) -> 29.85 at 09:31:05; limit 29.80 rested ~10s, filled at limit 09:31:28"
-   },
-   {
-    "date": "2026-11-02",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": 3.68,
-    "pct": 4.33,
-    "note": "PLTR/ON amc night (PLTR -6% premkt); NVDA +1.7% at 07:47 -> +3.0% at 09:29 -> +2.3% at 09:31; NVDL bid 29.10 (07:47) -> 29.85 (09:29) -> 29.46 at 09:31:05; limit 29.41 filled 29.51 at 09:31:24"
-   },
-   {
-    "date": "2026-11-03",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": -2.16,
-    "pct": -2.44,
-    "note": "election night + AMD/SMCI/ANET/ALAB amc; NVDA 206.69 close -> 205.9 (07:47) -> 203.4 (08:03 low) -> 204.48 bid 09:31:05 (-1.07%); NVDL close 29.43 -> 28.83 bid (-2.04%); entry 29.50 was 7c above the close; filled limit 28.78 at 09:31:26. Post-election rotation: IWM +1.8%, QQQ +0.4%, SMH -1.4% premkt",
-    "entry_order_id": "6aea4980-1230-454d-824d-44d6cc164ffd",
-    "exit_order_id": "6aeb41b8-30c8-4ae7-bf27-6478ca64340c"
-   },
-   {
-    "date": "2026-11-04",
-    "basket": "NVDL x3 (v1.6; NVDX filler 0)",
-    "pnl": -4.74,
-    "pct": -5.69,
-    "note": "QCOM/ARM amc night; NVDA 200.13 close -> 197.1 (07:46) -> 196.0 (09:29) -> 195.32 bid 09:31:05 (-2.40%); NVDL close 27.64 -> 26.23 bid (-5.10%); entry 27.769 was 13c above the official close; filled limit 26.19 at 09:31:54. Semis selloff: QCOM -12%, ARM -8%, AMD -6%, SMH -3.6% premkt",
-    "entry_order_id": "6aeb9afd-056b-467f-beef-08d7b29d4115",
-    "exit_order_id": "6aec933a-fdec-48a9-8dc8-ca112a07b809"
-   },
-   {
-    "date": "2026-11-05",
-    "basket": "NVDL x4 (v1.6; NVDX filler 0)",
-    "pnl": 9.22,
-    "pct": 10.15,
-    "note": "night after the 11/5 tech crash (NVDA -9.26%); rebound: NVDA 181.60 close -> 188.6 (07:47) -> 191.2 (09:29) -> 192.24 bid 09:31:05 (+5.86%); NVDL close 22.50 -> 25.06 bid (+11.38%); entry 22.7153 was 21.5c above the official close (15:52->close drift -0.95%); filled limit 25.02 at 09:31:25. SMH +5%, AMD +8%, TSM +7% premkt",
-    "entry_order_id": "6aecec80-a0a3-409d-b29c-189c24e3bdd9",
-    "exit_order_id": "6aede4b6-9fd7-4dcc-8f36-d164fc30b779"
-   },
-   {
-    "date": "2026-11-06",
-    "basket": "NVDL x4 (v1.6; NVDX filler 0)",
-    "pnl": -15.84,
-    "pct": -16.64,
-    "note": "weekend hold; UNSCHEDULED NVDA-specific news (Sun 11/8 board review of CEO Huang over reported PRC-intelligence link): NVDA 186.64 close -> 176.9 (07:47) -> 173.1 (09:29) -> 171.56 bid 09:31:05 (-8.08%) while QQQ +0.9%; NVDL close 23.71 -> 19.86 bid (-16.24%); entry 23.7899 was 8c above the official close; filled limit 19.83 at 19.8301 09:31:15.6",
-    "entry_order_id": "6aee3dfe-6933-4473-bb2a-4c79560ce065",
-    "exit_order_id": "6af1d933-3c8a-4043-8ce9-b1cdd1a1c295"
-   },
-   {
-    "date": "2026-11-09",
-    "basket": "NVDL x3 + NVDX x1 (v1.6 filler; last night sized under v1.6)",
-    "pnl": -5.43,
-    "pct": -7.06,
-    "note": "second day of the CEO-review story plus a hot-reading CPI reaction at 08:30: NVDA 178.67 close -> 176.73 (07:48) -> 175.72 (08:30:39) -> 174.03 (09:29) -> 172.35 bid 09:31:05 (-3.54%); QQQ -1.24%; NVDL close 21.64 -> 20.11 bid (-7.07%); entry 21.5999 was 4c below the official close; both sells filled AT their limits (NVDL 20.07 vs bid 20.11; NVDX 11.27 vs bid 11.29) at 09:31:30.4, 25s after the quote",
-    "entry_order_id": "6af2327f-1cef-44da-a100-8343e30cc0ac + 6af23299-923c-4413-89cb-ade4cbb0a081",
-    "exit_order_id": "6af32aba-8c4d-466a-a89f-0f2dcb2834ce + 6af32abb-3a4f-4091-880f-f2a401a85dc6"
-   },
-   {
-    "date": "2026-11-10",
-    "basket": "NVDL x1 (v1.8, PAUSE size)",
-    "pnl": 1.04,
-    "pct": 5.43,
-    "note": "chip rebound after CoreWeave raised its 2026 outlook: NVDA 168.89 close -> 176.25 (07:46) -> 173.03 (09:29) -> 173.55 bid 09:31:05 (+2.76%); QQQ +1.92%; NVDL close 19.28 -> 20.31 bid (+5.34%); entry 19.2553 was 2.5c below the official close; sold 20.3001 at 09:31:19.06 (limit 20.27, bid 20.31), 0.1s after the order",
-    "entry_order_id": "6af383fc-da15-4924-9fbf-f8a7cf2182e3",
-    "exit_order_id": "6af47c36-6467-44e4-a15e-f6236e21a930"
-   }
-  ],
-  "end_date": null,
-  "rules_note": "never retire campaign/scheduler (human 2026-09-09). v1.8 adopted 2026-11-09 on the human's instruction; change log at the end of RULES_v3.md; evidence research/REVIEW-20261109.md",
-  "strategy_version": "T3X v1.8 (NVDL only; size f x E with f = 0.98 if QQQ >= its 200-day average at 15:50, else 0.25; fractional top-up; PAUSE = 1 share; edge-decay switch; day leg suspended). In force from the night-45 entry 2026-11-10.",
-  "ranking_asof": "2026-10-26 (information only under v1.6)",
-  "ranking": {
-   "overnight": {
-    "METU": 0.34,
-    "NVDL": 0.26,
-    "NVDX": 0.22,
-    "GGLL": 0.19,
-    "TECL": 0.08
-   },
-   "basket": "v1.8: NVDL only (NVDA-2x core, no filler, no satellite); size from §13 trend f with a fractional top-up; PAUSE = exactly 1 share; §3(f) W120 edge-decay switch (Mondays)",
-   "day_leg": {
-    "TZA": 0.46,
-    "NVDQ": 0.15,
-    "SPXS": 0.02
-   },
-   "file": "research/rank_20261012.json",
-   "v15": {
-    "asof": "2026-10-13",
-    "m250": {
-     "NVDL": 0.46,
-     "NVDX": 0.42,
-     "METU": 0.04
-    },
-    "walkfwd_score": {
-     "rank30_top2": 0.08,
-     "fixed_NVDL": 0.17,
-     "old_basket_METU2_NVDL1": 0.07
-    },
-    "satellite_qualifies": null,
-    "nvda_earnings_blackout": "2026-11-17 pm -> cash"
-   },
-   "v16": {
-    "asof": "2026-10-14",
-    "review": "research/VERIFY-V15-20261014.md",
-    "planning_edge_pct_per_night": 0.3,
-    "edge_decay": {
-     "window": 120,
-     "threshold": 0.0,
-     "check": "Mondays",
-     "last_value": null
-    },
-    "review_at_live_nights": 40,
-    "nvda_earnings_cash": "2026-11-17 entry skipped",
-    "half_days_entry_1252": [
-     "2026-11-27",
-     "2026-12-24"
-    ],
-    "nvdl_exdate_check": "2026-10-28 (verify before 10/27 entry)"
-   }
+  "schema": 3,
+  "active_rules": "trader/RULES_v3.md",
+  "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
+  "mode": "FLAT_DAY",
+  "mode_reason": "night 45 exited 09:31:19 Wed 11/11 (NVDL 1 @20.3001; +1.04); PAUSE session 2 of 5: night 46 = exactly 1 NVDL share at 15:52, no top-up",
+  "wake": {
+    "n": 40,
+    "utc": "2026-09-18T13:26:43Z",
+    "et": "2026-09-18 09:33",
+    "phase": "LOOP",
+    "last_heartbeat_utc": "2026-11-11T15:00:05Z",
+    "loop_note": "HB 10:00 ET flat, PAUSE session 2 of 5 (E 83.35 cash). NVDL 20.20/20.21, NVDA 172.98 (+2.42%), QQQ 685.82 (+1.63%; 0.61% above flip 681.67), SMH +3.65%. Exit-ti",
+    "last": "2026-11-11T14:32Z exit night 45"
   },
-  "risk_note": "Long-sample bootstraps (idle-capital review 10/14): overnight-only NVDA-2x at ~90% has 60-session P(PAUSE) ~30-45% and P(KILL within 250 sessions) ~3-7% (1y-data estimate was 4.5%). Exposure kept (growth goal; below Kelly); reported to human.",
-  "shadow_logs": {
-   "day_leg_TZA": "per §11 v1.7",
-   "crash_open_exit_delay": "NVDA open <= -5% or QQQ <= -3% (non-earnings): log NVDL/NVDX bid at 09:31 fill time and at 10:00",
-   "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
-   "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
-   "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout) | 2026-10-22 long-sample study (research/PEER-NIGHTS-20261022.md, 2 analysts+2 verifiers): NO evidence for any peer blackout/half-size (all variants lower growth, no DD/tail benefit). Keep NVDA-own blackout only.",
-   "hyperscaler_nights": "pre-registered 2026-10-22 (out-of-sample from 10/22, judge at 2027-01-11, NO behaviour change before): H1 megacap (MSFT/GOOGL/META/AMZN/ORCL) and 2+-peer nights have higher overnight variance (long sample sd ratio 1.25-1.45, fragile); H2 AMZN/GOOGL/INTC nights elevated tails (nominal 5/36, 4/36, 4/36); H3 megacap nights on FOMC day elevated tails. Tag every such night in campaign.event_night_tags with realized NVDL/NVDX overnight %.",
-   "down_session_skip_log": [
-    {
-     "night": 42,
-     "date": "2026-11-05",
-     "vs_prior_close": "DOWN",
-     "vs_open": "DOWN",
-     "NVDA_1550_chg_vs_pc_pct": -8.86,
-     "NVDA_1550_chg_vs_open_pct": -6.98,
-     "realized": {
-      "night_pct": 10.15,
-      "night_pnl": 9.22
-     }
-    },
-    {
-     "night": 43,
-     "date": "2026-11-06",
-     "vs_prior_close": "UP",
-     "vs_open": "DOWN",
-     "NVDA_1550_chg_vs_pc_pct": 3.17,
-     "NVDA_1550_chg_vs_open_pct": -1.96,
-     "realized": {
-      "night_pct": -16.64,
-      "night_pnl": -15.84
-     },
-     "note": "official open 191.10 (RH day bar, checked 11/9); weekend night"
-    },
-    {
-     "night": 44,
-     "date": "2026-11-09",
-     "vs_prior_close": "DOWN",
-     "vs_open": "UP",
-     "NVDA_1550_chg_vs_pc_pct": -4.4,
-     "NVDA_1550_chg_vs_open_pct": 3.15,
-     "realized": {
-      "night_pct": -7.06,
-      "night_pnl": -5.43
-     },
-     "note": "open 172.99 (first 1-min bar open); day after CEO-review news"
-    },
-    {
-     "night": 45,
-     "date": "2026-11-10",
-     "vs_prior_close": "DOWN",
-     "vs_open": "DOWN",
-     "NVDA_1550_chg_vs_pc_pct": -5.73,
-     "NVDA_1550_chg_vs_open_pct": -3.19,
-     "realized": {
-      "night_pct": 5.43,
-      "night_pnl": 1.04
-     },
-     "note": "open 173.98 (first 1-min bar open); PAUSE night, 1 share"
-    }
-   ],
-   "crash_open_exit_delay_log": [
-    {
-     "date": "2026-11-09",
-     "night": 43,
-     "trigger": "NVDA open 172.99 (-7.31% vs 186.64, first 1-min bar; 09:31:05 bid 171.56 = -8.08%); non-earnings, company-specific (board review of CEO); QQQ +0.9%",
-     "at_fill_0931": {
-      "t": "09:31:15.6",
-      "NVDL_fill": 19.8301,
-      "NVDL_bid_093105": 19.86,
-      "NVDX_bid_093105": 11.15
-     },
-     "at_1000": {
-      "t": "10:00:00",
-      "NVDL_bid": 21.68,
-      "NVDL_ask": 21.7,
-      "NVDX_bid": 12.15,
-      "NVDX_ask": 12.16,
-      "NVDA": 178.67
-     },
-     "delay_gain": {
-      "NVDL_pct_vs_fill": 9.33,
-      "usd_4sh": 7.4
-     },
-     "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
-    }
-   ],
-   "trend_filter": {
-    "note": "RULES_v3 §13(e), from night 45: research/trend/log.csv holds the 15:50 QQQ/NVDA/SMH price, flip level, distance and state each entry day. On every DOWN night record the full-size counterfactual (what f = 0.98 would have bought and made) in state.today.trend and the DAY report. Audited at each quarterly review (first 2027-01-11); LAB.md L1, L2.",
-    "log": [
-     {
-      "night": 45,
-      "date": "2026-11-10",
-      "state": "DOWN",
-      "dist_pct": -0.99,
-      "size_taken": "1 share (PAUSE; equals the DOWN size)",
-      "full_size_counterfactual": "4 shares + 3.58 top-up = 80.66 (0.98 of E)",
-      "realized": {
-       "taken_pnl": 1.04,
-       "full_size_counterfactual_pnl": 4.38,
-       "note": "DOWN night that went up: the smaller size cost about 3.3 against full size"
+  "campaign": {
+    "name": "T3X",
+    "start_date": "2026-09-09",
+    "start_equity": 98.75,
+    "equity_hwm": 107.11,
+    "kill": 50.0,
+    "pause_trigger_frac": 0.8,
+    "pause_until_session": "2026-11-16",
+    "sessions_done": 0,
+    "nights_held": 45,
+    "R_history": [],
+    "night_returns": [
+      {
+        "date": "2026-09-09",
+        "basket": "NVDL+AMZU",
+        "pnl": -1.66,
+        "pct": -1.68
+      },
+      {
+        "date": "2026-09-10",
+        "basket": "NVDL+AMZU",
+        "pnl": 1.31,
+        "pct": 1.34
+      },
+      {
+        "date": "2026-09-11",
+        "basket": "NVDL+AMZU",
+        "pnl": -4.33,
+        "pct": -4.4,
+        "note": "weekend; semis gap-down on AI-slowdown headlines"
+      },
+      {
+        "date": "2026-09-14",
+        "basket": "NVDL x2 + METU",
+        "pnl": 0.28,
+        "pct": 0.3
+      },
+      {
+        "date": "2026-09-15",
+        "basket": "NVDL x2 + METU",
+        "pnl": 1.51,
+        "pct": 1.6
+      },
+      {
+        "date": "2026-09-16",
+        "basket": "NVDL x2 + METU",
+        "pnl": 2.8,
+        "pct": 2.92
+      },
+      {
+        "date": "2026-09-17",
+        "basket": "NVDL x2 + METU",
+        "pnl": -0.81,
+        "pct": -0.81
+      },
+      {
+        "date": "2026-09-18",
+        "basket": "NVDL x2 + METU",
+        "pnl": 3.57,
+        "pct": 3.57,
+        "note": "weekend hold; NVDL +1.46, METU +2.11"
+      },
+      {
+        "date": "2026-09-21",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": -0.29,
+        "pct": -0.28,
+        "note": "NVDL +0.31 NVDX +0.20 METU -0.80 (post-spike fade)"
+      },
+      {
+        "date": "2026-09-22",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": -0.29,
+        "pct": -0.28,
+        "note": "NVDL -0.47 NVDX -0.27 METU +0.45"
+      },
+      {
+        "date": "2026-09-23",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": -0.46,
+        "pct": -0.45,
+        "note": "NVDL -0.66 NVDX -0.38 METU +0.58 (re-priced once)"
+      },
+      {
+        "date": "2026-09-24",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": -0.99,
+        "pct": -0.97,
+        "note": "NVDL +0.28 NVDX +0.16 METU -1.43 (METU faded 3.7% from prior close overnight)"
+      },
+      {
+        "date": "2026-09-25",
+        "basket": "NVDL+METU+NVDX",
+        "pnl": 2.0,
+        "pct": 2.0,
+        "note": "weekend hold; NVDL +2.08 NVDX +1.19 METU -1.27"
+      },
+      {
+        "date": "2026-09-28",
+        "basket": "METU+AAPU",
+        "pnl": -0.62,
+        "pct": -0.61,
+        "note": "first night of the 9/28 basket; METU +0.80, AAPU -1.42 (AAPL gapped -1.5%)"
+      },
+      {
+        "date": "2026-09-29",
+        "basket": "METU+AAPU",
+        "pnl": -0.1,
+        "pct": -0.13,
+        "note": "METU -0.66, AAPU +0.56; 08:30 data pop lifted AAPL, META faded"
+      },
+      {
+        "date": "2026-09-30",
+        "basket": "METU+AAPU",
+        "pnl": -1.11,
+        "pct": -1.47,
+        "note": "METU +0.13, AAPU -1.24; AAPL -1.5% at open; AAPU exit filled 42s in at the limit as cancel was rejected"
+      },
+      {
+        "date": "2026-10-01",
+        "basket": "METU+AAPU",
+        "pnl": 1.26,
+        "pct": 1.7,
+        "note": "METU +0.89, AAPU +0.37; 08:30 data pop, QQQ +1.2% at open"
+      },
+      {
+        "date": "2026-10-02",
+        "basket": "METU+AAPU",
+        "pnl": 0.39,
+        "pct": 0.38,
+        "note": "weekend hold; METU +0.75 (price-improved 31.5344 vs 31.35 lim), AAPU -0.35; AAPU last night in basket"
+      },
+      {
+        "date": "2026-10-05",
+        "basket": "METU+NVDL",
+        "pnl": 1.31,
+        "pct": 1.26,
+        "note": "first night of the 10/5 basket; METU +0.12, NVDL +1.19 (NVDA +1.7% pre-open)"
+      },
+      {
+        "date": "2026-10-06",
+        "basket": "METU+NVDL",
+        "pnl": -0.82,
+        "pct": -1.13,
+        "note": "METU -0.43, NVDL -0.39; QQQ -0.7% pre-open; both filled w/ price improvement (31.552 vs lim 31.33, 39.8409 vs 39.63)"
+      },
+      {
+        "date": "2026-10-07",
+        "basket": "METU x2+NVDL",
+        "pnl": -1.35,
+        "pct": -1.36,
+        "note": "METU -0.33 (2 sh), NVDL -1.03; NVDA weak at open (NVDL -2.75% vs close); first add-on night"
+      },
+      {
+        "date": "2026-10-08",
+        "basket": "METU x2+NVDL",
+        "pnl": 0.73,
+        "pct": 0.75,
+        "note": "down-day entry; pre-mkt marked +1.9 but open faded (NVDL 38.38 pre -> 37.83 open); METU 0.26, NVDL 0.47 (filled at limit 37.77 after 20s)"
+      },
+      {
+        "date": "2026-10-09",
+        "basket": "METU x2+NVDL",
+        "pnl": 2.66,
+        "pct": 2.74,
+        "note": "weekend hold; METU opened +5.8% vs Fri close (31.65); METU 3.14 (2 sh), NVDL -0.48"
+      },
+      {
+        "date": "2026-10-12",
+        "basket": "METU x2+NVDL",
+        "pnl": -1.73,
+        "pct": -1.73,
+        "note": "gap-down open (QQQ -0.75% premkt; META -1.3%, NVDA -0.8%); METU -0.80 (2 sh @31.5309), NVDL -0.93 (@35.1001); both filled at once with price improvement"
+      },
+      {
+        "date": "2026-10-13",
+        "basket": "NVDX x5 (v1.5)",
+        "pnl": -2.25,
+        "pct": -2.2,
+        "note": "risk-off after 08:30 data (QQQ -0.5%, IWM -1.0% premkt); NVDA -1.9% at open; filled 20.0201 vs lim 19.94 (+8c improvement)"
+      },
+      {
+        "date": "2026-10-14",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": -4.9,
+        "pct": -5.61,
+        "note": "TSM earnings morning: NVDA gapped ~-2.8% at open (-1.6% premkt at 07:46, worse by 09:31); NVDL 32.1908 (-3.83), NVDX 18.1105 (-1.07)"
+      },
+      {
+        "date": "2026-10-15",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": -0.78,
+        "pct": -0.92,
+        "note": "quiet night; NVDA -0.5% at open (216.19), QQQ -0.45%; NVDL 32.6701 (lim 32.57; +10c better), NVDX 18.38 (lim 18.31; +7c)"
+      },
+      {
+        "date": "2026-10-16",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": 1.04,
+        "pct": 1.26,
+        "note": "weekend hold; premkt ~+3.0 faded at the open (NVDL bid 32.88 at 09:31:05 -> 32.58 by 09:32:23); first limits 32.83/18.45 rested unfilled, \u00a75 re-price at 60s to bid-0.3% (32.48/18.27) filled 32.5714/18.3001"
+      },
+      {
+        "date": "2026-10-19",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": -1.39,
+        "pct": -1.64,
+        "note": "NVDA -0.6% at open (215.73) after a +1.4% day; risk-off premkt (QQQ -0.6%); NVDL 32.3601 (lim 32.35), NVDX 18.2007 (lim 18.20); filled first try"
+      },
+      {
+        "date": "2026-10-20",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": 3.75,
+        "pct": 4.47,
+        "note": "NVDA +1.8% premkt (220.4 vs 216.47 close); NVDL 34.1701 (lim 34.13, filled 09:31:14); NVDX 19.21 (lim 19.21 rested 14s while bid faded 19.24->19.15, filled 09:31:30 before the 60s re-price)"
+      },
+      {
+        "date": "2026-10-21",
+        "basket": "NVDL x2 + NVDX x1 (v1.6)",
+        "pnl": -3.56,
+        "pct": -4.06,
+        "note": "semis-peer event night (LRCX -7% AH, META -3%): NVDA -2.5% premkt; NVDL 32.8101 (lim 32.66, bid 32.71 at 09:31:05 -> +10c improvement), NVDX 18.44 (lim 18.36, bid 18.39); filled first try 09:31:14/15"
+      },
+      {
+        "date": "2026-10-22",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": -1.26,
+        "pct": -1.34,
+        "note": "after NVDA -4.4% day; premkt drifted from +0.57 (07:47) to -0.45; NVDL slid 31.20 (09:25) -> 30.87 (09:29) -> bid 30.75 at 09:31:05; filled 30.8701 (lim 30.70; +12c vs bid)"
+      },
+      {
+        "date": "2026-10-23",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0); weekend hold",
+        "pnl": 1.8,
+        "pct": 1.94,
+        "note": "Fri->Mon weekend night; NVDA +1.0-1.3% premkt all morning; NVDL 31.50 (09:25) -> 31.46 (09:29) -> bid 31.58 at 09:31:05; filled 31.631 (lim 31.53; +5c vs bid) first try 09:31:20"
+      },
+      {
+        "date": "2026-10-26",
+        "basket": "NVDL x2 + NVDX x1 (v1.6; 3 NVDL > cap)",
+        "pnl": 1.27,
+        "pct": 1.53,
+        "note": "after NVDA +2.4% day; premkt +0.6..+1.1%; NVDL 32.81 (09:25, wide 32.81/32.97) -> 32.97 (09:29) -> bid 32.97 at 09:31:05; NVDL 32.95 (lim 32.92; -2c vs bid), NVDX 18.5247 (lim 18.50; -0.5c vs bid); first try 09:31:16/17"
+      },
+      {
+        "date": "2026-10-27",
+        "basket": "NVDL x2 + NVDX x1 (v1.6; 3 NVDL > cap)",
+        "pnl": 1.22,
+        "pct": 1.44,
+        "note": "FOMC eve; NVDA +0.7..+1.0% premkt; NVDL 33.42 (09:25) -> 33.49 (09:29) -> bid 33.36 at 09:31:05; NVDL 33.3901 (lim 33.30; +3c vs bid), NVDX 18.7753 (lim 18.72; +2.5c); first try 09:31:18/20. NVDL 'ex-date 10/28' = no distribution (open residual +0.01%)."
+      },
+      {
+        "date": "2026-10-28",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": -0.75,
+        "pct": -0.78,
+        "note": "hyperscaler+FOMC night: GOOGL -11% / MSFT +1.6% / META +0.9% premkt, QQQ -1.0..-1.4%; NVDA only -0.4%; NVDL 31.82 (09:25) -> 31.79 (09:29) -> bid 31.86 at 09:31:05; limit 31.81 rested 33s, filled at limit 09:31:48"
+      },
+      {
+        "date": "2026-10-29",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": -4.73,
+        "pct": -5.01,
+        "note": "AMZN/INTC amc night: INTC -25% / AMZN -6.7% / AMD -8.7% premkt, QQQ -2.5%; NVDA -3.3% at 07:47 -> -2.4% at 08:56 -> -2.75% at 09:31; NVDL bid 29.50 (07:47) -> 30.11 (09:29) -> 29.90 at 09:31:05; limit 29.85 filled 29.89 at 09:31:13"
+      },
+      {
+        "date": "2026-10-30",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": 2.76,
+        "pct": 3.19,
+        "note": "weekend hold after NVDA -4.1% Friday; NVDA +1.1% at 07:55 -> +1.6% at 09:31; NVDL bid 29.51 (07:55) -> 29.78 (09:29) -> 29.85 at 09:31:05; limit 29.80 rested ~10s, filled at limit 09:31:28"
+      },
+      {
+        "date": "2026-11-02",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": 3.68,
+        "pct": 4.33,
+        "note": "PLTR/ON amc night (PLTR -6% premkt); NVDA +1.7% at 07:47 -> +3.0% at 09:29 -> +2.3% at 09:31; NVDL bid 29.10 (07:47) -> 29.85 (09:29) -> 29.46 at 09:31:05; limit 29.41 filled 29.51 at 09:31:24"
+      },
+      {
+        "date": "2026-11-03",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": -2.16,
+        "pct": -2.44,
+        "note": "election night + AMD/SMCI/ANET/ALAB amc; NVDA 206.69 close -> 205.9 (07:47) -> 203.4 (08:03 low) -> 204.48 bid 09:31:05 (-1.07%); NVDL close 29.43 -> 28.83 bid (-2.04%); entry 29.50 was 7c above the close; filled limit 28.78 at 09:31:26. Post-election rotation: IWM +1.8%, QQQ +0.4%, SMH -1.4% premkt",
+        "entry_order_id": "6aea4980-1230-454d-824d-44d6cc164ffd",
+        "exit_order_id": "6aeb41b8-30c8-4ae7-bf27-6478ca64340c"
+      },
+      {
+        "date": "2026-11-04",
+        "basket": "NVDL x3 (v1.6; NVDX filler 0)",
+        "pnl": -4.74,
+        "pct": -5.69,
+        "note": "QCOM/ARM amc night; NVDA 200.13 close -> 197.1 (07:46) -> 196.0 (09:29) -> 195.32 bid 09:31:05 (-2.40%); NVDL close 27.64 -> 26.23 bid (-5.10%); entry 27.769 was 13c above the official close; filled limit 26.19 at 09:31:54. Semis selloff: QCOM -12%, ARM -8%, AMD -6%, SMH -3.6% premkt",
+        "entry_order_id": "6aeb9afd-056b-467f-beef-08d7b29d4115",
+        "exit_order_id": "6aec933a-fdec-48a9-8dc8-ca112a07b809"
+      },
+      {
+        "date": "2026-11-05",
+        "basket": "NVDL x4 (v1.6; NVDX filler 0)",
+        "pnl": 9.22,
+        "pct": 10.15,
+        "note": "night after the 11/5 tech crash (NVDA -9.26%); rebound: NVDA 181.60 close -> 188.6 (07:47) -> 191.2 (09:29) -> 192.24 bid 09:31:05 (+5.86%); NVDL close 22.50 -> 25.06 bid (+11.38%); entry 22.7153 was 21.5c above the official close (15:52->close drift -0.95%); filled limit 25.02 at 09:31:25. SMH +5%, AMD +8%, TSM +7% premkt",
+        "entry_order_id": "6aecec80-a0a3-409d-b29c-189c24e3bdd9",
+        "exit_order_id": "6aede4b6-9fd7-4dcc-8f36-d164fc30b779"
+      },
+      {
+        "date": "2026-11-06",
+        "basket": "NVDL x4 (v1.6; NVDX filler 0)",
+        "pnl": -15.84,
+        "pct": -16.64,
+        "note": "weekend hold; UNSCHEDULED NVDA-specific news (Sun 11/8 board review of CEO Huang over reported PRC-intelligence link): NVDA 186.64 close -> 176.9 (07:47) -> 173.1 (09:29) -> 171.56 bid 09:31:05 (-8.08%) while QQQ +0.9%; NVDL close 23.71 -> 19.86 bid (-16.24%); entry 23.7899 was 8c above the official close; filled limit 19.83 at 19.8301 09:31:15.6",
+        "entry_order_id": "6aee3dfe-6933-4473-bb2a-4c79560ce065",
+        "exit_order_id": "6af1d933-3c8a-4043-8ce9-b1cdd1a1c295"
+      },
+      {
+        "date": "2026-11-09",
+        "basket": "NVDL x3 + NVDX x1 (v1.6 filler; last night sized under v1.6)",
+        "pnl": -5.43,
+        "pct": -7.06,
+        "note": "second day of the CEO-review story plus a hot-reading CPI reaction at 08:30: NVDA 178.67 close -> 176.73 (07:48) -> 175.72 (08:30:39) -> 174.03 (09:29) -> 172.35 bid 09:31:05 (-3.54%); QQQ -1.24%; NVDL close 21.64 -> 20.11 bid (-7.07%); entry 21.5999 was 4c below the official close; both sells filled AT their limits (NVDL 20.07 vs bid 20.11; NVDX 11.27 vs bid 11.29) at 09:31:30.4, 25s after the quote",
+        "entry_order_id": "6af2327f-1cef-44da-a100-8343e30cc0ac + 6af23299-923c-4413-89cb-ade4cbb0a081",
+        "exit_order_id": "6af32aba-8c4d-466a-a89f-0f2dcb2834ce + 6af32abb-3a4f-4091-880f-f2a401a85dc6"
+      },
+      {
+        "date": "2026-11-10",
+        "basket": "NVDL x1 (v1.8, PAUSE size)",
+        "pnl": 1.04,
+        "pct": 5.43,
+        "note": "chip rebound after CoreWeave raised its 2026 outlook: NVDA 168.89 close -> 176.25 (07:46) -> 173.03 (09:29) -> 173.55 bid 09:31:05 (+2.76%); QQQ +1.92%; NVDL close 19.28 -> 20.31 bid (+5.34%); entry 19.2553 was 2.5c below the official close; sold 20.3001 at 09:31:19.06 (limit 20.27, bid 20.31), 0.1s after the order",
+        "entry_order_id": "6af383fc-da15-4924-9fbf-f8a7cf2182e3",
+        "exit_order_id": "6af47c36-6467-44e4-a15e-f6236e21a930"
       }
-     }
-    ]
-   }
+    ],
+    "end_date": null,
+    "rules_note": "never retire campaign/scheduler (human 2026-09-09). v1.8 adopted 2026-11-09 on the human's instruction; change log at the end of RULES_v3.md; evidence research/REVIEW-20261109.md",
+    "strategy_version": "T3X v1.8 (NVDL only; size f x E with f = 0.98 if QQQ >= its 200-day average at 15:50, else 0.25; fractional top-up; PAUSE = 1 share; edge-decay switch; day leg suspended). In force from the night-45 entry 2026-11-10.",
+    "ranking_asof": "2026-10-26 (information only under v1.6)",
+    "ranking": {
+      "overnight": {
+        "METU": 0.34,
+        "NVDL": 0.26,
+        "NVDX": 0.22,
+        "GGLL": 0.19,
+        "TECL": 0.08
+      },
+      "basket": "v1.8: NVDL only (NVDA-2x core, no filler, no satellite); size from \u00a713 trend f with a fractional top-up; PAUSE = exactly 1 share; \u00a73(f) W120 edge-decay switch (Mondays)",
+      "day_leg": {
+        "TZA": 0.46,
+        "NVDQ": 0.15,
+        "SPXS": 0.02
+      },
+      "file": "research/rank_20261012.json",
+      "v15": {
+        "asof": "2026-10-13",
+        "m250": {
+          "NVDL": 0.46,
+          "NVDX": 0.42,
+          "METU": 0.04
+        },
+        "walkfwd_score": {
+          "rank30_top2": 0.08,
+          "fixed_NVDL": 0.17,
+          "old_basket_METU2_NVDL1": 0.07
+        },
+        "satellite_qualifies": null,
+        "nvda_earnings_blackout": "2026-11-17 pm -> cash"
+      },
+      "v16": {
+        "asof": "2026-10-14",
+        "review": "research/VERIFY-V15-20261014.md",
+        "planning_edge_pct_per_night": 0.3,
+        "edge_decay": {
+          "window": 120,
+          "threshold": 0.0,
+          "check": "Mondays",
+          "last_value": null
+        },
+        "review_at_live_nights": 40,
+        "nvda_earnings_cash": "2026-11-17 entry skipped",
+        "half_days_entry_1252": [
+          "2026-11-27",
+          "2026-12-24"
+        ],
+        "nvdl_exdate_check": "2026-10-28 (verify before 10/27 entry)"
+      }
+    },
+    "risk_note": "Long-sample bootstraps (idle-capital review 10/14): overnight-only NVDA-2x at ~90% has 60-session P(PAUSE) ~30-45% and P(KILL within 250 sessions) ~3-7% (1y-data estimate was 4.5%). Exposure kept (growth goal; below Kelly); reported to human.",
+    "shadow_logs": {
+      "day_leg_TZA": "per \u00a711 v1.7",
+      "crash_open_exit_delay": "NVDA open <= -5% or QQQ <= -3% (non-earnings): log NVDL/NVDX bid at 09:31 fill time and at 10:00",
+      "down_session_skip": "log 15:50 NVDA vs open/prior-close signs + real 15:52->09:31 outcome nightly; judge after >=120 nights at t>=1.5",
+      "fill_cost": "measure live round-trip fill cost vs 1-min bars (n>=60)",
+      "semis_peer_earnings_nights": "tag nights where TSM/ASML/AMD/AVGO/MU report next morning (e.g. 10/14->10/15 TSM: -4.90); evaluate at quarterly review 2027-01-11 with long-sample data; NO behaviour change before then (pre-registered, avoid post-hoc blackout) | 2026-10-22 long-sample study (research/PEER-NIGHTS-20261022.md, 2 analysts+2 verifiers): NO evidence for any peer blackout/half-size (all variants lower growth, no DD/tail benefit). Keep NVDA-own blackout only.",
+      "hyperscaler_nights": "pre-registered 2026-10-22 (out-of-sample from 10/22, judge at 2027-01-11, NO behaviour change before): H1 megacap (MSFT/GOOGL/META/AMZN/ORCL) and 2+-peer nights have higher overnight variance (long sample sd ratio 1.25-1.45, fragile); H2 AMZN/GOOGL/INTC nights elevated tails (nominal 5/36, 4/36, 4/36); H3 megacap nights on FOMC day elevated tails. Tag every such night in campaign.event_night_tags with realized NVDL/NVDX overnight %.",
+      "down_session_skip_log": [
+        {
+          "night": 42,
+          "date": "2026-11-05",
+          "vs_prior_close": "DOWN",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": -8.86,
+          "NVDA_1550_chg_vs_open_pct": -6.98,
+          "realized": {
+            "night_pct": 10.15,
+            "night_pnl": 9.22
+          }
+        },
+        {
+          "night": 43,
+          "date": "2026-11-06",
+          "vs_prior_close": "UP",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": 3.17,
+          "NVDA_1550_chg_vs_open_pct": -1.96,
+          "realized": {
+            "night_pct": -16.64,
+            "night_pnl": -15.84
+          },
+          "note": "official open 191.10 (RH day bar, checked 11/9); weekend night"
+        },
+        {
+          "night": 44,
+          "date": "2026-11-09",
+          "vs_prior_close": "DOWN",
+          "vs_open": "UP",
+          "NVDA_1550_chg_vs_pc_pct": -4.4,
+          "NVDA_1550_chg_vs_open_pct": 3.15,
+          "realized": {
+            "night_pct": -7.06,
+            "night_pnl": -5.43
+          },
+          "note": "open 172.99 (first 1-min bar open); day after CEO-review news"
+        },
+        {
+          "night": 45,
+          "date": "2026-11-10",
+          "vs_prior_close": "DOWN",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": -5.73,
+          "NVDA_1550_chg_vs_open_pct": -3.19,
+          "realized": {
+            "night_pct": 5.43,
+            "night_pnl": 1.04
+          },
+          "note": "open 173.98 (first 1-min bar open); PAUSE night, 1 share"
+        }
+      ],
+      "crash_open_exit_delay_log": [
+        {
+          "date": "2026-11-09",
+          "night": 43,
+          "trigger": "NVDA open 172.99 (-7.31% vs 186.64, first 1-min bar; 09:31:05 bid 171.56 = -8.08%); non-earnings, company-specific (board review of CEO); QQQ +0.9%",
+          "at_fill_0931": {
+            "t": "09:31:15.6",
+            "NVDL_fill": 19.8301,
+            "NVDL_bid_093105": 19.86,
+            "NVDX_bid_093105": 11.15
+          },
+          "at_1000": {
+            "t": "10:00:00",
+            "NVDL_bid": 21.68,
+            "NVDL_ask": 21.7,
+            "NVDX_bid": 12.15,
+            "NVDX_ask": 12.16,
+            "NVDA": 178.67
+          },
+          "delay_gain": {
+            "NVDL_pct_vs_fill": 9.33,
+            "usd_4sh": 7.4
+          },
+          "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
+        }
+      ],
+      "trend_filter": {
+        "note": "RULES_v3 \u00a713(e), from night 45: research/trend/log.csv holds the 15:50 QQQ/NVDA/SMH price, flip level, distance and state each entry day. On every DOWN night record the full-size counterfactual (what f = 0.98 would have bought and made) in state.today.trend and the DAY report. Audited at each quarterly review (first 2027-01-11); LAB.md L1, L2.",
+        "log": [
+          {
+            "night": 45,
+            "date": "2026-11-10",
+            "state": "DOWN",
+            "dist_pct": -0.99,
+            "size_taken": "1 share (PAUSE; equals the DOWN size)",
+            "full_size_counterfactual": "4 shares + 3.58 top-up = 80.66 (0.98 of E)",
+            "realized": {
+              "taken_pnl": 1.04,
+              "full_size_counterfactual_pnl": 4.38,
+              "note": "DOWN night that went up: the smaller size cost about 3.3 against full size"
+            }
+          }
+        ]
+      }
+    },
+    "edge_decay_checks": [
+      {
+        "date": "2026-10-19",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-10-15->10-16",
+        "value_pct_raw": 0.331,
+        "value_pct_clean": 0.318,
+        "t": 1.4,
+        "result": "POSITIVE -> overnight leg stays on",
+        "source": "week-6 audit series (independently rebuilt by verifier; research/edge_decay/)"
+      },
+      {
+        "date": "2026-10-26",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-10-22->10-23",
+        "window_first_night": "2026-04-30",
+        "value_pct_raw": 0.383,
+        "value_pct_clean": 0.369,
+        "sd_pct": 2.596,
+        "t": 1.61,
+        "proxy_2xNVDA_4bp": 0.361,
+        "result": "POSITIVE -> overnight leg stays on",
+        "method": "overnight_thru_20261016.csv extended with 5 nights from get_equity_historicals day bars (research/edge_decay/overnight_thru_20261023.csv); script reproduces the 10/19 value exactly (+0.331, t 1.40)"
+      },
+      {
+        "date": "2026-11-02",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-10-29->10-30",
+        "window_first_night": "2026-05-07",
+        "value_pct_raw": 0.322,
+        "value_pct_clean": 0.322,
+        "sd_pct": 2.632,
+        "t": 1.34,
+        "proxy_2xNVDA_4bp": 0.316,
+        "result": "POSITIVE -> overnight leg stays on",
+        "method": "overnight_thru_20261023.csv extended with 5 nights (10/23->10/26 .. 10/29->10/30) from RH day bars (adjustment none) -> research/edge_decay/overnight_thru_20261030.csv; script s07_extend_20261102.py reproduces the 10/26 value (+0.383, t 1.61) and matches the week-8 audit preview (+0.322, t 1.34)"
+      },
+      {
+        "date": "2026-11-09",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-11-05->11-06",
+        "window_first_night": "2026-05-14",
+        "value_pct_raw": 0.363,
+        "value_pct_clean": 0.363,
+        "sd_pct": 2.846,
+        "t": 1.4,
+        "proxy_2xNVDA_4bp": 0.359,
+        "result": "POSITIVE -> overnight leg stays on",
+        "method": "overnight_thru_20261030.csv extended with 5 nights (10/30->11/2 .. 11/5->11/6) from RH day bars (adjustment none, fetched 11/9 07:50) -> research/edge_decay/overnight_thru_20261106.csv; s08_extend_20261109.py reproduces the 11/2 value (+0.322, t 1.34); week-9 audit preview was +0.364 (it used NVDL 11/6 open 24.84 vs RH bar 24.81); no NVDL-NVDX >1% flags"
+      }
+    ],
+    "rank_20261019": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only \u2014 a second name needs a quarterly review + >=0.06 lead at 2 consecutive Mondays on executable ex-earnings prices",
+      "top30": {
+        "METU": 0.34,
+        "GGLL": 0.24,
+        "MSFU": 0.21,
+        "AAPU": 0.16,
+        "NVDL": 0.1,
+        "NVDX": 0.05
+      },
+      "NVDL_250": 0.13,
+      "file": "research/rank_20261019.json",
+      "leads_vs_core_ge_0.06": [
+        "METU +0.24",
+        "GGLL +0.14",
+        "MSFU +0.11",
+        "AAPU +0.06"
+      ]
+    },
+    "event_night_tags": [
+      {
+        "night": 31,
+        "date": "2026-10-21",
+        "events_amc": [
+          "META",
+          "LRCX",
+          "TXN"
+        ],
+        "semis_peer": "LRCX (semicap) -7.3% premkt",
+        "premkt_0747": {
+          "NVDA_pct": -2.26,
+          "QQQ_pct": -1.63,
+          "NVDL_bid": 32.76,
+          "NVDX_bid": 18.41
+        }
+      },
+      {
+        "night": 32,
+        "date": "2026-10-22",
+        "events_amc": [
+          "WDC",
+          "MXL"
+        ],
+        "semis_peer": "none in study sets (WDC storage-adjacent)",
+        "hyperscaler": false
+      },
+      {
+        "night": 36,
+        "date": "2026-10-28",
+        "events_amc": [
+          "MSFT",
+          "GOOGL",
+          "META"
+        ],
+        "fomc_day": true,
+        "hyperscaler": true,
+        "hypotheses": [
+          "H1 megacap/2+-peer night variance",
+          "H2 GOOGL tail",
+          "H3 megacap night on FOMC day tails"
+        ],
+        "entry": {
+          "NVDL": 32.059
+        },
+        "NVDA_close_chg_pct_at_entry": -1.5,
+        "realized": {
+          "NVDL_close_to_open_pct": -0.86,
+          "NVDA_close_to_open_pct": -0.39,
+          "QQQ_premkt_0930_pct": -1.0,
+          "GOOGL_premkt_pct": -11.2,
+          "night_pnl": -0.75,
+          "night_pct_vs_entry": -0.78
+        },
+        "ah_1613": {
+          "GOOGL": "297.77 vs 325.63 close (-8.6%)",
+          "MSFT": "553.45 vs 531.73 (+4.1%)",
+          "META": "613.23 vs 612.41 (+0.1%, not yet reported?)",
+          "QQQ": "723.64 (-0.25%)",
+          "NVDA": "215.22 (-0.08%)",
+          "NVDL": "32.07 (-0.25%; night36 +0.03 marked)"
+        }
+      },
+      {
+        "night": 37,
+        "date": "2026-10-29",
+        "events_amc": [
+          "AMZN",
+          "INTC"
+        ],
+        "fomc_day": false,
+        "hyperscaler": true,
+        "hypotheses": [
+          "H1 megacap/hyperscaler night variance",
+          "H2 AMZN/INTC tails"
+        ],
+        "semis_peer": "INTC",
+        "entry": {
+          "NVDL": 31.4667
+        },
+        "NVDA_close_chg_pct_at_entry": -1.07,
+        "context": "day after GOOGL -11% earnings reaction; megacap->smallcap rotation (QQQ -1.6%, IWM +0.9% at 15:52)",
+        "realized": {
+          "NVDL_close_to_0931bid_pct": -5.38,
+          "NVDA_close_to_0931bid_pct": -2.75,
+          "QQQ_premkt_0900_pct": -2.5,
+          "INTC_premkt_pct": -25.4,
+          "AMZN_premkt_pct": -6.7,
+          "AMD_premkt_pct": -8.7,
+          "night_pnl": -4.73,
+          "night_pct_vs_entry": -5.01
+        },
+        "ah_1601": {
+          "AMZN": "224.62 vs 244.23 close (-8.0%)",
+          "INTC": "82.03 vs 92.08 (-10.9%)",
+          "NVDA": "213.44 (-0.13% vs close)",
+          "QQQ": "711.52 (-0.53%)",
+          "NVDL": "31.58 (-0.13%)"
+        },
+        "ah_1613": {
+          "AMZN": "225.92 vs 244.23 close (-7.5%)",
+          "INTC": "76.67 vs 92.08 (-16.7%)",
+          "AMD": "536.00 vs 566.52 (-5.4%)",
+          "AVGO": "336.00 vs 345.05 (-2.6%)",
+          "QQQ": "706.08 (-1.29%)",
+          "NVDA": "211.33 (-1.12%)",
+          "NVDL": "30.94 b30.88/a30.96 (-2.15% vs close; night37 -1.58 marked)"
+        },
+        "note_1613": "semis-wide AH selloff led by INTC; no after-hours exit under RULES_v3 \u00a75 (pre-registered tag, no behaviour change; gap-down exit delays not adopted per IDLE-CAPITAL-20261014)"
+      },
+      {
+        "night": 40,
+        "date": "2026-11-03",
+        "events_amc": [
+          "AMD",
+          "SMCI",
+          "ANET",
+          "ALAB"
+        ],
+        "fomc_day": false,
+        "hyperscaler": false,
+        "macro": "US midterm election night (results overnight)",
+        "hypotheses": [
+          "H1 2+ semis/AI-infra peers amc -> night variance",
+          "macro election-night variance"
+        ],
+        "semis_peer": "AMD (direct NVDA GPU peer), SMCI/ANET/ALAB (AI infra)",
+        "entry": {
+          "NVDL": 29.5
+        },
+        "NVDA_close_chg_pct_at_entry": 2.3,
+        "context": "NVDA +2.3% day (206.7) after Mon -1.2%; QQQ +0.6%, IWM +0.4%",
+        "realized": {
+          "NVDL_close_to_0931bid_pct": -2.04,
+          "NVDA_close_to_0931bid_pct": -1.07,
+          "QQQ_premkt_0900_pct": 0.39,
+          "IWM_premkt_0900_pct": 1.85,
+          "SPY_premkt_0747_pct": 0.88,
+          "SMH_premkt_0900_pct": -1.45,
+          "AMD_premkt_0747_pct": -0.97,
+          "AMD_premkt_0900_pct": -0.5,
+          "ANET_premkt_pct": 6.05,
+          "SMCI_premkt_pct": 3.09,
+          "ALAB_premkt_pct": -6.6,
+          "night_pnl": -2.16,
+          "night_pct_vs_entry": -2.44
+        },
+        "ah_1601": {
+          "AMD": "483.77 vs 484.50 close (-0.15%, pre-report)",
+          "SMCI": "31.58 (+0.3%)",
+          "ANET": "~170 (+0.2%)",
+          "ALAB": "237.76 (+1.5%)",
+          "NVDA": "206.68 (+0.06%)",
+          "NVDL": "29.60 b29.40/a29.58"
+        },
+        "ah_1613": {
+          "AMD": "485.73 b485.74/a485.94 vs 484.50 close (+0.25%)",
+          "SMCI": "33.01 vs 31.485 (+4.8%)",
+          "ANET": "184.40 last, b181.25/a182.16 vs 169.90 (+6.7..+8.5%)",
+          "ALAB": "219.88 vs 234.16 (-6.1%)",
+          "AVGO": "331.85 (-0.07%)",
+          "TSM": "b405.25 (+0.15%)",
+          "QQQ": "685.32 (~0.00%)",
+          "NVDA": "207.42 (+0.42%)",
+          "NVDL": "29.69 b29.67/a29.69 (+0.88% vs close; night40 +0.51 at bid)"
+        },
+        "note_1613": "mixed AI-infra prints: ANET/SMCI up, ALAB down, AMD ~flat; NVDA +0.4% AH. No after-hours exit under RULES_v3 \u00a75 (tag only); election results overnight.",
+        "note_realized": "Election outcome: broad risk-on led by small caps (IWM +1.8%), megacap semis lagged (SMH -1.4%); AMD flat-to-down after its print; NVDA -1.1% at 09:31. One data point for H1 (2+ peers) / macro tag; judged 2027-01-11."
+      },
+      {
+        "night": 41,
+        "date": "2026-11-04",
+        "events_amc": [
+          "QCOM",
+          "ARM"
+        ],
+        "fomc_day": false,
+        "hyperscaler": false,
+        "hypotheses": [
+          "H1 2+ semis peers amc -> night variance"
+        ],
+        "semis_peer": "QCOM (mobile/AI-PC SoC), ARM (CPU IP; NVDA Grace licensee)",
+        "entry": {
+          "NVDL": 27.769
+        },
+        "NVDA_close_chg_pct_at_entry": -2.83,
+        "context": "day after election: semis -3% (SMH) vs QQQ +1%, IWM +1.4%; ARM -5.5% into print",
+        "realized": {
+          "NVDL_close_to_0931bid_pct": -5.1,
+          "NVDA_close_to_0931bid_pct": -2.4,
+          "QQQ_premkt_0900_pct": -0.93,
+          "SMH_premkt_0900_pct": -3.62,
+          "QCOM_premkt_0900_pct": -11.86,
+          "ARM_premkt_0900_pct": -7.79,
+          "AMD_premkt_0900_pct": -6.01,
+          "IWM_premkt_0900_pct": 0.13,
+          "night_pnl": -4.74,
+          "night_pct_vs_entry": -5.69
+        },
+        "ah_1601": {
+          "QCOM": "174.83 vs 173.73 close (+0.6%, pre-report)",
+          "ARM": "193.97 vs 192.28 (+0.9%, pre-report)",
+          "AMD": "490.70 (+0.4%)",
+          "NVDA": "200.53 (+0.12%)",
+          "NVDL": "27.71 b27.70/a27.73"
+        },
+        "ah_1613": {
+          "QCOM": "166.50 b165.90/a166.77 vs 173.73 close (-4.2%)",
+          "ARM": "188.25 b187.50/a190.00 vs 192.28 (-2.1%)",
+          "AMD": "490.10 (+0.3%)",
+          "AVGO": "326.70 (+0.3%)",
+          "TSM": "396.80 (+0.4%)",
+          "SMH": "504.30 (~0.0%)",
+          "QQQ": "692.78 (+0.13%)",
+          "NVDA": "200.78 (+0.24%)",
+          "NVDL": "27.77 b27.75/a27.76 (+0.5% vs close; night41 -0.06 at bid)"
+        },
+        "note_1613": "both peers down after their prints (QCOM -4%, ARM -2%); NVDA/semis flat-to-up AH. No after-hours exit under RULES_v3 \u00a75 (tag only).",
+        "note_realized": "Both peers sold off hard after their prints (QCOM -12%, ARM -8% by 09:00) and dragged semis (SMH -3.6%, AMD -6%); NVDA -2.4% at 09:31. Third-worst live NVDA-2x night. One data point for H1 (2+ peers); judged 2027-01-11."
+      }
+    ],
+    "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
+    "rank_20261026": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only",
+      "top30": {
+        "GGLL": 0.27,
+        "MSFU": 0.22,
+        "AAPU": 0.11,
+        "NVDL": 0.06,
+        "NVDX": 0.06,
+        "METU": 0.03
+      },
+      "NVDL_250": 0.13,
+      "file": "research/rank_20261026.json",
+      "leads_vs_core_ge_0.06": [
+        "GGLL +0.21",
+        "MSFU +0.16"
+      ],
+      "two_monday_raw_leads": [
+        "GGLL",
+        "MSFU"
+      ],
+      "assessment": "raw 30-night leads only; 250-night scores GGLL 0.01, MSFU -0.01 vs NVDL 0.13; both report 10/28 after close (earnings nights in window). Not the \u00a73(b) gate basis (executable 15:52->09:31 ex-earnings both sides) and no proposal before the 2027-01-11 quarterly review. No action."
+    },
+    "rank_20261102": {
+      "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only; nights through 10/29->10/30",
+      "top30": {
+        "MSFU": 0.26,
+        "NVDL": 0.04,
+        "NVDX": 0.04,
+        "AAPU": 0.03,
+        "TNA": -0.03,
+        "SPXL": -0.08
+      },
+      "top250": {
+        "MUU": 0.12,
+        "NVDL": 0.11,
+        "NVDX": 0.09,
+        "SOXL": 0.07,
+        "TSMX": 0.07
+      },
+      "file": "research/rank_20261102.json",
+      "assessment": "MSFU leads 30n for a 3rd Monday but its 250n score is -0.02 (vs NVDL 0.11) and the 30n window contains MSFT's 10/28 earnings night; GGLL fell from 0.27 to -0.14 after GOOGL's -11% night. NVDL is 2nd on 250n (MUU 0.12, single-stock memory 2x, much higher variance). Not the \u00a73(b) gate basis; no proposal before the 2027-01-11 quarterly review. No action."
+    },
+    "pause_schedule": {
+      "asof": "2026-11-06 16:01 EOD (week-9 audit, verified; 11/11 level re-verified post-EOD)",
+      "basis": "0.80 x rolling 20-session high of recorded account totals (equity.csv EOD marks + all-cash broker totals after each 09:31 exit)",
+      "levels": {
+        "through 11/6": 85.69,
+        "11/9": 84.65,
+        "11/10": 82.94,
+        "11/11-12/4": 82.89
+      },
+      "note": "82.89 = 0.8 x 103.61 (11/6 16:01 EOD mark, broker 103.614; was 82.86 = 0.8 x 103.58 before the EOD mark); supersedes the week-8 forecast 80.95/80.72; rises if a new high is recorded"
+    },
+    "record_corrections_20261106": [
+      "N38 entry vs_ask was logged +0.4c; actual +3.91c (fill 28.8791 vs ask 28.84)",
+      "N38/N39 cap-left logged 6.28/10.78; exact 6.29/10.77 (no sizing effect)",
+      "DAY-20261102: NVDL official close 28.24 (not 28.21); flat saving 4.68 to close / 4.55 to re-entry (not ~4.8)",
+      "exit order ids N40-N42 added to night_returns (N38/N39 ids: 6ae... see broker; were only in overwritten today blocks)",
+      "DAY-20261104 15:25 sleeve pick corrected to 280/290 (sleeve_r4 float bug fixed)",
+      "journal timestamps 11/3-11/6 were partly hand-entered (approximate); from 11/6 10:22 ET lines use date -u",
+      "post-EOD verify (wf_7dff5bb7-c8c): PAUSE 11/11-12/4 82.86 -> 82.89 (0.8 x 103.61 EOD mark is the new 20-session high)",
+      "WEEK-T3X-9: N38 NVDA close->09:31 +1.4% -> +1.6%; week-8 live sum -10.53 -> -10.54 (rounded per-night basis, matching -1.78); exact-fill basis noted (-1.77 / -10.53; campaign +1.50 vs rounded +1.48)",
+      "WEEK-T3X-9: 4-NVDL exposure range corrected (86-98% of E, price-dependent; 91.9% on N43); Friday overnight +5.3% close->open (+5.9% to 09:31 bid); 3(f) -44% refers to the 11/16 check",
+      "state.sleeve.option_level_seen and state.wake refreshed after 11/6 EOD (were stale at 11/5 16:01 and the 15:00 heartbeat)"
+    ],
+    "record_corrections_20261109": [
+      "post-EOD verify (wf_426654cd-f4f): DAY-20261109 SMH +5.1% -> +5.0%; NVDL N44 fill 1.01c (not 0.01c) under ask; '-16% night enters the 11/16 window' clarified (N43, NVDL close->open ~-14.7%); Next: QQQ leg of crash-open trigger and CPI inside the N44 hold",
+      "STATUS: live NVDA-2x nights 19 (not 18); 09:29 shadow n13 +20bp t 0.9; sleeve B per s12(c) at bid 7.72",
+      "crash-open trigger text: NVDA open 172.99 (-7.31%), not '~-8%' (that was the 09:31:05 bid)",
+      "journal 14:00 HB: 4-NVDL threshold was ask <= 21.45 (not ~21.46)",
+      "memo condition (Nov-13 ATM IV > ~70%) checked at close: ~67% -> not met"
+    ],
+    "trend": {
+      "rule": "\u00a713: QQQ last at 15:50 vs mean of previous 199 official closes; >= -> UP f 0.98; < -> DOWN f 0.25",
+      "last": {
+        "date": "2026-11-10",
+        "basis": "15:50:03 ET live quotes (binding read; PAUSE outranked it)",
+        "qqq": 674.68,
+        "flip": 681.449,
+        "dist_pct": -0.99,
+        "state": "DOWN",
+        "f": 0.25,
+        "shadow": {
+          "NVDA": {
+            "px": 168.4373,
+            "flip": 204.719,
+            "state": "DOWN"
+          },
+          "SMH": {
+            "px": 483.03,
+            "flip": 522.812,
+            "state": "DOWN"
+          }
+        }
+      },
+      "binding_from": "night 45 entry, 2026-11-10 15:50 ET",
+      "cache": "trader/research/trend/closes.json (280 closes per symbol to 2026-11-10)",
+      "verification": "DONE 2026-11-09 17:20 ET (separate read-only agent, own loader and code): every T8 number reproduced; no look-ahead; 72/72 sensitivity cells positive; placebo never reached the observed gain; rule minus always-full +0.060/night, year-block 90pct interval +0.009..+0.121. Verdict WEAKLY SUPPORTED: 10 nights = 98pct of the gain, 2008+2022 = 73pct; lost in 51 of 82 spells and 9 of 22 active years; real NVDL only 86 DOWN nights (+0.020, t 0.55). Rule kept as INSURANCE, not edge; rollback (i) not triggered. Detail: research/REVIEW-20261109.md; scripts research/lab/20261109/",
+      "today_flip": {
+        "date": "2026-11-11",
+        "QQQ_flip": 681.669,
+        "NVDA_flip": 204.62,
+        "SMH_flip": 523.196,
+        "note": "QQQ >= 681.67 at 15:50 -> UP; PAUSE still sets the size (1 share) through 11/16"
+      }
+    },
+    "sizing": {
+      "version": "v1.8",
+      "symbol": "NVDL",
+      "core": "whole shares by \u00a74 marketable limit, a = floor(f*E / lim)",
+      "topup": "one dollar-based market buy for floor_cent(f*E - spent) if >= 2.00: after the core fill, OR at once with SPENT 0 when core prints x0 (one share above the target, typical on a DOWN night; then there is no core order). Never after 15:58; never if a core order was cancelled unfilled",
+      "pause": "exactly 1 share, no top-up",
+      "tools": [
+        "trader/tools/trend.py",
+        "trader/tools/entry_v18.py",
+        "trader/tools/exit_frac.py"
+      ],
+      "first_fractional_order": "review_equity_order first (\u00a713(h)); simulation 2026-11-09 17:06 ET: $5 NVDL market buy -> order_checks {} and customer_approval_required false",
+      "exit": "exit_ovn.py NIGHT YYYYMMDD SYM:QTY:BID (QTY may be the broker's string; whole shares by limit; prints the exit_frac.py command for a remainder); exit_frac.py for 0 < QTY < 1. A position under 1 share: exit_frac.py only, at 09:31:05",
+      "tools_version": "v2.2, deployed 2026-11-10 16:03 ET after three read-only reviews (research/lab/20261110/TOOLS-REVIEW.md); backup of the previous files is in the session scratchpad only, git history has them"
+    },
+    "lab": {
+      "ledger": "trader/LAB.md",
+      "task": "t3x-lab-weekly (Saturdays 14:23 ET)",
+      "first_cycle": "2026-11-14",
+      "candidate": "L12 earnings blackout (test only; 11/17 stays in cash)",
+      "archive": "trader/research/lab/"
+    },
+    "pause": {
+      "triggered": "2026-11-10 09:31 exit: all-cash total 82.31 <= 82.94 (0.80 x rolling 20-session high 103.68)",
+      "size": "exactly 1 NVDL share, no top-up, whatever the trend state (\u00a73(e), \u00a76)",
+      "sessions": [
+        "2026-11-10 (N45)",
+        "2026-11-11 (N46)",
+        "2026-11-12 (N47)",
+        "2026-11-13 (N48)",
+        "2026-11-16 (N49)"
+      ],
+      "after": "11/17 is the NVDA earnings blackout (cash). From the 11/18 entry: normal size only if E > the trigger then in force (82.89 through 12/4, since the 11/6 EOD mark 103.61 stays in the 20-session window until then); otherwise PAUSE continues at 1 share"
+    },
+    "risk_note_20261110": "Honest one-year range from E 82.41 under the present rules (adversarially reviewed): median about 75-95; 25-45% chance of being above 98.75; 10-20% chance of reaching the 50 stop; 2-3% chance of being back above 98.75 within 20 nights. A 2x NVDA overnight loss of 14.5%+ (ex-earnings) has happened about once a year; 25%+ three times since 2019; 5 of the 16 worst non-earnings nights since 2015 came with QQQ ABOVE its trend line, when the engine holds full size."
   },
-  "edge_decay_checks": [
-   {
-    "date": "2026-10-19",
-    "rule": "§3(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
-    "window_end_night": "2026-10-15->10-16",
-    "value_pct_raw": 0.331,
-    "value_pct_clean": 0.318,
-    "t": 1.4,
-    "result": "POSITIVE -> overnight leg stays on",
-    "source": "week-6 audit series (independently rebuilt by verifier; research/edge_decay/)"
-   },
-   {
-    "date": "2026-10-26",
-    "rule": "§3(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
-    "window_end_night": "2026-10-22->10-23",
-    "window_first_night": "2026-04-30",
-    "value_pct_raw": 0.383,
-    "value_pct_clean": 0.369,
-    "sd_pct": 2.596,
-    "t": 1.61,
-    "proxy_2xNVDA_4bp": 0.361,
-    "result": "POSITIVE -> overnight leg stays on",
-    "method": "overnight_thru_20261016.csv extended with 5 nights from get_equity_historicals day bars (research/edge_decay/overnight_thru_20261023.csv); script reproduces the 10/19 value exactly (+0.331, t 1.40)"
-   },
-   {
-    "date": "2026-11-02",
-    "rule": "§3(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
-    "window_end_night": "2026-10-29->10-30",
-    "window_first_night": "2026-05-07",
-    "value_pct_raw": 0.322,
-    "value_pct_clean": 0.322,
-    "sd_pct": 2.632,
-    "t": 1.34,
-    "proxy_2xNVDA_4bp": 0.316,
-    "result": "POSITIVE -> overnight leg stays on",
-    "method": "overnight_thru_20261023.csv extended with 5 nights (10/23->10/26 .. 10/29->10/30) from RH day bars (adjustment none) -> research/edge_decay/overnight_thru_20261030.csv; script s07_extend_20261102.py reproduces the 10/26 value (+0.383, t 1.61) and matches the week-8 audit preview (+0.322, t 1.34)"
-   },
-   {
-    "date": "2026-11-09",
-    "rule": "§3(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
-    "window_end_night": "2026-11-05->11-06",
-    "window_first_night": "2026-05-14",
-    "value_pct_raw": 0.363,
-    "value_pct_clean": 0.363,
-    "sd_pct": 2.846,
-    "t": 1.4,
-    "proxy_2xNVDA_4bp": 0.359,
-    "result": "POSITIVE -> overnight leg stays on",
-    "method": "overnight_thru_20261030.csv extended with 5 nights (10/30->11/2 .. 11/5->11/6) from RH day bars (adjustment none, fetched 11/9 07:50) -> research/edge_decay/overnight_thru_20261106.csv; s08_extend_20261109.py reproduces the 11/2 value (+0.322, t 1.34); week-9 audit preview was +0.364 (it used NVDL 11/6 open 24.84 vs RH bar 24.81); no NVDL-NVDX >1% flags"
-   }
-  ],
-  "rank_20261019": {
-   "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only — a second name needs a quarterly review + >=0.06 lead at 2 consecutive Mondays on executable ex-earnings prices",
-   "top30": {
-    "METU": 0.34,
-    "GGLL": 0.24,
-    "MSFU": 0.21,
-    "AAPU": 0.16,
-    "NVDL": 0.1,
-    "NVDX": 0.05
-   },
-   "NVDL_250": 0.13,
-   "file": "research/rank_20261019.json",
-   "leads_vs_core_ge_0.06": [
-    "METU +0.24",
-    "GGLL +0.14",
-    "MSFU +0.11",
-    "AAPU +0.06"
-   ]
+  "account": {
+    "equity": 83.35,
+    "cash": 83.35,
+    "asof": "09:32 ET 2026-11-11 (all cash after the night-45 exit; broker total 83.35)"
   },
-  "event_night_tags": [
-   {
-    "night": 31,
-    "date": "2026-10-21",
-    "events_amc": [
-     "META",
-     "LRCX",
-     "TXN"
-    ],
-    "semis_peer": "LRCX (semicap) -7.3% premkt",
-    "premkt_0747": {
-     "NVDA_pct": -2.26,
-     "QQQ_pct": -1.63,
-     "NVDL_bid": 32.76,
-     "NVDX_bid": 18.41
-    }
-   },
-   {
-    "night": 32,
-    "date": "2026-10-22",
-    "events_amc": [
-     "WDC",
-     "MXL"
-    ],
-    "semis_peer": "none in study sets (WDC storage-adjacent)",
-    "hyperscaler": false
-   },
-   {
-    "night": 36,
-    "date": "2026-10-28",
-    "events_amc": [
-     "MSFT",
-     "GOOGL",
-     "META"
-    ],
-    "fomc_day": true,
-    "hyperscaler": true,
-    "hypotheses": [
-     "H1 megacap/2+-peer night variance",
-     "H2 GOOGL tail",
-     "H3 megacap night on FOMC day tails"
-    ],
-    "entry": {
-     "NVDL": 32.059
-    },
-    "NVDA_close_chg_pct_at_entry": -1.5,
-    "realized": {
-     "NVDL_close_to_open_pct": -0.86,
-     "NVDA_close_to_open_pct": -0.39,
-     "QQQ_premkt_0930_pct": -1.0,
-     "GOOGL_premkt_pct": -11.2,
-     "night_pnl": -0.75,
-     "night_pct_vs_entry": -0.78
-    },
-    "ah_1613": {
-     "GOOGL": "297.77 vs 325.63 close (-8.6%)",
-     "MSFT": "553.45 vs 531.73 (+4.1%)",
-     "META": "613.23 vs 612.41 (+0.1%, not yet reported?)",
-     "QQQ": "723.64 (-0.25%)",
-     "NVDA": "215.22 (-0.08%)",
-     "NVDL": "32.07 (-0.25%; night36 +0.03 marked)"
-    }
-   },
-   {
-    "night": 37,
-    "date": "2026-10-29",
-    "events_amc": [
-     "AMZN",
-     "INTC"
-    ],
-    "fomc_day": false,
-    "hyperscaler": true,
-    "hypotheses": [
-     "H1 megacap/hyperscaler night variance",
-     "H2 AMZN/INTC tails"
-    ],
-    "semis_peer": "INTC",
-    "entry": {
-     "NVDL": 31.4667
-    },
-    "NVDA_close_chg_pct_at_entry": -1.07,
-    "context": "day after GOOGL -11% earnings reaction; megacap->smallcap rotation (QQQ -1.6%, IWM +0.9% at 15:52)",
-    "realized": {
-     "NVDL_close_to_0931bid_pct": -5.38,
-     "NVDA_close_to_0931bid_pct": -2.75,
-     "QQQ_premkt_0900_pct": -2.5,
-     "INTC_premkt_pct": -25.4,
-     "AMZN_premkt_pct": -6.7,
-     "AMD_premkt_pct": -8.7,
-     "night_pnl": -4.73,
-     "night_pct_vs_entry": -5.01
-    },
-    "ah_1601": {
-     "AMZN": "224.62 vs 244.23 close (-8.0%)",
-     "INTC": "82.03 vs 92.08 (-10.9%)",
-     "NVDA": "213.44 (-0.13% vs close)",
-     "QQQ": "711.52 (-0.53%)",
-     "NVDL": "31.58 (-0.13%)"
-    },
-    "ah_1613": {
-     "AMZN": "225.92 vs 244.23 close (-7.5%)",
-     "INTC": "76.67 vs 92.08 (-16.7%)",
-     "AMD": "536.00 vs 566.52 (-5.4%)",
-     "AVGO": "336.00 vs 345.05 (-2.6%)",
-     "QQQ": "706.08 (-1.29%)",
-     "NVDA": "211.33 (-1.12%)",
-     "NVDL": "30.94 b30.88/a30.96 (-2.15% vs close; night37 -1.58 marked)"
-    },
-    "note_1613": "semis-wide AH selloff led by INTC; no after-hours exit under RULES_v3 §5 (pre-registered tag, no behaviour change; gap-down exit delays not adopted per IDLE-CAPITAL-20261014)"
-   },
-   {
-    "night": 40,
-    "date": "2026-11-03",
-    "events_amc": [
-     "AMD",
-     "SMCI",
-     "ANET",
-     "ALAB"
-    ],
-    "fomc_day": false,
-    "hyperscaler": false,
-    "macro": "US midterm election night (results overnight)",
-    "hypotheses": [
-     "H1 2+ semis/AI-infra peers amc -> night variance",
-     "macro election-night variance"
-    ],
-    "semis_peer": "AMD (direct NVDA GPU peer), SMCI/ANET/ALAB (AI infra)",
-    "entry": {
-     "NVDL": 29.5
-    },
-    "NVDA_close_chg_pct_at_entry": 2.3,
-    "context": "NVDA +2.3% day (206.7) after Mon -1.2%; QQQ +0.6%, IWM +0.4%",
-    "realized": {
-     "NVDL_close_to_0931bid_pct": -2.04,
-     "NVDA_close_to_0931bid_pct": -1.07,
-     "QQQ_premkt_0900_pct": 0.39,
-     "IWM_premkt_0900_pct": 1.85,
-     "SPY_premkt_0747_pct": 0.88,
-     "SMH_premkt_0900_pct": -1.45,
-     "AMD_premkt_0747_pct": -0.97,
-     "AMD_premkt_0900_pct": -0.5,
-     "ANET_premkt_pct": 6.05,
-     "SMCI_premkt_pct": 3.09,
-     "ALAB_premkt_pct": -6.6,
-     "night_pnl": -2.16,
-     "night_pct_vs_entry": -2.44
-    },
-    "ah_1601": {
-     "AMD": "483.77 vs 484.50 close (-0.15%, pre-report)",
-     "SMCI": "31.58 (+0.3%)",
-     "ANET": "~170 (+0.2%)",
-     "ALAB": "237.76 (+1.5%)",
-     "NVDA": "206.68 (+0.06%)",
-     "NVDL": "29.60 b29.40/a29.58"
-    },
-    "ah_1613": {
-     "AMD": "485.73 b485.74/a485.94 vs 484.50 close (+0.25%)",
-     "SMCI": "33.01 vs 31.485 (+4.8%)",
-     "ANET": "184.40 last, b181.25/a182.16 vs 169.90 (+6.7..+8.5%)",
-     "ALAB": "219.88 vs 234.16 (-6.1%)",
-     "AVGO": "331.85 (-0.07%)",
-     "TSM": "b405.25 (+0.15%)",
-     "QQQ": "685.32 (~0.00%)",
-     "NVDA": "207.42 (+0.42%)",
-     "NVDL": "29.69 b29.67/a29.69 (+0.88% vs close; night40 +0.51 at bid)"
-    },
-    "note_1613": "mixed AI-infra prints: ANET/SMCI up, ALAB down, AMD ~flat; NVDA +0.4% AH. No after-hours exit under RULES_v3 §5 (tag only); election results overnight.",
-    "note_realized": "Election outcome: broad risk-on led by small caps (IWM +1.8%), megacap semis lagged (SMH -1.4%); AMD flat-to-down after its print; NVDA -1.1% at 09:31. One data point for H1 (2+ peers) / macro tag; judged 2027-01-11."
-   },
-   {
-    "night": 41,
-    "date": "2026-11-04",
-    "events_amc": [
-     "QCOM",
-     "ARM"
-    ],
-    "fomc_day": false,
-    "hyperscaler": false,
-    "hypotheses": [
-     "H1 2+ semis peers amc -> night variance"
-    ],
-    "semis_peer": "QCOM (mobile/AI-PC SoC), ARM (CPU IP; NVDA Grace licensee)",
-    "entry": {
-     "NVDL": 27.769
-    },
-    "NVDA_close_chg_pct_at_entry": -2.83,
-    "context": "day after election: semis -3% (SMH) vs QQQ +1%, IWM +1.4%; ARM -5.5% into print",
-    "realized": {
-     "NVDL_close_to_0931bid_pct": -5.1,
-     "NVDA_close_to_0931bid_pct": -2.4,
-     "QQQ_premkt_0900_pct": -0.93,
-     "SMH_premkt_0900_pct": -3.62,
-     "QCOM_premkt_0900_pct": -11.86,
-     "ARM_premkt_0900_pct": -7.79,
-     "AMD_premkt_0900_pct": -6.01,
-     "IWM_premkt_0900_pct": 0.13,
-     "night_pnl": -4.74,
-     "night_pct_vs_entry": -5.69
-    },
-    "ah_1601": {
-     "QCOM": "174.83 vs 173.73 close (+0.6%, pre-report)",
-     "ARM": "193.97 vs 192.28 (+0.9%, pre-report)",
-     "AMD": "490.70 (+0.4%)",
-     "NVDA": "200.53 (+0.12%)",
-     "NVDL": "27.71 b27.70/a27.73"
-    },
-    "ah_1613": {
-     "QCOM": "166.50 b165.90/a166.77 vs 173.73 close (-4.2%)",
-     "ARM": "188.25 b187.50/a190.00 vs 192.28 (-2.1%)",
-     "AMD": "490.10 (+0.3%)",
-     "AVGO": "326.70 (+0.3%)",
-     "TSM": "396.80 (+0.4%)",
-     "SMH": "504.30 (~0.0%)",
-     "QQQ": "692.78 (+0.13%)",
-     "NVDA": "200.78 (+0.24%)",
-     "NVDL": "27.77 b27.75/a27.76 (+0.5% vs close; night41 -0.06 at bid)"
-    },
-    "note_1613": "both peers down after their prints (QCOM -4%, ARM -2%); NVDA/semis flat-to-up AH. No after-hours exit under RULES_v3 §5 (tag only).",
-    "note_realized": "Both peers sold off hard after their prints (QCOM -12%, ARM -8% by 09:00) and dragged semis (SMH -3.6%, AMD -6%); NVDA -2.4% at 09:31. Third-worst live NVDA-2x night. One data point for H1 (2+ peers); judged 2027-01-11."
-   }
-  ],
-  "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
-  "rank_20261026": {
-   "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only",
-   "top30": {
-    "GGLL": 0.27,
-    "MSFU": 0.22,
-    "AAPU": 0.11,
-    "NVDL": 0.06,
-    "NVDX": 0.06,
-    "METU": 0.03
-   },
-   "NVDL_250": 0.13,
-   "file": "research/rank_20261026.json",
-   "leads_vs_core_ge_0.06": [
-    "GGLL +0.21",
-    "MSFU +0.16"
-   ],
-   "two_monday_raw_leads": [
-    "GGLL",
-    "MSFU"
-   ],
-   "assessment": "raw 30-night leads only; 250-night scores GGLL 0.01, MSFU -0.01 vs NVDL 0.13; both report 10/28 after close (earnings nights in window). Not the §3(b) gate basis (executable 15:52->09:31 ex-earnings both sides) and no proposal before the 2027-01-11 quarterly review. No action."
+  "ranking": {
+    "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
+    "asof_of_removed_block": "2026-09-28"
   },
-  "rank_20261102": {
-   "note": "30-night raw overnight score (mean/sd), incl. earnings nights; information only; nights through 10/29->10/30",
-   "top30": {
-    "MSFU": 0.26,
-    "NVDL": 0.04,
-    "NVDX": 0.04,
-    "AAPU": 0.03,
-    "TNA": -0.03,
-    "SPXL": -0.08
-   },
-   "top250": {
-    "MUU": 0.12,
-    "NVDL": 0.11,
-    "NVDX": 0.09,
-    "SOXL": 0.07,
-    "TSMX": 0.07
-   },
-   "file": "research/rank_20261102.json",
-   "assessment": "MSFU leads 30n for a 3rd Monday but its 250n score is -0.02 (vs NVDL 0.11) and the 30n window contains MSFT's 10/28 earnings night; GGLL fell from 0.27 to -0.14 after GOOGL's -11% night. NVDL is 2nd on 250n (MUU 0.12, single-stock memory 2x, much higher variance). Not the §3(b) gate basis; no proposal before the 2027-01-11 quarterly review. No action."
-  },
-  "pause_schedule": {
-   "asof": "2026-11-06 16:01 EOD (week-9 audit, verified; 11/11 level re-verified post-EOD)",
-   "basis": "0.80 x rolling 20-session high of recorded account totals (equity.csv EOD marks + all-cash broker totals after each 09:31 exit)",
-   "levels": {
-    "through 11/6": 85.69,
-    "11/9": 84.65,
-    "11/10": 82.94,
-    "11/11-12/4": 82.89
-   },
-   "note": "82.89 = 0.8 x 103.61 (11/6 16:01 EOD mark, broker 103.614; was 82.86 = 0.8 x 103.58 before the EOD mark); supersedes the week-8 forecast 80.95/80.72; rises if a new high is recorded"
-  },
-  "record_corrections_20261106": [
-   "N38 entry vs_ask was logged +0.4c; actual +3.91c (fill 28.8791 vs ask 28.84)",
-   "N38/N39 cap-left logged 6.28/10.78; exact 6.29/10.77 (no sizing effect)",
-   "DAY-20261102: NVDL official close 28.24 (not 28.21); flat saving 4.68 to close / 4.55 to re-entry (not ~4.8)",
-   "exit order ids N40-N42 added to night_returns (N38/N39 ids: 6ae... see broker; were only in overwritten today blocks)",
-   "DAY-20261104 15:25 sleeve pick corrected to 280/290 (sleeve_r4 float bug fixed)",
-   "journal timestamps 11/3-11/6 were partly hand-entered (approximate); from 11/6 10:22 ET lines use date -u",
-   "post-EOD verify (wf_7dff5bb7-c8c): PAUSE 11/11-12/4 82.86 -> 82.89 (0.8 x 103.61 EOD mark is the new 20-session high)",
-   "WEEK-T3X-9: N38 NVDA close->09:31 +1.4% -> +1.6%; week-8 live sum -10.53 -> -10.54 (rounded per-night basis, matching -1.78); exact-fill basis noted (-1.77 / -10.53; campaign +1.50 vs rounded +1.48)",
-   "WEEK-T3X-9: 4-NVDL exposure range corrected (86-98% of E, price-dependent; 91.9% on N43); Friday overnight +5.3% close->open (+5.9% to 09:31 bid); 3(f) -44% refers to the 11/16 check",
-   "state.sleeve.option_level_seen and state.wake refreshed after 11/6 EOD (were stale at 11/5 16:01 and the 15:00 heartbeat)"
-  ],
-  "record_corrections_20261109": [
-   "post-EOD verify (wf_426654cd-f4f): DAY-20261109 SMH +5.1% -> +5.0%; NVDL N44 fill 1.01c (not 0.01c) under ask; '-16% night enters the 11/16 window' clarified (N43, NVDL close->open ~-14.7%); Next: QQQ leg of crash-open trigger and CPI inside the N44 hold",
-   "STATUS: live NVDA-2x nights 19 (not 18); 09:29 shadow n13 +20bp t 0.9; sleeve B per s12(c) at bid 7.72",
-   "crash-open trigger text: NVDA open 172.99 (-7.31%), not '~-8%' (that was the 09:31:05 bid)",
-   "journal 14:00 HB: 4-NVDL threshold was ask <= 21.45 (not ~21.46)",
-   "memo condition (Nov-13 ATM IV > ~70%) checked at close: ~67% -> not met"
-  ],
-  "trend": {
-   "rule": "§13: QQQ last at 15:50 vs mean of previous 199 official closes; >= -> UP f 0.98; < -> DOWN f 0.25",
-   "last": {
-    "date": "2026-11-10",
-    "basis": "15:50:03 ET live quotes (binding read; PAUSE outranked it)",
-    "qqq": 674.68,
-    "flip": 681.449,
-    "dist_pct": -0.99,
-    "state": "DOWN",
-    "f": 0.25,
-    "shadow": {
-     "NVDA": {
-      "px": 168.4373,
-      "flip": 204.719,
-      "state": "DOWN"
-     },
-     "SMH": {
-      "px": 483.03,
-      "flip": 522.812,
-      "state": "DOWN"
-     }
-    }
-   },
-   "binding_from": "night 45 entry, 2026-11-10 15:50 ET",
-   "cache": "trader/research/trend/closes.json (280 closes per symbol to 2026-11-10)",
-   "verification": "DONE 2026-11-09 17:20 ET (separate read-only agent, own loader and code): every T8 number reproduced; no look-ahead; 72/72 sensitivity cells positive; placebo never reached the observed gain; rule minus always-full +0.060/night, year-block 90pct interval +0.009..+0.121. Verdict WEAKLY SUPPORTED: 10 nights = 98pct of the gain, 2008+2022 = 73pct; lost in 51 of 82 spells and 9 of 22 active years; real NVDL only 86 DOWN nights (+0.020, t 0.55). Rule kept as INSURANCE, not edge; rollback (i) not triggered. Detail: research/REVIEW-20261109.md; scripts research/lab/20261109/",
-   "today_flip": {
+  "position": null,
+  "positions": [],
+  "open_orders": [],
+  "today": {
     "date": "2026-11-11",
-    "QQQ_flip": 681.669,
-    "NVDA_flip": 204.62,
-    "SMH_flip": 523.196,
-    "note": "QQQ >= 681.67 at 15:50 -> UP; PAUSE still sets the size (1 share) through 11/16"
-   }
+    "exit_done": true,
+    "entry_done": false,
+    "eod_done": false,
+    "day_leg_done": true,
+    "premarket": {
+      "t": "07:46 ET",
+      "NVDL_bid": 20.94,
+      "NVDL_ask": 20.95,
+      "NVDA": 176.25,
+      "NVDA_chg_pct": 4.36,
+      "QQQ": 688.16,
+      "QQQ_chg_pct": 1.98,
+      "SMH_chg_pct": 4.96,
+      "SPY_chg_pct": 0.92,
+      "IWM_chg_pct": 0.76,
+      "AMD_chg_pct": 6.36,
+      "TSM_chg_pct": 4.92,
+      "CRWV_chg_pct": 16.44,
+      "official_closes_1110": {
+        "NVDL": 19.28,
+        "NVDX": 10.81,
+        "NVDA": 168.89,
+        "QQQ": 674.82,
+        "SMH": 483.63,
+        "SPY": 749.92,
+        "IWM": 280.58,
+        "AMD": 515.21,
+        "TSM": 396.48,
+        "CRWV": 48.73
+      },
+      "night45_marked": 1.68,
+      "night45_marked_pct": 8.72,
+      "E_broker": 84.0,
+      "E_bid": 83.99,
+      "cash": 63.05,
+      "news": "Chip stocks rebound premarket after CoreWeave raised its 2026 revenue outlook to 13.0-13.3bn (consensus 12.9bn) and its CEO said there is no reason to expect changes in its ties with Nvidia. NVDA about +5% premarket after -5.47% on Tuesday. The Huang story continues (odds of removal discussed); today is the House chairs' deadline for his reply. Sources: Yahoo Finance / Investing.com 11/11, CNBC 11/11, TipRanks 11/11."
+    },
+    "broker_check": {
+      "t": "07:46 ET",
+      "positions": "NVDL 1 avg 19.26 (avail 1)",
+      "open_orders": 0,
+      "cash": 63.05,
+      "buying_power": 63.05,
+      "total_value": 84.0,
+      "unsettled": 71.48
+    },
+    "trade_approval": "OFF (human_must_approve_trades false, 07:46)",
+    "option_level": "none (07:47 get_accounts, 8334 row only)",
+    "day_leg": "SUSPENDED (\u00a711 v1.7); TZA shadow only at EOD",
+    "earnings_check": {
+      "amc_today": [
+        "TTEK",
+        "CTVA",
+        "FNV",
+        "ENS",
+        "DGII"
+      ],
+      "note": "no semiconductor or megacap report after today's close -> night 46 untagged",
+      "nvda_earnings": "2026-11-17 amc -> cash that night (exit 11/17 09:31, no 11/17 entry, re-enter 11/18 15:52)",
+      "next_tag": "Thu 11/12 AMAT/CSCO amc (night 47); NBIS before the open Thu"
+    },
+    "sleeve_shadow": [],
+    "trend_premarket": {
+      "t": "07:47 ET",
+      "qqq": 688.16,
+      "flip": 681.669,
+      "dist_pct": 0.95,
+      "state": "UP (reference only; binding read 15:50; PAUSE sets the size anyway)"
+    },
+    "tools": "v2.2 first live uses today: trend.py add (07:47, ok, 280 closes), exit_ovn.py at 09:31:05, trend.py state --log at 15:50, entry_v18.py core at 15:52",
+    "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL; 09:31:05 exit night45 (exit_ovn.py 45 20261111 NVDL:1:BID) + post-fill check + re-price at 60s; PAUSE session 2 of 5 (1 share whatever E is); 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25; 15:40 pre-entry; 15:50 trend.py state QQQ= NVDA= SMH= --log; 15:52 entry_v18.py core 46 20261111 <ask> <last> <E> pause (exactly 1 share, no top-up); 16:01:30 EOD; DAY-20261111",
+    "pause_check": {
+      "E": 83.35,
+      "pause": 82.89,
+      "kill": 50,
+      "result": "PAUSE in force, session 2 of 5: night 46 = 1 share. All cash 83.35 is above 82.89; that is tested at the 11/18 entry."
+    },
+    "exit": {
+      "night": 45,
+      "t": "09:31:05 quote, order 09:31:18.9, fill 09:31:19.06",
+      "q093105": {
+        "NVDL": "20.31/20.33 last 20.355",
+        "NVDA": "173.55/173.62 (+2.76%)",
+        "QQQ": "687.76/687.83 (+1.92%)"
+      },
+      "NVDL": {
+        "qty": 1,
+        "lim": 20.27,
+        "bid": 20.31,
+        "fill": 20.3001,
+        "vs_bid_c": -0.99,
+        "order_id": "6af47c36-6467-44e4-a15e-f6236e21a930"
+      },
+      "pnl": 1.04,
+      "pct": 5.43,
+      "post_fill": "0 positions, 0 open orders, cash 83.35, total 83.35",
+      "tool": "exit_ovn.py v2.2, first live use: ok"
+    },
+    "exit_shadow": {
+      "q0925": {
+        "NVDL": "20.51/20.57",
+        "NVDA": 174.47
+      },
+      "q0929": {
+        "NVDL": "20.20/20.22",
+        "NVDA": 173.03
+      },
+      "q093105": {
+        "NVDL": "20.31/20.33"
+      },
+      "fill": {
+        "NVDL": 20.3001,
+        "t": "09:31:19.06"
+      },
+      "bp_0929_bid_vs_fill": {
+        "NVDL": -49
+      },
+      "running": "n15 mean +29bp sd 95 t 1.19 (\u00a73(g) bar: mean >= +10bp AND t >= 2: not met)",
+      "official_open": {
+        "NVDL": 20.17,
+        "NVDA": 172.77
+      },
+      "fill_vs_open_bp": 65,
+      "note": "today the 09:31 fill was 13c ABOVE the opening print (+64bp): the price rose in the first minute. By night the live exit-vs-open mean moves from -0.21% (44 nights) to about -0.19% (45)."
+    },
+    "crash_open_shadow": "not armed (gap up)"
   },
-  "sizing": {
-   "version": "v1.8",
-   "symbol": "NVDL",
-   "core": "whole shares by §4 marketable limit, a = floor(f*E / lim)",
-   "topup": "one dollar-based market buy for floor_cent(f*E - spent) if >= 2.00: after the core fill, OR at once with SPENT 0 when core prints x0 (one share above the target, typical on a DOWN night; then there is no core order). Never after 15:58; never if a core order was cancelled unfilled",
-   "pause": "exactly 1 share, no top-up",
-   "tools": [
-    "trader/tools/trend.py",
-    "trader/tools/entry_v18.py",
-    "trader/tools/exit_frac.py"
-   ],
-   "first_fractional_order": "review_equity_order first (§13(h)); simulation 2026-11-09 17:06 ET: $5 NVDL market buy -> order_checks {} and customer_approval_required false",
-   "exit": "exit_ovn.py NIGHT YYYYMMDD SYM:QTY:BID (QTY may be the broker's string; whole shares by limit; prints the exit_frac.py command for a remainder); exit_frac.py for 0 < QTY < 1. A position under 1 share: exit_frac.py only, at 09:31:05",
-   "tools_version": "v2.2, deployed 2026-11-10 16:03 ET after three read-only reviews (research/lab/20261110/TOOLS-REVIEW.md); backup of the previous files is in the session scratchpad only, git history has them"
+  "schedule": {
+    "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
+    "t2x-wake-a": "trig_01Hup5mVHqFdFU91GziiV4Sz",
+    "t2x-wake-b": "trig_011o6NDxLbFSM3JpeiK9o1tR",
+    "t3x-exit-0926": "trig_018vHkWxg6SKfs4pwwYJsvUa",
+    "t3x-entry-1548": "trig_01J2xYyWSAw5s2GZNLzoxP5g",
+    "t3x-lab-weekly": "trig_01EtHM9eT6cKNqRB9W5qiUEt"
   },
-  "lab": {
-   "ledger": "trader/LAB.md",
-   "task": "t3x-lab-weekly (Saturdays 14:23 ET)",
-   "first_cycle": "2026-11-14",
-   "candidate": "L12 earnings blackout (test only; 11/17 stays in cash)",
-   "archive": "trader/research/lab/"
+  "last_error": "",
+  "alerts_open": [],
+  "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
+  "day_leg": {
+    "enabled": false,
+    "instrument": "TZA",
+    "rank_asof": "2026-09-28",
+    "rank": {
+      "TZA": {
+        "n": 30,
+        "mean": 0.79,
+        "sd": 1.55,
+        "score": 0.51,
+        "win": 70,
+        "worst": -2.5,
+        "last": 45.44
+      },
+      "NVDQ": {
+        "n": 30,
+        "mean": 0.35,
+        "sd": 3.02,
+        "score": 0.12,
+        "win": 63,
+        "worst": -5.8,
+        "last": 8.41
+      },
+      "SOXS": {
+        "n": 30,
+        "mean": -0.56,
+        "sd": 4.21,
+        "score": -0.13,
+        "win": 43,
+        "worst": -9.9,
+        "last": 32.43
+      },
+      "SQQQ": {
+        "n": 30,
+        "mean": -0.22,
+        "sd": 1.72,
+        "score": -0.13,
+        "win": 53,
+        "worst": -5.8,
+        "last": 33.75
+      },
+      "SPXS": {
+        "n": 30,
+        "mean": 0.12,
+        "sd": 1.07,
+        "score": 0.12,
+        "win": 70,
+        "worst": -2.8,
+        "last": 23.91
+      }
+    },
+    "day_trades": [
+      "2026-09-17",
+      "2026-09-18",
+      "2026-09-21",
+      "2026-09-24",
+      "2026-09-25",
+      "2026-09-28",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-05",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-12"
+    ],
+    "pdt_cap": 3,
+    "window_bdays": 5,
+    "buy_et": "09:32",
+    "sell_et": "15:49",
+    "position": null,
+    "active_days": 12,
+    "realised": [
+      {
+        "date": "2026-09-17",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 43.1699,
+        "exit": 44.0717,
+        "pnl": 1.8,
+        "pct": 1.83
+      },
+      {
+        "date": "2026-09-18",
+        "sym": "TZA",
+        "pnl": 0.34
+      },
+      {
+        "date": "2026-09-21",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 44.29,
+        "exit": 43.9601,
+        "pnl": -0.66,
+        "pct": -0.74
+      },
+      {
+        "date": "2026-09-24",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 45.67,
+        "exit": 45.5201,
+        "pnl": -0.3,
+        "pct": -0.33
+      },
+      {
+        "date": "2026-09-25",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 45.3787,
+        "exit": 45.1101,
+        "pnl": -0.54,
+        "pct": -0.59
+      },
+      {
+        "date": "2026-09-28",
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 46.5299,
+        "exit": 46.3501,
+        "pnl": -0.36,
+        "pct": -0.39,
+        "tp": 47.0,
+        "tp_hit": false,
+        "day_high": 46.97
+      },
+      {
+        "date": "2026-10-01",
+        "n": 7,
+        "sym": "TZA",
+        "qty": 1,
+        "entry": 47.42,
+        "exit": 47.9,
+        "exit_kind": "day-tp",
+        "pnl": 0.48,
+        "pct": 1.01,
+        "tp": 47.9,
+        "tp_hit": true,
+        "tp_fill_t": "09:40:54 ET",
+        "held_min": 7
+      },
+      {
+        "date": "2026-10-02",
+        "n": 8,
+        "entry": 45.4368,
+        "exit": 45.9,
+        "exit_kind": "day-tp",
+        "pnl": 0.93,
+        "tp_hit": true,
+        "held_min": 106
+      },
+      {
+        "date": "2026-10-05",
+        "n": 9,
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 45.75,
+        "exit": 46.21,
+        "exit_kind": "day-tp",
+        "pnl": 0.92,
+        "pct": 1.01,
+        "tp": 46.21,
+        "tp_hit": true,
+        "held_min": 12
+      },
+      {
+        "date": "2026-10-08",
+        "n": 10,
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 48.2685,
+        "exit": 48.765,
+        "exit_kind": "day-tp",
+        "pnl": 0.99,
+        "pct": 1.03,
+        "tp": 48.76,
+        "tp_hit": true,
+        "tp_fill_t": "10:48:57 ET",
+        "held_min": 77
+      },
+      {
+        "date": "2026-10-09",
+        "n": 11,
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 47.4199,
+        "exit": 46.9924,
+        "exit_kind": "day",
+        "pnl": -0.85,
+        "pct": -0.9,
+        "tp": 47.9,
+        "tp_hit": false,
+        "day_high_approx": 47.85,
+        "note": "TP missed (high ~47.85 at 09:49, 5c short); small caps +0.6% day; cancel 15:49:05 verified, sold 15:49:18 @46.9924 (lim 46.90)"
+      },
+      {
+        "date": "2026-10-12",
+        "n": 12,
+        "sym": "TZA",
+        "qty": 2,
+        "entry": 47.3799,
+        "exit": 47.6201,
+        "exit_kind": "day",
+        "pnl": 0.48,
+        "pct": 0.51,
+        "tp": 47.86,
+        "tp_hit": false,
+        "day_high_approx": 47.66,
+        "note": "TP missed (scan high ~47.66, 20c short); small caps -0.4%; cancel 15:49:02 verified, sold 15:49:12 @47.6201 (lim 47.56)"
+      }
+    ],
+    "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
+    "take_profit": {
+      "version": "v1.3",
+      "target_pct": 1.0,
+      "since": "2026-09-28"
+    },
+    "realised_total": 3.23,
+    "realised_mean": 0.27,
+    "sizing": {
+      "version": "v1.4",
+      "since": "2026-10-08",
+      "rule": "q=floor(0.95*cash/lim); if q*lim<0.85*E and (q+1)*lim<=0.98*cash: q+=1"
+    },
+    "review_10day": {
+      "date": "2026-10-08",
+      "active_days": 10,
+      "total": 3.6,
+      "mean": 0.36,
+      "sd": 0.812,
+      "wins": 6,
+      "tp_record": "4 hits / 1 miss since v1.3 (9/28 miss; 10/1, 10/2, 10/5, 10/8 hit)",
+      "decision": "KEEP (mean > 0)"
+    },
+    "tp_record": "4 hits / 3 misses since v1.3 (miss 9/28, 10/9, 10/12)",
+    "suspended_since": "2026-10-15",
+    "suspended_by": "RULES_v3 v1.7 (research/DAYLEG-REVIEW-20261014.md)",
+    "shadow": [
+      {
+        "date": "2026-10-15",
+        "sym": "TZA",
+        "entry": 51.1002,
+        "tp": 51.62,
+        "exit": 49.06,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -3.993,
+        "ret_net015_pct": -4.143
+      },
+      {
+        "date": "2026-10-16",
+        "sym": "TZA",
+        "entry": 48.9973,
+        "tp": 49.49,
+        "exit": 49.49,
+        "how": "tp",
+        "at": "10:53",
+        "ret_pct": 1.006,
+        "ret_net015_pct": 0.856
+      },
+      {
+        "date": "2026-10-19",
+        "sym": "TZA",
+        "entry": 50.4326,
+        "tp": 50.94,
+        "exit": 50.94,
+        "how": "tp",
+        "at": "09:42",
+        "ret_pct": 1.006,
+        "ret_net015_pct": 0.856
+      },
+      {
+        "date": "2026-10-20",
+        "sym": "TZA",
+        "entry": 50.7852,
+        "tp": 51.3,
+        "exit": 48.51,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -4.48,
+        "ret_net015_pct": -4.63
+      },
+      {
+        "date": "2026-10-21",
+        "sym": "TZA",
+        "entry": 47.9621,
+        "tp": 48.45,
+        "exit": 48.45,
+        "how": "tp",
+        "at": "10:05",
+        "ret_pct": 1.017,
+        "ret_net015_pct": 0.867
+      },
+      {
+        "date": "2026-10-22",
+        "sym": "TZA",
+        "entry": 48.841,
+        "tp": 49.33,
+        "exit": 48.5,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -0.698,
+        "ret_net015_pct": -0.848
+      },
+      {
+        "date": "2026-10-23",
+        "sym": "TZA",
+        "entry": 49.2224,
+        "tp": 49.72,
+        "exit": 49.72,
+        "how": "tp",
+        "at": "10:17",
+        "ret_pct": 1.011,
+        "ret_net015_pct": 0.861
+      },
+      {
+        "date": "2026-10-26",
+        "sym": "TZA",
+        "entry": 48.3722,
+        "tp": 48.86,
+        "exit": 48.055,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -0.656,
+        "ret_net015_pct": -0.806
+      },
+      {
+        "date": "2026-10-27",
+        "sym": "TZA",
+        "entry": 47.652,
+        "tp": 48.13,
+        "exit": 46.39,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -2.648,
+        "ret_net015_pct": -2.798
+      },
+      {
+        "date": "2026-10-28",
+        "sym": "TZA",
+        "entry": 46.328,
+        "tp": 46.8,
+        "exit": 46.8,
+        "how": "tp",
+        "at": "14:32",
+        "ret_pct": 1.019,
+        "ret_net015_pct": 0.869
+      },
+      {
+        "date": "2026-10-29",
+        "sym": "TZA",
+        "entry": 45.0962,
+        "tp": 45.55,
+        "exit": 44.8601,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -0.524,
+        "ret_net015_pct": -0.674
+      },
+      {
+        "date": "2026-10-30",
+        "sym": "TZA",
+        "entry": 45.4225,
+        "tp": 45.88,
+        "exit": 45.88,
+        "how": "tp",
+        "at": "09:48",
+        "ret_pct": 1.007,
+        "ret_net015_pct": 0.857
+      },
+      {
+        "date": "2026-11-02",
+        "sym": "TZA",
+        "entry": 45.6664,
+        "tp": 46.13,
+        "exit": 46.13,
+        "how": "tp",
+        "at": "09:40",
+        "ret_pct": 1.015,
+        "ret_net015_pct": 0.865
+      },
+      {
+        "date": "2026-11-03",
+        "sym": "TZA",
+        "entry": 46.6343,
+        "tp": 47.11,
+        "exit": 46.465,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -0.363,
+        "ret_net015_pct": -0.513
+      },
+      {
+        "date": "2026-11-04",
+        "sym": "TZA",
+        "entry": 44.0126,
+        "tp": 44.46,
+        "exit": 44.46,
+        "how": "tp",
+        "at": "09:55",
+        "ret_pct": 1.017,
+        "ret_net015_pct": 0.867
+      },
+      {
+        "date": "2026-11-05",
+        "sym": "TZA",
+        "entry": 44.4651,
+        "tp": 44.91,
+        "exit": 44.91,
+        "how": "tp",
+        "at": "09:38",
+        "ret_pct": 1.001,
+        "ret_net015_pct": 0.851
+      },
+      {
+        "date": "2026-11-06",
+        "sym": "TZA",
+        "entry": 50.5939,
+        "tp": 51.1,
+        "exit": 51.1,
+        "how": "tp",
+        "at": "09:35",
+        "ret_pct": 1.0,
+        "ret_net015_pct": 0.85
+      },
+      {
+        "date": "2026-11-09",
+        "sym": "TZA",
+        "entry": 47.5013,
+        "tp": 47.98,
+        "exit": 44.2799,
+        "how": "close",
+        "at": "15:48",
+        "ret_pct": -6.782,
+        "ret_net015_pct": -6.932
+      },
+      {
+        "date": "2026-11-10",
+        "sym": "TZA",
+        "entry": 45.8967,
+        "tp": 46.36,
+        "exit": 46.36,
+        "how": "tp",
+        "at": "10:45",
+        "ret_pct": 1.009,
+        "ret_net015_pct": 0.859
+      }
+    ],
+    "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"
   },
-  "pause": {
-   "triggered": "2026-11-10 09:31 exit: all-cash total 82.31 <= 82.94 (0.80 x rolling 20-session high 103.68)",
-   "size": "exactly 1 NVDL share, no top-up, whatever the trend state (§3(e), §6)",
-   "sessions": [
-    "2026-11-10 (N45)",
-    "2026-11-11 (N46)",
-    "2026-11-12 (N47)",
-    "2026-11-13 (N48)",
-    "2026-11-16 (N49)"
-   ],
-   "after": "11/17 is the NVDA earnings blackout (cash). From the 11/18 entry: normal size only if E > the trigger then in force (82.89 through 12/4, since the 11/6 EOD mark 103.61 stays in the 20-session window until then); otherwise PAUSE continues at 1 share"
+  "history_today": [],
+  "ops": {
+    "crons": "CRON_TZ=America/New_York (updated 2026-11-09): exit 09:26, entry 15:48, analyst 07:45, wake-a :30 09-15, wake-b :00 10-16 ET; t3x-lab-weekly Saturdays 14:23 ET (research only, created 2026-11-09)",
+    "halfday_wakes": {
+      "2026-11-27": "trig_015vbbSwx7VnCeZSfPRhEVzS 12:44 ET",
+      "2026-12-24": "trig_01U43ziBKEHVYj6B6WdhBoj1 12:44 ET"
+    },
+    "dst_end": "2026-11-01 (EST = UTC-5 from 11/2; use hb.py/bridge.py 'et' suffix)",
+    "unexplained_cash": "+0.17 non-trade credit between 9/29 EOD and 9/30 07:47 (cash 26.16 -> 26.33, no orders) \u2014 source unknown; not in any ledger",
+    "week6_audit": "research/WEEK6-AUDIT-20261016.md",
+    "exit_shadow": {
+      "since": "2026-10-22",
+      "rule": "RULES_v3 \u00a75 (2026-10-21)",
+      "procedure": "exit mornings: hb.py to 09:25et -> get_equity_quotes NVDL,NVDX (bid+ask+venue times) ; hb.py to 09:29et -> quotes again ; bridge 09:30:50et -> 09:31:05et quotes -> exit as usual; record state.today.exit_shadow {q0925,q0929,q093105,fill_t,fill_px} + one journal line. No orders from the shadow log.",
+      "review": "\u00a73(g) 40-night: switch to 09:29 pre-mkt exit only if mean(09:29 bid - 09:31 fill) >= +10bp with t >= 2"
+    },
+    "options": {
+      "option_level": "none (re-checked 2026-11-09 16:27 ET get_accounts: still empty)",
+      "account_type": "limited_margin",
+      "upgrade_url": "https://applink.robinhood.com/upgrade_options?account_number=445788334&source=mcp",
+      "note": "L2 = long calls/puts, covered calls, CSPs; L3 = spreads (needs margin/limited margin -> eligible). Re-fetch get_accounts after the human confirms approval."
+    }
   },
-  "risk_note_20261110": "Honest one-year range from E 82.41 under the present rules (adversarially reviewed): median about 75-95; 25-45% chance of being above 98.75; 10-20% chance of reaching the 50 stop; 2-3% chance of being back above 98.75 within 20 nights. A 2x NVDA overnight loss of 14.5%+ (ex-earnings) has happened about once a year; 25%+ three times since 2019; 5 of the 16 worst non-earnings nights since 2015 came with QQQ ABOVE its trend line, when the engine holds full size."
- },
- "account": {
-  "equity": 83.35,
-  "cash": 83.35,
-  "asof": "09:32 ET 2026-11-11 (all cash after the night-45 exit; broker total 83.35)"
- },
- "ranking": {
-  "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
-  "asof_of_removed_block": "2026-09-28"
- },
- "position": null,
- "positions": [],
- "open_orders": [],
- "today": {
-  "date": "2026-11-11",
-  "exit_done": true,
-  "entry_done": false,
-  "eod_done": false,
-  "day_leg_done": true,
-  "premarket": {
-   "t": "07:46 ET",
-   "NVDL_bid": 20.94,
-   "NVDL_ask": 20.95,
-   "NVDA": 176.25,
-   "NVDA_chg_pct": 4.36,
-   "QQQ": 688.16,
-   "QQQ_chg_pct": 1.98,
-   "SMH_chg_pct": 4.96,
-   "SPY_chg_pct": 0.92,
-   "IWM_chg_pct": 0.76,
-   "AMD_chg_pct": 6.36,
-   "TSM_chg_pct": 4.92,
-   "CRWV_chg_pct": 16.44,
-   "official_closes_1110": {
-    "NVDL": 19.28,
-    "NVDX": 10.81,
-    "NVDA": 168.89,
-    "QQQ": 674.82,
-    "SMH": 483.63,
-    "SPY": 749.92,
-    "IWM": 280.58,
-    "AMD": 515.21,
-    "TSM": 396.48,
-    "CRWV": 48.73
-   },
-   "night45_marked": 1.68,
-   "night45_marked_pct": 8.72,
-   "E_broker": 84.0,
-   "E_bid": 83.99,
-   "cash": 63.05,
-   "news": "Chip stocks rebound premarket after CoreWeave raised its 2026 revenue outlook to 13.0-13.3bn (consensus 12.9bn) and its CEO said there is no reason to expect changes in its ties with Nvidia. NVDA about +5% premarket after -5.47% on Tuesday. The Huang story continues (odds of removal discussed); today is the House chairs' deadline for his reply. Sources: Yahoo Finance / Investing.com 11/11, CNBC 11/11, TipRanks 11/11."
-  },
-  "broker_check": {
-   "t": "07:46 ET",
-   "positions": "NVDL 1 avg 19.26 (avail 1)",
-   "open_orders": 0,
-   "cash": 63.05,
-   "buying_power": 63.05,
-   "total_value": 84.0,
-   "unsettled": 71.48
-  },
-  "trade_approval": "OFF (human_must_approve_trades false, 07:46)",
-  "option_level": "none (07:47 get_accounts, 8334 row only)",
-  "day_leg": "SUSPENDED (§11 v1.7); TZA shadow only at EOD",
-  "earnings_check": {
-   "amc_today": [
-    "TTEK",
-    "CTVA",
-    "FNV",
-    "ENS",
-    "DGII"
-   ],
-   "note": "no semiconductor or megacap report after today's close -> night 46 untagged",
-   "nvda_earnings": "2026-11-17 amc -> cash that night (exit 11/17 09:31, no 11/17 entry, re-enter 11/18 15:52)",
-   "next_tag": "Thu 11/12 AMAT/CSCO amc (night 47); NBIS before the open Thu"
-  },
-  "sleeve_shadow": [],
-  "trend_premarket": {
-   "t": "07:47 ET",
-   "qqq": 688.16,
-   "flip": 681.669,
-   "dist_pct": 0.95,
-   "state": "UP (reference only; binding read 15:50; PAUSE sets the size anyway)"
-  },
-  "tools": "v2.2 first live uses today: trend.py add (07:47, ok, 280 closes), exit_ovn.py at 09:31:05, trend.py state --log at 15:50, entry_v18.py core at 15:52",
-  "plan": "09:00 HB; 09:25/09:29/09:31:05 shadow quotes NVDL; 09:31:05 exit night45 (exit_ovn.py 45 20261111 NVDL:1:BID) + post-fill check + re-price at 60s; PAUSE session 2 of 5 (1 share whatever E is); 8-min loop + hourly HB; sleeve shadow 10:30/13:00/15:25; 15:40 pre-entry; 15:50 trend.py state QQQ= NVDA= SMH= --log; 15:52 entry_v18.py core 46 20261111 <ask> <last> <E> pause (exactly 1 share, no top-up); 16:01:30 EOD; DAY-20261111",
-  "pause_check": {
-   "E": 83.35,
-   "pause": 82.89,
-   "kill": 50,
-   "result": "PAUSE in force, session 2 of 5: night 46 = 1 share. All cash 83.35 is above 82.89; that is tested at the 11/18 entry."
-  },
-  "exit": {
-   "night": 45,
-   "t": "09:31:05 quote, order 09:31:18.9, fill 09:31:19.06",
-   "q093105": {
-    "NVDL": "20.31/20.33 last 20.355",
-    "NVDA": "173.55/173.62 (+2.76%)",
-    "QQQ": "687.76/687.83 (+1.92%)"
-   },
-   "NVDL": {
-    "qty": 1,
-    "lim": 20.27,
-    "bid": 20.31,
-    "fill": 20.3001,
-    "vs_bid_c": -0.99,
-    "order_id": "6af47c36-6467-44e4-a15e-f6236e21a930"
-   },
-   "pnl": 1.04,
-   "pct": 5.43,
-   "post_fill": "0 positions, 0 open orders, cash 83.35, total 83.35",
-   "tool": "exit_ovn.py v2.2, first live use: ok"
-  },
-  "exit_shadow": {
-   "q0925": {
-    "NVDL": "20.51/20.57",
-    "NVDA": 174.47
-   },
-   "q0929": {
-    "NVDL": "20.20/20.22",
-    "NVDA": 173.03
-   },
-   "q093105": {
-    "NVDL": "20.31/20.33"
-   },
-   "fill": {
-    "NVDL": 20.3001,
-    "t": "09:31:19.06"
-   },
-   "bp_0929_bid_vs_fill": {
-    "NVDL": -49
-   },
-   "running": "n15 mean +29bp sd 95 t 1.19 (§3(g) bar: mean >= +10bp AND t >= 2: not met)"
-  },
-  "crash_open_shadow": "not armed (gap up)"
- },
- "schedule": {
-  "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
-  "t2x-wake-a": "trig_01Hup5mVHqFdFU91GziiV4Sz",
-  "t2x-wake-b": "trig_011o6NDxLbFSM3JpeiK9o1tR",
-  "t3x-exit-0926": "trig_018vHkWxg6SKfs4pwwYJsvUa",
-  "t3x-entry-1548": "trig_01J2xYyWSAw5s2GZNLzoxP5g",
-  "t3x-lab-weekly": "trig_01EtHM9eT6cKNqRB9W5qiUEt"
- },
- "last_error": "",
- "alerts_open": [],
- "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
- "day_leg": {
-  "enabled": false,
-  "instrument": "TZA",
-  "rank_asof": "2026-09-28",
-  "rank": {
-   "TZA": {
-    "n": 30,
-    "mean": 0.79,
-    "sd": 1.55,
-    "score": 0.51,
-    "win": 70,
-    "worst": -2.5,
-    "last": 45.44
-   },
-   "NVDQ": {
-    "n": 30,
-    "mean": 0.35,
-    "sd": 3.02,
-    "score": 0.12,
-    "win": 63,
-    "worst": -5.8,
-    "last": 8.41
-   },
-   "SOXS": {
-    "n": 30,
-    "mean": -0.56,
-    "sd": 4.21,
-    "score": -0.13,
-    "win": 43,
-    "worst": -9.9,
-    "last": 32.43
-   },
-   "SQQQ": {
-    "n": 30,
-    "mean": -0.22,
-    "sd": 1.72,
-    "score": -0.13,
-    "win": 53,
-    "worst": -5.8,
-    "last": 33.75
-   },
-   "SPXS": {
-    "n": 30,
-    "mean": 0.12,
-    "sd": 1.07,
-    "score": 0.12,
-    "win": 70,
-    "worst": -2.8,
-    "last": 23.91
-   }
-  },
-  "day_trades": [
-   "2026-09-17",
-   "2026-09-18",
-   "2026-09-21",
-   "2026-09-24",
-   "2026-09-25",
-   "2026-09-28",
-   "2026-10-01",
-   "2026-10-02",
-   "2026-10-05",
-   "2026-10-08",
-   "2026-10-09",
-   "2026-10-12"
+  "human_directives": [
+    {
+      "t": "2026-10-22T20:05Z",
+      "text": "I feel like you're doing well, you're just going around 100, let's take more risks and introduce options, rethink your strategy and come up with a money making strategy to can get us big gains. Do options. Not doing well",
+      "agent_actions": [
+        "8334 option_level is empty (limited_margin): sent the human the Robinhood options upgrade link https://applink.robinhood.com/upgrade_options?account_number=445788334 (human must apply; agent cannot)",
+        "launched read-only workflow options-strategy-redesign (wf_dcd4d644-26d): 5 designs x 3 judges + synthesis",
+        "baseline engine continues until a new plan is adopted and options are approved; night 32 exits 09:31 Fri as usual"
+      ],
+      "status": "options approval pending (human)"
+    },
+    {
+      "t": "2026-11-09T21:25Z",
+      "text": "whatever happened to the options? i changed the model here, please go inspect our plan and see how we can get better returns, then make the actual changes, and keep recursively self improving. i want you to be fully autonomous",
+      "agent_actions": [
+        "options: 8334 option_level still empty at 16:27 ET; the human must apply via the upgrade link (agent cannot, \u00a710(b)); sleeve also needs E at bid >= 88.00",
+        "review T1-T9 on 2000->2026 day bars (research/REVIEW-20261109.md): adopted the QQQ 200-day market-trend sizing rule (RULES_v3 \u00a713), one-symbol sizing with a fractional top-up (\u00a73(c)), fractional exit (\u00a75/\u00a77); 7 other ideas rejected",
+        "RULES_v3 -> T3X v2.1 / engine v1.8, in force from the night-45 entry 2026-11-10; night 44 not resized",
+        "recursive improvement: RULES_v3 \u00a714 lab, trader/LAB.md, scheduled task t3x-lab-weekly (trig_01EtHM9eT6cKNqRB9W5qiUEt, Saturdays 14:23 ET)",
+        "not changed: $80 floor / 0.20 share (\u00a712(j) needs a human instruction naming the KILL probability), KILL, PAUSE, earnings blackout",
+        "2-NVDL-until-earnings question of 11/9: closed by the agent under 'fully autonomous'; superseded by \u00a713 (DOWN nights are about 1 share anyway)"
+      ]
+    }
   ],
-  "pdt_cap": 3,
-  "window_bdays": 5,
-  "buy_et": "09:32",
-  "sell_et": "15:49",
-  "position": null,
-  "active_days": 12,
-  "realised": [
-   {
-    "date": "2026-09-17",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 43.1699,
-    "exit": 44.0717,
-    "pnl": 1.8,
-    "pct": 1.83
-   },
-   {
-    "date": "2026-09-18",
-    "sym": "TZA",
-    "pnl": 0.34
-   },
-   {
-    "date": "2026-09-21",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 44.29,
-    "exit": 43.9601,
-    "pnl": -0.66,
-    "pct": -0.74
-   },
-   {
-    "date": "2026-09-24",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 45.67,
-    "exit": 45.5201,
-    "pnl": -0.3,
-    "pct": -0.33
-   },
-   {
-    "date": "2026-09-25",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 45.3787,
-    "exit": 45.1101,
-    "pnl": -0.54,
-    "pct": -0.59
-   },
-   {
-    "date": "2026-09-28",
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 46.5299,
-    "exit": 46.3501,
-    "pnl": -0.36,
-    "pct": -0.39,
-    "tp": 47.0,
-    "tp_hit": false,
-    "day_high": 46.97
-   },
-   {
-    "date": "2026-10-01",
-    "n": 7,
-    "sym": "TZA",
-    "qty": 1,
-    "entry": 47.42,
-    "exit": 47.9,
-    "exit_kind": "day-tp",
-    "pnl": 0.48,
-    "pct": 1.01,
-    "tp": 47.9,
-    "tp_hit": true,
-    "tp_fill_t": "09:40:54 ET",
-    "held_min": 7
-   },
-   {
-    "date": "2026-10-02",
-    "n": 8,
-    "entry": 45.4368,
-    "exit": 45.9,
-    "exit_kind": "day-tp",
-    "pnl": 0.93,
-    "tp_hit": true,
-    "held_min": 106
-   },
-   {
-    "date": "2026-10-05",
-    "n": 9,
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 45.75,
-    "exit": 46.21,
-    "exit_kind": "day-tp",
-    "pnl": 0.92,
-    "pct": 1.01,
-    "tp": 46.21,
-    "tp_hit": true,
-    "held_min": 12
-   },
-   {
-    "date": "2026-10-08",
-    "n": 10,
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 48.2685,
-    "exit": 48.765,
-    "exit_kind": "day-tp",
-    "pnl": 0.99,
-    "pct": 1.03,
-    "tp": 48.76,
-    "tp_hit": true,
-    "tp_fill_t": "10:48:57 ET",
-    "held_min": 77
-   },
-   {
-    "date": "2026-10-09",
-    "n": 11,
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 47.4199,
-    "exit": 46.9924,
-    "exit_kind": "day",
-    "pnl": -0.85,
-    "pct": -0.9,
-    "tp": 47.9,
-    "tp_hit": false,
-    "day_high_approx": 47.85,
-    "note": "TP missed (high ~47.85 at 09:49, 5c short); small caps +0.6% day; cancel 15:49:05 verified, sold 15:49:18 @46.9924 (lim 46.90)"
-   },
-   {
-    "date": "2026-10-12",
-    "n": 12,
-    "sym": "TZA",
-    "qty": 2,
-    "entry": 47.3799,
-    "exit": 47.6201,
-    "exit_kind": "day",
-    "pnl": 0.48,
-    "pct": 0.51,
-    "tp": 47.86,
-    "tp_hit": false,
-    "day_high_approx": 47.66,
-    "note": "TP missed (scan high ~47.66, 20c short); small caps -0.4%; cancel 15:49:02 verified, sold 15:49:12 @47.6201 (lim 47.56)"
-   }
-  ],
-  "note": "re-rank 9/21: TZA 0.42 (mean +0.60, win 67%) > SPXS 0.26 > NVDQ 0.21 > SOXS 0.19 > SQQQ 0.06; PDT window: 9/17, 9/18 used -> Mon allowed (3rd), Tue/Wed blocked, Thu re-opens",
-  "take_profit": {
-   "version": "v1.3",
-   "target_pct": 1.0,
-   "since": "2026-09-28"
-  },
-  "realised_total": 3.23,
-  "realised_mean": 0.27,
-  "sizing": {
-   "version": "v1.4",
-   "since": "2026-10-08",
-   "rule": "q=floor(0.95*cash/lim); if q*lim<0.85*E and (q+1)*lim<=0.98*cash: q+=1"
-  },
-  "review_10day": {
-   "date": "2026-10-08",
-   "active_days": 10,
-   "total": 3.6,
-   "mean": 0.36,
-   "sd": 0.812,
-   "wins": 6,
-   "tp_record": "4 hits / 1 miss since v1.3 (9/28 miss; 10/1, 10/2, 10/5, 10/8 hit)",
-   "decision": "KEEP (mean > 0)"
-  },
-  "tp_record": "4 hits / 3 misses since v1.3 (miss 9/28, 10/9, 10/12)",
-  "suspended_since": "2026-10-15",
-  "suspended_by": "RULES_v3 v1.7 (research/DAYLEG-REVIEW-20261014.md)",
-  "shadow": [
-   {
-    "date": "2026-10-15",
-    "sym": "TZA",
-    "entry": 51.1002,
-    "tp": 51.62,
-    "exit": 49.06,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -3.993,
-    "ret_net015_pct": -4.143
-   },
-   {
-    "date": "2026-10-16",
-    "sym": "TZA",
-    "entry": 48.9973,
-    "tp": 49.49,
-    "exit": 49.49,
-    "how": "tp",
-    "at": "10:53",
-    "ret_pct": 1.006,
-    "ret_net015_pct": 0.856
-   },
-   {
-    "date": "2026-10-19",
-    "sym": "TZA",
-    "entry": 50.4326,
-    "tp": 50.94,
-    "exit": 50.94,
-    "how": "tp",
-    "at": "09:42",
-    "ret_pct": 1.006,
-    "ret_net015_pct": 0.856
-   },
-   {
-    "date": "2026-10-20",
-    "sym": "TZA",
-    "entry": 50.7852,
-    "tp": 51.3,
-    "exit": 48.51,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -4.48,
-    "ret_net015_pct": -4.63
-   },
-   {
-    "date": "2026-10-21",
-    "sym": "TZA",
-    "entry": 47.9621,
-    "tp": 48.45,
-    "exit": 48.45,
-    "how": "tp",
-    "at": "10:05",
-    "ret_pct": 1.017,
-    "ret_net015_pct": 0.867
-   },
-   {
-    "date": "2026-10-22",
-    "sym": "TZA",
-    "entry": 48.841,
-    "tp": 49.33,
-    "exit": 48.5,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -0.698,
-    "ret_net015_pct": -0.848
-   },
-   {
-    "date": "2026-10-23",
-    "sym": "TZA",
-    "entry": 49.2224,
-    "tp": 49.72,
-    "exit": 49.72,
-    "how": "tp",
-    "at": "10:17",
-    "ret_pct": 1.011,
-    "ret_net015_pct": 0.861
-   },
-   {
-    "date": "2026-10-26",
-    "sym": "TZA",
-    "entry": 48.3722,
-    "tp": 48.86,
-    "exit": 48.055,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -0.656,
-    "ret_net015_pct": -0.806
-   },
-   {
-    "date": "2026-10-27",
-    "sym": "TZA",
-    "entry": 47.652,
-    "tp": 48.13,
-    "exit": 46.39,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -2.648,
-    "ret_net015_pct": -2.798
-   },
-   {
-    "date": "2026-10-28",
-    "sym": "TZA",
-    "entry": 46.328,
-    "tp": 46.8,
-    "exit": 46.8,
-    "how": "tp",
-    "at": "14:32",
-    "ret_pct": 1.019,
-    "ret_net015_pct": 0.869
-   },
-   {
-    "date": "2026-10-29",
-    "sym": "TZA",
-    "entry": 45.0962,
-    "tp": 45.55,
-    "exit": 44.8601,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -0.524,
-    "ret_net015_pct": -0.674
-   },
-   {
-    "date": "2026-10-30",
-    "sym": "TZA",
-    "entry": 45.4225,
-    "tp": 45.88,
-    "exit": 45.88,
-    "how": "tp",
-    "at": "09:48",
-    "ret_pct": 1.007,
-    "ret_net015_pct": 0.857
-   },
-   {
-    "date": "2026-11-02",
-    "sym": "TZA",
-    "entry": 45.6664,
-    "tp": 46.13,
-    "exit": 46.13,
-    "how": "tp",
-    "at": "09:40",
-    "ret_pct": 1.015,
-    "ret_net015_pct": 0.865
-   },
-   {
-    "date": "2026-11-03",
-    "sym": "TZA",
-    "entry": 46.6343,
-    "tp": 47.11,
-    "exit": 46.465,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -0.363,
-    "ret_net015_pct": -0.513
-   },
-   {
-    "date": "2026-11-04",
-    "sym": "TZA",
-    "entry": 44.0126,
-    "tp": 44.46,
-    "exit": 44.46,
-    "how": "tp",
-    "at": "09:55",
-    "ret_pct": 1.017,
-    "ret_net015_pct": 0.867
-   },
-   {
-    "date": "2026-11-05",
-    "sym": "TZA",
-    "entry": 44.4651,
-    "tp": 44.91,
-    "exit": 44.91,
-    "how": "tp",
-    "at": "09:38",
-    "ret_pct": 1.001,
-    "ret_net015_pct": 0.851
-   },
-   {
-    "date": "2026-11-06",
-    "sym": "TZA",
-    "entry": 50.5939,
-    "tp": 51.1,
-    "exit": 51.1,
-    "how": "tp",
-    "at": "09:35",
-    "ret_pct": 1.0,
-    "ret_net015_pct": 0.85
-   },
-   {
-    "date": "2026-11-09",
-    "sym": "TZA",
-    "entry": 47.5013,
-    "tp": 47.98,
-    "exit": 44.2799,
-    "how": "close",
-    "at": "15:48",
-    "ret_pct": -6.782,
-    "ret_net015_pct": -6.932
-   },
-   {
-    "date": "2026-11-10",
-    "sym": "TZA",
-    "entry": 45.8967,
-    "tp": 46.36,
-    "exit": 46.36,
-    "how": "tp",
-    "at": "10:45",
-    "ret_pct": 1.009,
-    "ret_net015_pct": 0.859
-   }
-  ],
-  "reentry": "quarterly review only (first 2027-01-11): >=60 legs mean>=+0.25% t>=2; 250-session TZA TP rule (0.15% cost) >0; joint bootstrap PAUSE +<=5pts; then 1 share only"
- },
- "history_today": [],
- "ops": {
-  "crons": "CRON_TZ=America/New_York (updated 2026-11-09): exit 09:26, entry 15:48, analyst 07:45, wake-a :30 09-15, wake-b :00 10-16 ET; t3x-lab-weekly Saturdays 14:23 ET (research only, created 2026-11-09)",
-  "halfday_wakes": {
-   "2026-11-27": "trig_015vbbSwx7VnCeZSfPRhEVzS 12:44 ET",
-   "2026-12-24": "trig_01U43ziBKEHVYj6B6WdhBoj1 12:44 ET"
-  },
-  "dst_end": "2026-11-01 (EST = UTC-5 from 11/2; use hb.py/bridge.py 'et' suffix)",
-  "unexplained_cash": "+0.17 non-trade credit between 9/29 EOD and 9/30 07:47 (cash 26.16 -> 26.33, no orders) — source unknown; not in any ledger",
-  "week6_audit": "research/WEEK6-AUDIT-20261016.md",
-  "exit_shadow": {
-   "since": "2026-10-22",
-   "rule": "RULES_v3 §5 (2026-10-21)",
-   "procedure": "exit mornings: hb.py to 09:25et -> get_equity_quotes NVDL,NVDX (bid+ask+venue times) ; hb.py to 09:29et -> quotes again ; bridge 09:30:50et -> 09:31:05et quotes -> exit as usual; record state.today.exit_shadow {q0925,q0929,q093105,fill_t,fill_px} + one journal line. No orders from the shadow log.",
-   "review": "§3(g) 40-night: switch to 09:29 pre-mkt exit only if mean(09:29 bid - 09:31 fill) >= +10bp with t >= 2"
-  },
-  "options": {
-   "option_level": "none (re-checked 2026-11-09 16:27 ET get_accounts: still empty)",
-   "account_type": "limited_margin",
-   "upgrade_url": "https://applink.robinhood.com/upgrade_options?account_number=445788334&source=mcp",
-   "note": "L2 = long calls/puts, covered calls, CSPs; L3 = spreads (needs margin/limited margin -> eligible). Re-fetch get_accounts after the human confirms approval."
+  "sleeve": {
+    "plan": "FFB-L v1 (RULES_v3 \u00a712)",
+    "mode": "PENDING_OPTIONS_APPROVAL",
+    "option_level_seen": "none (2026-11-09 16:01 get_accounts)",
+    "floor": 80,
+    "f": 0.2,
+    "lock": 200,
+    "shadow_days": 12,
+    "first_trade_if_L3": "BUY NVDA 2027-01-15 300C (8acaf208-49b6-4861-bf3c-9a68cf60ac75) / SELL 310C (f0d4c64a-0b4c-4f7c-b4fa-60bb6c05606b); 10/22 mid 0.14 nat 0.19 -> L0 0.16, cap 0.17 (re-run R4 at order time)",
+    "first_trade_if_L2": "BUY 1 NVDA 2027-01-15 350C (c86b3db1-2c7b-4d75-84f4-1c4669d0e5cf) 10/22 0.10/0.12 (re-run R4)",
+    "position": null,
+    "cycles": [],
+    "human_questions_open": [
+      "accept odds (12m P200 ~35% vs ~19%; KILL ~8% vs ~3%; median ~$95 vs ~$135)",
+      "one-time OK for rule-based multi-leg net limits",
+      "at $200: keep engine (default) or all cash",
+      "L2-only: run single far-OTM call (default yes)",
+      "risk dial: $80 floor (default) vs $70"
+    ],
+    "shadow_rule_note": "per R9 log each leg bid/ask (K:bid:ask string) with every shadow entry (audit 10/23)",
+    "feb19_2027_call_ids": {
+      "expiry": "2027-02-19",
+      "fetched": "2026-10-30 11:20 ET (get_option_instruments, read-only)",
+      "260": "8f4eab52-ea35-40e4-8064-33e0cd5ccdf0",
+      "270": "e850ccf9-eadb-4ec5-8c25-cae816ae5a31",
+      "280": "e7b16f2f-097b-4149-8ab1-35ee07f32b09",
+      "285": "9db949b8-15b8-4979-89be-f79f8e2d2b9c",
+      "290": "05fae247-759f-46c8-9796-75b39ee081f1",
+      "295": "bf750713-c34d-4105-9abe-8066836e803c",
+      "300": "81e1a0d4-ab83-473f-88f3-ce0bddd52a42",
+      "310": "843aff2f-e7d1-4f4b-a730-e4a7822827b2",
+      "320": "f20603e9-7314-4e73-a2e4-50c124712df2",
+      "330": "c6cc8117-f07c-43bb-a7c9-478c6d8c90fa",
+      "340": "2f65741b-2a11-4932-91ba-9a72fef56dcb",
+      "350": "acf6ad89-3e0b-4f23-8e55-6a01cfdc600d",
+      "note": "Jan-15-2027 reaches 70 DTE on 11/6; from 11/9 the R4 shadow uses Feb-19-2027 (shadow_rec.sh currently hard-codes 2027-01-15 -> pass expiry as arg before 11/9)"
+    }
   }
- },
- "human_directives": [
-  {
-   "t": "2026-10-22T20:05Z",
-   "text": "I feel like you're doing well, you're just going around 100, let's take more risks and introduce options, rethink your strategy and come up with a money making strategy to can get us big gains. Do options. Not doing well",
-   "agent_actions": [
-    "8334 option_level is empty (limited_margin): sent the human the Robinhood options upgrade link https://applink.robinhood.com/upgrade_options?account_number=445788334 (human must apply; agent cannot)",
-    "launched read-only workflow options-strategy-redesign (wf_dcd4d644-26d): 5 designs x 3 judges + synthesis",
-    "baseline engine continues until a new plan is adopted and options are approved; night 32 exits 09:31 Fri as usual"
-   ],
-   "status": "options approval pending (human)"
-  },
-  {
-   "t": "2026-11-09T21:25Z",
-   "text": "whatever happened to the options? i changed the model here, please go inspect our plan and see how we can get better returns, then make the actual changes, and keep recursively self improving. i want you to be fully autonomous",
-   "agent_actions": [
-    "options: 8334 option_level still empty at 16:27 ET; the human must apply via the upgrade link (agent cannot, §10(b)); sleeve also needs E at bid >= 88.00",
-    "review T1-T9 on 2000->2026 day bars (research/REVIEW-20261109.md): adopted the QQQ 200-day market-trend sizing rule (RULES_v3 §13), one-symbol sizing with a fractional top-up (§3(c)), fractional exit (§5/§7); 7 other ideas rejected",
-    "RULES_v3 -> T3X v2.1 / engine v1.8, in force from the night-45 entry 2026-11-10; night 44 not resized",
-    "recursive improvement: RULES_v3 §14 lab, trader/LAB.md, scheduled task t3x-lab-weekly (trig_01EtHM9eT6cKNqRB9W5qiUEt, Saturdays 14:23 ET)",
-    "not changed: $80 floor / 0.20 share (§12(j) needs a human instruction naming the KILL probability), KILL, PAUSE, earnings blackout",
-    "2-NVDL-until-earnings question of 11/9: closed by the agent under 'fully autonomous'; superseded by §13 (DOWN nights are about 1 share anyway)"
-   ]
-  }
- ],
- "sleeve": {
-  "plan": "FFB-L v1 (RULES_v3 §12)",
-  "mode": "PENDING_OPTIONS_APPROVAL",
-  "option_level_seen": "none (2026-11-09 16:01 get_accounts)",
-  "floor": 80,
-  "f": 0.2,
-  "lock": 200,
-  "shadow_days": 12,
-  "first_trade_if_L3": "BUY NVDA 2027-01-15 300C (8acaf208-49b6-4861-bf3c-9a68cf60ac75) / SELL 310C (f0d4c64a-0b4c-4f7c-b4fa-60bb6c05606b); 10/22 mid 0.14 nat 0.19 -> L0 0.16, cap 0.17 (re-run R4 at order time)",
-  "first_trade_if_L2": "BUY 1 NVDA 2027-01-15 350C (c86b3db1-2c7b-4d75-84f4-1c4669d0e5cf) 10/22 0.10/0.12 (re-run R4)",
-  "position": null,
-  "cycles": [],
-  "human_questions_open": [
-   "accept odds (12m P200 ~35% vs ~19%; KILL ~8% vs ~3%; median ~$95 vs ~$135)",
-   "one-time OK for rule-based multi-leg net limits",
-   "at $200: keep engine (default) or all cash",
-   "L2-only: run single far-OTM call (default yes)",
-   "risk dial: $80 floor (default) vs $70"
-  ],
-  "shadow_rule_note": "per R9 log each leg bid/ask (K:bid:ask string) with every shadow entry (audit 10/23)",
-  "feb19_2027_call_ids": {
-   "expiry": "2027-02-19",
-   "fetched": "2026-10-30 11:20 ET (get_option_instruments, read-only)",
-   "260": "8f4eab52-ea35-40e4-8064-33e0cd5ccdf0",
-   "270": "e850ccf9-eadb-4ec5-8c25-cae816ae5a31",
-   "280": "e7b16f2f-097b-4149-8ab1-35ee07f32b09",
-   "285": "9db949b8-15b8-4979-89be-f79f8e2d2b9c",
-   "290": "05fae247-759f-46c8-9796-75b39ee081f1",
-   "295": "bf750713-c34d-4105-9abe-8066836e803c",
-   "300": "81e1a0d4-ab83-473f-88f3-ce0bddd52a42",
-   "310": "843aff2f-e7d1-4f4b-a730-e4a7822827b2",
-   "320": "f20603e9-7314-4e73-a2e4-50c124712df2",
-   "330": "c6cc8117-f07c-43bb-a7c9-478c6d8c90fa",
-   "340": "2f65741b-2a11-4932-91ba-9a72fef56dcb",
-   "350": "acf6ad89-3e0b-4f23-8e55-6a01cfdc600d",
-   "note": "Jan-15-2027 reaches 70 DTE on 11/6; from 11/9 the R4 shadow uses Feb-19-2027 (shadow_rec.sh currently hard-codes 2027-01-15 -> pass expiry as arg before 11/9)"
-  }
- }
 }
