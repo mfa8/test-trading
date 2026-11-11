@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-11T16:00:05Z",
-    "loop_note": "HB 11:00 ET flat, PAUSE session 2 of 5 (E 83.35 cash). NVDL 20.91/20.92 (+8.5%), NVDA 176.13 (+4.29%), QQQ 691.99 (+2.54%; 1.5% above flip 681.67), SMH +5.7%. S",
+    "last_heartbeat_utc": "2026-11-11T17:00:05Z",
+    "loop_note": "HB 12:00 ET flat, PAUSE session 2 of 5 (E 83.35 cash). NVDL 20.96/20.97 (+8.7%), NVDA 176.35 (+4.42%), QQQ 693.49 (+2.77%; 1.7% above flip 681.67), SMH +6.4%. N",
     "last": "2026-11-11T14:32Z exit night 45"
   },
   "campaign": {
