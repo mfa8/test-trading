@@ -1,0 +1,34 @@
+{
+ "source": "Robinhood get_equity_historicals / get_equity_quotes / get_equity_orders / get_portfolio, read by the operator on 2026-11-13 07:49-08:05 ET",
+ "position": {"sym": "NVDL", "qty": 1, "entry_fill": 20.5599, "entry_time_et": "2026-11-11 15:52:16", "order_id": "6af4d580-f3a8-47ac-9454-7e73256fe0a1"},
+ "broker_0749_1113": {"positions": "NVDL 1 avg 20.56 avail 1", "open_orders": 0, "orders_since_1111": ["2026-11-11 09:31:19 sell NVDL 1 @20.3001 (night 45 exit)", "2026-11-11 15:52:16 buy NVDL 1 @20.5599 (night 46 entry)"], "cash": 62.79, "total_value": 81.81},
+ "day_bars": {
+  "NVDL": {"2026-11-10": {"o": 20.51, "c": 19.28}, "2026-11-11": {"o": 20.16, "h": 21.2351, "l": 19.73, "c": 20.40}, "2026-11-12": {"o": 15.035, "h": 18.81, "l": 14.535, "c": 18.57}},
+  "NVDA": {"2026-11-10": {"o": 173.97, "c": 168.89}, "2026-11-11": {"o": 172.80, "c": 173.73}, "2026-11-12": {"o": 151.005, "h": 167.14, "l": 148.80, "c": 166.19}},
+  "QQQ": {"2026-11-10": {"c": 674.76, "official_close": 674.82}, "2026-11-11": {"o": 687.28, "c": 690.38}, "2026-11-12": {"o": 680.315, "c": 688.17, "official_close": 688.17}},
+  "SMH": {"2026-11-11": {"c": 506.96}, "2026-11-12": {"c": 501.73}}
+ },
+ "official_closes_2026-11-12": {"NVDL": 18.57, "NVDX": 10.43, "NVDA": 166.19, "QQQ": 688.17, "SMH": 501.73, "SPY": 757.12, "IWM": 278.44},
+ "NVDL_1112_minute_bars_et": [
+  {"t": "09:30", "o": 15.03, "h": 15.12, "l": 14.64, "c": 14.65, "v": 3412962},
+  {"t": "09:31", "o": 14.645, "h": 15.6087, "l": 14.535, "c": 15.6075, "v": 1551592},
+  {"t": "09:32", "o": 15.6171, "h": 15.90, "l": 15.46, "c": 15.65},
+  {"t": "09:33", "o": 15.61, "h": 16.23, "l": 15.55, "c": 16.11},
+  {"t": "09:34", "o": 16.1029, "h": 16.30, "l": 16.01, "c": 16.2605},
+  {"t": "09:35", "o": 16.2659, "c": 16.345}, {"t": "09:40", "o": 17.045, "c": 17.2404}, {"t": "09:44", "o": 17.19, "c": 17.13},
+  {"t": "09:59", "o": 17.785, "c": 17.78}, {"t": "10:00", "o": 17.7701, "h": 17.855, "l": 17.5697, "c": 17.57},
+  {"t": "15:50", "o": 18.28, "c": 18.255}, {"t": "15:51", "o": 18.2668, "c": 18.375}, {"t": "15:52", "o": 18.385, "h": 18.4799, "l": 18.37, "c": 18.47}, {"t": "15:53", "o": 18.48, "c": 18.5399},
+  {"t": "15:59", "o": 18.505, "c": 18.57}
+ ],
+ "NVDL_1112_15s_bars_et": [
+  {"t": "09:31:00", "o": 14.645, "h": 14.6558, "l": 14.535, "c": 14.64},
+  {"t": "09:31:15", "o": 14.65, "h": 15.05, "l": 14.64, "c": 15.02},
+  {"t": "09:31:30", "o": 15.01, "h": 15.43, "l": 15.01, "c": 15.37},
+  {"t": "09:31:45", "o": 15.3601, "h": 15.6087, "l": 15.36, "c": 15.6075}
+ ],
+ "NVDA_1112_minute_bars_et": [{"t": "09:30", "o": 150.99, "l": 149.25, "c": 149.27}, {"t": "09:31", "o": 149.27, "l": 148.80, "c": 153.41}, {"t": "10:00", "o": 162.68, "c": 161.815}, {"t": "15:52", "o": 165.273, "c": 165.68}],
+ "premarket_1113_0749": {"NVDL_bid": 19.00, "NVDL_ask": 19.04, "NVDA": 168.18, "QQQ": 687.70},
+ "typical_live_fill_timing": "exit orders are placed at about 09:31:05-09:31:19 ET as a limit at bid - max(0.02, 0.15%); entry orders at 15:52 as a limit at ask + max(0.02, 0.15%)",
+ "operator_marks": {"thu_0931": 14.65, "thu_1552": 18.43},
+ "operator_booking_plan": "one real trades.csv row for the actual round trip (buy 11/11 15:52 @20.5599, sell 11/13 09:31 @fill). For strategy statistics split it with marks into: night 46 = 20.5599 -> 14.65 (marked, the rule-conforming result), outage day leg = 14.65 -> 18.43 (luck; kept out of night stats, stored in campaign.outage_legs), night 47 = 18.43 -> the 11/13 fill (the carried share equals the PAUSE size of 1 share that a 15:52 entry would have bought). Sum of the three = the realised P&L. 11/12 counts as PAUSE session 3 of 5. The 09:29 exit-timing shadow and fill-cost statistics exclude night 46 (no live fill) and treat night 47's entry as marked."
+}

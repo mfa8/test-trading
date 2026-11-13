@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T15:13:30Z",
-    "loop_note": "EXIT (late) 10:12:13 ET: broker link came back at 10:12 (down 08:32-10:11, 16 failed tries). Positions NVDL 1 avail 1, 0 open orders; quote 17.36/17.37 (NVDA 16",
+    "last_heartbeat_utc": "2026-11-13T15:14:39Z",
+    "loop_note": "WATCHDOG NOT CREATED 10:20 ET: create_trigger for the notify-only t3x-watchdog (fresh session, connectors [], push only, 08:47/09:47/16:47 ET) was DENIED by the",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1278,7 +1278,13 @@
         "rule": "OHLC4 of the 09:31:15 15-second bar"
       },
       "running": "n15 mean +29bp sd 95 t 1.19 (unchanged)"
-    }
+    },
+    "owner_questions": [
+      "usage: turn on extra usage with a cap, move this session to a cheaper model, or keep as is (lean running, may still go dark)?",
+      "watchdog task (notify-only, no broker access): create it? yes/no",
+      "daily 'sale done' phone push at about 09:35 ET: yes/no",
+      "keep ultracode (multi-agent reviews) on for this session? it is the largest single use of the allowance"
+    ]
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -1786,6 +1792,12 @@
         "commit and push state before every long wait"
       ],
       "reference": "limit reached after about 134M cache-read + 2.6M cache-write + 0.3M output tokens (main thread) and 5.3M workflow tokens in about 2.6 days"
+    },
+    "watchdog": {
+      "status": "NOT CREATED: the platform's permission check denied create_trigger for it on 2026-11-13 10:20 ET; it now needs the owner's go-ahead",
+      "script": "trader/tools/watchdog_check.py (tested: 29 cases pass; alerts correctly on the 11/12 state)",
+      "design": "fresh session per run, no connectors, push only, 08:47 / 09:47 / 16:47 ET on weekdays; prompt text kept in research/lab/20261113/watchdog_prompt.txt",
+      "limit": "on the same account and model it would probably also be refused during a usage lockout; it covers crashes, stuck sessions and failed pushes"
     }
   },
   "human_directives": [
