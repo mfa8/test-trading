@@ -78,3 +78,7 @@ Details and numbers for 11/9: `research/REVIEW-20261109.md`. Scripts and the che
 | week | nights | live return per night | model | slippage vs quote | trend state (nights UP / DOWN) | note |
 |---|---|---|---|---|---|---|
 | (first entry due Sat 11/14) | | | | | | |
+
+- 2026-11-13 (ops note, L10): the daily options shadow is skipped while the budget above the $80 floor is under $2.00 (today it was $0.12). Nothing can fit below that, and each reading adds about 8k tokens to the session's memory. No rule changed.
+- 2026-11-13 (ops note): crash-open shadow now n=2 (11/9 live, 11/12 marked). Both show a large gain from waiting. Two cases prove nothing, and hold-through was tested and rejected on 11/9. No change.
+- 2026-11-13: no pre-registered hypothesis is open for the 11/14 cycle other than L12 (earnings-night blackout). The cycle runs single-threaded because of the usage limit.

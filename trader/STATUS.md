@@ -1,20 +1,22 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** FLAT, waiting for the 15:52 entry; **PAUSE session 4 of 5** (as of 10:15 ET Fri 11/13).
-- **Thu 11/12 the session was locked out for 24 hours** (the weekly usage allowance for the session's model ran out at 07:45 ET; it reset Fri 05:00 ET). The 09:31 sale of night 46 and the night-47 entry were missed. See `report/DAY-20261112.md`.
-- That morning Nvidia's CEO resigned: NVDL opened 26% lower and recovered most of it by the close.
-- **Fri 11/13 the broker link was down from 08:32 to 10:11 ET**, so the carried share was sold at 10:12 instead of 09:31: NVDL 1 @ 17.3301 (bought Wed at 20.5599): **−3.23** in the account.
-- By the rules the two nights were −5.72 (night 46, marked) and +0.47 (night 47, marked). The two failures together left the account about 2.02 higher than the rules would have. That is luck, not skill.
+**Mode:** IN_POSITION_OVERNIGHT, **PAUSE session 4 of 5** (as of 16:02 ET Fri 11/13).
+- Night 48 entered at 15:52: NVDL 1 @ 17.8252 (22% of equity), a weekend hold. The exit is 09:31:05 Mon 11/16.
+- **Thu 11/12 the session was locked out for 24 hours** (the weekly usage allowance for its model ran out). The night-46 sale and the night-47 entry were missed. See `report/DAY-20261112.md`.
+- **Fri 11/13 the broker link was down 08:32-10:11 ET**; the carried share was sold at 10:12 at 17.3301 (bought Wed at 20.5599): −3.23 in the account.
+- By the rules the two nights were −5.72 (night 46) and +0.47 (night 47), both marked. The two failures left the account about 2.02 higher than the rules would have. That is luck.
 - PAUSE: exactly 1 NVDL share with no top-up through the 11/16 entry. Tue 11/17 is the NVDA earnings night: cash. From Wed 11/18 normal sizing returns only if equity is above 82.89.
 - The day leg is SUSPENDED.
 
-**Equity:** 80.12, all cash (10:12 ET 11/13).
+**Equity:** 80.10 at the 11/13 close (cash 62.29 + NVDL 1 marked 17.81; 80.05 at the bid).
 - Start 98.75. HWM 107.11 (10/12).
 - PAUSE level 82.89 from 11/11 to 12/4. KILL 50.
 
 **Campaign:** 47 nights, −24.00 on the strategy basis (21 wins, 26 losses; nights 46 and 47 are marked, not filled). In the account the same nights total −21.98.
 
-**Running lean since 11/13** (`state.ops.usage_discipline`): no 8-minute scan loops; the half-hourly scheduled wakes are the loop; no multi-agent reviews unless needed.
+**Running lean since 11/13** (`state.ops.usage_discipline`, `state.ops.usage`): no 8-minute scan loops; the half-hourly scheduled wakes are the loop; no multi-agent reviews unless needed. Friday used about a quarter of a week's allowance; the reset is Fri 11/20 05:00 ET.
+
+**Waiting on the owner:** usage (extra usage / cheaper model / as is); ultracode on or off; a daily `/compact`; the watchdog task; a daily "sale done" alert.
 
 **Why the account is down (post-mortem 11/10, independently checked; `research/POSTMORTEM-20261110.md`):**
 - It did not bleed slowly. On Fri 11/6 it stood at 103.61, above the 98.75 start. Two nights then lost 21.27 (11/6→11/9: −15.84; 11/9→11/10: −5.43). The other 42 nights together made +1.50.
