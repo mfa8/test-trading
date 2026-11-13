@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T19:12:04Z",
-    "loop_note": "HB 14:12 ET (lean mode): flat, cash 80.12, no HUMAN_STOP, PAUSE 4 of 5 tonight. Wakes since 12:11 arrived on time (12:35, 13:09, 13:35 and this one), nothing du",
+    "last_heartbeat_utc": "2026-11-13T20:25:05Z",
+    "loop_note": "15:25 SLEEVE SHADOW + PRE-ENTRY N48: no HUMAN_STOP; 0 positions, 0 open orders, cash 80.12 = total, approvals OFF. Quotes 15:24:48: NVDL 17.75/17.76 (-4.4%), NV",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1237,7 +1237,121 @@
       "nvda_earnings": "2026-11-17 amc (verified) -> cash that night (exit 11/17 09:31, no 11/17 entry, re-enter 11/18 15:52)",
       "weekend": "night 48 is a weekend hold (Fri 11/13 -> Mon 11/16) with the CEO-succession story open"
     },
-    "sleeve_shadow": [],
+    "sleeve_shadow": [
+      {
+        "E": 80.12,
+        "S": 162.525,
+        "expiry": "2027-02-19",
+        "B": 0.12,
+        "sleeps": true,
+        "spread": null,
+        "call": null,
+        "cands": [
+          {
+            "K1": 260.0,
+            "K2": 270.0,
+            "mid": 0.19,
+            "nat": 0.25,
+            "L0": 0.21,
+            "cost": 21.1,
+            "W_L0": 47.6,
+            "ok": false
+          },
+          {
+            "K1": 270.0,
+            "K2": 280.0,
+            "mid": 0.16,
+            "nat": 0.23,
+            "L0": 0.18,
+            "cost": 18.1,
+            "W_L0": 55.6,
+            "ok": false
+          },
+          {
+            "K1": 280.0,
+            "K2": 290.0,
+            "mid": 0.1,
+            "nat": 0.17,
+            "L0": 0.12,
+            "cost": 12.1,
+            "W_L0": 83.3,
+            "ok": false
+          },
+          {
+            "K1": 285.0,
+            "K2": 295.0,
+            "mid": 0.09,
+            "nat": 0.22,
+            "L0": 0.13,
+            "cost": 13.1,
+            "W_L0": 76.9,
+            "ok": false
+          },
+          {
+            "K1": 290.0,
+            "K2": 300.0,
+            "mid": 0.08,
+            "nat": 0.16,
+            "L0": 0.1,
+            "cost": 10.1,
+            "W_L0": 100.0,
+            "ok": false
+          },
+          {
+            "K1": 300.0,
+            "K2": 310.0,
+            "mid": 0.05,
+            "nat": 0.17,
+            "L0": 0.08,
+            "cost": 8.1,
+            "W_L0": 125.0,
+            "ok": false
+          },
+          {
+            "K1": 310.0,
+            "K2": 320.0,
+            "mid": 0.08,
+            "nat": 0.2,
+            "L0": 0.11,
+            "cost": 11.1,
+            "W_L0": 90.9,
+            "ok": false
+          },
+          {
+            "K1": 320.0,
+            "K2": 330.0,
+            "mid": 0.04,
+            "nat": 0.13,
+            "L0": 0.07,
+            "cost": 7.1,
+            "W_L0": 142.9,
+            "ok": false
+          },
+          {
+            "K1": 330.0,
+            "K2": 340.0,
+            "mid": 0.025,
+            "nat": 0.11,
+            "L0": 0.05,
+            "cost": 5.1,
+            "W_L0": 200.0,
+            "ok": false
+          },
+          {
+            "K1": 340.0,
+            "K2": 350.0,
+            "mid": 0.03,
+            "nat": 0.11,
+            "L0": 0.05,
+            "cost": 5.1,
+            "W_L0": 200.0,
+            "ok": false
+          }
+        ],
+        "t": "15:25 ET",
+        "leg_quotes": "260:0.88:0.93 270:0.68:0.75 280:0.52:0.59 285:0.41:0.54 290:0.42:0.49 295:0.32:0.45 300:0.33:0.42 310:0.25:0.40 320:0.20:0.29 330:0.16:0.25 340:0.14:0.22 350:0.11:0.19"
+      }
+    ],
     "trend_premarket": {
       "t": "07:52 ET",
       "qqq": 687.7,
