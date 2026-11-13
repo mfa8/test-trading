@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_AWAITING_ENTRY",
-  "mode_reason": "carried share sold 10:12:13 ET Fri 11/13; night 48 entry due 15:52 (PAUSE, 1 share)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 48 (weekend hold): NVDL 1, PAUSE session 4 of 5; exit Mon 11/16 09:31:05",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T20:25:05Z",
-    "loop_note": "15:25 SLEEVE SHADOW + PRE-ENTRY N48: no HUMAN_STOP; 0 positions, 0 open orders, cash 80.12 = total, approvals OFF. Quotes 15:24:48: NVDL 17.75/17.76 (-4.4%), NV",
+    "last_heartbeat_utc": "2026-11-13T20:52:38Z",
+    "loop_note": "15:50 TREND (logged): QQQ 680.63 vs flip 682.251 = -0.24% -> DOWN f 0.25, valid, rc 0 (first DOWN since Tue 11/10; shadows NVDA -20.4% DOWN, SMH -6.95% DOWN). P",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -509,6 +509,16 @@
             "marked": true
           },
           "note": "reconstructed 11/13 from bars (15:50 one-minute close 164.745); not observed live"
+        },
+        {
+          "night": 48,
+          "date": "2026-11-13",
+          "vs_prior_close": "DOWN",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": -2.1,
+          "NVDA_1550_chg_vs_open_pct": -4.22,
+          "realized": null,
+          "note": "open 169.87; PAUSE night, 1 share; weekend"
         }
       ],
       "crash_open_exit_delay_log": [
@@ -598,6 +608,15 @@
               "taken_pnl": 0.47,
               "marked": true
             }
+          },
+          {
+            "night": 48,
+            "date": "2026-11-13",
+            "state": "DOWN",
+            "dist_pct": -0.24,
+            "size_taken": "1 share (PAUSE; the DOWN size would be 1 share + 2.15 top-up = 20.03)",
+            "full_size_counterfactual": "4 shares + 7.00 top-up = 78.52 (0.98 of E)",
+            "realized": null
           }
         ]
       }
@@ -976,22 +995,22 @@
     "trend": {
       "rule": "\u00a713: QQQ last at 15:50 vs mean of previous 199 official closes; >= -> UP f 0.98; < -> DOWN f 0.25",
       "last": {
-        "date": "2026-11-11",
-        "basis": "15:50:04 ET live quotes (PAUSE outranked it)",
-        "qqq": 690.93,
-        "flip": 681.669,
-        "dist_pct": 1.36,
-        "state": "UP",
-        "f": 0.98,
+        "date": "2026-11-13",
+        "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
+        "qqq": 680.63,
+        "flip": 682.251,
+        "dist_pct": -0.24,
+        "state": "DOWN",
+        "f": 0.25,
         "shadow": {
           "NVDA": {
-            "px": 174.935,
-            "flip": 204.62,
+            "px": 162.695,
+            "flip": 204.399,
             "state": "DOWN"
           },
           "SMH": {
-            "px": 508.46,
-            "flip": 523.196,
+            "px": 487.65,
+            "flip": 524.073,
             "state": "DOWN"
           }
         }
@@ -1062,20 +1081,31 @@
   },
   "account": {
     "equity": 80.12,
-    "cash": 80.12,
-    "asof": "10:12 ET 2026-11-13 (broker total after the sale; flat)"
+    "cash": 62.29,
+    "asof": "15:52 ET 2026-11-13 (cash 62.29 + NVDL 1 @17.8252)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
     "asof_of_removed_block": "2026-09-28"
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 17.8252,
+      "entry_t": "2026-11-13T15:52:15.1 ET",
+      "order_id": "6af7787e-0b18-4b98-8480-602c4289f6ba",
+      "leg": "overnight",
+      "n": 48,
+      "basket_version": "v1.8 PAUSE (1 share)"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-13",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "outage": {
@@ -1398,7 +1428,40 @@
       "watchdog task (notify-only, no broker access): create it? yes/no",
       "daily 'sale done' phone push at about 09:35 ET: yes/no",
       "keep ultracode (multi-agent reviews) on for this session? it is the largest single use of the allowance"
-    ]
+    ],
+    "entry": {
+      "n": 48,
+      "order_id": "6af7787e-0b18-4b98-8480-602c4289f6ba",
+      "sym": "NVDL",
+      "qty": 1,
+      "limit": 17.88,
+      "fill": 17.8252,
+      "t": "15:52:15.087 ET",
+      "quote": "17.84/17.85 last 17.8476 at 15:52:00; NVDA 162.93",
+      "pct_of_E": 22.2,
+      "note": "PAUSE session 4 of 5: exactly 1 share, no top-up; weekend hold; untagged night"
+    },
+    "trend": {
+      "date": "2026-11-13",
+      "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
+      "qqq": 680.63,
+      "flip": 682.251,
+      "dist_pct": -0.24,
+      "state": "DOWN",
+      "f": 0.25,
+      "shadow": {
+        "NVDA": {
+          "px": 162.695,
+          "flip": 204.399,
+          "state": "DOWN"
+        },
+        "SMH": {
+          "px": 487.65,
+          "flip": 524.073,
+          "state": "DOWN"
+        }
+      }
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
