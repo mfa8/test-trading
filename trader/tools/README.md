@@ -12,3 +12,9 @@ All order scripts append an INV-12 intent line to trader/orders.jsonl and print 
 
 ## sleeve_r4.py (RULES_v3 §12(e), FFB-L options sleeve)
 `python3 trader/tools/sleeve_r4.py E S EXPIRY K:bid:ask ...` applies R4 to the call quotes you pass. It prints the spread-mode pick ($10 wide, L0 = mid + 25% toward natural, cost <= B = min(0.2E, E-80), W/L0 >= 4, liquidity guard), the L2 single-call pick, and every candidate considered. Strike-to-instrument ids for the Jan-15-2027 expiry are in `trader/research/sleeve/nvda_calls_2027-01-15.json`. The same tool serves the shadow log and live orders.
+
+## watchdog_check.py (notify-only dead-man check, added 2026-11-13)
+`python3 trader/tools/watchdog_check.py [--final]` reads only git objects of the trading branch (`FETCH_HEAD` after a fetch): the newest commit time and `trader/state.json`. It prints QUIET, ALERT or BLIND and never writes, pushes or touches the broker. It is run by the scheduled task `t3x-watchdog` in a fresh session with no connectors. If a field it reads is renamed (`today.date`, `exit_done`, `eod_done`, `positions[].entry_t`, `positions[].leg`), update the script in the same commit.
+
+## hbc.sh / shadow_rec.py (moved into the repo 2026-11-13)
+`bash trader/tools/hbc.sh "<note>" "<commit title>" [TAG]` appends a journal line, stamps `state.wake`, commits `trader/` and pushes. `python3 trader/tools/shadow_rec.py "15:25 ET" E S "K:bid:ask ..." EXPIRY` records one options-shadow reading in `state.today.sleeve_shadow`.
