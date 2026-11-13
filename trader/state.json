@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T17:11:29Z",
-    "loop_note": "HB 12:11 ET (lean mode, two-hourly while flat): flat, cash 80.12, no HUMAN_STOP, PAUSE 4 of 5 tonight. Wakes absorbed since 10:30 with nothing due: t2x-wake-a (",
+    "last_heartbeat_utc": "2026-11-13T19:12:04Z",
+    "loop_note": "HB 14:12 ET (lean mode): flat, cash 80.12, no HUMAN_STOP, PAUSE 4 of 5 tonight. Wakes since 12:11 arrived on time (12:35, 13:09, 13:35 and this one), nothing du",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
