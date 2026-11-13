@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T12:54:38Z",
-    "loop_note": "OUTAGE + ANALYST 11/13 07:46-08:25 ET. The worker process restarted repeatedly from Thu 11/12 07:45 ET to Fri 11/13 07:46 ET and ran no tools; the container was",
+    "last_heartbeat_utc": "2026-11-13T13:46:42Z",
+    "loop_note": "CORRECTION 08:50 ET (outage review, 5 read-only agents, run before the exit): the 11/12 outage was a USAGE LOCKOUT, not a crash. At 07:45:43 ET Thu the model AP",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -990,7 +990,7 @@
     "day_leg_done": true,
     "outage": {
       "window": "Thu 2026-11-12 07:45 ET to Fri 2026-11-13 07:46 ET (about 24 hours)",
-      "what": "the session's worker process restarted repeatedly and ran no tools; the container was replaced (scratchpad lost, repo re-cloned). 16 scheduled wakes of 11/12 queued unread and reached the session only at 07:46 ET on 11/13.",
+      "what": "the session could not get a model response from Thu 07:45:43 ET until the allowance reset at 05:00 ET Fri; the first wake after the reset was 07:45 ET Fri. The container was also replaced in between (scratchpad lost, repo re-cloned from an old image).",
       "missed": [
         "11/12 07:45 analyst routine",
         "11/12 09:31:05 exit of night 46 (rule breach: \u00a75 says exit every morning)",
@@ -1002,23 +1002,40 @@
       "position_effect": "the night-46 share (NVDL 1 @ 20.5599) stayed on through Thursday's session and Thursday night; no orders were placed on 11/12 by anyone (broker order list checked 11/13 07:49)",
       "market": "Nvidia said before Thursday's open that CEO Jensen Huang had resigned (CFO Colette Kress interim CEO). NVDA opened 151.005 (-13.1% vs 173.73), low 148.80, closed 166.19 (-4.34%). NVDL opened 15.035 (-26.3% vs 20.40), low 14.535, closed 18.57 (-8.97%).",
       "counterfactual_rule_exit": {
-        "NVDL_15s_bar_093115_open": 14.65,
-        "pnl_if_sold": -5.91,
-        "pct": -28.7,
-        "note": "the 09:31:00-09:31:30 15-second bars ran 14.535-15.05; a rule-conforming sale would have fetched about 14.65 and booked about -5.91 on the one share"
+        "mark": 14.84,
+        "pnl_if_sold": -5.72,
+        "pct": -27.82,
+        "band_pnl": [
+          -6.02,
+          -5.46
+        ]
       },
       "marks": {
-        "thu_0931": 14.65,
-        "thu_1552": 18.43,
-        "source": "NVDL 15-second and 1-minute bars (regular session), read 11/13"
+        "thu_0931": 14.84,
+        "thu_0931_band": [
+          14.535,
+          15.05
+        ],
+        "thu_0931_1min_alt": 15.0991,
+        "thu_1552": 18.4262,
+        "thu_1552_band": [
+          18.37,
+          18.48
+        ],
+        "rule": "OHLC4 (see mark_rule)",
+        "first_estimate_superseded": "14.65 / 18.43 (single prints picked after seeing the bars)"
       },
-      "luck_note": "holding through the day recovered about +3.78 of that (14.65 -> 18.43 by 15:52). That is luck from a process failure, not skill, and is booked separately from the strategy's night results.",
-      "pause_effect": "PAUSE held the position to 1 share. At the trend-rule size (0.98 of 83.35 = about 3.97 shares) the 09:31 sale would have lost about 23.5 and taken equity to about 59.9.",
+      "luck_note": "carrying the share through the day recovered about +3.59 by 15:52 (14.84 -> 18.4262; band +3.33..+3.89). That is luck from a failure, not skill; it is booked as an outage carry outside the night statistics.",
+      "pause_effect": "PAUSE held the position to 1 share. At the trend-rule size (0.98 of 83.35, about 3.97 shares) a 09:31 sale would have lost about 22 to 24 and left equity near 59 to 62 (hypothetical in both size and price).",
       "repairs": [
         "trend cache: 2026-11-11 added from day bars (QQQ 690.38, NVDA 173.73, SMH 506.96; the sip official-close field for 11/11 was never captured; QQQ day-bar closes have differed from the official close by about 0.01%), 2026-11-12 added from official closes (QQQ 688.17, NVDA 166.19, SMH 501.73)",
         "helper scripts recreated inside the repo (tools/hbc.sh, tools/shadow_rec.py) so a container replacement cannot lose them again",
         "DAY-20261111 closes patched; DAY-20261112 reconstructed from bars"
-      ]
+      ],
+      "cause": "LOCKED OUT BY THE USAGE LIMIT, not a crash: at 07:45:43 ET Thu 11/12 the model API refused the session's request with HTTP 429 (the account's 7-day usage allowance for the session's model was used up; extra usage is switched off at organisation level; reset 05:00 ET Fri 11/13). All 16 scheduled wakes of 11/12 were delivered, relaunched the worker and were refused (65 refusals). One tool call ran that day (ReadNotifications at 07:45:41 ET). Found 11/13 by the outage review from the session transcript.",
+      "why_usage_ran_out": "main-thread context had grown to 760k tokens (the session ran on a 1M-token window from 11/10 and compacted only at 80% of it), so every request re-read up to 760k tokens: 273 requests, 133.9M cache-read, 2.61M cache-write, 0.31M output tokens between 11/9 17:21 ET and the lockout, plus five multi-agent workflows on 11/10 (27 agents, 5.33M tokens). 8-minute scan loops on flat days were the main waste: about 8 requests and 5.6M tokens an hour for no decision.",
+      "mark_rule": "records clarification (no strategy rule changed): when a rule exit or entry did not execute, mark it from regular-session bars by OHLC4: exit = the 15-second bar starting 09:31:15 ET (fallback: the 09:31 one-minute bar); entry = the 15:52 one-minute bar; no spread offset; store the band and a marked flag. Chosen from past fill times (15 timed fills N30-N45: median 09:31:20), not from Thursday's prices. Written BEFORE today's fill.",
+      "night47_rule": "night 47 (Thu 15:52 mark -> Fri fill) counts as a strategy night whatever its sign, because the carried share is exactly what a PAUSE entry would have bought; decided before the fill."
     },
     "premarket": {
       "t": "07:49 ET",
@@ -1101,7 +1118,7 @@
       "E": 81.81,
       "pause": 82.89,
       "kill": 50,
-      "result": "PAUSE in force, session 4 of 5 tonight: night 48 = exactly 1 NVDL share. 11/12 counts as session 3: the account held exactly 1 NVDL share that night (the night-46 share carried through the outage), which is the size PAUSE prescribes. E is below 82.89, so PAUSE would continue past 11/16 unless E recovers above it by the 11/18 entry."
+      "result": "PAUSE in force; sessions are counted by NYSE session date from the trigger (11/10, 11/11, 11/12, 11/13, 11/16), so tonight (night 48) is session 4 of 5 at exactly 1 NVDL share. E is below 82.89, so PAUSE continues past 11/16 unless E is above it at the 11/18 entry."
     },
     "plan": "Fri 11/13: 09:25/09:29 shadow quotes; 09:31:05 exit the carried share (exit_ovn.py 46 20261113 NVDL:1:BID); book night 46 / outage day leg / night 47 from the Thursday marks; weekly report WEEK-T3X-10 + audit; 15:25 sleeve shadow; 15:50 trend state --log; 15:52 entry_v18.py core 48 20261113 <ask> <last> <E> pause (1 share; PAUSE session 4 of 5; weekend hold); EOD incl. TZA shadow for 11/12 and 11/13. Sat 11/14 14:23 lab cycle."
   },
@@ -1115,7 +1132,7 @@
   },
   "last_error": {
     "t": "2026-11-13T12:48Z",
-    "what": "24-hour worker outage 11/12 07:45 ET -> 11/13 07:46 ET; night-46 exit and night-47 entry missed; see today.outage"
+    "what": "24-hour lockout 11/12 07:45 ET -> 11/13 07:46 ET: the model's weekly usage allowance ran out (HTTP 429); night-46 exit and night-47 entry missed; see today.outage"
   },
   "alerts_open": [],
   "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
@@ -1600,6 +1617,17 @@
       "account_type": "limited_margin",
       "upgrade_url": "https://applink.robinhood.com/upgrade_options?account_number=445788334&source=mcp",
       "note": "L2 = long calls/puts, covered calls, CSPs; L3 = spreads (needs margin/limited margin -> eligible). Re-fetch get_accounts after the human confirms approval."
+    },
+    "usage_discipline": {
+      "since": "2026-11-13",
+      "why": "the 11/12 lockout",
+      "rules": [
+        "no 8-minute scan loops: between the exit and the entry the session ends its turn and lets the :00/:30 scheduled wakes run the loop",
+        "each wake: as few model round-trips as possible (parallel tool calls, one combined heartbeat script), short outputs, never print whole files or bar sets",
+        "no multi-agent workflow unless the task cannot be done safely without one; weekly lab single-threaded",
+        "commit and push state before every long wait"
+      ],
+      "reference": "limit reached after about 134M cache-read + 2.6M cache-write + 0.3M output tokens (main thread) and 5.3M workflow tokens in about 2.6 days"
     }
   },
   "human_directives": [
