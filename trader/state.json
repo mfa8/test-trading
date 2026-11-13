@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T15:14:39Z",
-    "loop_note": "WATCHDOG NOT CREATED 10:20 ET: create_trigger for the notify-only t3x-watchdog (fresh session, connectors [], push only, 08:47/09:47/16:47 ET) was DENIED by the",
+    "last_heartbeat_utc": "2026-11-13T15:29:50Z",
+    "loop_note": "HB 10:30 ET (lean mode): flat, cash 80.12, exit done 10:12, no HUMAN_STOP, PAUSE 4 of 5 tonight. Absorbed three wakes that were delivered late and needed nothin",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
