@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
-  "mode": "IN_POSITION_OVERNIGHT",
-  "mode_reason": "carried NVDL 1 (night 46 entry) through the 11/12 outage; exit due 09:31:05 Fri 11/13",
+  "mode": "FLAT_AWAITING_ENTRY",
+  "mode_reason": "carried share sold 10:12:13 ET Fri 11/13; night 48 entry due 15:52 (PAUSE, 1 share)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T14:36:08Z",
-    "loop_note": "BROKER DOWN 08:32-09:36+ ET: every Robinhood MCP call fails (Service Unavailable, then 'Failed to connect', then HTTP 502 bad gateway from the connection servic",
+    "last_heartbeat_utc": "2026-11-13T15:13:30Z",
+    "loop_note": "EXIT (late) 10:12:13 ET: broker link came back at 10:12 (down 08:32-10:11, 16 failed tries). Positions NVDL 1 avail 1, 0 open orders; quote 17.36/17.37 (NVDA 16",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -22,7 +22,7 @@
     "pause_trigger_frac": 0.8,
     "pause_until_session": "2026-11-16",
     "sessions_done": 0,
-    "nights_held": 45,
+    "nights_held": 47,
     "R_history": [],
     "night_returns": [
       {
@@ -345,6 +345,28 @@
         "note": "chip rebound after CoreWeave raised its 2026 outlook: NVDA 168.89 close -> 176.25 (07:46) -> 173.03 (09:29) -> 173.55 bid 09:31:05 (+2.76%); QQQ +1.92%; NVDL close 19.28 -> 20.31 bid (+5.34%); entry 19.2553 was 2.5c below the official close; sold 20.3001 at 09:31:19.06 (limit 20.27, bid 20.31), 0.1s after the order",
         "entry_order_id": "6af383fc-da15-4924-9fbf-f8a7cf2182e3",
         "exit_order_id": "6af47c36-6467-44e4-a15e-f6236e21a930"
+      },
+      {
+        "date": "2026-11-11",
+        "basket": "NVDL x1 (v1.8, PAUSE size)",
+        "pnl": -5.72,
+        "pct": -27.82,
+        "marked": true,
+        "basis": "strategy (marked exit 14.84; the real sale was 11/13 10:12 at 17.3301, see campaign.outage_legs)",
+        "note": "Huang resigned as Nvidia CEO before Thursday's open: NVDA 173.73 close -> 151.005 open (-13.1%), 148.80 low; NVDL 20.40 -> 15.035 open (-26.3%). The 09:31 sale was MISSED (usage lockout); marked at 14.84 (OHLC4 of the 09:31:15 15-second bar; band 14.535-15.05).",
+        "entry_order_id": "6af4d580-f3a8-47ac-9454-7e73256fe0a1",
+        "exit_order_id": null
+      },
+      {
+        "date": "2026-11-12",
+        "basket": "NVDL x1 carried (PAUSE size; no order)",
+        "pnl": 0.47,
+        "pct": 2.56,
+        "marked": true,
+        "basis": "strategy (marked entry 18.4262 and marked exit 18.8973; no order at either end)",
+        "note": "tagged night (AMAT, CSCO reported after Thursday's close). NVDA 166.19 close -> 169.87 open (+2.2%), then fell; NVDL 18.57 -> 19.41 open. The 09:31 sale could not be placed (broker link down 08:32-10:11 ET); the share was sold at 10:12:13 at 17.3301, 1.57 below the 09:31 mark.",
+        "entry_order_id": null,
+        "exit_order_id": "6af728cd-59fc-4f4f-bfc5-26652b1f9217"
       }
     ],
     "end_date": null,
@@ -467,8 +489,26 @@
           "vs_open": "UP",
           "NVDA_1550_chg_vs_pc_pct": 3.58,
           "NVDA_1550_chg_vs_open_pct": 1.25,
-          "realized": null,
+          "realized": {
+            "night_pct": -27.82,
+            "night_pnl": -5.72,
+            "marked": true
+          },
           "note": "open 172.77; PAUSE night, 1 share"
+        },
+        {
+          "night": 47,
+          "date": "2026-11-12",
+          "vs_prior_close": "DOWN",
+          "vs_open": "UP",
+          "NVDA_1550_chg_vs_pc_pct": -5.17,
+          "NVDA_1550_chg_vs_open_pct": 9.1,
+          "realized": {
+            "night_pct": 2.56,
+            "night_pnl": 0.47,
+            "marked": true
+          },
+          "note": "reconstructed 11/13 from bars (15:50 one-minute close 164.745); not observed live"
         }
       ],
       "crash_open_exit_delay_log": [
@@ -495,6 +535,28 @@
             "usd_4sh": 7.4
           },
           "note": "first live trigger; n=1, no behaviour change (pre-registered shadow). 2026-10-21 EXEC-TIMING study: no gap-conditional exit beat 09:31:05 over 164 mornings"
+        },
+        {
+          "date": "2026-11-12",
+          "night": 46,
+          "trigger": "NVDA open 151.005 (-13.08% vs 173.73); company-specific (CEO resignation); QQQ open -1.5%",
+          "at_fill_0931": {
+            "marked": true,
+            "NVDL_mark": 14.84,
+            "band": [
+              14.535,
+              15.05
+            ]
+          },
+          "at_1000": {
+            "NVDL_1000_bar_open": 17.7701,
+            "NVDA": 162.68
+          },
+          "delay_gain": {
+            "NVDL_pct_vs_mark": 19.74,
+            "usd_1sh": 2.93
+          },
+          "note": "second trigger; no live fill (session locked out), so this entry is marked, not observed. n=2, both large gains from waiting; still no behaviour change: hold-through was tested and rejected on 11/9 and two cases prove nothing."
         }
       ],
       "trend_filter": {
@@ -520,7 +582,22 @@
             "dist_pct": 1.36,
             "size_taken": "1 share (PAUSE)",
             "trend_only_size": "0.98 of E = 81.68",
-            "realized": null
+            "realized": {
+              "taken_pnl": -5.72,
+              "trend_only_size_pnl": -22.72,
+              "marked": true,
+              "note": "UP night that crashed: PAUSE (1 share) lost 5.72 on the strategy basis where the trend-only size would have lost about 22.7"
+            }
+          },
+          {
+            "night": 47,
+            "date": "2026-11-12",
+            "state": "not read (session locked out); QQQ 687.42 at 15:50 vs line about 681.8 would have been UP",
+            "size_taken": "1 share carried (PAUSE size)",
+            "realized": {
+              "taken_pnl": 0.47,
+              "marked": true
+            }
           }
         ]
       }
@@ -814,6 +891,13 @@
         },
         "note_1613": "both peers down after their prints (QCOM -4%, ARM -2%); NVDA/semis flat-to-up AH. No after-hours exit under RULES_v3 \u00a75 (tag only).",
         "note_realized": "Both peers sold off hard after their prints (QCOM -12%, ARM -8% by 09:00) and dragged semis (SMH -3.6%, AMD -6%); NVDA -2.4% at 09:31. Third-worst live NVDA-2x night. One data point for H1 (2+ peers); judged 2027-01-11."
+      },
+      {
+        "night": 47,
+        "date": "2026-11-12",
+        "tag": "AMAT, CSCO reported after the close",
+        "realized_pct": 2.56,
+        "marked": true
       }
     ],
     "risk_note_week7": "week-7 audit odds from E 96.01 (iid bootstrap, 1.9x-9bp, 0.95 exp): P(PAUSE<=85.69 in 20 sessions) 26% (+12bp) / 30% (0 edge); P($200 in 12m) 18% / 7%; KILL 9% / 20%.",
@@ -957,34 +1041,40 @@
       ],
       "after": "11/17 is the NVDA earnings blackout (cash). From the 11/18 entry: normal size only if E > the trigger then in force (82.89 through 12/4, since the 11/6 EOD mark 103.61 stays in the 20-session window until then); otherwise PAUSE continues at 1 share"
     },
-    "risk_note_20261110": "Honest one-year range from E 82.41 under the present rules (adversarially reviewed): median about 75-95; 25-45% chance of being above 98.75; 10-20% chance of reaching the 50 stop; 2-3% chance of being back above 98.75 within 20 nights. A 2x NVDA overnight loss of 14.5%+ (ex-earnings) has happened about once a year; 25%+ three times since 2019; 5 of the 16 worst non-earnings nights since 2015 came with QQQ ABOVE its trend line, when the engine holds full size."
+    "risk_note_20261110": "Honest one-year range from E 82.41 under the present rules (adversarially reviewed): median about 75-95; 25-45% chance of being above 98.75; 10-20% chance of reaching the 50 stop; 2-3% chance of being back above 98.75 within 20 nights. A 2x NVDA overnight loss of 14.5%+ (ex-earnings) has happened about once a year; 25%+ three times since 2019; 5 of the 16 worst non-earnings nights since 2015 came with QQQ ABOVE its trend line, when the engine holds full size.",
+    "outage_legs": [
+      {
+        "dates": "2026-11-12..13",
+        "cause": "usage lockout (Thu) and broker-link outage (Fri morning)",
+        "carry_thu": 3.5862,
+        "carry_fri": -1.5672,
+        "net": 2.019,
+        "note": "account is about 2.02 higher than the rules would have left it; luck from failures, not strategy P&L",
+        "marks": {
+          "thu_0931": 14.84,
+          "thu_1552": 18.4262,
+          "fri_0931": 18.8973,
+          "rule": "OHLC4 (15s bar 09:31:15 / 1-min bar 15:52)"
+        },
+        "detail": "state history: today.outage of 2026-11-13; report DAY-20261112.md"
+      }
+    ]
   },
   "account": {
-    "equity": 81.81,
-    "cash": 62.79,
-    "asof": "07:49 ET 2026-11-13 premarket (broker total; NVDL 1 marked 19.02)"
+    "equity": 80.12,
+    "cash": 80.12,
+    "asof": "10:12 ET 2026-11-13 (broker total after the sale; flat)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
     "asof_of_removed_block": "2026-09-28"
   },
   "position": null,
-  "positions": [
-    {
-      "sym": "NVDL",
-      "qty": 1,
-      "entry": 20.5599,
-      "entry_t": "2026-11-11T15:52:16.7 ET",
-      "order_id": "6af4d580-f3a8-47ac-9454-7e73256fe0a1",
-      "leg": "overnight",
-      "n": 46,
-      "basket_version": "v1.8 PAUSE (1 share)"
-    }
-  ],
+  "positions": [],
   "open_orders": [],
   "today": {
     "date": "2026-11-13",
-    "exit_done": false,
+    "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": true,
@@ -1035,7 +1125,48 @@
       "cause": "LOCKED OUT BY THE USAGE LIMIT, not a crash: at 07:45:43 ET Thu 11/12 the model API refused the session's request with HTTP 429 (the account's 7-day usage allowance for the session's model was used up; extra usage is switched off at organisation level; reset 05:00 ET Fri 11/13). All 16 scheduled wakes of 11/12 were delivered, relaunched the worker and were refused (65 refusals). One tool call ran that day (ReadNotifications at 07:45:41 ET). Found 11/13 by the outage review from the session transcript.",
       "why_usage_ran_out": "main-thread context had grown to 760k tokens (the session ran on a 1M-token window from 11/10 and compacted only at 80% of it), so every request re-read up to 760k tokens: 273 requests, 133.9M cache-read, 2.61M cache-write, 0.31M output tokens between 11/9 17:21 ET and the lockout, plus five multi-agent workflows on 11/10 (27 agents, 5.33M tokens). 8-minute scan loops on flat days were the main waste: about 8 requests and 5.6M tokens an hour for no decision.",
       "mark_rule": "records clarification (no strategy rule changed): when a rule exit or entry did not execute, mark it from regular-session bars by OHLC4: exit = the 15-second bar starting 09:31:15 ET (fallback: the 09:31 one-minute bar); entry = the 15:52 one-minute bar; no spread offset; store the band and a marked flag. Chosen from past fill times (15 timed fills N30-N45: median 09:31:20), not from Thursday's prices. Written BEFORE today's fill.",
-      "night47_rule": "night 47 (Thu 15:52 mark -> Fri fill) counts as a strategy night whatever its sign, because the carried share is exactly what a PAUSE entry would have bought; decided before the fill."
+      "night47_rule": "night 47 (Thu 15:52 mark -> Fri fill) counts as a strategy night whatever its sign, because the carried share is exactly what a PAUSE entry would have bought; decided before the fill.",
+      "booking": {
+        "real_trade": {
+          "id": "T3X-N46",
+          "buy": "2026-11-11 15:52 @20.5599",
+          "sell": "2026-11-13 10:12 @17.3301",
+          "pnl": -3.2298,
+          "pct": -15.71
+        },
+        "night46_strategy_basis": {
+          "entry": 20.5599,
+          "marked_exit": 14.84,
+          "pnl": -5.7199,
+          "pct": -27.82,
+          "band": [
+            -6.02,
+            -5.46
+          ]
+        },
+        "carry_usage_lockout_thu": {
+          "from": 14.84,
+          "to": 18.4262,
+          "pnl": 3.5862,
+          "note": "Thu 09:31 -> 15:52; no order; luck, outside night statistics"
+        },
+        "night47_strategy_basis": {
+          "marked_entry": 18.4262,
+          "marked_exit": 18.8973,
+          "pnl": 0.4711,
+          "pct": 2.56,
+          "note": "no order at either end; the carried share is the PAUSE size; counts whatever its sign (rule written before the fill)"
+        },
+        "carry_broker_outage_fri": {
+          "from": 18.8973,
+          "to": 17.3301,
+          "pnl": -1.5672,
+          "note": "Fri 09:31 -> 10:12 fill; the sale was late because the broker link was down; outside night statistics"
+        },
+        "identity": "-5.7199 + 3.5862 + 0.4711 - 1.5672 = -3.2298",
+        "net_carry": 2.019,
+        "rule_world_equity_now": 78.1
+      }
     },
     "premarket": {
       "t": "07:49 ET",
@@ -1115,12 +1246,39 @@
       "state": "UP (reference only; binding read 15:50; PAUSE sets the size anyway)"
     },
     "pause_check": {
-      "E": 81.81,
+      "E": 80.12,
       "pause": 82.89,
       "kill": 50,
       "result": "PAUSE in force; sessions are counted by NYSE session date from the trigger (11/10, 11/11, 11/12, 11/13, 11/16), so tonight (night 48) is session 4 of 5 at exactly 1 NVDL share. E is below 82.89, so PAUSE continues past 11/16 unless E is above it at the 11/18 entry."
     },
-    "plan": "Fri 11/13: 09:25/09:29 shadow quotes; 09:31:05 exit the carried share (exit_ovn.py 46 20261113 NVDL:1:BID); book night 46 / outage day leg / night 47 from the Thursday marks; weekly report WEEK-T3X-10 + audit; 15:25 sleeve shadow; 15:50 trend state --log; 15:52 entry_v18.py core 48 20261113 <ask> <last> <E> pause (1 share; PAUSE session 4 of 5; weekend hold); EOD incl. TZA shadow for 11/12 and 11/13. Sat 11/14 14:23 lab cycle."
+    "plan": "Fri 11/13: 09:25/09:29 shadow quotes; 09:31:05 exit the carried share (exit_ovn.py 46 20261113 NVDL:1:BID); book night 46 / outage day leg / night 47 from the Thursday marks; weekly report WEEK-T3X-10 + audit; 15:25 sleeve shadow; 15:50 trend state --log; 15:52 entry_v18.py core 48 20261113 <ask> <last> <E> pause (1 share; PAUSE session 4 of 5; weekend hold); EOD incl. TZA shadow for 11/12 and 11/13. Sat 11/14 14:23 lab cycle.",
+    "exit": {
+      "order_id": "6af728cd-59fc-4f4f-bfc5-26652b1f9217",
+      "sym": "NVDL",
+      "qty": 1,
+      "limit": 17.33,
+      "fill": 17.3301,
+      "t": "10:12:13.244 ET",
+      "quote": "17.36/17.37 at 10:12:04",
+      "late_by": "41 min after 09:31:05: every Robinhood MCP call failed from 08:32 to 10:11 ET (Service Unavailable / failed to connect / HTTP 502); 16 tries; phone alert to the owner 09:20",
+      "after": "0 positions, 0 open orders, cash 80.12, total 80.12"
+    },
+    "exit_shadow": {
+      "note": "no 09:25/09:29/09:31 quotes (broker link down): today is excluded from the 09:29 exit-timing shadow and the fill-cost sample",
+      "official_open": {
+        "NVDL": 19.41,
+        "NVDA": 169.87
+      },
+      "mark_0931": {
+        "NVDL": 18.8973,
+        "band": [
+          18.8,
+          18.97
+        ],
+        "rule": "OHLC4 of the 09:31:15 15-second bar"
+      },
+      "running": "n15 mean +29bp sd 95 t 1.19 (unchanged)"
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
