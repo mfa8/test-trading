@@ -1,0 +1,49 @@
+{
+ "f3_prev_check_reproduced": [
+  0.363,
+  2.846,
+  1.4,
+  120
+ ],
+ "f3_now": [
+  0.058,
+  3.996,
+  0.16,
+  120
+ ],
+ "f3_window_first_night": "2026-05-22",
+ "five_nights_pct": [
+  -14.635,
+  -5.222,
+  4.564,
+  -26.299,
+  4.577
+ ],
+ "l12_n": 47,
+ "l12_span": [
+  "2015-02-11",
+  "2026-08-26"
+ ],
+ "l12_raw": {
+  "mean_pct": 6.358,
+  "worst_pct": -38.47,
+  "best_pct": 52.26,
+  "wins": 27
+ },
+ "l12_s0.25": {
+  "mean_log_bp": 151.5,
+  "first_half_bp": 150.0,
+  "second_half_bp": 153.0,
+  "ex_best3_bp": 101.0,
+  "worst_night_cost_pct_of_E": 9.62,
+  "t": 2.93
+ },
+ "l12_s0.5": {
+  "mean_log_bp": 288.9,
+  "first_half_bp": 283.8,
+  "second_half_bp": 293.8,
+  "ex_best3_bp": 192.3,
+  "worst_night_cost_pct_of_E": 19.24,
+  "t": 2.82
+ }
+}

@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-13T21:03:59Z",
-    "loop_note": "EOD 16:01: E broker 80.10 (cash 62.29 + NVDL 1 @17.81; at bid 80.05); -1.26 vs Thursday's reconstructed 81.36; week 103.61 -> 80.10 (-23.51). Closes (last trade",
+    "last_heartbeat_utc": "2026-11-14T19:26:03Z",
+    "loop_note": "LAB CYCLE Sat 11/14 14:23-14:45 ET (single-threaded, no orders, no rule changed). MEASURED: week-10 row in LAB.md (5 nights, live mean -8.71% vs NVDL official c",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -670,6 +670,18 @@
         "proxy_2xNVDA_4bp": 0.359,
         "result": "POSITIVE -> overnight leg stays on",
         "method": "overnight_thru_20261030.csv extended with 5 nights (10/30->11/2 .. 11/5->11/6) from RH day bars (adjustment none, fetched 11/9 07:50) -> research/edge_decay/overnight_thru_20261106.csv; s08_extend_20261109.py reproduces the 11/2 value (+0.322, t 1.34); week-9 audit preview was +0.364 (it used NVDL 11/6 open 24.84 vs RH bar 24.81); no NVDL-NVDX >1% flags"
+      },
+      {
+        "date": "2026-11-16",
+        "computed": "2026-11-14 lab cycle (the window was already complete)",
+        "rule": "\u00a73(f) trailing-120 NVDL overnight mean ex-NVDA-earnings",
+        "window_end_night": "2026-11-12->11-13",
+        "window_first_night": "2026-05-22",
+        "value_pct_clean": 0.058,
+        "sd_pct": 3.996,
+        "t": 0.16,
+        "result": "POSITIVE -> overnight leg stays on (thin margin)",
+        "method": "overnight_thru_20261106.csv extended with 5 nights (11/6->11/9 -14.635, 11/9->11/10 -5.222, 11/10->11/11 +4.564, 11/11->11/12 -26.299, 11/12->11/13 +4.577) from RH day bars (adjustment none, fetched 11/14) -> research/edge_decay/overnight_thru_20261113.csv; research/lab/20261114/s_cycle.py reproduces the 11/9 value (+0.363, t 1.40)"
       }
     ],
     "rank_20261019": {
@@ -1046,7 +1058,20 @@
       "task": "t3x-lab-weekly (Saturdays 14:23 ET)",
       "first_cycle": "2026-11-14",
       "candidate": "L12 earnings blackout (test only; 11/17 stays in cash)",
-      "archive": "trader/research/lab/"
+      "archive": "trader/research/lab/",
+      "last_cycle": {
+        "date": "2026-11-14",
+        "mode": "single-threaded (usage limit)",
+        "measured": "week-10 row; \u00a73(f) +0.058",
+        "tested": "L12 preview: passes growth and worst-night conditions at 0.25 and 0.5, fails the 60-night sample condition (47), no independent re-derivation",
+        "decision": "not adopted; backlog; 11/17 stays cash",
+        "rule_changes": 0,
+        "added": [
+          "L19 resting exit order",
+          "L20 exit tool duplicate stop",
+          "L21 L12 data 2005-2014"
+        ]
+      }
     },
     "pause": {
       "triggered": "2026-11-10 09:31 exit: all-cash total 82.31 <= 82.94 (0.80 x rolling 20-session high 103.68)",

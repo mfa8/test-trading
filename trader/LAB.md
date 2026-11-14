@@ -77,8 +77,26 @@ Details and numbers for 11/9: `research/REVIEW-20261109.md`. Scripts and the che
 
 | week | nights | live return per night | model | slippage vs quote | trend state (nights UP / DOWN) | note |
 |---|---|---|---|---|---|---|
-| (first entry due Sat 11/14) | | | | | | |
+| 10 (11/9–11/13) | 5 (N43–N47; N46 and N47 marked, not filled) | −8.71% mean (−16.64, −7.06, +5.43, −27.82 m, +2.56 m) | NVDL official close→open −7.40% mean (−14.64, −5.22, +4.56, −26.30, +4.58); the three filled nights ran −0.99 pt behind it | exits vs quoted bid −15, −20, −18, −5, −17 bp; entries vs quoted ask +5 bp (N46), −14 bp (N48) | N45 DOWN, N46 UP, N47 not read (lockout), N48 DOWN | PAUSE from N45; 24-hour usage lockout Thu; broker outage Fri; no fractional order yet (L3 has no data) |
 
 - 2026-11-13 (ops note, L10): the daily options shadow is skipped while the budget above the $80 floor is under $2.00 (today it was $0.12). Nothing can fit below that, and each reading adds about 8k tokens to the session's memory. No rule changed.
 - 2026-11-13 (ops note): crash-open shadow now n=2 (11/9 live, 11/12 marked). Both show a large gain from waiting. Two cases prove nothing, and hold-through was tested and rejected on 11/9. No change.
 - 2026-11-13: no pre-registered hypothesis is open for the 11/14 cycle other than L12 (earnings-night blackout). The cycle runs single-threaded because of the usage limit.
+
+## Cycle 2026-11-14 (single-threaded because of the usage limit; no orders; no rule changed)
+
+- **Measured:** week-10 row added above. §3(f) for Mon 11/16 computed early because its window is already complete: trailing-120 NVDL overnight mean **+0.058%** (sd 4.00, t 0.16; window from 2026-05-22; the 11/9 value +0.363 reproduced first). Positive, so the overnight leg stays on, but the margin is thin: the five nights of this week took 0.31 points off it.
+- **Hypothesis tested: L12 only** (criteria were written on 11/9, before this run). Data on hand: 47 NVDA earnings nights, 2015-02 to 2026-08, 2× NVDA proxy with a 4bp cost (`research/edge_decay/overnight_thru_20261113.csv`; script `research/lab/20261114/s_cycle.py`).
+
+| size | mean log growth per earnings night | first half | second half | best 3 removed | worst night | t |
+|---|---|---|---|---|---|---|
+| 0.25 | +1.52% | +1.50% | +1.53% | +1.01% | −9.6% of E | 2.9 |
+| 0.50 | +2.89% | +2.84% | +2.94% | +1.92% | −19.2% of E | 2.8 |
+
+- **Against the pre-registered bar:** positive in both halves and with the best three removed: met. Worst night under 20% of E: met (0.50 only just). **At least 60 earnings nights since 2005: NOT met (47 since 2015).** Independent re-derivation: not done.
+- **Decision: not adopted; L12 stays in the backlog.** It cannot pass its own sample-size condition with the data on hand, and the 2015–26 sample is Nvidia's best decade (27 wins of 47, mean +6.4% a night at 2×, worst −38%). To finish it before the February 2027 report: 2005–2014 NVDA day bars plus verified report dates, then an independent re-derivation at the 2027-01-11 review. Tuesday 11/17 stays in cash, as pre-committed.
+- **Ops changes (not strategy):** `tools/hbc.sh` now prints PUSH FAILED and exits non-zero when every push attempt fails; `tools/usage.py` reports the session's token use since the weekly reset.
+- **Added to the backlog (registered only):**
+  - L19: a resting sell order placed at entry time, so the morning sale does not depend on the session being alive. Needs a review of broker order types and of §5 before any test.
+  - L20: `exit_ovn.py` with a deterministic ref_id and a duplicate-intent stop, so a second run cannot place a second sale.
+  - L21: complete the L12 data (2005–2014 bars and report dates).

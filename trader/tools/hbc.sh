@@ -24,9 +24,11 @@ PY
 git add -A trader
 git commit -q -m "$TITLE" -m "Co-Authored-By: Claude <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_014SecwMmw22oHfWJSukz1AT" || { echo "nothing to commit"; exit 0; }
+PUSHED=0
 for i in 1 2 3 4; do
-  git push -q -u origin "$BR" && break
+  if git push -q -u origin "$BR"; then PUSHED=1; break; fi
   sleep $((2 ** i))
 done
+if [ "$PUSHED" != 1 ]; then echo "PUSH FAILED after 4 tries: commit $(git log --oneline | head -1) is local only"; exit 3; fi
 git log --oneline | head -1
 git status -sb | head -1
