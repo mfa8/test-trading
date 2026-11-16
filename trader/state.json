@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-14T19:26:03Z",
-    "loop_note": "LAB CYCLE Sat 11/14 14:23-14:45 ET (single-threaded, no orders, no rule changed). MEASURED: week-10 row in LAB.md (5 nights, live mean -8.71% vs NVDL official c",
+    "last_heartbeat_utc": "2026-11-16T12:47:49Z",
+    "loop_note": "ANALYST 07:47 ET Mon 11/16 (lean): no HUMAN_STOP; NVDL 1 avg 17.83 (avail 1), 0 open orders, cash 62.29, total 79.03, approvals OFF. Premarket: NVDL 16.73/16.75",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1028,7 +1028,7 @@
         }
       },
       "binding_from": "night 45 entry, 2026-11-10 15:50 ET",
-      "cache": "trader/research/trend/closes.json (282 closes per symbol to 2026-11-12; 11/11 from day bars)",
+      "cache": "trader/research/trend/closes.json (283 closes per symbol to 2026-11-13)",
       "verification": "DONE 2026-11-09 17:20 ET (separate read-only agent, own loader and code): every T8 number reproduced; no look-ahead; 72/72 sensitivity cells positive; placebo never reached the observed gain; rule minus always-full +0.060/night, year-block 90pct interval +0.009..+0.121. Verdict WEAKLY SUPPORTED: 10 nights = 98pct of the gain, 2008+2022 = 73pct; lost in 51 of 82 spells and 9 of 22 active years; real NVDL only 86 DOWN nights (+0.020, t 0.55). Rule kept as INSURANCE, not edge; rollback (i) not triggered. Detail: research/REVIEW-20261109.md; scripts research/lab/20261109/",
       "today_flip": {
         "date": "2026-11-11",
@@ -1105,9 +1105,9 @@
     ]
   },
   "account": {
-    "equity": 80.1,
+    "equity": 79.03,
     "cash": 62.29,
-    "asof": "16:01 ET 2026-11-13 (broker total 80.0992; NVDL 1 marked 17.81; at bid 80.05)"
+    "asof": "07:47 ET 2026-11-16 premarket (broker total; NVDL 1 marked 16.74)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1128,398 +1128,83 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-11-13",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
+    "date": "2026-11-16",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
     "day_leg_done": true,
-    "outage": {
-      "window": "Thu 2026-11-12 07:45 ET to Fri 2026-11-13 07:46 ET (about 24 hours)",
-      "what": "the session could not get a model response from Thu 07:45:43 ET until the allowance reset at 05:00 ET Fri; the first wake after the reset was 07:45 ET Fri. The container was also replaced in between (scratchpad lost, repo re-cloned from an old image).",
-      "missed": [
-        "11/12 07:45 analyst routine",
-        "11/12 09:31:05 exit of night 46 (rule breach: \u00a75 says exit every morning)",
-        "11/12 hourly heartbeats and scans",
-        "11/12 15:25 sleeve shadow",
-        "11/12 15:50 trend read and 15:52 entry of night 47",
-        "11/12 EOD (equity row, DAY report, TZA shadow)"
-      ],
-      "position_effect": "the night-46 share (NVDL 1 @ 20.5599) stayed on through Thursday's session and Thursday night; no orders were placed on 11/12 by anyone (broker order list checked 11/13 07:49)",
-      "market": "Nvidia said before Thursday's open that CEO Jensen Huang had resigned (CFO Colette Kress interim CEO). NVDA opened 151.005 (-13.1% vs 173.73), low 148.80, closed 166.19 (-4.34%). NVDL opened 15.035 (-26.3% vs 20.40), low 14.535, closed 18.57 (-8.97%).",
-      "counterfactual_rule_exit": {
-        "mark": 14.84,
-        "pnl_if_sold": -5.72,
-        "pct": -27.82,
-        "band_pnl": [
-          -6.02,
-          -5.46
-        ]
-      },
-      "marks": {
-        "thu_0931": 14.84,
-        "thu_0931_band": [
-          14.535,
-          15.05
-        ],
-        "thu_0931_1min_alt": 15.0991,
-        "thu_1552": 18.4262,
-        "thu_1552_band": [
-          18.37,
-          18.48
-        ],
-        "rule": "OHLC4 (see mark_rule)",
-        "first_estimate_superseded": "14.65 / 18.43 (single prints picked after seeing the bars)"
-      },
-      "luck_note": "carrying the share through the day recovered about +3.59 by 15:52 (14.84 -> 18.4262; band +3.33..+3.89). That is luck from a failure, not skill; it is booked as an outage carry outside the night statistics.",
-      "pause_effect": "PAUSE held the position to 1 share. At the trend-rule size (0.98 of 83.35, about 3.97 shares) a 09:31 sale would have lost about 22 to 24 and left equity near 59 to 62 (hypothetical in both size and price).",
-      "repairs": [
-        "trend cache: 2026-11-11 added from day bars (QQQ 690.38, NVDA 173.73, SMH 506.96; the sip official-close field for 11/11 was never captured; QQQ day-bar closes have differed from the official close by about 0.01%), 2026-11-12 added from official closes (QQQ 688.17, NVDA 166.19, SMH 501.73)",
-        "helper scripts recreated inside the repo (tools/hbc.sh, tools/shadow_rec.py) so a container replacement cannot lose them again",
-        "DAY-20261111 closes patched; DAY-20261112 reconstructed from bars"
-      ],
-      "cause": "LOCKED OUT BY THE USAGE LIMIT, not a crash: at 07:45:43 ET Thu 11/12 the model API refused the session's request with HTTP 429 (the account's 7-day usage allowance for the session's model was used up; extra usage is switched off at organisation level; reset 05:00 ET Fri 11/13). All 16 scheduled wakes of 11/12 were delivered, relaunched the worker and were refused (65 refusals). One tool call ran that day (ReadNotifications at 07:45:41 ET). Found 11/13 by the outage review from the session transcript.",
-      "why_usage_ran_out": "main-thread context had grown to 760k tokens (the session ran on a 1M-token window from 11/10 and compacted only at 80% of it), so every request re-read up to 760k tokens: 273 requests, 133.9M cache-read, 2.61M cache-write, 0.31M output tokens between 11/9 17:21 ET and the lockout, plus five multi-agent workflows on 11/10 (27 agents, 5.33M tokens). 8-minute scan loops on flat days were the main waste: about 8 requests and 5.6M tokens an hour for no decision.",
-      "mark_rule": "records clarification (no strategy rule changed): when a rule exit or entry did not execute, mark it from regular-session bars by OHLC4: exit = the 15-second bar starting 09:31:15 ET (fallback: the 09:31 one-minute bar); entry = the 15:52 one-minute bar; no spread offset; store the band and a marked flag. Chosen from past fill times (15 timed fills N30-N45: median 09:31:20), not from Thursday's prices. Written BEFORE today's fill.",
-      "night47_rule": "night 47 (Thu 15:52 mark -> Fri fill) counts as a strategy night whatever its sign, because the carried share is exactly what a PAUSE entry would have bought; decided before the fill.",
-      "booking": {
-        "real_trade": {
-          "id": "T3X-N46",
-          "buy": "2026-11-11 15:52 @20.5599",
-          "sell": "2026-11-13 10:12 @17.3301",
-          "pnl": -3.2298,
-          "pct": -15.71
-        },
-        "night46_strategy_basis": {
-          "entry": 20.5599,
-          "marked_exit": 14.84,
-          "pnl": -5.7199,
-          "pct": -27.82,
-          "band": [
-            -6.02,
-            -5.46
-          ]
-        },
-        "carry_usage_lockout_thu": {
-          "from": 14.84,
-          "to": 18.4262,
-          "pnl": 3.5862,
-          "note": "Thu 09:31 -> 15:52; no order; luck, outside night statistics"
-        },
-        "night47_strategy_basis": {
-          "marked_entry": 18.4262,
-          "marked_exit": 18.8973,
-          "pnl": 0.4711,
-          "pct": 2.56,
-          "note": "no order at either end; the carried share is the PAUSE size; counts whatever its sign (rule written before the fill)"
-        },
-        "carry_broker_outage_fri": {
-          "from": 18.8973,
-          "to": 17.3301,
-          "pnl": -1.5672,
-          "note": "Fri 09:31 -> 10:12 fill; the sale was late because the broker link was down; outside night statistics"
-        },
-        "identity": "-5.7199 + 3.5862 + 0.4711 - 1.5672 = -3.2298",
-        "net_carry": 2.019,
-        "rule_world_equity_now": 78.1
-      }
-    },
     "premarket": {
-      "t": "07:49 ET",
-      "NVDL_bid": 19.0,
-      "NVDL_ask": 19.04,
-      "NVDA": 168.18,
-      "NVDA_chg_pct": 1.2,
-      "QQQ": 687.7,
-      "QQQ_chg_pct": -0.07,
-      "SMH_chg_pct": -0.34,
-      "SPY_chg_pct": 0.19,
-      "IWM_chg_pct": 0.08,
-      "AMD_chg_pct": -2.74,
-      "TSM_chg_pct": 0.55,
-      "official_closes_1112": {
-        "NVDL": 18.57,
-        "NVDX": 10.43,
-        "NVDA": 166.19,
-        "QQQ": 688.17,
-        "SMH": 501.73,
-        "SPY": 757.12,
-        "IWM": 278.44,
-        "AMD": 585.3,
-        "TSM": 405.49,
-        "TZA": 46.42
+      "t": "07:47 ET",
+      "NVDL_bid": 16.73,
+      "NVDL_ask": 16.75,
+      "NVDA": 157.89,
+      "NVDA_chg_pct": -3.05,
+      "QQQ": 671.46,
+      "QQQ_chg_pct": -1.24,
+      "SMH_chg_pct": -3.69,
+      "SPY_chg_pct": -0.58,
+      "IWM_chg_pct": -0.48,
+      "AMD_chg_pct": -5.02,
+      "TSM_chg_pct": -4.94,
+      "official_closes_1113": {
+        "NVDL": 17.83,
+        "NVDA": 162.85,
+        "QQQ": 679.89,
+        "SMH": 486.75,
+        "SPY": 754.37,
+        "IWM": 277.54,
+        "AMD": 534.06,
+        "TSM": 398.73
       },
-      "closes_1111_daybars": {
-        "NVDL": 20.4,
-        "NVDX": 11.46,
-        "NVDA": 173.73,
-        "QQQ": 690.38,
-        "SMH": 506.96,
-        "SPY": 759.81,
-        "IWM": 283.09,
-        "AMD": 552.9,
-        "TSM": 413.35,
-        "TZA": 44.24
-      },
-      "position_marked": {
-        "NVDL_bid": 19.0,
-        "vs_entry_20.5599": -1.56,
-        "pct": -7.59
-      },
-      "E_broker": 81.81,
-      "cash": 62.79,
-      "news": "Thu 11/12 before the open Nvidia said Jensen Huang resigned as CEO effective immediately; CFO Colette Kress is interim CEO. NVDA fell as much as 14% at the open and closed -4.34% at 166.19 on about five times normal volume. Bernstein cut its target from 400 to 200. Fiscal Q3 results are still scheduled for Tue 11/17 after the close. Sources: CNBC 11/12, Yahoo Finance 11/12, TradingKey 11/12."
+      "night48_marked": -1.1,
+      "night48_marked_pct": -6.14,
+      "E_broker": 79.03,
+      "cash": 62.29,
+      "news": "not searched at 07:47 (lean mode: searched after the exit if the move needs explaining)"
     },
     "broker_check": {
-      "t": "07:49 ET",
-      "positions": "NVDL 1 avg 20.56 (avail 1)",
+      "t": "07:47 ET",
+      "positions": "NVDL 1 avg 17.83 (avail 1)",
       "open_orders": 0,
-      "orders_since_1111": "only the 11/11 sell (night 45) and the 11/11 buy (night 46); nothing on 11/12",
-      "cash": 62.79,
-      "buying_power": 62.79,
-      "total_value": 81.81,
-      "unsettled": 0.0
+      "cash": 62.29,
+      "buying_power": 62.29,
+      "total_value": 79.03
     },
-    "trade_approval": "OFF (human_must_approve_trades false, 07:50)",
-    "option_level": "none (16:01 get_accounts, 8334 row only)",
+    "trade_approval": "OFF (human_must_approve_trades false, 07:47)",
+    "option_level": "none (last read 11/13 16:01; read weekly while lean)",
     "day_leg": "SUSPENDED (\u00a711 v1.7); TZA shadow only at EOD",
     "earnings_check": {
       "amc_today": [
-        "RAMP",
-        "INBX",
-        "CEP"
+        "PAGS",
+        "INFQ",
+        "POWL",
+        "ACM",
+        "OMER",
+        "SKE",
+        "XP",
+        "ZK"
       ],
-      "note": "no semiconductor or megacap report after today's close -> night 48 untagged",
-      "nvda_earnings": "2026-11-17 amc (verified) -> cash that night (exit 11/17 09:31, no 11/17 entry, re-enter 11/18 15:52)",
-      "weekend": "night 48 is a weekend hold (Fri 11/13 -> Mon 11/16) with the CEO-succession story open"
+      "source": "calendar read Fri 11/13 (5-day window)",
+      "note": "no semiconductor or megacap report after today's close -> night 49 untagged",
+      "nvda_earnings": "2026-11-17 amc (verified) -> exit Tue 09:31, NO Tue entry, re-enter Wed 11/18 15:52"
     },
-    "sleeve_shadow": [
-      {
-        "E": 80.12,
-        "S": 162.525,
-        "expiry": "2027-02-19",
-        "B": 0.12,
-        "sleeps": true,
-        "spread": null,
-        "call": null,
-        "cands": [
-          {
-            "K1": 260.0,
-            "K2": 270.0,
-            "mid": 0.19,
-            "nat": 0.25,
-            "L0": 0.21,
-            "cost": 21.1,
-            "W_L0": 47.6,
-            "ok": false
-          },
-          {
-            "K1": 270.0,
-            "K2": 280.0,
-            "mid": 0.16,
-            "nat": 0.23,
-            "L0": 0.18,
-            "cost": 18.1,
-            "W_L0": 55.6,
-            "ok": false
-          },
-          {
-            "K1": 280.0,
-            "K2": 290.0,
-            "mid": 0.1,
-            "nat": 0.17,
-            "L0": 0.12,
-            "cost": 12.1,
-            "W_L0": 83.3,
-            "ok": false
-          },
-          {
-            "K1": 285.0,
-            "K2": 295.0,
-            "mid": 0.09,
-            "nat": 0.22,
-            "L0": 0.13,
-            "cost": 13.1,
-            "W_L0": 76.9,
-            "ok": false
-          },
-          {
-            "K1": 290.0,
-            "K2": 300.0,
-            "mid": 0.08,
-            "nat": 0.16,
-            "L0": 0.1,
-            "cost": 10.1,
-            "W_L0": 100.0,
-            "ok": false
-          },
-          {
-            "K1": 300.0,
-            "K2": 310.0,
-            "mid": 0.05,
-            "nat": 0.17,
-            "L0": 0.08,
-            "cost": 8.1,
-            "W_L0": 125.0,
-            "ok": false
-          },
-          {
-            "K1": 310.0,
-            "K2": 320.0,
-            "mid": 0.08,
-            "nat": 0.2,
-            "L0": 0.11,
-            "cost": 11.1,
-            "W_L0": 90.9,
-            "ok": false
-          },
-          {
-            "K1": 320.0,
-            "K2": 330.0,
-            "mid": 0.04,
-            "nat": 0.13,
-            "L0": 0.07,
-            "cost": 7.1,
-            "W_L0": 142.9,
-            "ok": false
-          },
-          {
-            "K1": 330.0,
-            "K2": 340.0,
-            "mid": 0.025,
-            "nat": 0.11,
-            "L0": 0.05,
-            "cost": 5.1,
-            "W_L0": 200.0,
-            "ok": false
-          },
-          {
-            "K1": 340.0,
-            "K2": 350.0,
-            "mid": 0.03,
-            "nat": 0.11,
-            "L0": 0.05,
-            "cost": 5.1,
-            "W_L0": 200.0,
-            "ok": false
-          }
-        ],
-        "t": "15:25 ET",
-        "leg_quotes": "260:0.88:0.93 270:0.68:0.75 280:0.52:0.59 285:0.41:0.54 290:0.42:0.49 295:0.32:0.45 300:0.33:0.42 310:0.25:0.40 320:0.20:0.29 330:0.16:0.25 340:0.14:0.22 350:0.11:0.19"
-      }
-    ],
+    "sleeve_shadow": [],
+    "sleeve_shadow_note": "skipped: budget above the 80 floor is negative (E 79.03)",
     "trend_premarket": {
-      "t": "07:52 ET",
-      "qqq": 687.7,
-      "flip": 682.251,
-      "dist_pct": 0.8,
-      "state": "UP (reference only; binding read 15:50; PAUSE sets the size anyway)"
+      "t": "07:48 ET",
+      "qqq": 671.46,
+      "flip": 682.3,
+      "dist_pct": -1.6,
+      "state": "DOWN (reference only; binding read 15:50; PAUSE sets the size anyway)"
     },
+    "f3_check": "\u00a73(f) trailing-120 NVDL overnight mean +0.058% (computed Sat 11/14; window complete) -> POSITIVE, overnight leg stays on",
     "pause_check": {
-      "E": 80.12,
+      "E": 79.03,
       "pause": 82.89,
       "kill": 50,
-      "result": "PAUSE in force; sessions are counted by NYSE session date from the trigger (11/10, 11/11, 11/12, 11/13, 11/16), so tonight (night 48) is session 4 of 5 at exactly 1 NVDL share. E is below 82.89, so PAUSE continues past 11/16 unless E is above it at the 11/18 entry."
+      "result": "PAUSE in force, session 5 of 5 tonight: night 49 = exactly 1 NVDL share. E is below 82.89, so PAUSE continues at the 11/18 entry unless E recovers above it."
     },
-    "plan": "DONE for 11/13. Sat 11/14 14:23 ET: lab cycle, single-threaded and light (L12 earnings-night test; research only). Mon 11/16: 07:45 analyst (trend.py add 2026-11-13 with official closes; patch DAY-20261113 closes; \u00a73(f) edge-decay check FIRST); 09:25/09:29 shadow quotes; 09:31:05 exit night 48 (exit_ovn.py 48 20261116 NVDL:1:BID); 15:50 trend state --log; 15:52 entry_v18.py core 49 20261116 <ask> <last> <E> pause (PAUSE session 5 of 5); EOD. Tue 11/17: exit 09:31, NO entry (NVDA earnings after the close). Wed 11/18 15:52: re-enter; normal size only if E > 82.89, else PAUSE continues.",
-    "exit": {
-      "order_id": "6af728cd-59fc-4f4f-bfc5-26652b1f9217",
-      "sym": "NVDL",
-      "qty": 1,
-      "limit": 17.33,
-      "fill": 17.3301,
-      "t": "10:12:13.244 ET",
-      "quote": "17.36/17.37 at 10:12:04",
-      "late_by": "41 min after 09:31:05: every Robinhood MCP call failed from 08:32 to 10:11 ET (Service Unavailable / failed to connect / HTTP 502); 16 tries; phone alert to the owner 09:20",
-      "after": "0 positions, 0 open orders, cash 80.12, total 80.12"
-    },
-    "exit_shadow": {
-      "note": "no 09:25/09:29/09:31 quotes (broker link down): today is excluded from the 09:29 exit-timing shadow and the fill-cost sample",
-      "official_open": {
-        "NVDL": 19.41,
-        "NVDA": 169.87
-      },
-      "mark_0931": {
-        "NVDL": 18.8973,
-        "band": [
-          18.8,
-          18.97
-        ],
-        "rule": "OHLC4 of the 09:31:15 15-second bar"
-      },
-      "running": "n15 mean +29bp sd 95 t 1.19 (unchanged)"
-    },
-    "owner_questions": [
-      "usage: turn on extra usage with a cap, move this session to a cheaper model, or keep as is (lean running, may still go dark)?",
-      "watchdog task (notify-only, no broker access): create it? yes/no",
-      "daily 'sale done' phone push at about 09:35 ET: yes/no",
-      "keep ultracode (multi-agent reviews) on for this session? it is the largest single use of the allowance"
-    ],
-    "entry": {
-      "n": 48,
-      "order_id": "6af7787e-0b18-4b98-8480-602c4289f6ba",
-      "sym": "NVDL",
-      "qty": 1,
-      "limit": 17.88,
-      "fill": 17.8252,
-      "t": "15:52:15.087 ET",
-      "quote": "17.84/17.85 last 17.8476 at 15:52:00; NVDA 162.93",
-      "pct_of_E": 22.2,
-      "note": "PAUSE session 4 of 5: exactly 1 share, no top-up; weekend hold; untagged night"
-    },
-    "trend": {
-      "date": "2026-11-13",
-      "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
-      "qqq": 680.63,
-      "flip": 682.251,
-      "dist_pct": -0.24,
-      "state": "DOWN",
-      "f": 0.25,
-      "shadow": {
-        "NVDA": {
-          "px": 162.695,
-          "flip": 204.399,
-          "state": "DOWN"
-        },
-        "SMH": {
-          "px": 487.65,
-          "flip": 524.073,
-          "state": "DOWN"
-        }
-      }
-    },
-    "eod": {
-      "t": "16:01 ET",
-      "E_broker": 80.1,
-      "E_bid": 80.05,
-      "cash": 62.29,
-      "NVDL_mark": 17.81,
-      "day_change_vs_1112_reconstructed": -1.26,
-      "closes_provisional": {
-        "NVDL": 17.81,
-        "NVDX": 9.99,
-        "NVDA": 162.82,
-        "QQQ": 679.9,
-        "SMH": 486.6,
-        "SPY": 754.25,
-        "IWM": 277.6,
-        "AMD": 534.09,
-        "TSM": 398.63,
-        "TZA": 46.92
-      },
-      "chg_pct": {
-        "NVDL": -4.09,
-        "NVDA": -2.03,
-        "QQQ": -1.2,
-        "SMH": -3.02,
-        "SPY": -0.38,
-        "IWM": -0.3,
-        "AMD": -8.75,
-        "TSM": -1.69
-      },
-      "unsettled": 17.33,
-      "tza_shadow": "11/12 +1.01 pct (TP 09:55, from bars), 11/13 +1.01 pct (TP 09:37); 22 legs mean -0.272 pct",
-      "flat_gap": "sold 17.3301 at 10:12, re-bought 17.8252 at 15:52: being flat cost 0.50"
-    }
+    "plan": "Mon 11/16 (lean): 09:29 shadow quote; 09:31:05 exit night 48 (exit_ovn.py 48 20261116 NVDL:1:BID); 15:40 pre-entry; 15:50 trend state --log; 15:52 entry_v18.py core 49 20261116 <ask> <last> <E> pause (1 share; PAUSE session 5 of 5); EOD. Tue 11/17: exit 09:31, NO entry (NVDA earnings). Wed 11/18 15:52 re-enter (PAUSE continues unless E > 82.89)."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
