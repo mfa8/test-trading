@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-16T14:31:41Z",
-    "loop_note": "EXIT N48 09:31:13 ET: 09:29 quote NVDL 16.98/17.01 (NVDA 159.05); 09:31:06 quote 17.03/17.06 (NVDA bid 159.22 -2.23%, QQQ 668.63 -1.66%); exit_ovn.py 48 -> SELL",
+    "last_heartbeat_utc": "2026-11-16T16:13:26Z",
+    "loop_note": "HB 11:13 ET (lean mode, two-hourly while flat): flat, cash 79.31, no HUMAN_STOP, PAUSE 5 of 5 tonight. Wakes since the exit (09:35, 10:09 delivered 10:15, 10:35",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
