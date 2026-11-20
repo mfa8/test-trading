@@ -59,7 +59,7 @@
 
 Mondays add the §3(f) edge-decay check. Fridays add the weekly report and audit. Saturdays at 14:23 ET the lab runs (§14): measure the week, test at most one idea, record the result in `LAB.md`. The lab places no orders.
 
-**Blackouts:** none scheduled (the NVDA earnings night of 11/17 has passed; the next date is checked at the January review). Half-days 11/27 and 12/24 have the entry at 12:52 ET.
+**Blackouts:** none before the next NVDA earnings night, expected in late February 2027 (date not yet confirmed; to be read from the broker's earnings calendar at the 2027-01-11 review). Half-days 11/27 and 12/24 have the entry at 12:52 ET.
 
 **Pre-registered reviews (no behaviour change before them):**
 - 40 live NVDA-2x nights (19 so far, around mid-December).

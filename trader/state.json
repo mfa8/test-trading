@@ -1127,7 +1127,13 @@
         "NVDL_prev_close": 14.25,
         "NVDA_prev_close": 145.98
       }
-    }
+    },
+    "todo": [
+      {
+        "due": "2027-01-11",
+        "item": "confirm the next NVDA earnings date from the broker's earnings calendar and set the blackout night (STATUS 'Blackouts' line)"
+      }
+    ]
   },
   "account": {
     "equity": 78.95,
@@ -1901,6 +1907,12 @@
       "cost": "3.3M cache-read + 0.78M cache-write (0.20 of the weekly level on the weighted measure)",
       "policy": "compact again only when context is above about 400k (the filler is then small); idle wakes answered in one request with no tool call unless something is due",
       "after_done": "wake-b reverted, phone alert sent 07:55 ET, owner report sent in chat"
+    },
+    "compaction_plan": {
+      "when": "Sat 11/21 lab wake, after the lab commit",
+      "why": "context grew 103k -> 202k on 11/20; at that rate the week would end near the lockout level by Wed 11/25. Compacting on a day with no order due is the safe time.",
+      "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
+      "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)"
     }
   },
   "human_directives": [
