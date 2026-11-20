@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T17:11:16Z",
-    "loop_note": "HEARTBEAT 12:11 ET: flat, cash 79.31; idle wakes 10:36, 11:12, 11:36 answered in one request each. Next: 15:48 entry sequence for night 49 (1 share, PAUSE) if \u00a7",
+    "last_heartbeat_utc": "2026-11-20T19:10:22Z",
+    "loop_note": "HEARTBEAT 14:10 ET: flat, cash 79.31; idle wakes 12:36, 13:10, 13:36 answered in one request each. Next: 15:36 pre-entry checks, 15:50 trend read, 15:52 entry f",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
