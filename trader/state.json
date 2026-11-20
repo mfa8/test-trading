@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T12:50:55Z",
-    "loop_note": "WAKE RE-TIME 07:49 ET (reported to the owner; not asked beforehand): t2x-wake-b changed from '0 10-16 * * 1-5' to '5 16 * * 1-5' (applied); the same change for ",
+    "last_heartbeat_utc": "2026-11-20T12:56:01Z",
+    "loop_note": "POST-COMPACTION 07:53-07:58 ET: context 803k -> 103k. t2x-wake-b reverted to its hourly schedule (wake-a never changed). Phone alert sent. usage.py now prints a",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1200,7 +1200,8 @@
       "result": "the 5 PAUSE sessions by date ended 11/16; E 79.31 is not above 82.89, so PAUSE continues: exactly 1 NVDL share per night"
     },
     "f3_note": "\u00a73(f) is checked on Mondays. Mon 11/23 will add nights 11/13->16 (-4.82%), 11/16->17 (+1.01%), 11/18->19 (+2.66%) and 11/19->20 to a trailing-120 mean that stood at +0.058%; it will probably be at or below zero, which turns the overnight leg off from Monday.",
-    "plan": "Fri 11/20 (minimal-request mode): no exit (flat). 15:48 wake: usage guard check (tools/usage.py), then if allowed 15:50 trend state --log and 15:52 entry_v18.py core 49 20261120 <ask> <last> 79.31 pause (1 share; weekend hold); EOD merged into the entry record. Sat 11/21 lab: minimal (measure only). Mon 11/23: \u00a73(f) check FIRST (extend overnight_thru file); exit 09:31 if holding. Thu 11/26 closed; Fri 11/27 half day."
+    "plan": "Fri 11/20 (minimal-request mode): no exit (flat). 15:48 wake: usage guard check (tools/usage.py), then if allowed 15:50 trend state --log and 15:52 entry_v18.py core 49 20261120 <ask> <last> 79.31 pause (1 share; weekend hold); EOD merged into the entry record. Sat 11/21 lab: minimal (measure only). Mon 11/23: \u00a73(f) check FIRST (extend overnight_thru file); exit 09:31 if holding. Thu 11/26 closed; Fri 11/27 half day.",
+    "owner_report": "07:58 ET: phone alert + chat report on the second lockout (flat throughout), \u00a715 guard, wake re-time reverted, compaction, open decisions"
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -1732,7 +1733,8 @@
         "never print whole files, bar sets or tool schemas into the main thread"
       ],
       "reference": "limit reached after about 134M cache-read + 2.6M cache-write + 0.3M output tokens (main thread) and 5.3M workflow tokens in about 2.6 days",
-      "lockout_2": "Mon 11/16 13:36 ET after 50.0M cache-read + 1.44M cache-write since the Fri reset (168 requests at 360-465k context)"
+      "lockout_2": "Mon 11/16 13:36 ET after 50.0M cache-read + 1.44M cache-write since the Fri reset (168 requests at 360-465k context)",
+      "idle_wake": "one request: one-line reply, no tool call, unless a scheduled step is due or a heartbeat commit is more than 2 hours old"
     },
     "watchdog": {
       "status": "NOT CREATED: the platform's permission check denied create_trigger for it on 2026-11-13 10:20 ET; it now needs the owner's go-ahead",
@@ -1761,10 +1763,14 @@
     },
     "usage_guard": {
       "rule": "RULES_v3 \u00a715",
-      "budget_cache_read_M": 40,
-      "lockout_level_M": 50,
-      "cost_to_next_exit_M": 6,
-      "reset": "Fridays 05:00 ET"
+      "measure": "frac from tools/usage.py = max(cache_read/50M, weighted/75.4M) since the weekly reset",
+      "enter_if": "frac + 0.10 <= 0.80, or the next weekly reset falls before the next exit wake",
+      "reset": "Fridays 05:00 ET",
+      "at_0755et_1120": {
+        "frac_read": 0.073,
+        "frac_weighted": 0.205,
+        "note": "most of it is the cost of the compaction itself"
+      }
     },
     "wake_retime": {
       "t": "2026-11-20 07:49 ET",
@@ -1772,19 +1778,21 @@
       "t2x-wake-b": {
         "old": "CRON_TZ=America/New_York 0 10-16 * * 1-5",
         "new": "CRON_TZ=America/New_York 5 16 * * 1-5",
-        "result": "applied 07:49 ET"
+        "result": "applied 07:49 ET",
+        "reverted": "07:55 ET 11/20: back to CRON_TZ=America/New_York 0 10-16 * * 1-5 (next run about 10:06 ET)"
       },
       "t2x-wake-a": {
         "old": "CRON_TZ=America/New_York 30 9-15 * * 1-5",
         "attempted": "CRON_TZ=America/New_York 40 12 * * 1-5",
         "result": "DENIED by the platform's permission check; unchanged"
       },
-      "pending": "REVERT t2x-wake-b to its old expression once the session's context has been compacted (idle wakes are then cheap again and the owner asked for the half-hourly loop); if the revert is denied, tell the owner. The owner was not asked beforehand (no reply since 11/10); report this change to them."
+      "pending": "none: wake-b reverted; wake-a was never changed"
     },
     "compaction_20261120": {
-      "t": "2026-11-20 07:52 ET",
-      "what": "context was 637k tokens after the lockout (about 170k of repeated system notices were added while requests were being refused); auto-compaction only starts at 784k. The session read its own project documents in one step to cross that threshold, so that each later step costs about 0.1M tokens instead of 0.64M.",
-      "after": "re-read state.json today block and ops before acting; then: revert wake-b, send one phone notification, report to the owner, and at the 15:48 wake apply RULES_v3 \u00a715 before any entry"
+      "done": "07:53 ET: context 803k -> 103k tokens",
+      "cost": "3.3M cache-read + 0.78M cache-write (0.20 of the weekly level on the weighted measure)",
+      "policy": "compact again only when context is above about 400k (the filler is then small); idle wakes answered in one request with no tool call unless something is due",
+      "after_done": "wake-b reverted, phone alert sent 07:55 ET, owner report sent in chat"
     }
   },
   "human_directives": [
