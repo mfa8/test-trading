@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T12:56:01Z",
-    "loop_note": "POST-COMPACTION 07:53-07:58 ET: context 803k -> 103k. t2x-wake-b reverted to its hourly schedule (wake-a never changed). Phone alert sent. usage.py now prints a",
+    "last_heartbeat_utc": "2026-11-20T15:08:33Z",
+    "loop_note": "HEARTBEAT 10:08 ET: flat, cash 79.31; 09:26 exit wake had nothing to sell; idle wakes answered in one request. Next: 15:48 entry sequence for night 49 (1 share,",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
