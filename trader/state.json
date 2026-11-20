@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT_AWAITING_ENTRY",
+  "mode": "IN_POSITION_OVERNIGHT",
   "mode_reason": "flat since Mon 11/16 09:31; session locked out Mon 13:36 ET -> Fri 07:46 ET; entry tonight only if the usage guard allows",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T20:36:10Z",
-    "loop_note": "PRE-ENTRY 15:36 ET night 49: no HUMAN_STOP; positions none; open orders none; cash 79.31 = E; approvals off. \u00a715 usage guard: frac 0.284 + 0.10 = 0.384 <= 0.80 ",
+    "last_heartbeat_utc": "2026-11-20T20:52:30Z",
+    "loop_note": "ENTRY night 49: bought 1 NVDL @ 10.635 at 15:52:10 ET (limit 10.67; quote 10.64/10.65), order 6b00b2f9. PAUSE: exactly 1 share = 13.4% of E 79.31; weekend hold;",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1131,12 +1131,23 @@
     "asof_of_removed_block": "2026-09-28"
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 1,
+      "entry": 10.635,
+      "entry_t": "2026-11-20T15:52:10.2 ET",
+      "order_id": "6b00b2f9-2914-4332-a4b2-32c4c8f565c7",
+      "leg": "overnight",
+      "n": 49,
+      "basket_version": "v1.8 PAUSE (1 share)"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-20",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "day_leg_done": true,
     "outage2": {
@@ -1200,8 +1211,61 @@
       "result": "the 5 PAUSE sessions by date ended 11/16; E 79.31 is not above 82.89, so PAUSE continues: exactly 1 NVDL share per night"
     },
     "f3_note": "\u00a73(f) is checked on Mondays. Mon 11/23 will add nights 11/13->16 (-4.82%), 11/16->17 (+1.01%), 11/18->19 (+2.66%) and 11/19->20 to a trailing-120 mean that stood at +0.058%; it will probably be at or below zero, which turns the overnight leg off from Monday.",
-    "plan": "Fri 11/20 (minimal-request mode): no exit (flat). 15:48 wake: usage guard check (tools/usage.py), then if allowed 15:50 trend state --log and 15:52 entry_v18.py core 49 20261120 <ask> <last> 79.31 pause (1 share; weekend hold); EOD merged into the entry record. Sat 11/21 lab: minimal (measure only). Mon 11/23: \u00a73(f) check FIRST (extend overnight_thru file); exit 09:31 if holding. Thu 11/26 closed; Fri 11/27 half day.",
-    "owner_report": "07:58 ET: phone alert + chat report on the second lockout (flat throughout), \u00a715 guard, wake re-time reverted, compaction, open decisions"
+    "plan": "EOD 16:05 wake: portfolio, closes, equity row, DAY-20261120 (covers the lockout week), STATUS rewrite, lean WEEK-T3X-11. Sat 11/21 lab: measure only. Mon 11/23: 07:45 analyst incl. \u00a73(f) check FIRST (decides Monday night's entry, not the exit); SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID). Thu 11/26 closed; Fri 11/27 half day.",
+    "owner_report": "07:58 ET: phone alert + chat report on the second lockout (flat throughout), \u00a715 guard, wake re-time reverted, compaction, open decisions",
+    "entry": {
+      "n": 49,
+      "order_id": "6b00b2f9-2914-4332-a4b2-32c4c8f565c7",
+      "sym": "NVDL",
+      "qty": 1,
+      "limit": 10.67,
+      "fill": 10.635,
+      "t": "15:52:10.181 ET",
+      "quote": "10.64/10.65 last 10.64 at 15:52:01; fill 0.5c under the bid-ask midpoint",
+      "weekend_hold": true,
+      "exit": "09:31:05 ET Mon 11/23"
+    },
+    "trend": {
+      "date": "2026-11-20",
+      "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
+      "qqq": 612.96,
+      "flip": 683.436,
+      "dist_pct": -10.31,
+      "state": "DOWN",
+      "f": 0.25,
+      "shadow": {
+        "NVDA": {
+          "px": 128.18,
+          "flip": 203.736,
+          "dist_pct": -37.09,
+          "state": "DOWN"
+        },
+        "SMH": {
+          "px": 402.55,
+          "flip": 525.799,
+          "dist_pct": -23.44,
+          "state": "DOWN"
+        }
+      }
+    },
+    "usage_guard_check": {
+      "t": "15:36 ET",
+      "frac": 0.284,
+      "plus": 0.1,
+      "limit": 0.8,
+      "result": "entry allowed"
+    },
+    "market_1536": {
+      "NVDA": 126.84,
+      "NVDA_day_pct": -13.1,
+      "NVDL": 10.5,
+      "NVDL_day_pct": -26.3,
+      "QQQ": 609.09,
+      "QQQ_day_pct": -5.57,
+      "SMH": 399.96,
+      "SMH_day_pct": -10.6,
+      "note": "account was in cash all day"
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
