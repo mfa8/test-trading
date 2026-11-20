@@ -1,22 +1,22 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** IN_POSITION_OVERNIGHT, **PAUSE session 4 of 5** (as of 16:02 ET Fri 11/13).
-- Night 48 entered at 15:52: NVDL 1 @ 17.8252 (22% of equity), a weekend hold. The exit is 09:31:05 Mon 11/16.
-- **Thu 11/12 the session was locked out for 24 hours** (the weekly usage allowance for its model ran out). The night-46 sale and the night-47 entry were missed. See `report/DAY-20261112.md`.
-- **Fri 11/13 the broker link was down 08:32-10:11 ET**; the carried share was sold at 10:12 at 17.3301 (bought Wed at 20.5599): −3.23 in the account.
-- By the rules the two nights were −5.72 (night 46) and +0.47 (night 47), both marked. The two failures left the account about 2.02 higher than the rules would have. That is luck.
-- PAUSE: exactly 1 NVDL share with no top-up through the 11/16 entry. Tue 11/17 is the NVDA earnings night: cash. From Wed 11/18 normal sizing returns only if equity is above 82.89.
+**Mode:** IN_POSITION_OVERNIGHT under **PAUSE** (as of 16:11 ET Fri 11/20).
+- Night 49 entered at 15:52: NVDL 1 @ 10.635 (13% of equity), a weekend hold. The exit is 09:31:05 Mon 11/23.
+- **The session was locked out twice by the weekly usage allowance:** Thu 11/12 for 24 hours, and Mon 11/16 13:36 ET to Fri 11/20 07:46 ET. During the second one the account was flat. See `report/DAY-20261120.md` and `report/WEEK-T3X-11.md`.
+- **Usage guard (RULES_v3 §15, added 11/20):** no entry unless enough allowance is left to reach the next sale; otherwise the night stays in cash. `tools/usage.py` prints the fraction used.
+- PAUSE: exactly 1 NVDL share with no top-up while equity is at or below 82.89.
+- Mon 11/23: the §3(f) edge check comes first and will probably send the overnight leg to cash.
 - The day leg is SUSPENDED.
 
-**Equity:** 80.10 at the 11/13 close (cash 62.29 + NVDL 1 marked 17.81; 80.05 at the bid).
+**Equity:** 78.95 at the 11/20 close (cash 68.67 + NVDL 1 marked 10.28).
 - Start 98.75. HWM 107.11 (10/12).
 - PAUSE level 82.89 from 11/11 to 12/4. KILL 50.
 
-**Campaign:** 47 nights, −24.00 on the strategy basis (21 wins, 26 losses; nights 46 and 47 are marked, not filled). In the account the same nights total −21.98.
+**Campaign:** 48 nights, −24.81 on the strategy basis (21 wins, 27 losses; nights 46 and 47 are marked, not filled). In the account the same nights total −22.79.
 
-**Running lean since 11/13** (`state.ops.usage_discipline`, `state.ops.usage`): no 8-minute scan loops; the half-hourly scheduled wakes are the loop; no multi-agent reviews unless needed. Friday used about a quarter of a week's allowance; the reset is Fri 11/20 05:00 ET.
+**Running lean** (`state.ops.usage_discipline`, `state.ops.usage_guard`): idle wakes are answered in one step; a heartbeat commit about every two hours; no multi-agent reviews unless a task cannot be done safely without one. The context was cut from 803k to 103k tokens on 11/20. The weekly reset is Fridays 05:00 ET.
 
-**Waiting on the owner:** usage (extra usage / cheaper model / as is); ultracode on or off; a daily `/compact`; the watchdog task; a daily "sale done" alert.
+**Waiting on the owner:** usage (extra usage / cheaper model / as is); ultracode on or off; hourly instead of half-hourly wakes; the watchdog task; a daily "sale done" alert.
 
 **Why the account is down (post-mortem 11/10, independently checked; `research/POSTMORTEM-20261110.md`):**
 - It did not bleed slowly. On Fri 11/6 it stood at 103.61, above the 98.75 start. Two nights then lost 21.27 (11/6→11/9: −15.84; 11/9→11/10: −5.43). The other 42 nights together made +1.50.
@@ -47,11 +47,11 @@
 
 **Daily loop (v1.8):**
 1. 07:45 analyst check. Add the prior session's official closes to the trend cache (`tools/trend.py add`). If the tool refuses a symbol, fix that symbol; QQQ is the one that matters.
-2. 09:25 and 09:29 shadow quotes.
+2. 09:29 shadow quote (when a position is held).
 3. Sell at 09:31:05: whole shares by limit order, then any fractional remainder by market order.
-4. Always-on 8-minute scans with hourly heartbeats.
-5. Sleeve shadow at 10:30, 13:00 and 15:25.
-6. 15:40 pre-entry check, journaled.
+4. The scheduled half-hourly wakes are the loop; a heartbeat commit about every two hours.
+5. Sleeve shadow: suspended while the budget above the $80 floor is under $2.
+6. 15:40 pre-entry check, journaled, including the §15 usage guard.
 7. 15:50 trend state (`tools/trend.py state ... --log`; 12:50 on a half-day). Exit code 2 means no valid state: follow the printed repair, else size DOWN.
 8. Buy at 15:52 (`tools/entry_v18.py`): whole NVDL shares by limit order, then one dollar-based top-up if at least $2 of the target is left. If one share costs more than the target (likely on a DOWN night), there is no limit order: the whole position is the dollar-based order, and the next morning's exit is a market sell of that fractional position.
 9. 16:01:30 EOD. On DOWN nights the report shows what full size would have made.
@@ -59,7 +59,7 @@
 
 Mondays add the §3(f) edge-decay check. Fridays add the weekly report and audit. Saturdays at 14:23 ET the lab runs (§14): measure the week, test at most one idea, record the result in `LAB.md`. The lab places no orders.
 
-**Blackouts:** NVDA earnings night 2026-11-17 (cash). No other blackouts. Half-days 11/27 and 12/24 have the entry at 12:52 ET.
+**Blackouts:** none scheduled (the NVDA earnings night of 11/17 has passed; the next date is checked at the January review). Half-days 11/27 and 12/24 have the entry at 12:52 ET.
 
 **Pre-registered reviews (no behaviour change before them):**
 - 40 live NVDA-2x nights (19 so far, around mid-December).

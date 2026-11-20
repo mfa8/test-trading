@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T20:52:30Z",
-    "loop_note": "ENTRY night 49: bought 1 NVDL @ 10.635 at 15:52:10 ET (limit 10.67; quote 10.64/10.65), order 6b00b2f9. PAUSE: exactly 1 share = 13.4% of E 79.31; weekend hold;",
+    "last_heartbeat_utc": "2026-11-20T21:13:04Z",
+    "loop_note": "EOD 16:11 ET 11/20: E 78.95 at the close mark (cash 68.67 + NVDL 1 @ 10.28 last regular trade); broker 79.19 with NVDL 10.52 after hours. NVDA 125.79 (-13.8%), ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1119,11 +1119,19 @@
         },
         "detail": "state history: today.outage of 2026-11-13; report DAY-20261112.md"
       }
-    ]
+    ],
+    "f3_inputs": {
+      "2026-11-20": {
+        "NVDL_open": 13.74,
+        "NVDA_open": 143.51,
+        "NVDL_prev_close": 14.25,
+        "NVDA_prev_close": 145.98
+      }
+    }
   },
   "account": {
-    "equity": 79.31,
-    "cash": 79.31,
+    "equity": 78.95,
+    "cash": 68.67,
     "asof": "07:48 ET 2026-11-20 (broker total; flat)"
   },
   "ranking": {
@@ -1148,7 +1156,7 @@
     "date": "2026-11-20",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "day_leg_done": true,
     "outage2": {
       "window": "Mon 2026-11-16 13:36 ET (first refused request 18:36:09Z; last good one 18:10:17Z) to Fri 2026-11-20 07:46 ET: 3 days 18 hours",
@@ -1167,7 +1175,16 @@
         "2026-11-18": 0.41,
         "2026-11-19": "pending today's open (about -0.85 at the 07:48 premarket bid)"
       },
-      "wakes_absorbed": "59 queued wakes read at 07:47 on 11/20 (58 from the lockout, all refused when delivered)"
+      "wakes_absorbed": "59 queued wakes read at 07:47 on 11/20 (58 from the lockout, all refused when delivered)",
+      "nights_not_taken_final": {
+        "basis": "1 NVDL share, official close to first-minute open",
+        "Mon->Tue": 0.165,
+        "Tue->Wed": "earnings blackout (cash by rule)",
+        "Wed->Thu": 0.405,
+        "Thu->Fri": -0.51,
+        "total": 0.06,
+        "note": "not booked; replaces the pre-market estimate of about -0.27"
+      }
     },
     "premarket": {
       "t": "07:48 ET",
@@ -1265,6 +1282,33 @@
       "SMH": 399.96,
       "SMH_day_pct": -10.6,
       "note": "account was in cash all day"
+    },
+    "eod": {
+      "t": "16:11 ET",
+      "E_close_mark": 78.95,
+      "cash": 68.67,
+      "NVDL_last_regular": 10.28,
+      "broker_total_1611": 79.19,
+      "NVDL_afterhours_1611": "10.51/10.52",
+      "last_regular_trades": {
+        "NVDL": 10.28,
+        "NVDA": 125.79,
+        "QQQ": 610.0425,
+        "SMH": 399.77
+      },
+      "day_pct": {
+        "NVDL": -27.86,
+        "NVDA": -13.83,
+        "QQQ": -5.43,
+        "SMH": -10.66
+      },
+      "opens": {
+        "NVDL": 13.74,
+        "NVDA": 143.51
+      },
+      "note": "official closes are added Monday 07:45 from the quote tool; PAUSE continues (78.95 <= 82.89)",
+      "usage_frac": 0.348,
+      "context_k": 202
     }
   },
   "schedule": {
