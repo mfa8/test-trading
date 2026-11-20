@@ -3,14 +3,14 @@
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
   "mode": "FLAT_AWAITING_ENTRY",
-  "mode_reason": "night 48 sold 09:31:13 ET Mon 11/16; night 49 entry due 15:52 (PAUSE session 5 of 5, 1 share)",
+  "mode_reason": "flat since Mon 11/16 09:31; session locked out Mon 13:36 ET -> Fri 07:46 ET; entry tonight only if the usage guard allows",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-16T18:10:14Z",
-    "loop_note": "HB 13:10 ET (lean mode): flat, cash 79.31, no HUMAN_STOP, PAUSE 5 of 5 tonight. Wakes since 11:13 (11:35, 12:09, 12:35 and this one) arrived on time, nothing du",
+    "last_heartbeat_utc": "2026-11-20T12:49:32Z",
+    "loop_note": "SECOND LOCKOUT + RECOVERY 07:47 ET Fri 11/20: the session was refused by the model API from Mon 11/16 13:36 ET (last good request 13:10) until the weekly reset;",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1045,7 +1045,7 @@
         }
       },
       "binding_from": "night 45 entry, 2026-11-10 15:50 ET",
-      "cache": "trader/research/trend/closes.json (283 closes per symbol to 2026-11-13)",
+      "cache": "trader/research/trend/closes.json (287 closes per symbol to 2026-11-19; 11/11, 11/16-11/18 from day bars)",
       "verification": "DONE 2026-11-09 17:20 ET (separate read-only agent, own loader and code): every T8 number reproduced; no look-ahead; 72/72 sensitivity cells positive; placebo never reached the observed gain; rule minus always-full +0.060/night, year-block 90pct interval +0.009..+0.121. Verdict WEAKLY SUPPORTED: 10 nights = 98pct of the gain, 2008+2022 = 73pct; lost in 51 of 82 spells and 9 of 22 active years; real NVDL only 86 DOWN nights (+0.020, t 0.55). Rule kept as INSURANCE, not edge; rollback (i) not triggered. Detail: research/REVIEW-20261109.md; scripts research/lab/20261109/",
       "today_flip": {
         "date": "2026-11-11",
@@ -1124,7 +1124,7 @@
   "account": {
     "equity": 79.31,
     "cash": 79.31,
-    "asof": "09:31 ET 2026-11-16 (broker total after the sale; flat)"
+    "asof": "07:48 ET 2026-11-20 (broker total; flat)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1134,119 +1134,73 @@
   "positions": [],
   "open_orders": [],
   "today": {
-    "date": "2026-11-16",
+    "date": "2026-11-20",
     "exit_done": true,
     "entry_done": false,
     "eod_done": false,
     "day_leg_done": true,
-    "premarket": {
-      "t": "07:47 ET",
-      "NVDL_bid": 16.73,
-      "NVDL_ask": 16.75,
-      "NVDA": 157.89,
-      "NVDA_chg_pct": -3.05,
-      "QQQ": 671.46,
-      "QQQ_chg_pct": -1.24,
-      "SMH_chg_pct": -3.69,
-      "SPY_chg_pct": -0.58,
-      "IWM_chg_pct": -0.48,
-      "AMD_chg_pct": -5.02,
-      "TSM_chg_pct": -4.94,
-      "official_closes_1113": {
-        "NVDL": 17.83,
-        "NVDA": 162.85,
-        "QQQ": 679.89,
-        "SMH": 486.75,
-        "SPY": 754.37,
-        "IWM": 277.54,
-        "AMD": 534.06,
-        "TSM": 398.73
+    "outage2": {
+      "window": "Mon 2026-11-16 13:36 ET (first refused request 18:36:09Z; last good one 18:10:17Z) to Fri 2026-11-20 07:46 ET: 3 days 18 hours",
+      "cause": "the weekly usage allowance for the session's model ran out again (HTTP 429). Since the Fri 11/13 05:00 ET reset the main thread had made 168 requests re-reading 50.0M cached tokens (plus 1.44M cache writes, 0.15M output and one 5-agent review, 1.11M); 228 requests were refused during the lockout. Context was 465k tokens, so each request cost about 0.47M; the 14 idle wakes a day alone cost about 13M a day.",
+      "missed": [
+        "Mon 11/16 15:52 entry of night 49 (PAUSE, 1 share)",
+        "Mon-Thu end-of-day records",
+        "Tue-Thu morning routines",
+        "Wed 11/18 and Thu 11/19 entries (Tue 11/17 was the earnings blackout: cash by rule)"
+      ],
+      "position_effect": "none: the account was flat from Mon 09:31 and stayed flat; broker shows no order since Mon 09:31:13; cash 79.31 unchanged",
+      "market_while_dark": "NVDA 162.85 (11/13) -> 156.14 -> 155.46 -> 150.96 (after earnings) -> 145.98 (11/19); NVDL 17.83 -> 16.35 -> 16.22 -> 15.24 -> 14.25; QQQ 679.89 -> 645.04 (-5.1%), now about 7% below its 200-day line",
+      "nights_not_taken": {
+        "note": "what one PAUSE share would have done, official close -> official open; NOT booked (no order, no position)",
+        "2026-11-16": 0.17,
+        "2026-11-18": 0.41,
+        "2026-11-19": "pending today's open (about -0.85 at the 07:48 premarket bid)"
       },
-      "night48_marked": -1.1,
-      "night48_marked_pct": -6.14,
-      "E_broker": 79.03,
-      "cash": 62.29,
-      "news": "not searched at 07:47 (lean mode: searched after the exit if the move needs explaining)"
+      "wakes_absorbed": "59 queued wakes read at 07:47 on 11/20 (58 from the lockout, all refused when delivered)"
+    },
+    "premarket": {
+      "t": "07:48 ET",
+      "NVDL_bid": 13.37,
+      "NVDL_ask": 13.38,
+      "NVDA": 141.6,
+      "NVDA_chg_pct": -3.0,
+      "QQQ": 633.35,
+      "QQQ_chg_pct": -1.81,
+      "SMH_chg_pct": -3.63,
+      "official_closes_1119": {
+        "NVDL": 14.25,
+        "NVDA": 145.98,
+        "QQQ": 645.04,
+        "SMH": 447.48
+      },
+      "E_broker": 79.31,
+      "cash": 79.31
     },
     "broker_check": {
-      "t": "07:47 ET",
-      "positions": "NVDL 1 avg 17.83 (avail 1)",
+      "t": "07:48 ET",
+      "positions": "none",
       "open_orders": 0,
-      "cash": 62.29,
-      "buying_power": 62.29,
-      "total_value": 79.03
+      "orders_since_1116_0931": 0,
+      "cash": 79.31,
+      "buying_power": 79.31,
+      "total_value": 79.31
     },
-    "trade_approval": "OFF (human_must_approve_trades false, 07:47)",
-    "option_level": "none (last read 11/13 16:01; read weekly while lean)",
-    "day_leg": "SUSPENDED (\u00a711 v1.7); TZA shadow only at EOD",
+    "trade_approval": "not re-read this morning (lean); OFF at Mon 07:47",
+    "option_level": "none (last read 11/13 16:01)",
+    "day_leg": "SUSPENDED (\u00a711 v1.7); TZA shadow not computed for 11/16-11/19 (lean)",
     "earnings_check": {
-      "amc_today": [
-        "PAGS",
-        "INFQ",
-        "POWL",
-        "ACM",
-        "OMER",
-        "SKE",
-        "XP",
-        "ZK"
-      ],
-      "source": "calendar read Fri 11/13 (5-day window)",
-      "note": "no semiconductor or megacap report after today's close -> night 49 untagged",
-      "nvda_earnings": "2026-11-17 amc (verified) -> exit Tue 09:31, NO Tue entry, re-enter Wed 11/18 15:52"
+      "note": "calendar not re-read (lean); NVDA reported 11/17; no known semiconductor or megacap report tonight"
     },
     "sleeve_shadow": [],
-    "sleeve_shadow_note": "skipped: budget above the 80 floor is negative (E 79.03)",
-    "trend_premarket": {
-      "t": "07:48 ET",
-      "qqq": 671.46,
-      "flip": 682.3,
-      "dist_pct": -1.6,
-      "state": "DOWN (reference only; binding read 15:50; PAUSE sets the size anyway)"
-    },
-    "f3_check": "\u00a73(f) trailing-120 NVDL overnight mean +0.058% (computed Sat 11/14; window complete) -> POSITIVE, overnight leg stays on",
+    "sleeve_shadow_note": "skipped: E is below the 80 floor",
     "pause_check": {
       "E": 79.31,
       "pause": 82.89,
       "kill": 50,
-      "result": "PAUSE in force, session 5 of 5 tonight: night 49 = exactly 1 NVDL share. E is below 82.89, so PAUSE continues at the 11/18 entry unless E recovers above it."
+      "result": "the 5 PAUSE sessions by date ended 11/16; E 79.31 is not above 82.89, so PAUSE continues: exactly 1 NVDL share per night"
     },
-    "plan": "Mon 11/16 (lean): 09:29 shadow quote; 09:31:05 exit night 48 (exit_ovn.py 48 20261116 NVDL:1:BID); 15:40 pre-entry; 15:50 trend state --log; 15:52 entry_v18.py core 49 20261116 <ask> <last> <E> pause (1 share; PAUSE session 5 of 5); EOD. Tue 11/17: exit 09:31, NO entry (NVDA earnings). Wed 11/18 15:52 re-enter (PAUSE continues unless E > 82.89).",
-    "exit": {
-      "n": 48,
-      "order_id": "6afb13b0-eb5c-4cf6-b139-db0299964ea2",
-      "sym": "NVDL",
-      "qty": 1,
-      "limit": 17.0,
-      "fill": 17.02,
-      "t": "09:31:13.087 ET",
-      "quote": "17.03/17.06 at 09:31:06; NVDA 159.22 bid (-2.23%)",
-      "pnl": -0.81,
-      "pct": -4.52,
-      "after": "0 positions, cash 79.31 = total"
-    },
-    "exit_shadow": {
-      "q0929": {
-        "NVDL": "16.98/17.01",
-        "NVDA": 159.05
-      },
-      "q093105": {
-        "NVDL": "17.03/17.06"
-      },
-      "fill": {
-        "NVDL": 17.02,
-        "t": "09:31:13.09"
-      },
-      "bp_0929_bid_vs_fill": {
-        "NVDL": -24
-      },
-      "running": "n16 mean +26bp sd 93 t 1.11 (\u00a73(g) bar: mean >= +10bp AND t >= 2: not met)",
-      "official_open": {
-        "NVDL": 16.99,
-        "NVDA": 159.0
-      },
-      "fill_vs_open_bp": 18,
-      "note": "09:25 quote dropped from the routine (lean mode; it is not part of the \u00a73(g) statistic)"
-    }
+    "f3_note": "\u00a73(f) is checked on Mondays. Mon 11/23 will add nights 11/13->16 (-4.82%), 11/16->17 (+1.01%), 11/18->19 (+2.66%) and 11/19->20 to a trailing-120 mean that stood at +0.058%; it will probably be at or below zero, which turns the overnight leg off from Monday.",
+    "plan": "Fri 11/20 (minimal-request mode): no exit (flat). 15:48 wake: usage guard check (tools/usage.py), then if allowed 15:50 trend state --log and 15:52 entry_v18.py core 49 20261120 <ask> <last> 79.31 pause (1 share; weekend hold); EOD merged into the entry record. Sat 11/21 lab: minimal (measure only). Mon 11/23: \u00a73(f) check FIRST (extend overnight_thru file); exit 09:31 if holding. Thu 11/26 closed; Fri 11/27 half day."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -1257,8 +1211,8 @@
     "t3x-lab-weekly": "trig_01EtHM9eT6cKNqRB9W5qiUEt"
   },
   "last_error": {
-    "t": "2026-11-13T12:48Z",
-    "what": "24-hour lockout 11/12 07:45 ET -> 11/13 07:46 ET: the model's weekly usage allowance ran out (HTTP 429); night-46 exit and night-47 entry missed; see today.outage"
+    "t": "2026-11-20T12:47Z",
+    "what": "second usage lockout Mon 11/16 13:36 ET -> Fri 11/20 07:46 ET; flat throughout; see today.outage2"
   },
   "alerts_open": [],
   "t2x_archive": "trader/archive/state_T2X_final.json (campaign EXPIRED 2026-08-28, E 98.75)",
@@ -1771,12 +1725,14 @@
       "since": "2026-11-13",
       "why": "the 11/12 lockout",
       "rules": [
-        "no 8-minute scan loops: between the exit and the entry the session ends its turn and lets the :00/:30 scheduled wakes run the loop",
-        "each wake: as few model round-trips as possible (parallel tool calls, one combined heartbeat script), short outputs, never print whole files or bar sets",
-        "no multi-agent workflow unless the task cannot be done safely without one; weekly lab single-threaded",
-        "commit and push state before every long wait"
+        "minimal-request mode from 2026-11-20: idle wakes are answered in one request; the morning routine is merged into the 09:26 wake and the end-of-day record into the entry record",
+        "the two idle-wake tasks are re-timed to one run a day each (see ops.wake_retime) if the platform allows",
+        "no multi-agent workflow; Saturday lab is measure-only",
+        "RULES_v3 \u00a715 usage guard decides every entry",
+        "never print whole files, bar sets or tool schemas into the main thread"
       ],
-      "reference": "limit reached after about 134M cache-read + 2.6M cache-write + 0.3M output tokens (main thread) and 5.3M workflow tokens in about 2.6 days"
+      "reference": "limit reached after about 134M cache-read + 2.6M cache-write + 0.3M output tokens (main thread) and 5.3M workflow tokens in about 2.6 days",
+      "lockout_2": "Mon 11/16 13:36 ET after 50.0M cache-read + 1.44M cache-write since the Fri reset (168 requests at 360-465k context)"
     },
     "watchdog": {
       "status": "NOT CREATED: the platform's permission check denied create_trigger for it on 2026-11-13 10:20 ET; it now needs the owner's go-ahead",
@@ -1802,6 +1758,13 @@
       },
       "reference_lockout": "about 134M cache-read + 2.6M cache-write + 0.3M output (main) + 5.3M workflow tokens in about 2.6 days before the 11/12 lockout",
       "estimate": "day 1 of 7 used roughly a quarter of what the lockout week used (recovery morning, 16 broker retries, one 5-agent review). Budget for the remaining 6 days: at most about 15M cache-read a day. Context is 362k tokens and compacts only at 784k, so every request costs 0.36M and rising: the half-hourly wakes alone cost about 11M a day."
+    },
+    "usage_guard": {
+      "rule": "RULES_v3 \u00a715",
+      "budget_cache_read_M": 40,
+      "lockout_level_M": 50,
+      "cost_to_next_exit_M": 6,
+      "reset": "Fridays 05:00 ET"
     }
   },
   "human_directives": [
