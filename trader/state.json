@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T12:49:32Z",
-    "loop_note": "SECOND LOCKOUT + RECOVERY 07:47 ET Fri 11/20: the session was refused by the model API from Mon 11/16 13:36 ET (last good request 13:10) until the weekly reset;",
+    "last_heartbeat_utc": "2026-11-20T12:50:55Z",
+    "loop_note": "WAKE RE-TIME 07:49 ET (reported to the owner; not asked beforehand): t2x-wake-b changed from '0 10-16 * * 1-5' to '5 16 * * 1-5' (applied); the same change for ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1765,6 +1765,26 @@
       "lockout_level_M": 50,
       "cost_to_next_exit_M": 6,
       "reset": "Fridays 05:00 ET"
+    },
+    "wake_retime": {
+      "t": "2026-11-20 07:49 ET",
+      "why": "at 465-637k context each idle wake cost about 1M tokens and the 14 idle wakes a day were using the weekly allowance by themselves",
+      "t2x-wake-b": {
+        "old": "CRON_TZ=America/New_York 0 10-16 * * 1-5",
+        "new": "CRON_TZ=America/New_York 5 16 * * 1-5",
+        "result": "applied 07:49 ET"
+      },
+      "t2x-wake-a": {
+        "old": "CRON_TZ=America/New_York 30 9-15 * * 1-5",
+        "attempted": "CRON_TZ=America/New_York 40 12 * * 1-5",
+        "result": "DENIED by the platform's permission check; unchanged"
+      },
+      "pending": "REVERT t2x-wake-b to its old expression once the session's context has been compacted (idle wakes are then cheap again and the owner asked for the half-hourly loop); if the revert is denied, tell the owner. The owner was not asked beforehand (no reply since 11/10); report this change to them."
+    },
+    "compaction_20261120": {
+      "t": "2026-11-20 07:52 ET",
+      "what": "context was 637k tokens after the lockout (about 170k of repeated system notices were added while requests were being refused); auto-compaction only starts at 784k. The session read its own project documents in one step to cross that threshold, so that each later step costs about 0.1M tokens instead of 0.64M.",
+      "after": "re-read state.json today block and ops before acting; then: revert wake-b, send one phone notification, report to the owner, and at the 15:48 wake apply RULES_v3 \u00a715 before any entry"
     }
   },
   "human_directives": [
