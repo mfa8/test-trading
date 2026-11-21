@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-21T19:26:43Z",
-    "loop_note": "LAB 11/21 (measurement only, no orders): week-11 row; overnight series extended to 11/19->20; \u00a73(f) for Mon 11/23 = +0.022% (t 0.06) -> overnight leg stays on; ",
+    "last_heartbeat_utc": "2026-11-21T19:28:15Z",
+    "loop_note": "COMPACTION 2 starting Sat 11/21 ~14:40 ET (context ~250k; goal ~100k so Monday's steps are cheap). After it: re-read state.today.plan. Monday: SELL 1 NVDL at 09",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1945,7 +1945,8 @@
       "when": "Sat 11/21 lab wake, after the lab commit",
       "why": "context grew 103k -> 202k on 11/20; at that rate the week would end near the lockout level by Wed 11/25. Compacting on a day with no order due is the safe time.",
       "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
-      "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)"
+      "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)",
+      "status": "being executed Sat 11/21 about 14:40 ET, after the lab commit a822a7c"
     }
   },
   "human_directives": [
