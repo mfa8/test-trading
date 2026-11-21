@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-21T19:28:15Z",
-    "loop_note": "COMPACTION 2 starting Sat 11/21 ~14:40 ET (context ~250k; goal ~100k so Monday's steps are cheap). After it: re-read state.today.plan. Monday: SELL 1 NVDL at 09",
+    "last_heartbeat_utc": "2026-11-21T19:33:31Z",
+    "loop_note": "LAB 11/21 report sent to owner 14:35 ET. COMPACTION 2 MISFIRED: the harness summarised the old history but kept the filler round verbatim, context 248k -> 705k,",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1946,7 +1946,7 @@
       "why": "context grew 103k -> 202k on 11/20; at that rate the week would end near the lockout level by Wed 11/25. Compacting on a day with no order due is the safe time.",
       "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
       "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)",
-      "status": "being executed Sat 11/21 about 14:40 ET, after the lab commit a822a7c"
+      "status": "MISFIRED Sat 11/21 14:30 ET: the harness kept the filler round verbatim, context 248k -> 705k, frac 0.42 -> 0.555. Corrective compaction under way the same afternoon (cross the threshold with a SMALL last step). After it: run tools/usage.py once, set this status to done with the new context size, heartbeat commit. Lab report already sent to the owner at 14:35 ET."
     }
   },
   "human_directives": [
