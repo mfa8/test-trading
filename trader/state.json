@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-21T19:33:31Z",
-    "loop_note": "LAB 11/21 report sent to owner 14:35 ET. COMPACTION 2 MISFIRED: the harness summarised the old history but kept the filler round verbatim, context 248k -> 705k,",
+    "last_heartbeat_utc": "2026-11-21T19:36:44Z",
+    "loop_note": "Corrective compaction done 14:36 ET: context 132k (was 705k), usage frac 0.611 (read 0.332, weighted 0.611; 76 requests since Fri reset). Cost of the whole misf",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1946,7 +1946,7 @@
       "why": "context grew 103k -> 202k on 11/20; at that rate the week would end near the lockout level by Wed 11/25. Compacting on a day with no order due is the safe time.",
       "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
       "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)",
-      "status": "MISFIRED Sat 11/21 14:30 ET: the harness kept the filler round verbatim, context 248k -> 705k, frac 0.42 -> 0.555. Corrective compaction under way the same afternoon (cross the threshold with a SMALL last step). After it: run tools/usage.py once, set this status to done with the new context size, heartbeat commit. Lab report already sent to the owner at 14:35 ET."
+      "status": "done Sat 11/21 14:36 ET (corrective): context now about 132k tokens, usage frac 0.611 of the lockout level (first attempt misfired 14:30 ET: 248k -> 705k, frac 0.42 -> 0.555). Lesson: the round that crosses the compaction threshold (~760-803k) is kept verbatim, so cross it with a SMALL round and never make filler the crossing round; a filler-based compaction costs 0.12-0.20 of the weekly level, so prefer not to do it at all below ~600k."
     }
   },
   "human_directives": [
