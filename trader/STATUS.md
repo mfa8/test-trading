@@ -5,7 +5,7 @@
 - **The session was locked out twice by the weekly usage allowance:** Thu 11/12 for 24 hours, and Mon 11/16 13:36 ET to Fri 11/20 07:46 ET. During the second one the account was flat. See `report/DAY-20261120.md` and `report/WEEK-T3X-11.md`.
 - **Usage guard (RULES_v3 §15, added 11/20):** no entry unless enough allowance is left to reach the next sale; otherwise the night stays in cash. `tools/usage.py` prints the fraction used.
 - PAUSE: exactly 1 NVDL share with no top-up while equity is at or below 82.89.
-- Mon 11/23: the §3(f) edge check comes first and will probably send the overnight leg to cash.
+- §3(f) edge check for Mon 11/23 (computed 11/21): **+0.022%**, so the overnight leg stays on, by the thinnest margin so far. Next check Mon 11/30.
 - The day leg is SUSPENDED.
 
 **Equity:** 78.95 at the 11/20 close (cash 68.67 + NVDL 1 marked 10.28).
@@ -42,7 +42,7 @@
 - Trend state on 11/9 (provisional closes): QQQ 678.77 against a line at 681.18, 0.35% below → DOWN. That close to the line the state can flip on any day; the 15:50 price on 11/10 decides night 45.
 - At equity near $86: DOWN means about $21.50 of NVDL, which is one whole share if it fits under 25% of equity and otherwise a fractional position of just under one share; UP means 3 shares plus about $20 of fractional NVDL.
 - Planning edge, corrected 11/10: about +0.2% a night before costs, and between about zero and +0.15% after them. At $82 that is $0 to about $2.60 a month at full size, against monthly swings near $10.
-- §3(f) trailing-120 NVDL check (11/9): +0.363%, t 1.40 → the overnight leg stays on. Next check 11/16.
+- §3(f) trailing-120 NVDL check: +0.363% (11/9), +0.058% (11/16), +0.022% (11/23; t 0.06) → the overnight leg stays on. Next check 11/30.
 - The inverse day leg has been SUSPENDED since 10/15. Never hold an inverse product overnight.
 
 **Daily loop (v1.8):**

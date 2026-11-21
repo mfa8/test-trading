@@ -78,6 +78,7 @@ Details and numbers for 11/9: `research/REVIEW-20261109.md`. Scripts and the che
 | week | nights | live return per night | model | slippage vs quote | trend state (nights UP / DOWN) | note |
 |---|---|---|---|---|---|---|
 | 10 (11/9–11/13) | 5 (N43–N47; N46 and N47 marked, not filled) | −8.71% mean (−16.64, −7.06, +5.43, −27.82 m, +2.56 m) | NVDL official close→open −7.40% mean (−14.64, −5.22, +4.56, −26.30, +4.58); the three filled nights ran −0.99 pt behind it | exits vs quoted bid −15, −20, −18, −5, −17 bp; entries vs quoted ask +5 bp (N46), −14 bp (N48) | N45 DOWN, N46 UP, N47 not read (lockout), N48 DOWN | PAUSE from N45; 24-hour usage lockout Thu; broker outage Fri; no fractional order yet (L3 has no data) |
+| 11 (11/16–11/20) | 1 filled (N48); N49 open; three nights missed in the lockout, one blackout | −4.52% (N48) | NVDL official close→open −4.82% (N48); the fill ran +0.30 pt ahead of it | exit N48 vs quoted bid −6 bp; entry N49 vs quoted ask −14 bp (10.635 against 10.64/10.65) | N49 DOWN (QQQ −10.3% under its line); Mon–Thu not read (lockout) | PAUSE all week; usage lockout Mon 13:36 ET to Fri 07:46 ET; N49 bought 2.9% above the 11/20 close (NVDL fell from 10.64 to 10.33 in the last eight minutes); no fractional order yet (L3 has no data) |
 
 - 2026-11-13 (ops note, L10): the daily options shadow is skipped while the budget above the $80 floor is under $2.00 (today it was $0.12). Nothing can fit below that, and each reading adds about 8k tokens to the session's memory. No rule changed.
 - 2026-11-13 (ops note): crash-open shadow now n=2 (11/9 live, 11/12 marked). Both show a large gain from waiting. Two cases prove nothing, and hold-through was tested and rejected on 11/9. No change.
@@ -100,3 +101,15 @@ Details and numbers for 11/9: `research/REVIEW-20261109.md`. Scripts and the che
   - L19: a resting sell order placed at entry time, so the morning sale does not depend on the session being alive. Needs a review of broker order types and of §5 before any test.
   - L20: `exit_ovn.py` with a deterministic ref_id and a duplicate-intent stop, so a second run cannot place a second sale.
   - L21: complete the L12 data (2005–2014 bars and report dates).
+
+## Cycle 2026-11-21 (single-threaded, measurement only, because of the usage limit; no orders; no rule changed)
+
+- **Measured:** week-11 row added above. Overnight series extended with five nights to `research/edge_decay/overnight_thru_20261120.csv` (script `research/lab/20261121/s_cycle.py`; the 11/14 value +0.058 reproduced first).
+- **§3(f) for Mon 11/23: trailing-120 NVDL overnight mean +0.022%** (sd 4.04, t 0.06; window 2026-05-29 to 2026-11-19; the earnings night 11/17 excluded). Positive, so the overnight leg stays on. The margin is as thin as it can be: 65 of the 120 nights were up, and without the five worst nights the mean would be +0.54%.
+- **The week in NVDA:** the five close-to-open moves sum to +0.14%; the five day sessions were −1.8, −0.9, −5.2, −4.5 and −12.5%. One week; it proves nothing about the premise.
+- **Shadows:** trend-filter and down-session entries added for night 49 (results pending Monday's sale). Crash-open shadow: no trigger this week (N48's exit morning opened −2.4%). Options and TZA shadows not run (usage).
+- **Hypothesis tested: none.** The backlog items that matter (L12/L21, L16, L18) need data pulls or an independent re-derivation, and the weekly allowance cannot carry them this week. Nothing was pre-registered, so nothing was run.
+- **Ops (not strategy):** RULES_v3 §15 usage guard (11/20). The session's own rate-limit status (`get_session` → `rate_limit_info.status`) is now read before each entry as a second signal: anything other than "allowed" means cash.
+- **Added to the backlog (registered only):**
+  - L22: entry timing inside the last ten minutes. N49 was bought at 15:52 and NVDL closed 2.9% lower; N48 was the reverse by 0.03%. Before any test: collect, for every live night, the 15:52 fill against the official close (already in `trades.csv` and the day bars). The fill-cost shadow needs n ≥ 60 before it is judged.
+

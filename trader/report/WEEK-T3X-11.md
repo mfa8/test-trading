@@ -36,5 +36,5 @@
 4. The notify-only watchdog task (written, in the repo; creating it was refused by the permission check).
 
 ## Next week
-- Mon 11/23: §3(f) edge check first. It will probably come out at or below zero, which sends the overnight leg to cash until a Monday where it is positive again. Then sell 1 NVDL at 09:31:05.
+- Mon 11/23: sell 1 NVDL at 09:31:05. The §3(f) edge check, computed 11/21, is +0.022% (t 0.06): positive by the thinnest margin, so the overnight leg stays on. (Friday's version of this line expected it at or below zero.)
 - Thu 11/26 closed. Fri 11/27 half day (trend read 12:50, entry 12:52).

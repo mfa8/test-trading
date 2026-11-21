@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-20T21:13:04Z",
-    "loop_note": "EOD 16:11 ET 11/20: E 78.95 at the close mark (cash 68.67 + NVDL 1 @ 10.28 last regular trade); broker 79.19 with NVDL 10.52 after hours. NVDA 125.79 (-13.8%), ",
+    "last_heartbeat_utc": "2026-11-21T19:26:43Z",
+    "loop_note": "LAB 11/21 (measurement only, no orders): week-11 row; overnight series extended to 11/19->20; \u00a73(f) for Mon 11/23 = +0.022% (t 0.06) -> overnight leg stays on; ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -531,6 +531,16 @@
             "night_pnl": -0.81
           },
           "note": "open 169.87; PAUSE night, 1 share; weekend"
+        },
+        {
+          "night": 49,
+          "date": "2026-11-20",
+          "vs_prior_close": "DOWN",
+          "vs_open": "DOWN",
+          "NVDA_1550_chg_vs_pc_pct": -12.19,
+          "NVDA_1550_chg_vs_open_pct": -10.69,
+          "realized": "pending Mon 11/23 exit",
+          "note": "open 143.52; PAUSE night, 1 share; weekend"
         }
       ],
       "crash_open_exit_delay_log": [
@@ -634,6 +644,15 @@
               "full_size_counterfactual_pnl": -3.55,
               "note": "DOWN night that fell: the full size would have lost about 3.55 against 0.81 taken"
             }
+          },
+          {
+            "night": 49,
+            "date": "2026-11-20",
+            "state": "DOWN",
+            "dist_pct": -10.31,
+            "size_taken": "1 share (PAUSE; the DOWN size would be 1 share + 9.19 top-up = 19.83)",
+            "full_size_counterfactual": "7 shares + 3.28 top-up = 77.72 (0.98 of E)",
+            "realized": "pending Mon 11/23 exit"
           }
         ]
       }
@@ -699,6 +718,17 @@
         "t": 0.16,
         "result": "POSITIVE -> overnight leg stays on (thin margin)",
         "method": "overnight_thru_20261106.csv extended with 5 nights (11/6->11/9 -14.635, 11/9->11/10 -5.222, 11/10->11/11 +4.564, 11/11->11/12 -26.299, 11/12->11/13 +4.577) from RH day bars (adjustment none, fetched 11/14) -> research/edge_decay/overnight_thru_20261113.csv; research/lab/20261114/s_cycle.py reproduces the 11/9 value (+0.363, t 1.40)"
+      },
+      {
+        "date": "2026-11-23",
+        "computed": "2026-11-21 (window already complete)",
+        "window_first_night": "2026-05-29",
+        "window_last_night": "2026-11-19",
+        "value_pct_clean": 0.022,
+        "sd_pct": 4.039,
+        "t": 0.06,
+        "result": "POSITIVE -> overnight leg stays on (thinnest margin yet)",
+        "method": "overnight_thru_20261113.csv extended with 5 nights (11/13->16 -4.823, 11/16->17 +1.009, 11/17->18 earnings +4.593 excluded, 11/18->19 +2.658, 11/19->20 -3.579) from RH day bars (adjustment none, fetched 11/21) -> overnight_thru_20261120.csv; research/lab/20261121/s_cycle.py reproduces the 11/14 value (+0.058)"
       }
     ],
     "rank_20261019": {
@@ -1077,16 +1107,13 @@
       "candidate": "L12 earnings blackout (test only; 11/17 stays in cash)",
       "archive": "trader/research/lab/",
       "last_cycle": {
-        "date": "2026-11-14",
-        "mode": "single-threaded (usage limit)",
-        "measured": "week-10 row; \u00a73(f) +0.058",
-        "tested": "L12 preview: passes growth and worst-night conditions at 0.25 and 0.5, fails the 60-night sample condition (47), no independent re-derivation",
-        "decision": "not adopted; backlog; 11/17 stays cash",
-        "rule_changes": 0,
-        "added": [
-          "L19 resting exit order",
-          "L20 exit tool duplicate stop",
-          "L21 L12 data 2005-2014"
+        "date": "2026-11-21",
+        "kind": "measurement only (usage)",
+        "f3": 0.022,
+        "tested": "none",
+        "rule_change": "none (ops: \u00a715(a2) rate-limit status as second signal)",
+        "backlog_added": [
+          "L22"
         ]
       }
     },
@@ -1233,8 +1260,8 @@
       "kill": 50,
       "result": "the 5 PAUSE sessions by date ended 11/16; E 79.31 is not above 82.89, so PAUSE continues: exactly 1 NVDL share per night"
     },
-    "f3_note": "\u00a73(f) is checked on Mondays. Mon 11/23 will add nights 11/13->16 (-4.82%), 11/16->17 (+1.01%), 11/18->19 (+2.66%) and 11/19->20 to a trailing-120 mean that stood at +0.058%; it will probably be at or below zero, which turns the overnight leg off from Monday.",
-    "plan": "EOD 16:05 wake: portfolio, closes, equity row, DAY-20261120 (covers the lockout week), STATUS rewrite, lean WEEK-T3X-11. Sat 11/21 lab: measure only. Mon 11/23: 07:45 analyst incl. \u00a73(f) check FIRST (decides Monday night's entry, not the exit); SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID). Thu 11/26 closed; Fri 11/27 half day.",
+    "f3_note": "\u00a73(f) for Mon 11/23 computed 11/21: +0.022% (t 0.06) -> overnight leg STAYS ON. Next check Mon 11/30.",
+    "plan": "Mon 11/23: 07:45 analyst (official 11/20 closes -> trend.py add; positions; portfolio). SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID). \u00a73(f) = +0.022 -> leg stays on. 15:36 pre-entry incl. \u00a715 (usage.py frac + 0.10 <= 0.80 AND get_session rate_limit_info.status == allowed); 15:50 trend --log; 15:52 entry night 50 under PAUSE (1 share) unless equity > 82.89. Thu 11/26 closed; Fri 11/27 half day (trend 12:50, entry 12:52). Friday after-hours 11/20: NVDA 130.01, NVDL 10.965.",
     "owner_report": "07:58 ET: phone alert + chat report on the second lockout (flat throughout), \u00a715 guard, wake re-time reverted, compaction, open decisions",
     "entry": {
       "n": 49,
@@ -1884,6 +1911,12 @@
         "frac_read": 0.073,
         "frac_weighted": 0.205,
         "note": "most of it is the cost of the compaction itself"
+      },
+      "second_signal": "get_session rate_limit_info.status must be \"allowed\" (seven_day limit; resets Fri 2026-11-27 05:00 ET)",
+      "platform_cost_snapshot": {
+        "t": "2026-11-21 14:30 ET",
+        "cost_usd_cumulative": 1587.78,
+        "note": "session lifetime total from get_session; difference later snapshots to see this week's cost in the platform's own weighting"
       }
     },
     "wake_retime": {
