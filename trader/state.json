@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-21T19:36:44Z",
-    "loop_note": "Corrective compaction done 14:36 ET: context 132k (was 705k), usage frac 0.611 (read 0.332, weighted 0.611; 76 requests since Fri reset). Cost of the whole misf",
+    "last_heartbeat_utc": "2026-11-23T12:46:55Z",
+    "loop_note": "ANALYST Mon 11/23 07:46 ET: official 11/20 closes QQQ 608.45 NVDA 125.53 SMH 400.06 NVDL 10.33 added to trend (288 closes). Broker: 1 NVDL held (avg 10.64), no ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1163,9 +1163,9 @@
     ]
   },
   "account": {
-    "equity": 78.95,
+    "equity": 80.3,
     "cash": 68.67,
-    "asof": "07:48 ET 2026-11-20 (broker total; flat)"
+    "asof": "07:46 ET 2026-11-23 (broker total, premarket mark; 1 NVDL held)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1186,163 +1186,46 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-11-20",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "day_leg_done": true,
-    "outage2": {
-      "window": "Mon 2026-11-16 13:36 ET (first refused request 18:36:09Z; last good one 18:10:17Z) to Fri 2026-11-20 07:46 ET: 3 days 18 hours",
-      "cause": "the weekly usage allowance for the session's model ran out again (HTTP 429). Since the Fri 11/13 05:00 ET reset the main thread had made 168 requests re-reading 50.0M cached tokens (plus 1.44M cache writes, 0.15M output and one 5-agent review, 1.11M); 228 requests were refused during the lockout. Context was 465k tokens, so each request cost about 0.47M; the 14 idle wakes a day alone cost about 13M a day.",
-      "missed": [
-        "Mon 11/16 15:52 entry of night 49 (PAUSE, 1 share)",
-        "Mon-Thu end-of-day records",
-        "Tue-Thu morning routines",
-        "Wed 11/18 and Thu 11/19 entries (Tue 11/17 was the earnings blackout: cash by rule)"
-      ],
-      "position_effect": "none: the account was flat from Mon 09:31 and stayed flat; broker shows no order since Mon 09:31:13; cash 79.31 unchanged",
-      "market_while_dark": "NVDA 162.85 (11/13) -> 156.14 -> 155.46 -> 150.96 (after earnings) -> 145.98 (11/19); NVDL 17.83 -> 16.35 -> 16.22 -> 15.24 -> 14.25; QQQ 679.89 -> 645.04 (-5.1%), now about 7% below its 200-day line",
-      "nights_not_taken": {
-        "note": "what one PAUSE share would have done, official close -> official open; NOT booked (no order, no position)",
-        "2026-11-16": 0.17,
-        "2026-11-18": 0.41,
-        "2026-11-19": "pending today's open (about -0.85 at the 07:48 premarket bid)"
-      },
-      "wakes_absorbed": "59 queued wakes read at 07:47 on 11/20 (58 from the lockout, all refused when delivered)",
-      "nights_not_taken_final": {
-        "basis": "1 NVDL share, official close to first-minute open",
-        "Mon->Tue": 0.165,
-        "Tue->Wed": "earnings blackout (cash by rule)",
-        "Wed->Thu": 0.405,
-        "Thu->Fri": -0.51,
-        "total": 0.06,
-        "note": "not booked; replaces the pre-market estimate of about -0.27"
-      }
+    "date": "2026-11-23",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "official_closes_20261120": {
+      "QQQ": 608.45,
+      "NVDA": 125.53,
+      "SMH": 400.06,
+      "NVDL": 10.33,
+      "added_to_trend": true
     },
     "premarket": {
-      "t": "07:48 ET",
-      "NVDL_bid": 13.37,
-      "NVDL_ask": 13.38,
-      "NVDA": 141.6,
-      "NVDA_chg_pct": -3.0,
-      "QQQ": 633.35,
-      "QQQ_chg_pct": -1.81,
-      "SMH_chg_pct": -3.63,
-      "official_closes_1119": {
-        "NVDL": 14.25,
-        "NVDA": 145.98,
-        "QQQ": 645.04,
-        "SMH": 447.48
-      },
-      "E_broker": 79.31,
-      "cash": 79.31
+      "t": "07:46 ET",
+      "NVDA": 134.12,
+      "NVDA_vs_close_pct": 6.84,
+      "NVDL_bid": 11.62,
+      "NVDL_ask": 11.64,
+      "NVDL_vs_entry_pct": 9.26,
+      "QQQ": 627.5,
+      "QQQ_vs_close_pct": 3.13,
+      "SMH": 420.54
     },
     "broker_check": {
-      "t": "07:48 ET",
-      "positions": "none",
+      "t": "07:46 ET",
+      "positions": "NVDL 1 (avg 10.64, 1 available to sell)",
       "open_orders": 0,
-      "orders_since_1116_0931": 0,
-      "cash": 79.31,
-      "buying_power": 79.31,
-      "total_value": 79.31
-    },
-    "trade_approval": "not re-read this morning (lean); OFF at Mon 07:47",
-    "option_level": "none (last read 11/13 16:01)",
-    "day_leg": "SUSPENDED (\u00a711 v1.7); TZA shadow not computed for 11/16-11/19 (lean)",
-    "earnings_check": {
-      "note": "calendar not re-read (lean); NVDA reported 11/17; no known semiconductor or megacap report tonight"
-    },
-    "sleeve_shadow": [],
-    "sleeve_shadow_note": "skipped: E is below the 80 floor",
-    "pause_check": {
-      "E": 79.31,
-      "pause": 82.89,
-      "kill": 50,
-      "result": "the 5 PAUSE sessions by date ended 11/16; E 79.31 is not above 82.89, so PAUSE continues: exactly 1 NVDL share per night"
-    },
-    "f3_note": "\u00a73(f) for Mon 11/23 computed 11/21: +0.022% (t 0.06) -> overnight leg STAYS ON. Next check Mon 11/30.",
-    "plan": "Mon 11/23: 07:45 analyst (official 11/20 closes -> trend.py add; positions; portfolio). SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID). \u00a73(f) = +0.022 -> leg stays on. 15:36 pre-entry incl. \u00a715 (usage.py frac + 0.10 <= 0.80 AND get_session rate_limit_info.status == allowed); 15:50 trend --log; 15:52 entry night 50 under PAUSE (1 share) unless equity > 82.89. Thu 11/26 closed; Fri 11/27 half day (trend 12:50, entry 12:52). Friday after-hours 11/20: NVDA 130.01, NVDL 10.965.",
-    "owner_report": "07:58 ET: phone alert + chat report on the second lockout (flat throughout), \u00a715 guard, wake re-time reverted, compaction, open decisions",
-    "entry": {
-      "n": 49,
-      "order_id": "6b00b2f9-2914-4332-a4b2-32c4c8f565c7",
-      "sym": "NVDL",
-      "qty": 1,
-      "limit": 10.67,
-      "fill": 10.635,
-      "t": "15:52:10.181 ET",
-      "quote": "10.64/10.65 last 10.64 at 15:52:01; fill 0.5c under the bid-ask midpoint",
-      "weekend_hold": true,
-      "exit": "09:31:05 ET Mon 11/23"
-    },
-    "trend": {
-      "date": "2026-11-20",
-      "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
-      "qqq": 612.96,
-      "flip": 683.436,
-      "dist_pct": -10.31,
-      "state": "DOWN",
-      "f": 0.25,
-      "shadow": {
-        "NVDA": {
-          "px": 128.18,
-          "flip": 203.736,
-          "dist_pct": -37.09,
-          "state": "DOWN"
-        },
-        "SMH": {
-          "px": 402.55,
-          "flip": 525.799,
-          "dist_pct": -23.44,
-          "state": "DOWN"
-        }
-      }
-    },
-    "usage_guard_check": {
-      "t": "15:36 ET",
-      "frac": 0.284,
-      "plus": 0.1,
-      "limit": 0.8,
-      "result": "entry allowed"
-    },
-    "market_1536": {
-      "NVDA": 126.84,
-      "NVDA_day_pct": -13.1,
-      "NVDL": 10.5,
-      "NVDL_day_pct": -26.3,
-      "QQQ": 609.09,
-      "QQQ_day_pct": -5.57,
-      "SMH": 399.96,
-      "SMH_day_pct": -10.6,
-      "note": "account was in cash all day"
-    },
-    "eod": {
-      "t": "16:11 ET",
-      "E_close_mark": 78.95,
+      "total_value": 80.3,
       "cash": 68.67,
-      "NVDL_last_regular": 10.28,
-      "broker_total_1611": 79.19,
-      "NVDL_afterhours_1611": "10.51/10.52",
-      "last_regular_trades": {
-        "NVDL": 10.28,
-        "NVDA": 125.79,
-        "QQQ": 610.0425,
-        "SMH": 399.77
-      },
-      "day_pct": {
-        "NVDL": -27.86,
-        "NVDA": -13.83,
-        "QQQ": -5.43,
-        "SMH": -10.66
-      },
-      "opens": {
-        "NVDL": 13.74,
-        "NVDA": 143.51
-      },
-      "note": "official closes are added Monday 07:45 from the quote tool; PAUSE continues (78.95 <= 82.89)",
-      "usage_frac": 0.348,
-      "context_k": 202
-    }
+      "buying_power": 68.67
+    },
+    "trade_approval": "off (read 07:46 ET)",
+    "f3_note": "\u00a73(f) Monday check (computed Sat 11/21): trailing-120 NVDL overnight mean ex-earnings +0.022% > 0 -> overnight leg stays ON. Next check Mon 11/30.",
+    "pause_check": "E 78.95 at Friday's close; PAUSE level 82.89 -> 1 share tonight unless today's 15:36 equity > 82.89 (after selling near 11.6 equity would be about 80.3: still PAUSE).",
+    "usage_0746": {
+      "frac": 0.632,
+      "context_k": 143,
+      "requests_since_reset": 79,
+      "note": "guard needs frac <= 0.70 at 15:36; projection ~0.72-0.75 -> tonight probably cash under \u00a715"
+    },
+    "plan": "09:26 wake: 09:29:00 shadow quote; 09:31:05 quote -> exit_ovn.py 49 20261123 NVDL:1:BID -> sell limit -> verify -> records (trades.csv T3X-N49, night_returns, shadows) -> report. 15:36 pre-entry incl. \u00a715 (usage.py frac + 0.10 <= 0.80 AND get_session rate_limit_info.status == allowed; else cash and say so). 15:50 trend --log; 15:52 entry night 50 under PAUSE (1 share). EOD 16:10. Wed 11/25 entry allowed by the reset clause; Thu 11/26 closed; Fri 11/27 half day (trend 12:50, entry 12:52)."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -1947,6 +1830,34 @@
       "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
       "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)",
       "status": "done Sat 11/21 14:36 ET (corrective): context now about 132k tokens, usage frac 0.611 of the lockout level (first attempt misfired 14:30 ET: 248k -> 705k, frac 0.42 -> 0.555). Lesson: the round that crosses the compaction threshold (~760-803k) is kept verbatim, so cross it with a SMALL round and never make filler the crossing round; a filler-based compaction costs 0.12-0.20 of the weekly level, so prefer not to do it at all below ~600k."
+    },
+    "outage2": {
+      "window": "Mon 2026-11-16 13:36 ET (first refused request 18:36:09Z; last good one 18:10:17Z) to Fri 2026-11-20 07:46 ET: 3 days 18 hours",
+      "cause": "the weekly usage allowance for the session's model ran out again (HTTP 429). Since the Fri 11/13 05:00 ET reset the main thread had made 168 requests re-reading 50.0M cached tokens (plus 1.44M cache writes, 0.15M output and one 5-agent review, 1.11M); 228 requests were refused during the lockout. Context was 465k tokens, so each request cost about 0.47M; the 14 idle wakes a day alone cost about 13M a day.",
+      "missed": [
+        "Mon 11/16 15:52 entry of night 49 (PAUSE, 1 share)",
+        "Mon-Thu end-of-day records",
+        "Tue-Thu morning routines",
+        "Wed 11/18 and Thu 11/19 entries (Tue 11/17 was the earnings blackout: cash by rule)"
+      ],
+      "position_effect": "none: the account was flat from Mon 09:31 and stayed flat; broker shows no order since Mon 09:31:13; cash 79.31 unchanged",
+      "market_while_dark": "NVDA 162.85 (11/13) -> 156.14 -> 155.46 -> 150.96 (after earnings) -> 145.98 (11/19); NVDL 17.83 -> 16.35 -> 16.22 -> 15.24 -> 14.25; QQQ 679.89 -> 645.04 (-5.1%), now about 7% below its 200-day line",
+      "nights_not_taken": {
+        "note": "what one PAUSE share would have done, official close -> official open; NOT booked (no order, no position)",
+        "2026-11-16": 0.17,
+        "2026-11-18": 0.41,
+        "2026-11-19": "pending today's open (about -0.85 at the 07:48 premarket bid)"
+      },
+      "wakes_absorbed": "59 queued wakes read at 07:47 on 11/20 (58 from the lockout, all refused when delivered)",
+      "nights_not_taken_final": {
+        "basis": "1 NVDL share, official close to first-minute open",
+        "Mon->Tue": 0.165,
+        "Tue->Wed": "earnings blackout (cash by rule)",
+        "Wed->Thu": 0.405,
+        "Thu->Fri": -0.51,
+        "total": 0.06,
+        "note": "not booked; replaces the pre-market estimate of about -0.27"
+      }
     }
   },
   "human_directives": [
