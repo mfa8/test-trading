@@ -1,20 +1,21 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** IN_POSITION_OVERNIGHT under **PAUSE** (as of 16:11 ET Fri 11/20).
-- Night 49 entered at 15:52: NVDL 1 @ 10.635 (13% of equity), a weekend hold. The exit is 09:31:05 Mon 11/23.
-- **The session was locked out twice by the weekly usage allowance:** Thu 11/12 for 24 hours, and Mon 11/16 13:36 ET to Fri 11/20 07:46 ET. During the second one the account was flat. See `report/DAY-20261120.md` and `report/WEEK-T3X-11.md`.
-- **Usage guard (RULES_v3 §15, added 11/20):** no entry unless enough allowance is left to reach the next sale; otherwise the night stays in cash. `tools/usage.py` prints the fraction used.
-- PAUSE: exactly 1 NVDL share with no top-up while equity is at or below 82.89.
-- §3(f) edge check for Mon 11/23 (computed 11/21): **+0.022%**, so the overnight leg stays on, by the thinnest margin so far. Next check Mon 11/30.
+**Mode:** FLAT, all cash (as of 16:10 ET Mon 11/23). PAUSE ended this morning.
+- Night 49 sold at 09:31:18 Mon 11/23: NVDL 1 @ 16.57 against a 10.635 entry, **+5.94 (+55.8%)** after NVDA rebounded 33% at the open.
+- **Monday night is in cash** under the usage guard (RULES_v3 s15): usage was 79% of the lockout level at 15:36; the rule needs 70% or less before an entry.
+- **PAUSE ended:** the all-cash total 85.24 is above 82.89. The next entry is sized by the trend rule (QQQ is under its 200-day average, so 0.25 of equity: one NVDL share plus a small top-up). PAUSE returns if equity falls to 82.89 or less.
+- Tuesday night: cash (guard). Wednesday night: entry allowed (the weekly reset, Fri 11/27 05:00 ET, comes before its sale) if the session is still running.
+- **Lockout risk:** at the present cost of the half-hourly wakes the session reaches the lockout level on Wednesday and stays dark until the Friday reset. The wake schedule is the owner's to change (the platform refused my change on 11/20).
+- s3(f) edge check for Mon 11/23: **+0.022%**, so the overnight leg stays on. Next check Mon 11/30.
 - The day leg is SUSPENDED.
 
-**Equity:** 78.95 at the 11/20 close (cash 68.67 + NVDL 1 marked 10.28).
+**Equity:** 85.24 at the 11/23 close (all cash).
 - Start 98.75. HWM 107.11 (10/12).
 - PAUSE level 82.89 from 11/11 to 12/4. KILL 50.
 
-**Campaign:** 48 nights, −24.81 on the strategy basis (21 wins, 27 losses; nights 46 and 47 are marked, not filled). In the account the same nights total −22.79.
+**Campaign:** 49 nights, -18.87 on the strategy basis (22 wins, 27 losses; nights 46 and 47 are marked, not filled). In the account the same nights total -16.85.
 
-**Running lean** (`state.ops.usage_discipline`, `state.ops.usage_guard`): idle wakes are answered in one step; a heartbeat commit about every two hours; no multi-agent reviews unless a task cannot be done safely without one. The context was cut from 803k to 103k tokens on 11/20. The weekly reset is Fridays 05:00 ET.
+**Running lean** (`state.ops.usage_discipline`, `state.ops.usage_guard`): idle wakes are answered with one line; one commit at the end of the day; no multi-agent reviews unless a task cannot be done safely without one. Context 237k tokens. The weekly reset is Fridays 05:00 ET. Usage at the 11/23 close: 81% of the lockout level (53% by tokens re-read).
 
 **Waiting on the owner:** usage (extra usage / cheaper model / as is); ultracode on or off; hourly instead of half-hourly wakes; the watchdog task; a daily "sale done" alert.
 

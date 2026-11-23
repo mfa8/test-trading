@@ -3,14 +3,14 @@
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
   "mode": "FLAT",
-  "mode_reason": "flat since Mon 11/23 09:31:18 ET (night 49 sold at 16.57, +5.94); PAUSE ended (all-cash 85.24 > 82.89); tonight's entry needs the s15 usage guard to pass, then s13 trend sizing",
+  "mode_reason": "flat since Mon 11/23 09:31:18 ET (night 49 sold at 16.57); Monday night in cash under the s15 usage guard (frac 0.79 at 15:36)",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-23T14:33:32Z",
-    "loop_note": "W-10 EXIT N49 09:31:18 ET: 09:29 quote NVDL 17.28/17.29 (NVDA 168.50, QQQ 656.20); 09:31:05 quote 16.34/16.35 (NVDA bid 162.99 +29.8%, QQQ 652.66 +7.3%); exit_o",
+    "last_heartbeat_utc": "2026-11-23T21:10:51Z",
+    "loop_note": "EOD Mon 11/23 16:10 ET: flat, cash 85.24 = total (broker). Night 49 sold 09:31:18 @ 16.57 (+5.94). NO ENTRY tonight: s15 usage guard (frac 0.79 at 15:36; 0.809 ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1193,7 +1193,7 @@
   "account": {
     "equity": 85.24,
     "cash": 85.24,
-    "asof": "09:31 ET 2026-11-23 (broker total; flat)"
+    "asof": "16:10 ET 2026-11-23 (broker total; flat)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1206,7 +1206,7 @@
     "date": "2026-11-23",
     "exit_done": true,
     "entry_done": false,
-    "eod_done": false,
+    "eod_done": true,
     "official_closes_20261120": {
       "QQQ": 608.45,
       "NVDA": 125.53,
@@ -1242,7 +1242,7 @@
       "requests_since_reset": 79,
       "note": "guard needs frac <= 0.70 at 15:36; projection ~0.72-0.75 -> tonight probably cash under \u00a715"
     },
-    "plan": "Tonight CASH (s15 usage guard: frac 0.704 at 09:33). Idle wakes: ReadNotifications + one line, no heartbeat commits until EOD. 15:36: one check for the record (usage.py; no orders). 15:50 trend.py state --log (for the log only). EOD 16:10: portfolio, equity.csv, DAY report, STATUS. Tue 11/24: flat, nothing to sell; Tue night cash unless frac + 0.10 <= 0.80. Wed 11/25 15:36: reset clause applies (reset Fri 05:00 ET before the Fri 09:31 exit) -> entry night 50 by s13 if get_session status is allowed. Thu 11/26 closed. Fri 11/27 half day (trend 12:50, entry 12:52).",
+    "plan": "Tue 11/24: 07:45 analyst (official 11/23 closes -> trend.py add; positions; portfolio); nothing to sell at 09:31. Idle wakes: ReadNotifications + one line. 15:36: usage.py; entry night 50 only if frac + 0.10 <= 0.80 (it will not be) -> cash. Wed 11/25 15:36: the reset clause applies (reset Fri 05:00 ET is before the Fri 09:31 exit): enter night 50 by s13 if get_session rate_limit_info.status == allowed (15:50 trend --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; first fractional top-up needs review_equity_order). Thu 11/26 closed. Fri 11/27 half day: weekly reset 05:00 ET; trend 12:50, entry 12:52; weekly report. If the session is locked out before then, it resumes at the Friday reset; no position will be open unless Wednesday's entry was made.",
     "exit": {
       "night": 49,
       "t": "09:31:18.598 ET",
@@ -1285,6 +1285,39 @@
       "requests_since_reset": 97,
       "result": "FAILS for tonight already (0.704 + 0.10 > 0.80; the reset Fri 11/27 05:00 ET is after Tuesday's exit) -> CASH tonight under s15 unless frac is somehow <= 0.70 at 15:36 (it cannot fall). Re-read get_session at 15:36 only for the record.",
       "outlook": "idle wakes cost about 0.006 each at this context: about 0.78 tonight, 0.88 Tue, 0.98 Wed, possibly locked out Thu (market closed) until the Fri 05:00 ET reset. Tue night cash; Wed night allowed by the reset clause but decide at Wed 15:36 with the status read."
+    },
+    "entry": {
+      "night": 50,
+      "result": "NO ENTRY: cash under s15 usage guard",
+      "t": "15:36 ET",
+      "frac": 0.79,
+      "need": "frac <= 0.70 (frac + 0.10 <= 0.80); reset Fri 11/27 05:00 ET is after Tuesday's exit",
+      "orders": 0
+    },
+    "eod": {
+      "t": "16:10 ET",
+      "total": 85.24,
+      "cash": 85.24,
+      "positions": 0,
+      "last_regular": {
+        "QQQ": 650.88,
+        "NVDA": 165.185,
+        "SMH": 460.16,
+        "NVDL": 16.715
+      },
+      "day_pct_vs_fri_close": {
+        "QQQ": 6.97,
+        "NVDA": 31.59,
+        "SMH": 15.02,
+        "NVDL": 61.81
+      },
+      "usage": {
+        "frac": 0.809,
+        "frac_read": 0.532,
+        "context_k": 237,
+        "requests": 129
+      },
+      "trend_log": "not run (no entry tonight; saves requests). QQQ 650.88 vs flip near 683 -> DOWN."
     }
   },
   "schedule": {
@@ -1918,7 +1951,15 @@
         "total": 0.06,
         "note": "not booked; replaces the pre-market estimate of about -0.27"
       }
-    }
+    },
+    "guard_cash_nights": [
+      {
+        "date": "2026-11-23",
+        "frac_at_1536": 0.79,
+        "size_not_taken": "DOWN f 0.25 x 85.24 = 21.31 (1 NVDL share + a 4.6 top-up)",
+        "outcome": "to be marked from daily bars (official close -> open) at the Saturday lab; NOT booked"
+      }
+    ]
   },
   "human_directives": [
     {
