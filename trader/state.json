@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-24T12:46:38Z",
-    "loop_note": "ANALYST Tue 11/24 07:46 ET: official 11/23 closes QQQ 651.03 NVDA 165.05 SMH 460.18 NVDL 16.70 added to trend. Flat, 85.24 cash (broker not re-read: nothing cha",
+    "last_heartbeat_utc": "2026-11-24T12:46:51Z",
+    "loop_note": "CORRECTION 07:50 ET: trend.py first refused NVDA 165.05 (+31.5% from 125.53) as a possible typo or split; QQQ and SMH were saved. Checked: not a split (NVDL, th",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
