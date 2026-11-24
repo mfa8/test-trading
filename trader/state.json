@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-23T21:10:51Z",
-    "loop_note": "EOD Mon 11/23 16:10 ET: flat, cash 85.24 = total (broker). Night 49 sold 09:31:18 @ 16.57 (+5.94). NO ENTRY tonight: s15 usage guard (frac 0.79 at 15:36; 0.809 ",
+    "last_heartbeat_utc": "2026-11-24T12:46:38Z",
+    "loop_note": "ANALYST Tue 11/24 07:46 ET: official 11/23 closes QQQ 651.03 NVDA 165.05 SMH 460.18 NVDL 16.70 added to trend. Flat, 85.24 cash (broker not re-read: nothing cha",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1203,122 +1203,39 @@
   "positions": [],
   "open_orders": [],
   "today": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "exit_done": true,
     "entry_done": false,
-    "eod_done": true,
-    "official_closes_20261120": {
-      "QQQ": 608.45,
-      "NVDA": 125.53,
-      "SMH": 400.06,
-      "NVDL": 10.33,
+    "eod_done": false,
+    "note": "flat: nothing to sell this morning",
+    "official_closes_20261123": {
+      "QQQ": 651.03,
+      "NVDA": 165.05,
+      "SMH": 460.18,
+      "NVDL": 16.7,
       "added_to_trend": true
     },
     "premarket": {
       "t": "07:46 ET",
-      "NVDA": 134.12,
-      "NVDA_vs_close_pct": 6.84,
-      "NVDL_bid": 11.62,
-      "NVDL_ask": 11.64,
-      "NVDL_vs_entry_pct": 9.26,
-      "QQQ": 627.5,
-      "QQQ_vs_close_pct": 3.13,
-      "SMH": 420.54
+      "NVDA": 157.15,
+      "NVDA_vs_close_pct": -4.79,
+      "NVDL_bid": 15.05,
+      "NVDL_ask": 15.08,
+      "NVDL_vs_close_pct": -9.88,
+      "QQQ": 640.5,
+      "QQQ_vs_close_pct": -1.62,
+      "SMH": 441.78
     },
-    "broker_check": {
-      "t": "07:46 ET",
-      "positions": "NVDL 1 (avg 10.64, 1 available to sell)",
-      "open_orders": 0,
-      "total_value": 80.3,
-      "cash": 68.67,
-      "buying_power": 68.67
-    },
-    "trade_approval": "off (read 07:46 ET)",
-    "f3_note": "\u00a73(f) Monday check (computed Sat 11/21): trailing-120 NVDL overnight mean ex-earnings +0.022% > 0 -> overnight leg stays ON. Next check Mon 11/30.",
-    "pause_check": "PAUSE ended at the 09:31 exit: all-cash total 85.24 > 82.89. Tonight sizes by s13 (QQQ 652.66 at 09:31 vs flip near 683 -> DOWN f 0.25 expected: about 21.31 = 1 share + a dollar top-up; the first fractional order needs review_equity_order first, s13(h)).",
+    "broker_check": "not re-read this morning (flat, 85.24 cash confirmed by the broker at 16:10 ET 11/23; no order placed since; saves requests)",
     "usage_0746": {
-      "frac": 0.632,
-      "context_k": 143,
-      "requests_since_reset": 79,
-      "note": "guard needs frac <= 0.70 at 15:36; projection ~0.72-0.75 -> tonight probably cash under \u00a715"
+      "frac": 0.854,
+      "frac_read": 0.543,
+      "context_k": 252,
+      "requests_since_reset": 132,
+      "note": "tonight cash (guard). Budget left to the lockout level 0.146 on the weighted measure: about today's idle wakes plus Wednesday's cold start. Lockout likely Wednesday morning; reset Fri 11/27 05:00 ET."
     },
-    "plan": "Tue 11/24: 07:45 analyst (official 11/23 closes -> trend.py add; positions; portfolio); nothing to sell at 09:31. Idle wakes: ReadNotifications + one line. 15:36: usage.py; entry night 50 only if frac + 0.10 <= 0.80 (it will not be) -> cash. Wed 11/25 15:36: the reset clause applies (reset Fri 05:00 ET is before the Fri 09:31 exit): enter night 50 by s13 if get_session rate_limit_info.status == allowed (15:50 trend --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; first fractional top-up needs review_equity_order). Thu 11/26 closed. Fri 11/27 half day: weekly reset 05:00 ET; trend 12:50, entry 12:52; weekly report. If the session is locked out before then, it resumes at the Friday reset; no position will be open unless Wednesday's entry was made.",
-    "exit": {
-      "night": 49,
-      "t": "09:31:18.598 ET",
-      "order_id": "6b044e36-5d01-43fd-a33b-e227fa36af82",
-      "limit": 16.31,
-      "fill": 16.57,
-      "bid_093105": 16.34,
-      "ask_093105": 16.35,
-      "open_print": 17.0,
-      "entry": 10.635,
-      "pnl": 5.94,
-      "pct": 55.81,
-      "cash_after": 85.24
-    },
-    "exit_shadow": {
-      "q0929": {
-        "bid": 17.28,
-        "ask": 17.29,
-        "NVDA": 168.5,
-        "QQQ": 656.2
-      },
-      "q093105": {
-        "bid": 16.34,
-        "ask": 16.35,
-        "NVDA_bid": 162.99,
-        "QQQ": 652.66
-      },
-      "fill_t": "09:31:18.598",
-      "fill_px": 16.57,
-      "bid0929_minus_fill_bp": 428,
-      "running": "n17 mean about +50bp, t about 1.5 (updated from the n16 summary +26bp t 1.11, not from the raw series): not met (needs >= +10bp at t >= 2 at the 40-night review)"
-    },
-    "crash_open": "not armed (NVDA open +33.1%, QQQ open +7.8%)",
-    "usage_guard_check": {
-      "t": "09:33 ET",
-      "frac": 0.704,
-      "frac_read": 0.396,
-      "frac_weighted": 0.704,
-      "context_k": 188,
-      "requests_since_reset": 97,
-      "result": "FAILS for tonight already (0.704 + 0.10 > 0.80; the reset Fri 11/27 05:00 ET is after Tuesday's exit) -> CASH tonight under s15 unless frac is somehow <= 0.70 at 15:36 (it cannot fall). Re-read get_session at 15:36 only for the record.",
-      "outlook": "idle wakes cost about 0.006 each at this context: about 0.78 tonight, 0.88 Tue, 0.98 Wed, possibly locked out Thu (market closed) until the Fri 05:00 ET reset. Tue night cash; Wed night allowed by the reset clause but decide at Wed 15:36 with the status read."
-    },
-    "entry": {
-      "night": 50,
-      "result": "NO ENTRY: cash under s15 usage guard",
-      "t": "15:36 ET",
-      "frac": 0.79,
-      "need": "frac <= 0.70 (frac + 0.10 <= 0.80); reset Fri 11/27 05:00 ET is after Tuesday's exit",
-      "orders": 0
-    },
-    "eod": {
-      "t": "16:10 ET",
-      "total": 85.24,
-      "cash": 85.24,
-      "positions": 0,
-      "last_regular": {
-        "QQQ": 650.88,
-        "NVDA": 165.185,
-        "SMH": 460.16,
-        "NVDL": 16.715
-      },
-      "day_pct_vs_fri_close": {
-        "QQQ": 6.97,
-        "NVDA": 31.59,
-        "SMH": 15.02,
-        "NVDL": 61.81
-      },
-      "usage": {
-        "frac": 0.809,
-        "frac_read": 0.532,
-        "context_k": 237,
-        "requests": 129
-      },
-      "trend_log": "not run (no entry tonight; saves requests). QQQ 650.88 vs flip near 683 -> DOWN."
-    }
+    "guard_cash_night_mark": "Monday night was not taken (guard). At 07:46 NVDL is bid 15.05 against a 16.70 close (-9.9%): the size not taken (about 21) would be down about 2.1 at this price. Not booked; to be marked properly at the lab.",
+    "plan": "Idle wakes: ReadNotifications + one line. 15:36: usage.py only -> cash tonight (guard). EOD: one commit (equity.csv row, short note; no DAY report unless something happens). Wed 11/25 15:36: reset clause -> enter night 50 by s13 if get_session rate_limit_info.status == allowed (15:50 trend --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; first fractional top-up needs review_equity_order). Thu 11/26 closed. Fri 11/27 half day: reset 05:00 ET; sell 09:31:05 if a share is held; trend 12:50, entry 12:52; weekly report; backfill any missing official closes from the quotes/day bars."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
