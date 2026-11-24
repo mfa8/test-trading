@@ -1,6 +1,6 @@
 # T3X STATUS: Overnight Engine (started 2026-09-09)
 
-**Mode:** FLAT, all cash (as of 16:10 ET Mon 11/23). PAUSE ended this morning.
+**Mode:** FLAT, all cash (as of 16:10 ET Tue 11/24). PAUSE ended Mon 11/23. Monday and Tuesday nights were kept in cash by the usage guard; see `report/DAY-20261124.md` for the finding that its stricter estimate overstates.
 - Night 49 sold at 09:31:18 Mon 11/23: NVDL 1 @ 16.57 against a 10.635 entry, **+5.94 (+55.8%)** after NVDA rebounded 33% at the open.
 - **Monday night is in cash** under the usage guard (RULES_v3 s15): usage was 79% of the lockout level at 15:36; the rule needs 70% or less before an entry.
 - **PAUSE ended:** the all-cash total 85.24 is above 82.89. The next entry is sized by the trend rule (QQQ is under its 200-day average, so 0.25 of equity: one NVDL share plus a small top-up). PAUSE returns if equity falls to 82.89 or less.
@@ -9,7 +9,7 @@
 - s3(f) edge check for Mon 11/23: **+0.022%**, so the overnight leg stays on. Next check Mon 11/30.
 - The day leg is SUSPENDED.
 
-**Equity:** 85.24 at the 11/23 close (all cash).
+**Equity:** 85.24 at the 11/24 close (all cash).
 - Start 98.75. HWM 107.11 (10/12).
 - PAUSE level 82.89 from 11/11 to 12/4. KILL 50.
 
