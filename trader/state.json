@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-25T20:53:09Z",
-    "loop_note": "W-10 ENTRY N50 Wed 11/25 15:52 ET: pre-entry 15:36 all clear (flat, cash 85.24, 0 open orders, approvals off, no stop flag; get_session status allowed, seven-da",
+    "last_heartbeat_utc": "2026-11-25T21:10:05Z",
+    "loop_note": "EOD Wed 11/25 16:09 ET: E 85.23 (cash 63.93 + NVDL 1.570586 at 13.56 last regular trade; broker total 85.10 after hours at 13.48). Night 50 open (cost 21.3075).",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1197,9 +1197,9 @@
     ]
   },
   "account": {
-    "equity": 85.22,
+    "equity": 85.23,
     "cash": 63.93,
-    "asof": "15:53 ET 2026-11-25 (broker total 85.2193; NVDL 1.570586 held)"
+    "asof": "16:09 ET 2026-11-25 (mark at the last regular trade; broker total 85.10 after hours)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1227,7 +1227,7 @@
     "date": "2026-11-25",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "note": "flat: nothing to sell this morning",
     "official_closes_20261124": {
       "QQQ": 638.1,
@@ -1322,6 +1322,35 @@
       },
       "cash_after": 63.93,
       "total_after": 85.22
+    },
+    "eod": {
+      "t": "16:09 ET",
+      "E_mark": 85.23,
+      "basis": "cash 63.93 + NVDL 1.570586 at 13.56 (last regular trade)",
+      "broker_total_1609": 85.1,
+      "after_hours": {
+        "NVDL": 13.48,
+        "NVDA": 148.97
+      },
+      "last_regular": {
+        "QQQ": 633.95,
+        "NVDA": 149.33,
+        "SMH": 422.6,
+        "NVDL": 13.56
+      },
+      "day_pct": {
+        "QQQ": -0.65,
+        "NVDA": -3.89,
+        "SMH": -0.97,
+        "NVDL": -7.94
+      },
+      "usage": {
+        "frac_read": 1.057,
+        "frac_weighted": 1.352,
+        "context_k": 384,
+        "requests": 216,
+        "note": "both measures are now above last week's lockout levels and the session is still allowed: this week's limit is higher than 50M read"
+      }
     }
   },
   "schedule": {
@@ -1975,7 +2004,8 @@
       "t": "2026-11-24 16:10 ET",
       "observation": "the weighted measure passed 1.0 (77.7M weighted vs the 75.4M measured at the 11/16 lockout) with no lockout: at 36.9M read, 2.61M cache writes, 0.162M output, 168 requests. Lockout 1 came after about 134M read, lockout 2 after 50.0M read: the real limit is not a fixed total of this session's tokens (it may be shared with the owner's other use of the account, or weighted differently).",
       "consequence": "the guard's frac overstated this week because of the large cache writes from the 11/21 compaction misfire; Monday's and Tuesday's cash nights were decided by an estimate now known to be too strict on the weighted side (read-only: 0.51 Monday 15:36 -> would have passed; 0.715 Tuesday -> fails).",
-      "action": "no mid-week change. Saturday lab 11/28: re-calibrate s15 (candidate: read-only measure with the 50M level, or the larger of read and a weighted level raised to the highest total survived), as the one rule change of the week."
+      "action": "no mid-week change. Saturday lab 11/28: re-calibrate s15 (candidate: read-only measure with the 50M level, or the larger of read and a weighted level raised to the highest total survived), as the one rule change of the week.",
+      "update_20261125": "16:09 ET Wed: read 52.84M (1.057 of the 50M level), weighted 101.9M (1.352), 216 requests, still allowed. Neither of last week's levels is this week's limit. For the lab: the levels are lower bounds only; treat get_session rate_limit_info.status as the primary signal and the reset clause as the entry test late in the week."
     }
   },
   "human_directives": [
