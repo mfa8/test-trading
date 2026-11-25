@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-24T21:10:55Z",
-    "loop_note": "EOD Tue 11/24 16:10 ET: flat, cash 85.24 = total (broker read). No sale (nothing held); NO ENTRY tonight (s15 guard: read 0.715 + 0.10 > 0.80; weighted 1.011). ",
+    "last_heartbeat_utc": "2026-11-25T12:46:45Z",
+    "loop_note": "ANALYST Wed 11/25 07:46 ET: official 11/24 closes QQQ 638.10 NVDA 155.38 SMH 426.75 NVDL 14.73 added to trend (290 closes). Flat, 85.24 cash (broker read 16:10 ",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1203,63 +1203,36 @@
   "positions": [],
   "open_orders": [],
   "today": {
-    "date": "2026-11-24",
+    "date": "2026-11-25",
     "exit_done": true,
     "entry_done": false,
-    "eod_done": true,
+    "eod_done": false,
     "note": "flat: nothing to sell this morning",
-    "official_closes_20261123": {
-      "QQQ": 651.03,
-      "NVDA": 165.05,
-      "SMH": 460.18,
-      "NVDL": 16.7,
-      "added_to_trend": true
+    "official_closes_20261124": {
+      "QQQ": 638.1,
+      "NVDA": 155.38,
+      "SMH": 426.75,
+      "NVDL": 14.73
     },
     "premarket": {
       "t": "07:46 ET",
-      "NVDA": 157.15,
-      "NVDA_vs_close_pct": -4.79,
-      "NVDL_bid": 15.05,
-      "NVDL_ask": 15.08,
-      "NVDL_vs_close_pct": -9.88,
-      "QQQ": 640.5,
-      "QQQ_vs_close_pct": -1.62,
-      "SMH": 441.78
+      "NVDA": 147.17,
+      "NVDA_vs_close_pct": -5.28,
+      "NVDL_bid": 13.14,
+      "NVDL_ask": 13.16,
+      "NVDL_vs_close_pct": -10.79,
+      "QQQ": 619.85,
+      "QQQ_vs_close_pct": -2.86,
+      "SMH": 407.0
     },
-    "broker_check": "not re-read this morning (flat, 85.24 cash confirmed by the broker at 16:10 ET 11/23; no order placed since; saves requests)",
+    "guard_cash_night_mark": "Tuesday night was not taken (guard). At 07:46 NVDL is bid 13.14 against a 14.73 close (-10.8%): the size not taken (about 21) would be down about 2.3. Not booked; marked properly at the lab.",
     "usage_0746": {
-      "frac": 0.854,
-      "frac_read": 0.543,
-      "context_k": 252,
-      "requests_since_reset": 132,
-      "note": "tonight cash (guard). Budget left to the lockout level 0.146 on the weighted measure: about today's idle wakes plus Wednesday's cold start. Lockout likely Wednesday morning; reset Fri 11/27 05:00 ET."
+      "frac": 1.085,
+      "frac_read": 0.752,
+      "context_k": 312,
+      "requests_since_reset": 171
     },
-    "guard_cash_night_mark": "Monday night was not taken (guard). At 07:46 NVDL is bid 15.05 against a 16.70 close (-9.9%): the size not taken (about 21) would be down about 2.1 at this price. Not booked; to be marked properly at the lab.",
-    "plan": "Wed 11/25: 07:45 analyst (official 11/24 closes -> trend.py add; --force only after checking a refused jump). Idle wakes: ReadNotifications + one line. 15:36 pre-entry: reset clause applies (reset Fri 11/27 05:00 ET is before the Fri 09:31 exit) -> ENTER night 50 if get_session rate_limit_info.status == allowed: stop flag, positions, portfolio, orders, approvals, dry run; 15:50 trend.py state --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; top-up >= $2 by dollar market order after the core fills, only after review_equity_order (first fractional order); record + report. Thu 11/26 closed: one-line replies. Fri 11/27 half day: reset 05:00 ET; sell 09:31:05 if held; trend 12:50, entry 12:52; weekly report. A lockout before Friday is possible (read measure 0.74 now, about 0.15 a day of idle wakes at 300k context).",
-    "entry": {
-      "night": 50,
-      "result": "NO ENTRY: cash under s15 usage guard",
-      "t": "15:36 ET",
-      "frac": 1.011,
-      "frac_read": 0.715,
-      "note": "fails on either measure (read 0.715 + 0.10 > 0.80)",
-      "orders": 0
-    },
-    "eod": {
-      "t": "16:10 ET",
-      "total": 85.24,
-      "cash": 85.24,
-      "positions": 0,
-      "broker": "read 16:10 ET",
-      "usage": {
-        "frac": 1.03,
-        "frac_read": 0.738,
-        "frac_weighted": 1.03,
-        "context_k": 303,
-        "requests": 168
-      },
-      "market": "closing prices not fetched (flat; saves requests); official closes come with Wednesday's analyst read"
-    }
+    "plan": "Wed 11/25 (analyst done 07:46). Idle wakes: ReadNotifications + one line. 15:36 pre-entry: reset clause applies (reset Fri 11/27 05:00 ET is before the Fri 09:31 exit) -> ENTER night 50 if get_session rate_limit_info.status == allowed: stop flag, positions, portfolio, orders, approvals, dry run; 15:50 trend.py state --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; top-up >= $2 by dollar market order after the core fills, only after review_equity_order (first fractional order); record + report. Thu 11/26 closed: one-line replies. Fri 11/27 half day: reset 05:00 ET; sell 09:31:05 if held; trend 12:50, entry 12:52; weekly report. A lockout before Friday is possible (read measure 0.74 now, about 0.15 a day of idle wakes at 300k context)."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
