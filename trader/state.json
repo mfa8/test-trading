@@ -2,15 +2,15 @@
   "schema": 3,
   "active_rules": "trader/RULES_v3.md",
   "strategy": "T3X v2.1: v1.8 NVDA-2x overnight engine with market-trend sizing (RULES_v3 \u00a713) and a fractional top-up; weekly lab (\u00a714); FFB-L options sleeve (inactive until options approval)",
-  "mode": "FLAT",
-  "mode_reason": "flat since Mon 11/23 09:31:18 ET (night 49 sold at 16.57); Monday night in cash under the s15 usage guard (frac 0.79 at 15:36)",
+  "mode": "IN_POSITION_OVERNIGHT",
+  "mode_reason": "night 50 entered Wed 11/25 15:52 ET at the DOWN-trend size (0.25 of E); held over Thanksgiving; exit Fri 11/27 09:31:05 ET",
   "wake": {
     "n": 40,
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-25T12:46:45Z",
-    "loop_note": "ANALYST Wed 11/25 07:46 ET: official 11/24 closes QQQ 638.10 NVDA 155.38 SMH 426.75 NVDL 14.73 added to trend (290 closes). Flat, 85.24 cash (broker read 16:10 ",
+    "last_heartbeat_utc": "2026-11-25T20:53:09Z",
+    "loop_note": "W-10 ENTRY N50 Wed 11/25 15:52 ET: pre-entry 15:36 all clear (flat, cash 85.24, 0 open orders, approvals off, no stop flag; get_session status allowed, seven-da",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -555,6 +555,15 @@
             "note": "DOWN/DOWN session followed by a +55.8% night: skipping it would have cost the whole gain"
           },
           "note": "open 143.52; PAUSE night, 1 share; weekend"
+        },
+        {
+          "night": 50,
+          "date": "2026-11-25",
+          "vs_prior_close": "DOWN",
+          "vs_open": "not fetched (saves requests); fill at the lab",
+          "NVDA_1550_chg_vs_pc_pct": -4.27,
+          "realized": "pending Fri 11/27 exit",
+          "note": "first night at the DOWN-trend size after PAUSE ended; held over Thanksgiving (market closed Thu)"
         }
       ],
       "crash_open_exit_delay_log": [
@@ -672,6 +681,15 @@
               "full_size_counterfactual_pnl": 43.37,
               "note": "DOWN night that went up: PAUSE held 1 share (+5.94); the DOWN size (19.83) would have made about +11.07 and full size (77.72) about +43.37, before top-up fill costs"
             }
+          },
+          {
+            "night": 50,
+            "date": "2026-11-25",
+            "state": "DOWN",
+            "dist_pct": -7.4,
+            "size_taken": "1 share + 7.74 top-up = 21.31 (0.25 of E)",
+            "full_size_counterfactual": "6 shares = 81.54 (0.98 of E = 83.54; the remainder is under the 2.00 top-up minimum)",
+            "realized": "pending Fri 11/27 exit"
           }
         ]
       }
@@ -1073,25 +1091,13 @@
     "trend": {
       "rule": "\u00a713: QQQ last at 15:50 vs mean of previous 199 official closes; >= -> UP f 0.98; < -> DOWN f 0.25",
       "last": {
-        "date": "2026-11-13",
-        "basis": "15:50:00 ET live quotes (PAUSE outranked it)",
-        "qqq": 680.63,
-        "flip": 682.251,
-        "dist_pct": -0.24,
+        "date": "2026-11-25",
+        "basis": "15:50:00 ET live quotes",
+        "qqq": 633.16,
+        "flip": 683.748,
+        "dist_pct": -7.4,
         "state": "DOWN",
-        "f": 0.25,
-        "shadow": {
-          "NVDA": {
-            "px": 162.695,
-            "flip": 204.399,
-            "state": "DOWN"
-          },
-          "SMH": {
-            "px": 487.65,
-            "flip": 524.073,
-            "state": "DOWN"
-          }
-        }
+        "f": 0.25
       },
       "binding_from": "night 45 entry, 2026-11-10 15:50 ET",
       "cache": "trader/research/trend/closes.json (287 closes per symbol to 2026-11-19; 11/11, 11/16-11/18 from day bars)",
@@ -1191,21 +1197,36 @@
     ]
   },
   "account": {
-    "equity": 85.24,
-    "cash": 85.24,
-    "asof": "16:10 ET 2026-11-24 (broker total; flat)"
+    "equity": 85.22,
+    "cash": 63.93,
+    "asof": "15:53 ET 2026-11-25 (broker total 85.2193; NVDL 1.570586 held)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
     "asof_of_removed_block": "2026-09-28"
   },
   "position": null,
-  "positions": [],
+  "positions": [
+    {
+      "sym": "NVDL",
+      "qty": 1.570586,
+      "whole": 1,
+      "frac": 0.570586,
+      "entry": 13.5666,
+      "cost": 21.3075,
+      "entry_t": "2026-11-25T15:52:10.7 ET (core) / 15:52:30.7 ET (top-up)",
+      "order_id": "6b074a7a-4809-44a5-9edd-8e7e01d39f2b",
+      "topup_order_id": "6b074a8e-55f1-491c-ba78-f6d1933b839c",
+      "leg": "overnight",
+      "n": 50,
+      "basket_version": "v1.8 DOWN f 0.25 (1 share + 7.74 top-up)"
+    }
+  ],
   "open_orders": [],
   "today": {
     "date": "2026-11-25",
     "exit_done": true,
-    "entry_done": false,
+    "entry_done": true,
     "eod_done": false,
     "note": "flat: nothing to sell this morning",
     "official_closes_20261124": {
@@ -1232,7 +1253,76 @@
       "context_k": 312,
       "requests_since_reset": 171
     },
-    "plan": "Wed 11/25 (analyst done 07:46). Idle wakes: ReadNotifications + one line. 15:36 pre-entry: reset clause applies (reset Fri 11/27 05:00 ET is before the Fri 09:31 exit) -> ENTER night 50 if get_session rate_limit_info.status == allowed: stop flag, positions, portfolio, orders, approvals, dry run; 15:50 trend.py state --log; 15:52 entry_v18.py core 50 20261125 ASK LAST E up|down; top-up >= $2 by dollar market order after the core fills, only after review_equity_order (first fractional order); record + report. Thu 11/26 closed: one-line replies. Fri 11/27 half day: reset 05:00 ET; sell 09:31:05 if held; trend 12:50, entry 12:52; weekly report. A lockout before Friday is possible (read measure 0.74 now, about 0.15 a day of idle wakes at 300k context)."
+    "plan": "Thu 11/26 market CLOSED: one-line replies to wakes; position NVDL 1.570586 is held. Fri 11/27 (half day, close 13:00 ET; weekly reset 05:00 ET): 07:45 analyst (official 11/25 closes -> trend.py add; positions; portfolio). EXIT at 09:31:05 ET: (1) quote NVDL -> exit_ovn.py 50 20261127 NVDL:1:BID -> SELL 1 share by limit -> verify filled; (2) THEN sell the fractional remainder 0.570586 by market order per tools/exit_frac.py (read its header first; quantity = positions.shares_available_for_sells after step 1; first live fractional sale: review_equity_order first) -> verify flat; records: trades.csv T3X-N50 (qty 1.570586, entry avg 13.5666), night_returns 50, shadow entries (down_session_skip_log, trend_filter), f3_inputs; report. If the session was locked out and wakes late: sell immediately on waking (s5: a late exit still exits). Then: 12:36 pre-entry (s15 on the fresh week), trend 12:50, entry 12:52 for night 51 (weekend hold; half-day wake at 12:44 ET); weekly report WEEK-T3X-12; Sat 11/28 lab (s15 re-calibration; mark guard-cash nights 11/23, 11/24); Mon 11/30 s3(f).",
+    "pre_entry_1536": {
+      "stop_flags": "none",
+      "positions": "flat",
+      "cash": 85.24,
+      "open_orders": 0,
+      "trade_approval": "off",
+      "usage": {
+        "frac_read": 0.946,
+        "frac_weighted": 1.265,
+        "context_k": 351,
+        "requests": 201
+      },
+      "s15": "(a) frac test fails; reset clause holds: get_session rate_limit_info resetsAt 1795773600 = Fri 2026-11-27 05:00 ET, before the Fri 09:31 exit; (a2) status 'allowed' -> entry allowed",
+      "autocompact_threshold_tokens": 784000
+    },
+    "trend": {
+      "t": "15:50:00 ET",
+      "qqq": 633.16,
+      "flip": 683.748,
+      "dist_pct": -7.4,
+      "state": "DOWN",
+      "f": 0.25,
+      "shadow": {
+        "NVDA": {
+          "px": 148.75,
+          "flip": 203.143,
+          "state": "DOWN"
+        },
+        "SMH": {
+          "px": 418.75,
+          "flip": 526.171,
+          "state": "DOWN"
+        }
+      },
+      "full_size_counterfactual": "0.98 x 85.24 = 83.54: 6 shares at 13.59 (81.54) + a top-up under 2.00 (none)"
+    },
+    "entry": {
+      "night": 50,
+      "state": "down",
+      "target": 21.31,
+      "quote_155200": {
+        "bid": 13.55,
+        "ask": 13.56,
+        "last": 13.55
+      },
+      "core": {
+        "qty": 1,
+        "limit": 13.59,
+        "fill": 13.5675,
+        "t": "15:52:10.685 ET",
+        "order_id": "6b074a7a-4809-44a5-9edd-8e7e01d39f2b"
+      },
+      "topup": {
+        "dollars": 7.74,
+        "qty": 0.570586,
+        "fill": 13.565,
+        "t": "15:52:30.652 ET",
+        "order_id": "6b074a8e-55f1-491c-ba78-f6d1933b839c",
+        "review": "review_equity_order first (first live fractional order, s13(h)): order_checks empty, no approval required"
+      },
+      "position": {
+        "qty": 1.570586,
+        "avg": 13.5666,
+        "cost": 21.3075,
+        "pct_of_E": 25.0
+      },
+      "cash_after": 63.93,
+      "total_after": 85.22
+    }
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
