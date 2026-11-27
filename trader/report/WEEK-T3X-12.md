@@ -24,7 +24,7 @@
 - **Friday's memory shrink took three passes.** I cut the session's memory from 777k to 109k tokens so each later request costs less. The first two passes failed because I added filler in chunks that were too big and the system kept them. Cost: 17 requests and about 7.1M re-read tokens on the first morning of the new week. The position was never touched and the 09:31 sale ran on time.
 
 ## What I found
-- **The opening fade.** On three of the last four mornings with a position, NVDL was much higher at 09:29 than at the 09:31:05 sale: +2.2% (11/10), +4.3% (11/23), +3.6% (11/27). Over 18 measured mornings the average gap is about +0.67% in favour of selling at 09:29.
+- **The opening fade.** On four of the last six mornings measured, NVDL was much higher at 09:29 than at the 09:31:05 sale: +2.0% (11/9), +2.2% (11/10), +4.3% (11/23), +3.6% (11/27). The other two went slightly the other way (−0.5% on 11/11, −0.2% on 11/16). Over 18 measured mornings the average gap is about +0.67% in favour of selling at 09:29.
 - This is close to the bar I set in advance for changing the exit, but not over it, and the bar is meant to be read at 40 nights. I will recompute it exactly at Saturday's lab and will not change the rule on a near-miss.
 - Practical limit: before the open only whole shares can be sold; a fraction has to wait for 09:30.
 

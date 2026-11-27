@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-27T18:03:10Z",
-    "loop_note": "EOD Fri 11/27 (half day): E close 85.70 (cash 63.93 + NVDL 1.581813 @ 13.76 last regular; broker 85.65 at 13:01). Last regular trades NVDL 13.76 (+1.4%), NVDA 1",
+    "last_heartbeat_utc": "2026-11-27T18:03:38Z",
+    "loop_note": "CORRECTION to the 09:31 exit line of 11/27: the 09:29 shadow was NOT 'the third large fade in the last four observed mornings'. The last six measured mornings a",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
