@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-25T21:10:05Z",
-    "loop_note": "EOD Wed 11/25 16:09 ET: E 85.23 (cash 63.93 + NVDL 1.570586 at 13.56 last regular trade; broker total 85.10 after hours at 13.48). Night 50 open (cost 21.3075).",
+    "last_heartbeat_utc": "2026-11-27T12:48:04Z",
+    "loop_note": "ANALYST Fri 11/27 07:46 ET (half day): official 11/25 closes QQQ 633.93 NVDA 149.30 SMH 422.46 NVDL 13.57 added to trend. Broker: NVDL 1.570586 held (all availa",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1224,134 +1224,45 @@
   ],
   "open_orders": [],
   "today": {
-    "date": "2026-11-25",
-    "exit_done": true,
-    "entry_done": true,
-    "eod_done": true,
-    "note": "flat: nothing to sell this morning",
-    "official_closes_20261124": {
-      "QQQ": 638.1,
-      "NVDA": 155.38,
-      "SMH": 426.75,
-      "NVDL": 14.73
+    "date": "2026-11-27",
+    "half_day": "market closes 13:00 ET",
+    "exit_done": false,
+    "entry_done": false,
+    "eod_done": false,
+    "official_closes_20261125": {
+      "QQQ": 633.93,
+      "NVDA": 149.3,
+      "SMH": 422.46,
+      "NVDL": 13.57,
+      "added_to_trend": true
     },
     "premarket": {
       "t": "07:46 ET",
-      "NVDA": 147.17,
-      "NVDA_vs_close_pct": -5.28,
-      "NVDL_bid": 13.14,
-      "NVDL_ask": 13.16,
-      "NVDL_vs_close_pct": -10.79,
-      "QQQ": 619.85,
-      "QQQ_vs_close_pct": -2.86,
-      "SMH": 407.0
+      "NVDA": 153.1,
+      "NVDA_vs_close_pct": 2.55,
+      "NVDL_bid": 14.22,
+      "NVDL_ask": 14.25,
+      "NVDL_vs_close_pct": 4.79,
+      "NVDL_vs_entry_pct": 4.81,
+      "QQQ": 647.92,
+      "QQQ_vs_close_pct": 2.21,
+      "SMH": 438.43
     },
-    "guard_cash_night_mark": "Tuesday night was not taken (guard). At 07:46 NVDL is bid 13.14 against a 14.73 close (-10.8%): the size not taken (about 21) would be down about 2.3. Not booked; marked properly at the lab.",
-    "usage_0746": {
-      "frac": 1.085,
-      "frac_read": 0.752,
-      "context_k": 312,
-      "requests_since_reset": 171
-    },
-    "plan": "Thu 11/26 market CLOSED: one-line replies to wakes; position NVDL 1.570586 is held. Fri 11/27 (half day, close 13:00 ET; weekly reset 05:00 ET): 07:45 analyst (official 11/25 closes -> trend.py add; positions; portfolio). EXIT at 09:31:05 ET: (1) quote NVDL -> exit_ovn.py 50 20261127 NVDL:1:BID -> SELL 1 share by limit -> verify filled; (2) THEN sell the fractional remainder 0.570586 by market order per tools/exit_frac.py (read its header first; quantity = positions.shares_available_for_sells after step 1; first live fractional sale: review_equity_order first) -> verify flat; records: trades.csv T3X-N50 (qty 1.570586, entry avg 13.5666), night_returns 50, shadow entries (down_session_skip_log, trend_filter), f3_inputs; report. If the session was locked out and wakes late: sell immediately on waking (s5: a late exit still exits). Then: 12:36 pre-entry (s15 on the fresh week), trend 12:50, entry 12:52 for night 51 (weekend hold; half-day wake at 12:44 ET); weekly report WEEK-T3X-12; Sat 11/28 lab (s15 re-calibration; mark guard-cash nights 11/23, 11/24); Mon 11/30 s3(f).",
-    "pre_entry_1536": {
-      "stop_flags": "none",
-      "positions": "flat",
-      "cash": 85.24,
+    "broker_check": {
+      "t": "07:46 ET",
+      "positions": "NVDL 1.570586 (avg 13.57; all available to sell)",
       "open_orders": 0,
-      "trade_approval": "off",
-      "usage": {
-        "frac_read": 0.946,
-        "frac_weighted": 1.265,
-        "context_k": 351,
-        "requests": 201
-      },
-      "s15": "(a) frac test fails; reset clause holds: get_session rate_limit_info resetsAt 1795773600 = Fri 2026-11-27 05:00 ET, before the Fri 09:31 exit; (a2) status 'allowed' -> entry allowed",
-      "autocompact_threshold_tokens": 784000
+      "total_value": 86.32,
+      "cash": 63.93
     },
-    "trend": {
-      "t": "15:50:00 ET",
-      "qqq": 633.16,
-      "flip": 683.748,
-      "dist_pct": -7.4,
-      "state": "DOWN",
-      "f": 0.25,
-      "shadow": {
-        "NVDA": {
-          "px": 148.75,
-          "flip": 203.143,
-          "state": "DOWN"
-        },
-        "SMH": {
-          "px": 418.75,
-          "flip": 526.171,
-          "state": "DOWN"
-        }
-      },
-      "full_size_counterfactual": "0.98 x 85.24 = 83.54: 6 shares at 13.59 (81.54) + a top-up under 2.00 (none)"
+    "trade_approval": "off (read 07:46 ET)",
+    "usage_0746": {
+      "week": "new week from Fri 05:00 ET",
+      "requests": 1,
+      "context_k": 436,
+      "note": "context 436k makes every request cost 0.44M; forced compaction this morning before the exit (see ops.compaction_plan)"
     },
-    "entry": {
-      "night": 50,
-      "state": "down",
-      "target": 21.31,
-      "quote_155200": {
-        "bid": 13.55,
-        "ask": 13.56,
-        "last": 13.55
-      },
-      "core": {
-        "qty": 1,
-        "limit": 13.59,
-        "fill": 13.5675,
-        "t": "15:52:10.685 ET",
-        "order_id": "6b074a7a-4809-44a5-9edd-8e7e01d39f2b"
-      },
-      "topup": {
-        "dollars": 7.74,
-        "qty": 0.570586,
-        "fill": 13.565,
-        "t": "15:52:30.652 ET",
-        "order_id": "6b074a8e-55f1-491c-ba78-f6d1933b839c",
-        "review": "review_equity_order first (first live fractional order, s13(h)): order_checks empty, no approval required"
-      },
-      "position": {
-        "qty": 1.570586,
-        "avg": 13.5666,
-        "cost": 21.3075,
-        "pct_of_E": 25.0
-      },
-      "cash_after": 63.93,
-      "total_after": 85.22
-    },
-    "eod": {
-      "t": "16:09 ET",
-      "E_mark": 85.23,
-      "basis": "cash 63.93 + NVDL 1.570586 at 13.56 (last regular trade)",
-      "broker_total_1609": 85.1,
-      "after_hours": {
-        "NVDL": 13.48,
-        "NVDA": 148.97
-      },
-      "last_regular": {
-        "QQQ": 633.95,
-        "NVDA": 149.33,
-        "SMH": 422.6,
-        "NVDL": 13.56
-      },
-      "day_pct": {
-        "QQQ": -0.65,
-        "NVDA": -3.89,
-        "SMH": -0.97,
-        "NVDL": -7.94
-      },
-      "usage": {
-        "frac_read": 1.057,
-        "frac_weighted": 1.352,
-        "context_k": 384,
-        "requests": 216,
-        "note": "both measures are now above last week's lockout levels and the session is still allowed: this week's limit is higher than 50M read"
-      }
-    }
+    "plan": "Fri 11/27 half day. EXIT at 09:31:05 ET: (1) quote NVDL -> exit_ovn.py 50 20261127 NVDL:1:BID -> SELL 1 share by limit -> verify filled; (2) THEN sell the fractional remainder 0.570586 by market order per tools/exit_frac.py (read its header first; quantity = positions.shares_available_for_sells after step 1; first live fractional sale: review_equity_order first) -> verify flat; records: trades.csv T3X-N50 (qty 1.570586, entry avg 13.5666), night_returns 50, shadow entries (down_session_skip_log, trend_filter), f3_inputs; report. If the session was locked out and wakes late: sell immediately on waking (s5: a late exit still exits). Then: 12:36 pre-entry (s15 on the fresh week), trend 12:50, entry 12:52 for night 51 (weekend hold; half-day wake at 12:44 ET); weekly report WEEK-T3X-12; Sat 11/28 lab (s15 re-calibration; mark guard-cash nights 11/23, 11/24); Mon 11/30 s3(f)."
   },
   "schedule": {
     "t2x-analyst": "trig_0179RCFwe8dJe1xYhbf4fNhb",
@@ -1951,11 +1862,9 @@
       "after_done": "wake-b reverted, phone alert sent 07:55 ET, owner report sent in chat"
     },
     "compaction_plan": {
-      "when": "Sat 11/21 lab wake, after the lab commit",
-      "why": "context grew 103k -> 202k on 11/20; at that rate the week would end near the lockout level by Wed 11/25. Compacting on a day with no order due is the safe time.",
-      "how": "one step that reads enough project files in parallel to cross the 784k auto-compaction threshold",
-      "after": "re-read state.json today.plan; Monday: \u00a73(f) check first, then SELL 1 NVDL at 09:31:05 (exit_ovn.py 49 20261123 NVDL:1:BID)",
-      "status": "done Sat 11/21 14:36 ET (corrective): context now about 132k tokens, usage frac 0.611 of the lockout level (first attempt misfired 14:30 ET: 248k -> 705k, frac 0.42 -> 0.555). Lesson: the round that crosses the compaction threshold (~760-803k) is kept verbatim, so cross it with a SMALL round and never make filler the crossing round; a filler-based compaction costs 0.12-0.20 of the weekly level, so prefer not to do it at all below ~600k."
+      "status": "IN PROGRESS Fri 11/27 07:50 ET: forcing a compaction before the 09:31 exit because context is 436k (auto threshold 784k). Method (lesson of 11/21): read filler in ONE big round that stays at or under about 745k, then small rounds (about 12k each) until the threshold is crossed; only the final small round is kept verbatim. After it: reload the Robinhood tool schemas with ToolSearch, run tools/usage.py, set this status to done, delete scratchpad/filler3.txt, then do the 09:31:05 exit per state.today.plan.",
+      "threshold_tokens": 784000,
+      "started": "2026-11-27 07:50 ET"
     },
     "outage2": {
       "window": "Mon 2026-11-16 13:36 ET (first refused request 18:36:09Z; last good one 18:10:17Z) to Fri 2026-11-20 07:46 ET: 3 days 18 hours",
