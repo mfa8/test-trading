@@ -9,8 +9,8 @@
     "utc": "2026-09-18T13:26:43Z",
     "et": "2026-09-18 09:33",
     "phase": "LOOP",
-    "last_heartbeat_utc": "2026-11-27T17:52:53Z",
-    "loop_note": "ENTRY N51 Fri 11/27 12:52 ET (half day): pre-entry 12:36 all clear (flat, cash 85.24, 0 open orders, approvals off, no stop flag; s15 0.478 + 0.10 <= 0.80, get_",
+    "last_heartbeat_utc": "2026-11-27T18:03:10Z",
+    "loop_note": "EOD Fri 11/27 (half day): E close 85.70 (cash 63.93 + NVDL 1.581813 @ 13.76 last regular; broker 85.65 at 13:01). Last regular trades NVDL 13.76 (+1.4%), NVDA 1",
     "last": "2026-11-11T21:02Z EOD (after 20:52Z entry night46)"
   },
   "campaign": {
@@ -1232,6 +1232,18 @@
         "NVDA_prev_close": 149.3,
         "QQQ_open": 645.73,
         "note": "night 50 spans the 11/26 holiday: close 11/25 -> open 11/27"
+      },
+      "2026-11-24": {
+        "NVDL_open": 15.47,
+        "NVDA_open": 159.1,
+        "NVDL_prev_close": 16.7,
+        "NVDA_prev_close": 165.05
+      },
+      "2026-11-25": {
+        "NVDL_open": 12.58,
+        "NVDA_open": 144.06,
+        "NVDL_prev_close": 14.73,
+        "NVDA_prev_close": 155.38
       }
     },
     "todo": [
@@ -1242,9 +1254,9 @@
     ]
   },
   "account": {
-    "equity": 85.25,
+    "equity": 85.7,
     "cash": 63.93,
-    "asof": "12:52 ET 2026-11-27 (broker total 85.25 right after the night-51 entry)"
+    "asof": "13:01 ET 2026-11-27 (mark at the last regular trade 13.76; broker total 85.65 after hours)"
   },
   "ranking": {
     "SUPERSEDED": "The September 30-night ranking (picks METU, AAPU) is retired: since v1.6 (2026-10-14) the engine holds NVDA-2x only, and since v1.8 (2026-11-10) NVDL only. Weekly rank tables are information only: research/rank_*.json. Size comes from campaign.sizing and campaign.pause.",
@@ -1273,7 +1285,7 @@
     "half_day": "market closes 13:00 ET",
     "exit_done": true,
     "entry_done": true,
-    "eod_done": false,
+    "eod_done": true,
     "official_closes_20261125": {
       "QQQ": 633.93,
       "NVDA": 149.3,
@@ -1414,6 +1426,39 @@
       "pct_of_E": 25.0,
       "cash_after": 63.93,
       "note": "half-day entry (close 13:00 ET); weekend hold to Mon 11/30 09:31:05"
+    },
+    "eod": {
+      "t": "13:01 ET (half day, close 13:00)",
+      "E_close_mark": 85.7,
+      "E_broker_1301": 85.65,
+      "cash": 63.93,
+      "NVDL_qty": 1.581813,
+      "last_regular": {
+        "NVDL": 13.76,
+        "NVDA": 150.62,
+        "QQQ": 650.76,
+        "SMH": 439.67
+      },
+      "day_chg_pct": {
+        "NVDL": 1.4,
+        "NVDA": 0.88,
+        "QQQ": 2.65,
+        "SMH": 4.07
+      },
+      "unrealized_N51": 0.46,
+      "usage_1301": {
+        "requests": 65,
+        "cache_read_M": 14.68,
+        "cache_write_M": 1.69,
+        "weighted_M": 39.9,
+        "frac_read": 0.294,
+        "frac_weighted": 0.529,
+        "context_now_k": 196
+      },
+      "reports": [
+        "report/DAY-20261127.md",
+        "report/WEEK-T3X-12.md"
+      ]
     }
   },
   "schedule": {
@@ -2051,14 +2096,26 @@
         "date": "2026-11-23",
         "frac_at_1536": 0.79,
         "size_not_taken": "DOWN f 0.25 x 85.24 = 21.31 (1 NVDL share + a 4.6 top-up)",
-        "outcome": "to be marked from daily bars (official close -> open) at the Saturday lab; NOT booked"
+        "outcome": {
+          "basis": "official close -> next open from daily bars (marked Fri 11/27; NOT booked)",
+          "NVDL_close": 16.7,
+          "NVDL_next_open": 15.47,
+          "pct": -7.37,
+          "usd_at_21.31": -1.57
+        }
       },
       {
         "date": "2026-11-24",
         "frac_at_1536": 1.011,
         "frac_read": 0.715,
         "size_not_taken": "DOWN f 0.25 x 85.24 = 21.31",
-        "outcome": "to be marked from daily bars at the Saturday lab; NOT booked"
+        "outcome": {
+          "basis": "official close -> next open from daily bars (marked Fri 11/27; NOT booked)",
+          "NVDL_close": 14.73,
+          "NVDL_next_open": 12.58,
+          "pct": -14.6,
+          "usd_at_21.31": -3.11
+        }
       }
     ],
     "usage_calibration_note": {
